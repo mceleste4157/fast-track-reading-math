@@ -447,10 +447,11 @@
     const indicator = document.getElementById('speak-indicator');
     let speakTimeout = null;
 
-    const readAloudEnabled = profile.readAloudEnabled !== false;
+    // 'on' = full read-aloud + word tap | 'words' = word tap only | 'off' = none
+    const readAloudMode = profile.readAloudMode || (profile.readAloudEnabled === false ? 'off' : 'on');
 
     function speakWord(word) {
-      if (!readAloudEnabled || !word || !window.speechSynthesis) return;
+      if (readAloudMode === 'off' || !word || !window.speechSynthesis) return;
       const clean = word.replace(/[^a-zA-Z'-]/g, '').trim();
       if (!clean) return;
       speechSynthesis.cancel();
@@ -533,7 +534,7 @@
     // ─── Read-aloud ────────────────────────────────────────────────────────────
     (function () {
       const btn = document.getElementById('read-aloud-btn');
-      if (!readAloudEnabled || !window.speechSynthesis) { btn.style.display = 'none'; return; }
+      if (readAloudMode !== 'on' || !window.speechSynthesis) { btn.style.display = 'none'; return; }
       let speaking = false;
       btn.addEventListener('click', () => {
         if (speaking) {

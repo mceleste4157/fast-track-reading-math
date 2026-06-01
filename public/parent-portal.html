@@ -486,8 +486,9 @@
       <div class="form-group" style="margin-top:4px;">
         <label for="f-read-aloud">Read-Aloud</label>
         <select id="f-read-aloud" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
-          <option value="on">🔊 Enabled — child can use read-aloud</option>
-          <option value="off">🔇 Disabled — read-aloud hidden</option>
+          <option value="on">🔊 Full — read whole story aloud + tap any word</option>
+          <option value="words">🔤 Vocab words only — tap a word to hear it</option>
+          <option value="off">🔇 Disabled — no read-aloud</option>
         </select>
       </div>
 
@@ -953,7 +954,7 @@
               mathUnlockScore:   kid.mathUnlockScore   ?? 3,
               dailyReadMinutes:  kid.dailyReadMinutes  ?? 30,
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
-              readAloudEnabled:  kid.readAloudEnabled  !== false
+              readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on')
             }));
             window.location.href = 'index.html';
           }
@@ -1060,7 +1061,7 @@
       document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 3;
       document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 30;
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
-      document.getElementById('f-read-aloud').value   = child.readAloudEnabled !== false ? 'on' : 'off';
+      document.getElementById('f-read-aloud').value   = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
 
       // Mark selected chips/swatches
       document.querySelectorAll('.emoji-chip').forEach(c => {
@@ -1111,7 +1112,7 @@
       const mathUnlockScore   = parseInt(document.getElementById('f-math-unlock').value);
       const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
       const dailyMathMinutes  = parseInt(document.getElementById('f-math-mins').value);
-      const readAloudEnabled  = document.getElementById('f-read-aloud').value !== 'off';
+      const readAloudMode  = document.getElementById('f-read-aloud').value; // 'on' | 'words' | 'off'
       const errEl    = document.getElementById('form-error');
       errEl.style.display = 'none';
 
@@ -1134,7 +1135,7 @@
           mathUnlockScore:   mathUnlockScore,
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
-          readAloudEnabled:  readAloudEnabled,
+          readAloudMode:     readAloudMode,
           timestamp:         firebase.firestore.FieldValue.serverTimestamp()
         };
         // Only update readerId if legacyId provided and different
@@ -1162,7 +1163,7 @@
           mathUnlockScore:   mathUnlockScore,
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
-          readAloudEnabled:  readAloudEnabled,
+          readAloudMode:     readAloudMode,
           parentUid:         currentUser.uid,
           readerId:          legacyId || '', // filled in after .add() if blank
           createdAt:   firebase.firestore.FieldValue.serverTimestamp(),
