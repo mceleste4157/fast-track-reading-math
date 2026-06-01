@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --blue: #2563eb; --blue-soft: #dbeafe;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --bg: #f8fafc; --surface: #ffffff;
+      --border: rgba(0,0,0,0.08); --text: #1e1b4b; --muted: #6b7280;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--purple); color: #fff;
+      padding: 14px 28px; display: flex; align-items: center; gap: 14px;
+      position: sticky; top: 0; z-index: 30;
+      box-shadow: 0 2px 12px rgba(124,58,237,0.3);
+    }
+    .nav-title { font-weight: 800; font-size: 1.1rem; flex: 1; }
+    .nav-sub   { font-size: 0.82rem; opacity: 0.8; font-weight: 500; }
+    .btn-nav {
+      padding: 7px 14px; border-radius: 9px; border: 2px solid rgba(255,255,255,0.3);
+      background: none; color: #fff; font-weight: 700; font-size: 0.85rem;
+      cursor: pointer; font-family: inherit; text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-nav:hover { background: rgba(255,255,255,0.15); }
+
+    /* ── LAYOUT ── */
+    .page { max-width: 1200px; margin: 0 auto; padding: 28px 20px 80px; }
+
+    /* ── STAT CARDS ── */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px; margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06); padding: 18px 20px;
+      border-left: 4px solid var(--purple);
+    }
+    .stat-card.green  { border-color: var(--green); }
+    .stat-card.blue   { border-color: var(--blue); }
+    .stat-card.orange { border-color: var(--orange); }
+    .stat-card.red    { border-color: var(--red); }
+    .stat-val   { font-size: 2rem; font-weight: 800; color: var(--text); }
+    .stat-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* ── TABS ── */
+    .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 2px solid var(--border); padding-bottom: 0; flex-wrap: wrap; }
+    .tab {
+      padding: 10px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer;
+      border: none; background: none; font-family: inherit; color: var(--muted);
+      border-bottom: 3px solid transparent; margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab.active { color: var(--purple); border-bottom-color: var(--purple); }
+    .tab:hover:not(.active) { color: var(--text); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── SEARCH / FILTER BAR ── */
+    .bar {
+      display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: center;
+    }
+    .search-input {
+      flex: 1; min-width: 200px; padding: 9px 14px;
+      border: 2px solid var(--border); border-radius: 10px;
+      font-size: 0.9rem; font-family: inherit; outline: none;
+      transition: border-color 0.15s;
+    }
+    .search-input:focus { border-color: var(--purple); }
+    .count-badge {
+      font-size: 0.8rem; font-weight: 700; background: var(--purple-soft);
+      color: var(--purple); padding: 4px 12px; border-radius: 99px;
+    }
+    .btn-refresh {
+      padding: 9px 16px; border: 2px solid var(--border); border-radius: 10px;
+      background: var(--surface); font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; color: var(--muted);
+      transition: border-color 0.15s;
+    }
+    .btn-refresh:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 0.88rem; }
+    thead tr { background: #f8fafc; }
+    th {
+      padding: 12px 14px; text-align: left; font-size: 0.72rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+      white-space: nowrap; border-bottom: 2px solid var(--border);
+    }
+    td { padding: 12px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafafa; }
+    .avatar-sm {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: #fff; flex-shrink: 0; vertical-align: middle; margin-right: 8px;
+    }
+    .level-tag {
+      font-size: 0.72rem; font-weight: 700; background: var(--purple-soft);
+      color: var(--purple); padding: 2px 8px; border-radius: 99px; white-space: nowrap;
+    }
+    .stars-sm { color: var(--orange); font-size: 0.85rem; }
+
+    /* ── ACTIVITY FEED ── */
+    .feed-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 13px 16px; border-bottom: 1px solid #f1f5f9;
+      background: var(--surface); font-size: 0.88rem;
+    }
+    .feed-item:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .feed-item:last-child  { border-bottom: none; border-radius: 0 0 var(--radius) var(--radius); }
+    .feed-icon { font-size: 1.4rem; flex-shrink: 0; width: 32px; text-align: center; }
+    .feed-main { flex: 1; min-width: 0; }
+    .feed-name { font-weight: 700; }
+    .feed-detail { color: var(--muted); margin-top: 1px; }
+    .feed-time { font-size: 0.78rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+
+    /* ── SUGGESTION CARD ── */
+    .sug-card {
+      background: var(--surface); border-radius: 12px; padding: 14px 16px;
+      margin-bottom: 10px; border-left: 4px solid var(--purple);
+      display: flex; gap: 12px; align-items: flex-start;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .sug-card.archived { border-color: #d1d5db; opacity: 0.7; }
+    .sug-body { flex: 1; min-width: 0; }
+    .sug-meta { font-size: 0.75rem; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
+    .sug-text { font-size: 0.93rem; line-height: 1.5; }
+    .sug-actions { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .sug-btn {
+      padding: 4px 12px; border-radius: 8px; border: none; font-size: 0.78rem;
+      font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+
+    /* ── WRITING CARD ── */
+    .writing-card {
+      background: var(--surface); border-radius: 12px; padding: 16px 18px;
+      margin-bottom: 12px; border-left: 4px solid var(--blue);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .writing-meta  { font-size: 0.75rem; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
+    .writing-prompt { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 7px; }
+    .writing-response { font-size: 0.93rem; line-height: 1.6; }
+
+    /* ── LOADING ── */
+    .spinner {
+      width: 32px; height: 32px; border: 4px solid #e5e7eb;
+      border-top-color: var(--purple); border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 32px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty { text-align: center; padding: 40px; color: var(--muted); font-size: 0.95rem; }
+
+    /* ── ACCESS DENIED ── */
+    .access-denied {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 80vh; text-align: center; padding: 24px;
+    }
+    .access-denied div { font-size: 3rem; margin-bottom: 12px; }
+    .access-denied h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+    .access-denied p { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div>
+    <div class="nav-title">🛠️ FAST Track — Admin Dashboard</div>
+    <div class="nav-sub" id="nav-sub">Loading…</div>
+  </div>
+  <a href="parent-portal.html" class="btn-nav">← Parent Portal</a>
+  <button class="btn-nav" id="signout-btn">Sign Out</button>
+</nav>
+
+<div id="access-denied-screen" class="access-denied" style="display:none;">
+  <div>
+    <div>🔒</div>
+    <h2>Access Denied</h2>
+    <p>This page is only accessible to the app administrator.</p>
+    <a href="parent-portal.html" style="display:inline-block;margin-top:16px;color:var(--purple);font-weight:700;">← Back to Portal</a>
+  </div>
+</div>
+
+<div id="dashboard" style="display:none;">
+  <div class="page">
+
+    <!-- Stat cards -->
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card"><div class="stat-val" id="s-students">—</div><div class="stat-label">Total Students</div></div>
+      <div class="stat-card blue"><div class="stat-val" id="s-parents">—</div><div class="stat-label">Total Parents</div></div>
+      <div class="stat-card green"><div class="stat-val" id="s-stories">—</div><div class="stat-label">Stories Read (all time)</div></div>
+      <div class="stat-card orange"><div class="stat-val" id="s-math">—</div><div class="stat-label">Math Quizzes (all time)</div></div>
+      <div class="stat-card red"><div class="stat-val" id="s-active">—</div><div class="stat-label">Active This Week</div></div>
+      <div class="stat-card"><div class="stat-val" id="s-writing">—</div><div class="stat-label">Writing Responses</div></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('students')">👦 Students</button>
+      <button class="tab" onclick="switchTab('activity')">📋 Activity Feed</button>
+      <button class="tab" onclick="switchTab('writing')">✍️ Writing Responses</button>
+      <button class="tab" onclick="switchTab('suggestions')">💡 Suggestions</button>
+    </div>
+
+    <!-- Students tab -->
+    <div class="tab-panel active" id="panel-students">
+      <div class="bar">
+        <input class="search-input" id="student-search" placeholder="🔍 Search by name, grade, or parent…" oninput="filterStudents()" />
+        <span class="count-badge" id="student-count">Loading…</span>
+        <button class="btn-refresh" onclick="loadStudents()">↻ Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Grade</th>
+              <th>Parent</th>
+              <th>XP</th>
+              <th>Level</th>
+              <th>Streak</th>
+              <th>Stories This Week</th>
+              <th>Math Topics</th>
+              <th>Last Active</th>
+            </tr>
+          </thead>
+          <tbody id="students-tbody"><tr><td colspan="9"><div class="spinner"></div></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Activity tab -->
+    <div class="tab-panel" id="panel-activity">
+      <div class="bar">
+        <input class="search-input" id="activity-search" placeholder="🔍 Filter by name or story…" oninput="filterActivity()" />
+        <span class="count-badge" id="activity-count">Loading…</span>
+        <button class="btn-refresh" onclick="loadActivity()">↻ Refresh</button>
+      </div>
+      <div id="activity-feed"><div class="spinner"></div></div>
+    </div>
+
+    <!-- Writing tab -->
+    <div class="tab-panel" id="panel-writing">
+      <div class="bar">
+        <input class="search-input" id="writing-search" placeholder="🔍 Filter by name or story…" oninput="filterWriting()" />
+        <span class="count-badge" id="writing-count">Loading…</span>
+        <button class="btn-refresh" onclick="loadWriting()">↻ Refresh</button>
+      </div>
+      <div id="writing-feed"><div class="spinner"></div></div>
+    </div>
+
+    <!-- Suggestions tab -->
+    <div class="tab-panel" id="panel-suggestions">
+      <div class="bar">
+        <input class="search-input" id="sug-search" placeholder="🔍 Filter suggestions…" oninput="filterSuggestions()" />
+        <span class="count-badge" id="sug-count">Loading…</span>
+        <button class="btn-refresh" onclick="loadSuggestions()">↻ Refresh</button>
+        <button class="btn-refresh" id="sug-toggle" onclick="toggleArchived()">📦 Show Archived</button>
+      </div>
+      <div id="sug-feed"><div class="spinner"></div></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+<script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
+<script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script>
+  const ADMIN_EMAIL = 'celeste1311@gmail.com';
+  const LEVELS = [
+    {name:'Bookworm',minXp:0,emoji:'📖'},{name:'Reader',minXp:100,emoji:'📚'},
+    {name:'Word Hunter',minXp:200,emoji:'🔍'},{name:'Explorer',minXp:300,emoji:'🗺️'},
+    {name:'Thinker',minXp:450,emoji:'🧠'},{name:'Scholar',minXp:600,emoji:'🎓'},
+    {name:'Achiever',minXp:800,emoji:'⚡'},{name:'Champion',minXp:1000,emoji:'🏆'},
+    {name:'Super Reader',minXp:1500,emoji:'🌟'},{name:'Eagle Eye',minXp:1850,emoji:'🦅'},
+    {name:'Story Master',minXp:2200,emoji:'🚀'},{name:'Prodigy',minXp:2600,emoji:'💎'},
+    {name:'Summer Hero',minXp:3000,emoji:'☀️'},{name:'Grand Master',minXp:3500,emoji:'👑'},
+    {name:'FAST Legend',minXp:4000,emoji:'🌈'}
+  ];
+  function getLevel(xp) {
+    let idx = 0;
+    LEVELS.forEach((l,i) => { if (xp >= l.minXp) idx = i; });
+    return LEVELS[idx];
+  }
+  function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function fmtDate(ts) {
+    if (!ts) return '—';
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'2-digit',hour:'2-digit',minute:'2-digit'});
+  }
+  function fmtDateShort(ts) {
+    if (!ts) return '—';
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'2-digit'});
+  }
+  function timeSince(ts) {
+    if (!ts) return '—';
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    const diff = Date.now() - d.getTime();
+    const m = Math.floor(diff / 60000);
+    if (m < 1) return 'just now';
+    if (m < 60) return m + 'm ago';
+    const h = Math.floor(m / 60);
+    if (h < 24) return h + 'h ago';
+    const day = Math.floor(h / 24);
+    return day + 'd ago';
+  }
+
+  const auth = firebase.auth();
+  const db   = firebase.firestore();
+
+  auth.onAuthStateChanged(user => {
+    if (!user || user.email !== ADMIN_EMAIL) {
+      document.getElementById('access-denied-screen').style.display = 'flex';
+      document.getElementById('nav-sub').textContent = 'Access restricted';
+      return;
+    }
+    document.getElementById('nav-sub').textContent = 'Signed in as ' + user.email;
+    document.getElementById('dashboard').style.display = 'block';
+    loadAll();
+  });
+
+  document.getElementById('signout-btn').addEventListener('click', () => {
+    auth.signOut().then(() => window.location.href = 'login.html');
+  });
+
+  // ── Tab switching ──────────────────────────────────────────────────────────
+  function switchTab(name) {
+    document.querySelectorAll('.tab').forEach((t,i) => {
+      const panels = ['students','activity','writing','suggestions'];
+      t.classList.toggle('active', panels[i] === name);
+    });
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+  }
+
+  // ── Load everything ────────────────────────────────────────────────────────
+  function loadAll() {
+    loadStudents();
+    loadActivity();
+    loadWriting();
+    loadSuggestions();
+    loadOverviewStats();
+  }
+
+  // ── Overview stats ─────────────────────────────────────────────────────────
+  function loadOverviewStats() {
+    Promise.all([
+      db.collection('StudentProfiles').get(),
+      db.collection('ParentProfiles').get(),
+      db.collection('Progress').get(),
+      db.collection('MathProgress').get(),
+      db.collection('StudentStats').get(),
+      db.collection('WritingResponses').get()
+    ]).then(([sp, pp, prog, math, stats, wr]) => {
+      document.getElementById('s-students').textContent = sp.size;
+      document.getElementById('s-parents').textContent  = pp.size;
+      document.getElementById('s-stories').textContent  = prog.size;
+      document.getElementById('s-math').textContent     = math.size;
+      document.getElementById('s-writing').textContent  = wr.size;
+      // Active this week = students with storiesThisWeek > 0
+      let active = 0;
+      stats.forEach(d => { if ((d.data().storiesThisWeek || 0) > 0 || (d.data().mathThisWeek || 0) > 0) active++; });
+      document.getElementById('s-active').textContent = active;
+    }).catch(() => {});
+  }
+
+  // ── Students ───────────────────────────────────────────────────────────────
+  let allStudents = [];
+
+  function loadStudents() {
+    document.getElementById('students-tbody').innerHTML = '<tr><td colspan="9"><div class="spinner"></div></td></tr>';
+    Promise.all([
+      db.collection('StudentProfiles').get(),
+      db.collection('StudentStats').get(),
+      db.collection('Progress').get(),
+      db.collection('MathProgress').get(),
+      db.collection('ParentProfiles').get()
+    ]).then(([spSnap, statsSnap, progSnap, mathSnap, ppSnap]) => {
+
+      // Build parent email map: uid → email
+      const parentMap = {};
+      ppSnap.forEach(d => { parentMap[d.id] = d.data().displayName || d.data().email || d.id; });
+
+      // Build XP map: readerId → { readXp, mathXp }
+      const xpMap = {};
+      progSnap.forEach(d => {
+        const r = d.data().readerId;
+        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
+        xpMap[r].readXp += (d.data().xpEarned || 0);
+      });
+      mathSnap.forEach(d => {
+        const r = d.data().readerId;
+        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
+        xpMap[r].mathXp += (d.data().xpEarned || 0);
+      });
+
+      // Math topics per student
+      const mathTopicsMap = {};
+      mathSnap.forEach(d => {
+        const r = d.data().readerId;
+        if (!mathTopicsMap[r]) mathTopicsMap[r] = new Set();
+        mathTopicsMap[r].add(d.data().setId);
+      });
+
+      // Stats map
+      const statsMap = {};
+      statsSnap.forEach(d => { statsMap[d.id] = d.data(); });
+
+      allStudents = spSnap.docs.map(d => ({
+        id: d.id, ...d.data(),
+        xp:           (xpMap[d.data().readerId]?.readXp || 0) + (xpMap[d.data().readerId]?.mathXp || 0),
+        stats:        statsMap[d.data().readerId] || {},
+        mathTopics:   mathTopicsMap[d.data().readerId]?.size || 0,
+        parentName:   parentMap[d.data().parentUid] || '—'
+      })).sort((a, b) => b.xp - a.xp);
+
+      renderStudents(allStudents);
+    }).catch(err => {
+      document.getElementById('students-tbody').innerHTML = `<tr><td colspan="9" style="color:var(--red);padding:20px;">Error: ${escHtml(err.message)}</td></tr>`;
+    });
+  }
+
+  function renderStudents(rows) {
+    document.getElementById('student-count').textContent = rows.length + ' student' + (rows.length !== 1 ? 's' : '');
+    if (rows.length === 0) {
+      document.getElementById('students-tbody').innerHTML = '<tr><td colspan="9"><div class="empty">No students found.</div></td></tr>';
+      return;
+    }
+    document.getElementById('students-tbody').innerHTML = rows.map(s => {
+      const xp      = s.xp;
+      const level   = getLevel(xp);
+      const color   = s.avatarColor || '#7c3aed';
+      const emoji   = s.avatarEmoji || (s.name ? s.name.charAt(0).toUpperCase() : '?');
+      const streak  = s.stats.currentStreak || 0;
+      const week    = s.stats.storiesThisWeek || 0;
+      const last    = s.stats.lastReadDate || '—';
+      return `<tr>
+        <td>
+          <div style="display:flex;align-items:center;">
+            <div class="avatar-sm" style="background:${escHtml(color)}">${escHtml(emoji)}</div>
+            <div>
+              <div style="font-weight:700;">${escHtml(s.name || '—')}</div>
+              <div style="font-size:0.75rem;color:var(--muted);">${escHtml(s.readerId || '')}</div>
+            </div>
+          </div>
+        </td>
+        <td>Grade ${escHtml(String(s.gradeLevel || '—'))}</td>
+        <td style="font-size:0.82rem;color:var(--muted);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escHtml(s.parentName)}</td>
+        <td style="font-weight:700;color:var(--purple);">${xp.toLocaleString()}</td>
+        <td><span class="level-tag">${level.emoji} ${level.name}</span></td>
+        <td>${streak > 0 ? '🔥 ' + streak : '—'}</td>
+        <td style="text-align:center;">${week}</td>
+        <td style="text-align:center;">${s.mathTopics}</td>
+        <td style="font-size:0.82rem;color:var(--muted);">${last}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function filterStudents() {
+    const q = document.getElementById('student-search').value.toLowerCase();
+    const filtered = allStudents.filter(s =>
+      (s.name || '').toLowerCase().includes(q) ||
+      String(s.gradeLevel || '').includes(q) ||
+      (s.parentName || '').toLowerCase().includes(q) ||
+      (s.readerId || '').toLowerCase().includes(q)
+    );
+    renderStudents(filtered);
+  }
+
+  // ── Activity Feed ──────────────────────────────────────────────────────────
+  let allActivity = [];
+
+  function loadActivity() {
+    document.getElementById('activity-feed').innerHTML = '<div class="spinner"></div>';
+    db.collection('StudentActivity')
+      .orderBy('timestamp', 'desc')
+      .limit(100)
+      .get().then(snap => {
+        allActivity = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderActivity(allActivity);
+      }).catch(() => {
+        document.getElementById('activity-feed').innerHTML = '<div class="empty">Could not load activity.</div>';
+      });
+  }
+
+  function renderActivity(rows) {
+    document.getElementById('activity-count').textContent = rows.length + ' events';
+    if (rows.length === 0) {
+      document.getElementById('activity-feed').innerHTML = '<div class="empty">No activity yet.</div>';
+      return;
+    }
+    document.getElementById('activity-feed').innerHTML =
+      '<div style="border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.06);">' +
+      rows.map(a => {
+        const icon = a.type === 'math' ? '📐' : '📖';
+        const detail = a.type === 'math'
+          ? `Completed math topic — ${a.starsEarned || 0} ⭐ · +${a.xpEarned || 0} XP`
+          : `Read "${escHtml(a.title || a.storyId)}" — ${a.starsEarned || 0} ⭐ · +${a.xpEarned || 0} XP`;
+        return `<div class="feed-item">
+          <div class="feed-icon">${icon}</div>
+          <div class="feed-main">
+            <div class="feed-name">${escHtml(a.readerName || a.readerId || '—')}</div>
+            <div class="feed-detail">${detail}</div>
+          </div>
+          <div class="feed-time">${timeSince(a.timestamp)}</div>
+        </div>`;
+      }).join('') + '</div>';
+  }
+
+  function filterActivity() {
+    const q = document.getElementById('activity-search').value.toLowerCase();
+    renderActivity(allActivity.filter(a =>
+      (a.readerName || '').toLowerCase().includes(q) ||
+      (a.title || '').toLowerCase().includes(q) ||
+      (a.storyId || '').toLowerCase().includes(q)
+    ));
+  }
+
+  // ── Writing Responses ──────────────────────────────────────────────────────
+  let allWriting = [];
+
+  function loadWriting() {
+    document.getElementById('writing-feed').innerHTML = '<div class="spinner"></div>';
+    db.collection('WritingResponses')
+      .orderBy('timestamp', 'desc')
+      .limit(200)
+      .get().then(snap => {
+        allWriting = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderWriting(allWriting);
+      }).catch(() => {
+        document.getElementById('writing-feed').innerHTML = '<div class="empty">Could not load writing responses.</div>';
+      });
+  }
+
+  function renderWriting(rows) {
+    document.getElementById('writing-count').textContent = rows.length + ' response' + (rows.length !== 1 ? 's' : '');
+    if (rows.length === 0) {
+      document.getElementById('writing-feed').innerHTML = '<div class="empty">No writing responses yet.</div>';
+      return;
+    }
+    document.getElementById('writing-feed').innerHTML = rows.map(w =>
+      `<div class="writing-card">
+        <div class="writing-meta">${escHtml(w.readerName || w.readerId || '—')} · ${escHtml(w.storyTitle || w.storyId || '—')} · ${fmtDate(w.timestamp)} · ${w.stars || 0} ⭐</div>
+        <div class="writing-prompt">Prompt: ${escHtml(w.prompt || '—')}</div>
+        <div class="writing-response">${escHtml(w.response || '')}</div>
+      </div>`
+    ).join('');
+  }
+
+  function filterWriting() {
+    const q = document.getElementById('writing-search').value.toLowerCase();
+    renderWriting(allWriting.filter(w =>
+      (w.readerName || '').toLowerCase().includes(q) ||
+      (w.storyTitle || '').toLowerCase().includes(q) ||
+      (w.response || '').toLowerCase().includes(q)
+    ));
+  }
+
+  // ── Suggestions ────────────────────────────────────────────────────────────
+  let allSuggestions = [];
+  let showingArchived = false;
+
+  function loadSuggestions() {
+    document.getElementById('sug-feed').innerHTML = '<div class="spinner"></div>';
+    db.collection('Suggestions').orderBy('timestamp', 'desc').get().then(snap => {
+      allSuggestions = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      renderSuggestions();
+    }).catch(() => {
+      document.getElementById('sug-feed').innerHTML = '<div class="empty">Could not load suggestions.</div>';
+    });
+  }
+
+  function renderSuggestions() {
+    const q      = (document.getElementById('sug-search').value || '').toLowerCase();
+    const active   = allSuggestions.filter(s => !s.archived);
+    const archived = allSuggestions.filter(s =>  s.archived);
+    const rows     = (showingArchived ? archived : active).filter(s =>
+      (s.message || '').toLowerCase().includes(q) ||
+      (s.parentEmail || '').toLowerCase().includes(q)
+    );
+    document.getElementById('sug-count').textContent =
+      active.length + ' active · ' + archived.length + ' archived';
+    document.getElementById('sug-toggle').textContent =
+      showingArchived ? '← Active' : '📦 Archived (' + archived.length + ')';
+
+    if (rows.length === 0) {
+      document.getElementById('sug-feed').innerHTML = '<div class="empty">' + (showingArchived ? 'No archived suggestions.' : 'No active suggestions.') + '</div>';
+      return;
+    }
+    document.getElementById('sug-feed').innerHTML = rows.map(s => {
+      const borderCol = s.archived ? '#d1d5db' : 'var(--purple)';
+      return `<div class="sug-card ${s.archived ? 'archived' : ''}" style="border-left-color:${borderCol};">
+        <div class="sug-body">
+          <div class="sug-meta">${escHtml(s.parentEmail || '—')} · ${fmtDate(s.timestamp)}</div>
+          <div class="sug-text">${escHtml(s.message || '')}</div>
+          <div class="sug-actions">
+            <button class="sug-btn" style="background:${s.archived ? 'var(--green-soft)' : '#e5e7eb'};color:${s.archived ? 'var(--green)' : 'var(--muted)'};"
+              onclick="toggleSugArchive('${escHtml(s.id)}', ${!!s.archived})">${s.archived ? '↩ Restore' : '📦 Archive'}</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function filterSuggestions() { renderSuggestions(); }
+
+  function toggleArchived() {
+    showingArchived = !showingArchived;
+    renderSuggestions();
+  }
+
+  function toggleSugArchive(id, currentlyArchived) {
+    db.collection('Suggestions').doc(id).update({ archived: !currentlyArchived })
+      .then(() => {
+        const s = allSuggestions.find(x => x.id === id);
+        if (s) s.archived = !currentlyArchived;
+        renderSuggestions();
+      }).catch(err => alert('Could not update: ' + err.message));
+  }
+</script>
+</body>
+</html>

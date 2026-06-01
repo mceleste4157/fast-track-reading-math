@@ -298,6 +298,7 @@
     <div class="nav-title">🚀 FAST Track — Parent Portal</div>
     <div class="nav-user" id="nav-user"></div>
     <button class="btn-whats-new" id="whats-new-btn">🎉 What's New</button>
+    <a href="admin-dashboard.html" id="admin-link" style="display:none;padding:7px 14px;border-radius:10px;background:#1e1b4b;color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;">🛠️ Admin</a>
     <button class="btn-signout" id="signout-btn">Sign Out</button>
   </nav>
 
@@ -766,6 +767,7 @@
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         document.getElementById('nav-user').textContent = data.displayName || user.email;
+        if (user.email === ADMIN_EMAIL) document.getElementById('admin-link').style.display = 'inline-flex';
 
         // Check portal PIN
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
