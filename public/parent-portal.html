@@ -298,7 +298,6 @@
     <div class="nav-title">🚀 FAST Track — Parent Portal</div>
     <div class="nav-user" id="nav-user"></div>
     <button class="btn-whats-new" id="whats-new-btn">🎉 What's New</button>
-    <a href="admin-dashboard.html" id="admin-link" style="display:none;padding:7px 14px;border-radius:10px;background:#1e1b4b;color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;">🛠️ Admin</a>
     <button class="btn-signout" id="signout-btn">Sign Out</button>
   </nav>
 
@@ -722,6 +721,17 @@
         document.getElementById('rn-overlay').classList.remove('show');
     });
 
+    function injectAdminLink(email) {
+      if (email !== 'celeste1311@gmail.com') return;
+      const link = document.createElement('a');
+      link.href = 'admin-dashboard.html';
+      link.textContent = '🛠️ Admin';
+      link.style.cssText = 'padding:7px 14px;border-radius:10px;background:#1e1b4b;color:#fff;font-weight:700;font-size:0.88rem;text-decoration:none;';
+      // Insert before the sign-out button
+      const signout = document.getElementById('signout-btn');
+      signout.parentNode.insertBefore(link, signout);
+    }
+
     function escHtml(s) {
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
@@ -767,7 +777,7 @@
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         document.getElementById('nav-user').textContent = data.displayName || user.email;
-        if (user.email === 'celeste1311@gmail.com') document.getElementById('admin-link').style.display = 'inline-flex';
+        injectAdminLink(user.email);
 
         // Check portal PIN
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
@@ -778,7 +788,7 @@
         }
       }).catch(() => {
         document.getElementById('nav-user').textContent = user.email;
-        if (user.email === 'celeste1311@gmail.com') document.getElementById('admin-link').style.display = 'inline-flex';
+        injectAdminLink(user.email);
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
         } else {
