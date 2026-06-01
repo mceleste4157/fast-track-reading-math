@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story Typing – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --teal: #0891b2;   --teal-soft: #cffafe; --teal-dark: #0e7490;
+      --green: #10b981;  --green-soft: #d1fae5;
+      --red: #ef4444;    --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --bg: linear-gradient(135deg,#faf5ff 0%,#eff6ff 50%,#fff7ed 100%);
+      --surface: #fff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    /* NAV */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 12px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 20;
+    }
+    .nav-back  { text-decoration: none; color: var(--purple); font-weight: 700; font-size: 0.92rem; }
+    .nav-title { font-weight: 800; font-size: 1rem; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat-pill {
+      display: flex; align-items: center; gap: 4px;
+      background: #f0fdf4; border-radius: 99px; padding: 5px 12px;
+      font-size: 0.82rem; font-weight: 800; color: var(--teal-dark);
+      white-space: nowrap;
+    }
+    .stat-pill .val  { font-size: 1rem; }
+    .stat-pill.acc   { background: #d1fae5; }
+    .stat-pill.timer { background: #fef3c7; color: #92400e; }
+
+    /* PROGRESS BAR */
+    .prog-wrap { height: 5px; background: #e5e7eb; }
+    .prog-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--teal)); transition: width 0.2s; }
+
+    .page { max-width: 780px; margin: 0 auto; padding: 28px 16px 80px; }
+
+    /* ── PICKER ── */
+    .picker-hero {
+      background: linear-gradient(135deg, #7c3aed, #0891b2);
+      border-radius: 20px; padding: 24px 28px; color: #fff;
+      display: flex; align-items: center; gap: 18px; margin-bottom: 28px;
+    }
+    .picker-hero-icon { font-size: 3rem; flex-shrink: 0; }
+    .picker-hero h1   { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; }
+    .picker-hero p    { font-size: 0.9rem; opacity: 0.88; }
+
+    .story-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 14px; }
+    .story-pick-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08); overflow: hidden;
+      cursor: pointer; border: 2px solid transparent;
+      transition: border-color 0.15s, transform 0.12s;
+    }
+    .story-pick-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+    .pick-cover { height: 72px; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; }
+    .pick-body  { padding: 12px 14px 14px; }
+    .pick-title { font-size: 0.92rem; font-weight: 800; margin-bottom: 4px; line-height: 1.3; }
+    .pick-meta  { font-size: 0.78rem; color: var(--muted); }
+    .pick-btn {
+      display: block; width: 100%; margin-top: 10px; padding: 9px;
+      background: var(--purple); color: #fff; border: none; border-radius: 9px;
+      font-size: 0.88rem; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .pick-btn:hover { background: #6d28d9; }
+
+    /* ── TYPING UI ── */
+    .typing-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+    }
+    .typing-title { font-size: 1rem; font-weight: 800; }
+    .para-badge {
+      background: var(--purple-soft); color: var(--purple);
+      padding: 4px 12px; border-radius: 99px; font-size: 0.8rem; font-weight: 800;
+    }
+
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 18px;
+    }
+    .stat-card {
+      background: var(--surface); border-radius: 13px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 14px; text-align: center;
+    }
+    .stat-card .sv { font-size: 1.7rem; font-weight: 800; color: var(--teal); }
+    .stat-card .sl { font-size: 0.7rem; color: var(--muted); font-weight: 700; margin-top: 2px; }
+
+    .instruct {
+      background: var(--teal-soft); border: 2px solid var(--teal);
+      border-radius: 11px; padding: 10px 16px; margin-bottom: 16px;
+      font-size: 0.88rem; font-weight: 600; color: var(--teal-dark); text-align: center;
+    }
+
+    /* Text display */
+    .text-box {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(124,58,237,0.10);
+      padding: 26px 28px; margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(1rem, 2.8vw, 1.25rem);
+      line-height: 2; letter-spacing: 0.02em;
+      cursor: text; position: relative; min-height: 100px;
+    }
+    .ch.correct { color: var(--green); }
+    .ch.wrong   { color: var(--red); text-decoration: underline wavy var(--red); background: var(--red-soft); border-radius: 2px; }
+    .ch.cursor  { background: var(--purple); color: #fff; border-radius: 3px; animation: blink 1s step-end infinite; }
+    .ch.pending { color: #d1d5db; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    #input-capture {
+      position: absolute; opacity: 0; pointer-events: none;
+      left: 0; top: 0; width: 100%; height: 100%; cursor: text;
+    }
+
+    /* Para progress dots */
+    .para-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 18px; flex-wrap: wrap; }
+    .para-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #e5e7eb; transition: background 0.2s;
+    }
+    .para-dot.done    { background: var(--green); }
+    .para-dot.current { background: var(--purple); transform: scale(1.25); }
+
+    /* ── RESULTS OVERLAY ── */
+    .results-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 100;
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .results-overlay.show { display: flex; }
+    .results-card {
+      background: var(--surface); border-radius: 24px;
+      padding: 36px 28px; width: 100%; max-width: 440px;
+      text-align: center; box-shadow: 0 12px 48px rgba(0,0,0,0.2);
+    }
+    .r-emoji { font-size: 3rem; margin-bottom: 8px; }
+    .r-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 5px; }
+    .r-sub   { font-size: 0.92rem; color: var(--muted); margin-bottom: 20px; }
+    .r-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 18px; }
+    .r-stat  { background: #f9fafb; border-radius: 12px; padding: 14px 8px; }
+    .r-stat .rv { font-size: 1.6rem; font-weight: 800; color: var(--purple); }
+    .r-stat .rl { font-size: 0.7rem; color: var(--muted); font-weight: 700; margin-top: 2px; }
+    .xp-badge  { display: inline-block; background: var(--purple-soft); color: var(--purple); padding: 7px 20px; border-radius: 99px; font-weight: 800; font-size: 1rem; margin-bottom: 20px; }
+    .r-btns { display: flex; gap: 10px; }
+    .r-btn {
+      flex: 1; padding: 13px; border: none; border-radius: 12px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .r-btn.primary   { background: var(--purple); color: #fff; }
+    .r-btn.primary:hover { background: #6d28d9; }
+    .r-btn.secondary { background: #f3f4f6; color: var(--text); }
+    .r-btn.secondary:hover { background: #e5e7eb; }
+
+    .spinner { width: 32px; height: 32px; border: 4px solid #e5e7eb; border-top-color: var(--purple); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 40px auto; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty { text-align: center; padding: 48px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#" class="nav-back" id="nav-back">← Back</a>
+  <div class="nav-title" id="nav-title">📖 Story Typing</div>
+  <div class="stat-pill" id="wpm-pill" style="display:none;"><span>⌨️</span><span class="val" id="wpm-val">0</span><span>WPM</span></div>
+  <div class="stat-pill acc"   id="acc-pill"   style="display:none;"><span>✓</span><span class="val" id="acc-val">—</span></div>
+  <div class="stat-pill timer" id="timer-pill" style="display:none;"><span>⏱</span><span class="val" id="timer-val">0:00</span></div>
+</nav>
+<div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+
+<div class="page">
+  <!-- Loading -->
+  <div id="loading"><div class="spinner"></div></div>
+
+  <!-- Story picker -->
+  <div id="picker" style="display:none;">
+    <div class="picker-hero">
+      <div class="picker-hero-icon">📖⌨️</div>
+      <div>
+        <h1>Type a Story</h1>
+        <p>Pick any story you've read and type it out — build fluency and speed with real reading content!</p>
+      </div>
+    </div>
+    <div class="story-grid" id="story-grid"></div>
+  </div>
+
+  <!-- Typing area -->
+  <div id="typing-area" style="display:none;">
+    <div class="typing-header">
+      <div class="typing-title" id="typing-title"></div>
+      <div class="para-badge" id="para-badge">Paragraph 1 of 1</div>
+    </div>
+    <div class="para-dots" id="para-dots"></div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="sv" id="s-wpm">0</div><div class="sl">WPM</div></div>
+      <div class="stat-card"><div class="sv" id="s-acc" style="color:var(--green);">100%</div><div class="sl">Accuracy</div></div>
+      <div class="stat-card"><div class="sv" id="s-time" style="color:var(--orange);">0:00</div><div class="sl">Time</div></div>
+    </div>
+    <div class="instruct" id="instruct">Click the text below and start typing the highlighted paragraph!</div>
+    <div class="text-box" id="text-box" onclick="focusInput()">
+      <div id="text-display"></div>
+      <input id="input-capture" type="text" autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false" />
+    </div>
+  </div>
+</div>
+
+<!-- Results overlay -->
+<div class="results-overlay" id="results-overlay">
+  <div class="results-card">
+    <div class="r-emoji" id="r-emoji">🎉</div>
+    <div class="r-title" id="r-title">Story Complete!</div>
+    <div class="r-sub"   id="r-sub"></div>
+    <div class="r-stats">
+      <div class="r-stat"><div class="rv" id="r-wpm"></div><div class="rl">Avg WPM</div></div>
+      <div class="r-stat"><div class="rv" id="r-acc"></div><div class="rl">Accuracy</div></div>
+      <div class="r-stat"><div class="rv" id="r-time"></div><div class="rl">Total Time</div></div>
+    </div>
+    <div class="xp-badge" id="r-xp">+30 XP</div>
+    <div class="r-btns">
+      <button class="r-btn secondary" id="r-retry">🔄 Try Again</button>
+      <button class="r-btn primary"   id="r-pick">📚 Pick Another →</button>
+    </div>
+  </div>
+</div>
+
+<script src="stories.js"></script>
+<script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+<script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script>
+  const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+  if (!profile) { window.location.href = 'index.html'; }
+
+  const db     = firebase.firestore();
+  const params = new URLSearchParams(location.search);
+
+  // ── Text preparation ───────────────────────────────────────────────────────
+  function cleanText(raw) {
+    return raw
+      .replace(/\*\*([^*]+)\*\*/g, '$1')   // strip bold markdown
+      .replace(/^---+$/gm, '')               // strip dividers
+      .replace(/^\*[^*\n]+\*$/gm, '')        // strip italic headers
+      .replace(/^\*\*PAIRED PASSAGES\*\*.*$/gm, '')
+      .replace(/^\*\*Passage \d.*$/gm, '')
+      .replace(/^#.*$/gm, '')
+      .trim();
+  }
+
+  function getParagraphs(text) {
+    return cleanText(text)
+      .split(/\n\n+/)
+      .map(p => p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim())
+      .filter(p => p.length > 20);           // skip very short fragments
+  }
+
+  // ── Typing engine state ────────────────────────────────────────────────────
+  let paragraphs   = [];
+  let paraIdx      = 0;
+  let currentStory = null;
+  let typed        = '';
+  let started      = false;
+  let finished     = false;
+  let startTime    = 0;
+  let elapsed      = 0;
+  let timerInterval = null;
+  let totalCorrect = 0;
+  let totalTyped   = 0;
+
+  function focusInput() { document.getElementById('input-capture').focus(); }
+
+  // ── Picker ─────────────────────────────────────────────────────────────────
+  function showPicker(readIds) {
+    document.getElementById('loading').style.display  = 'none';
+    document.getElementById('picker').style.display   = 'block';
+    document.getElementById('typing-area').style.display = 'none';
+    document.getElementById('nav-back').href = 'typing.html';
+    document.getElementById('nav-title').textContent = '📖 Story Typing';
+    hideNavStats();
+
+    const grade   = parseInt(profile.gradeLevel) || 4;
+    const stories = STORIES.filter(s =>
+      readIds.has(s.id) &&
+      Array.isArray(s.grades) && s.grades.includes(grade)
+    ).slice(0, 20); // cap at 20
+
+    const grid = document.getElementById('story-grid');
+    if (stories.length === 0) {
+      grid.innerHTML = `<div class="empty" style="grid-column:1/-1;">
+        <div style="font-size:2.5rem;margin-bottom:12px;">📖</div>
+        <p style="font-weight:700;font-size:1rem;margin-bottom:8px;">No stories completed yet!</p>
+        <p style="margin-bottom:16px;">Finish a reading quiz first, then come back to type the story.</p>
+        <a href="library.html" style="display:inline-block;padding:11px 22px;background:var(--purple);color:#fff;border-radius:11px;font-weight:700;text-decoration:none;">📚 Go Read</a>
+      </div>`;
+      return;
+    }
+
+    grid.innerHTML = '';
+    stories.forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'story-pick-card';
+      const paras  = getParagraphs(s.text);
+      const wcount = s.wordCount || '~400';
+      card.innerHTML = `
+        <div class="pick-cover" style="background:${s.coverColor}20;">${s.coverEmoji}</div>
+        <div class="pick-body">
+          <div class="pick-title">${s.title}</div>
+          <div class="pick-meta">${paras.length} paragraphs · ~${wcount} words</div>
+          <button class="pick-btn">⌨️ Type This Story</button>
+        </div>`;
+      card.querySelector('.pick-btn').addEventListener('click', () => startStory(s));
+      grid.appendChild(card);
+    });
+  }
+
+  // ── Start story typing ─────────────────────────────────────────────────────
+  function startStory(story) {
+    currentStory = story;
+    paragraphs   = getParagraphs(story.text);
+    paraIdx      = 0;
+    totalCorrect = 0;
+    totalTyped   = 0;
+
+    document.getElementById('picker').style.display      = 'none';
+    document.getElementById('typing-area').style.display = 'block';
+    document.getElementById('nav-back').href = 'javascript:showPickerFromBack()';
+    document.getElementById('nav-title').textContent = story.coverEmoji + ' ' + story.title;
+    document.getElementById('typing-title').textContent  = story.title;
+    showNavStats();
+    buildDots();
+    loadParagraph(0);
+
+    // Update URL so reload returns to same story
+    history.replaceState({}, '', 'story-type.html?story=' + story.id);
+  }
+
+  function showPickerFromBack() {
+    if (timerInterval) clearInterval(timerInterval);
+    document.getElementById('results-overlay').classList.remove('show');
+    document.getElementById('typing-area').style.display = 'none';
+    document.getElementById('picker').style.display = 'block';
+    document.getElementById('nav-back').href = 'typing.html';
+    document.getElementById('nav-title').textContent = '📖 Story Typing';
+    hideNavStats();
+    document.getElementById('prog-fill').style.width = '0%';
+  }
+  window.showPickerFromBack = showPickerFromBack;
+
+  function showNavStats() {
+    ['wpm-pill','acc-pill','timer-pill'].forEach(id => document.getElementById(id).style.display = 'flex');
+  }
+  function hideNavStats() {
+    ['wpm-pill','acc-pill','timer-pill'].forEach(id => document.getElementById(id).style.display = 'none');
+  }
+
+  // ── Paragraph dots ─────────────────────────────────────────────────────────
+  function buildDots() {
+    const el = document.getElementById('para-dots');
+    el.innerHTML = paragraphs.map((_, i) =>
+      `<div class="para-dot ${i === 0 ? 'current' : ''}" id="dot-${i}"></div>`
+    ).join('');
+  }
+
+  function updateDots(idx) {
+    paragraphs.forEach((_, i) => {
+      const dot = document.getElementById('dot-' + i);
+      if (!dot) return;
+      dot.className = 'para-dot ' + (i < idx ? 'done' : i === idx ? 'current' : '');
+    });
+  }
+
+  // ── Load a paragraph ───────────────────────────────────────────────────────
+  function loadParagraph(idx) {
+    paraIdx  = idx;
+    typed    = '';
+    started  = false;
+    finished = false;
+    elapsed  = 0;
+    clearInterval(timerInterval);
+
+    const target = paragraphs[idx];
+    document.getElementById('para-badge').textContent = 'Paragraph ' + (idx + 1) + ' of ' + paragraphs.length;
+    document.getElementById('instruct').style.display = 'block';
+    document.getElementById('timer-val').textContent = '0:00';
+    document.getElementById('s-time').textContent    = '0:00';
+    document.getElementById('s-wpm').textContent     = '0';
+    document.getElementById('s-acc').textContent     = '100%';
+    document.getElementById('wpm-val').textContent   = '0';
+    document.getElementById('acc-val').textContent   = '—';
+
+    updateDots(idx);
+    renderText(target, '');
+
+    // Update overall progress bar
+    const pct = Math.round((idx / paragraphs.length) * 100);
+    document.getElementById('prog-fill').style.width = pct + '%';
+
+    const inputEl = document.getElementById('input-capture');
+    inputEl.value = '';
+    setTimeout(() => inputEl.focus(), 100);
+  }
+
+  // ── Render text ─────────────────────────────────────────────────────────────
+  function renderText(target, typed) {
+    let html = '';
+    for (let i = 0; i < target.length; i++) {
+      const ch = target[i] === ' ' ? ' ' : target[i];
+      if (i < typed.length) {
+        html += `<span class="ch ${typed[i] === target[i] ? 'correct' : 'wrong'}">${ch}</span>`;
+      } else if (i === typed.length) {
+        html += `<span class="ch cursor">${ch}</span>`;
+      } else {
+        html += `<span class="ch pending">${ch}</span>`;
+      }
+    }
+    document.getElementById('text-display').innerHTML = html;
+  }
+
+  // ── Input handling ─────────────────────────────────────────────────────────
+  const inputEl = document.getElementById('input-capture');
+
+  inputEl.addEventListener('input', function () {
+    if (finished) return;
+    const target = paragraphs[paraIdx];
+    const val    = this.value.slice(0, target.length);
+    this.value   = val;
+
+    if (!started && val.length > 0) {
+      started   = true;
+      startTime = Date.now();
+      document.getElementById('instruct').style.display = 'none';
+      timerInterval = setInterval(() => {
+        elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const m = Math.floor(elapsed / 60);
+        const s = elapsed % 60;
+        const ts = m + ':' + String(s).padStart(2, '0');
+        document.getElementById('timer-val').textContent = ts;
+        document.getElementById('s-time').textContent    = ts;
+        updateStats(target, val);
+      }, 500);
+    }
+
+    typed = val;
+    renderText(target, val);
+    updateStats(target, val);
+
+    // Paragraph complete
+    if (val.length >= target.length) {
+      clearInterval(timerInterval);
+      finished = true;
+
+      // Accumulate totals
+      const correct = val.split('').filter((c, i) => c === target[i]).length;
+      totalCorrect += correct;
+      totalTyped   += val.length;
+
+      if (paraIdx + 1 < paragraphs.length) {
+        // Brief pause then advance
+        setTimeout(() => loadParagraph(paraIdx + 1), 600);
+      } else {
+        finishStory();
+      }
+    }
+  });
+
+  document.getElementById('text-box').addEventListener('click', focusInput);
+  document.addEventListener('keydown', () => {
+    if (document.getElementById('typing-area').style.display !== 'none' &&
+        document.activeElement !== inputEl) inputEl.focus();
+  });
+
+  function updateStats(target, val) {
+    const correct = val.split('').filter((c, i) => c === target[i]).length;
+    const wpm = elapsed > 0 ? Math.max(0, Math.round((correct / 5) / (elapsed / 60))) : 0;
+    const acc = val.length > 0 ? Math.round((correct / val.length) * 100) : 100;
+    document.getElementById('s-wpm').textContent  = wpm;
+    document.getElementById('s-acc').textContent  = acc + '%';
+    document.getElementById('wpm-val').textContent = wpm;
+    document.getElementById('acc-val').textContent = acc + '%';
+  }
+
+  // ── Story complete ─────────────────────────────────────────────────────────
+  function finishStory() {
+    document.getElementById('prog-fill').style.width = '100%';
+    updateDots(paragraphs.length); // all done
+
+    // Compute final stats
+    const totalWords = currentStory.wordCount || paragraphs.join(' ').split(' ').length;
+    // WPM across all paragraphs (approximate using total correct chars)
+    const totalElapsed = Math.floor((Date.now() - startTime) / 1000) + elapsed;
+    const avgWpm = totalElapsed > 0 ? Math.max(0, Math.round((totalCorrect / 5) / (totalElapsed / 60))) : 0;
+    const acc    = totalTyped > 0 ? Math.round((totalCorrect / totalTyped) * 100) : 100;
+    const xp     = Math.min(80, 20 + Math.round(avgWpm / 5) * 5);
+
+    const emoji = acc >= 97 && avgWpm >= 35 ? '🏆' : acc >= 90 ? '🎉' : '👍';
+    document.getElementById('r-emoji').textContent = emoji;
+    document.getElementById('r-title').textContent = acc >= 97 ? 'Flawless!' : acc >= 90 ? 'Great job!' : 'Story complete!';
+    document.getElementById('r-sub').textContent   = currentStory.title;
+    document.getElementById('r-wpm').textContent   = avgWpm;
+    document.getElementById('r-acc').textContent   = acc + '%';
+    const m = Math.floor(totalElapsed / 60), s = totalElapsed % 60;
+    document.getElementById('r-time').textContent  = m + ':' + String(s).padStart(2,'0');
+    document.getElementById('r-xp').textContent    = '+' + xp + ' XP';
+    document.getElementById('results-overlay').classList.add('show');
+
+    if (acc >= 95) spawnConfetti();
+
+    // Save to Firestore
+    db.collection('TypingProgress').add({
+      readerId:    profile.readerId,
+      readerName:  profile.name,
+      lessonId:    'story_' + currentStory.id,
+      lessonTitle: currentStory.title,
+      type:        'story',
+      wpm:         avgWpm,
+      accuracy:    acc,
+      stars:       acc >= 97 ? 5 : acc >= 93 ? 4 : acc >= 88 ? 3 : acc >= 80 ? 2 : 1,
+      xpEarned:    xp,
+      paragraphs:  paragraphs.length,
+      completedAt: firebase.firestore.FieldValue.serverTimestamp(),
+      timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+    }).catch(() => {});
+  }
+
+  // ── Result buttons ─────────────────────────────────────────────────────────
+  document.getElementById('r-retry').addEventListener('click', () => {
+    document.getElementById('results-overlay').classList.remove('show');
+    startStory(currentStory);
+  });
+  document.getElementById('r-pick').addEventListener('click', () => {
+    document.getElementById('results-overlay').classList.remove('show');
+    showPickerFromBack();
+  });
+
+  // ── Confetti ───────────────────────────────────────────────────────────────
+  function spawnConfetti() {
+    const colors = ['#7c3aed','#0891b2','#10b981','#f59e0b','#ec4899'];
+    for (let i = 0; i < 60; i++) {
+      const el = document.createElement('div');
+      el.style.cssText = `position:fixed;width:${8+Math.random()*8}px;height:${12+Math.random()*8}px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        left:${Math.random()*100}vw;top:-20px;border-radius:3px;z-index:200;pointer-events:none;
+        animation:cf ${2.5+Math.random()*3}s linear ${Math.random()*2}s forwards;`;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 6000);
+    }
+    if (!document.getElementById('cf-sty')) {
+      const s = document.createElement('style');
+      s.id = 'cf-sty';
+      s.textContent = '@keyframes cf{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}';
+      document.head.appendChild(s);
+    }
+  }
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  const storyParam = params.get('story');
+
+  db.collection('Progress').where('readerId', '==', profile.readerId).get().then(snap => {
+    const readIds = new Set();
+    snap.forEach(d => readIds.add(d.data().storyId));
+
+    if (storyParam) {
+      const story = STORIES.find(s => s.id === storyParam);
+      if (story) { startStory(story); return; }
+    }
+    showPicker(readIds);
+  }).catch(() => showPicker(new Set()));
+</script>
+</body>
+</html>
