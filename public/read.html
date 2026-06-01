@@ -447,8 +447,10 @@
     const indicator = document.getElementById('speak-indicator');
     let speakTimeout = null;
 
+    const readAloudEnabled = profile.readAloudEnabled !== false;
+
     function speakWord(word) {
-      if (!word || !window.speechSynthesis) return;
+      if (!readAloudEnabled || !word || !window.speechSynthesis) return;
       const clean = word.replace(/[^a-zA-Z'-]/g, '').trim();
       if (!clean) return;
       speechSynthesis.cancel();
@@ -531,7 +533,7 @@
     // ─── Read-aloud ────────────────────────────────────────────────────────────
     (function () {
       const btn = document.getElementById('read-aloud-btn');
-      if (!window.speechSynthesis) { btn.style.display = 'none'; return; }
+      if (!readAloudEnabled || !window.speechSynthesis) { btn.style.display = 'none'; return; }
       let speaking = false;
       btn.addEventListener('click', () => {
         if (speaking) {
