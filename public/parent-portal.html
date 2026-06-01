@@ -715,6 +715,12 @@
           }
         }
       };
+      function ppHandleKey(e) {
+        if (!document.getElementById('portal-pin-screen')) { document.removeEventListener('keydown', ppHandleKey); return; }
+        if (e.key >= '0' && e.key <= '9') window.ppDigit(e.key);
+        else if (e.key === 'Backspace') window.ppDigit('back');
+      }
+      document.addEventListener('keydown', ppHandleKey);
     }
 
     // ── Change child PIN modal ─────────────────────────────────────────────────
@@ -752,8 +758,15 @@
         }
       }
 
-      overlay.querySelector('#cpm-cancel').addEventListener('click', () => overlay.remove());
-      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+      overlay.querySelector('#cpm-cancel').addEventListener('click', () => { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); });
+      overlay.addEventListener('click', e => { if (e.target === overlay) { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); } });
+      function cpmHandleKey(e) {
+        if (!document.body.contains(overlay)) { document.removeEventListener('keydown', cpmHandleKey); return; }
+        if (e.key >= '0' && e.key <= '9') overlay.querySelector(`.cpm-btn[data-n="${e.key}"]`)?.click();
+        else if (e.key === 'Backspace') overlay.querySelector('.cpm-btn[data-n="back"]')?.click();
+        else if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); }
+      }
+      document.addEventListener('keydown', cpmHandleKey);
 
       overlay.querySelectorAll('.cpm-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1277,6 +1290,8 @@
     });
 
     // ── Admin suggestions panel (only visible to admin email) ──────────────────
+    let showArchived = false;
+
     function loadAdminSuggestions() {
       if (!currentUser || currentUser.email !== ADMIN_EMAIL) return;
       const adminSection = document.getElementById('admin-suggestions');
@@ -1287,25 +1302,67 @@
           adminSection.querySelector('#admin-suggestions-list').innerHTML =
             '<p style="color:var(--muted);font-size:0.9rem;">No suggestions yet.</p>';
           adminSection.querySelector('#admin-suggestions-count').textContent = '0 suggestions';
+          renderArchiveToggle(adminSection, 0, 0);
           return;
         }
-        const docs = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+        const all = snap.docs.map(d => ({ id: d.id, ...d.data() }))
           .sort((a, b) => (b.timestamp?.toMillis?.() || 0) - (a.timestamp?.toMillis?.() || 0));
+        const active   = all.filter(s => !s.archived);
+        const archived = all.filter(s =>  s.archived);
+        const docs = showArchived ? archived : active;
+
         adminSection.querySelector('#admin-suggestions-count').textContent =
-          docs.length + ' suggestion' + (docs.length !== 1 ? 's' : '');
-        adminSection.querySelector('#admin-suggestions-list').innerHTML = docs.map(s => {
+          active.length + ' active · ' + archived.length + ' archived';
+
+        renderArchiveToggle(adminSection, active.length, archived.length);
+
+        if (docs.length === 0) {
+          adminSection.querySelector('#admin-suggestions-list').innerHTML =
+            `<p style="color:var(--muted);font-size:0.9rem;">${showArchived ? 'No archived suggestions.' : 'No active suggestions.'}</p>`;
+          return;
+        }
+
+        const list = adminSection.querySelector('#admin-suggestions-list');
+        list.innerHTML = '';
+        docs.forEach(s => {
           const date = s.timestamp?.toDate
             ? s.timestamp.toDate().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: '2-digit', hour: '2-digit', minute: '2-digit' })
             : '—';
-          return `<div style="background:#f9fafb;border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--purple);">
-            <div style="font-size:0.78rem;font-weight:700;color:var(--muted);margin-bottom:6px;">${escHtml(s.parentEmail || '—')} · ${date}</div>
-            <div style="font-size:0.93rem;line-height:1.5;">${escHtml(s.message || '')}</div>
-          </div>`;
-        }).join('');
+          const card = document.createElement('div');
+          card.style.cssText = 'background:#f9fafb;border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid ' + (s.archived ? '#d1d5db' : 'var(--purple)') + ';display:flex;gap:12px;align-items:flex-start;';
+          card.innerHTML = `
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--muted);margin-bottom:6px;">${escHtml(s.parentEmail || '—')} · ${date}</div>
+              <div style="font-size:0.93rem;line-height:1.5;">${escHtml(s.message || '')}</div>
+            </div>
+            <button data-id="${escHtml(s.id)}" class="sug-archive-btn" style="flex-shrink:0;padding:6px 12px;border-radius:8px;border:none;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;background:${s.archived ? 'var(--green-soft)' : '#e5e7eb'};color:${s.archived ? 'var(--green)' : 'var(--muted)'};">${s.archived ? '↩ Restore' : '📦 Archive'}</button>
+          `;
+          card.querySelector('.sug-archive-btn').addEventListener('click', function() {
+            const btn = this;
+            btn.disabled = true;
+            btn.textContent = '…';
+            db.collection('Suggestions').doc(s.id).update({ archived: !s.archived })
+              .then(() => loadAdminSuggestions())
+              .catch(() => { btn.disabled = false; btn.textContent = s.archived ? '↩ Restore' : '📦 Archive'; });
+          });
+          list.appendChild(card);
+        });
       }).catch(() => {
         adminSection.querySelector('#admin-suggestions-list').innerHTML =
           '<p style="color:var(--red);font-size:0.9rem;">Could not load suggestions.</p>';
       });
+    }
+
+    function renderArchiveToggle(adminSection, activeCount, archivedCount) {
+      let toggle = document.getElementById('archive-toggle-btn');
+      if (!toggle) {
+        toggle = document.createElement('button');
+        toggle.id = 'archive-toggle-btn';
+        toggle.style.cssText = 'margin-bottom:14px;padding:7px 14px;border-radius:10px;border:2px solid var(--border);background:none;font-size:0.85rem;font-weight:700;cursor:pointer;font-family:inherit;color:var(--muted);';
+        adminSection.querySelector('#admin-suggestions-list').before(toggle);
+      }
+      toggle.textContent = showArchived ? '← Show Active (' + activeCount + ')' : '📦 Show Archived (' + archivedCount + ')';
+      toggle.onclick = () => { showArchived = !showArchived; loadAdminSuggestions(); };
     }
   </script>
 </body>

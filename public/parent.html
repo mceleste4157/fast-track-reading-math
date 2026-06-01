@@ -438,12 +438,13 @@
         if (entry.length === 4) {
           if (noPin) {
             firebase.firestore().collection('ParentProfiles').doc(uid).set({ portalPin: entry }, { merge: true })
-              .then(() => { sessionStorage.setItem('portalPinVerified','true'); sessionStorage.setItem('portalPin', entry); screen.remove(); location.reload(); })
+              .then(() => { sessionStorage.setItem('portalPinVerified','true'); sessionStorage.setItem('portalPin', entry); screen.remove(); document.removeEventListener('keydown', pvpHandleKey); location.reload(); })
               .catch(() => { document.getElementById('pvp-err').textContent = 'Could not save. Try again.'; entry = ''; });
           } else if (entry === storedPin) {
             sessionStorage.setItem('portalPinVerified','true');
             sessionStorage.setItem('portalPin', entry);
             screen.remove();
+            document.removeEventListener('keydown', pvpHandleKey);
             location.reload();
           } else {
             document.getElementById('pvp-err').textContent = 'Wrong PIN — try again';
@@ -452,6 +453,12 @@
           }
         }
       };
+      function pvpHandleKey(e) {
+        if (!document.body.contains(screen)) { document.removeEventListener('keydown', pvpHandleKey); return; }
+        if (e.key >= '0' && e.key <= '9') window.pvpDigit(e.key);
+        else if (e.key === 'Backspace') window.pvpDigit('back');
+      }
+      document.addEventListener('keydown', pvpHandleKey);
     }
 
     function loadDashboard() {

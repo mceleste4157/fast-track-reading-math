@@ -1,11 +1,12 @@
-// FAST Track — Service Worker v1
+// FAST Track — Service Worker v2
 // Caches static assets so the app works offline
-const CACHE = 'fast-track-v1';
+const CACHE = 'fast-track-v2';
 const STATIC = [
   '/', '/index.html', '/login.html', '/library.html', '/progress.html',
   '/read.html', '/quiz.html', '/results.html',
   '/math.html', '/math-quiz.html', '/math-results.html',
   '/vocab.html', '/trivia.html',
+  '/typing.html', '/typing-practice.html',
   '/stories.js', '/math-data.js'
 ];
 

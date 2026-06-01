@@ -25,7 +25,9 @@ service cloud.firestore {
       allow read: if request.auth != null
         && request.auth.token.email == 'celeste1311@gmail.com';
       allow create: if request.auth != null;
-      allow update, delete: if false;
+      allow update: if request.auth != null
+        && request.auth.token.email == 'celeste1311@gmail.com';
+      allow delete: if false;
     }
     match /StudentProfiles/{profileId} {
       allow read: if true;
