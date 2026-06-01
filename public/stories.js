@@ -3363,6 +3363,588 @@ The same water has been cycling around Earth for billions of years. The rain tha
       { question: 'What forms when water vapor cools high in the sky?', options: ['Snow', 'Fog', 'Clouds', 'Rainbows'], correctIndex: 2, explanation: 'When water vapor cools and condenses, tiny water droplets form and cluster together to make clouds.' },
       { question: 'Why is the water cycle called a "cycle"?', options: ['It only happens in a circle shape', 'It repeats over and over with no end', 'It only happens during the summer', 'Water only moves up, never down'], correctIndex: 1, explanation: 'It is called a cycle because the process repeats continuously — water evaporates, condenses, and falls again, over and over.' },
     ]
+  },
+
+  // ── NEW ── INFORMATIONAL | ELA.4.R.2.1 (cause/effect) | ELA.4.R.2.2 (central idea) | Florida History
+  {
+    id: 'seminole-nation',
+    title: 'The Seminole Nation: Surviving Against All Odds',
+    topic: 'florida-history',
+    coverEmoji: '🦅',
+    coverColor: '#92400e',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 415,
+    readTimeMin: 2,
+    text: `The Seminole people did not begin as a single group. During the 1700s, Creek, Hitchiti, and other Native American peoples moved south into Florida. Spanish settlers called them "Cimarrones," meaning "free people" — a word that became "Seminole." They built farming villages, developed rich traditions, and made a life shaped by Florida's rivers, forests, and wetlands.
+
+Then came three devastating wars.
+
+Between 1817 and 1858, the United States government fought three Seminole Wars to remove Native Americans from Florida and open the land to settlers. The Second Seminole War (1835–1842) became the longest and most expensive Native American conflict in American history. Seminole warriors, led by leaders including Osceola, refused to retreat. Instead, they used the deep swamps and tangled forests of the Everglades as cover, launching surprise attacks and **vanishing** before soldiers could respond. This strategy, called **guerrilla warfare**, made a small group of fighters remarkably effective against a much larger army.
+
+The result was extraordinary. The U.S. government spent over $20 million and lost more than 1,500 soldiers — yet it could not defeat the Seminoles in the Everglades. About 3,000 Seminoles were eventually forced west on what became known as the Trail of Tears. But a few hundred refused. They disappeared deeper into the wilderness, into land that no army would follow them through.
+
+Those survivors never signed a peace treaty with the United States. As a result, the Seminole Tribe of Florida officially calls itself "the Unconquered People" — a title earned through **resilience** that still matters today.
+
+The consequences of that survival continue. The Seminole Tribe of Florida is now a **sovereign** nation — a self-governing people with the legal right to manage their own land, schools, and businesses. Their traditional crafts — brilliantly colored **patchwork** clothing, hand-carved canoes, and intricate beadwork — are still taught and practiced. The chickee, an open-sided house with a thatched palm-leaf roof, remains a symbol of Seminole identity passed down through generations.
+
+The Seminole people's story demonstrates a direct chain of cause and effect: because a few hundred people refused to surrender, they preserved a culture, a homeland, and a political identity that exists and thrives today. Their history is not a footnote to Florida's story — it is one of its most remarkable chapters.`,
+    vocabulary: [
+      { word: 'vanishing', definition: 'Disappearing suddenly, as if gone without a trace.', example: 'The deer bolted into the forest, vanishing before the hikers could take a photo.' },
+      { word: 'guerrilla warfare', definition: 'A way of fighting in which small groups use surprise attacks and natural terrain to resist a larger enemy.', example: 'The soldiers used guerrilla warfare in the mountains, hiding between attacks.' },
+      { word: 'resilience', definition: 'The ability to recover from great difficulty and keep going.', example: 'After the storm destroyed their crops, the farmers showed resilience by replanting the very next week.' },
+      { word: 'sovereign', definition: 'Having the right to govern itself, free from outside control.', example: 'The sovereign nation set its own laws and elected its own leaders.' },
+      { word: 'patchwork', definition: 'Pieces of colorful fabric sewn together in patterns; a traditional Seminole art form.', example: 'The quilt was made from patchwork squares of red, blue, and yellow cloth.' }
+    ],
+    questions: [
+      {
+        question: 'What is the TEXT STRUCTURE of this passage?',
+        options: [
+          'Chronological order — the author lists events from oldest to most recent with no explanation of causes.',
+          'Cause and effect — the author explains how events caused specific outcomes, including the Seminoles\' survival and present-day sovereignty.',
+          'Compare and contrast — the Seminole people are compared to other Native American groups.',
+          'Description — the author describes Seminole culture without connecting any events to outcomes.'
+        ],
+        correctIndex: 1,
+        explanation: 'Throughout the passage, the author connects causes to effects: the Seminoles\' guerrilla warfare caused the government to fail; their refusal to surrender caused them to remain in Florida; that survival caused them to become a sovereign nation today — a clear cause/effect structure.'
+      },
+      {
+        question: 'According to the passage, why was the Second Seminole War so costly for the U.S. government?',
+        options: [
+          'The Seminoles had a larger army than the U.S. military expected.',
+          'Seminole warriors used guerrilla tactics in the Everglades, making it nearly impossible for soldiers to defeat them.',
+          'The U.S. government ran out of weapons and could not keep fighting.',
+          'Many U.S. soldiers refused to fight against the Seminoles.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage directly explains that Seminole warriors launched surprise attacks and "vanished" before soldiers could respond — using the swamps as cover in a way the U.S. army could not counter. This caused the war to last seven years and cost $20 million.'
+      },
+      {
+        question: 'What does the word "resilience" MOST LIKELY mean based on how it is used in the passage?',
+        options: [
+          'The right to govern oneself under independent laws.',
+          'A traditional form of art passed from parent to child.',
+          'The ability to survive great hardship and keep going.',
+          'A peace agreement signed between two governments.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says the title "Unconquered People" was "earned through resilience that still matters today" — describing how the Seminoles survived enormous pressure and refused to give up. Resilience means recovering and continuing despite hardship.'
+      },
+      {
+        question: 'How does the author SUPPORT the claim that the Seminoles\' survival has ongoing consequences today?',
+        options: [
+          'By explaining how many Seminoles were removed to Oklahoma on the Trail of Tears.',
+          'By describing their businesses, schools, cultural programs, traditional crafts, and sovereign status as a nation.',
+          'By explaining how much the U.S. government spent during the Second Seminole War.',
+          'By naming Osceola as the leader of Seminole resistance.'
+        ],
+        correctIndex: 1,
+        explanation: 'In the fifth paragraph, the author describes the Seminole Tribe today — sovereign government, schools, businesses, crafts, and cultural identity — as direct results of their ancestors\' survival. These concrete examples support the claim that the past still matters now.'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'The U.S. government made a costly mistake by trying to remove Native Americans from Florida.',
+          'Florida\'s history includes many cultures that should be studied in schools.',
+          'The Seminole people\'s refusal to be defeated preserved a culture and a sovereign identity that continues today.',
+          'Guerrilla warfare is an effective military strategy in swamp environments.'
+        ],
+        correctIndex: 2,
+        explanation: 'Every paragraph supports one central idea: the Seminoles\' extraordinary resistance — especially the few hundred who refused to leave — directly resulted in the survival of a culture, a people, and eventually a self-governing nation. That cause-and-effect chain is the central idea.'
+      }
+    ]
+  },
+
+  // ── NEW ── INFORMATIONAL | ELA.4.R.2.3 (author\'s perspective) | ELA.4.R.2.4 (claim + evidence) | Florida History
+  {
+    id: 'flagler-florida',
+    title: "Henry Flagler's Florida: From Wilderness to Wonder",
+    topic: 'florida-history',
+    coverEmoji: '🚂',
+    coverColor: '#1e3a8a',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 405,
+    readTimeMin: 2,
+    text: `In the 1880s, most of Florida was wilderness — hot, difficult to reach, and largely unknown to people in the northern United States. There were no paved roads, no luxury hotels, and very few reasons for tourists to visit. Then Henry Flagler arrived, and everything changed.
+
+Flagler had already made a fortune as co-founder of Standard Oil, one of the most powerful companies in American history. When he first visited Florida in 1878, he saw something that others had missed: **potential**. Where others saw swamps and insects, Flagler imagined grand hotels, busy ports, and a railroad connecting the entire eastern coast of the state.
+
+He began in St. Augustine, building two luxury hotels — the Ponce de León and the Alcazar — that were among the most spectacular buildings in the United States at the time. Wealthy tourists who had never considered Florida began arriving by train. Flagler saw that success and pushed further south: to Daytona, then to Palm Beach, then to Miami, which was little more than a small village when Flagler arrived. Within years of his investment, Miami became a real city.
+
+But Flagler's most **audacious** project came at the end of his life. In 1905, at age 75, he began building the Overseas Railroad — a train line extending 128 miles across the open ocean from Miami to Key West, crossing dozens of islands on a series of bridges, including the famous Seven Mile Bridge. Engineers called it one of the greatest construction achievements of its era. Critics called it "Flagler's Folly" — too expensive, too dangerous, and impossible to complete. Flagler proved them wrong. He rode the first train into Key West in 1912, at age 82, to a thunderous celebration. He died the following year.
+
+Flagler's **legacy** is not simple. His railroads and hotels brought enormous growth to Florida, creating industries, cities, and connections that transformed the state. But that growth displaced local communities and launched a wave of development that permanently altered Florida's natural landscape. The same railroad that opened Key West to the world also opened Florida's coasts to overdevelopment.
+
+No single person shaped modern Florida more dramatically than Henry Flagler. He turned a coastal wilderness into one of the most visited places on Earth — for better and for worse.`,
+    vocabulary: [
+      { word: 'potential', definition: 'The possibility that something could become great or successful, even if it isn\'t yet.', example: 'The coach saw great potential in the young player who had never played on a team before.' },
+      { word: 'audacious', definition: 'Willing to take bold risks that most people would consider too dangerous or unlikely to succeed.', example: 'The audacious plan to build a bridge over the canyon shocked even experienced engineers.' },
+      { word: 'legacy', definition: 'What a person or event leaves behind that continues to have an effect after it is over.', example: 'The scientist\'s legacy lived on through the students she had trained and inspired.' },
+      { word: 'displaced', definition: 'Forced out of a place, usually by development, conflict, or another powerful force.', example: 'Hundreds of families were displaced when the old neighborhood was demolished for a new highway.' },
+      { word: 'era', definition: 'A long period of time identified by a particular characteristic or event.', example: 'The invention of the telephone marked a new era in human communication.' }
+    ],
+    questions: [
+      {
+        question: 'What is the AUTHOR\'S PERSPECTIVE toward Henry Flagler?',
+        options: [
+          'The author believes Flagler was a villain who should not be celebrated.',
+          'The author views Flagler as a bold and important figure whose impact was both positive and negative.',
+          'The author thinks Flagler was Florida\'s greatest hero with no flaws.',
+          'The author is completely neutral and offers no opinion about Flagler at all.'
+        ],
+        correctIndex: 1,
+        explanation: 'The author calls Flagler\'s impact "not simple" and describes both his accomplishments (creating cities, connecting Florida) and his harms (displacement, overdevelopment). The final line — "for better and for worse" — shows the author sees Flagler as a complex figure.'
+      },
+      {
+        question: 'How does the author SUPPORT the claim that the Overseas Railroad was an extraordinary achievement?',
+        options: [
+          'By explaining that Flagler had already built successful railroads in other states.',
+          'By noting that engineers called it one of the greatest construction achievements of its era, and that critics who called it impossible were proven wrong.',
+          'By describing the number of passengers who rode the train each year after it opened.',
+          'By comparing the Overseas Railroad to other famous bridges in the United States.'
+        ],
+        correctIndex: 1,
+        explanation: 'The author cites what engineers said ("one of the greatest construction achievements of its era"), describes the challenge (128 miles over the ocean), and notes that critics called it impossible — yet it was completed. These are concrete pieces of evidence supporting the claim.'
+      },
+      {
+        question: 'What does the word "audacious" suggest about Flagler\'s decision to build the Overseas Railroad?',
+        options: [
+          'It was a plan that most experts considered safe and straightforward.',
+          'It was a bold, risky undertaking that most people thought could not succeed.',
+          'It was a plan that Flagler copied from engineers in another country.',
+          'It was too expensive for Flagler to complete without government help.'
+        ],
+        correctIndex: 1,
+        explanation: 'The author uses "audacious" to describe the Overseas Railroad project, then immediately confirms its risky nature: critics called it "Flagler\'s Folly" and said it was "too expensive, too dangerous, and impossible to complete." Audacious means bold enough to try what others say is impossible.'
+      },
+      {
+        question: 'According to the passage, what was one NEGATIVE consequence of Flagler\'s development of Florida?',
+        options: [
+          'His hotels were too expensive for most tourists to afford.',
+          'His railroads caused conflict between the U.S. government and Florida settlers.',
+          'His development displaced local communities and launched overdevelopment of Florida\'s natural coasts.',
+          'His Overseas Railroad was destroyed by a hurricane and never rebuilt.'
+        ],
+        correctIndex: 2,
+        explanation: 'The author specifically states that Flagler\'s growth "displaced local communities" and "launched a wave of development that permanently altered Florida\'s natural landscape" — these are clear negative consequences named in the passage.'
+      },
+      {
+        question: 'How does the author use the phrase "for better and for worse" to conclude the passage?',
+        options: [
+          'To suggest that Flagler was uncertain whether his decisions were right.',
+          'To show that Florida\'s growth under Flagler produced both significant benefits and significant harms.',
+          'To argue that Florida would have been better off without Flagler\'s involvement.',
+          'To signal that historians still disagree about whether Flagler existed at all.'
+        ],
+        correctIndex: 1,
+        explanation: 'The phrase "for better and for worse" summarizes the entire passage\'s argument: Flagler\'s transformation of Florida brought real benefits (tourism, cities, connections) alongside real costs (displacement, overdevelopment). The author uses this phrase to hold both truths at once.'
+      }
+    ]
+  },
+
+  // ── NEW ── LITERARY | ELA.4.R.3.1 (figurative language) | ELA.4.R.1.2 (theme)
+  {
+    id: 'garden-after-storm',
+    title: 'The Garden After the Storm',
+    topic: 'florida-nature',
+    coverEmoji: '🌱',
+    coverColor: '#059669',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 2,
+    text: `Grandma's garden looked like a **battlefield**.
+
+Two days after Hurricane Irene moved through, Lucia stood at the back door and stared at the damage. The tomato plants her grandmother had been **nurturing** since March lay twisted on the ground, their stakes snapped like broken pencils. The banana trees — Grandma always called them "my Florida daughters" — drooped so low their tips dragged in the mud. The birdhouse was gone entirely, lifted by a wind that had screamed like a living thing.
+
+"Grandma," Lucia said carefully, "it's pretty bad."
+
+Her grandmother stood behind her and was quiet for a moment. Then she let out a long breath — a sound like a door closing softly.
+
+"Yes," she said. "It is bad."
+
+Lucia expected tears. Or the slow walk to the armchair that meant the conversation was finished. Instead, Grandma stepped off the porch in her rain boots, walked into the mud, and picked up the first fallen tomato stake.
+
+"Help me," she said.
+
+They worked for three hours. They righted the plants and tied new stakes. They cut away what was too broken to save and cleared space for what still had a chance. The banana trees — **battered** but not dead — gradually straightened as Lucia wedged wooden boards beneath them. Grandma moved along the cleared rows, **methodically** pressing seeds from labeled envelopes into the earth.
+
+"What are those for?" Lucia asked.
+
+"Next season," Grandma said, as if that were obvious.
+
+"But we're planting *now*? After all this?"
+
+Her grandmother pressed the last seed into the soil and patted it flat. "Especially after this. A storm is not the end, Lucia. It is the most important moment for deciding what you do next."
+
+Lucia looked around the battered garden. Here and there, small green leaves were still reaching upward — **stubborn**, unhurried, as if they hadn't even heard about the hurricane.
+
+She knelt beside her grandmother and pressed seeds into the cool, dark earth.
+
+By the end of summer, the garden was fuller than it had ever been. And whenever Lucia saw a storm moving in from the Gulf — dark clouds rolling like a closing fist — she thought of her grandmother's boots in the mud, and the seeds, and the small stubborn leaves.
+
+She always started making plans.`,
+    vocabulary: [
+      { word: 'battlefield', definition: 'A place where a battle has been fought; used figuratively to describe something that looks devastated.', example: 'After the wild game, the playing field looked like a battlefield — torn up and scattered with gear.' },
+      { word: 'nurturing', definition: 'Caring for something patiently over time to help it grow and thrive.', example: 'She had been nurturing the seedlings for weeks before they were ready to plant outside.' },
+      { word: 'battered', definition: 'Damaged by repeated hits or rough conditions; worn and beaten.', example: 'The battered kite had survived three storms but finally needed to be repaired.' },
+      { word: 'methodically', definition: 'Done in a careful, organized, step-by-step way.', example: 'She methodically checked each answer before turning in her test.' },
+      { word: 'stubborn', definition: 'Refusing to give in or give up, even when conditions are difficult.', example: 'The stubborn dandelion kept growing back no matter how many times they pulled it out.' }
+    ],
+    questions: [
+      {
+        question: 'What is the THEME of this story?',
+        options: [
+          'Hurricanes cause more damage to gardens than to any other type of property.',
+          'After loss or hardship, choosing to act and begin again is what defines a person\'s character.',
+          'Grandparents always know more than their grandchildren about dealing with problems.',
+          'Florida\'s weather makes it impossible to grow a successful garden.'
+        ],
+        correctIndex: 1,
+        explanation: 'Grandma does not grieve the storm — she acts. Her words ("A storm is not the end. It is the most important moment for deciding what you do next") and the image of Lucia later planning when storms approach both reinforce the theme: responding with action after hardship defines who we are.'
+      },
+      {
+        question: 'Read this sentence: "their stakes snapped like broken pencils." What type of FIGURATIVE LANGUAGE is this, and what does it help the reader understand?',
+        options: [
+          'Metaphor — it suggests the stakes and pencils are the same object.',
+          'Personification — it gives the stakes human qualities.',
+          'Simile — it compares the broken stakes to broken pencils to help the reader picture how completely they were snapped.',
+          'Hyperbole — it greatly exaggerates how many stakes were broken.'
+        ],
+        correctIndex: 2,
+        explanation: '"Like broken pencils" uses the word "like" to make a direct comparison — that is a simile. The comparison helps the reader visualize the stakes as thin, snapped completely in two, the way a pencil breaks cleanly when too much pressure is applied.'
+      },
+      {
+        question: 'At the end, the author describes small green leaves "reaching upward — stubborn, unhurried, as if they hadn\'t even heard about the hurricane." What type of figurative language is this?',
+        options: [
+          'Simile — the leaves are compared to stubborn people.',
+          'Personification — the leaves are given human traits: stubbornness, calm, and the ability to "hear" news.',
+          'Alliteration — the repeated sounds create a musical effect.',
+          'Metaphor — the leaves become a direct symbol for Grandma.'
+        ],
+        correctIndex: 1,
+        explanation: 'The leaves are described as "stubborn" and "unhurried," and the phrase "as if they hadn\'t even heard about the hurricane" gives them the human ability to know about events. This is personification — giving non-human things human qualities.'
+      },
+      {
+        question: 'How does Grandma\'s response to the storm damage DEVELOP her character?',
+        options: [
+          'She becomes overwhelmed and asks Lucia to handle everything.',
+          'She shows that she is the kind of person who responds to difficulty with immediate, purposeful action rather than despair.',
+          'She becomes angry about the storm and expresses that anger by working in the garden.',
+          'She waits for a sunny day before deciding whether the garden can be saved.'
+        ],
+        correctIndex: 1,
+        explanation: 'Lucia expects Grandma to cry or retreat to her chair — but instead she walks into the mud and starts working. The author reveals Grandma\'s character through her actions: she is someone who chooses action over grief, and that choice is what the whole story is about.'
+      },
+      {
+        question: 'What does Grandma mean when she says "Especially after this" in response to Lucia\'s surprise about planting seeds?',
+        options: [
+          'The storm created more open ground, so now is the best time to plant more seeds.',
+          'After a storm is exactly the right moment to plant — it is an act of hope and commitment, not despite the damage, but because of it.',
+          'The rain from the storm will help the seeds grow faster than usual.',
+          'She means they must plant quickly before another storm arrives.'
+        ],
+        correctIndex: 1,
+        explanation: 'Grandma explains: "A storm is not the end. It is the most important moment for deciding what you do next." Planting seeds immediately after destruction is a deliberate act — it says that you intend to continue. "Especially after this" means the hard moment is exactly when it matters most to choose to go on.'
+      }
+    ]
+  },
+
+  // ── NEW ── LITERARY | ELA.4.R.1.3 (narrator perspective) | ELA.4.R.1.1 (conflict/character)
+  {
+    id: 'last-seat',
+    title: 'The Last Seat on the Bus',
+    topic: 'character',
+    coverEmoji: '🚌',
+    coverColor: '#7c3aed',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 410,
+    readTimeMin: 2,
+    text: `The new girl, Priya, sat alone in the last seat of the school bus every single day.
+
+Dominic had noticed this for two weeks. He also noticed that she never said good morning to anyone, never saved a seat, and always had headphones in before the bus even started moving. His friend Keisha said she seemed "stuck-up." Dominic wasn't so sure, but he nodded anyway.
+
+One afternoon, the bus was unusually packed. Every seat held two students except the last one — Priya's seat. Dominic was the last one on. He stood in the aisle, looked at Priya, and then at the only available space beside her.
+
+Priya pulled one earbud out. "You can sit here," she said. "I don't bite."
+
+Dominic sat down. For the first minute, nobody said anything.
+
+Then Priya said, without looking at him: "Your class did the Florida history project, right? The one about the Seminoles?"
+
+He blinked. "Yeah. How did you know?"
+
+"I heard you presenting in the hallway. You said something interesting about why they didn't sign a treaty. I've been reading about it." She paused. "I just moved from Georgia. We learned completely different things. Florida history is actually kind of amazing."
+
+Dominic didn't know what to say. He had **assumed** — without thinking much about it — that Priya kept to herself because she thought she was better than everyone else. Now she was talking to him about Seminole history.
+
+"Why do you always wear headphones?" he asked.
+
+"Noise makes it hard to think," she said simply. "I have **sensory** stuff. The bus is loud. The headphones help me get through it so I can function when I get home." She said it matter-of-factly, the way you might explain that you take an umbrella when it rains.
+
+Dominic was quiet for a moment.
+
+"Keisha thinks you're stuck-up," he admitted.
+
+Priya turned and looked at him directly for the first time. "I know," she said. "A lot of people do. It's okay. It's easier to **assume** something than to ask."
+
+The bus stopped at Dominic's street. He got up.
+
+"My name's Dominic," he said.
+
+"I know," she said. "You announced it pretty loudly during your presentation." A small smile.
+
+He laughed — the kind of laugh that **dissolves** tension the way warm water dissolves sugar.
+
+He started sitting in the back seat the next day. And the day after that.`,
+    vocabulary: [
+      { word: 'assumed', definition: 'Believed something was true without checking or asking — decided without evidence.', example: 'She assumed the test would be multiple choice and didn\'t study for the essay questions.' },
+      { word: 'sensory', definition: 'Related to the body\'s five senses — sight, hearing, touch, smell, and taste.', example: 'The loud cafeteria created sensory overload that made it hard for him to concentrate.' },
+      { word: 'matter-of-factly', definition: 'In a calm, straightforward way, without drama or apology.', example: 'She explained the rules matter-of-factly, as if everyone already knew them.' },
+      { word: 'dissolves', definition: 'Disappears gradually, as if melting away.', example: 'His nervousness dissolved as soon as the crowd started laughing with him.' },
+      { word: 'function', definition: 'To operate or work normally; to manage tasks effectively.', example: 'After a good night\'s sleep, she was finally able to function properly in class.' }
+    ],
+    questions: [
+      {
+        question: 'The story is told from DOMINIC\'S point of view. How does his perspective LIMIT what the reader knows at the beginning?',
+        options: [
+          'Dominic knows Priya\'s name and class schedule, so the reader learns everything about her.',
+          'Because the reader only sees Priya through Dominic\'s observations and assumptions, Priya appears unfriendly — until she explains herself.',
+          'Dominic is an unreliable narrator who lies about what happened on the bus.',
+          'Dominic\'s perspective gives the reader more information about Priya than Priya has about herself.'
+        ],
+        correctIndex: 1,
+        explanation: 'Because the reader only has Dominic\'s view, Priya seems cold and isolated — the same way Dominic sees her. It is only when Priya speaks and explains herself that the reader (and Dominic) understand what was actually happening. The narrator\'s limited perspective creates the story\'s central misunderstanding.'
+      },
+      {
+        question: 'What is the CONFLICT in this story, and how is it resolved?',
+        options: [
+          'Dominic and Priya argue about Florida history, but eventually agree.',
+          'Dominic incorrectly assumes Priya is unfriendly; a forced conversation reveals the truth and changes his perspective.',
+          'Priya is bullied by Keisha and Dominic, but tells a teacher who resolves the problem.',
+          'The bus is too crowded, forcing students to sit with people they don\'t know.'
+        ],
+        correctIndex: 1,
+        explanation: 'The conflict is Dominic\'s misunderstanding of Priya — he has assumed she is stuck-up. The resolution comes through their unexpected conversation, where Priya\'s real interests and the real reason she wears headphones are revealed. The conflict dissolves when assumptions are replaced by actual communication.'
+      },
+      {
+        question: 'What does Priya mean when she says "It\'s easier to assume something than to ask"?',
+        options: [
+          'She means that asking questions is rude and people should mind their own business.',
+          'She is pointing out that people often judge without communicating — it takes more effort to actually find out the truth.',
+          'She means that Dominic was right to make assumptions about her behavior.',
+          'She is saying that she prefers not to talk to people on the bus.'
+        ],
+        correctIndex: 1,
+        explanation: 'Priya is acknowledging that many people — not just Keisha — have judged her without asking why she behaves as she does. Her statement is a quiet critique: making assumptions is the lazy path; actually asking someone takes more courage and effort, but it produces understanding.'
+      },
+      {
+        question: 'Read this sentence: "He laughed — the kind of laugh that dissolves tension the way warm water dissolves sugar." What type of figurative language is this?',
+        options: [
+          'Personification — the laugh is given the ability to feel tension.',
+          'Simile — the laugh is compared to warm water dissolving sugar to show how it melted the awkwardness.',
+          'Hyperbole — the comparison greatly exaggerates how funny the moment was.',
+          'Alliteration — the repeated sounds create a rhythmic effect.'
+        ],
+        correctIndex: 1,
+        explanation: '"The way warm water dissolves sugar" is a comparison using "the way" — making it a simile. The comparison helps the reader feel exactly what happened: just as sugar disappears in warm water, the awkwardness between them simply vanished when they both laughed.'
+      },
+      {
+        question: 'How does DOMINIC\'S CHARACTER CHANGE from the beginning of the story to the end?',
+        options: [
+          'He starts friendly and ends suspicious of Priya.',
+          'He begins by going along with unfair assumptions about Priya and ends by choosing to know her as she actually is.',
+          'He becomes less interested in Florida history after talking to Priya.',
+          'He starts afraid of Priya and ends up replacing Keisha as his best friend.'
+        ],
+        correctIndex: 1,
+        explanation: 'At the start, Dominic nods when Keisha calls Priya "stuck-up" — he doesn\'t push back. By the end, he chooses to sit with Priya day after day. The change is subtle but clear: he moves from passive assumption to active understanding.'
+      }
+    ]
+  },
+
+  // ── NEW ── INFORMATIONAL (Emerging) | ELA.2.R.2.1 (central idea) | Florida Nature
+  {
+    id: 'scrub-jay',
+    title: 'The Florida Scrub-Jay: Found Nowhere Else on Earth',
+    topic: 'florida-nature',
+    coverEmoji: '🐦',
+    coverColor: '#2563eb',
+    gradeLevel: '2-3',
+    level: 'emerging',
+    grades: [1, 2, 3, 4],
+    wordCount: 245,
+    readTimeMin: 1,
+    text: `Have you ever seen a bird that lives in only one state? The Florida scrub-jay is that bird. It is found only in Florida — not in any other state or country in the world. That makes it very special and very important to protect.
+
+Scrub-jays are bright blue and gray birds, about the size of a robin. They live in a **habitat** called Florida scrub — patches of sandy soil with low oak bushes and open ground. This type of land used to be common across Florida. Today, most of it has been cleared to build homes, farms, and shopping centers. Because their habitat has shrunk, scrub-jays are now **endangered**. Fewer than 8,000 remain in the wild.
+
+What makes scrub-jays extra interesting is how they live as a family. Young birds from a previous year — called "helpers" — stay with their parents instead of going off on their own. They help feed and **guard** the new chicks. If a hawk flies nearby, the helpers call out a warning to protect the nest.
+
+Scrub-jays are also unusually **bold** around people. They will fly right up to a person's hand to take a piece of food. Scientists use this boldness to study them up close, placing tiny ID bands on their legs to track each bird.
+
+The best way to protect scrub-jays is to protect their land. When communities set aside scrubland and let it stay natural, scrub-jays have room to survive. Every patch of saved habitat is a home for a family that exists nowhere else on Earth.`,
+    vocabulary: [
+      { word: 'habitat', definition: 'The natural place where an animal lives and finds everything it needs to survive.', example: 'The raccoon\'s habitat includes forests and wetlands where it can find food and shelter.' },
+      { word: 'endangered', definition: 'At serious risk of dying out completely if nothing is done to help.', example: 'The endangered sea turtle needs protected beaches to lay its eggs safely.' },
+      { word: 'guard', definition: 'To watch over something or someone to keep it safe from danger.', example: 'The dog would guard the yard whenever strangers walked by.' },
+      { word: 'bold', definition: 'Confident and not afraid; willing to act even when there is risk.', example: 'The bold little bird flew right up to the picnic table to grab a crumb.' },
+      { word: 'community', definition: 'A group of people who live in the same area and share responsibility for it.', example: 'The community worked together to plant trees along the neighborhood streets.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: [
+          'All birds in Florida are endangered and need to be protected.',
+          'The Florida scrub-jay is a unique, endangered bird that can only be saved by protecting its habitat.',
+          'Scrub-jays are the largest blue birds found anywhere in North America.',
+          'Scientists use ID bands to study all types of birds in Florida.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes what makes scrub-jays unique (found only in Florida), explains why they are endangered (habitat loss), and concludes with how to protect them (save scrubland). All of these details support the main idea that the scrub-jay needs habitat protection to survive.'
+      },
+      {
+        question: 'According to the passage, why are Florida scrub-jays ENDANGERED?',
+        options: [
+          'Hawks and other predators eat too many scrub-jay chicks each year.',
+          'Most of their sandy scrub habitat has been cleared for homes, farms, and shopping centers.',
+          'People capture them because they are so bold and easy to approach.',
+          'Scrub-jays have trouble finding enough food in Florida\'s scrub habitat.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage directly states that scrub habitat "has been cleared to build homes, farms, and shopping centers" and that the shrinking habitat is what has made the birds endangered — not predators or capturing.'
+      },
+      {
+        question: 'What does the word "bold" MOST LIKELY mean as it is used in the passage?',
+        options: [
+          'Frightened of humans and quick to fly away.',
+          'Colorful and bright, easy to spot in the wild.',
+          'Confident and unafraid, willing to come close.',
+          'Shy and quiet, hard to find in the scrub.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says scrub-jays "will fly right up to a person\'s hand to take food" — that behavior shows they are not afraid of people. Bold means confident and unafraid, which is exactly how the scrub-jay acts around humans.'
+      },
+      {
+        question: 'How do "helper" scrub-jays SUPPORT their family?',
+        options: [
+          'They fly south for winter and bring food back in the spring.',
+          'They build a new nest for the parents to use each season.',
+          'They stay with their parents, help feed the chicks, and warn the family when predators are near.',
+          'They compete with the parents to take control of the nest.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that helpers "stay with their parents," "help feed and guard the new chicks," and "call out a warning" when hawks appear. These three roles — feeding, guarding, and warning — are all named in the text.'
+      },
+      {
+        question: 'According to the passage, what is the BEST way to protect scrub-jays?',
+        options: [
+          'Training scientists to place ID bands on every scrub-jay they find.',
+          'Feeding scrub-jays by hand so they grow strong and healthy.',
+          'Protecting and preserving the scrubland habitat where scrub-jays live.',
+          'Moving scrub-jays to other states so they are not limited to Florida.'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph states: "The best way to protect scrub-jays is to protect their land." The passage is clear that habitat protection — not feeding, banding, or moving them — is the primary solution.'
+      }
+    ]
+  },
+
+  // ── NEW ── INFORMATIONAL | ELA.5-8.R.2.2 (central idea) | ELA.5-8.R.2.4 (claim + evidence) | Science
+  {
+    id: 'bioluminescence',
+    title: "Bioluminescence: The Ocean's Living Light",
+    topic: 'science',
+    coverEmoji: '✨',
+    coverColor: '#0e7490',
+    gradeLevel: '5-8',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 445,
+    readTimeMin: 2,
+    text: `In certain bays in Puerto Rico, kayakers paddle through water that glows electric blue with every stroke. Along the coast of central Florida, summer swimmers sometimes emerge from the waves trailed by sheets of pale green light. In the deep ocean, where sunlight never penetrates, an estimated 76 percent of all animals produce their own light. This phenomenon — **bioluminescence** — is one of nature's most widespread and least understood abilities.
+
+Bioluminescence is light produced by a living organism through a chemical reaction. The process involves two key molecules: a compound called **luciferin** and an enzyme called luciferase. When luciferin is oxidized — exposed to oxygen — in the presence of luciferase, it releases energy as light rather than heat. Unlike the light from a light bulb, which produces significant heat as a byproduct, bioluminescent light is extraordinarily efficient: nearly 100 percent of the energy produced becomes visible light. Scientists call this "cold light."
+
+The organisms capable of bioluminescence span an astonishing range: bacteria, fungi, marine worms, jellyfish, squid, anglerfish, and dozens of species of fish. Fireflies — one of the few bioluminescent animals found on land — are familiar examples. In Florida, Indian River Lagoon and Merritt Island's waters occasionally **bloom** with bioluminescent **dinoflagellates**: single-celled marine organisms that produce a flash of blue light when agitated by movement. The effect, visible on calm summer nights, is often described by witnesses as one of the most beautiful things they have ever seen.
+
+Why have so many unrelated organisms **independently evolved** the same ability? Research suggests bioluminescence serves several distinct functions. In deep-sea predators like the anglerfish, a dangling light lure attracts prey directly into the predator's range. In squid and other prey species, bioluminescence produces **counterillumination** — matching the faint light from the surface above so predators looking up from below cannot see a silhouette. Some deep-sea organisms flash bioluminescent signals to find and attract mates. Others use sudden bright flashes to startle or **disorient** predators long enough to escape.
+
+Despite its prevalence, bioluminescence remains an active area of research. Scientists have identified over 40 separate evolutionary origins of the ability — meaning it evolved independently more than 40 times across different branches of life. Each origin used similar chemistry but developed for different purposes in different environments.
+
+In 2020, researchers announced the discovery of bioluminescence in sharks — an ability previously unknown in that group. The finding suggested that far more ocean species may glow than scientists had previously estimated, and that the deep ocean, largely unexplored, may contain many more luminous organisms than anyone has yet imagined.
+
+The ocean has been making its own light for hundreds of millions of years. We are only beginning to understand why.`,
+    vocabulary: [
+      { word: 'bioluminescence', definition: 'The production of light by a living organism through a chemical reaction inside its body.', example: 'The bioluminescence of the jellyfish made the dark water glow like a lamp.' },
+      { word: 'luciferin', definition: 'A light-producing chemical compound found in bioluminescent organisms that releases energy as light when oxidized.', example: 'Scientists isolated luciferin from fireflies to study how living light is produced.' },
+      { word: 'dinoflagellates', definition: 'Tiny single-celled marine organisms that float in ocean water; some species are bioluminescent and glow when disturbed.', example: 'The kayaker\'s paddle stirred up thousands of dinoflagellates, leaving a glowing trail behind her.' },
+      { word: 'counterillumination', definition: 'A camouflage technique in which an animal produces light to match the brightness of its surroundings, making itself invisible to predators.', example: 'The squid\'s counterillumination made it nearly impossible for predators below to spot it against the surface light.' },
+      { word: 'disorient', definition: 'To confuse something about its location or direction, making it temporarily unable to act or react effectively.', example: 'The sudden burst of light was enough to disorient the predator and let the fish escape.' }
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Fireflies are the most well-known bioluminescent organism, but they are found only on land.',
+          'Bioluminescence is a widespread, chemically efficient natural phenomenon that evolved independently many times and serves multiple purposes across ocean life.',
+          'Scientists have recently proven that all ocean animals are capable of producing some form of bioluminescent light.',
+          'Florida\'s coastal waters contain the highest concentration of bioluminescent organisms in the world.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains what bioluminescence is, how it works chemically, which organisms produce it, why it evolved, and how researchers are still discovering new examples — all pointing to the central idea that it is widespread, evolved many times independently, and serves multiple purposes.'
+      },
+      {
+        question: 'The author states that bioluminescence has evolved independently more than 40 times. What does this SUGGEST about the ability?',
+        options: [
+          'That all bioluminescent organisms share a single common ancestor that developed the ability once.',
+          'That the ability must have significant survival advantages, since so many unrelated species developed it separately.',
+          'That bioluminescence is a recent development that appeared only after the deep ocean was formed.',
+          'That scientists have been unable to explain why so many organisms share this ability.'
+        ],
+        correctIndex: 1,
+        explanation: 'If 40 completely unrelated branches of life independently evolved the same ability, it strongly suggests that bioluminescence provides real survival benefits. When an adaptation evolves this many times, it is because it works — organisms without it were at a disadvantage.'
+      },
+      {
+        question: 'How does the author SUPPORT the claim that bioluminescent light is unusually efficient?',
+        options: [
+          'By explaining that bioluminescent organisms use the same chemistry as electric light bulbs but in a smaller form.',
+          'By comparing it to a light bulb and noting that unlike bulb light, nearly 100 percent of bioluminescent energy becomes visible light rather than heat.',
+          'By citing research showing that bioluminescent animals live longer than non-bioluminescent species.',
+          'By describing how dinoflagellates can light up an entire bay with just a small number of organisms.'
+        ],
+        correctIndex: 1,
+        explanation: 'The author directly states that unlike a light bulb (which produces significant heat), bioluminescent light converts "nearly 100 percent of the energy produced" into visible light — and labels this "cold light." The comparison to a light bulb is the evidence for the efficiency claim.'
+      },
+      {
+        question: 'What does the word "disorient" MOST LIKELY mean based on how it is used in the passage?',
+        options: [
+          'To attract a predator toward a bright light source.',
+          'To cause something to feel confused about direction or surroundings, temporarily impairing its ability to act.',
+          'To produce a chemical that poisons a predator.',
+          'To signal to other members of the same species using flashes of light.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says organisms "use sudden bright flashes to startle or disorient predators long enough to escape" — the flash does not harm or attract the predator, but it confuses it, giving the prey a window of time. Disorient means to make something temporarily confused about where it is or what is happening.'
+      },
+      {
+        question: 'How does the discovery of bioluminescence in sharks SUPPORT the passage\'s broader argument?',
+        options: [
+          'It proves that bioluminescence evolved from a single origin shared by all fish.',
+          'It shows that sharks are the most recently evolved bioluminescent organisms in the ocean.',
+          'It suggests the ocean holds far more bioluminescent life than scientists have yet catalogued, reinforcing how widespread and underexplored the phenomenon is.',
+          'It contradicts earlier research that said bioluminescence was limited to invertebrates like jellyfish and squid.'
+        ],
+        correctIndex: 2,
+        explanation: 'The shark discovery supports the passage\'s central claim by showing that even well-studied animals had hidden bioluminescent abilities — suggesting the unexplored deep ocean likely contains many more examples. It reinforces the idea that bioluminescence is even more widespread than currently known.'
+      }
+    ]
   }
 
 ];
