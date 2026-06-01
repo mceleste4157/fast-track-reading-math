@@ -162,6 +162,16 @@
     }
     .btn-quiz.just-unlocked { animation: unlock-pulse 0.4s ease; }
 
+    .btn-fav {
+      padding: 10px 13px; border: 2px solid var(--border);
+      border-radius: 10px; background: var(--surface);
+      font-size: 1.15rem; cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s;
+      line-height: 1;
+    }
+    .btn-fav:hover  { border-color: #ef4444; transform: scale(1.1); }
+    .btn-fav.active { border-color: #ef4444; }
+
     /* ── VOCAB WARM-UP OVERLAY ─────────────────────────────────────────── */
     .vocab-overlay {
       position: fixed; inset: 0; z-index: 300;
@@ -261,6 +271,7 @@
   <!-- Bottom bar -->
   <div class="read-bar">
     <div class="bar-hint">👆 Tap <strong>any word</strong> to hear it</div>
+    <button class="btn-fav" id="fav-btn" title="Add to favorites">🤍</button>
     <a class="btn-quiz btn-quiz-locked" id="btn-quiz" href="#">⏳ Quiz in 2:00</a>
   </div>
 
@@ -585,8 +596,31 @@
 
       // Save every 30 seconds so the math gate sees progress without page-exit
       setInterval(saveReadTime, 30000);
-      // Save on exit too (beforeunload)
       window.addEventListener('beforeunload', saveReadTime);
+    })();
+
+    // ─── Favorites ────────────────────────────────────────────────────────────────
+    (function () {
+      const FAV_KEY = 'favorites_' + profile.readerId;
+      const favs = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
+      const btn = document.getElementById('fav-btn');
+
+      function updateBtn() {
+        const on = favs.includes(story.id);
+        btn.textContent = on ? '❤️' : '🤍';
+        btn.classList.toggle('active', on);
+        btn.title = on ? 'Remove from favorites' : 'Add to favorites';
+      }
+      updateBtn();
+
+      btn.addEventListener('click', () => {
+        const idx = favs.indexOf(story.id);
+        if (idx >= 0) favs.splice(idx, 1); else favs.push(story.id);
+        localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+        updateBtn();
+        btn.style.transform = 'scale(1.35)';
+        setTimeout(() => { btn.style.transform = ''; }, 200);
+      });
     })();
   </script>
 </body>

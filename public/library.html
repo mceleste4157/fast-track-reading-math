@@ -170,6 +170,16 @@
       transition: background 0.12s, color 0.12s; flex-shrink: 0;
     }
     .section-toggle:hover { background: #f3f4f6; color: var(--text); border-color: #9ca3af; }
+
+    .filter-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .filter-tab {
+      padding: 8px 16px; border-radius: 99px; font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; border: 2px solid var(--border); background: var(--surface);
+      color: var(--muted); transition: all 0.15s; font-family: inherit;
+    }
+    .filter-tab.active { background: var(--purple); color: #fff; border-color: var(--purple); }
+    .filter-tab:hover:not(.active) { border-color: var(--purple); color: var(--purple); }
+    #fav-empty { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 0.95rem; display: none; }
   </style>
 </head>
 <body>
@@ -177,6 +187,7 @@
     <div class="nav-avatar" id="nav-avatar"></div>
     <div class="nav-name" id="nav-name"></div>
     <div class="nav-stars" id="nav-stars">⭐ 0</div>
+    <a href="spelling.html" class="nav-progress" style="color:var(--purple);">🔤 Spelling</a>
     <a href="vocab.html" class="nav-progress" style="color:var(--purple);">📝 Vocab</a>
     <a href="progress.html" class="nav-progress">My Progress →</a>
   </nav>
@@ -211,6 +222,14 @@
 
     <!-- Math Zone Banner -->
     <div id="math-banner"></div>
+
+    <!-- Filter tabs -->
+    <div class="filter-tabs">
+      <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">📚 All Stories</button>
+      <button class="filter-tab" id="tab-fav" onclick="setFilter('fav')">❤️ Favorites</button>
+    </div>
+    <div class="story-grid" id="grid-favorites" style="display:none;"></div>
+    <div id="fav-empty">No favorites yet — tap 🤍 while reading a story to save it here.</div>
 
     <!-- 🌟 Early Stories Section -->
     <div class="section-header" id="section-header-early" style="display:none;">
@@ -326,7 +345,7 @@
       return `<div class="story-card${doneClass}" onclick="window.location='read.html?story=${story.id}'">
         <div class="card-cover" style="background:${story.coverColor}20;">${story.coverEmoji}</div>
         <div class="card-body">
-          <span class="card-topic ${topicCls}">${label}</span>
+          <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''}
           <div class="card-title">${story.title}</div>
           <div class="card-meta">~${story.readTimeMin} min · ${story.wordCount} words</div>
           ${statusHtml}
@@ -497,8 +516,46 @@
         }
 
         renderGrids();
+        renderFavorites();
       })
-      .catch(() => {}); // keep initial render on error
+      .catch(() => { renderFavorites(); });
+
+    // ─── Favorites filter ──────────────────────────────────────────────────────
+    const FAV_KEY = 'favorites_' + profile.readerId;
+    const ALL_SECTIONS = ['early','emerging','grade4','advanced'];
+
+    function renderFavorites() {
+      const favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
+      const favStories = STORIES.filter(s => favIds.includes(s.id));
+      const grid = document.getElementById('grid-favorites');
+      const empty = document.getElementById('fav-empty');
+      grid.innerHTML = favStories.map(s => buildCard(s, 'btn-read')).join('');
+      empty.style.display = favStories.length === 0 && document.getElementById('tab-fav').classList.contains('active') ? 'block' : 'none';
+      // Re-attach stop-propagation
+      grid.querySelectorAll('.btn-card').forEach(btn => btn.addEventListener('click', e => e.stopPropagation()));
+    }
+
+    function setFilter(mode) {
+      const showFav = mode === 'fav';
+      document.getElementById('tab-all').classList.toggle('active', !showFav);
+      document.getElementById('tab-fav').classList.toggle('active', showFav);
+      document.getElementById('grid-favorites').style.display = showFav ? '' : 'none';
+      const empty = document.getElementById('fav-empty');
+      ALL_SECTIONS.forEach(sec => {
+        const h = document.getElementById('section-header-' + sec);
+        const g = document.getElementById('grid-' + sec);
+        if (h) h.style.display = showFav ? 'none' : '';
+        if (g) g.style.display = showFav ? 'none' : '';
+      });
+      if (showFav) {
+        renderFavorites();
+        const favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
+        const favStories = STORIES.filter(s => favIds.includes(s.id));
+        empty.style.display = favStories.length === 0 ? 'block' : 'none';
+      } else {
+        empty.style.display = 'none';
+      }
+    }
   </script>
 </body>
 </html>

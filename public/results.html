@@ -97,6 +97,54 @@
       animation: pulse-banner 1s ease-in-out infinite alternate;
     }
 
+    /* WEEKLY GOAL BANNER */
+    .goal-banner {
+      background: linear-gradient(135deg,#7c3aed,#10b981); color:#fff;
+      border-radius: 20px; text-align: center; padding: 20px;
+      font-size: 1.1rem; font-weight: 700; margin-bottom: 24px;
+      animation: pulse-banner 1s ease-in-out infinite alternate;
+    }
+
+    /* WRITING PROMPT */
+    .writing-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(124,58,237,0.08);
+      padding: 22px; margin-bottom: 20px;
+    }
+    .writing-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .writing-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+    .writing-textarea {
+      width: 100%; padding: 12px 14px; border: 2px solid var(--border);
+      border-radius: 10px; font-family: inherit; font-size: 0.95rem;
+      resize: vertical; outline: none; transition: border-color 0.15s;
+      line-height: 1.5; min-height: 90px;
+    }
+    .writing-textarea:focus { border-color: var(--purple); }
+    .writing-submit {
+      margin-top: 10px; padding: 10px 22px;
+      background: var(--purple); color: #fff; border: none;
+      border-radius: 10px; font-size: 0.92rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: background 0.15s;
+    }
+    .writing-submit:hover { background: #6d28d9; }
+
+    /* ADAPTIVE SUGGESTION */
+    .adaptive-card {
+      background: var(--blue-soft); border: 2px solid var(--blue);
+      border-radius: var(--radius); padding: 18px 20px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .adaptive-emoji { font-size: 2.2rem; flex-shrink: 0; }
+    .adaptive-body { flex: 1; min-width: 0; }
+    .adaptive-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue); margin-bottom: 3px; }
+    .adaptive-title { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+    .adaptive-meta  { font-size: 0.82rem; color: var(--muted); }
+    .adaptive-btn {
+      flex-shrink: 0; padding: 9px 16px; background: var(--blue); color: #fff;
+      border-radius: 10px; font-size: 0.88rem; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+    }
+
     /* CSS Confetti */
     @keyframes confetti-fall {
       0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
@@ -124,6 +172,11 @@
       <div style="font-size:2.6rem;margin-bottom:6px;" id="level-up-emoji">⭐</div>
       <div style="font-size:1.7rem;font-weight:800;letter-spacing:0.02em;">LEVEL UP!</div>
       <div style="font-size:1.1rem;font-weight:700;opacity:0.92;margin-top:4px;" id="level-up-name"></div>
+    </div>
+
+    <!-- Weekly goal banner -->
+    <div id="goal-banner" style="display:none;" class="goal-banner">
+      🎯 Weekly goal complete! You hit your reading goal this week!
     </div>
 
     <!-- Streak banner -->
@@ -170,6 +223,28 @@
     <div class="answers-card">
       <h3>Your Answers</h3>
       <div id="answers-list"></div>
+    </div>
+
+    <!-- Writing prompt -->
+    <div class="writing-card" id="writing-card">
+      <h3>✍️ Reflect on What You Read</h3>
+      <p id="writing-prompt-text"></p>
+      <textarea class="writing-textarea" id="writing-response" placeholder="Write your thoughts here…"></textarea>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap;">
+        <button class="writing-submit" id="writing-submit">Submit Response</button>
+        <div id="writing-status" style="font-size:0.85rem;font-weight:600;min-height:1.2em;"></div>
+      </div>
+    </div>
+
+    <!-- Adaptive suggestion (low score) -->
+    <div class="adaptive-card" id="adaptive-card" style="display:none;">
+      <div class="adaptive-emoji" id="adaptive-emoji">📖</div>
+      <div class="adaptive-body">
+        <div class="adaptive-label">Try this next</div>
+        <div class="adaptive-title" id="adaptive-title"></div>
+        <div class="adaptive-meta" id="adaptive-meta"></div>
+      </div>
+      <a class="adaptive-btn" id="adaptive-link" href="#">Read →</a>
     </div>
 
     <div class="btn-row">
@@ -399,6 +474,14 @@
       const storiesThisWeek = (isNewWeek ? 0 : (sd.storiesThisWeek || 0)) + 1;
       const mathThisWeek    = isNewWeek ? 0 : (sd.mathThisWeek || 0);
 
+      // Weekly goal celebration
+      const weeklyGoal = profile.weeklyGoalStories || 3;
+      const prevWeekStories = isNewWeek ? 0 : (sd.storiesThisWeek || 0);
+      if (storiesThisWeek >= weeklyGoal && prevWeekStories < weeklyGoal) {
+        document.getElementById('goal-banner').style.display = 'block';
+        if (!isPerfect && newLvlData.levelIdx <= oldLvlData.levelIdx) startConfetti();
+      }
+
       // ── Badges ─────────────────────────────────────────────────────────────
       const currentBadges = sd.badges || [];
       const storiesRead = uniqueStories.has(result.storyId) ? uniqueStories.size : uniqueStories.size + 1;
@@ -465,6 +548,73 @@
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(err => console.error('Firestore write failed:', err));
     }
+
+    // ─── Writing prompt ────────────────────────────────────────────────────────
+    (function () {
+      const literaryTopics = new Set(['character','perspective','folktale','adventure']);
+      const prompt = literaryTopics.has(story.topic)
+        ? 'In 2–3 sentences, describe how the main character changed from the beginning to the end of this story.'
+        : 'What is the most interesting fact or idea from this passage? Explain why it stood out to you.';
+      document.getElementById('writing-prompt-text').textContent = prompt;
+
+      document.getElementById('writing-textarea') && document.getElementById('writing-response').addEventListener('focus', function() {
+        this.style.borderColor = 'var(--purple)';
+      });
+      document.getElementById('writing-response').addEventListener('blur', function() {
+        this.style.borderColor = 'var(--border)';
+      });
+
+      document.getElementById('writing-submit').addEventListener('click', function() {
+        const text = document.getElementById('writing-response').value.trim();
+        const status = document.getElementById('writing-status');
+        if (!text) { status.style.color = 'var(--red)'; status.textContent = 'Write something first!'; return; }
+        this.disabled = true; this.textContent = 'Saving…';
+        db.collection('WritingResponses').add({
+          readerId:   profile.readerId,
+          readerName: profile.name,
+          storyId:    story.id,
+          storyTitle: story.title,
+          prompt:     prompt,
+          response:   text,
+          stars:      stars,
+          date:       todayStr,
+          timestamp:  firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+          status.style.color = 'var(--green)'; status.textContent = '✅ Saved!';
+          this.textContent = 'Submitted ✓'; this.style.background = 'var(--green)';
+        }).catch(() => {
+          status.style.color = 'var(--red)'; status.textContent = 'Could not save — try again.';
+          this.disabled = false; this.textContent = 'Submit Response';
+        });
+      });
+    })();
+
+    // ─── Adaptive suggestion (shown when score < 3 stars) ─────────────────────
+    (function () {
+      if (stars >= 3) return;
+      const grade = parseInt(profile.gradeLevel) || 4;
+      const FAV_KEY = 'favorites_' + profile.readerId;
+      db.collection('Progress').where('readerId', '==', profile.readerId).get().then(snap => {
+        const read = new Set();
+        snap.forEach(d => read.add(d.data().storyId));
+        const suggestion = STORIES.find(s =>
+          s.id !== story.id &&
+          !read.has(s.id) &&
+          s.topic === story.topic &&
+          Array.isArray(s.grades) && s.grades.includes(grade)
+        ) || STORIES.find(s =>
+          s.id !== story.id &&
+          !read.has(s.id) &&
+          Array.isArray(s.grades) && s.grades.includes(grade)
+        );
+        if (!suggestion) return;
+        document.getElementById('adaptive-emoji').textContent = suggestion.coverEmoji;
+        document.getElementById('adaptive-title').textContent = suggestion.title;
+        document.getElementById('adaptive-meta').textContent  = '~' + suggestion.readTimeMin + ' min · ' + suggestion.wordCount + ' words';
+        document.getElementById('adaptive-link').href = 'read.html?story=' + suggestion.id;
+        document.getElementById('adaptive-card').style.display = 'flex';
+      }).catch(() => {});
+    })();
 
     // Confetti
     function startConfetti() {

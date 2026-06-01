@@ -314,6 +314,22 @@
         </div>
       </div>
 
+      <!-- Quiz Score Progress Graph -->
+      <div class="section">
+        <div class="section-title">📈 Quiz Score Trend</div>
+        <div class="section-sub">Reading quiz scores over time — most recent 15 attempts</div>
+        <div id="score-graph" style="padding:12px 0;">
+          <div class="loading">Loading…</div>
+        </div>
+      </div>
+
+      <!-- Writing Responses -->
+      <div class="section" id="writing-section" style="display:none;">
+        <div class="section-title">✍️ Writing Responses</div>
+        <div class="section-sub">Your child's written reflections after reading quizzes</div>
+        <div id="writing-list"></div>
+      </div>
+
       <!-- Reading Log (printable) -->
       <div class="section">
         <div class="section-title">📋 Reading Log</div>
@@ -331,6 +347,8 @@
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
+    function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
     // ─── URL param support + auth guard ───────────────────────────────────────
     const params = new URLSearchParams(location.search);
     const STUDENT_ID = params.get('student') || 'leo-school-2024-fixed';
@@ -809,6 +827,52 @@
             </table>`;
           }
         }
+
+        // ── Quiz score trend graph ─────────────────────────────────────────────
+        const graphEl = document.getElementById('score-graph');
+        const graphDocs = [...readDocs].sort((a, b) =>
+          (a.completedAt?.toMillis?.() || 0) - (b.completedAt?.toMillis?.() || 0)
+        ).slice(-15);
+        if (graphDocs.length === 0) {
+          graphEl.innerHTML = '<div class="empty-state">No quiz attempts yet.</div>';
+        } else {
+          const maxScore = 5;
+          graphEl.innerHTML = `<div style="display:flex;align-items:flex-end;gap:6px;height:120px;padding:0 4px;">
+            ${graphDocs.map(d => {
+              const pct  = Math.round(((d.quizScore || 0) / maxScore) * 100);
+              const color = d.quizScore >= 4 ? '#10b981' : d.quizScore >= 3 ? '#f59e0b' : '#ef4444';
+              const s = storyMap[d.storyId];
+              const label = s ? s.title.split(':')[0].substring(0, 14) : 'Story';
+              const date  = formatDate(d.completedAt);
+              return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;" title="${label} — ${d.quizScore}/${maxScore} (${date})">
+                <div style="font-size:0.7rem;font-weight:800;color:${color};">${d.quizScore}/${maxScore}</div>
+                <div style="width:100%;height:${pct}%;background:${color};border-radius:6px 6px 0 0;min-height:4px;transition:height 0.6s;"></div>
+                <div style="font-size:0.6rem;color:#9ca3af;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;text-align:center;">${label}</div>
+              </div>`;
+            }).join('')}
+          </div>
+          <div style="display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:5px;font-size:0.78rem;font-weight:600;color:#6b7280;"><div style="width:12px;height:12px;border-radius:3px;background:#10b981;"></div> 4–5 stars</div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:0.78rem;font-weight:600;color:#6b7280;"><div style="width:12px;height:12px;border-radius:3px;background:#f59e0b;"></div> 3 stars</div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:0.78rem;font-weight:600;color:#6b7280;"><div style="width:12px;height:12px;border-radius:3px;background:#ef4444;"></div> 1–2 stars</div>
+          </div>`;
+        }
+
+        // ── Writing responses ──────────────────────────────────────────────────
+        firebase.firestore().collection('WritingResponses')
+          .where('readerId', '==', STUDENT_ID).get().then(wSnap => {
+            if (wSnap.empty) return;
+            document.getElementById('writing-section').style.display = 'block';
+            const docs = wSnap.docs.map(d => d.data())
+              .sort((a, b) => (b.timestamp?.toMillis?.() || 0) - (a.timestamp?.toMillis?.() || 0));
+            document.getElementById('writing-list').innerHTML = docs.map(w =>
+              `<div style="background:#f9fafb;border-radius:12px;padding:14px 16px;margin-bottom:12px;border-left:4px solid var(--purple);">
+                <div style="font-size:0.78rem;font-weight:700;color:#6b7280;margin-bottom:4px;">${w.storyTitle || w.storyId} · ${formatDate(w.timestamp)}</div>
+                <div style="font-size:0.82rem;color:#6b7280;font-style:italic;margin-bottom:6px;">${escHtml(w.prompt || '')}</div>
+                <div style="font-size:0.93rem;line-height:1.5;">${escHtml(w.response || '')}</div>
+              </div>`
+            ).join('');
+          }).catch(() => {});
 
       }).catch(err => {
         console.error('Parent dashboard Firestore error:', err);

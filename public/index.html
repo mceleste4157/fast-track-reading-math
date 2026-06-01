@@ -670,6 +670,70 @@
       document.getElementById('xp-label').textContent = '0 XP';
     });
 
+    // ─── Schedule enforcement ──────────────────────────────────────────────────
+    (function () {
+      if (!profile) return;
+      const activeDays = profile.activeDays;
+      if (!Array.isArray(activeDays) || activeDays.length === 7) return; // all days = no restriction
+      const todayDay = new Date().getDay(); // 0=Sun…6=Sat
+      if (activeDays.includes(todayDay)) return;
+      const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const nextActive = [1,2,3,4,5,6,7].map(d => (todayDay + d) % 7).find(d => activeDays.includes(d));
+      const nextName = nextActive !== undefined ? DAY_NAMES[nextActive] : 'soon';
+      document.querySelector('.page').style.display = 'none';
+      const screen = document.createElement('div');
+      screen.style.cssText = 'min-height:calc(100vh - 60px);display:flex;align-items:center;justify-content:center;padding:24px;';
+      screen.innerHTML = `<div style="background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.1);padding:40px 32px;max-width:380px;width:100%;text-align:center;">
+        <div style="font-size:3rem;margin-bottom:12px;">📅</div>
+        <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:8px;">Not available today</h2>
+        <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">Your parent set FAST Track to be available on specific days. Come back on <strong>${nextName}</strong>!</p>
+        <a href="login.html" style="color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">← Switch user</a>
+      </div>`;
+      document.body.appendChild(screen);
+    })();
+
+    // ─── Daily screen-time enforcement ─────────────────────────────────────────
+    (function () {
+      if (!profile) return;
+      const limitMins = profile.dailyScreenMins || 0;
+      if (!limitMins) return;
+      const KEY_DATE  = 'screenDate_' + profile.readerId;
+      const KEY_SECS  = 'screenSecs_' + profile.readerId;
+      const todayStr  = new Date().toISOString().slice(0, 10);
+      if (localStorage.getItem(KEY_DATE) !== todayStr) {
+        localStorage.setItem(KEY_DATE, todayStr);
+        localStorage.setItem(KEY_SECS, '0');
+      }
+      let secsUsed  = parseInt(localStorage.getItem(KEY_SECS) || '0');
+      const limitSecs = limitMins * 60;
+
+      function showTimesUp() {
+        document.querySelector('.page').style.display = 'none';
+        if (document.getElementById('times-up-screen')) return;
+        const screen = document.createElement('div');
+        screen.id = 'times-up-screen';
+        screen.style.cssText = 'min-height:calc(100vh - 60px);display:flex;align-items:center;justify-content:center;padding:24px;';
+        screen.innerHTML = `<div style="background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.1);padding:40px 32px;max-width:380px;width:100%;text-align:center;">
+          <div style="font-size:3rem;margin-bottom:12px;">⏰</div>
+          <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:8px;">Time's up for today!</h2>
+          <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;margin-bottom:20px;">You've used your ${limitMins}-minute daily limit. Great work today — see you tomorrow!</p>
+          <a href="login.html" style="color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">← Switch user</a>
+        </div>`;
+        document.body.appendChild(screen);
+      }
+
+      if (secsUsed >= limitSecs) { showTimesUp(); return; }
+
+      const pageStart = Date.now();
+      function tick() {
+        secsUsed = parseInt(localStorage.getItem(KEY_SECS) || '0') + Math.floor((Date.now() - pageStart) / 1000);
+        localStorage.setItem(KEY_SECS, secsUsed.toString());
+        if (secsUsed >= limitSecs) showTimesUp();
+      }
+      setInterval(tick, 30000);
+      window.addEventListener('beforeunload', tick);
+    })();
+
     // ─── Secret math unlock: tap "!" three times within 800ms ─────────────────
     (function () {
       let taps = 0, timer = null;

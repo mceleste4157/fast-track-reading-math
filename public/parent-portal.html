@@ -36,6 +36,15 @@
     }
     .btn-signout:hover { border-color: var(--red); color: var(--red); }
 
+    .day-chip { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+    .day-chip input { display: none; }
+    .day-chip span {
+      padding: 6px 12px; border-radius: 99px; font-size: 0.82rem; font-weight: 700;
+      border: 2px solid var(--border); background: #f3f4f6; color: var(--muted);
+      transition: all 0.12s; user-select: none;
+    }
+    .day-chip input:checked + span { background: var(--purple); color: #fff; border-color: var(--purple); }
+
     .btn-whats-new {
       padding: 7px 14px; border: 2px solid var(--purple-soft);
       border-radius: 10px; background: var(--purple-soft);
@@ -533,6 +542,36 @@
         </div>
       </div>
 
+      <!-- Screen Time & Schedule -->
+      <div style="margin-top:8px;padding-top:16px;border-top:1px solid var(--border);">
+        <div style="font-size:0.82rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px;">⏰ Screen Time & Schedule</div>
+
+        <div class="form-group">
+          <label for="f-screen-mins">Daily screen time limit (all modules combined)</label>
+          <select id="f-screen-mins" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+            <option value="0">No daily limit</option>
+            <option value="30">30 minutes per day</option>
+            <option value="45">45 minutes per day</option>
+            <option value="60" selected>60 minutes per day — Recommended ⭐</option>
+            <option value="90">90 minutes per day</option>
+            <option value="120">2 hours per day</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Days app is available</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;" id="days-chips">
+            <label class="day-chip"><input type="checkbox" name="day" value="0" checked><span>Sun</span></label>
+            <label class="day-chip"><input type="checkbox" name="day" value="1" checked><span>Mon</span></label>
+            <label class="day-chip"><input type="checkbox" name="day" value="2" checked><span>Tue</span></label>
+            <label class="day-chip"><input type="checkbox" name="day" value="3" checked><span>Wed</span></label>
+            <label class="day-chip"><input type="checkbox" name="day" value="4" checked><span>Thu</span></label>
+            <label class="day-chip"><input type="checkbox" name="day" value="5" checked><span>Fri</span></label>
+            <label class="day-chip"><input type="checkbox" name="day" value="6" checked><span>Sat</span></label>
+          </div>
+        </div>
+      </div>
+
       <!-- Advanced (legacy ID) -->
       <button type="button" class="advanced-toggle" id="advanced-toggle">
         <span id="advanced-arrow">▶</span> Advanced options
@@ -549,6 +588,20 @@
         <button type="button" class="btn-cancel-form" id="form-cancel-btn">Cancel</button>
         <button type="button" class="btn-submit" id="form-submit-btn">Save Child</button>
       </div>
+    </div>
+
+    <!-- Sibling Comparison -->
+    <div id="compare-section" style="display:none;margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+      <div class="section-heading">📊 Compare All Children</div>
+      <div id="compare-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:4px;"></div>
+    </div>
+
+    <!-- Email Digest -->
+    <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+      <div class="section-heading">📧 Weekly Summary</div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;">Get a snapshot of all your children's progress sent to your email.</p>
+      <button id="email-digest-btn" style="padding:11px 22px;background:var(--blue);color:#fff;border:none;border-radius:11px;font-size:0.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.15s;">📧 Send Me a Summary</button>
+      <div id="digest-status" style="font-size:0.85rem;font-weight:600;margin-top:10px;min-height:1.2em;"></div>
     </div>
 
     <!-- Suggestion Box -->
@@ -955,7 +1008,9 @@
               mathUnlockScore:   kid.mathUnlockScore   ?? 3,
               dailyReadMinutes:  kid.dailyReadMinutes  ?? 30,
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
-              readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on')
+              readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on'),
+              dailyScreenMins:   kid.dailyScreenMins  ?? 60,
+              activeDays:        kid.activeDays        ?? [0,1,2,3,4,5,6]
             }));
             window.location.href = 'index.html';
           }
@@ -980,6 +1035,7 @@
 
         area.innerHTML = '';
         area.appendChild(grid);
+        loadCompare(children);
       });
     }
 
@@ -1063,6 +1119,11 @@
       document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 30;
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
       document.getElementById('f-read-aloud').value   = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
+      document.getElementById('f-screen-mins').value  = child.dailyScreenMins ?? 60;
+      const activeDays = child.activeDays ?? [0,1,2,3,4,5,6];
+      document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => {
+        cb.checked = activeDays.includes(parseInt(cb.value));
+      });
 
       // Mark selected chips/swatches
       document.querySelectorAll('.emoji-chip').forEach(c => {
@@ -1113,7 +1174,9 @@
       const mathUnlockScore   = parseInt(document.getElementById('f-math-unlock').value);
       const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
       const dailyMathMinutes  = parseInt(document.getElementById('f-math-mins').value);
-      const readAloudMode  = document.getElementById('f-read-aloud').value; // 'on' | 'words' | 'off'
+      const readAloudMode  = document.getElementById('f-read-aloud').value;
+      const dailyScreenMins = parseInt(document.getElementById('f-screen-mins').value) || 0;
+      const activeDays = Array.from(document.querySelectorAll('#days-chips input[name="day"]:checked')).map(cb => parseInt(cb.value));
       const errEl    = document.getElementById('form-error');
       errEl.style.display = 'none';
 
@@ -1137,6 +1200,8 @@
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
           readAloudMode:     readAloudMode,
+          dailyScreenMins:   dailyScreenMins,
+          activeDays:        activeDays,
           timestamp:         firebase.firestore.FieldValue.serverTimestamp()
         };
         // Only update readerId if legacyId provided and different
@@ -1165,6 +1230,8 @@
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
           readAloudMode:     readAloudMode,
+          dailyScreenMins:   dailyScreenMins,
+          activeDays:        activeDays,
           parentUid:         currentUser.uid,
           readerId:          legacyId || '', // filled in after .add() if blank
           createdAt:   firebase.firestore.FieldValue.serverTimestamp(),
@@ -1410,6 +1477,94 @@
       toggle.textContent = showArchived ? '← Show Active (' + activeCount + ')' : '📦 Show Archived (' + archivedCount + ')';
       toggle.onclick = () => { showArchived = !showArchived; loadAdminSuggestions(); };
     }
+
+    // ── Sibling comparison ─────────────────────────────────────────────────────
+    const LEVELS_PP = [
+      { name:'Bookworm',minXp:0,emoji:'📖'},{name:'Reader',minXp:100,emoji:'📚'},
+      {name:'Word Hunter',minXp:200,emoji:'🔍'},{name:'Explorer',minXp:300,emoji:'🗺️'},
+      {name:'Thinker',minXp:450,emoji:'🧠'},{name:'Scholar',minXp:600,emoji:'🎓'},
+      {name:'Achiever',minXp:800,emoji:'⚡'},{name:'Champion',minXp:1000,emoji:'🏆'},
+      {name:'Super Reader',minXp:1500,emoji:'🌟'},{name:'Eagle Eye',minXp:1850,emoji:'🦅'},
+      {name:'Story Master',minXp:2200,emoji:'🚀'},{name:'Prodigy',minXp:2600,emoji:'💎'},
+      {name:'Summer Hero',minXp:3000,emoji:'☀️'},{name:'Grand Master',minXp:3500,emoji:'👑'},
+      {name:'FAST Legend',minXp:4000,emoji:'🌈'}
+    ];
+    function getLevelPP(xp) {
+      let idx = 0;
+      LEVELS_PP.forEach((l, i) => { if (xp >= l.minXp) idx = i; });
+      return LEVELS_PP[idx];
+    }
+
+    function loadCompare(children) {
+      if (children.length < 2) return;
+      const section = document.getElementById('compare-section');
+      const grid    = document.getElementById('compare-grid');
+      section.style.display = 'block';
+      const promises = children.map(child =>
+        Promise.all([
+          db.collection('Progress').where('readerId','==',child.readerId).get(),
+          db.collection('MathProgress').where('readerId','==',child.readerId).get(),
+          db.collection('StudentStats').doc(child.readerId).get()
+        ]).then(([r, m, s]) => {
+          let xp = 0;
+          r.forEach(d => xp += (d.data().xpEarned || 0));
+          m.forEach(d => xp += (d.data().xpEarned || 0));
+          const stats = s.exists ? s.data() : {};
+          return { child, xp, streak: stats.currentStreak || 0, storiesWeek: stats.storiesThisWeek || 0 };
+        }).catch(() => ({ child, xp: 0, streak: 0, storiesWeek: 0 }))
+      );
+      Promise.all(promises).then(results => {
+        grid.innerHTML = results.map(({ child, xp, streak, storiesWeek }) => {
+          const lvl   = getLevelPP(xp);
+          const color = child.avatarColor || '#7c3aed';
+          const emoji = child.avatarEmoji || child.name.charAt(0).toUpperCase();
+          const goal  = child.weeklyGoalStories || 3;
+          const pct   = Math.min(100, Math.round((storiesWeek / goal) * 100));
+          return `<div style="background:var(--surface);border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <div style="width:40px;height:40px;border-radius:50%;background:${escHtml(color)};display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;flex-shrink:0;">${escHtml(emoji)}</div>
+              <div>
+                <div style="font-weight:800;font-size:0.95rem;">${escHtml(child.name)}</div>
+                <div style="font-size:0.78rem;color:var(--muted);">Grade ${escHtml(String(child.gradeLevel || ''))}</div>
+              </div>
+            </div>
+            <div style="font-size:0.82rem;color:var(--purple);font-weight:700;margin-bottom:4px;">${lvl.emoji} ${lvl.name} · ${xp} XP</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-bottom:8px;">🔥 ${streak}-day streak</div>
+            <div style="font-size:0.75rem;font-weight:700;color:var(--muted);margin-bottom:4px;">Weekly goal: ${storiesWeek}/${goal} stories</div>
+            <div style="height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden;">
+              <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--purple),var(--blue));border-radius:99px;transition:width 0.8s;"></div>
+            </div>
+          </div>`;
+        }).join('');
+      });
+    }
+
+    // ── Email digest ───────────────────────────────────────────────────────────
+    document.getElementById('email-digest-btn').addEventListener('click', () => {
+      const btn = document.getElementById('email-digest-btn');
+      const status = document.getElementById('digest-status');
+      btn.disabled = true; btn.textContent = 'Gathering data…';
+      db.collection('StudentProfiles').where('parentUid','==',currentUser.uid).get().then(snap => {
+        if (snap.empty) { btn.disabled = false; btn.textContent = '📧 Send Me a Summary'; return; }
+        const children = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        const statsPromises = children.map(c =>
+          db.collection('StudentStats').doc(c.readerId).get()
+            .then(s => ({ child: c, stats: s.exists ? s.data() : {} }))
+            .catch(() => ({ child: c, stats: {} }))
+        );
+        Promise.all(statsPromises).then(results => {
+          const lines = results.map(({ child, stats }) =>
+            `${child.name} (Grade ${child.gradeLevel}): ${stats.storiesThisWeek || 0} stories this week, ${stats.currentStreak || 0}-day streak`
+          ).join('\n');
+          const subject = encodeURIComponent('FAST Track Weekly Summary');
+          const body = encodeURIComponent('Here is your FAST Track progress summary:\n\n' + lines + '\n\nKeep up the great work!');
+          window.location.href = 'mailto:' + currentUser.email + '?subject=' + subject + '&body=' + body;
+          btn.disabled = false; btn.textContent = '📧 Send Me a Summary';
+          status.style.color = 'var(--green)'; status.textContent = '✅ Opening your email app…';
+          setTimeout(() => status.textContent = '', 4000);
+        });
+      }).catch(() => { btn.disabled = false; btn.textContent = '📧 Send Me a Summary'; });
+    });
   </script>
 </body>
 </html>

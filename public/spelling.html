@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spelling Practice – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #fff7ed 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-back { text-decoration: none; color: var(--purple); font-weight: 700; font-size: 0.95rem; }
+    .nav-title { font-weight: 800; font-size: 1.1rem; flex: 1; text-align: center; }
+
+    .page { max-width: 560px; margin: 0 auto; padding: 32px 16px 80px; }
+
+    .hero {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      border-radius: 20px; padding: 24px 28px; color: #fff;
+      margin-bottom: 28px; display: flex; align-items: center; gap: 18px;
+    }
+    .hero-icon { font-size: 3rem; flex-shrink: 0; }
+    .hero-body h1 { font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
+    .hero-body p  { font-size: 0.9rem; opacity: 0.88; }
+
+    /* Card */
+    .card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(124,58,237,0.1);
+      padding: 28px; margin-bottom: 20px;
+    }
+
+    /* Progress bar */
+    .prog-wrap { margin-bottom: 20px; }
+    .prog-label { font-size: 0.8rem; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+    .prog-bar { height: 8px; background: #e5e7eb; border-radius: 99px; overflow: hidden; }
+    .prog-fill { height: 100%; background: linear-gradient(90deg, var(--purple), #2563eb); border-radius: 99px; transition: width 0.4s; }
+
+    /* Word card */
+    .word-num { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 12px; }
+    .definition { font-size: 1.05rem; line-height: 1.6; margin-bottom: 8px; font-weight: 600; }
+    .example    { font-size: 0.88rem; color: var(--muted); font-style: italic; margin-bottom: 22px; line-height: 1.5; }
+
+    .spell-input {
+      width: 100%; padding: 14px 16px; font-size: 1.2rem; font-weight: 700;
+      border: 3px solid var(--border); border-radius: 12px;
+      font-family: inherit; text-align: center; outline: none;
+      transition: border-color 0.15s; letter-spacing: 0.04em;
+    }
+    .spell-input:focus { border-color: var(--purple); }
+    .spell-input.correct { border-color: var(--green); background: var(--green-soft); }
+    .spell-input.wrong   { border-color: var(--red);   background: var(--red-soft); }
+
+    .feedback {
+      text-align: center; font-size: 1rem; font-weight: 800;
+      margin: 14px 0; min-height: 1.4em;
+    }
+    .feedback.correct { color: var(--green); }
+    .feedback.wrong   { color: var(--red); }
+
+    .hint-btn {
+      background: none; border: none; color: var(--muted); font-size: 0.85rem;
+      font-weight: 600; cursor: pointer; font-family: inherit; margin-top: 8px;
+      text-decoration: underline;
+    }
+    .hint-btn:hover { color: var(--purple); }
+
+    .submit-btn {
+      width: 100%; padding: 14px; background: var(--purple); color: #fff;
+      border: none; border-radius: 12px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; margin-top: 14px;
+      transition: background 0.15s;
+    }
+    .submit-btn:hover { background: #6d28d9; }
+    .submit-btn:disabled { background: #9ca3af; cursor: not-allowed; }
+
+    /* Hear word button */
+    .hear-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--purple-soft); color: var(--purple);
+      border: none; border-radius: 10px; padding: 8px 14px;
+      font-size: 0.85rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; margin-bottom: 16px;
+    }
+    .hear-btn:hover { background: var(--purple); color: #fff; }
+
+    /* Results */
+    .results-card { text-align: center; }
+    .results-score { font-size: 3.5rem; font-weight: 800; color: var(--purple); }
+    .results-label { font-size: 1rem; color: var(--muted); margin-bottom: 24px; }
+    .results-breakdown { text-align: left; }
+    .result-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-word { font-weight: 800; flex: 1; }
+    .result-answer { color: var(--muted); flex: 1; font-size: 0.85rem; }
+
+    .play-again-btn {
+      width: 100%; padding: 14px; background: var(--purple); color: #fff;
+      border: none; border-radius: 12px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; margin-top: 20px;
+      transition: background 0.15s;
+    }
+    .play-again-btn:hover { background: #6d28d9; }
+
+    .empty-state { text-align: center; padding: 48px 20px; color: var(--muted); }
+    .empty-state div { font-size: 2.5rem; margin-bottom: 12px; }
+    .spinner {
+      width: 36px; height: 36px; border: 4px solid #e5e7eb;
+      border-top-color: var(--purple); border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 40px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.08)} 100%{transform:scale(1)} }
+    .pop { animation: pop 0.25s ease; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="library.html" class="nav-back">← Library</a>
+    <div class="nav-title">🔤 Spelling Practice</div>
+  </nav>
+
+  <div class="page">
+    <div class="hero">
+      <div class="hero-icon">🔤</div>
+      <div class="hero-body">
+        <h1>Spelling Practice</h1>
+        <p>Words from stories you've read — read the definition and spell the word!</p>
+      </div>
+    </div>
+
+    <div id="main-content"><div class="spinner"></div></div>
+  </div>
+
+  <script src="stories.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'index.html'; }
+
+    const db = firebase.firestore();
+    const content = document.getElementById('main-content');
+
+    let words = [], idx = 0, score = 0, attempts = [];
+
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    db.collection('Progress').where('readerId', '==', profile.readerId).get().then(snap => {
+      const readIds = new Set();
+      snap.forEach(d => readIds.add(d.data().storyId));
+
+      // Pull vocab from completed stories
+      const vocabPool = [];
+      STORIES.forEach(story => {
+        if (!readIds.has(story.id)) return;
+        (story.vocabulary || []).forEach(v => {
+          vocabPool.push({ word: v.word, definition: v.definition, example: v.example, storyTitle: story.title });
+        });
+      });
+
+      if (vocabPool.length === 0) {
+        content.innerHTML = `<div class="empty-state">
+          <div>📖</div>
+          <p style="font-weight:700;font-size:1rem;margin-bottom:8px;">No vocab words yet!</p>
+          <p>Complete a reading quiz first — vocab words from each story will appear here for spelling practice.</p>
+          <a href="library.html" style="display:inline-block;margin-top:16px;padding:12px 24px;background:var(--purple);color:#fff;border-radius:12px;font-weight:700;text-decoration:none;">📚 Go Read a Story</a>
+        </div>`;
+        return;
+      }
+
+      // Pick up to 10 random words
+      words = shuffle(vocabPool).slice(0, 10);
+      renderWord();
+    }).catch(() => {
+      content.innerHTML = `<div class="empty-state"><div>⚠️</div><p>Could not load your progress. Try again.</p></div>`;
+    });
+
+    function renderWord() {
+      if (idx >= words.length) { renderResults(); return; }
+      const w = words[idx];
+      const pct = Math.round((idx / words.length) * 100);
+
+      content.innerHTML = `
+        <div class="prog-wrap">
+          <div class="prog-label">Word ${idx + 1} of ${words.length}</div>
+          <div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div>
+        </div>
+        <div class="card">
+          <div class="word-num">From: ${escHtml(w.storyTitle)}</div>
+          <div class="definition">${escHtml(w.definition)}</div>
+          <div class="example">"${escHtml(w.example)}"</div>
+          <button class="hear-btn" id="hear-btn">🔊 Hear the definition</button>
+          <input class="spell-input" id="spell-input" type="text" placeholder="Type the word here…" autocomplete="off" autocorrect="off" spellcheck="false" />
+          <div class="feedback" id="feedback"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button class="hint-btn" id="hint-btn">💡 Show a hint</button>
+            <span id="hint-text" style="font-size:0.85rem;color:var(--purple);font-weight:700;"></span>
+          </div>
+          <button class="submit-btn" id="submit-btn">Check Spelling →</button>
+        </div>`;
+
+      const input   = document.getElementById('spell-input');
+      const feedback = document.getElementById('feedback');
+      const submitBtn = document.getElementById('submit-btn');
+      let answered = false;
+      let hint = 0;
+
+      input.focus();
+
+      document.getElementById('hear-btn').addEventListener('click', () => {
+        if (!window.speechSynthesis) return;
+        speechSynthesis.cancel();
+        speechSynthesis.speak(new SpeechSynthesisUtterance(w.definition));
+      });
+
+      document.getElementById('hint-btn').addEventListener('click', () => {
+        hint++;
+        const letters = w.word.split('');
+        const shown = letters.map((c, i) => i < hint * 2 ? c : '_').join(' ');
+        document.getElementById('hint-text').textContent = shown;
+        document.getElementById('hint-btn').textContent = hint * 2 >= letters.length ? '✓ Full word shown' : '💡 More hint';
+        if (hint * 2 >= letters.length) document.getElementById('hint-btn').disabled = true;
+      });
+
+      function check() {
+        if (answered) { idx++; renderWord(); return; }
+        const val = input.value.trim().toLowerCase();
+        const correct = val === w.word.toLowerCase();
+        answered = true;
+        attempts.push({ word: w.word, answer: input.value.trim(), correct, hint: hint > 0 });
+        if (correct && hint === 0) score++;
+
+        input.classList.add(correct ? 'correct' : 'wrong');
+        input.classList.add('pop');
+        feedback.textContent = correct ? '✅ Correct!' + (hint > 0 ? ' (with hint)' : ' +1 point') : `❌ The word was: ${w.word}`;
+        feedback.className   = 'feedback ' + (correct ? 'correct' : 'wrong');
+        submitBtn.textContent = idx + 1 >= words.length ? 'See Results →' : 'Next Word →';
+        input.disabled = true;
+      }
+
+      submitBtn.addEventListener('click', check);
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+    }
+
+    function renderResults() {
+      const pct = Math.round((score / words.length) * 100);
+      const emoji = pct === 100 ? '🏆' : pct >= 80 ? '⭐' : pct >= 60 ? '👍' : '📖';
+      const msg   = pct === 100 ? 'Perfect! Outstanding spelling!' : pct >= 80 ? 'Great job!' : pct >= 60 ? 'Good effort — keep practicing!' : 'Keep reading to build your vocabulary!';
+
+      content.innerHTML = `
+        <div class="card results-card">
+          <div style="font-size:3rem;margin-bottom:8px;">${emoji}</div>
+          <div class="results-score">${score}/${words.length}</div>
+          <div class="results-label">${msg}</div>
+          <div class="results-breakdown">
+            ${attempts.map(a => `
+              <div class="result-row">
+                <span class="result-word">${a.correct ? '✅' : '❌'} ${escHtml(a.word)}</span>
+                <span class="result-answer">${a.correct ? 'Correct' : 'You wrote: ' + escHtml(a.answer || '—')}${a.hint ? ' (used hint)' : ''}</span>
+              </div>`).join('')}
+          </div>
+          <button class="play-again-btn" id="play-again">🔄 Practice Again</button>
+        </div>`;
+
+      document.getElementById('play-again').addEventListener('click', () => {
+        idx = 0; score = 0; attempts = [];
+        words = shuffle(words);
+        renderWord();
+      });
+    }
+
+    function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  </script>
+</body>
+</html>

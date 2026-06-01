@@ -3945,6 +3945,122 @@ The ocean has been making its own light for hundreds of millions of years. We ar
         explanation: 'The shark discovery supports the passage\'s central claim by showing that even well-studied animals had hidden bioluminescent abilities — suggesting the unexplored deep ocean likely contains many more examples. It reinforces the idea that bioluminescence is even more widespread than currently known.'
       }
     ]
+  },
+
+  // ── PAIRED PASSAGE ── ELA.4.R.1.3 + ELA.4.R.2.3 (compare perspectives) | FAST format
+  {
+    id: 'springs-paired',
+    title: 'Two Views of a Florida Spring — Paired Passages',
+    topic: 'florida-nature',
+    coverEmoji: '💧',
+    coverColor: '#0891b2',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 3,
+    paired: true,
+    text: `**PAIRED PASSAGES** — Read both passages, then answer the questions.
+
+---
+
+**Passage 1 — Literary (First Person)**
+*"The Clearest Water I've Ever Seen"*
+
+The first thing I noticed was the color.
+
+I expected the spring to look like the lake near our house — greenish and murky, with a smell like old leaves. But when my uncle pulled over at the edge of the state park and said, "Go look," I walked through the scrub and stopped at the bank and could not believe what I was seeing.
+
+The water was not a color I had a word for. Somewhere between blue and green and glass. And it was moving — slowly, gently — even though there was no wind and no current I could see.
+
+"That's coming straight from underground," my uncle said, appearing beside me. "A spring. It's been the same temperature for thousands of years. Sixty-eight degrees, year round."
+
+I knelt down and put my hand in. It felt like the water had never once been touched by summer.
+
+We swam for an hour. The water was so clear I could see every pebble on the bottom, ten feet down, as if they were sitting right at the surface. Schools of fish moved through the pale light like silver shadows.
+
+When we climbed out, I didn't want to leave.
+
+I understand now why people **trek** across Florida just to sit beside one of these springs. There is something about water that old and clear that makes everything else feel less **urgent**. Like you have accidentally wandered into a place that time forgot — and for a while, time forgot you too.
+
+---
+
+**Passage 2 — Informational**
+*"Florida's Springs: Natural Wonders Under Pressure"*
+
+Florida has more freshwater springs than any other state in the world — over 1,000 in total, including 33 first-magnitude springs that pump more than 100 cubic feet of water per second. These springs form where underground **aquifer** water is pushed up through the limestone bedrock at a remarkably constant temperature of 68°F year-round, regardless of air temperature.
+
+For centuries, Florida's springs served as freshwater sources for Native American communities and early settlers. Today, they attract millions of visitors annually and are home to endangered species, including the West Indian manatee, which relies on their constant warm temperatures during winter months.
+
+However, Florida's springs are under serious threat. Groundwater **extraction** by farms, cities, and suburban developments has reduced water pressure in the aquifer, causing many springs to flow more slowly or stop entirely. Increased nitrogen from fertilizers and sewage has created **algae blooms** that cloud the once-transparent water and suffocate native plants.
+
+Scientists estimate that more than 30 percent of Florida's springs have seen significant flow reductions since 1950. Conservation groups are working to establish **minimum flows** — legally protected water levels that ensure springs remain functional ecosystems. Several springs have been restored after reducing nearby agricultural runoff, offering evidence that recovery is possible.
+
+The challenge is balancing Florida's continued growth against the preservation of resources that, once gone, cannot easily be restored.`,
+    vocabulary: [
+      { word: 'trek', definition: 'To make a long, difficult journey, especially on foot.', example: 'They trekked through the forest for two hours before reaching the waterfall.' },
+      { word: 'urgent', definition: 'Requiring immediate attention; pressing.', example: 'The urgent message arrived just in time to prevent the mistake.' },
+      { word: 'aquifer', definition: 'An underground layer of rock or sediment that holds large amounts of water.', example: 'The city\'s drinking water comes from a deep aquifer beneath the limestone.' },
+      { word: 'extraction', definition: 'The process of removing or drawing something out, especially from the ground.', example: 'Water extraction from wells has lowered the level of the underground aquifer.' },
+      { word: 'minimum flows', definition: 'Legally protected water levels set to ensure a spring or river remains a functioning ecosystem.', example: 'The state established minimum flows to prevent the spring from drying up completely.' }
+    ],
+    questions: [
+      {
+        question: 'Both passages describe Florida springs. How are the PURPOSES of the two passages DIFFERENT?',
+        options: [
+          'Passage 1 argues that springs need protection; Passage 2 describes how they formed.',
+          'Passage 1 uses personal experience to show what a spring feels like; Passage 2 uses facts to explain what springs are and why they are threatened.',
+          'Passage 1 is written for scientists; Passage 2 is written for young children.',
+          'Both passages have the same purpose — to convince readers to visit a spring.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 1 is a personal narrative focused on sensory experience and feeling — the narrator\'s emotional response to seeing a spring. Passage 2 is informational — it provides facts, statistics, and scientific context about what springs are and the threats they face. The purposes are clearly different.'
+      },
+      {
+        question: 'The narrator in Passage 1 says the spring made everything feel less "urgent." What does this word mean in context?',
+        options: [
+          'Less colorful or vivid than she expected.',
+          'Less pressing or important — as if worries and hurry had faded away.',
+          'Less clean than the water she was used to.',
+          'Less cold than the water temperature suggested.'
+        ],
+        correctIndex: 1,
+        explanation: 'In context, the narrator says the water made "everything else feel less urgent" after describing the spring as a place where "time forgot you." Urgent means pressing or requiring immediate attention — she is saying the spring made ordinary worries feel less important.'
+      },
+      {
+        question: 'Passage 2 states that Florida\'s springs are "under serious threat." Which detail from PASSAGE 1 connects to this idea?',
+        options: [
+          'The narrator describes the water as moving gently with no visible current.',
+          'The narrator says the water felt like it had never been touched by summer.',
+          'The narrator says she understands why people trek across Florida to visit a spring.',
+          'The narrator describes fish moving through the water like silver shadows.'
+        ],
+        correctIndex: 2,
+        explanation: 'The narrator\'s statement that people "trek across Florida" to see springs supports Passage 2\'s point about millions of visitors annually — and implicitly connects to the idea of why these places are worth protecting. It reflects the spring\'s appeal, which is precisely what is threatened.'
+      },
+      {
+        question: 'How does the AUTHOR\'S PERSPECTIVE in Passage 2 differ from the narrator\'s perspective in Passage 1?',
+        options: [
+          'The Passage 2 author believes springs are already beyond saving; the Passage 1 narrator is hopeful.',
+          'The Passage 2 author takes an analytical, fact-based view focused on environmental threats; the Passage 1 narrator takes a personal, emotional view focused on beauty and wonder.',
+          'The Passage 2 author experienced the spring personally; the Passage 1 narrator learned about it from a textbook.',
+          'Both authors share the same perspective — both focus on how the springs feel when you swim in them.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 1\'s narrator is entirely personal — her perspective is emotional and sensory, rooted in a single experience. Passage 2\'s author takes a scientific and environmental perspective, using statistics and expert knowledge to analyze a problem. The two perspectives complement each other but are clearly different in tone and approach.'
+      },
+      {
+        question: 'What information from PASSAGE 2 would BEST help the reader understand why the spring in Passage 1 was so clear and beautiful?',
+        options: [
+          'The fact that extraction and algae blooms have reduced spring clarity in many locations.',
+          'The fact that springs form from underground aquifer water at a constant 68°F, filtered through limestone bedrock.',
+          'The fact that manatees use springs for warmth during winter.',
+          'The fact that more than 30 percent of springs have experienced flow reductions since 1950.'
+        ],
+        correctIndex: 1,
+        explanation: 'The narrator was amazed by the clarity and temperature of the water. Passage 2 explains why: springs are fed by ancient underground water filtered through limestone at a constant 68°F. This scientific explanation directly answers why the spring in Passage 1 looked and felt the way it did.'
+      }
+    ]
   }
 
 ];
