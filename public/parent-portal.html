@@ -94,6 +94,13 @@
       background: var(--green); color: #fff; border-radius: 99px;
       padding: 2px 7px; margin-left: 6px; vertical-align: middle;
     }
+    .rn-date {
+      font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--purple);
+      display: flex; align-items: center; gap: 8px; margin: 20px 0 12px;
+    }
+    .rn-date:first-child { margin-top: 0; }
+    .rn-date::after { content: ''; flex: 1; height: 1px; background: var(--purple-soft); }
 
     .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
 
@@ -294,20 +301,43 @@
       </div>
       <div class="rn-body">
 
+        <div class="rn-date">June 1, 2026</div>
+        <div class="rn-section">
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">🔇</div>
+              <div class="rn-item-text"><strong>Read-aloud control</strong> — Parents can now enable or disable the read-aloud feature per child from the Edit screen.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📚</div>
+              <div class="rn-item-text"><strong>46 FAST ELA stories</strong> — Added 6 new Florida B.E.S.T.-aligned stories including Florida Seminole history, Henry Flagler, figurative language, and bioluminescence.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">⌨️</div>
+              <div class="rn-item-text"><strong>Keyboard PIN entry</strong> — All PIN screens now accept keyboard input: type digits 0–9, Backspace to delete, Escape to cancel.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📦</div>
+              <div class="rn-item-text"><strong>Suggestion archiving</strong> — Admin can now archive and restore suggestions to keep the inbox organized.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-date">App Launch</div>
         <div class="rn-section">
           <div class="rn-section-title">📖 Reading</div>
           <div class="rn-items">
             <div class="rn-item">
-              <div class="rn-item-icon">📚</div>
-              <div class="rn-item-text"><strong>30+ grade-leveled stories</strong> — Grades 1–8, automatically filtered to your child's level with a Story of the Day picked fresh each session.</div>
+              <div class="rn-item-icon">📖</div>
+              <div class="rn-item-text"><strong>Grade-leveled story library</strong> — Grades 1–8, automatically filtered to your child's level with a Story of the Day picked fresh each session.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">🔊</div>
-              <div class="rn-item-text"><strong>Read-aloud with text highlight</strong> — Kids can listen along while following highlighted words, great for early readers.</div>
+              <div class="rn-item-text"><strong>Read-aloud</strong> — Kids can listen along while following the text, great for early readers.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">🃏</div>
-              <div class="rn-item-text"><strong>Vocab flashcards</strong> — Key words from every completed story become review cards your child can quiz themselves on.</div>
+              <div class="rn-item-text"><strong>Vocab flashcards</strong> — Key words from every completed story become review cards.</div>
             </div>
           </div>
         </div>
@@ -317,15 +347,15 @@
           <div class="rn-items">
             <div class="rn-item">
               <div class="rn-item-icon">🧮</div>
-              <div class="rn-item-text"><strong>10 math topics per grade</strong> — Addition through fractions and beyond, matched to each child's grade level.</div>
+              <div class="rn-item-text"><strong>10 math topics per grade</strong> — Addition through fractions, matched to each child's grade level.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">🔒</div>
-              <div class="rn-item-text"><strong>Reading-first gates</strong> — You control how many stars or how many minutes of reading are required before Math Zone unlocks each day.</div>
+              <div class="rn-item-text"><strong>Reading-first gates</strong> — Require stars or reading minutes before Math Zone unlocks each day.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">⏱️</div>
-              <div class="rn-item-text"><strong>Daily time limit</strong> — Set a per-child math time cap (5 – 30 min) so screen time stays balanced.</div>
+              <div class="rn-item-text"><strong>Daily time limit</strong> — Set a per-child math time cap (5–30 min) to keep screen time balanced.</div>
             </div>
           </div>
         </div>
@@ -335,7 +365,7 @@
           <div class="rn-items">
             <div class="rn-item">
               <div class="rn-item-icon">⌨️</div>
-              <div class="rn-item-text"><strong>12 progressive lessons</strong> — From home-row basics to full-keyboard fluency, with live WPM and accuracy tracking and an on-screen keyboard guide.</div>
+              <div class="rn-item-text"><strong>12 progressive lessons</strong> — Home-row basics to full-keyboard fluency, with live WPM and accuracy tracking.</div>
             </div>
           </div>
         </div>
@@ -345,15 +375,15 @@
           <div class="rn-items">
             <div class="rn-item">
               <div class="rn-item-icon">⭐</div>
-              <div class="rn-item-text"><strong>XP, levels & badges</strong> — Kids earn XP for every quiz and climb through 15 levels from Bookworm to FAST Legend.</div>
+              <div class="rn-item-text"><strong>XP, levels & badges</strong> — Kids earn XP and climb 15 levels from Bookworm to FAST Legend.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">🔥</div>
-              <div class="rn-item-text"><strong>Reading streaks & weekly goals</strong> — A weekly story goal you set; streaks keep kids coming back daily.</div>
+              <div class="rn-item-text"><strong>Streaks & weekly goals</strong> — A weekly story goal you set keeps kids coming back daily.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">🖨️</div>
-              <div class="rn-item-text"><strong>Printable progress report</strong> — One tap in the Parent Portal generates a shareable summary of your child's reading, math, and typing activity.</div>
+              <div class="rn-item-text"><strong>Printable progress report</strong> — One tap generates a summary of reading, math, and typing activity.</div>
             </div>
           </div>
         </div>
@@ -363,15 +393,15 @@
           <div class="rn-items">
             <div class="rn-item">
               <div class="rn-item-icon">🔒</div>
-              <div class="rn-item-text"><strong>Portal PIN</strong> — 4-digit PIN keeps kids out of parent settings without requiring a full sign-out.</div>
+              <div class="rn-item-text"><strong>Portal PIN</strong> — 4-digit PIN keeps kids out of parent settings without a full sign-out.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">👶</div>
-              <div class="rn-item-text"><strong>Multiple child profiles</strong> — Add as many kids as you need, each with their own avatar, grade, PIN, and math settings.</div>
+              <div class="rn-item-text"><strong>Multiple child profiles</strong> — Each child gets their own avatar, grade, PIN, and settings.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">💡</div>
-              <div class="rn-item-text"><strong>Suggestion box</strong> — Send ideas directly to the developer from right here in the portal.</div>
+              <div class="rn-item-text"><strong>Suggestion box</strong> — Send ideas directly to the developer from the portal.</div>
             </div>
           </div>
         </div>
