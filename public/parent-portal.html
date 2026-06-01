@@ -36,6 +36,65 @@
     }
     .btn-signout:hover { border-color: var(--red); color: var(--red); }
 
+    .btn-whats-new {
+      padding: 7px 14px; border: 2px solid var(--purple-soft);
+      border-radius: 10px; background: var(--purple-soft);
+      font-weight: 700; font-size: 0.88rem; cursor: pointer; font-family: inherit;
+      color: var(--purple); transition: background 0.15s, border-color 0.15s;
+      display: flex; align-items: center; gap: 5px; white-space: nowrap;
+    }
+    .btn-whats-new:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
+
+    /* ── Release notes modal ── */
+    .rn-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45); z-index: 200;
+      align-items: flex-start; justify-content: center;
+      padding: 24px 16px; overflow-y: auto;
+    }
+    .rn-overlay.show { display: flex; }
+    .rn-modal {
+      background: var(--surface); border-radius: 20px;
+      max-width: 560px; width: 100%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.22);
+      overflow: hidden; margin: auto;
+    }
+    .rn-header {
+      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+      padding: 28px 28px 22px; color: #fff;
+    }
+    .rn-header h2 { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; }
+    .rn-header p  { font-size: 0.88rem; opacity: 0.85; font-weight: 500; }
+    .rn-body { padding: 24px 28px 28px; }
+    .rn-section { margin-bottom: 20px; }
+    .rn-section:last-child { margin-bottom: 0; }
+    .rn-section-title {
+      font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--muted); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .rn-items { display: flex; flex-direction: column; gap: 8px; }
+    .rn-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      background: #f9fafb; border-radius: 10px; padding: 11px 13px;
+    }
+    .rn-item-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .rn-item-text { font-size: 0.88rem; line-height: 1.5; color: var(--text); }
+    .rn-item-text strong { font-weight: 700; }
+    .rn-close {
+      display: block; width: 100%; padding: 12px;
+      background: var(--purple); color: #fff; border: none;
+      border-radius: 11px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; margin-top: 20px;
+      transition: background 0.15s;
+    }
+    .rn-close:hover { background: #6d28d9; }
+    .rn-badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 800;
+      background: var(--green); color: #fff; border-radius: 99px;
+      padding: 2px 7px; margin-left: 6px; vertical-align: middle;
+    }
+
     .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
 
     /* ── Section heading ── */
@@ -222,8 +281,105 @@
   <nav class="nav">
     <div class="nav-title">🚀 FAST Track — Parent Portal</div>
     <div class="nav-user" id="nav-user"></div>
+    <button class="btn-whats-new" id="whats-new-btn">🎉 What's New</button>
     <button class="btn-signout" id="signout-btn">Sign Out</button>
   </nav>
+
+  <!-- Release Notes Modal -->
+  <div class="rn-overlay" id="rn-overlay">
+    <div class="rn-modal">
+      <div class="rn-header">
+        <h2>🚀 What's New in FAST Track</h2>
+        <p>Summer 2025 — Version 1.0</p>
+      </div>
+      <div class="rn-body">
+
+        <div class="rn-section">
+          <div class="rn-section-title">📖 Reading</div>
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">📚</div>
+              <div class="rn-item-text"><strong>30+ grade-leveled stories</strong> — Grades 1–8, automatically filtered to your child's level with a Story of the Day picked fresh each session.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🔊</div>
+              <div class="rn-item-text"><strong>Read-aloud with text highlight</strong> — Kids can listen along while following highlighted words, great for early readers.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🃏</div>
+              <div class="rn-item-text"><strong>Vocab flashcards</strong> — Key words from every completed story become review cards your child can quiz themselves on.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-section">
+          <div class="rn-section-title">📐 Math Zone</div>
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">🧮</div>
+              <div class="rn-item-text"><strong>10 math topics per grade</strong> — Addition through fractions and beyond, matched to each child's grade level.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🔒</div>
+              <div class="rn-item-text"><strong>Reading-first gates</strong> — You control how many stars or how many minutes of reading are required before Math Zone unlocks each day.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">⏱️</div>
+              <div class="rn-item-text"><strong>Daily time limit</strong> — Set a per-child math time cap (5 – 30 min) so screen time stays balanced.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-section">
+          <div class="rn-section-title">⌨️ Typing Practice</div>
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">⌨️</div>
+              <div class="rn-item-text"><strong>12 progressive lessons</strong> — From home-row basics to full-keyboard fluency, with live WPM and accuracy tracking and an on-screen keyboard guide.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-section">
+          <div class="rn-section-title">🏆 Progress & Rewards</div>
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">⭐</div>
+              <div class="rn-item-text"><strong>XP, levels & badges</strong> — Kids earn XP for every quiz and climb through 15 levels from Bookworm to FAST Legend.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🔥</div>
+              <div class="rn-item-text"><strong>Reading streaks & weekly goals</strong> — A weekly story goal you set; streaks keep kids coming back daily.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🖨️</div>
+              <div class="rn-item-text"><strong>Printable progress report</strong> — One tap in the Parent Portal generates a shareable summary of your child's reading, math, and typing activity.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-section">
+          <div class="rn-section-title">👨‍👩‍👧 Parent Portal</div>
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">🔒</div>
+              <div class="rn-item-text"><strong>Portal PIN</strong> — 4-digit PIN keeps kids out of parent settings without requiring a full sign-out.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">👶</div>
+              <div class="rn-item-text"><strong>Multiple child profiles</strong> — Add as many kids as you need, each with their own avatar, grade, PIN, and math settings.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">💡</div>
+              <div class="rn-item-text"><strong>Suggestion box</strong> — Send ideas directly to the developer from right here in the portal.</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="rn-close" id="rn-close-btn">Got it — Close</button>
+      </div>
+    </div>
+  </div>
 
   <div class="page">
 
@@ -415,6 +571,18 @@
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
+    // Release notes modal
+    document.getElementById('whats-new-btn').addEventListener('click', () => {
+      document.getElementById('rn-overlay').classList.add('show');
+    });
+    document.getElementById('rn-close-btn').addEventListener('click', () => {
+      document.getElementById('rn-overlay').classList.remove('show');
+    });
+    document.getElementById('rn-overlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('rn-overlay'))
+        document.getElementById('rn-overlay').classList.remove('show');
+    });
+
     function escHtml(s) {
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
