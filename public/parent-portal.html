@@ -767,7 +767,7 @@
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         document.getElementById('nav-user').textContent = data.displayName || user.email;
-        if (user.email === ADMIN_EMAIL) document.getElementById('admin-link').style.display = 'inline-flex';
+        if (user.email === 'celeste1311@gmail.com') document.getElementById('admin-link').style.display = 'inline-flex';
 
         // Check portal PIN
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
@@ -778,6 +778,7 @@
         }
       }).catch(() => {
         document.getElementById('nav-user').textContent = user.email;
+        if (user.email === 'celeste1311@gmail.com') document.getElementById('admin-link').style.display = 'inline-flex';
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
         } else {
