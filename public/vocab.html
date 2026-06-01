@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocab Flashcards – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --green: #10b981;  --green-soft: #d1fae5;
+      --orange: #f59e0b;
+      --red: #ef4444;    --red-soft: #fee2e2;
+      --blue: #2563eb;   --blue-soft: #dbeafe;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #eff6ff 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b;    --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-back { text-decoration: none; color: var(--purple); font-weight: 700; font-size: 0.95rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-title { font-weight: 800; font-size: 1.1rem; flex: 1; text-align: center; }
+    .nav-count { font-size: 0.88rem; font-weight: 700; color: var(--muted); }
+
+    .page { max-width: 600px; margin: 0 auto; padding: 32px 16px 80px; }
+
+    /* Progress bar */
+    .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .progress-bar-wrap { flex: 1; height: 8px; background: #e5e7eb; border-radius: 99px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; background: var(--purple); border-radius: 99px; transition: width 0.4s; }
+    .progress-label { font-size: 0.82rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
+
+    /* Stats row */
+    .stats-strip { display: flex; gap: 10px; margin-bottom: 28px; }
+    .stat-chip {
+      flex: 1; text-align: center; padding: 10px 8px;
+      background: var(--surface); border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .stat-val   { font-size: 1.4rem; font-weight: 800; }
+    .stat-label { font-size: 0.7rem; color: var(--muted); font-weight: 600; margin-top: 1px; }
+    .stat-chip.known   .stat-val { color: var(--green); }
+    .stat-chip.learning .stat-val { color: var(--orange); }
+    .stat-chip.total   .stat-val { color: var(--purple); }
+
+    /* Card */
+    .card-wrap { perspective: 1200px; margin-bottom: 24px; min-height: 240px; cursor: pointer; }
+    .card-inner {
+      position: relative; width: 100%; min-height: 240px;
+      transform-style: preserve-3d; transition: transform 0.45s;
+    }
+    .card-inner.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute; inset: 0;
+      backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(124,58,237,0.12);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 32px 28px; text-align: center;
+    }
+    .card-front .tap-hint { font-size: 0.78rem; color: var(--muted); margin-top: 16px; }
+    .card-back  { transform: rotateY(180deg); background: linear-gradient(135deg, #faf5ff, #ede9fe); }
+    .card-word  { font-size: 1.8rem; font-weight: 800; color: var(--purple); margin-bottom: 8px; }
+    .card-story { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .card-def   { font-size: 1.05rem; line-height: 1.55; color: var(--text); margin-bottom: 14px; }
+    .card-example { font-size: 0.88rem; color: var(--muted); font-style: italic; line-height: 1.5; }
+
+    /* Action buttons */
+    .action-row { display: flex; gap: 12px; margin-bottom: 20px; }
+    .btn-action {
+      flex: 1; padding: 14px; border: none; border-radius: 12px;
+      font-size: 1rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: transform 0.1s, background 0.15s;
+    }
+    .btn-action:active { transform: scale(0.96); }
+    .btn-know    { background: var(--green-soft); color: #065f46; }
+    .btn-know:hover { background: #a7f3d0; }
+    .btn-learn   { background: #fef3c7; color: #78350f; }
+    .btn-learn:hover { background: #fde68a; }
+
+    /* Navigation */
+    .nav-row { display: flex; gap: 10px; justify-content: center; }
+    .btn-nav {
+      padding: 10px 20px; background: var(--surface); border: 2px solid var(--border);
+      border-radius: 10px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-nav:hover { border-color: var(--purple); color: var(--purple); }
+    .btn-nav:disabled { opacity: 0.4; cursor: default; }
+
+    /* Filter strip */
+    .filter-row { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 6px 14px; border-radius: 99px; border: 2px solid var(--border);
+      font-size: 0.82rem; font-weight: 700; cursor: pointer; background: var(--surface);
+      color: var(--muted); font-family: inherit; transition: all 0.15s;
+    }
+    .filter-btn.active { background: var(--purple); color: #fff; border-color: var(--purple); }
+
+    /* Empty / loading */
+    .center-msg { text-align: center; padding: 60px 20px; color: var(--muted); }
+    .center-msg .big { font-size: 3rem; margin-bottom: 16px; }
+    .spinner {
+      width: 36px; height: 36px; border: 4px solid #e5e7eb;
+      border-top-color: var(--purple); border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 40px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Done screen */
+    #done-screen { display: none; text-align: center; padding: 48px 16px; }
+    #done-screen .done-emoji { font-size: 4rem; margin-bottom: 16px; }
+    #done-screen h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+    #done-screen p { color: var(--muted); font-size: 1rem; margin-bottom: 24px; }
+    .btn-restart {
+      display: inline-block; padding: 13px 28px;
+      background: var(--purple); color: #fff; border: none; border-radius: 12px;
+      font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-restart:hover { background: #6d28d9; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="library.html" class="nav-back">← Library</a>
+    <div class="nav-title">📝 Vocab Flashcards</div>
+    <div class="nav-count" id="nav-count"></div>
+  </nav>
+
+  <div class="page">
+    <div id="loading-state"><div class="spinner"></div></div>
+
+    <div id="card-ui" style="display:none;">
+      <!-- Filter -->
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all"   onclick="setFilter('all')">All</button>
+        <button class="filter-btn"        data-filter="learn" onclick="setFilter('learn')">Still Learning</button>
+        <button class="filter-btn"        data-filter="known" onclick="setFilter('known')">Known ✅</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-strip">
+        <div class="stat-chip known">  <div class="stat-val" id="stat-known">0</div>  <div class="stat-label">Known</div></div>
+        <div class="stat-chip learning"><div class="stat-val" id="stat-learn">0</div><div class="stat-label">Learning</div></div>
+        <div class="stat-chip total">  <div class="stat-val" id="stat-total">0</div> <div class="stat-label">Total</div></div>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-row">
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-bar" style="width:0%"></div></div>
+        <div class="progress-label" id="prog-label">0 / 0</div>
+      </div>
+
+      <!-- Flashcard -->
+      <div class="card-wrap" id="card-wrap" onclick="flipCard()">
+        <div class="card-inner" id="card-inner">
+          <div class="card-face card-front">
+            <div class="card-story" id="card-story"></div>
+            <div class="card-word"  id="card-word"></div>
+            <div class="tap-hint">Tap to reveal definition →</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-story" id="card-story-b"></div>
+            <div class="card-word"  id="card-word-b"></div>
+            <div class="card-def"   id="card-def"></div>
+            <div class="card-example" id="card-example"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Know / Still Learning buttons -->
+      <div class="action-row" id="action-row" style="display:none;">
+        <button class="btn-action btn-learn" onclick="markCard('learn')">🤔 Still Learning</button>
+        <button class="btn-action btn-know"  onclick="markCard('known')">✅ Know It!</button>
+      </div>
+
+      <!-- Nav -->
+      <div class="nav-row">
+        <button class="btn-nav" id="btn-prev" onclick="prevCard()">← Prev</button>
+        <button class="btn-nav" id="btn-next" onclick="nextCard()">Next →</button>
+      </div>
+    </div>
+
+    <!-- Done screen -->
+    <div id="done-screen">
+      <div class="done-emoji">🎉</div>
+      <h2>Deck Complete!</h2>
+      <p id="done-msg"></p>
+      <button class="btn-restart" onclick="restartDeck()">🔄 Go Again</button>
+    </div>
+  </div>
+
+  <script src="stories.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'login.html'; }
+
+    const STORAGE_KEY = 'vocabProgress_' + profile.readerId;
+    let allCards = [];    // { word, definition, example, storyTitle }
+    let deck     = [];    // filtered deck
+    let idx      = 0;
+    let flipped  = false;
+    let progress = {};    // word → 'known' | 'learn'
+    let currentFilter = 'all';
+
+    // Load saved progress
+    try { progress = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) {}
+
+    // Build cards from stories the student has completed
+    const db = firebase.firestore();
+    db.collection('Progress').where('readerId', '==', profile.readerId).get().then(snap => {
+      const completedIds = new Set();
+      snap.forEach(d => completedIds.add(d.data().storyId));
+
+      STORIES.forEach(story => {
+        if (!completedIds.has(story.id)) return;
+        (story.vocabulary || []).forEach(v => {
+          allCards.push({
+            word:       v.word,
+            definition: v.definition,
+            example:    v.example || '',
+            storyTitle: story.title,
+            storyEmoji: story.coverEmoji
+          });
+        });
+      });
+
+      // Deduplicate by word
+      const seen = new Set();
+      allCards = allCards.filter(c => { if (seen.has(c.word)) return false; seen.add(c.word); return true; });
+
+      document.getElementById('loading-state').style.display = 'none';
+
+      if (allCards.length === 0) {
+        document.getElementById('loading-state').innerHTML = `
+          <div class="center-msg">
+            <div class="big">📚</div>
+            <p style="font-weight:700;font-size:1.1rem;margin-bottom:8px;">No vocab words yet!</p>
+            <p>Complete some reading quizzes first, then come back to study the vocabulary.</p>
+            <a href="library.html" style="display:inline-block;margin-top:20px;padding:12px 24px;background:var(--purple);color:#fff;border-radius:12px;font-weight:700;text-decoration:none;">📖 Go Read →</a>
+          </div>`;
+        document.getElementById('loading-state').style.display = 'block';
+        return;
+      }
+
+      buildDeck();
+      document.getElementById('card-ui').style.display = 'block';
+      updateStats();
+      showCard();
+    }).catch(() => {
+      document.getElementById('loading-state').innerHTML =
+        '<div class="center-msg"><p>Could not load progress. Check your connection.</p></div>';
+      document.getElementById('loading-state').style.display = 'block';
+    });
+
+    function buildDeck() {
+      if (currentFilter === 'known') {
+        deck = allCards.filter(c => progress[c.word] === 'known');
+      } else if (currentFilter === 'learn') {
+        deck = allCards.filter(c => progress[c.word] !== 'known');
+      } else {
+        deck = [...allCards];
+      }
+      // Shuffle
+      for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+      }
+      idx = 0;
+      flipped = false;
+    }
+
+    function showCard() {
+      if (deck.length === 0) {
+        showDone();
+        return;
+      }
+      if (idx >= deck.length) {
+        showDone();
+        return;
+      }
+      const card = deck[idx];
+      document.getElementById('card-story').textContent  = card.storyEmoji + ' ' + card.storyTitle;
+      document.getElementById('card-word').textContent   = card.word;
+      document.getElementById('card-story-b').textContent = card.storyEmoji + ' ' + card.storyTitle;
+      document.getElementById('card-word-b').textContent = card.word;
+      document.getElementById('card-def').textContent    = card.definition;
+      document.getElementById('card-example').textContent = card.example ? '"' + card.example + '"' : '';
+      document.getElementById('card-inner').classList.remove('flipped');
+      document.getElementById('action-row').style.display = 'none';
+      flipped = false;
+
+      // Highlight if known
+      const isKnown = progress[card.word] === 'known';
+      document.getElementById('card-wrap').style.opacity = '1';
+
+      // Nav buttons
+      document.getElementById('btn-prev').disabled = idx === 0;
+      document.getElementById('btn-next').disabled = idx >= deck.length - 1;
+
+      // Count
+      document.getElementById('nav-count').textContent = (idx + 1) + ' / ' + deck.length;
+      const pct = Math.round(((idx + 1) / deck.length) * 100);
+      document.getElementById('prog-bar').style.width = pct + '%';
+      document.getElementById('prog-label').textContent = (idx + 1) + ' / ' + deck.length;
+    }
+
+    function flipCard() {
+      if (flipped) return;
+      document.getElementById('card-inner').classList.add('flipped');
+      document.getElementById('action-row').style.display = 'flex';
+      flipped = true;
+    }
+
+    function markCard(status) {
+      const card = deck[idx];
+      progress[card.word] = status;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      updateStats();
+      // Auto-advance
+      idx++;
+      setTimeout(showCard, 300);
+    }
+
+    function prevCard() { if (idx > 0) { idx--; showCard(); } }
+    function nextCard() { if (idx < deck.length - 1) { idx++; showCard(); } }
+
+    function setFilter(f) {
+      currentFilter = f;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === f));
+      buildDeck();
+      if (deck.length > 0) {
+        document.getElementById('done-screen').style.display = 'none';
+        document.getElementById('card-ui').style.display = 'block';
+        showCard();
+      } else {
+        showDone();
+      }
+    }
+
+    function updateStats() {
+      const known = allCards.filter(c => progress[c.word] === 'known').length;
+      document.getElementById('stat-known').textContent = known;
+      document.getElementById('stat-learn').textContent = allCards.length - known;
+      document.getElementById('stat-total').textContent = allCards.length;
+    }
+
+    function showDone() {
+      document.getElementById('card-ui').style.display  = 'none';
+      document.getElementById('done-screen').style.display = 'block';
+      const known = allCards.filter(c => progress[c.word] === 'known').length;
+      document.getElementById('done-msg').textContent =
+        'You know ' + known + ' out of ' + allCards.length + ' words! ' +
+        (known === allCards.length ? '🎉 Perfect!' : 'Keep practicing the rest!');
+    }
+
+    function restartDeck() {
+      document.getElementById('done-screen').style.display = 'none';
+      document.getElementById('card-ui').style.display     = 'block';
+      buildDeck();
+      updateStats();
+      showCard();
+    }
+  </script>
+</body>
+</html>

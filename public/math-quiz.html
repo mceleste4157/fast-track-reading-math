@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Quiz – FAST Track Reading & Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #2563eb; --blue-soft: #dbeafe;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --bg: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── NAV ─────────────────────────────────────────────────────────── */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 50;
+    }
+    .nav-back { text-decoration: none; color: var(--blue); font-weight: 700; font-size: 0.95rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-title { font-weight: 700; flex: 1; text-align: center; }
+
+    /* ── LAYOUT ──────────────────────────────────────────────────────── */
+    .quiz-layout {
+      display: flex;
+      align-items: flex-start;
+      min-height: calc(100vh - 57px);
+    }
+
+    .quiz-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .page { max-width: 640px; margin: 0 auto; padding: 36px 20px 80px; }
+
+    /* ── PROGRESS ────────────────────────────────────────────────────── */
+    .q-progress-label { font-size: 0.9rem; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+    .q-progress-bar { height: 10px; background: #e5e7eb; border-radius: 99px; margin-bottom: 36px; overflow: hidden; }
+    .q-progress-fill { height: 100%; background: var(--blue); border-radius: 99px; transition: width 0.4s; }
+
+    /* ── QUESTION ────────────────────────────────────────────────────── */
+    .question-text { font-size: 1.35rem; font-weight: 700; line-height: 1.4; margin-bottom: 24px; }
+
+    /* ── THINK LOCK ──────────────────────────────────────────────────── */
+    .think-lock {
+      background: var(--blue-soft); border-radius: 12px;
+      padding: 16px 18px; margin-bottom: 18px;
+      display: none; flex-direction: column; gap: 8px;
+    }
+    .think-lock.active { display: flex; }
+    .think-header { display: flex; align-items: center; justify-content: space-between; }
+    .think-text { font-size: 0.95rem; font-weight: 600; color: var(--blue); }
+    .think-count {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-weight: 800; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .think-bar-wrap { height: 6px; background: rgba(37,99,235,0.18); border-radius: 99px; overflow: hidden; }
+    .think-bar-fill { height: 100%; background: var(--blue); border-radius: 99px; width: 0%; }
+
+    /* ── MISTAKE COUNTER ─────────────────────────────────────────────── */
+    .mistake-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; color: var(--muted); font-weight: 600; margin-bottom: 14px;
+    }
+    .mistake-count {
+      font-size: 1rem; font-weight: 800; color: var(--red);
+      min-width: 20px; display: inline-block;
+    }
+
+    /* ── OPTIONS ─────────────────────────────────────────────────────── */
+    .options { display: flex; flex-direction: column; gap: 12px; transition: opacity 0.2s; }
+    .option-btn {
+      width: 100%; min-height: 56px; padding: 14px 18px;
+      border: 2px solid var(--border); border-radius: 12px;
+      background: var(--surface); text-align: left;
+      font-family: inherit; font-size: 1rem; font-weight: 500; color: var(--text);
+      cursor: pointer; transition: border-color 0.15s, background 0.15s;
+      line-height: 1.4;
+    }
+    .option-btn:hover:not(:disabled) { border-color: var(--blue); background: var(--blue-soft); }
+    .option-btn.correct { border-color: var(--green); background: var(--green-soft); color: #065f46; font-weight: 700; }
+    .option-btn.wrong   { border-color: var(--red);   background: var(--red-soft);   color: #7f1d1d; }
+    .option-btn:disabled { cursor: default; }
+    .option-btn.locked  { opacity: 0.6; cursor: not-allowed; }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%      { transform: translateX(-8px); }
+      40%      { transform: translateX(8px); }
+      60%      { transform: translateX(-5px); }
+      80%      { transform: translateX(5px); }
+    }
+    .option-btn.shake { animation: shake 0.5s ease; }
+
+    /* ── FEEDBACK ────────────────────────────────────────────────────── */
+    .feedback { margin-top: 18px; padding: 14px 18px; border-radius: 12px; font-size: 1rem; font-weight: 700; display: none; }
+    .feedback.show { display: block; }
+    .feedback.correct-fb { background: var(--green-soft); color: #065f46; border-left: 4px solid var(--green); }
+    .feedback.wrong-fb   { background: var(--red-soft);   color: #7f1d1d;  border-left: 4px solid var(--red); }
+    .tries-left { font-weight: 500; font-size: 0.9rem; }
+
+    /* ── EXPLANATION ─────────────────────────────────────────────────── */
+    .explanation { display: none; margin-top: 14px; padding: 14px 18px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; }
+    .explanation.show { display: block; }
+    .explanation.correct-exp { background: var(--green-soft); color: #064e3b; border-left: 4px solid var(--green); }
+    .explanation.wrong-exp   { background: var(--red-soft);   color: #7f1d1d; border-left: 4px solid var(--red); }
+    .explanation.hint-exp    { background: #fffbeb; color: #78350f; border-left: 4px solid var(--orange); }
+
+    /* ── NEXT BUTTON ─────────────────────────────────────────────────── */
+    .next-btn {
+      margin-top: 24px; padding: 14px 32px;
+      background: var(--blue); color: #fff; border: none;
+      border-radius: 12px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; display: none; transition: background 0.15s;
+    }
+    .next-btn.show { display: inline-block; }
+    .next-btn:hover { background: #1d4ed8; }
+
+    /* ── XP PREVIEW ──────────────────────────────────────────────────── */
+    .xp-preview {
+      display: inline-block; margin-top: 6px;
+      font-size: 0.88rem; font-weight: 700; padding: 4px 12px; border-radius: 99px;
+    }
+    .xp-preview.gain    { background: var(--green-soft); color: #065f46; }
+    .xp-preview.partial { background: #fffbeb; color: #78350f; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       SCRATCH PAD — desktop sidebar
+       ═══════════════════════════════════════════════════════════════════ */
+    .scratch-col {
+      flex: 0 0 310px;
+      width: 310px;
+      position: sticky;
+      top: 57px; /* nav height */
+      height: calc(100vh - 57px);
+      padding: 16px 16px 16px 4px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scratch-pad {
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .scratch-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-bottom: 1px solid #f3f4f6;
+      flex-shrink: 0;
+    }
+
+    .scratch-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .scratch-clear-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: #f3f4f6;
+      border: none;
+      border-radius: 8px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .scratch-clear-btn:hover { background: #e5e7eb; }
+
+    .scratch-tools {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border-bottom: 1px solid #f3f4f6;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+      flex-shrink: 0;
+    }
+    .color-swatch.active {
+      box-shadow: 0 0 0 2px white, 0 0 0 4px var(--blue);
+      transform: scale(1.15);
+    }
+    .color-swatch:hover:not(.active) { transform: scale(1.1); }
+
+    .tool-divider { width: 1px; height: 22px; background: #e5e7eb; flex-shrink: 0; }
+
+    .tool-btn {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 2px solid #e5e7eb;
+      background: var(--surface);
+      cursor: pointer;
+      color: var(--text);
+      font-family: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .tool-btn.active { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
+
+    .scratch-canvas-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      /* Ruled notebook paper look */
+      background-color: #fdfcf8;
+      background-image:
+        linear-gradient(90deg, transparent 38px, #fca5a5 38px, #fca5a5 40px, transparent 40px),
+        repeating-linear-gradient(transparent 0px, transparent 27px, #bfdbfe 27px, #bfdbfe 28px);
+    }
+
+    #scratch-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      touch-action: none;
+    }
+
+    #scratch-canvas.pen-cursor   { cursor: crosshair; }
+    #scratch-canvas.eraser-cursor { cursor: cell; }
+
+    /* ─── Mobile FAB & bottom sheet ──────────────────────────────────── */
+    .scratch-fab {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 1.35rem;
+      border: none;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.40);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .scratch-fab:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(37,99,235,0.50); }
+    .scratch-fab.open  { background: #64748b; }
+
+    /* Mobile: scratch-col becomes a fixed bottom sheet */
+    @media (max-width: 860px) {
+      .scratch-col {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        height: 52vh;
+        width: 100%;
+        flex: none;
+        top: auto;
+        padding: 0;
+        transform: translateY(100%);
+        transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+        z-index: 199;
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+        box-shadow: 0 -6px 32px rgba(0,0,0,0.18);
+      }
+      .scratch-col.mobile-open { transform: translateY(0); }
+
+      .scratch-pad {
+        border-radius: 20px 20px 0 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      .scratch-fab { display: flex; }
+    }
+
+    /* ── MATH TIME LIMIT OVERLAY ────────────────────────────────────── */
+    .time-limit-overlay {
+      position: fixed; inset: 0;
+      background: rgba(37,99,235,0.93);
+      backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center;
+      z-index: 600;
+    }
+    .time-limit-overlay.show { display: flex; }
+    .time-limit-box {
+      background: #fff; border-radius: 24px;
+      padding: 44px 36px; max-width: 360px; width: 90%;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+      animation: tlPop 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes tlPop {
+      from { transform: scale(0.75); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .tl-emoji { font-size: 3.5rem; line-height: 1; margin-bottom: 14px; }
+    .tl-title { font-size: 1.55rem; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+    .tl-body  { font-size: 0.98rem; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
+    .tl-count { font-size: 1rem; font-weight: 700; color: var(--blue); }
+
+    /* ── SHOW ME HOW ─────────────────────────────────────────────────── */
+    .show-me-btn {
+      display: none; margin-top: 12px;
+      padding: 10px 18px; border-radius: 10px;
+      border: 2px solid var(--orange); background: #fffbeb;
+      color: #92400e; font-weight: 700; font-size: 0.92rem;
+      cursor: pointer; font-family: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .show-me-btn.visible { display: inline-block; }
+    .show-me-btn:hover { background: #fef3c7; border-color: #f59e0b; }
+
+    .steps-panel {
+      display: none; margin-top: 14px;
+      background: #fffbeb; border: 1.5px solid #fcd34d;
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .steps-panel.show { display: block; }
+    .steps-title { font-size: 0.85rem; font-weight: 800; color: #78350f; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .step-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 6px 0; border-bottom: 1px solid #fde68a;
+      opacity: 0; transform: translateY(4px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-item.revealed { opacity: 1; transform: translateY(0); }
+    .step-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--orange); color: #fff;
+      font-size: 0.72rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .step-text { font-size: 0.9rem; color: #78350f; line-height: 1.5; white-space: pre-line; }
+    .next-step-btn {
+      margin-top: 10px; padding: 7px 16px;
+      border-radius: 8px; border: none;
+      background: var(--orange); color: #fff;
+      font-weight: 700; font-size: 0.85rem;
+      cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .next-step-btn:hover { background: #d97706; }
+    .next-step-btn.done { background: var(--green); }
+
+    @media (max-width: 480px) { .question-text { font-size: 1.15rem; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-back" href="math.html">← Math Zone</a>
+    <div class="nav-title" id="nav-title"></div>
+  </nav>
+
+  <!-- Two-column layout: quiz | scratch pad -->
+  <div class="quiz-layout">
+
+    <!-- ── Quiz column ── -->
+    <div class="quiz-col">
+      <div class="page">
+        <div class="q-progress-label" id="q-progress-label">Question 1 of 8</div>
+        <div class="q-progress-bar"><div class="q-progress-fill" id="q-progress-fill" style="width:12.5%"></div></div>
+
+        <div class="question-text" id="question-text"></div>
+
+        <div class="think-lock" id="think-lock">
+          <div class="think-header">
+            <span class="think-text">🧠 Think it through…</span>
+            <span class="think-count" id="think-count">3</span>
+          </div>
+          <div class="think-bar-wrap"><div class="think-bar-fill" id="think-bar"></div></div>
+        </div>
+
+        <!-- Running mistake counter (no limit for math) -->
+        <div class="mistake-row" id="mistake-row">
+          <span>Mistakes: <span class="mistake-count" id="mistake-count">0</span></span>
+          <span class="mistake-warn" id="math-xp-warn" style="display:none;font-size:0.78rem;color:#92400e;background:#fef3c7;border:1px solid #fcd34d;padding:2px 9px;border-radius:99px;font-weight:700;margin-left:4px;"></span>
+        </div>
+
+        <div class="options" id="options"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="explanation" id="explanation"></div>
+
+        <!-- Show Me How: step-by-step walkthrough -->
+        <button class="show-me-btn" id="show-me-btn">💡 Show Me How</button>
+        <div class="steps-panel" id="steps-panel">
+          <div class="steps-title">Step by Step</div>
+          <div id="steps-list"></div>
+          <button class="next-step-btn" id="next-step-btn">Next Step →</button>
+        </div>
+
+        <button class="next-btn" id="next-btn">Next →</button>
+      </div>
+    </div>
+
+    <!-- ── Scratch pad column (desktop sidebar / mobile bottom sheet) ── -->
+    <div class="scratch-col" id="scratch-col">
+      <div class="scratch-pad">
+        <div class="scratch-header">
+          <span class="scratch-title">📝 Scratch Paper</span>
+          <button class="scratch-clear-btn" id="scratch-clear">Clear ✕</button>
+        </div>
+
+        <div class="scratch-tools">
+          <!-- Color swatches -->
+          <button class="color-swatch active" title="Black"  data-color="#1e1b4b" style="background:#1e1b4b"></button>
+          <button class="color-swatch"        title="Blue"   data-color="#2563eb" style="background:#2563eb"></button>
+          <button class="color-swatch"        title="Red"    data-color="#dc2626" style="background:#dc2626"></button>
+          <button class="color-swatch"        title="Green"  data-color="#16a34a" style="background:#16a34a"></button>
+          <button class="color-swatch"        title="Orange" data-color="#ea580c" style="background:#ea580c"></button>
+          <div class="tool-divider"></div>
+          <!-- Tool buttons -->
+          <button class="tool-btn active" id="pen-btn">✏️ Pen</button>
+          <button class="tool-btn"        id="eraser-btn">⬜ Erase</button>
+        </div>
+
+        <div class="scratch-canvas-wrap" id="scratch-wrap">
+          <canvas id="scratch-canvas" class="pen-cursor"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.quiz-layout -->
+
+  <!-- Mobile FAB -->
+  <button class="scratch-fab" id="scratch-fab" title="Open scratch paper">✏️</button>
+
+  <!-- Math time limit overlay -->
+  <div class="time-limit-overlay" id="time-limit-overlay">
+    <div class="time-limit-box">
+      <div class="tl-emoji">📚</div>
+      <div class="tl-title">Great Math Work!</div>
+      <p class="tl-body">You've done <strong>10 minutes</strong> of math today — great work! Time to switch back to reading. Come back tomorrow for more math!</p>
+      <div class="tl-count" id="tl-count">Going to reading in 5…</div>
+    </div>
+  </div>
+
+  <script src="math-data.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'index.html'; }
+
+    // Math unlock guard
+    const MATH_UNLOCK_KEY = 'mathUnlocked_' + profile.readerId;
+    if (localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
+      window.location.href = 'math.html';
+    }
+
+    const params  = new URLSearchParams(location.search);
+    const setId   = params.get('set');
+    const mathSet = MATH_SETS.find(s => s.id === setId);
+    if (!mathSet) { window.location.href = 'math.html'; }
+
+    document.getElementById('nav-title').textContent = mathSet.title;
+    const questions = mathSet.questions;
+
+    // ─── Daily math time limit (20 minutes) ───────────────────────────────────
+    const MATH_LIMIT_SECS = 10 * 60; // 600 seconds (10 min daily cap)
+    const MATH_DATE_KEY   = 'mathTimeDate_' + profile.readerId;
+    const MATH_SECS_KEY   = 'mathTimeSecs_' + profile.readerId;
+
+    // Reset counter if it's a new day
+    const todayStr = new Date().toISOString().slice(0, 10);
+    if (localStorage.getItem(MATH_DATE_KEY) !== todayStr) {
+      localStorage.setItem(MATH_DATE_KEY, todayStr);
+      localStorage.setItem(MATH_SECS_KEY, '0');
+    }
+
+    let mathSecsBase  = parseInt(localStorage.getItem(MATH_SECS_KEY) || '0');
+    const mathPageStart = Date.now();
+    let mathLimitHit  = false;
+
+    // Save elapsed time on page exit
+    window.addEventListener('beforeunload', () => {
+      const secs = Math.floor((Date.now() - mathPageStart) / 1000);
+      localStorage.setItem(MATH_SECS_KEY, (mathSecsBase + secs).toString());
+    });
+
+    function showTimeLimitOverlay() {
+      mathLimitHit = true;
+      // Save the fact that they hit the limit
+      localStorage.setItem(MATH_SECS_KEY, MATH_LIMIT_SECS.toString());
+
+      const overlay = document.getElementById('time-limit-overlay');
+      const countEl = document.getElementById('tl-count');
+      overlay.classList.add('show');
+      let secs = 5;
+      countEl.textContent = `Going to reading in ${secs}…`;
+      const timer = setInterval(() => {
+        secs--;
+        if (secs <= 0) {
+          clearInterval(timer);
+          window.location.href = 'library.html?notice=mathtime';
+        } else {
+          countEl.textContent = `Going to reading in ${secs}…`;
+        }
+      }, 1000);
+    }
+
+    // Check time every 10 seconds (also check on load in case already over)
+    function checkMathTime() {
+      if (mathLimitHit) return;
+      const totalSecs = mathSecsBase + Math.floor((Date.now() - mathPageStart) / 1000);
+      if (totalSecs >= MATH_LIMIT_SECS) showTimeLimitOverlay();
+    }
+    checkMathTime(); // immediate check if already over limit
+    const mathTimeTicker = setInterval(checkMathTime, 10000);
+
+    // ─── Config ───────────────────────────────────────────────────────────────
+    const THINK_SECONDS    = 3;
+    const XP_FIRST_TRY     = 15;
+    const XP_NOT_FIRST     = 8;
+    const XP_PERFECT_BONUS = 20;
+
+    // ─── State ────────────────────────────────────────────────────────────────
+    let currentQ           = 0;
+    let shuffledOptions    = [];
+    let newCorrectIndex    = -1;
+    let thinkLocked        = true;
+    let thinkInterval      = null;
+    let totalWrongs        = 0;   // cumulative (shown in counter)
+    let wrongsThisQuestion = 0;   // resets per question (for XP)
+    const answers          = [];
+
+    // ─── Shuffle helper ───────────────────────────────────────────────────────
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function prepareOptions(q) {
+      const indices   = shuffle([0, 1, 2, 3].slice(0, q.options.length));
+      shuffledOptions = indices.map(i => q.options[i]);
+      newCorrectIndex = indices.indexOf(q.correctIndex);
+    }
+
+    // ─── Update mistake counter ───────────────────────────────────────────────
+    function updateMistakeCount() {
+      const el = document.getElementById('mistake-count');
+      if (el) el.textContent = totalWrongs;
+      const warnEl = document.getElementById('math-xp-warn');
+      if (warnEl) {
+        if (totalWrongs >= 6) {
+          warnEl.textContent = '📉 XP dropping fast!';
+          warnEl.style.display = '';
+        } else if (totalWrongs >= 3) {
+          warnEl.textContent = '⚠️ Wrong answers cost XP!';
+          warnEl.style.display = '';
+        } else {
+          warnEl.style.display = 'none';
+        }
+      }
+    }
+
+    // ─── Think-lock countdown ─────────────────────────────────────────────────
+    function startThinkLock() {
+      thinkLocked = true;
+      const lockEl  = document.getElementById('think-lock');
+      const countEl = document.getElementById('think-count');
+      const barEl   = document.getElementById('think-bar');
+      lockEl.classList.add('active');
+      countEl.textContent = THINK_SECONDS;
+      barEl.style.transition = 'none';
+      barEl.style.width = '0%';
+      barEl.offsetWidth;
+      barEl.style.transition = `width ${THINK_SECONDS}s linear`;
+      barEl.style.width = '100%';
+      let secsLeft = THINK_SECONDS;
+      clearInterval(thinkInterval);
+      thinkInterval = setInterval(() => {
+        secsLeft--;
+        countEl.textContent = Math.max(0, secsLeft);
+        if (secsLeft <= 0) { clearInterval(thinkInterval); unlockOptions(); }
+      }, 1000);
+    }
+
+    function unlockOptions() {
+      thinkLocked = false;
+      document.getElementById('think-lock').classList.remove('active');
+      document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.disabled = false; btn.classList.remove('locked');
+      });
+    }
+
+    // ─── Show Me How (step-by-step) ──────────────────────────────────────────
+    let stepsState = { steps: [], revealedCount: 0 };
+
+    function resetStepsPanel() {
+      stepsState = { steps: [], revealedCount: 0 };
+      document.getElementById('show-me-btn').classList.remove('visible');
+      document.getElementById('steps-panel').classList.remove('show');
+      document.getElementById('steps-list').innerHTML = '';
+    }
+
+    function showStepsPanel(q) {
+      const steps = q.steps || [];
+      if (!steps.length) return;
+      stepsState = { steps, revealedCount: 0 };
+
+      const listEl = document.getElementById('steps-list');
+      listEl.innerHTML = steps.map((s, i) =>
+        `<div class="step-item" id="step-${i}">
+          <div class="step-num">${i + 1}</div>
+          <div class="step-text">${s}</div>
+        </div>`
+      ).join('');
+
+      document.getElementById('steps-panel').classList.add('show');
+      document.getElementById('show-me-btn').classList.remove('visible');
+
+      // Reveal first step immediately
+      revealNextStep();
+    }
+
+    function revealNextStep() {
+      const { steps, revealedCount } = stepsState;
+      if (revealedCount >= steps.length) return;
+
+      const stepEl = document.getElementById('step-' + revealedCount);
+      if (stepEl) {
+        requestAnimationFrame(() => stepEl.classList.add('revealed'));
+      }
+      stepsState.revealedCount++;
+
+      const nextBtn = document.getElementById('next-step-btn');
+      if (stepsState.revealedCount >= steps.length) {
+        nextBtn.textContent = '✓ Got it!';
+        nextBtn.classList.add('done');
+        nextBtn.onclick = () => {
+          document.getElementById('steps-panel').classList.remove('show');
+          nextBtn.classList.remove('done');
+          nextBtn.textContent = 'Next Step →';
+          nextBtn.onclick = revealNextStep;
+        };
+      }
+    }
+
+    document.getElementById('next-step-btn').addEventListener('click', revealNextStep);
+    document.getElementById('show-me-btn').addEventListener('click', () => {
+      showStepsPanel(questions[currentQ]);
+    });
+
+    // ─── Show a question ──────────────────────────────────────────────────────
+    function showQuestion(idx) {
+      const q = questions[idx];
+      thinkLocked          = true;
+      wrongsThisQuestion   = 0;
+
+      // Clear scratch pad for the new question
+      if (typeof window.clearScratchPad === 'function') window.clearScratchPad();
+
+      document.getElementById('q-progress-label').textContent = `Question ${idx + 1} of ${questions.length}`;
+      document.getElementById('q-progress-fill').style.width  = ((idx + 1) / questions.length * 100) + '%';
+      document.getElementById('question-text').textContent    = q.question;
+
+      prepareOptions(q);
+
+      document.getElementById('feedback').className    = 'feedback';
+      document.getElementById('feedback').innerHTML    = '';
+      document.getElementById('explanation').className = 'explanation';
+      document.getElementById('explanation').innerHTML = '';
+      document.getElementById('next-btn').classList.remove('show');
+      resetStepsPanel();
+
+      renderOptions(true /* locked */);
+      startThinkLock();
+    }
+
+    // ─── Render option buttons ────────────────────────────────────────────────
+    function renderOptions(locked) {
+      const optDiv = document.getElementById('options');
+      optDiv.style.opacity = '1';
+      optDiv.innerHTML = shuffledOptions.map((opt, i) =>
+        `<button class="option-btn${locked ? ' locked' : ''}" data-idx="${i}" ${locked ? 'disabled' : ''}>${opt}</button>`
+      ).join('');
+      optDiv.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (thinkLocked || btn.disabled) return;
+          handleAnswer(parseInt(btn.dataset.idx));
+        });
+      });
+    }
+
+    // ─── Handle answer ────────────────────────────────────────────────────────
+    // ── Sound effects ──────────────────────────────────────────────────────────
+    function playSound(type) {
+      try {
+        if (localStorage.getItem('soundEnabled') === 'false') return;
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const play = (freq, dur, wave = 'sine', delay = 0, vol = 0.28) => {
+          const o = ctx.createOscillator(), g = ctx.createGain();
+          o.connect(g); g.connect(ctx.destination);
+          o.type = wave; o.frequency.value = freq;
+          g.gain.setValueAtTime(vol, ctx.currentTime + delay);
+          g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
+          o.start(ctx.currentTime + delay); o.stop(ctx.currentTime + delay + dur);
+        };
+        if (type === 'correct')  { play(660, 0.15); play(880, 0.2, 'sine', 0.12); }
+        if (type === 'wrong')    { play(220, 0.25, 'sawtooth', 0, 0.18); play(180, 0.2, 'sawtooth', 0.1, 0.12); }
+        if (type === 'complete') { [523,659,784,1047].forEach((f,i) => play(f, 0.3, 'sine', i*0.1)); }
+        setTimeout(() => ctx.close(), 1500);
+      } catch(e) {}
+    }
+
+    function handleAnswer(selectedIdx) {
+      if (thinkLocked) return;
+      const q         = questions[currentQ];
+      const isCorrect = selectedIdx === newCorrectIndex;
+
+      document.querySelectorAll('.option-btn').forEach(b => { b.disabled = true; });
+
+      if (isCorrect) {
+        const xpEarned = wrongsThisQuestion === 0 ? XP_FIRST_TRY : XP_NOT_FIRST;
+        answers.push({ correct: true, attempts: wrongsThisQuestion + 1, earnedXP: xpEarned });
+
+        const btn = document.querySelectorAll('.option-btn')[selectedIdx];
+        btn.classList.add('correct');
+        playSound('correct');
+
+        const feedbackEl = document.getElementById('feedback');
+        feedbackEl.className = 'feedback correct-fb show';
+        feedbackEl.innerHTML = wrongsThisQuestion === 0
+          ? `✅ Correct! First try! <span class="xp-preview gain">+${xpEarned} XP</span>`
+          : `✅ Got it! <span class="xp-preview partial">+${xpEarned} XP</span>`;
+
+        showExplanation(q, true);
+        scheduleNext(2000);
+
+      } else {
+        // Wrong — track it, shake the button, then reshuffle
+        totalWrongs++;
+        wrongsThisQuestion++;
+        updateMistakeCount();
+
+        const btn = document.querySelectorAll('.option-btn')[selectedIdx];
+        btn.classList.add('wrong', 'shake');
+        setTimeout(() => btn.classList.remove('shake'), 500);
+        playSound('wrong');
+
+        const feedbackEl = document.getElementById('feedback');
+        feedbackEl.className = 'feedback wrong-fb show';
+        feedbackEl.innerHTML = '❌ Not quite — the answers are shuffling…';
+
+        const expEl = document.getElementById('explanation');
+        expEl.className = 'explanation show hint-exp';
+        expEl.textContent = '💡 ' + q.explanation;
+
+        // Show "Show Me How" button if steps are available
+        if (q.steps && q.steps.length) {
+          document.getElementById('show-me-btn').classList.add('visible');
+        }
+
+        // Reshuffle after a beat
+        setTimeout(() => reshuffleAndShow(q), 950);
+      }
+    }
+
+    // ─── Reshuffle options and re-render ──────────────────────────────────────
+    function reshuffleAndShow(q) {
+      const optDiv = document.getElementById('options');
+      optDiv.style.opacity = '0';
+      setTimeout(() => {
+        prepareOptions(q);
+        document.getElementById('feedback').className    = 'feedback';
+        document.getElementById('feedback').innerHTML    = '';
+        document.getElementById('explanation').className = 'explanation';
+        document.getElementById('explanation').innerHTML = '';
+        renderOptions(false);
+        optDiv.style.opacity = '1';
+      }, 220);
+    }
+
+    // ─── Show explanation ─────────────────────────────────────────────────────
+    function showExplanation(q, isCorrect) {
+      const expEl = document.getElementById('explanation');
+      expEl.className = 'explanation show ' + (isCorrect ? 'correct-exp' : 'wrong-exp');
+      expEl.textContent = q.explanation;
+    }
+
+    // ─── Auto-advance + Next button ───────────────────────────────────────────
+    function scheduleNext(delay) {
+      const nextBtn = document.getElementById('next-btn');
+      nextBtn.classList.add('show');
+      nextBtn.textContent = currentQ === questions.length - 1 ? 'See Results! 🎉' : 'Next Question →';
+      let autoTimer = setTimeout(() => goNext(), delay);
+      nextBtn.addEventListener('click', () => { clearTimeout(autoTimer); goNext(); }, { once: true });
+    }
+
+    function goNext() {
+      clearInterval(thinkInterval);
+      currentQ++;
+      if (currentQ < questions.length) {
+        showQuestion(currentQ);
+      } else {
+        finishQuiz();
+      }
+    }
+
+    // ─── Finish quiz ──────────────────────────────────────────────────────────
+    function finishQuiz() {
+      const score           = answers.filter(a => a.correct).length;
+      const perfectFirstTry = answers.every(a => a.correct && a.attempts === 1);
+      let earnedXP          = answers.reduce((sum, a) => sum + a.earnedXP, 0);
+      if (perfectFirstTry) earnedXP += XP_PERFECT_BONUS;
+      // Deduct 3 XP per wrong answer — can make XP negative (level goes down!)
+      earnedXP -= totalWrongs * 3;
+      playSound('complete');
+
+      sessionStorage.setItem('mathResult', JSON.stringify({
+        setId:         mathSet.id,
+        setTitle:      mathSet.title,
+        setTopic:      mathSet.topic,
+        score,
+        total:         questions.length,
+        earnedXP,
+        perfectFirstTry,
+        answers
+      }));
+      sessionStorage.removeItem('mathWritten');
+      window.location.href = 'math-results.html';
+    }
+
+    showQuestion(0);
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    // SCRATCH PAD
+    // ═══════════════════════════════════════════════════════════════════════════
+    (function () {
+      const canvas  = document.getElementById('scratch-canvas');
+      const wrap    = document.getElementById('scratch-wrap');
+      const ctx     = canvas.getContext('2d');
+
+      let isDrawing   = false;
+      let lastX       = 0;
+      let lastY       = 0;
+      let penColor    = '#1e1b4b';
+      let isEraser    = false;
+      const STROKE_W  = 3;
+      const ERASER_W  = 22;
+
+      // ── Size canvas to its CSS container (DPR-aware) ──────────────────
+      function resizeCanvas() {
+        const dpr  = window.devicePixelRatio || 1;
+        const w    = wrap.clientWidth;
+        const h    = wrap.clientHeight;
+        // Save existing drawing
+        const imgData = (canvas.width && canvas.height)
+          ? ctx.getImageData(0, 0, canvas.width, canvas.height)
+          : null;
+        canvas.width  = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width  = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.scale(dpr, dpr);
+        ctx.lineCap  = 'round';
+        ctx.lineJoin = 'round';
+        // Restore previous drawing (best-effort)
+        if (imgData) { try { ctx.putImageData(imgData, 0, 0); } catch (e) {} }
+      }
+      resizeCanvas();
+      new ResizeObserver(resizeCanvas).observe(wrap);
+
+      // ── Pointer position relative to canvas ──────────────────────────
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const src  = e.touches ? e.touches[0] : e;
+        return { x: src.clientX - rect.left, y: src.clientY - rect.top };
+      }
+
+      // ── Draw a line segment ───────────────────────────────────────────
+      function drawLine(x0, y0, x1, y1) {
+        ctx.globalCompositeOperation = isEraser ? 'destination-out' : 'source-over';
+        ctx.strokeStyle = isEraser ? 'rgba(0,0,0,1)' : penColor;
+        ctx.lineWidth   = isEraser ? ERASER_W : STROKE_W;
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.lineTo(x1, y1);
+        ctx.stroke();
+      }
+
+      // ── Mouse events ──────────────────────────────────────────────────
+      canvas.addEventListener('mousedown', e => {
+        isDrawing = true;
+        const p = getPos(e);
+        lastX = p.x; lastY = p.y;
+        drawLine(lastX, lastY, lastX + 0.1, lastY); // dot on single click
+      });
+      canvas.addEventListener('mousemove', e => {
+        if (!isDrawing) return;
+        const p = getPos(e);
+        drawLine(lastX, lastY, p.x, p.y);
+        lastX = p.x; lastY = p.y;
+      });
+      canvas.addEventListener('mouseup',    () => { isDrawing = false; });
+      canvas.addEventListener('mouseleave', () => { isDrawing = false; });
+
+      // ── Touch events ──────────────────────────────────────────────────
+      canvas.addEventListener('touchstart', e => {
+        e.preventDefault();
+        isDrawing = true;
+        const p = getPos(e);
+        lastX = p.x; lastY = p.y;
+        drawLine(lastX, lastY, lastX + 0.1, lastY);
+      }, { passive: false });
+      canvas.addEventListener('touchmove', e => {
+        e.preventDefault();
+        if (!isDrawing) return;
+        const p = getPos(e);
+        drawLine(lastX, lastY, p.x, p.y);
+        lastX = p.x; lastY = p.y;
+      }, { passive: false });
+      canvas.addEventListener('touchend',   () => { isDrawing = false; });
+
+      // ── Color swatches ────────────────────────────────────────────────
+      document.querySelectorAll('.color-swatch').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          penColor  = btn.dataset.color;
+          isEraser  = false;
+          canvas.className    = 'pen-cursor';
+          document.getElementById('pen-btn').classList.add('active');
+          document.getElementById('eraser-btn').classList.remove('active');
+        });
+      });
+
+      // ── Pen / Eraser toggle ───────────────────────────────────────────
+      document.getElementById('pen-btn').addEventListener('click', () => {
+        isEraser = false;
+        canvas.className = 'pen-cursor';
+        document.getElementById('pen-btn').classList.add('active');
+        document.getElementById('eraser-btn').classList.remove('active');
+      });
+      document.getElementById('eraser-btn').addEventListener('click', () => {
+        isEraser = true;
+        canvas.className = 'eraser-cursor';
+        document.getElementById('eraser-btn').classList.add('active');
+        document.getElementById('pen-btn').classList.remove('active');
+      });
+
+      // ── Clear ─────────────────────────────────────────────────────────
+      function clearPad() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        isEraser = false;
+        canvas.className = 'pen-cursor';
+        document.getElementById('pen-btn').classList.add('active');
+        document.getElementById('eraser-btn').classList.remove('active');
+      }
+      document.getElementById('scratch-clear').addEventListener('click', clearPad);
+
+      // Expose so showQuestion can auto-clear between questions
+      window.clearScratchPad = clearPad;
+
+      // ── Mobile FAB toggle ─────────────────────────────────────────────
+      const fab   = document.getElementById('scratch-fab');
+      const panel = document.getElementById('scratch-col');
+      fab.addEventListener('click', () => {
+        const open = panel.classList.toggle('mobile-open');
+        fab.classList.toggle('open', open);
+        fab.textContent = open ? '✕' : '✏️';
+        if (open) { setTimeout(resizeCanvas, 350); } // wait for slide animation
+      });
+
+    })();
+  </script>
+</body>
+</html>

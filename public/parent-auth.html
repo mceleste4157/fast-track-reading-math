@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- Redirects to the new unified login page -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0;url=login.html" />
+  <title>Redirecting…</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --blue: #2563eb; --blue-soft: #dbeafe;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #fff7ed 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--bg);
+      min-height: 100vh; color: var(--text);
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+
+    .auth-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 4px 32px rgba(124,58,237,0.12);
+      padding: 36px 32px; width: 100%; max-width: 400px;
+    }
+
+    .brand {
+      text-align: center; margin-bottom: 28px;
+    }
+    .brand-icon { font-size: 2.4rem; }
+    .brand-title { font-size: 1.3rem; font-weight: 800; color: var(--purple); margin-top: 6px; }
+    .brand-sub   { font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
+
+    /* Tabs */
+    .tabs { display: flex; border-radius: 10px; background: #f3f4f6; padding: 4px; margin-bottom: 24px; gap: 4px; }
+    .tab {
+      flex: 1; padding: 9px; text-align: center; border: none; background: none;
+      border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      color: var(--muted); transition: background 0.15s, color 0.15s; font-family: inherit;
+    }
+    .tab.active { background: var(--surface); color: var(--purple); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+
+    /* Forms */
+    .form-section { display: none; }
+    .form-section.active { display: block; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-weight: 600; font-size: 0.88rem;
+      margin-bottom: 6px; color: var(--text);
+    }
+    .form-group input {
+      width: 100%; padding: 12px 14px;
+      border: 2px solid var(--border); border-radius: 10px;
+      font-size: 0.95rem; font-family: inherit; color: var(--text);
+      outline: none; transition: border-color 0.15s;
+    }
+    .form-group input:focus { border-color: var(--purple); }
+
+    .btn-submit {
+      width: 100%; padding: 13px;
+      background: var(--purple); color: #fff; border: none; border-radius: 10px;
+      font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s, opacity 0.15s; margin-top: 4px;
+    }
+    .btn-submit:hover   { background: #6d28d9; }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .form-error {
+      background: var(--red-soft); color: #b91c1c;
+      border-radius: 8px; padding: 10px 12px;
+      font-size: 0.88rem; font-weight: 600; margin-bottom: 14px;
+      display: none;
+    }
+    .form-success {
+      background: var(--green-soft); color: #065f46;
+      border-radius: 8px; padding: 10px 12px;
+      font-size: 0.88rem; font-weight: 600; margin-bottom: 14px;
+      display: none;
+    }
+
+    .forgot-link {
+      display: block; text-align: right; font-size: 0.82rem;
+      color: var(--muted); text-decoration: none; margin-top: 8px; font-weight: 600;
+    }
+    .forgot-link:hover { color: var(--purple); text-decoration: underline; }
+
+    .back-wrap { text-align: center; margin-top: 24px; }
+    .back-link  { color: var(--muted); font-size: 0.88rem; text-decoration: none; font-weight: 600; }
+    .back-link:hover { color: var(--purple); }
+  </style>
+</head>
+<body>
+
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-icon">👨‍👩‍👧</div>
+      <div class="brand-title">FAST Track — Parent Access</div>
+      <div class="brand-sub">Manage your children's learning profiles</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" id="tab-signin"  onclick="switchTab('signin')">Sign In</button>
+      <button class="tab"        id="tab-register" onclick="switchTab('register')">Create Account</button>
+    </div>
+
+    <!-- Sign In form -->
+    <div class="form-section active" id="section-signin">
+      <div class="form-error"   id="signin-error"></div>
+      <div class="form-success" id="signin-success"></div>
+      <div class="form-group">
+        <label for="signin-email">Email</label>
+        <input type="email" id="signin-email" placeholder="your@email.com" autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="signin-password">Password</label>
+        <input type="password" id="signin-password" placeholder="Password" autocomplete="current-password" />
+      </div>
+      <button class="btn-submit" id="signin-btn">Sign In →</button>
+      <a href="#" class="forgot-link" id="forgot-link">Forgot password?</a>
+    </div>
+
+    <!-- Create Account form -->
+    <div class="form-section" id="section-register">
+      <div class="form-error"   id="register-error"></div>
+      <div class="form-group">
+        <label for="reg-name">Your Name</label>
+        <input type="text"     id="reg-name"     placeholder="Your full name" autocomplete="name" />
+      </div>
+      <div class="form-group">
+        <label for="reg-email">Email</label>
+        <input type="email"    id="reg-email"    placeholder="your@email.com" autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="reg-password">Password (min 6 characters)</label>
+        <input type="password" id="reg-password" placeholder="Create a password" autocomplete="new-password" />
+      </div>
+      <div class="form-group">
+        <label for="reg-confirm">Confirm Password</label>
+        <input type="password" id="reg-confirm"  placeholder="Confirm password" autocomplete="new-password" />
+      </div>
+      <button class="btn-submit" id="register-btn">Create Account →</button>
+    </div>
+
+    <div class="back-wrap">
+      <a href="login.html" class="back-link">← Back to Student Login</a>
+    </div>
+  </div>
+
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const auth = firebase.auth();
+    const db   = firebase.firestore();
+
+    // ── Redirect if already signed in ─────────────────────────────────────────
+    auth.onAuthStateChanged(user => {
+      if (user) window.location.href = 'parent-portal.html';
+    });
+
+    // ── Tab switching ──────────────────────────────────────────────────────────
+    function switchTab(tab) {
+      document.getElementById('tab-signin').classList.toggle('active',   tab === 'signin');
+      document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+      document.getElementById('section-signin').classList.toggle('active',   tab === 'signin');
+      document.getElementById('section-register').classList.toggle('active', tab === 'register');
+    }
+
+    // ── Sign In ────────────────────────────────────────────────────────────────
+    document.getElementById('signin-btn').addEventListener('click', doSignIn);
+    document.getElementById('signin-password').addEventListener('keydown', e => {
+      if (e.key === 'Enter') doSignIn();
+    });
+
+    function doSignIn() {
+      const email    = document.getElementById('signin-email').value.trim();
+      const password = document.getElementById('signin-password').value;
+      const errEl    = document.getElementById('signin-error');
+      const succEl   = document.getElementById('signin-success');
+      errEl.style.display = 'none';
+      succEl.style.display = 'none';
+
+      if (!email || !password) {
+        errEl.textContent = 'Please enter your email and password.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      const btn = document.getElementById('signin-btn');
+      btn.disabled = true; btn.textContent = 'Signing in…';
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = 'parent-portal.html';
+        })
+        .catch(err => {
+          btn.disabled = false; btn.textContent = 'Sign In →';
+          errEl.textContent = friendlyError(err.code);
+          errEl.style.display = 'block';
+        });
+    }
+
+    // ── Create Account ─────────────────────────────────────────────────────────
+    document.getElementById('register-btn').addEventListener('click', doRegister);
+
+    function doRegister() {
+      const name     = document.getElementById('reg-name').value.trim();
+      const email    = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const confirm  = document.getElementById('reg-confirm').value;
+      const errEl    = document.getElementById('register-error');
+      errEl.style.display = 'none';
+
+      if (!name || !email || !password || !confirm) {
+        errEl.textContent = 'Please fill in all fields.';
+        errEl.style.display = 'block'; return;
+      }
+      if (password.length < 6) {
+        errEl.textContent = 'Password must be at least 6 characters.';
+        errEl.style.display = 'block'; return;
+      }
+      if (password !== confirm) {
+        errEl.textContent = 'Passwords do not match.';
+        errEl.style.display = 'block'; return;
+      }
+
+      const btn = document.getElementById('register-btn');
+      btn.disabled = true; btn.textContent = 'Creating account…';
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(cred => {
+          const uid = cred.user.uid;
+          return db.collection('ParentProfiles').doc(uid).set({
+            email:       email,
+            displayName: name,
+            createdAt:   firebase.firestore.FieldValue.serverTimestamp()
+          });
+        })
+        .then(() => {
+          window.location.href = 'parent-portal.html';
+        })
+        .catch(err => {
+          btn.disabled = false; btn.textContent = 'Create Account →';
+          errEl.textContent = friendlyError(err.code);
+          errEl.style.display = 'block';
+        });
+    }
+
+    // ── Forgot password ────────────────────────────────────────────────────────
+    document.getElementById('forgot-link').addEventListener('click', e => {
+      e.preventDefault();
+      const email  = document.getElementById('signin-email').value.trim();
+      const errEl  = document.getElementById('signin-error');
+      const succEl = document.getElementById('signin-success');
+      errEl.style.display = 'none'; succEl.style.display = 'none';
+
+      if (!email) {
+        errEl.textContent = 'Enter your email address above first.';
+        errEl.style.display = 'block'; return;
+      }
+      auth.sendPasswordResetEmail(email)
+        .then(() => {
+          succEl.textContent = 'Reset email sent! Check your inbox.';
+          succEl.style.display = 'block';
+        })
+        .catch(err => {
+          errEl.textContent = friendlyError(err.code);
+          errEl.style.display = 'block';
+        });
+    });
+
+    // ── Error messages ─────────────────────────────────────────────────────────
+    function friendlyError(code) {
+      switch (code) {
+        case 'auth/user-not-found':        return 'No account found with that email.';
+        case 'auth/wrong-password':        return 'Incorrect password.';
+        case 'auth/email-already-in-use':  return 'An account already exists with this email.';
+        case 'auth/invalid-email':         return 'Please enter a valid email address.';
+        case 'auth/weak-password':         return 'Password is too weak — use at least 6 characters.';
+        case 'auth/too-many-requests':     return 'Too many attempts. Please wait a moment and try again.';
+        case 'auth/network-request-failed':return 'Network error — check your connection.';
+        case 'auth/invalid-credential':    return 'Incorrect email or password.';
+        default:                           return 'Something went wrong. Please try again.';
+      }
+    }
+  </script>
+</body>
+</html>

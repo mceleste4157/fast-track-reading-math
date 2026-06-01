@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library – FAST Track Reading & Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --orange: #f59e0b; --orange-soft: #fffbeb;
+      --green: #10b981; --green-soft: #d1fae5;
+      --blue: #2563eb; --blue-soft: #dbeafe;
+      --teal: #0891b2; --teal-soft: #cffafe;
+      --amber: #d97706; --amber-soft: #fef3c7;
+      --pink: #ec4899; --pink-soft: #fce7f3;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #fff7ed 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    /* NAV */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 24px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; color: #fff; flex-shrink: 0;
+    }
+    .nav-name { font-weight: 700; font-size: 1rem; }
+    .nav-stars { font-size: 1rem; font-weight: 700; color: var(--orange); margin-left: auto; }
+    .nav-progress { font-size: 0.9rem; font-weight: 600; color: var(--purple); text-decoration: none; margin-left: 16px; }
+    .nav-progress:hover { text-decoration: underline; }
+
+    /* PAGE */
+    .page { max-width: 960px; margin: 0 auto; padding: 28px 16px 80px; }
+
+    /* MATH ZONE BANNER */
+    .math-zone-banner {
+      border-radius: var(--radius); padding: 20px 24px;
+      display: flex; align-items: center; gap: 18px;
+      margin-bottom: 36px; cursor: pointer;
+      text-decoration: none; color: inherit;
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+    .math-zone-banner:hover { transform: translateY(-2px); }
+    .math-zone-banner.unlocked {
+      background: linear-gradient(135deg, #dbeafe, #d1fae5);
+      box-shadow: 0 4px 20px rgba(37,99,235,0.15);
+    }
+    .math-zone-banner.locked {
+      background: #f3f4f6; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      cursor: default;
+    }
+    .math-zone-banner.locked:hover { transform: none; }
+    .math-banner-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .math-banner-body { flex: 1; }
+    .math-banner-title { font-size: 1.15rem; font-weight: 800; margin-bottom: 4px; }
+    .math-banner-sub { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    .math-banner-badge {
+      padding: 8px 16px; border-radius: 10px;
+      font-size: 0.9rem; font-weight: 700;
+      background: var(--blue); color: #fff;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .math-banner-badge.locked-badge { background: #e5e7eb; color: #6b7280; }
+
+    /* NOTICE TOAST */
+    .notice-toast {
+      position: fixed; top: 70px; left: 50%; transform: translateX(-50%);
+      background: #1e3a8a; color: #fff;
+      padding: 14px 22px; border-radius: 14px;
+      font-size: 0.95rem; font-weight: 600; text-align: center;
+      z-index: 200; max-width: 380px; width: 92vw;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      opacity: 0; transition: opacity 0.35s; pointer-events: none;
+    }
+    .notice-toast.show { opacity: 1; }
+
+    /* SECTION HEADERS */
+    .section-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px; border-radius: 99px;
+      font-size: 1rem; font-weight: 800;
+    }
+    .section-badge.early    { background: #fef9c3; color: #78350f; }
+    .section-badge.emerging { background: #d1fae5; color: #065f46; }
+    .section-badge.grade4   { background: var(--purple-soft); color: #5b21b6; }
+    .section-badge.advanced { background: #e0e7ff; color: #3730a3; }
+    .section-desc { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+
+    /* STORY GRID */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 768px) {
+      .page { padding: 32px 32px 80px; }
+      .story-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    }
+    .story-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(124,58,237,0.08);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s; cursor: pointer;
+    }
+    .story-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,58,237,0.15); }
+    .card-cover {
+      height: 110px; display: flex; align-items: center;
+      justify-content: center; font-size: 3.2rem;
+    }
+    .card-body { padding: 15px; flex: 1; display: flex; flex-direction: column; }
+    .card-topic {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 3px 10px; border-radius: 99px; margin-bottom: 7px;
+    }
+    /* Topic chip colors */
+    .topic-florida-nature { background: var(--green-soft);  color: #065f46; }
+    .topic-character      { background: var(--purple-soft); color: #5b21b6; }
+    .topic-science        { background: var(--blue-soft);   color: #1e40af; }
+    .topic-perspective    { background: var(--orange-soft); color: #92400e; }
+    .topic-space          { background: #e0e7ff;            color: #3730a3; }
+    .topic-folktale       { background: var(--amber-soft);  color: #78350f; }
+    .topic-environment    { background: var(--teal-soft);   color: #164e63; }
+    .topic-biography      { background: var(--pink-soft);   color: #831843; }
+    .topic-adventure      { background: var(--orange-soft); color: #92400e; }
+    .topic-history        { background: #fce7f3;            color: #831843; }
+
+    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 5px; line-height: 1.3; }
+    .card-meta  { font-size: 0.82rem; color: var(--muted); margin-bottom: auto; }
+    .card-status { margin-top: 12px; }
+    .card-status .stars { color: var(--orange); font-size: 0.9rem; margin-bottom: 4px; }
+    .btn-card {
+      display: block; width: 100%; padding: 9px;
+      border: none; border-radius: 10px;
+      font-size: 0.92rem; font-weight: 700; cursor: pointer;
+      text-align: center; text-decoration: none; transition: background 0.15s;
+    }
+    .btn-read       { background: var(--purple); color: #fff; }
+    .btn-read:hover { background: #6d28d9; }
+    .btn-read.emerging-btn  { background: var(--green); }
+    .btn-read.emerging-btn:hover { background: #059669; }
+    .btn-read.advanced-btn  { background: #3730a3; }
+    .btn-read.advanced-btn:hover { background: #312e81; }
+    .btn-done       { background: var(--green-soft); color: #065f46; }
+    .btn-done:hover { background: #a7f3d0; }
+
+    /* Collapsed done cards */
+    .story-card.hidden-done { display: none; }
+
+    /* Section toggle button */
+    .section-toggle {
+      margin-left: auto; background: none;
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 5px 12px; font-size: 0.78rem; font-weight: 700;
+      cursor: pointer; color: var(--muted); white-space: nowrap;
+      transition: background 0.12s, color 0.12s; flex-shrink: 0;
+    }
+    .section-toggle:hover { background: #f3f4f6; color: var(--text); border-color: #9ca3af; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-avatar" id="nav-avatar"></div>
+    <div class="nav-name" id="nav-name"></div>
+    <div class="nav-stars" id="nav-stars">⭐ 0</div>
+    <a href="vocab.html" class="nav-progress" style="color:var(--purple);">📝 Vocab</a>
+    <a href="progress.html" class="nav-progress">My Progress →</a>
+  </nav>
+
+  <!-- Notice toast -->
+  <div class="notice-toast" id="notice-toast"></div>
+
+  <div class="page">
+    <!-- Summer Goal Strip -->
+    <div id="summer-strip" style="
+      background: linear-gradient(135deg,#fef9c3,#fef3c7);
+      border: 2px solid #fcd34d; border-radius: 14px;
+      padding: 14px 18px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 14px;
+    ">
+      <div style="font-size:1.8rem; flex-shrink:0;">☀️</div>
+      <div style="flex:1; min-width:0;">
+        <div style="font-size:0.95rem; font-weight:800; color:#78350f;">Summer Challenge</div>
+        <div style="font-size:0.82rem; color:#92400e; margin:2px 0 7px;" id="summer-strip-desc">Loading progress…</div>
+        <div style="height:8px; background:#fde68a; border-radius:99px; overflow:hidden;">
+          <div id="summer-strip-bar" style="height:100%; background:linear-gradient(90deg,#f59e0b,#fb923c); border-radius:99px; width:0%; transition:width 1.2s;"></div>
+        </div>
+      </div>
+      <a href="trivia.html" id="trivia-btn" style="
+        display:none; flex-shrink:0;
+        background:#7c3aed; color:#fff; text-decoration:none;
+        font-size:0.88rem; font-weight:700; padding:9px 14px;
+        border-radius:10px; white-space:nowrap;
+        box-shadow:0 2px 8px rgba(124,58,237,0.3);
+      ">🎮 Play Trivia!</a>
+    </div>
+
+    <!-- Math Zone Banner -->
+    <div id="math-banner"></div>
+
+    <!-- 🌟 Early Stories Section -->
+    <div class="section-header" id="section-header-early" style="display:none;">
+      <span class="section-badge early">🌟 Early Stories</span>
+      <span class="section-desc">Short, fun stories for new readers</span>
+      <button class="section-toggle" id="toggle-early" style="display:none;" onclick="toggleSection('early')">Hide Done ✓</button>
+    </div>
+    <div class="story-grid" id="grid-early"></div>
+
+    <!-- 🌱 Foundation Section -->
+    <div class="section-header" id="section-header-emerging" style="display:none;">
+      <span class="section-badge emerging">🌱 Foundation</span>
+      <span class="section-desc">Shorter stories to build confidence</span>
+      <button class="section-toggle" id="toggle-emerging" style="display:none;" onclick="toggleSection('emerging')">Hide Done ✓</button>
+    </div>
+    <div class="story-grid" id="grid-emerging"></div>
+
+    <!-- 📚 Grade-Level Section -->
+    <div class="section-header" id="section-header-grade4" style="display:none;">
+      <span class="section-badge grade4">📚 Grade-Level Stories</span>
+      <span class="section-desc">Aligned to your grade standards</span>
+      <button class="section-toggle" id="toggle-grade4" style="display:none;" onclick="toggleSection('grade4')">Hide Done ✓</button>
+    </div>
+    <div class="story-grid" id="grid-grade4"></div>
+
+    <!-- 🎓 Advanced Section -->
+    <div class="section-header" id="section-header-advanced" style="display:none;">
+      <span class="section-badge advanced">🎓 Advanced Reading</span>
+      <span class="section-desc">Complex texts for strong readers</span>
+      <button class="section-toggle" id="toggle-advanced" style="display:none;" onclick="toggleSection('advanced')">Hide Done ✓</button>
+    </div>
+    <div class="story-grid" id="grid-advanced"></div>
+  </div>
+
+  <script src="stories.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'login.html'; }
+
+    // ─── Incoming notice toast ─────────────────────────────────────────────────
+    (function () {
+      const notice = new URLSearchParams(location.search).get('notice');
+      if (notice === 'mathtime') {
+        const toast = document.getElementById('notice-toast');
+        toast.textContent = '📚 Great math session! Now let\'s build those reading skills too.';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 6000);
+        history.replaceState({}, '', 'library.html');
+      }
+    })();
+
+    const av = document.getElementById('nav-avatar');
+    if (profile.avatarEmoji) {
+      av.textContent = profile.avatarEmoji;
+      av.style.background = profile.avatarColor || '#7c3aed';
+    } else {
+      av.style.background = profile.avatarColor || '#7c3aed';
+      av.textContent = profile.name.trim().charAt(0).toUpperCase();
+    }
+    document.getElementById('nav-name').textContent = profile.name;
+
+    let progressMap = {};
+    let totalStars  = 0;
+
+    // Topic → display label
+    const TOPIC_LABELS = {
+      'florida-nature': '🌿 Florida Nature',
+      'character':      '💭 Character',
+      'science':        '🔭 Science',
+      'perspective':    '👁️ Perspective',
+      'space':          '🚀 Space',
+      'folktale':       '📜 Folktale',
+      'environment':    '♻️ Environment',
+      'biography':      '👤 Biography',
+      'adventure':      '🗺️ Adventure',
+      'history':        '📜 History',
+    };
+
+    // Section definitions — ordered as they appear on page
+    const SECTIONS = [
+      { key: 'early',    level: 'early',    btnClass: 'emerging-btn' },
+      { key: 'emerging', level: 'emerging', btnClass: 'emerging-btn' },
+      { key: 'grade4',   level: 'grade4',   btnClass: '' },
+      { key: 'advanced', level: 'advanced', btnClass: 'advanced-btn' },
+    ];
+
+    function renderStars(n, total) {
+      let s = '';
+      for (let i = 0; i < total; i++) s += i < n ? '★' : '☆';
+      return s;
+    }
+
+    function buildCard(story, btnClass) {
+      const prog     = progressMap[story.id];
+      const topicCls = 'topic-' + story.topic;
+      const label    = TOPIC_LABELS[story.topic] || story.topic;
+      const doneClass = prog ? ' story-card--done' : '';
+      let statusHtml = '';
+      if (prog) {
+        statusHtml = `<div class="card-status">
+          <div class="stars">${renderStars(prog.starsEarned, 5)} ${prog.starsEarned}/5 stars</div>
+          <a href="read.html?story=${story.id}" class="btn-card btn-done">⭐ Read Again</a>
+        </div>`;
+      } else {
+        const btnCls = btnClass ? 'btn-read ' + btnClass : 'btn-read';
+        statusHtml = `<div class="card-status">
+          <a href="read.html?story=${story.id}" class="btn-card ${btnCls}">Read →</a>
+        </div>`;
+      }
+      return `<div class="story-card${doneClass}" onclick="window.location='read.html?story=${story.id}'">
+        <div class="card-cover" style="background:${story.coverColor}20;">${story.coverEmoji}</div>
+        <div class="card-body">
+          <span class="card-topic ${topicCls}">${label}</span>
+          <div class="card-title">${story.title}</div>
+          <div class="card-meta">~${story.readTimeMin} min · ${story.wordCount} words</div>
+          ${statusHtml}
+        </div>
+      </div>`;
+    }
+
+    // ─── Collapse / expand completed stories ──────────────────────────────────
+    // Default: collapsed (hidden). User clicks to reveal. State saved per section.
+    function isDoneHidden(sec) {
+      // 'false' = user explicitly showed them; anything else (null/first visit) = hidden
+      return localStorage.getItem('hideDone_' + sec) !== 'false';
+    }
+
+    function toggleSection(sec) {
+      const grid     = document.getElementById('grid-' + sec);
+      const btn      = document.getElementById('toggle-' + sec);
+      const doneCards = grid.querySelectorAll('.story-card--done');
+      const nowHiding = !isDoneHidden(sec);          // flip current state
+      localStorage.setItem('hideDone_' + sec, nowHiding ? 'true' : 'false');
+      doneCards.forEach(c => c.classList.toggle('hidden-done', nowHiding));
+      updateToggleBtn(btn, doneCards.length, nowHiding);
+    }
+
+    function updateToggleBtn(btn, count, hidden) {
+      btn.textContent = hidden
+        ? '▶ Show completed (' + count + ')'
+        : '▼ Hide completed (' + count + ')';
+    }
+
+    function applyCollapseState() {
+      SECTIONS.forEach(sec => {
+        const grid      = document.getElementById('grid-' + sec.key);
+        const btn       = document.getElementById('toggle-' + sec.key);
+        if (!grid || !btn) return;
+        const doneCards = grid.querySelectorAll('.story-card--done');
+        if (doneCards.length > 0) {
+          const hidden = isDoneHidden(sec.key);
+          doneCards.forEach(c => c.classList.toggle('hidden-done', hidden));
+          updateToggleBtn(btn, doneCards.length, hidden);
+          btn.style.display = '';
+        } else {
+          btn.style.display = 'none';
+        }
+      });
+    }
+
+    function renderGrids() {
+      const grade = parseInt(profile.gradeLevel) || 4;
+
+      SECTIONS.forEach(sec => {
+        const header = document.getElementById('section-header-' + sec.key);
+        const grid   = document.getElementById('grid-' + sec.key);
+        if (!header || !grid) return;
+
+        // Filter by level AND grade
+        const stories = STORIES.filter(s =>
+          s.level === sec.level &&
+          Array.isArray(s.grades) &&
+          s.grades.includes(grade)
+        );
+
+        if (stories.length === 0) {
+          header.style.display = 'none';
+          grid.style.display   = 'none';
+          grid.innerHTML = '';
+          return;
+        }
+
+        header.style.display = '';
+        grid.style.display   = '';
+        grid.innerHTML = stories.map(s => buildCard(s, sec.btnClass)).join('');
+      });
+
+      // Prevent link clicks from bubbling to card onclick
+      document.querySelectorAll('.btn-card').forEach(btn => {
+        btn.addEventListener('click', e => e.stopPropagation());
+      });
+
+      applyCollapseState();
+    }
+
+    // ─── Math Zone Banner ──────────────────────────────────────────────────────
+    const MATH_UNLOCK_KEY   = 'mathUnlocked_' + profile.readerId;
+    const MATH_UNLOCK_SCORE = 3;
+
+    function renderMathBanner(unlocked) {
+      const el = document.getElementById('math-banner');
+      if (unlocked) {
+        el.innerHTML = `<a href="math.html" class="math-zone-banner unlocked">
+          <div class="math-banner-icon">📐</div>
+          <div class="math-banner-body">
+            <div class="math-banner-title">Math Zone</div>
+            <div class="math-banner-sub">10 topics — Multiplication, Division, Fractions, Decimals, Measurement &amp; more!</div>
+          </div>
+          <div class="math-banner-badge">Open →</div>
+        </a>`;
+      } else {
+        el.innerHTML = `<div class="math-zone-banner locked">
+          <div class="math-banner-icon">🔒</div>
+          <div class="math-banner-body">
+            <div class="math-banner-title">Math Zone — Locked</div>
+            <div class="math-banner-sub">Earn 3+ stars ⭐ on any reading quiz to unlock!</div>
+          </div>
+          <div class="math-banner-badge locked-badge" id="read-first-badge" style="cursor:pointer;user-select:none;">📚 Read First!</div>
+        </div>`;
+        // Triple-click secret bypass
+        (function () {
+          let taps = 0, timer = null;
+          document.getElementById('read-first-badge').addEventListener('click', function () {
+            taps++;
+            clearTimeout(timer);
+            if (taps >= 3) {
+              taps = 0;
+              localStorage.setItem(MATH_UNLOCK_KEY, 'true');
+              renderMathBanner(true);
+            } else {
+              timer = setTimeout(() => { taps = 0; }, 800);
+            }
+          });
+        })();
+      }
+    }
+
+    renderMathBanner(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+    renderGrids(); // initial render while Firestore loads
+
+    // ─── Load Firestore progress ───────────────────────────────────────────────
+    const db = firebase.firestore();
+    db.collection('Progress')
+      .where('readerId', '==', profile.readerId)
+      .get()
+      .then(snap => {
+        let bestReadScore = 0;
+        // Collect all docs, build best-per-story map
+        snap.forEach(d => {
+          const data = d.data();
+          if ((data.quizScore || 0) > bestReadScore) bestReadScore = data.quizScore;
+          // Keep highest-scoring attempt per story
+          if (!progressMap[data.storyId] ||
+              (data.quizScore || 0) > (progressMap[data.storyId].quizScore || 0)) {
+            progressMap[data.storyId] = data;
+          }
+        });
+        // Stars = sum of best scores per story
+        totalStars = Object.values(progressMap).reduce((s, d) => s + (d.starsEarned || 0), 0);
+        document.getElementById('nav-stars').textContent = '⭐ ' + totalStars;
+
+        if (localStorage.getItem(MATH_UNLOCK_KEY) !== 'true' && bestReadScore >= MATH_UNLOCK_SCORE) {
+          localStorage.setItem(MATH_UNLOCK_KEY, 'true');
+          renderMathBanner(true);
+        }
+
+        // ── Summer strip ────────────────────────────────────────────────
+        const grade = parseInt(profile.gradeLevel) || 4;
+        const gradeStories = STORIES.filter(s =>
+          Array.isArray(s.grades) && s.grades.includes(grade)
+        );
+        const storiesRead = Object.keys(progressMap).length;
+        const summerTotal = gradeStories.length || STORIES.length;
+        const summerPct = Math.min(100, Math.round((storiesRead / summerTotal) * 100));
+        document.getElementById('summer-strip-bar').style.width = summerPct + '%';
+        document.getElementById('summer-strip-desc').textContent =
+          '📖 ' + storiesRead + '/' + summerTotal + ' stories read — keep going!';
+        // Show trivia button once 3+ stories completed
+        if (storiesRead >= 3) {
+          document.getElementById('trivia-btn').style.display = 'block';
+        }
+
+        renderGrids();
+      })
+      .catch(() => {}); // keep initial render on error
+  </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Read – FAST Track Reading & Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --orange: #f59e0b; --orange-soft: #fffbeb;
+      --green: #10b981; --green-soft: #d1fae5;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #fff7ed 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* TOP NAV */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 12px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 20;
+    }
+    .nav-back { text-decoration: none; color: var(--purple); font-weight: 700; font-size: 0.95rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-title { font-weight: 700; font-size: 1rem; flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .font-controls { display: flex; gap: 6px; }
+    .font-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 2px solid var(--border); background: var(--surface);
+      font-weight: 800; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; font-size: 1rem; transition: border-color 0.15s;
+    }
+    .font-btn:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* PROGRESS BAR */
+    .progress-bar-wrap { height: 4px; background: #e5e7eb; }
+    .progress-bar-fill { height: 100%; background: var(--purple); transition: width 0.3s; }
+
+    /* STORY AREA */
+    .story-wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 110px; }
+    .story-cover {
+      border-radius: 20px; height: 160px; display: flex; align-items: center;
+      justify-content: center; font-size: 5rem; margin-bottom: 24px;
+    }
+    .story-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+    .meta-chip {
+      font-size: 0.8rem; font-weight: 600; padding: 4px 12px;
+      border-radius: 99px; background: var(--purple-soft); color: var(--purple);
+    }
+    .story-title-big { font-size: 1.8rem; font-weight: 800; margin-bottom: 24px; line-height: 1.25; }
+
+    .story-body { font-size: 20px; line-height: 1.8; color: var(--text); cursor: text; }
+    .story-body p { margin-bottom: 1.4em; }
+
+    /* VOCAB WORDS */
+    .vocab-word {
+      background: #fef3c7; border-bottom: 2px solid var(--orange);
+      cursor: pointer; border-radius: 3px; padding: 0 2px;
+      transition: background 0.15s;
+    }
+    .vocab-word:hover { background: #fde68a; }
+
+    /* VOCAB POPUP */
+    .vocab-popup {
+      position: fixed; z-index: 100;
+      background: var(--surface);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 18px 20px;
+      max-width: 300px; width: 90vw;
+      display: none;
+    }
+    .vocab-popup.show { display: block; }
+    .popup-word { font-size: 1.15rem; font-weight: 800; color: var(--purple); margin-bottom: 6px; }
+    .popup-def { font-size: 0.95rem; line-height: 1.5; margin-bottom: 8px; }
+    .popup-example { font-size: 0.85rem; color: var(--muted); font-style: italic; line-height: 1.4; margin-bottom: 12px; }
+    .popup-close {
+      position: absolute; top: 10px; right: 12px;
+      background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--muted);
+    }
+    .popup-hear-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 8px;
+      border: 2px solid var(--purple); background: var(--purple-soft);
+      color: var(--purple); font-weight: 700; font-size: 0.88rem;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .popup-hear-btn:hover { background: var(--purple); color: #fff; }
+
+    /* VOCAB LEGEND */
+    .vocab-legend {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      font-size: 0.85rem; color: var(--muted); margin-bottom: 28px;
+    }
+    .vocab-legend-swatch {
+      background: #fef3c7; border-bottom: 2px solid var(--orange);
+      padding: 1px 8px; border-radius: 3px; font-size: 0.85rem;
+    }
+    .word-tap-hint {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; color: var(--muted);
+      background: var(--purple-soft); border-radius: 99px;
+      padding: 4px 12px; margin-left: 4px;
+    }
+
+    /* BOTTOM BAR */
+    .read-bar {
+      background: var(--surface); border-top: 1px solid var(--border);
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      z-index: 20; box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
+    }
+    .bar-hint { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+    .bar-hint strong { color: var(--purple); }
+
+    .btn-quiz {
+      padding: 12px 24px; border: none; border-radius: 10px;
+      background: var(--orange); color: #fff;
+      font-weight: 700; font-size: 1rem; cursor: pointer;
+      transition: background 0.15s, opacity 0.15s; text-decoration: none;
+      display: inline-block; white-space: nowrap;
+    }
+    .btn-quiz:hover:not(.btn-quiz-locked) { background: #d97706; }
+    .btn-quiz.btn-quiz-locked {
+      background: #9ca3af; cursor: not-allowed; pointer-events: none;
+    }
+
+    /* SPEAKING INDICATOR */
+    .speak-indicator {
+      position: fixed; bottom: 76px; left: 50%; transform: translateX(-50%);
+      background: var(--purple); color: #fff;
+      padding: 6px 16px; border-radius: 99px;
+      font-size: 0.85rem; font-weight: 600;
+      pointer-events: none; opacity: 0; transition: opacity 0.2s;
+      z-index: 30;
+    }
+    .speak-indicator.show { opacity: 1; }
+
+    /* NOTICE TOAST */
+    .notice-toast {
+      position: fixed; top: 70px; left: 50%; transform: translateX(-50%);
+      background: #1e1b4b; color: #fff;
+      padding: 12px 22px; border-radius: 12px;
+      font-size: 0.95rem; font-weight: 600; text-align: center;
+      z-index: 200; max-width: 340px; width: 90vw;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .notice-toast.show { opacity: 1; }
+
+    /* UNLOCK FLASH */
+    @keyframes unlock-pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .btn-quiz.just-unlocked { animation: unlock-pulse 0.4s ease; }
+
+    /* ── VOCAB WARM-UP OVERLAY ─────────────────────────────────────────── */
+    .vocab-overlay {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(30,27,75,0.88);
+      backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    .vocab-overlay.hidden { display: none; }
+    .vocab-card {
+      background: #fff; border-radius: 24px;
+      max-width: 540px; width: 100%;
+      max-height: 88vh; overflow-y: auto;
+      padding: 32px 28px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+      animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .vocab-overlay-title {
+      font-size: 1.3rem; font-weight: 800; color: var(--purple);
+      margin-bottom: 4px;
+    }
+    .vocab-overlay-sub {
+      font-size: 0.9rem; color: var(--muted); margin-bottom: 22px;
+    }
+    .vocab-warmup-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .warmup-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--purple-soft); border-radius: 14px; padding: 14px 16px;
+    }
+    .warmup-word {
+      font-size: 1.05rem; font-weight: 800; color: var(--purple);
+      min-width: 110px; padding-top: 1px;
+    }
+    .warmup-def { font-size: 0.9rem; color: var(--text); line-height: 1.45; }
+    .warmup-ex  { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 3px; }
+    .btn-start-reading {
+      width: 100%; padding: 15px;
+      background: var(--purple); color: #fff; border: none;
+      border-radius: 12px; font-size: 1.05rem; font-weight: 800;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .btn-start-reading:hover { background: #6d28d9; }
+
+    @media (max-width: 480px) {
+      .story-body { font-size: 18px; }
+      .bar-hint { display: none; }
+      .warmup-item { flex-direction: column; gap: 4px; }
+      .warmup-word { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="library.html" class="nav-back">← Library</a>
+    <div class="nav-title" id="nav-title">Loading…</div>
+    <div class="font-controls">
+      <button class="font-btn" id="font-minus" title="Smaller text">A−</button>
+      <button class="font-btn" id="font-plus" title="Larger text">A+</button>
+      <button class="font-btn" id="read-aloud-btn" title="Read aloud" style="width:auto;padding:0 10px;font-size:0.85rem;">🔊</button>
+    </div>
+  </nav>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar" style="width:0%"></div></div>
+
+  <div class="story-wrap" id="story-wrap">
+    <div style="text-align:center;padding:60px;color:var(--muted);">Loading story…</div>
+  </div>
+
+  <!-- Vocab popup -->
+  <div class="vocab-popup" id="vocab-popup">
+    <button class="popup-close" id="popup-close">✕</button>
+    <div class="popup-word" id="popup-word"></div>
+    <div class="popup-def" id="popup-def"></div>
+    <div class="popup-example" id="popup-example"></div>
+    <button class="popup-hear-btn" id="popup-hear-btn">🔊 Hear this word</button>
+  </div>
+
+  <!-- Speaking indicator -->
+  <div class="speak-indicator" id="speak-indicator"></div>
+
+  <!-- Notice toast (shown when redirected back for not reading long enough) -->
+  <div class="notice-toast" id="notice-toast"></div>
+
+  <!-- Vocabulary warm-up overlay (shown once per story before reading) -->
+  <div class="vocab-overlay hidden" id="vocab-overlay">
+    <div class="vocab-card">
+      <div class="vocab-overlay-title">📖 Story Vocabulary</div>
+      <div class="vocab-overlay-sub">Learn these words before you read — you'll see them highlighted in the story!</div>
+      <div class="vocab-warmup-list" id="vocab-warmup-list"></div>
+      <button class="btn-start-reading" id="btn-start-reading">Let's Read! →</button>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="read-bar">
+    <div class="bar-hint">👆 Tap <strong>any word</strong> to hear it</div>
+    <a class="btn-quiz btn-quiz-locked" id="btn-quiz" href="#">⏳ Quiz in 2:00</a>
+  </div>
+
+  <script src="stories.js"></script>
+  <script>
+    // ─── Profile guard ─────────────────────────────────────────────────────────
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'index.html'; }
+
+    const params  = new URLSearchParams(location.search);
+    const storyId = params.get('story');
+    const story   = STORIES.find(s => s.id === storyId);
+    if (!story) { window.location.href = 'library.html'; }
+
+    // ─── Vocabulary warm-up overlay ────────────────────────────────────────────
+    const VOCAB_SEEN_KEY = 'vocabSeen_' + storyId;
+    const vocabSeen = localStorage.getItem(VOCAB_SEEN_KEY) === 'true';
+
+    if (!vocabSeen && story.vocabulary && story.vocabulary.length > 0) {
+      // Populate word list
+      const listEl = document.getElementById('vocab-warmup-list');
+      listEl.innerHTML = story.vocabulary.map(v => `
+        <div class="warmup-item">
+          <div class="warmup-word">${v.word}</div>
+          <div>
+            <div class="warmup-def">${v.definition}</div>
+            <div class="warmup-ex">"${v.example}"</div>
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('vocab-overlay').classList.remove('hidden');
+    }
+
+    function dismissVocabOverlay() {
+      localStorage.setItem(VOCAB_SEEN_KEY, 'true');
+      document.getElementById('vocab-overlay').classList.add('hidden');
+      // Start reading timer now if it hasn't started yet
+      if (!readStart) {
+        readStart = Date.now();
+        localStorage.setItem(LS_KEY, readStart.toString());
+        sessionStorage.setItem('readStartTime', readStart.toString());
+        // Kick off countdown if not already running
+        if (!countdownInterval && !quizUnlocked) {
+          countdownInterval = setInterval(updateQuizButton, 1000);
+        }
+        updateQuizButton();
+      }
+    }
+
+    document.getElementById('btn-start-reading').addEventListener('click', dismissVocabOverlay);
+
+    // ─── Reading timer (persisted per story in localStorage) ───────────────────
+    const QUIZ_UNLOCK_SECONDS = story.readTimeMin * 60; // scales with story length
+    const LS_KEY = 'readStart_' + storyId;
+
+    // Use existing start time if available (so reloads don't reset the clock).
+    // If vocab overlay will show, timer is deferred until user clicks "Let's Read!"
+    let readStart = parseInt(localStorage.getItem(LS_KEY) || '0');
+    if (!readStart && vocabSeen) {
+      // Vocab already seen on a previous visit — start timer now
+      readStart = Date.now();
+      localStorage.setItem(LS_KEY, readStart.toString());
+    }
+    // Write to sessionStorage for quiz.html cross-check (may be 0 if not started yet)
+    sessionStorage.setItem('readStartTime', readStart.toString());
+    sessionStorage.setItem('readStoryId',   storyId);
+
+    // ─── Quiz button countdown ─────────────────────────────────────────────────
+    const quizBtn = document.getElementById('btn-quiz');
+    let quizUnlocked = false;
+    let countdownInterval = null;
+
+    function updateQuizButton() {
+      if (!readStart) {
+        quizBtn.textContent = '⏳ Quiz in 2:00'; // vocab overlay not yet dismissed
+        return;
+      }
+      const elapsed   = (Date.now() - readStart) / 1000;
+      const remaining = Math.max(0, QUIZ_UNLOCK_SECONDS - elapsed);
+
+      if (remaining <= 0) {
+        if (!quizUnlocked) {
+          quizUnlocked = true;
+          clearInterval(countdownInterval);
+          quizBtn.textContent = '✏️ Take the Quiz →';
+          quizBtn.classList.remove('btn-quiz-locked');
+          quizBtn.classList.add('just-unlocked');
+          quizBtn.href = 'quiz.html?story=' + storyId;
+          setTimeout(() => quizBtn.classList.remove('just-unlocked'), 500);
+        }
+        return;
+      }
+
+      const mins = Math.floor(remaining / 60);
+      const secs = Math.floor(remaining % 60);
+      quizBtn.textContent = `⏳ Quiz in ${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Check immediately then tick every second
+    updateQuizButton();
+    if (!quizUnlocked) {
+      countdownInterval = setInterval(updateQuizButton, 1000);
+    }
+
+    // ─── Secret bypass: type QQQ quickly to skip the timer ────────────────────
+    (function () {
+      let keys = '', resetTimer = null;
+      document.addEventListener('keydown', function (e) {
+        if (quizUnlocked) return;
+        if (e.key === 'Q' || e.key === 'q') {
+          keys += 'Q';
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(() => { keys = ''; }, 1000);
+          if (keys.length >= 3) {
+            keys = '';
+            clearTimeout(resetTimer);
+            clearInterval(countdownInterval);
+            // Stamp readStart so quiz.html's gate also passes
+            localStorage.setItem('readStart_' + storyId,
+              (Date.now() - QUIZ_UNLOCK_SECONDS * 1000).toString());
+            quizUnlocked = true;
+            quizBtn.textContent = '✏️ Take the Quiz →';
+            quizBtn.classList.remove('btn-quiz-locked');
+            quizBtn.href = 'quiz.html?story=' + storyId;
+          }
+        } else {
+          keys = '';
+          clearTimeout(resetTimer);
+        }
+      });
+    })();
+
+    // ─── Notice toast (shown when quiz.html redirects them back) ──────────────
+    const noticeType = params.get('notice');
+    if (noticeType === 'readmore' || noticeType === 'reread') {
+      const toast = document.getElementById('notice-toast');
+      toast.textContent = noticeType === 'reread'
+        ? `📚 Read carefully! You missed 3 answers — read for ${story.readTimeMin} more minute${story.readTimeMin > 1 ? 's' : ''}, then try again.`
+        : `📖 Keep reading! The quiz unlocks after ${story.readTimeMin} minute${story.readTimeMin > 1 ? 's' : ''} of reading time.`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 5000);
+      // Clean up URL without reload
+      history.replaceState({}, '', 'read.html?story=' + storyId);
+    }
+
+    // ─── Build vocabulary map ──────────────────────────────────────────────────
+    const vocabMap = {};
+    (story.vocabulary || []).forEach(v => { vocabMap[v.word.toLowerCase()] = v; });
+
+    // ─── Render story ──────────────────────────────────────────────────────────
+    function processText(raw) {
+      return raw.trim().split(/\n\n+/).map(para => {
+        const html = para.replace(/\*\*([^*]+)\*\*/g, (_, word) =>
+          `<span class="vocab-word" data-word="${word.toLowerCase()}">${word}</span>`
+        );
+        return `<p>${html}</p>`;
+      }).join('');
+    }
+
+    document.getElementById('nav-title').textContent = story.title;
+    const topicLabels = {
+      'animals': '🐾 Animals', 'adventure': '🗺️ Adventure', 'science': '🔭 Science',
+      'florida-nature': '🌿 Florida Nature', 'character': '💭 Character',
+      'perspective': '👁️ Perspective', 'space': '🚀 Space', 'folktale': '📜 Folktale',
+      'environment': '♻️ Environment', 'biography': '👤 Biography'
+    };
+    document.getElementById('story-wrap').innerHTML = `
+      <div class="story-cover" style="background:${story.coverColor}18;">${story.coverEmoji}</div>
+      <div class="story-meta">
+        <span class="meta-chip">${topicLabels[story.topic] || story.topic}</span>
+        <span class="meta-chip">~${story.readTimeMin} min read</span>
+        <span class="meta-chip">${story.wordCount} words</span>
+      </div>
+      <div class="story-title-big">${story.title}</div>
+      <div class="vocab-legend">
+        <span class="vocab-legend-swatch">word</span>
+        <span>= tap to see definition &amp; hear it</span>
+        <span class="word-tap-hint">👆 Tap any word to hear it</span>
+      </div>
+      <div class="story-body" id="story-body">${processText(story.text)}</div>
+    `;
+
+    // ─── Speech (single-word only) ─────────────────────────────────────────────
+    const indicator = document.getElementById('speak-indicator');
+    let speakTimeout = null;
+
+    function speakWord(word) {
+      if (!word || !window.speechSynthesis) return;
+      const clean = word.replace(/[^a-zA-Z'-]/g, '').trim();
+      if (!clean) return;
+      speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(clean);
+      utt.rate = 0.85; utt.lang = 'en-US';
+      indicator.textContent = '🔊 ' + clean;
+      indicator.classList.add('show');
+      clearTimeout(speakTimeout);
+      speakTimeout = setTimeout(() => indicator.classList.remove('show'), 1500);
+      speechSynthesis.speak(utt);
+    }
+
+    function getWordAtPoint(x, y) {
+      try {
+        let range;
+        if (document.caretRangeFromPoint) {
+          range = document.caretRangeFromPoint(x, y);
+        } else if (document.caretPositionFromPoint) {
+          const pos = document.caretPositionFromPoint(x, y);
+          if (pos && pos.offsetNode) {
+            range = document.createRange();
+            range.setStart(pos.offsetNode, pos.offset);
+            range.setEnd(pos.offsetNode, pos.offset);
+          }
+        }
+        if (!range) return '';
+        range.expand('word');
+        return range.toString();
+      } catch(e) { return ''; }
+    }
+
+    // ─── Vocab popup ───────────────────────────────────────────────────────────
+    const popup = document.getElementById('vocab-popup');
+    let currentPopupWord = '';
+
+    function showPopup(word, rect) {
+      const v = vocabMap[word];
+      if (!v) return;
+      currentPopupWord = v.word;
+      document.getElementById('popup-word').textContent    = v.word;
+      document.getElementById('popup-def').textContent     = v.definition;
+      document.getElementById('popup-example').textContent = '"' + v.example + '"';
+      popup.classList.add('show');
+      const pw = Math.min(300, window.innerWidth * 0.9);
+      let left = rect.left;
+      let top  = rect.bottom + 8 + window.scrollY;
+      if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+      if (left < 8) left = 8;
+      popup.style.left = left + 'px'; popup.style.top = top + 'px'; popup.style.maxWidth = pw + 'px';
+    }
+
+    document.getElementById('popup-hear-btn').addEventListener('click', e => {
+      e.stopPropagation(); speakWord(currentPopupWord);
+    });
+
+    document.getElementById('story-body').addEventListener('click', e => {
+      const vocabEl = e.target.closest('.vocab-word');
+      if (vocabEl) {
+        showPopup(vocabEl.dataset.word, vocabEl.getBoundingClientRect());
+        speakWord(vocabEl.dataset.word);
+        e.stopPropagation(); return;
+      }
+      const word = getWordAtPoint(e.clientX, e.clientY);
+      if (word) speakWord(word);
+    });
+
+    document.getElementById('popup-close').addEventListener('click', () => popup.classList.remove('show'));
+    document.addEventListener('click', e => { if (!popup.contains(e.target)) popup.classList.remove('show'); });
+
+    // ─── Font size controls ────────────────────────────────────────────────────
+    let fontSize = 20;
+    const bodyEl = document.getElementById('story-body');
+    document.getElementById('font-minus').addEventListener('click', () => {
+      fontSize = Math.max(14, fontSize - 2); bodyEl.style.fontSize = fontSize + 'px';
+    });
+    document.getElementById('font-plus').addEventListener('click', () => {
+      fontSize = Math.min(32, fontSize + 2); bodyEl.style.fontSize = fontSize + 'px';
+    });
+
+    // ─── Read-aloud ────────────────────────────────────────────────────────────
+    (function () {
+      const btn = document.getElementById('read-aloud-btn');
+      if (!window.speechSynthesis) { btn.style.display = 'none'; return; }
+      let speaking = false;
+      btn.addEventListener('click', () => {
+        if (speaking) {
+          speechSynthesis.cancel();
+          speaking = false;
+          btn.textContent = '🔊';
+          btn.title = 'Read aloud';
+        } else {
+          const text = document.getElementById('story-body').innerText;
+          const utt = new SpeechSynthesisUtterance(text);
+          utt.rate = 0.88;
+          utt.onend = () => { speaking = false; btn.textContent = '🔊'; };
+          utt.onerror = () => { speaking = false; btn.textContent = '🔊'; };
+          speechSynthesis.speak(utt);
+          speaking = true;
+          btn.textContent = '⏹';
+          btn.title = 'Stop reading';
+        }
+      });
+    })();
+
+    // ─── Reading progress bar ──────────────────────────────────────────────────
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (docH > 0 ? Math.min(100, (window.scrollY / docH) * 100) : 0) + '%';
+    }, { passive: true });
+
+    window.addEventListener('beforeunload', () => { try { speechSynthesis && speechSynthesis.cancel(); } catch(e) {} });
+
+    // ─── Daily reading-time tracker (feeds the math gate) ─────────────────────
+    (function () {
+      const READ_DATE_KEY = 'readTimeDate_' + profile.readerId;
+      const READ_SECS_KEY = 'readTimeSecs_' + profile.readerId;
+      const todayStr      = new Date().toISOString().slice(0, 10);
+      // Reset on a new day
+      if (localStorage.getItem(READ_DATE_KEY) !== todayStr) {
+        localStorage.setItem(READ_DATE_KEY, todayStr);
+        localStorage.setItem(READ_SECS_KEY, '0');
+      }
+      const secsBase    = parseInt(localStorage.getItem(READ_SECS_KEY) || '0');
+      const pageStart   = Date.now();
+
+      function saveReadTime() {
+        const elapsed = Math.floor((Date.now() - pageStart) / 1000);
+        localStorage.setItem(READ_SECS_KEY, (secsBase + elapsed).toString());
+      }
+
+      // Save every 30 seconds so the math gate sees progress without page-exit
+      setInterval(saveReadTime, 30000);
+      // Save on exit too (beforeunload)
+      window.addEventListener('beforeunload', saveReadTime);
+    })();
+  </script>
+</body>
+</html>

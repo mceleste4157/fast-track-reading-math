@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Practice – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #0891b2; --teal-soft: #cffafe;
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --green: #10b981; --green-soft: #d1fae5;
+      --orange: #f59e0b; --orange-soft: #fef3c7;
+      --bg: linear-gradient(135deg, #ecfeff 0%, #f0f9ff 50%, #f0fdf4 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-back  { text-decoration: none; color: var(--teal); font-weight: 700; font-size: 0.95rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-title { font-weight: 800; font-size: 1.1rem; flex: 1; text-align: center; }
+
+    .page { max-width: 960px; margin: 0 auto; padding: 32px 16px 80px; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0891b2, #0e7490);
+      border-radius: 20px; padding: 28px 32px; color: #fff;
+      display: flex; align-items: center; gap: 24px; margin-bottom: 36px;
+      box-shadow: 0 4px 24px rgba(8,145,178,0.25);
+    }
+    .hero-icon { font-size: 3.5rem; flex-shrink: 0; }
+    .hero-body h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 4px; }
+    .hero-body p  { font-size: 0.95rem; opacity: 0.88; line-height: 1.5; }
+    .hero-stat { text-align: right; flex-shrink: 0; }
+    .hero-wpm  { font-size: 2.2rem; font-weight: 800; }
+    .hero-wpm-label { font-size: 0.78rem; opacity: 0.8; font-weight: 600; }
+
+    /* Lesson grid */
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .lesson-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(8,145,178,0.08);
+      overflow: hidden; cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+      border: 2px solid transparent;
+    }
+    .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(8,145,178,0.18); border-color: var(--teal); }
+    .lesson-card.completed { border-color: var(--green); }
+
+    .lesson-cover {
+      height: 80px; display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem; background: var(--teal-soft);
+    }
+    .lesson-card.completed .lesson-cover { background: var(--green-soft); }
+
+    .lesson-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; }
+    .lesson-num  { font-size: 0.7rem; font-weight: 800; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+    .lesson-title { font-size: 1rem; font-weight: 800; margin-bottom: 3px; }
+    .lesson-sub   { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; font-weight: 500; }
+
+    .lesson-stats { display: flex; gap: 10px; align-items: center; margin-top: auto; }
+    .lesson-wpm {
+      background: var(--teal-soft); color: var(--teal);
+      padding: 4px 10px; border-radius: 99px;
+      font-size: 0.78rem; font-weight: 800;
+    }
+    .lesson-card.completed .lesson-wpm { background: var(--green-soft); color: #065f46; }
+    .lesson-acc { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+    .btn-start {
+      margin-top: 12px; display: block; width: 100%; padding: 9px;
+      border: none; border-radius: 10px;
+      font-size: 0.92rem; font-weight: 700; cursor: pointer;
+      background: var(--teal); color: #fff; transition: background 0.15s;
+      font-family: inherit;
+    }
+    .btn-start:hover { background: #0e7490; }
+    .lesson-card.completed .btn-start { background: var(--green); }
+    .lesson-card.completed .btn-start:hover { background: #059669; }
+
+    .spinner {
+      width: 32px; height: 32px; border: 4px solid #e5e7eb;
+      border-top-color: var(--teal); border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 40px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-back">← Home</a>
+    <div class="nav-title">⌨️ Typing Practice</div>
+  </nav>
+
+  <div class="page">
+    <div class="hero">
+      <div class="hero-icon">⌨️</div>
+      <div class="hero-body">
+        <h1>Typing Practice</h1>
+        <p>Build speed and accuracy one lesson at a time.<br>4th graders need to type — practice every day!</p>
+      </div>
+      <div class="hero-stat" id="hero-stat" style="display:none;">
+        <div class="hero-wpm" id="best-wpm">—</div>
+        <div class="hero-wpm-label">Best WPM</div>
+      </div>
+    </div>
+
+    <div id="lessons-container"><div class="spinner"></div></div>
+  </div>
+
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'login.html'; }
+
+    const LESSONS = [
+      { id: 'l1',  emoji: '👈', title: 'Left Home Row',     sub: 'a · s · d · f · g',          text: 'aaa sss ddd fff asd fds fad sad add lass flask glass glad flask adds' },
+      { id: 'l2',  emoji: '👉', title: 'Right Home Row',    sub: 'h · j · k · l · ;',           text: 'jjj kkk lll jkl jal kal jak hall fall silk disk hall hjkl' },
+      { id: 'l3',  emoji: '👐', title: 'Full Home Row',     sub: 'Both hands together',          text: 'ask all fall flask glad lads add silk hall shall salad flask asks' },
+      { id: 'l4',  emoji: '🔤', title: 'Adding E and I',    sub: 'Middle fingers reach up',      text: 'else idea file like side hide fill feel skill aide said desk isle' },
+      { id: 'l5',  emoji: '☝️', title: 'Adding T and O',    sub: 'Index fingers stretch up',     text: 'told old look store floor tool root foot total loose stool told' },
+      { id: 'l6',  emoji: '🤙', title: 'Adding R and U',    sub: 'More index finger reaches',    text: 'true tour rust door ruler ruse road rule four pour sure lure true' },
+      { id: 'l7',  emoji: '🖐️', title: 'Adding N and G',    sub: 'Center keys',                  text: 'sing ring king long song gone fine nine line mine sign tongue ring' },
+      { id: 'l8',  emoji: '🔡', title: 'Bottom Row',        sub: 'c · v · b · n · m',            text: 'came mice back come make black much cave comb became mice back came' },
+      { id: 'l9',  emoji: '⇧',  title: 'Capitals',          sub: 'Using the Shift key',          text: 'The dog ran. I see a cat. Go now! Please help me. Sam likes fish.' },
+      { id: 'l10', emoji: '📝', title: 'Common Words',      sub: 'Words you use every day',      text: 'they were have when that with this will been some what from which more' },
+      { id: 'l11', emoji: '✍️', title: 'Sentences',         sub: 'Punctuation and flow',         text: 'Reading every day makes you a better writer. Try your best and you will improve.' },
+      { id: 'l12', emoji: '📄', title: 'Full Paragraph',    sub: 'Florida theme',                text: 'Florida is a warm and sunny state. Many animals live in its forests and wetlands. The Everglades is home to alligators, birds, and fish. Protecting nature helps everyone.' },
+    ];
+
+    const db = firebase.firestore();
+
+    db.collection('TypingProgress')
+      .where('readerId', '==', profile.readerId)
+      .get()
+      .then(snap => {
+        // Build best-per-lesson map
+        const best = {};
+        snap.forEach(d => {
+          const data = d.data();
+          if (!best[data.lessonId] || data.wpm > best[data.lessonId].wpm) {
+            best[data.lessonId] = data;
+          }
+        });
+
+        // Best WPM across all lessons
+        const allWpm = Object.values(best).map(b => b.wpm || 0);
+        if (allWpm.length > 0) {
+          const topWpm = Math.max(...allWpm);
+          document.getElementById('best-wpm').textContent = topWpm + ' WPM';
+          document.getElementById('hero-stat').style.display = 'block';
+        }
+
+        // Render lesson cards
+        const container = document.getElementById('lessons-container');
+        container.innerHTML = '';
+        const grid = document.createElement('div');
+        grid.className = 'lessons-grid';
+
+        LESSONS.forEach((lesson, i) => {
+          const b = best[lesson.id];
+          const done = !!b;
+          const card = document.createElement('a');
+          card.href = 'typing-practice.html?lesson=' + lesson.id;
+          card.className = 'lesson-card' + (done ? ' completed' : '');
+          card.innerHTML = `
+            <div class="lesson-cover">${lesson.emoji}</div>
+            <div class="lesson-body">
+              <div class="lesson-num">Lesson ${i + 1}</div>
+              <div class="lesson-title">${lesson.title}</div>
+              <div class="lesson-sub">${lesson.sub}</div>
+              <div class="lesson-stats">
+                <span class="lesson-wpm">${done ? b.wpm + ' WPM' : 'Not started'}</span>
+                ${done ? `<span class="lesson-acc">${b.accuracy}% accuracy</span>` : ''}
+              </div>
+              <button class="btn-start">${done ? '🔄 Practice Again' : 'Start Lesson →'}</button>
+            </div>`;
+          grid.appendChild(card);
+        });
+
+        container.appendChild(grid);
+      })
+      .catch(() => {
+        // Render without Firestore data
+        const container = document.getElementById('lessons-container');
+        container.innerHTML = '';
+        const grid = document.createElement('div');
+        grid.className = 'lessons-grid';
+        LESSONS.forEach((lesson, i) => {
+          const card = document.createElement('a');
+          card.href = 'typing-practice.html?lesson=' + lesson.id;
+          card.className = 'lesson-card';
+          card.innerHTML = `
+            <div class="lesson-cover">${lesson.emoji}</div>
+            <div class="lesson-body">
+              <div class="lesson-num">Lesson ${i + 1}</div>
+              <div class="lesson-title">${lesson.title}</div>
+              <div class="lesson-sub">${lesson.sub}</div>
+              <div class="lesson-stats"><span class="lesson-wpm">Not started</span></div>
+              <button class="btn-start">Start Lesson →</button>
+            </div>`;
+          grid.appendChild(card);
+        });
+        container.appendChild(grid);
+      });
+  </script>
+</body>
+</html>

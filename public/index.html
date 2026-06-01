@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 FAST Track Reading & Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --blue: #2563eb; --blue-soft: #dbeafe;
+      --orange: #f59e0b;
+      --green: #10b981; --green-soft: #d1fae5;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #fff7ed 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    /* ── Two-column layout: main + sidebar ───────────────────────────── */
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 480px) 224px;
+      grid-template-areas: "main sidebar";
+      gap: 0 28px;
+      align-items: start;
+      padding: 32px 20px 80px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .main-col {
+      grid-area: main;
+      display: flex; flex-direction: column; align-items: center;
+      min-width: 0;
+    }
+    .sidebar {
+      grid-area: sidebar;
+      position: sticky; top: 24px;
+    }
+
+    /* Tablet: wider two-column */
+    @media (min-width: 661px) and (max-width: 1024px) {
+      .page { max-width: 100%; padding: 28px 32px 80px; gap: 0 36px; }
+      .hero-row { max-width: 100%; }
+      .stats-row { max-width: 100%; }
+      .module-grid { max-width: 100%; }
+    }
+    @media (max-width: 660px) {
+      .page {
+        grid-template-columns: 1fr;
+        grid-template-areas: "main" "sidebar";
+        max-width: 480px;
+      }
+      .sidebar { position: static; width: 100%; }
+    }
+
+    /* HEADER */
+    .greeting { font-size: clamp(1.8rem, 7vw, 3rem); font-weight: 800; color: var(--purple); text-align: center; margin-bottom: 4px; }
+    .subtitle  { font-size: 1.1rem; color: var(--muted); text-align: center; margin-bottom: 28px; }
+
+    /* AVATAR + LEVEL */
+    .hero-row {
+      display: flex; align-items: center; gap: 18px;
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(124,58,237,0.10);
+      padding: 20px 24px; width: 100%; max-width: 480px; margin-bottom: 20px;
+    }
+    .avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-size: 1.8rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .hero-info { flex: 1; }
+    .hero-name  { font-size: 1.3rem; font-weight: 800; }
+    .hero-level { font-size: 0.95rem; color: var(--purple); font-weight: 600; margin: 3px 0 8px; }
+    .xp-bar-wrap { height: 10px; background: #e5e7eb; border-radius: 99px; overflow: hidden; }
+    .xp-bar-fill { height: 100%; background: var(--purple); border-radius: 99px; transition: width 1s ease; }
+    .xp-bar-label { font-size: 0.75rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+    /* STATS */
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; max-width: 480px; margin-bottom: 24px; }
+    .stat-card {
+      background: var(--surface); border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      padding: 14px 8px; text-align: center;
+    }
+    .stat-val   { font-size: 1.5rem; font-weight: 800; color: var(--purple); }
+    .stat-label { font-size: 0.72rem; color: var(--muted); font-weight: 600; margin-top: 2px; }
+
+    /* MODULE CARDS */
+    .module-grid { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 480px; margin-bottom: 16px; }
+    .module-card {
+      border-radius: var(--radius); padding: 22px 24px;
+      display: flex; align-items: center; gap: 18px;
+      text-decoration: none; color: inherit;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    }
+    .module-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+    .module-card.reading { background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff; }
+    .module-card.typing  { background: linear-gradient(135deg, #0891b2, #0e7490); color: #fff; }
+    .module-card.math-open { background: linear-gradient(135deg, #2563eb, #10b981); color: #fff; }
+    .module-card.math-locked { background: #f3f4f6; color: #6b7280; cursor: default; }
+    .module-card.math-locked:hover { transform: none; box-shadow: 0 4px 20px rgba(0,0,0,0.10); }
+    .mod-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .mod-body  { flex: 1; }
+    .mod-title { font-size: 1.15rem; font-weight: 800; margin-bottom: 3px; }
+    .mod-sub   { font-size: 0.88rem; opacity: 0.85; }
+    .mod-badge {
+      background: rgba(255,255,255,0.25); border-radius: 10px;
+      padding: 7px 14px; font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+    }
+    .module-card.math-locked .mod-badge { background: #e5e7eb; color: #9ca3af; }
+
+    /* LEVEL LADDER */
+    .level-ladder {
+      width: 100%;
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(124,58,237,0.08);
+      padding: 16px 14px 10px;
+    }
+    .level-ladder-title {
+      font-size: 0.82rem; font-weight: 800; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;
+    }
+    .lvl-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 9px 12px; border-radius: 11px; margin-bottom: 5px;
+      transition: opacity 0.2s;
+    }
+    .lvl-row.done    { background: var(--green-soft); }
+    .lvl-row.current { background: var(--purple-soft); border: 2px solid var(--purple); }
+    .lvl-row.future  { background: #f3f4f6; }
+    .lvl-emoji  { font-size: 1.2rem; flex-shrink: 0; width: 26px; text-align: center; }
+    .lvl-name   { flex: 1; font-weight: 700; font-size: 0.82rem; line-height: 1.2; }
+    .lvl-xpreq  { font-size: 0.68rem; font-weight: 500; color: var(--muted); margin-top: 1px; }
+    .lvl-status { font-size: 0.75rem; font-weight: 800; flex-shrink: 0; text-align: right; }
+    .lvl-row.done    .lvl-status { color: var(--green); }
+    .lvl-row.current .lvl-status { color: var(--purple); }
+    .lvl-row.future  .lvl-status { color: #9ca3af; }
+
+    /* STREAK / DECAY BANNER */
+    .streak-banner {
+      width: 100%; max-width: 480px; border-radius: 14px;
+      padding: 13px 18px; text-align: center;
+      font-size: 0.92rem; font-weight: 700; line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .streak-banner.fire  { background: #d1fae5; color: #065f46; border: 2px solid #10b981; }
+    .streak-banner.warn  { background: #fef3c7; color: #78350f; border: 2px solid #f59e0b; }
+    .streak-banner.decay { background: #fee2e2; color: #7f1d1d; border: 2px solid #ef4444; }
+
+    /* PROGRESS LINK */
+    .progress-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--purple); font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; margin-bottom: 8px;
+    }
+    .progress-link:hover { text-decoration: underline; }
+
+    /* PARENT BUTTON */
+    .parent-btn {
+      position: fixed; bottom: 20px; right: 20px;
+      background: var(--surface); border: 2px solid var(--border);
+      border-radius: 12px; padding: 10px 16px;
+      font-size: 0.9rem; font-weight: 600; color: var(--muted);
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: box-shadow 0.2s;
+    }
+    .parent-btn:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+    /* SWITCH USER */
+    .switch-user-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: var(--muted); font-size: 0.8rem; font-weight: 600;
+      background: none; border: 1px solid var(--border); border-radius: 8px;
+      padding: 4px 10px; cursor: pointer; text-decoration: none;
+      transition: color 0.15s, border-color 0.15s; font-family: inherit;
+      margin-top: 8px;
+    }
+    .switch-user-btn:hover { color: var(--purple); border-color: var(--purple); }
+
+    @media (max-width: 380px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @keyframes ppmShake {
+      0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── Main column ──────────────────────────────────────────────── -->
+    <div class="main-col">
+      <div class="greeting">🚀 FAST Track Reading & Math<span id="secret-bang">!</span></div>
+      <div class="subtitle" id="main-subtitle">Hi, ready to learn something awesome today?</div>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+      <button class="switch-user-btn" id="switch-user-btn">🔄 Switch User</button>
+      <button id="sound-toggle-btn" class="switch-user-btn" title="Toggle sound effects" style="font-size:1rem;padding:4px 10px;">🔊</button>
+    </div>
+
+      <!-- Streak / decay banner (filled by JS) -->
+      <div id="streak-banner" class="streak-banner" style="display:none;"></div>
+
+      <!-- Hero / level card -->
+      <div class="hero-row">
+        <div class="avatar" id="hero-avatar">?</div>
+        <div class="hero-info">
+          <div class="hero-name" id="hero-name">… ⭐</div>
+          <div class="hero-level" id="hero-level">📖 Bookworm</div>
+          <div class="xp-bar-wrap"><div class="xp-bar-fill" id="xp-bar" style="width:0%"></div></div>
+          <div class="xp-bar-label" id="xp-label">Loading…</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-val" id="s-stars">⭐</div><div class="stat-label">Stars</div></div>
+        <div class="stat-card"><div class="stat-val" id="s-xp">…</div><div class="stat-label">Total XP</div></div>
+        <div class="stat-card"><div class="stat-val" id="s-stories">…</div><div class="stat-label">Stories</div></div>
+        <div class="stat-card"><div class="stat-val" id="s-math">…</div><div class="stat-label">Math</div></div>
+      </div>
+
+      <!-- Weekly goal bar -->
+      <div id="weekly-goal-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:18px;">
+        <div style="background:var(--surface);border-radius:14px;padding:14px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="font-size:0.82rem;font-weight:800;color:var(--purple);">📅 This Week's Goal</div>
+            <div style="font-size:0.82rem;font-weight:700;color:var(--muted);" id="goal-progress-text"></div>
+          </div>
+          <div style="height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden;">
+            <div id="goal-progress-bar" style="height:100%;background:linear-gradient(90deg,var(--purple),var(--blue));border-radius:99px;width:0%;transition:width 0.8s;"></div>
+          </div>
+          <div id="goal-status-text" style="font-size:0.75rem;color:var(--muted);margin-top:5px;font-weight:500;"></div>
+        </div>
+      </div>
+
+      <!-- Modules -->
+      <div class="module-grid">
+        <a href="library.html" id="reading-card" class="module-card reading">
+          <div class="mod-icon">📖</div>
+          <div class="mod-body">
+            <div class="mod-title">Reading Library</div>
+            <div class="mod-sub" id="reading-sub">30 stories • vocab warm-up • quizzes</div>
+          </div>
+          <div class="mod-badge">Go! →</div>
+        </a>
+        <a href="typing.html" class="module-card typing">
+          <div class="mod-icon">⌨️</div>
+          <div class="mod-body">
+            <div class="mod-title">Typing Practice</div>
+            <div class="mod-sub" id="typing-sub">12 lessons • WPM tracking • 4th grade prep</div>
+          </div>
+          <div class="mod-badge">Go! →</div>
+        </a>
+        <div id="math-card">
+          <!-- filled by JS -->
+        </div>
+      </div>
+
+      <!-- Story of the Day -->
+      <div id="sotd-card" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
+        <div style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:16px;padding:16px 18px;cursor:pointer;"
+          id="sotd-inner" onclick="window.location='read.html?story='+this.dataset.id">
+          <div style="font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">⭐ Story of the Day</div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div id="sotd-emoji" style="font-size:2.2rem;flex-shrink:0;"></div>
+            <div>
+              <div id="sotd-title" style="font-weight:800;font-size:1rem;color:#1e1b4b;margin-bottom:2px;"></div>
+              <div id="sotd-meta" style="font-size:0.8rem;color:#92400e;font-weight:600;"></div>
+            </div>
+            <div style="margin-left:auto;background:#f59e0b;color:#fff;padding:7px 14px;border-radius:10px;font-weight:700;font-size:0.85rem;flex-shrink:0;">Read →</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="progress.html" class="progress-link" id="quest-link">🗺️ See Quest Board →</a>
+    </div>
+
+    <!-- ── Sidebar: Level Ladder ─────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="level-ladder">
+        <div class="level-ladder-title">✨ Level Ladder</div>
+        <div id="level-ladder-rows"></div>
+      </div>
+    </aside>
+
+  </div>
+
+  <a href="parent-portal.html" class="parent-btn">👨‍👩‍👧 Parent</a>
+
+  <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(()=>{});</script>
+  <script src="stories.js"></script>
+  <script src="math-data.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    // ─── Auth guard — redirect to login if no profile ─────────────────────────
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'login.html'; }
+
+    // ─── Apply profile to page ────────────────────────────────────────────────
+    if (profile) {
+      const avatarEl = document.getElementById('hero-avatar');
+      const nameEl   = document.getElementById('hero-name');
+      const subEl    = document.getElementById('main-subtitle');
+
+      avatarEl.textContent = profile.avatarEmoji || (profile.name ? profile.name.charAt(0).toUpperCase() : '?');
+      avatarEl.style.background = profile.avatarColor || '#2563eb';
+      nameEl.textContent = (profile.name || 'Student') + ' ⭐';
+      const hr = new Date().getHours();
+      const greet = hr < 12 ? 'Good morning' : hr < 17 ? 'Good afternoon' : 'Good evening';
+      const greetEmoji = hr < 12 ? '☀️' : hr < 17 ? '🌤️' : '🌙';
+      subEl.textContent = greet + ', ' + (profile.name || 'there') + '! ' + greetEmoji;
+
+      if (profile.name) {
+        document.getElementById('quest-link').textContent = '🗺️ See ' + profile.name + '\'s Quest Board →';
+      }
+    }
+
+    // ─── Switch user button ───────────────────────────────────────────────────
+    // ─── Story of the Day ─────────────────────────────────────────────────────────
+    (function() {
+      const grade = parseInt(profile.gradeLevel) || 4;
+      const eligible = (typeof STORIES !== 'undefined') ? STORIES.filter(s =>
+        Array.isArray(s.grades) && s.grades.includes(grade)) : [];
+      if (!eligible.length) return;
+      const dayNum = Math.floor(Date.now() / 86400000);
+      const story = eligible[dayNum % eligible.length];
+      const card = document.getElementById('sotd-card');
+      document.getElementById('sotd-inner').dataset.id = story.id;
+      document.getElementById('sotd-emoji').textContent = story.coverEmoji;
+      document.getElementById('sotd-title').textContent = story.title;
+      document.getElementById('sotd-meta').textContent  = '~' + story.readTimeMin + ' min · ' + story.wordCount + ' words';
+      card.style.display = 'block';
+    })();
+
+    // ─── Sound toggle ─────────────────────────────────────────────────────────────
+    (function() {
+      const btn = document.getElementById('sound-toggle-btn');
+      const update = () => { btn.textContent = localStorage.getItem('soundEnabled') === 'false' ? '🔇' : '🔊'; };
+      update();
+      btn.addEventListener('click', () => {
+        localStorage.setItem('soundEnabled', localStorage.getItem('soundEnabled') === 'false' ? 'true' : 'false');
+        update();
+      });
+    })();
+
+    // ─── Parent PIN gate (used for Switch User + any parent action) ──────────────
+    function requireParentPin(onSuccess) {
+      const cached = sessionStorage.getItem('portalPin');
+      if (cached) { showPinModal(cached, onSuccess); return; }
+      // PIN not cached — load from Firestore using Firebase Auth session
+      const user = firebase.auth().currentUser;
+      if (!user) { showPinModal(null, onSuccess); return; }
+      firebase.firestore().collection('ParentProfiles').doc(user.uid).get()
+        .then(doc => {
+          const pin = doc.exists ? (doc.data().portalPin || null) : null;
+          if (pin) sessionStorage.setItem('portalPin', pin);
+          showPinModal(pin, onSuccess);
+        })
+        .catch(() => showPinModal(null, onSuccess));
+    }
+
+    function showPinModal(correctPin, onSuccess) {
+      const overlay = document.createElement('div');
+      overlay.id = 'pin-modal-overlay';
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:22px;padding:32px 28px;width:100%;max-width:320px;text-align:center;box-shadow:0 10px 50px rgba(0,0,0,0.25);">
+          <div style="font-size:2.2rem;margin-bottom:8px;">🔒</div>
+          <div style="font-size:1.2rem;font-weight:800;margin-bottom:5px;color:#1e1b4b;">Parent PIN Required</div>
+          <div style="font-size:0.85rem;color:#6b7280;margin-bottom:22px;">Ask a parent to enter their PIN</div>
+          <div id="ppm-dots" style="display:flex;justify-content:center;gap:14px;margin-bottom:16px;">
+            ${[0,1,2,3].map(i=>`<div id="ppmd${i}" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;transition:background 0.12s,border-color 0.12s;"></div>`).join('')}
+          </div>
+          <div id="ppm-err" style="color:#ef4444;font-size:0.83rem;font-weight:600;min-height:1.1em;margin-bottom:12px;"></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:216px;margin:0 auto 18px;">
+            ${[1,2,3,4,5,6,7,8,9].map(n=>`<button class="ppm-num" data-n="${n}" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;transition:background 0.1s;">${n}</button>`).join('')}
+            <button class="ppm-num" data-n="back" style="padding:14px;font-size:1.05rem;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">⌫</button>
+            <button class="ppm-num" data-n="0" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">0</button>
+            <div></div>
+          </div>
+          <button id="ppm-cancel" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;">Cancel</button>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      let entry = '';
+      function updateDots() {
+        for (let i = 0; i < 4; i++) {
+          const d = document.getElementById('ppmd' + i);
+          d.style.background  = i < entry.length ? '#7c3aed' : 'transparent';
+          d.style.borderColor = i < entry.length ? '#7c3aed' : '#d1d5db';
+        }
+      }
+      overlay.querySelector('#ppm-cancel').addEventListener('click', () => overlay.remove());
+      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+      overlay.querySelectorAll('.ppm-num').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const n = btn.dataset.n;
+          if (n === 'back') { entry = entry.slice(0, -1); }
+          else if (entry.length < 4) { entry += n; }
+          updateDots();
+          document.getElementById('ppm-err').textContent = '';
+          if (entry.length === 4) {
+            if (!correctPin || entry === correctPin) {
+              sessionStorage.setItem('portalPinVerified', 'true');
+              overlay.remove();
+              onSuccess();
+            } else {
+              document.getElementById('ppm-err').textContent = 'Wrong PIN — try again';
+              const dotsEl = document.getElementById('ppm-dots');
+              dotsEl.style.animation = 'none'; void dotsEl.offsetWidth;
+              dotsEl.style.animation = 'ppmShake 0.35s ease';
+              entry = '';
+              setTimeout(updateDots, 350);
+            }
+          }
+        });
+      });
+      // Keyboard support
+      function handleKey(e) {
+        if (!document.getElementById('pin-modal-overlay')) { document.removeEventListener('keydown', handleKey); return; }
+        if (e.key >= '0' && e.key <= '9') overlay.querySelector(`[data-n="${e.key}"]`)?.click();
+        else if (e.key === 'Backspace') overlay.querySelector('[data-n="back"]')?.click();
+        else if (e.key === 'Escape') overlay.remove();
+      }
+      document.addEventListener('keydown', handleKey);
+    }
+
+    document.getElementById('switch-user-btn').addEventListener('click', () => {
+      requireParentPin(() => {
+        localStorage.removeItem('readerProfile');
+        window.location.href = 'login.html';
+      });
+    });
+
+    const LEVELS = [
+      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
+      { name: 'Reader',       minXp: 100,  emoji: '📚' },
+      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
+      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
+      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
+      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
+      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
+      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
+      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
+      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
+      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
+      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
+      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
+      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
+      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+    ];
+    function getLevel(xp) {
+      let idx = 0;
+      for (let i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i].minXp) idx = i; }
+      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null };
+    }
+
+    const MATH_UNLOCK_KEY = 'mathUnlocked_' + (profile ? profile.readerId : 'unknown');
+
+    // ─── Level ladder (renders immediately, updates after Firestore) ───────────
+    function renderLadder(totalXp) {
+      const ladderEl = document.getElementById('level-ladder-rows');
+      if (!ladderEl) return;
+      const { nextLevel } = getLevel(totalXp);
+      ladderEl.innerHTML = LEVELS.map((lvl, i) => {
+        const reached   = totalXp >= lvl.minXp;
+        const isCurrent = reached && (i === LEVELS.length - 1 || totalXp < LEVELS[i + 1].minXp);
+        let cls, statusHtml;
+        if (isCurrent) {
+          const toNext = nextLevel ? (nextLevel.minXp - totalXp) + ' XP to go' : '🏆 Final level!';
+          cls        = 'current';
+          statusHtml = `<div>⭐ You!</div><div style="font-size:0.68rem;font-weight:600;color:var(--purple);margin-top:1px;">${toNext}</div>`;
+        } else if (reached) {
+          cls        = 'done';
+          statusHtml = `<div>✅</div>`;
+        } else {
+          cls        = 'future';
+          statusHtml = `<div>+${lvl.minXp - totalXp}</div>`;
+        }
+        return `<div class="lvl-row ${cls}">
+          <div class="lvl-emoji">${lvl.emoji}</div>
+          <div style="flex:1;min-width:0;">
+            <div class="lvl-name">${lvl.name}</div>
+            <div class="lvl-xpreq">${lvl.minXp} XP</div>
+          </div>
+          <div class="lvl-status">${statusHtml}</div>
+        </div>`;
+      }).join('');
+    }
+    // ─── Inactivity decay ─────────────────────────────────────────────────────
+    // Returns { daysMissed, decay } where decay is XP deducted from display.
+    // Decay accumulates at 50 XP/day (grace: 1 day), capped at 200 XP.
+    // Completing a quiz (results.html / math-results.html) resets decay to 0.
+    function getActivityStatus(readerId) {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const lastActivity = localStorage.getItem('lastActivityDate_' + readerId);
+
+      if (!lastActivity) {
+        // First-time user — no history yet, no penalty
+        return { daysMissed: -1, decay: 0 };
+      }
+
+      const today   = new Date(todayStr);
+      const lastAct = new Date(lastActivity);
+      const daysMissed = Math.floor((today - lastAct) / (24 * 60 * 60 * 1000));
+
+      // Read current decay total (set to 0 on quiz completion)
+      let decay = parseInt(localStorage.getItem('inactivityDecay_' + readerId) || '0');
+
+      // Apply fresh decay if we haven't checked today and days missed > 1
+      if (daysMissed > 1) {
+        const decayCheckedDate = localStorage.getItem('decayCheckedDate_' + readerId) || lastActivity;
+        if (decayCheckedDate !== todayStr) {
+          const lastChecked     = new Date(decayCheckedDate);
+          const daysSinceCheck  = Math.floor((today - lastChecked) / (24 * 60 * 60 * 1000));
+          const freshDecay      = Math.min(daysSinceCheck * 50, 200 - decay);
+          decay = Math.min(200, decay + Math.max(0, freshDecay));
+          localStorage.setItem('inactivityDecay_' + readerId, decay.toString());
+          localStorage.setItem('decayCheckedDate_' + readerId, todayStr);
+        }
+      }
+
+      return { daysMissed, decay };
+    }
+
+    renderLadder(0); // show ladder immediately; updated again after Firestore loads
+
+    // ─── Render math card ──────────────────────────────────────────────────────
+    function renderMathCard(unlocked) {
+      document.getElementById('math-card').innerHTML = unlocked
+        ? `<a href="math.html" class="module-card math-open">
+            <div class="mod-icon">📐</div>
+            <div class="mod-body">
+              <div class="mod-title">Math Zone</div>
+              <div class="mod-sub">10 topics • FAST Math Grade 4</div>
+            </div>
+            <div class="mod-badge">Go! →</div>
+           </a>`
+        : `<div class="module-card math-locked">
+            <div class="mod-icon">🔒</div>
+            <div class="mod-body">
+              <div class="mod-title">Math Zone</div>
+              <div class="mod-sub">Earn 3 stars on a reading quiz to unlock!</div>
+            </div>
+            <div class="mod-badge">Locked</div>
+           </div>`;
+    }
+
+    renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+
+    // ─── Load Firestore stats ──────────────────────────────────────────────────
+    const db = firebase.firestore();
+    Promise.all([
+      db.collection('Progress').where('readerId', '==', profile.readerId).get(),
+      db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
+      db.collection('StudentStats').doc(profile.readerId).get()
+    ]).then(([readSnap, mathSnap, statsSnap]) => {
+      let readXp = 0, bestReadScore = 0;
+      const uniqueStories = new Set();
+      const bestPerStory  = {}; // storyId → best-scoring doc
+
+      readSnap.forEach(d => {
+        const data = d.data();
+        readXp += (data.xpEarned || 0);
+        if ((data.quizScore || 0) > bestReadScore) bestReadScore = data.quizScore;
+        uniqueStories.add(data.storyId);
+        // Keep only the highest-scoring attempt per story
+        if (!bestPerStory[data.storyId] ||
+            (data.quizScore || 0) > (bestPerStory[data.storyId].quizScore || 0)) {
+          bestPerStory[data.storyId] = data;
+        }
+      });
+      // Stars counted from best attempt per story (consistent with quest board & parent)
+      const readStars = Object.values(bestPerStory)
+        .reduce((sum, d) => sum + (d.starsEarned || 0), 0);
+
+      let mathXp = 0;
+      const uniqueMath = new Set();
+      mathSnap.forEach(d => {
+        const data = d.data();
+        mathXp += (data.xpEarned || 0);
+        uniqueMath.add(data.setId);
+      });
+
+      const totalXp = readXp + mathXp;
+
+      // Update math unlock from Firestore
+      if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
+        localStorage.setItem(MATH_UNLOCK_KEY, 'true');
+        renderMathCard(true);
+      }
+
+      // ── Inactivity decay ────────────────────────────────────────────────────
+      const { daysMissed, decay } = getActivityStatus(profile.readerId);
+      // effectiveXp is what we show — decays when inactive, restored on activity
+      const effectiveXp = Math.max(0, totalXp - decay);
+
+      // ── Streak from StudentStats ──────────────────────────────────────────────
+      const sd = statsSnap.exists ? statsSnap.data() : {};
+      const currentStreak = sd.currentStreak || 0;
+
+      // Streak / warning banner
+      const bannerEl = document.getElementById('streak-banner');
+      if (daysMissed === 0 && currentStreak >= 2) {
+        bannerEl.className = 'streak-banner fire';
+        const f = currentStreak >= 14 ? '🌙🔥' : currentStreak >= 7 ? '⚡🔥' : '🔥';
+        bannerEl.innerHTML = f + ' <strong>' + currentStreak + '-day streak!</strong> You read today — amazing!';
+        bannerEl.style.display = 'block';
+      } else if (daysMissed === 0) {
+        bannerEl.className = 'streak-banner fire';
+        bannerEl.innerHTML = '🔥 Great work! You read today — keep your streak going!';
+        bannerEl.style.display = 'block';
+      } else if (daysMissed === 1) {
+        bannerEl.className = 'streak-banner warn';
+        bannerEl.innerHTML = '⚠️ You haven\'t read today! Read a story or you\'ll lose <strong>50 XP</strong> tonight!';
+        bannerEl.style.display = 'block';
+      } else if (daysMissed > 1) {
+        bannerEl.className = 'streak-banner decay';
+        bannerEl.innerHTML = `📉 You lost <strong>${decay} XP</strong> from missing ${daysMissed - 1} day${daysMissed > 2 ? 's' : ''}!<br>Read now to stop losing more XP!`;
+        bannerEl.style.display = 'block';
+      }
+
+      // ── Weekly goal bar ───────────────────────────────────────────────────────
+      const weeklyGoal = profile.weeklyGoalStories || 3;
+      const storiesThisWeek = sd.storiesThisWeek || 0;
+      const goalWrap = document.getElementById('weekly-goal-wrap');
+      const goalPct = Math.min(100, Math.round((storiesThisWeek / weeklyGoal) * 100));
+      document.getElementById('goal-progress-text').textContent = storiesThisWeek + ' / ' + weeklyGoal + ' stories';
+      document.getElementById('goal-progress-bar').style.width = goalPct + '%';
+      const remaining = weeklyGoal - storiesThisWeek;
+      document.getElementById('goal-status-text').textContent = remaining > 0
+        ? '📖 ' + remaining + ' more stor' + (remaining === 1 ? 'y' : 'ies') + ' to reach your goal this week!'
+        : '🎉 Goal reached! Keep reading for bonus XP!';
+      goalWrap.style.display = 'block';
+
+      // Stats
+      document.getElementById('s-stars').textContent   = '⭐ ' + readStars;
+      document.getElementById('s-xp').textContent      = effectiveXp;
+      document.getElementById('s-stories').textContent = uniqueStories.size;
+      document.getElementById('s-math').textContent    = uniqueMath.size + '/' + MATH_SETS.length;
+
+      // Level (based on effectiveXp — shows lower level if inactive)
+      const { level, nextLevel } = getLevel(effectiveXp);
+      document.getElementById('hero-level').textContent = level.emoji + ' ' + level.name
+        + (decay > 0 ? ' 📉' : '');
+      if (nextLevel) {
+        const pct = Math.min(100, Math.max(0, ((effectiveXp - level.minXp) / (nextLevel.minXp - level.minXp)) * 100));
+        document.getElementById('xp-bar').style.width = pct + '%';
+        document.getElementById('xp-label').textContent = effectiveXp + ' XP — '
+          + (nextLevel.minXp - effectiveXp) + ' more to ' + nextLevel.name
+          + (decay > 0 ? ' (−' + decay + ' XP inactive penalty)' : '');
+      } else {
+        document.getElementById('xp-bar').style.width = '100%';
+        document.getElementById('xp-label').textContent = '🌈 FAST Legend! ' + effectiveXp + ' XP — you reached the ultimate level!';
+      }
+      // Level ladder — update with effectiveXp
+      renderLadder(effectiveXp);
+
+    }).catch(() => {
+      document.getElementById('xp-label').textContent = '0 XP';
+    });
+
+    // ─── Secret math unlock: tap "!" three times within 800ms ─────────────────
+    (function () {
+      let taps = 0, timer = null;
+      document.getElementById('secret-bang').addEventListener('click', function () {
+        taps++;
+        clearTimeout(timer);
+        if (taps >= 3) {
+          taps = 0;
+          localStorage.setItem(MATH_UNLOCK_KEY, 'true');
+          renderMathCard(true);
+          // tiny silent flash so it feels intentional, not accidental
+          this.style.transition = 'opacity 0.1s';
+          this.style.opacity = '0';
+          const el = this;
+          setTimeout(() => { el.style.opacity = '1'; }, 120);
+        } else {
+          timer = setTimeout(() => { taps = 0; }, 800);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

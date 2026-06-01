@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz – FAST Track Reading & Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --orange: #f59e0b;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #fff7ed 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* NAV */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .nav-back { text-decoration: none; color: var(--purple); font-weight: 700; font-size: 0.95rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-title { font-weight: 700; flex: 1; text-align: center; }
+
+    .page { max-width: 680px; margin: 0 auto; padding: 36px 20px 60px; }
+
+    /* PROGRESS */
+    .q-progress-label { font-size: 0.9rem; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+    .q-progress-bar { height: 10px; background: #e5e7eb; border-radius: 99px; margin-bottom: 36px; overflow: hidden; }
+    .q-progress-fill { height: 100%; background: var(--purple); border-radius: 99px; transition: width 0.4s; }
+
+    /* QUESTION */
+    .question-text { font-size: 1.35rem; font-weight: 700; line-height: 1.4; margin-bottom: 24px; }
+
+    /* THINK LOCK */
+    .think-lock {
+      background: var(--purple-soft); border-radius: 12px;
+      padding: 16px 18px; margin-bottom: 18px;
+      display: none; flex-direction: column; gap: 8px;
+    }
+    .think-lock.active { display: flex; }
+    .think-header { display: flex; align-items: center; justify-content: space-between; }
+    .think-text { font-size: 0.95rem; font-weight: 600; color: var(--purple); }
+    .think-count {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--purple); color: #fff;
+      font-weight: 800; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .think-bar-wrap { height: 6px; background: rgba(124,58,237,0.18); border-radius: 99px; overflow: hidden; }
+    .think-bar-fill { height: 100%; background: var(--purple); border-radius: 99px; width: 0%; }
+
+    /* MISTAKE TRACKER */
+    .mistake-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; color: var(--muted); font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .mistake-dot {
+      width: 13px; height: 13px; border-radius: 50%;
+      background: #e5e7eb; transition: background 0.3s, transform 0.2s;
+    }
+    .mistake-dot.hit  { background: var(--red); transform: scale(1.2); }
+    .mistake-warn {
+      font-size: 0.8rem; color: #92400e; font-weight: 700;
+      background: #fef3c7; border: 1px solid #fcd34d;
+      padding: 2px 9px; border-radius: 99px;
+      opacity: 0; transition: opacity 0.3s; white-space: nowrap;
+    }
+    .mistake-warn.show { opacity: 1; }
+
+    /* OPTIONS */
+    .options { display: flex; flex-direction: column; gap: 12px; transition: opacity 0.2s; }
+    .option-btn {
+      width: 100%; min-height: 56px; padding: 14px 18px;
+      border: 2px solid var(--border); border-radius: 12px;
+      background: var(--surface); text-align: left;
+      font-family: inherit; font-size: 1rem; font-weight: 500; color: var(--text);
+      cursor: pointer; transition: border-color 0.15s, background 0.15s;
+      line-height: 1.4;
+    }
+    .option-btn:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-soft); }
+    .option-btn.correct { border-color: var(--green); background: var(--green-soft); color: #065f46; font-weight: 700; }
+    .option-btn.wrong   { border-color: var(--red);   background: var(--red-soft);   color: #7f1d1d; }
+    .option-btn:disabled { cursor: default; }
+    .option-btn.locked  { opacity: 0.6; cursor: not-allowed; }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%      { transform: translateX(-8px); }
+      40%      { transform: translateX(8px); }
+      60%      { transform: translateX(-5px); }
+      80%      { transform: translateX(5px); }
+    }
+    .option-btn.shake { animation: shake 0.45s ease; }
+
+    /* FEEDBACK */
+    .feedback {
+      margin-top: 18px; padding: 14px 18px; border-radius: 12px;
+      font-size: 1rem; font-weight: 700; display: none;
+    }
+    .feedback.show { display: block; }
+    .feedback.correct-fb { background: var(--green-soft); color: #065f46; border-left: 4px solid var(--green); }
+    .feedback.wrong-fb   { background: var(--red-soft);   color: #7f1d1d; border-left: 4px solid var(--red); }
+
+    /* EXPLANATION */
+    .explanation {
+      display: none; margin-top: 14px; padding: 14px 18px;
+      border-radius: 12px; font-size: 0.95rem; line-height: 1.5;
+    }
+    .explanation.show { display: block; }
+    .explanation.correct-exp { background: var(--green-soft); color: #064e3b; border-left: 4px solid var(--green); }
+    .explanation.wrong-exp   { background: var(--red-soft);   color: #7f1d1d; border-left: 4px solid var(--red); }
+    .explanation.hint-exp    { background: #fffbeb; color: #78350f; border-left: 4px solid var(--orange); }
+
+    /* NEXT BUTTON */
+    .next-btn {
+      margin-top: 24px; padding: 14px 32px;
+      background: var(--purple); color: #fff; border: none;
+      border-radius: 12px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; display: none; transition: background 0.15s;
+    }
+    .next-btn.show { display: inline-block; }
+    .next-btn:hover { background: #6d28d9; }
+
+    /* XP PREVIEW */
+    .xp-preview {
+      display: inline-block; margin-top: 10px;
+      font-size: 0.88rem; font-weight: 700; padding: 4px 12px; border-radius: 99px;
+    }
+    .xp-preview.gain    { background: var(--green-soft); color: #065f46; }
+    .xp-preview.partial { background: #fffbeb; color: #78350f; }
+
+    /* ── FORCE-READ OVERLAY ──────────────────────────────────────────── */
+    .force-read-overlay {
+      position: fixed; inset: 0;
+      background: rgba(109,40,217,0.93);
+      backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center;
+      z-index: 500;
+    }
+    .force-read-overlay.show { display: flex; }
+
+    .force-read-box {
+      background: #fff; border-radius: 24px;
+      padding: 44px 36px; max-width: 360px; width: 90%;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+      animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    .force-read-emoji { font-size: 3.5rem; line-height: 1; margin-bottom: 14px; }
+    .force-read-box h2 { font-size: 1.55rem; font-weight: 800; color: var(--purple); margin-bottom: 10px; }
+    .force-read-box p  { font-size: 0.98rem; color: var(--muted); line-height: 1.55; margin-bottom: 22px; }
+    .force-read-count  { font-size: 1.05rem; font-weight: 700; color: var(--purple); }
+
+    /* STRATEGY TIP */
+    .strategy-tip {
+      display: none; align-items: flex-start; gap: 10px;
+      background: #fffbeb; border: 1.5px solid #fcd34d;
+      border-radius: 12px; padding: 12px 15px;
+      margin-bottom: 16px; font-size: 0.9rem;
+    }
+    .strategy-tip.show { display: flex; }
+    .strategy-tip-icon { font-size: 1.3rem; flex-shrink: 0; line-height: 1.2; }
+    .strategy-tip-text { color: #78350f; font-weight: 600; line-height: 1.45; }
+
+    @media (max-width: 480px) { .question-text { font-size: 1.15rem; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-back" id="nav-back" href="#">← Story</a>
+    <div class="nav-title" id="nav-title"></div>
+  </nav>
+
+  <div class="page">
+    <div class="q-progress-label" id="q-progress-label">Question 1 of 5</div>
+    <div class="q-progress-bar"><div class="q-progress-fill" id="q-progress-fill" style="width:20%"></div></div>
+
+    <div class="question-text" id="question-text"></div>
+
+    <!-- Strategy tip — shown above options, changes per question type -->
+    <div class="strategy-tip" id="strategy-tip">
+      <span class="strategy-tip-icon">💡</span>
+      <span class="strategy-tip-text" id="strategy-tip-text"></span>
+    </div>
+
+    <div class="think-lock" id="think-lock">
+      <div class="think-header">
+        <span class="think-text">🤔 Read the question carefully…</span>
+        <span class="think-count" id="think-count">3</span>
+      </div>
+      <div class="think-bar-wrap"><div class="think-bar-fill" id="think-bar"></div></div>
+    </div>
+
+    <!-- Mistake tracker (3 lives before re-read) -->
+    <div class="mistake-row" id="mistake-row">
+      <span>Mistakes:</span>
+      <span class="mistake-dot" id="md-0"></span>
+      <span class="mistake-dot" id="md-1"></span>
+      <span class="mistake-dot" id="md-2"></span>
+      <span class="mistake-warn" id="mistake-warn"></span>
+    </div>
+
+    <div class="options" id="options"></div>
+    <div class="feedback" id="feedback"></div>
+    <div class="explanation" id="explanation"></div>
+    <button class="next-btn" id="next-btn">Next →</button>
+  </div>
+
+  <!-- Force-read overlay (shown when totalWrongs hits 3) -->
+  <div class="force-read-overlay" id="force-read-overlay">
+    <div class="force-read-box">
+      <div class="force-read-emoji">📖</div>
+      <h2>Time to Re-Read!</h2>
+      <p>You've missed 3 answers. Go back and read the story carefully — then try the quiz again.</p>
+      <div class="force-read-count" id="force-count">Returning to story in 5…</div>
+    </div>
+  </div>
+
+  <script src="stories.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'index.html'; }
+
+    const params  = new URLSearchParams(location.search);
+    const storyId = params.get('story');
+    const story   = STORIES.find(s => s.id === storyId);
+    if (!story) { window.location.href = 'library.html'; }
+
+    document.getElementById('nav-back').href        = 'read.html?story=' + storyId;
+    document.getElementById('nav-title').textContent = story.title;
+
+    const questions = story.questions;
+
+    // ── Config ────────────────────────────────────────────────────────────────
+    const THINK_SECONDS       = 3;
+    const QUIZ_UNLOCK_SECONDS = story.readTimeMin * 60; // scales with story length
+    const XP_FIRST_TRY        = 20;
+    const XP_NOT_FIRST        = 10;
+    const XP_PERFECT_BONUS    = 25;
+    const WRONG_LIMIT         = 3;   // mistakes before force-read
+
+    // ── Quiz resume state (persisted in sessionStorage) ──────────────────────
+    const QUIZ_STATE_KEY = 'quizInProgress_' + storyId;
+
+    // ── State ─────────────────────────────────────────────────────────────────
+    let currentQ          = 0;
+    let shuffledOptions   = [];
+    let newCorrectIndex   = -1;
+    let thinkLocked       = true;
+    let thinkInterval     = null;
+    let totalWrongs       = 0;   // cumulative across whole quiz
+    let wrongsThisQuestion = 0;  // resets per question (for XP calc)
+    const answers         = [];  // { correct, attempts, earnedXP }
+    // XP penalty: -2 per wrong answer (totalWrongs × 2 deducted in finishQuiz)
+
+    // Restore state if the student is returning mid-quiz
+    let _restoredWrongsThisQ = 0; // applied after showQuestion resets wrongsThisQuestion
+    (function restoreQuizState() {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(QUIZ_STATE_KEY));
+        if (saved && typeof saved.currentQ === 'number' && saved.currentQ < questions.length) {
+          currentQ              = saved.currentQ;
+          totalWrongs           = saved.totalWrongs || 0;
+          _restoredWrongsThisQ  = saved.wrongsThisQuestion || 0;
+          (saved.answers || []).forEach(a => answers.push(a));
+        }
+      } catch(e) { /* ignore parse errors */ }
+    })();
+
+    function saveQuizState() {
+      sessionStorage.setItem(QUIZ_STATE_KEY, JSON.stringify({
+        currentQ, answers, totalWrongs, wrongsThisQuestion
+      }));
+    }
+
+    // ── Reading-time gate ─────────────────────────────────────────────────────
+    (function checkReadTime() {
+      const startTime = parseInt(
+        localStorage.getItem('readStart_' + storyId) ||
+        sessionStorage.getItem('readStartTime') || '0'
+      );
+      if (!startTime) return;
+      if ((Date.now() - startTime) / 1000 < QUIZ_UNLOCK_SECONDS) {
+        window.location.replace('read.html?story=' + storyId + '&notice=readmore');
+      }
+    })();
+
+    // ── Shuffle helper ────────────────────────────────────────────────────────
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function prepareOptions(q) {
+      const indices   = shuffle([0, 1, 2, 3].slice(0, q.options.length));
+      shuffledOptions = indices.map(i => q.options[i]);
+      newCorrectIndex = indices.indexOf(q.correctIndex);
+    }
+
+    // ── Mistake tracker UI ────────────────────────────────────────────────────
+    function updateMistakeRow() {
+      for (let i = 0; i < 3; i++) {
+        const dot = document.getElementById('md-' + i);
+        dot.className = 'mistake-dot' + (i < totalWrongs ? ' hit' : '');
+      }
+      const warn = document.getElementById('mistake-warn');
+      if (totalWrongs >= WRONG_LIMIT - 1) {
+        warn.textContent = '⚠️ XP dropping! 1 more → re-read!';
+        warn.classList.add('show');
+      } else if (totalWrongs > 0) {
+        warn.textContent = '⚠️ Wrong answers cost XP!';
+        warn.classList.add('show');
+      } else {
+        warn.classList.remove('show');
+      }
+    }
+
+    // ── Think-lock countdown ──────────────────────────────────────────────────
+    function startThinkLock() {
+      thinkLocked = true;
+      const lockEl  = document.getElementById('think-lock');
+      const countEl = document.getElementById('think-count');
+      const barEl   = document.getElementById('think-bar');
+      lockEl.classList.add('active');
+      countEl.textContent = THINK_SECONDS;
+      barEl.style.transition = 'none';
+      barEl.style.width = '0%';
+      barEl.offsetWidth;
+      barEl.style.transition = `width ${THINK_SECONDS}s linear`;
+      barEl.style.width = '100%';
+      let secsLeft = THINK_SECONDS;
+      clearInterval(thinkInterval);
+      thinkInterval = setInterval(() => {
+        secsLeft--;
+        countEl.textContent = Math.max(0, secsLeft);
+        if (secsLeft <= 0) { clearInterval(thinkInterval); unlockOptions(); }
+      }, 1000);
+    }
+
+    function unlockOptions() {
+      thinkLocked = false;
+      document.getElementById('think-lock').classList.remove('active');
+      document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.disabled = false; btn.classList.remove('locked');
+      });
+    }
+
+    // ── Strategy tips ─────────────────────────────────────────────────────────
+    function getStrategyTip(questionText) {
+      const q = questionText.toUpperCase();
+      if (q.includes('CENTRAL IDEA') || q.includes('MAIN IDEA'))
+        return 'Ask yourself: "What is this passage MOSTLY about?" — not just one detail, but the BIG idea.';
+      if (q.includes('THEME') || q.includes('LESSON'))
+        return 'Think about what lesson the character learned. The theme is usually a message about life.';
+      if (q.includes('MOST LIKELY MEAN') || q.includes('MEANING OF') || q.includes('WORD') || q.includes('VOCABULARY'))
+        return 'Use clues from the sentences AROUND the word to figure out its meaning. Reread those sentences.';
+      if (q.includes('PURPOSE') || q.includes('WHY DID THE AUTHOR'))
+        return 'Ask: Did the author want to INFORM you, PERSUADE you, or ENTERTAIN you?';
+      if (q.includes('BEST SUPPORTS') || q.includes('WHICH DETAIL') || q.includes('EVIDENCE'))
+        return 'Go back and re-read the passage to find the exact words that answer this question.';
+      if (q.includes('ORGANIZE') || q.includes('STRUCTURE') || q.includes('ORDER'))
+        return 'Think about HOW the author set up the passage — problem/solution, cause/effect, or time order?';
+      if (q.includes('INFER') || q.includes('SUGGESTS') || q.includes('MOST LIKELY') || q.includes('PROBABLY'))
+        return 'The answer is not stated directly — use CLUES from the text plus what you already know.';
+      if (q.includes('CHARACTER') || q.includes('CHANGE') || q.includes('DEVELOP'))
+        return 'Think about how the character acts, thinks, and feels at the START vs. the END of the story.';
+      if (q.includes('COMPARE') || q.includes('CONTRAST') || q.includes('BOTH') || q.includes('SIMILAR') || q.includes('DIFFERENT'))
+        return 'Find what is the SAME and what is DIFFERENT between the two things being compared.';
+      return ''; // no tip for this question
+    }
+
+    function showStrategyTip(questionText) {
+      const tip     = getStrategyTip(questionText);
+      const tipDiv  = document.getElementById('strategy-tip');
+      const tipText = document.getElementById('strategy-tip-text');
+      if (tip) {
+        tipText.textContent = tip;
+        tipDiv.classList.add('show');
+      } else {
+        tipDiv.classList.remove('show');
+      }
+    }
+
+    // ── Show a question ───────────────────────────────────────────────────────
+    function showQuestion(idx) {
+      const q = questions[idx];
+      thinkLocked          = true;
+      wrongsThisQuestion   = 0;
+
+      document.getElementById('q-progress-label').textContent = `Question ${idx + 1} of ${questions.length}`;
+      document.getElementById('q-progress-fill').style.width  = ((idx + 1) / questions.length * 100) + '%';
+      document.getElementById('question-text').textContent    = q.question;
+
+      showStrategyTip(q.question);
+      prepareOptions(q);
+
+      document.getElementById('feedback').className    = 'feedback';
+      document.getElementById('feedback').innerHTML    = '';
+      document.getElementById('explanation').className = 'explanation';
+      document.getElementById('explanation').innerHTML = '';
+      document.getElementById('next-btn').classList.remove('show');
+
+      renderOptions(true /* locked */);
+      startThinkLock();
+    }
+
+    // ── Render option buttons ─────────────────────────────────────────────────
+    function renderOptions(locked) {
+      const optDiv = document.getElementById('options');
+      optDiv.style.opacity = '1';
+      optDiv.innerHTML = shuffledOptions.map((opt, i) =>
+        `<button class="option-btn${locked ? ' locked' : ''}" data-idx="${i}" ${locked ? 'disabled' : ''}>${opt}</button>`
+      ).join('');
+      optDiv.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (thinkLocked || btn.disabled) return;
+          handleAnswer(parseInt(btn.dataset.idx));
+        });
+      });
+    }
+
+    // ── Handle answer selection ───────────────────────────────────────────────
+    // ── Sound effects ──────────────────────────────────────────────────────────
+    function playSound(type) {
+      try {
+        if (localStorage.getItem('soundEnabled') === 'false') return;
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const play = (freq, dur, wave = 'sine', delay = 0, vol = 0.28) => {
+          const o = ctx.createOscillator(), g = ctx.createGain();
+          o.connect(g); g.connect(ctx.destination);
+          o.type = wave; o.frequency.value = freq;
+          g.gain.setValueAtTime(vol, ctx.currentTime + delay);
+          g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + dur);
+          o.start(ctx.currentTime + delay); o.stop(ctx.currentTime + delay + dur);
+        };
+        if (type === 'correct')  { play(660, 0.15); play(880, 0.2, 'sine', 0.12); }
+        if (type === 'wrong')    { play(220, 0.25, 'sawtooth', 0, 0.18); play(180, 0.2, 'sawtooth', 0.1, 0.12); }
+        if (type === 'complete') { [523,659,784,1047].forEach((f,i) => play(f, 0.3, 'sine', i*0.1)); }
+        setTimeout(() => ctx.close(), 1500);
+      } catch(e) {}
+    }
+
+    function handleAnswer(selectedIdx) {
+      if (thinkLocked) return;
+      const q         = questions[currentQ];
+      const isCorrect = selectedIdx === newCorrectIndex;
+
+      // Disable all while we process
+      document.querySelectorAll('.option-btn').forEach(b => { b.disabled = true; });
+
+      if (isCorrect) {
+        const xpEarned = wrongsThisQuestion === 0 ? XP_FIRST_TRY : XP_NOT_FIRST;
+        answers.push({ correct: true, attempts: wrongsThisQuestion + 1, earnedXP: xpEarned });
+
+        const btn = document.querySelectorAll('.option-btn')[selectedIdx];
+        btn.classList.add('correct');
+        playSound('correct');
+
+        const feedbackEl = document.getElementById('feedback');
+        feedbackEl.className = 'feedback correct-fb show';
+        feedbackEl.innerHTML = wrongsThisQuestion === 0
+          ? `✅ Excellent! First try! <span class="xp-preview gain">+${xpEarned} XP</span>`
+          : `✅ Got it! <span class="xp-preview partial">+${xpEarned} XP</span>`;
+
+        showExplanation(q, true);
+        scheduleNext(2200);
+
+      } else {
+        // Wrong answer
+        totalWrongs++;
+        wrongsThisQuestion++;
+        updateMistakeRow();
+
+        const btn = document.querySelectorAll('.option-btn')[selectedIdx];
+        btn.classList.add('wrong', 'shake');
+        setTimeout(() => btn.classList.remove('shake'), 500);
+        playSound('wrong');
+
+        if (totalWrongs >= WRONG_LIMIT) {
+          // Too many mistakes — force re-read
+          triggerForceRead();
+          return;
+        }
+
+        // Show hint briefly, then reshuffle
+        const feedbackEl = document.getElementById('feedback');
+        feedbackEl.className = 'feedback wrong-fb show';
+        feedbackEl.innerHTML = '❌ Not quite — the answers are shuffling…';
+
+        const expEl = document.getElementById('explanation');
+        expEl.className = 'explanation show hint-exp';
+        expEl.textContent = '💡 ' + q.explanation;
+
+        // Reshuffle after a beat
+        setTimeout(() => reshuffleAndShow(q), 950);
+      }
+    }
+
+    // ── Reshuffle options and re-render ───────────────────────────────────────
+    function reshuffleAndShow(q) {
+      const optDiv = document.getElementById('options');
+
+      // Fade out
+      optDiv.style.opacity = '0';
+
+      setTimeout(() => {
+        prepareOptions(q);
+
+        document.getElementById('feedback').className    = 'feedback';
+        document.getElementById('feedback').innerHTML    = '';
+        document.getElementById('explanation').className = 'explanation';
+        document.getElementById('explanation').innerHTML = '';
+
+        renderOptions(false /* not locked — no think timer on reshuffle */);
+
+        // Fade in
+        optDiv.style.opacity = '1';
+      }, 220);
+    }
+
+    // ── Force-read overlay ────────────────────────────────────────────────────
+    function triggerForceRead() {
+      clearInterval(thinkInterval);
+
+      // Clear quiz progress — after re-reading they start over from Q1
+      sessionStorage.removeItem(QUIZ_STATE_KEY);
+
+      // Reset the reading timer — forces 2 fresh minutes
+      localStorage.setItem('readStart_' + storyId, Date.now().toString());
+
+      const overlay   = document.getElementById('force-read-overlay');
+      const countEl   = document.getElementById('force-count');
+      overlay.classList.add('show');
+
+      let secs = 5;
+      countEl.textContent = `Returning to story in ${secs}…`;
+
+      const timer = setInterval(() => {
+        secs--;
+        if (secs <= 0) {
+          clearInterval(timer);
+          window.location.href = 'read.html?story=' + storyId + '&notice=reread';
+        } else {
+          countEl.textContent = `Returning to story in ${secs}…`;
+        }
+      }, 1000);
+    }
+
+    // ── Show explanation ──────────────────────────────────────────────────────
+    function showExplanation(q, isCorrect) {
+      const expEl = document.getElementById('explanation');
+      expEl.className = 'explanation show ' + (isCorrect ? 'correct-exp' : 'wrong-exp');
+      expEl.textContent = q.explanation;
+    }
+
+    // ── Auto-advance + Next button ────────────────────────────────────────────
+    function scheduleNext(delay) {
+      const nextBtn = document.getElementById('next-btn');
+      nextBtn.classList.add('show');
+      nextBtn.textContent = currentQ === questions.length - 1 ? 'See Results! 🎉' : 'Next Question →';
+      let autoTimer = setTimeout(() => goNext(), delay);
+      nextBtn.addEventListener('click', () => { clearTimeout(autoTimer); goNext(); }, { once: true });
+    }
+
+    function goNext() {
+      clearInterval(thinkInterval);
+      currentQ++;
+      saveQuizState(); // persist progress so returning to story doesn't reset position
+      if (currentQ < questions.length) {
+        showQuestion(currentQ);
+      } else {
+        finishQuiz();
+      }
+    }
+
+    // ── Finish quiz ───────────────────────────────────────────────────────────
+    function finishQuiz() {
+      playSound('complete');
+      sessionStorage.removeItem(QUIZ_STATE_KEY); // quiz done — clear resume state
+      const score           = answers.filter(a => a.correct).length;
+      const perfectFirstTry = answers.every(a => a.correct && a.attempts === 1);
+      let earnedXP          = answers.reduce((sum, a) => sum + a.earnedXP, 0);
+      if (perfectFirstTry) earnedXP += XP_PERFECT_BONUS;
+      // Deduct 2 XP per wrong answer — can make XP negative (level goes down!)
+      earnedXP -= totalWrongs * 2;
+
+      sessionStorage.setItem('quizResult', JSON.stringify({
+        storyId, storyTitle: story.title, storyTopic: story.topic,
+        score, total: questions.length, earnedXP, perfectFirstTry, answers
+      }));
+      sessionStorage.removeItem('quizWritten');
+      window.location.href = 'results.html';
+    }
+
+    // Save state if the student navigates back to the story mid-quiz
+    window.addEventListener('pagehide',    saveQuizState);
+    window.addEventListener('beforeunload', saveQuizState);
+
+    // Start on the restored question (or Q1 if fresh)
+    updateMistakeRow(); // show correct mistake dots if resuming with prior wrongs
+    showQuestion(currentQ);
+    // showQuestion resets wrongsThisQuestion — re-apply saved value if resuming mid-question
+    wrongsThisQuestion = _restoredWrongsThisQ;
+  </script>
+</body>
+</html>

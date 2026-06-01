@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Portal — FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --blue: #2563eb; --blue-soft: #dbeafe;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #fff7ed 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    /* ── Nav ── */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 24px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 20;
+    }
+    .nav-title { font-weight: 800; font-size: 1.1rem; flex: 1; }
+    .nav-user  { font-size: 0.88rem; color: var(--muted); font-weight: 600; }
+    .btn-signout {
+      padding: 7px 14px; border: 2px solid var(--border);
+      border-radius: 10px; background: var(--surface);
+      font-weight: 600; font-size: 0.88rem; cursor: pointer; font-family: inherit;
+      transition: border-color 0.15s; color: var(--text);
+    }
+    .btn-signout:hover { border-color: var(--red); color: var(--red); }
+
+    .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-size: 1.1rem; font-weight: 800; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    /* ── Children grid ── */
+    .children-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px; margin-bottom: 24px;
+    }
+    .child-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 20px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .child-top { display: flex; align-items: center; gap: 12px; }
+    .child-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; color: #fff; flex-shrink: 0;
+    }
+    .child-name  { font-size: 1rem; font-weight: 800; }
+    .child-grade { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+    .child-xp    { font-size: 0.82rem; color: var(--purple); font-weight: 700; }
+    .child-level { font-size: 0.82rem; color: var(--muted); font-weight: 600; margin-top: 2px; }
+
+    .child-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn-action {
+      flex: 1; min-width: 80px; padding: 8px 10px; border-radius: 10px;
+      font-size: 0.82rem; font-weight: 700; cursor: pointer; text-align: center;
+      text-decoration: none; border: 2px solid transparent; font-family: inherit;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .btn-view    { background: var(--purple-soft); color: var(--purple); }
+    .btn-view:hover { background: var(--purple); color: #fff; }
+    .btn-login   { background: var(--blue-soft); color: var(--blue); }
+    .btn-login:hover { background: var(--blue); color: #fff; }
+    .btn-edit    { background: #f3f4f6; color: var(--muted); }
+    .btn-edit:hover { background: var(--purple-soft); color: var(--purple); }
+    .btn-pin     { background: #fef3c7; color: #92400e; }
+    .btn-pin:hover { background: #f59e0b; color: #fff; }
+    .btn-delete  { background: var(--red-soft); color: var(--red); }
+    .btn-delete:hover { background: var(--red); color: #fff; }
+
+    /* ── Add child button ── */
+    .btn-add-child {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 12px;
+      background: var(--purple); color: #fff; border: none;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-add-child:hover { background: #6d28d9; }
+
+    /* ── Add / Edit form ── */
+    .form-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+      padding: 28px; margin-top: 20px;
+      display: none;
+    }
+    .form-card.show { display: block; }
+    .form-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 20px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 6px;
+    }
+    .form-group input, .form-group select {
+      width: 100%; padding: 10px 12px;
+      border: 2px solid var(--border); border-radius: 10px;
+      font-size: 0.9rem; font-family: inherit; color: var(--text);
+      outline: none; transition: border-color 0.15s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--purple); }
+
+    .pin-wrap { position: relative; }
+    .pin-toggle {
+      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; font-size: 1rem; color: var(--muted);
+    }
+
+    /* Emoji chips */
+    .emoji-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .emoji-chip {
+      padding: 4px 10px; border-radius: 99px; background: #f3f4f6;
+      cursor: pointer; font-size: 1.1rem; transition: background 0.12s;
+      border: 2px solid transparent;
+    }
+    .emoji-chip:hover   { background: var(--purple-soft); }
+    .emoji-chip.selected { border-color: var(--purple); background: var(--purple-soft); }
+
+    /* Color swatches */
+    .color-swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .color-swatch {
+      width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+      border: 3px solid transparent; transition: border-color 0.12s, transform 0.1s;
+    }
+    .color-swatch:hover   { transform: scale(1.15); }
+    .color-swatch.selected { border-color: var(--text); }
+
+    .advanced-toggle {
+      display: flex; align-items: center; gap: 8px; cursor: pointer;
+      font-size: 0.85rem; font-weight: 700; color: var(--muted); margin-bottom: 10px;
+      background: none; border: none; font-family: inherit; padding: 0;
+    }
+    .advanced-toggle:hover { color: var(--purple); }
+    .advanced-body { display: none; }
+    .advanced-body.show { display: block; }
+
+    .form-error {
+      background: var(--red-soft); color: #b91c1c;
+      border-radius: 8px; padding: 10px 12px;
+      font-size: 0.88rem; font-weight: 600; margin-bottom: 14px; display: none;
+    }
+    .form-btns { display: flex; gap: 10px; margin-top: 6px; }
+    .btn-submit {
+      flex: 1; padding: 12px; background: var(--purple); color: #fff;
+      border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: background 0.15s;
+    }
+    .btn-submit:hover { background: #6d28d9; }
+    .btn-cancel-form {
+      padding: 12px 20px; background: none; border: 2px solid var(--border);
+      border-radius: 10px; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    .btn-cancel-form:hover { border-color: var(--purple); }
+
+    .loading { text-align: center; padding: 48px; color: var(--muted); font-size: 1rem; }
+    .spinner {
+      width: 36px; height: 36px; border: 4px solid #e5e7eb;
+      border-top-color: var(--purple); border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 0 auto 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .empty-children {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 40px; text-align: center; color: var(--muted);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 20px;
+    }
+    .empty-children p { font-size: 0.95rem; margin-top: 8px; }
+
+    /* ── Confirm dialog ── */
+    .confirm-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.35); z-index: 100;
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    .confirm-overlay.show { display: flex; }
+    .confirm-box {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 28px; max-width: 360px; width: 100%;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18); text-align: center;
+    }
+    .confirm-box h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+    .confirm-box p  { color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
+    .confirm-btns { display: flex; gap: 10px; }
+    .btn-confirm-cancel {
+      flex: 1; padding: 11px; border: 2px solid var(--border); border-radius: 10px;
+      background: none; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .btn-confirm-delete {
+      flex: 1; padding: 11px; background: var(--red); color: #fff;
+      border: none; border-radius: 10px; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-confirm-delete:hover { background: #dc2626; }
+    @keyframes ppShake {
+      0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-title">🚀 FAST Track — Parent Portal</div>
+    <div class="nav-user" id="nav-user"></div>
+    <button class="btn-signout" id="signout-btn">Sign Out</button>
+  </nav>
+
+  <div class="page">
+
+    <!-- Children section -->
+    <div class="section-heading">👦 Your Children</div>
+    <div id="children-area">
+      <div class="loading"><div class="spinner"></div>Loading…</div>
+    </div>
+    <button class="btn-add-child" id="add-child-btn">+ Add Child</button>
+
+    <!-- Add / Edit form -->
+    <div class="form-card" id="child-form-card">
+      <h3 id="form-title">Add a New Child</h3>
+      <div class="form-error" id="form-error"></div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" placeholder="Child's name" />
+        </div>
+        <div class="form-group">
+          <label for="f-grade">Grade</label>
+          <select id="f-grade">
+            <option value="">Select grade…</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="4">Grade 4</option>
+            <option value="5">Grade 5</option>
+            <option value="6">Grade 6</option>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="f-pin">PIN (4 digits)</label>
+        <div class="pin-wrap">
+          <input type="text" id="f-pin" placeholder="e.g. 1234" maxlength="4" inputmode="numeric"
+                 pattern="[0-9]{4}" autocomplete="off" />
+          <button type="button" class="pin-toggle" id="pin-toggle-btn" title="Toggle visibility">👁</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Avatar Emoji</label>
+        <input type="text" id="f-emoji" placeholder="🦁" maxlength="4" style="width:80px;display:inline-block;font-size:1.3rem;" />
+        <div class="emoji-chips" id="emoji-chips"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Avatar Color</label>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <input type="color" id="f-color" value="#2563eb" style="width:40px;height:40px;border:none;border-radius:8px;cursor:pointer;" />
+          <div class="color-swatches" id="color-swatches"></div>
+        </div>
+      </div>
+
+      <!-- Weekly goal -->
+      <div class="form-group">
+        <label for="f-goal">Weekly Reading Goal <span style="color:#6b7280;font-weight:500;">(stories per week)</span></label>
+        <select id="f-goal" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:1rem;font-weight:600;">
+          <option value="1">1 story / week — Just getting started</option>
+          <option value="2">2 stories / week — Building the habit</option>
+          <option value="3" selected>3 stories / week — Recommended ⭐</option>
+          <option value="4">4 stories / week — Strong reader</option>
+          <option value="5">5 stories / week — Summer champion</option>
+          <option value="7">7 stories / week — Every day!</option>
+        </select>
+      </div>
+
+      <!-- Math Settings -->
+      <div style="margin-top:8px;padding-top:16px;border-top:1px solid var(--border);">
+        <div style="font-size:0.82rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px;">📐 Math Settings</div>
+
+        <div class="form-group">
+          <label for="f-math-unlock">Stars needed to unlock Math Zone</label>
+          <select id="f-math-unlock" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+            <option value="0">Always unlocked — no reading required</option>
+            <option value="1">1 star on any reading quiz</option>
+            <option value="2">2 stars on any reading quiz</option>
+            <option value="3" selected>3 stars — Recommended ⭐</option>
+            <option value="4">4 stars on any reading quiz</option>
+            <option value="5">5 stars (perfect score only)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="f-read-mins">Reading time required before math each day</label>
+          <select id="f-read-mins" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+            <option value="0">No reading required before math</option>
+            <option value="10">10 minutes of reading</option>
+            <option value="20">20 minutes of reading</option>
+            <option value="30" selected>30 minutes — Recommended ⭐</option>
+            <option value="45">45 minutes of reading</option>
+            <option value="60">60 minutes of reading</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="f-math-mins">Daily math time limit</label>
+          <select id="f-math-mins" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+            <option value="5">5 minutes per day</option>
+            <option value="10" selected>10 minutes per day — Recommended ⭐</option>
+            <option value="15">15 minutes per day</option>
+            <option value="20">20 minutes per day</option>
+            <option value="30">30 minutes per day</option>
+            <option value="0">No time limit</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Advanced (legacy ID) -->
+      <button type="button" class="advanced-toggle" id="advanced-toggle">
+        <span id="advanced-arrow">▶</span> Advanced options
+      </button>
+      <div class="advanced-body" id="advanced-body">
+        <div class="form-group">
+          <label for="f-legacy-id">Preserve existing progress — Legacy Reader ID</label>
+          <input type="text" id="f-legacy-id"
+                 placeholder="Leave blank for a new student. Only needed if transferring an existing account." />
+        </div>
+      </div>
+
+      <div class="form-btns">
+        <button type="button" class="btn-cancel-form" id="form-cancel-btn">Cancel</button>
+        <button type="button" class="btn-submit" id="form-submit-btn">Save Child</button>
+      </div>
+    </div>
+
+    <!-- Suggestion Box -->
+    <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
+      <div class="section-heading">💡 Suggestion Box</div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:16px;">Have an idea to make this app better? Send it directly to the developer!</p>
+      <div style="background:var(--surface);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:22px;">
+        <textarea id="suggestion-text" rows="4" placeholder="What would make this app more useful for you and your child?..."
+          style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:11px;font-family:inherit;font-size:0.95rem;resize:vertical;outline:none;transition:border-color 0.15s;line-height:1.5;"></textarea>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;flex-wrap:wrap;gap:10px;">
+          <div id="suggestion-status" style="font-size:0.85rem;font-weight:600;min-height:1.2em;"></div>
+          <button id="suggestion-btn" style="padding:10px 22px;background:var(--purple);color:#fff;border:none;border-radius:10px;font-size:0.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.15s;">Send Suggestion ✈️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin suggestions view (only rendered for celeste1311@gmail.com) -->
+    <div id="admin-suggestions" style="display:none;margin-top:40px;padding-top:28px;border-top:2px dashed #e5e7eb;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+        <div class="section-heading" style="margin:0;">🛠️ All Suggestions</div>
+        <span id="admin-suggestions-count" style="font-size:0.8rem;font-weight:700;background:var(--purple-soft);color:var(--purple);padding:3px 10px;border-radius:99px;"></span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:16px;">Visible only to you.</p>
+      <div id="admin-suggestions-list"><div class="loading"><div class="spinner"></div>Loading…</div></div>
+    </div>
+
+  </div>
+
+  <!-- Delete confirm dialog — step 1 -->
+  <div class="confirm-overlay" id="confirm-overlay">
+    <div class="confirm-box">
+      <h3>🗑️ Delete this profile?</h3>
+      <p id="confirm-msg">This will permanently delete the student profile. Progress data will not be deleted.</p>
+      <div class="confirm-btns">
+        <button class="btn-confirm-cancel" id="confirm-cancel-btn">Keep</button>
+        <button class="btn-confirm-delete" id="confirm-delete-btn">Yes, Delete →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete confirm dialog — step 2 (type name to confirm) -->
+  <div class="confirm-overlay" id="confirm-overlay-2">
+    <div class="confirm-box">
+      <div style="font-size:2rem;margin-bottom:8px;">⚠️</div>
+      <h3 style="color:#dc2626;margin-bottom:8px;">This cannot be undone</h3>
+      <p style="margin-bottom:16px;">Type <strong id="confirm-name-label"></strong> to permanently delete this profile.</p>
+      <input type="text" id="confirm-name-input"
+        style="width:100%;padding:11px 14px;border:2px solid #e5e7eb;border-radius:10px;font-family:inherit;font-size:1rem;font-weight:600;outline:none;transition:border-color 0.15s;margin-bottom:12px;"
+        placeholder="Type child's name here" autocomplete="off" />
+      <div class="confirm-btns">
+        <button class="btn-confirm-cancel" id="confirm-cancel-btn-2">Cancel</button>
+        <button class="btn-confirm-delete" id="confirm-delete-btn-2" disabled
+          style="opacity:0.45;cursor:not-allowed;">Delete Forever</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    const auth = firebase.auth();
+    const db   = firebase.firestore();
+
+    const LEVELS = [
+      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
+      { name: 'Reader',       minXp: 100,  emoji: '📚' },
+      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
+      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
+      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
+      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
+      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
+      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
+      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
+      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
+      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
+      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
+      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
+      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
+      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+    ];
+    function getLevel(xp) {
+      let idx = 0;
+      for (let i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i].minXp) idx = i; }
+      return LEVELS[idx];
+    }
+
+    const EMOJI_SUGGESTIONS = ['🦁','🐯','🐸','🦊','🐻','🐼','🦄','🐬','🦅','🐉'];
+    const COLOR_PRESETS      = ['#2563eb','#7c3aed','#10b981','#ef4444','#f59e0b','#ec4899','#06b6d4','#8b5cf6','#14b8a6','#f97316'];
+
+    let currentUser = null;
+    let editingDocId = null; // null = adding new
+
+    // ── Auth + Portal PIN guard ────────────────────────────────────────────────
+    auth.onAuthStateChanged(user => {
+      if (!user) { window.location.href = 'login.html'; return; }
+      currentUser = user;
+
+      // Load parent display name
+      db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
+        const data = doc.exists ? doc.data() : {};
+        document.getElementById('nav-user').textContent = data.displayName || user.email;
+
+        // Check portal PIN
+        if (sessionStorage.getItem('portalPinVerified') === 'true') {
+          loadChildren();
+          loadAdminSuggestions();
+        } else {
+          showPortalPinScreen(data.portalPin || null, user.uid);
+        }
+      }).catch(() => {
+        document.getElementById('nav-user').textContent = user.email;
+        if (sessionStorage.getItem('portalPinVerified') === 'true') {
+          loadChildren();
+        } else {
+          showPortalPinScreen(null, user.uid);
+        }
+      });
+    });
+
+    document.getElementById('signout-btn').addEventListener('click', () => {
+      sessionStorage.removeItem('portalPinVerified');
+      localStorage.removeItem('readerProfile');
+      auth.signOut().then(() => { window.location.href = 'login.html'; });
+    });
+
+    function showPortalPinScreen(storedPin, uid) {
+      // Hide main content area
+      document.querySelector('.page').style.display = 'none';
+
+      const screen = document.createElement('div');
+      screen.id = 'portal-pin-screen';
+      screen.style.cssText = 'min-height:calc(100vh - 70px);display:flex;align-items:center;justify-content:center;padding:24px;';
+
+      const noPin = !storedPin;
+      screen.innerHTML = `
+        <div style="background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(124,58,237,0.12);padding:36px 32px;width:100%;max-width:340px;text-align:center;">
+          <div style="font-size:2.4rem;margin-bottom:10px;">🔒</div>
+          <h2 style="font-size:1.3rem;font-weight:800;margin-bottom:8px;">${noPin ? 'Set a Parent PIN' : 'Parent Portal PIN'}</h2>
+          <p style="font-size:0.88rem;color:#6b7280;margin-bottom:20px;">${noPin ? 'Choose a 4-digit PIN to protect parent settings' : 'Enter your 4-digit PIN to continue'}</p>
+          <div style="display:flex;justify-content:center;gap:14px;margin-bottom:20px;" id="pp-dots">
+            <div id="ppd0" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;"></div>
+            <div id="ppd1" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;"></div>
+            <div id="ppd2" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;"></div>
+            <div id="ppd3" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;"></div>
+          </div>
+          <div id="pp-err" style="color:#ef4444;font-size:0.85rem;font-weight:600;min-height:1.2em;margin-bottom:10px;"></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:220px;margin:0 auto;">
+            ${[1,2,3,4,5,6,7,8,9].map(n=>`<button onclick="ppDigit('${n}')" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:10px;cursor:pointer;">${n}</button>`).join('')}
+            <button onclick="ppDigit('back')" style="padding:14px;font-size:1rem;background:#f3f4f6;border:none;border-radius:10px;cursor:pointer;">⌫</button>
+            <button onclick="ppDigit('0')" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:10px;cursor:pointer;">0</button>
+            <div></div>
+          </div>
+          <a href="login.html" style="display:block;margin-top:18px;color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">← Back to login</a>
+        </div>`;
+      document.body.appendChild(screen);
+
+      let ppEntry = '';
+      window.ppDigit = function(n) {
+        if (n === 'back') { ppEntry = ppEntry.slice(0, -1); }
+        else if (ppEntry.length < 4) { ppEntry += n; }
+        for (let i = 0; i < 4; i++) {
+          const dot = document.getElementById('ppd' + i);
+          dot.style.background   = i < ppEntry.length ? '#7c3aed' : 'transparent';
+          dot.style.borderColor  = i < ppEntry.length ? '#7c3aed' : '#d1d5db';
+        }
+        if (ppEntry.length === 4) {
+          if (noPin) {
+            // Save new PIN
+            db.collection('ParentProfiles').doc(uid).set({ portalPin: ppEntry }, { merge: true })
+              .then(() => { sessionStorage.setItem('portalPinVerified', 'true'); sessionStorage.setItem('portalPin', ppEntry); screen.remove(); document.querySelector('.page').style.display = ''; loadChildren(); loadAdminSuggestions(); })
+              .catch(() => { document.getElementById('pp-err').textContent = 'Could not save PIN. Try again.'; ppEntry = ''; for(let i=0;i<4;i++){document.getElementById('ppd'+i).style.background='transparent';document.getElementById('ppd'+i).style.borderColor='#d1d5db';} });
+          } else if (ppEntry === storedPin) {
+            sessionStorage.setItem('portalPinVerified', 'true');
+            sessionStorage.setItem('portalPin', ppEntry);
+            screen.remove();
+            document.querySelector('.page').style.display = '';
+            loadChildren();
+            loadAdminSuggestions();
+          } else {
+            document.getElementById('pp-err').textContent = 'Wrong PIN — try again';
+            const dots = document.getElementById('pp-dots');
+            dots.style.animation = 'none'; void dots.offsetWidth;
+            dots.style.animation = 'ppShake 0.35s ease';
+            ppEntry = '';
+            setTimeout(() => { for(let i=0;i<4;i++){document.getElementById('ppd'+i).style.background='transparent';document.getElementById('ppd'+i).style.borderColor='#d1d5db';} }, 350);
+          }
+        }
+      };
+    }
+
+    // ── Change child PIN modal ─────────────────────────────────────────────────
+    function changePinModal(docId, childName) {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:320px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.2);">
+          <div style="font-size:2rem;margin-bottom:8px;">🔑</div>
+          <div style="font-size:1.2rem;font-weight:800;margin-bottom:5px;">Change ${escHtml(childName)}'s PIN</div>
+          <div style="font-size:0.85rem;color:#6b7280;margin-bottom:20px;" id="cpm-step-label">Enter a new 4-digit PIN</div>
+          <div style="display:flex;justify-content:center;gap:14px;margin-bottom:14px;" id="cpm-dots">
+            ${[0,1,2,3].map(i=>`<div id="cpmd${i}" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;transition:background 0.12s,border-color 0.12s;"></div>`).join('')}
+          </div>
+          <div id="cpm-err" style="color:#ef4444;font-size:0.83rem;font-weight:600;min-height:1.1em;margin-bottom:10px;"></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:216px;margin:0 auto 18px;">
+            ${[1,2,3,4,5,6,7,8,9].map(n=>`<button class="cpm-btn" data-n="${n}" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;font-family:inherit;">${n}</button>`).join('')}
+            <button class="cpm-btn" data-n="back" style="padding:14px;font-size:1.05rem;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">⌫</button>
+            <button class="cpm-btn" data-n="0" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;font-family:inherit;">0</button>
+            <div></div>
+          </div>
+          <button id="cpm-cancel" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:inherit;padding:8px;">Cancel</button>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      let firstPin = '';
+      let entry = '';
+      let step = 1; // 1 = enter new PIN, 2 = confirm
+
+      function updateDots() {
+        for (let i = 0; i < 4; i++) {
+          const d = document.getElementById('cpmd' + i);
+          d.style.background  = i < entry.length ? '#7c3aed' : 'transparent';
+          d.style.borderColor = i < entry.length ? '#7c3aed' : '#d1d5db';
+        }
+      }
+
+      overlay.querySelector('#cpm-cancel').addEventListener('click', () => overlay.remove());
+      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+
+      overlay.querySelectorAll('.cpm-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const n = btn.dataset.n;
+          if (n === 'back') { entry = entry.slice(0, -1); }
+          else if (entry.length < 4) { entry += n; }
+          updateDots();
+          document.getElementById('cpm-err').textContent = '';
+
+          if (entry.length === 4) {
+            if (step === 1) {
+              // First entry — move to confirm
+              firstPin = entry;
+              entry = '';
+              step = 2;
+              document.getElementById('cpm-step-label').textContent = 'Confirm the new PIN';
+              setTimeout(updateDots, 50);
+            } else {
+              // Confirm step
+              if (entry === firstPin) {
+                // Match — save to Firestore
+                const saveBtn = overlay.querySelectorAll('.cpm-btn');
+                saveBtn.forEach(b => b.disabled = true);
+                db.collection('StudentProfiles').doc(docId).update({ pin: entry })
+                  .then(() => {
+                    overlay.remove();
+                    // Quick success toast
+                    const toast = document.createElement('div');
+                    toast.textContent = '✅ PIN updated for ' + childName;
+                    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#065f46;color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;font-size:0.92rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+                    document.body.appendChild(toast);
+                    setTimeout(() => toast.remove(), 3000);
+                  })
+                  .catch(err => {
+                    document.getElementById('cpm-err').textContent = 'Could not save: ' + err.message;
+                    saveBtn.forEach(b => b.disabled = false);
+                    entry = ''; step = 1; firstPin = '';
+                    document.getElementById('cpm-step-label').textContent = 'Enter a new 4-digit PIN';
+                    setTimeout(updateDots, 50);
+                  });
+              } else {
+                // Mismatch — shake and restart
+                document.getElementById('cpm-err').textContent = 'PINs don\'t match — try again';
+                const dotsEl = document.getElementById('cpm-dots');
+                dotsEl.style.animation = 'none'; void dotsEl.offsetWidth;
+                dotsEl.style.animation = 'ppShake 0.35s ease';
+                entry = ''; step = 1; firstPin = '';
+                document.getElementById('cpm-step-label').textContent = 'Enter a new 4-digit PIN';
+                setTimeout(updateDots, 350);
+              }
+            }
+          }
+        });
+      });
+    }
+
+    // ── Load children ──────────────────────────────────────────────────────────
+    function loadChildren() {
+      const area = document.getElementById('children-area');
+      area.innerHTML = '<div class="loading"><div class="spinner"></div>Loading…</div>';
+
+      db.collection('StudentProfiles')
+        .where('parentUid', '==', currentUser.uid)
+        .get()
+        .then(snap => {
+          if (snap.empty) {
+            area.innerHTML = `<div class="empty-children">
+              <div style="font-size:2.5rem;">🎒</div>
+              <p>No children yet — tap "+ Add Child" to create a profile.</p>
+            </div>`;
+            return;
+          }
+          const children = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+          children.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+          renderChildren(children, area);
+        })
+        .catch(err => {
+          console.error(err);
+          area.innerHTML = `<div class="empty-children">
+            <p>⚠️ Could not load profiles.</p>
+            <p style="font-size:0.8rem;color:#9ca3af;margin-top:6px;">${err.message || String(err)}</p>
+          </div>`;
+        });
+    }
+
+    function renderChildren(children, area) {
+      const grid = document.createElement('div');
+      grid.className = 'children-grid';
+
+      const xpPromises = children.map(child =>
+        Promise.all([
+          db.collection('Progress').where('readerId', '==', child.readerId).get(),
+          db.collection('MathProgress').where('readerId', '==', child.readerId).get()
+        ]).then(([r, m]) => {
+          let xp = 0;
+          r.forEach(d => { xp += (d.data().xpEarned || 0); });
+          m.forEach(d => { xp += (d.data().xpEarned || 0); });
+          return xp;
+        }).catch(() => 0)
+      );
+
+      Promise.all(xpPromises).then(xpValues => {
+        children.forEach((child, i) => {
+          const xp    = xpValues[i];
+          const level = getLevel(xp);
+          const color  = child.avatarColor || '#2563eb';
+          const initials = child.name ? child.name.charAt(0).toUpperCase() : '?';
+          const emoji  = child.avatarEmoji || initials;
+
+          const card = document.createElement('div');
+          card.className = 'child-card';
+          card.innerHTML = `
+            <div class="child-top" title="Tap to log in as ${escHtml(child.name)}"
+              style="cursor:pointer;border-radius:12px;transition:background 0.15s;padding:4px;margin:-4px;"
+              onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background=''">
+              <div class="child-avatar" style="background:${escHtml(color)}">${escHtml(emoji)}</div>
+              <div>
+                <div class="child-name" style="display:flex;align-items:center;gap:6px;">${escHtml(child.name)} <span style="font-size:0.72rem;background:var(--blue-soft);color:var(--blue);padding:2px 7px;border-radius:99px;font-weight:700;">Tap to log in</span></div>
+                <div class="child-grade">Grade ${escHtml(String(child.gradeLevel || ''))}</div>
+                <div class="child-xp">${xp} XP</div>
+                <div class="child-level">${level.emoji} ${level.name}</div>
+              </div>
+            </div>
+            <div class="child-actions">
+              <a href="parent.html?student=${encodeURIComponent(child.readerId)}" class="btn-action btn-view">📊 Progress</a>
+              <button class="btn-action btn-login" data-id="${escHtml(child.id)}">🚀 Log in as ${escHtml(child.name)}</button>
+            </div>
+            <div class="child-actions">
+              <button class="btn-action btn-edit"   data-id="${escHtml(child.id)}">✏️ Edit</button>
+              <button class="btn-action btn-pin"    data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}">🔑 Change PIN</button>
+              <button class="btn-action btn-delete" data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}">🗑️ Delete</button>
+            </div>
+          `;
+
+          // Helper: log in as this child
+          function loginAs(kid) {
+            localStorage.setItem('readerProfile', JSON.stringify({
+              readerId:          kid.readerId,
+              name:              kid.name,
+              gradeLevel:        kid.gradeLevel,
+              avatarColor:       kid.avatarColor  || '#7c3aed',
+              avatarEmoji:       kid.avatarEmoji  || '',
+              profileDocId:      kid.id,
+              weeklyGoalStories: kid.weeklyGoalStories ?? 3,
+              mathUnlockScore:   kid.mathUnlockScore   ?? 3,
+              dailyReadMinutes:  kid.dailyReadMinutes  ?? 30,
+              dailyMathMinutes:  kid.dailyMathMinutes  ?? 10
+            }));
+            window.location.href = 'index.html';
+          }
+
+          // Tap the name/avatar area to log in
+          card.querySelector('.child-top').addEventListener('click', () => loginAs(child));
+
+          // "Log in as" button (also kept for clarity)
+          card.querySelector('.btn-login').addEventListener('click', () => loginAs(child));
+
+          // Edit button
+          card.querySelector('.btn-edit').addEventListener('click', () => openEditForm(child));
+
+          // Change PIN button
+          card.querySelector('.btn-pin').addEventListener('click', () => changePinModal(child.id, child.name));
+
+          // Delete button
+          card.querySelector('.btn-delete').addEventListener('click', () => confirmDelete(child.id, child.name));
+
+          grid.appendChild(card);
+        });
+
+        area.innerHTML = '';
+        area.appendChild(grid);
+      });
+    }
+
+    // ── Form setup ─────────────────────────────────────────────────────────────
+    // Emoji chips
+    const chipContainer = document.getElementById('emoji-chips');
+    EMOJI_SUGGESTIONS.forEach(em => {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'emoji-chip';
+      chip.textContent = em;
+      chip.addEventListener('click', () => {
+        document.getElementById('f-emoji').value = em;
+        document.querySelectorAll('.emoji-chip').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+      });
+      chipContainer.appendChild(chip);
+    });
+
+    // Color swatches
+    const swatchContainer = document.getElementById('color-swatches');
+    const colorInput = document.getElementById('f-color');
+    COLOR_PRESETS.forEach(col => {
+      const sw = document.createElement('div');
+      sw.className = 'color-swatch';
+      sw.style.background = col;
+      sw.title = col;
+      sw.addEventListener('click', () => {
+        colorInput.value = col;
+        document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+        sw.classList.add('selected');
+      });
+      swatchContainer.appendChild(sw);
+    });
+    colorInput.addEventListener('input', () => {
+      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+    });
+
+    // PIN toggle visibility
+    const pinInput = document.getElementById('f-pin');
+    document.getElementById('pin-toggle-btn').addEventListener('click', () => {
+      pinInput.type = pinInput.type === 'password' ? 'text' : 'password';
+    });
+    pinInput.type = 'text'; // show by default
+
+    // Advanced toggle
+    document.getElementById('advanced-toggle').addEventListener('click', () => {
+      const body  = document.getElementById('advanced-body');
+      const arrow = document.getElementById('advanced-arrow');
+      const open  = body.classList.toggle('show');
+      arrow.textContent = open ? '▼' : '▶';
+    });
+
+    // ── Open add form ──────────────────────────────────────────────────────────
+    document.getElementById('add-child-btn').addEventListener('click', () => {
+      openAddForm();
+    });
+
+    function openAddForm() {
+      editingDocId = null;
+      document.getElementById('form-title').textContent = 'Add a New Child';
+      document.getElementById('form-submit-btn').textContent = 'Add Child';
+      resetForm();
+      document.getElementById('child-form-card').classList.add('show');
+      document.getElementById('child-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function openEditForm(child) {
+      editingDocId = child.id;
+      document.getElementById('form-title').textContent = 'Edit ' + child.name;
+      document.getElementById('form-submit-btn').textContent = 'Save Changes';
+
+      document.getElementById('f-name').value  = child.name || '';
+      document.getElementById('f-grade').value = child.gradeLevel || '';
+      document.getElementById('f-pin').value   = child.pin || '';
+      document.getElementById('f-emoji').value = child.avatarEmoji || '';
+      document.getElementById('f-color').value = child.avatarColor || '#2563eb';
+      document.getElementById('f-legacy-id').value    = child.readerId || '';
+      document.getElementById('f-goal').value         = child.weeklyGoalStories || 3;
+      document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 3;
+      document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 30;
+      document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
+
+      // Mark selected chips/swatches
+      document.querySelectorAll('.emoji-chip').forEach(c => {
+        c.classList.toggle('selected', c.textContent === child.avatarEmoji);
+      });
+      document.querySelectorAll('.color-swatch').forEach(s => {
+        s.classList.toggle('selected', s.style.background === hexToRgb(child.avatarColor));
+      });
+
+      document.getElementById('form-error').style.display = 'none';
+      document.getElementById('child-form-card').classList.add('show');
+      document.getElementById('child-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function hexToRgb(hex) {
+      // For swatch comparison — not critical, fine to use raw hex
+      return hex;
+    }
+
+    function resetForm() {
+      ['f-name','f-pin','f-emoji','f-legacy-id'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      document.getElementById('f-grade').value = '';
+      document.getElementById('f-color').value = '#2563eb';
+      document.querySelectorAll('.emoji-chip').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+      document.getElementById('form-error').style.display = 'none';
+      document.getElementById('advanced-body').classList.remove('show');
+      document.getElementById('advanced-arrow').textContent = '▶';
+    }
+
+    document.getElementById('form-cancel-btn').addEventListener('click', () => {
+      document.getElementById('child-form-card').classList.remove('show');
+    });
+
+    // ── Submit form ─────────────────────────────────────────────────────────────
+    document.getElementById('form-submit-btn').addEventListener('click', submitChildForm);
+
+    function submitChildForm() {
+      const name     = document.getElementById('f-name').value.trim();
+      const grade    = parseInt(document.getElementById('f-grade').value);
+      const pin      = document.getElementById('f-pin').value.trim();
+      const emoji    = document.getElementById('f-emoji').value.trim();
+      const color    = document.getElementById('f-color').value;
+      const legacyId        = document.getElementById('f-legacy-id').value.trim();
+      const weeklyGoalStories = parseInt(document.getElementById('f-goal').value)        || 3;
+      const mathUnlockScore   = parseInt(document.getElementById('f-math-unlock').value);
+      const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
+      const dailyMathMinutes  = parseInt(document.getElementById('f-math-mins').value);
+      const errEl    = document.getElementById('form-error');
+      errEl.style.display = 'none';
+
+      if (!name)                         { showFormErr('Please enter the child\'s name.'); return; }
+      if (!grade || grade < 1 || grade > 8) { showFormErr('Please select a grade.'); return; }
+      if (!/^\d{4}$/.test(pin))          { showFormErr('PIN must be exactly 4 digits.'); return; }
+
+      const btn = document.getElementById('form-submit-btn');
+      btn.disabled = true; btn.textContent = 'Saving…';
+
+      if (editingDocId) {
+        // Update existing
+        const data = {
+          name:              name,
+          gradeLevel:        grade,
+          pin:               pin,
+          avatarEmoji:       emoji || '',
+          avatarColor:       color,
+          weeklyGoalStories: weeklyGoalStories,
+          mathUnlockScore:   mathUnlockScore,
+          dailyReadMinutes:  dailyReadMinutes,
+          dailyMathMinutes:  dailyMathMinutes,
+          timestamp:         firebase.firestore.FieldValue.serverTimestamp()
+        };
+        // Only update readerId if legacyId provided and different
+        if (legacyId) data.readerId = legacyId;
+
+        db.collection('StudentProfiles').doc(editingDocId).update(data)
+          .then(() => {
+            btn.disabled = false; btn.textContent = 'Save Changes';
+            document.getElementById('child-form-card').classList.remove('show');
+            loadChildren();
+          })
+          .catch(err => {
+            btn.disabled = false; btn.textContent = 'Save Changes';
+            showFormErr('Error saving: ' + err.message);
+          });
+      } else {
+        // New child
+        const data = {
+          name:              name,
+          gradeLevel:        grade,
+          pin:               pin,
+          avatarEmoji:       emoji || '',
+          avatarColor:       color,
+          weeklyGoalStories: weeklyGoalStories,
+          mathUnlockScore:   mathUnlockScore,
+          dailyReadMinutes:  dailyReadMinutes,
+          dailyMathMinutes:  dailyMathMinutes,
+          parentUid:         currentUser.uid,
+          readerId:          legacyId || '', // filled in after .add() if blank
+          createdAt:   firebase.firestore.FieldValue.serverTimestamp(),
+          timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+        };
+
+        if (legacyId) {
+          data.readerId = legacyId;
+          db.collection('StudentProfiles').add(data)
+            .then(() => {
+              btn.disabled = false; btn.textContent = 'Add Child';
+              document.getElementById('child-form-card').classList.remove('show');
+              resetForm();
+              loadChildren();
+            })
+            .catch(err => {
+              btn.disabled = false; btn.textContent = 'Add Child';
+              showFormErr('Error saving: ' + err.message);
+            });
+        } else {
+          db.collection('StudentProfiles').add(data)
+            .then(docRef => {
+              return docRef.update({ readerId: docRef.id });
+            })
+            .then(() => {
+              btn.disabled = false; btn.textContent = 'Add Child';
+              document.getElementById('child-form-card').classList.remove('show');
+              resetForm();
+              loadChildren();
+            })
+            .catch(err => {
+              btn.disabled = false; btn.textContent = 'Add Child';
+              showFormErr('Error saving: ' + err.message);
+            });
+        }
+      }
+    }
+
+    function showFormErr(msg) {
+      const el = document.getElementById('form-error');
+      el.textContent = msg;
+      el.style.display = 'block';
+    }
+
+    // ── Delete ─────────────────────────────────────────────────────────────────
+    let pendingDeleteId   = null;
+    let pendingDeleteName = null;
+
+    function confirmDelete(docId, name) {
+      pendingDeleteId   = docId;
+      pendingDeleteName = name;
+      document.getElementById('confirm-msg').textContent =
+        `"${name}"'s profile will be removed. Their quiz progress in Firestore will not be deleted.`;
+      document.getElementById('confirm-overlay').classList.add('show');
+    }
+
+    // ── Step 1: first confirm ──────────────────────────────────────────────────
+    document.getElementById('confirm-cancel-btn').addEventListener('click', () => {
+      document.getElementById('confirm-overlay').classList.remove('show');
+      pendingDeleteId = pendingDeleteName = null;
+    });
+    document.getElementById('confirm-overlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('confirm-overlay')) {
+        document.getElementById('confirm-overlay').classList.remove('show');
+        pendingDeleteId = pendingDeleteName = null;
+      }
+    });
+    document.getElementById('confirm-delete-btn').addEventListener('click', () => {
+      if (!pendingDeleteId) return;
+      // Move to step 2
+      document.getElementById('confirm-overlay').classList.remove('show');
+      document.getElementById('confirm-name-label').textContent = pendingDeleteName;
+      document.getElementById('confirm-name-input').value = '';
+      const delBtn2 = document.getElementById('confirm-delete-btn-2');
+      delBtn2.disabled = true;
+      delBtn2.style.opacity = '0.45';
+      delBtn2.style.cursor  = 'not-allowed';
+      document.getElementById('confirm-overlay-2').classList.add('show');
+      setTimeout(() => document.getElementById('confirm-name-input').focus(), 100);
+    });
+
+    // ── Step 2: type name to confirm ──────────────────────────────────────────
+    document.getElementById('confirm-name-input').addEventListener('input', function() {
+      const match = this.value.trim().toLowerCase() === (pendingDeleteName || '').toLowerCase();
+      const delBtn2 = document.getElementById('confirm-delete-btn-2');
+      delBtn2.disabled = !match;
+      delBtn2.style.opacity = match ? '1' : '0.45';
+      delBtn2.style.cursor  = match ? 'pointer' : 'not-allowed';
+    });
+    document.getElementById('confirm-cancel-btn-2').addEventListener('click', () => {
+      document.getElementById('confirm-overlay-2').classList.remove('show');
+      pendingDeleteId = pendingDeleteName = null;
+    });
+    document.getElementById('confirm-overlay-2').addEventListener('click', e => {
+      if (e.target === document.getElementById('confirm-overlay-2')) {
+        document.getElementById('confirm-overlay-2').classList.remove('show');
+        pendingDeleteId = pendingDeleteName = null;
+      }
+    });
+    document.getElementById('confirm-delete-btn-2').addEventListener('click', () => {
+      if (!pendingDeleteId) return;
+      const btn = document.getElementById('confirm-delete-btn-2');
+      btn.disabled = true; btn.textContent = 'Deleting…';
+      db.collection('StudentProfiles').doc(pendingDeleteId).delete()
+        .then(() => {
+          btn.disabled = false; btn.textContent = 'Delete Forever';
+          document.getElementById('confirm-overlay-2').classList.remove('show');
+          pendingDeleteId = pendingDeleteName = null;
+          loadChildren();
+        })
+        .catch(err => {
+          btn.disabled = false; btn.textContent = 'Delete Forever';
+          alert('Error deleting: ' + err.message);
+        });
+    });
+
+    // ── Suggestion box ─────────────────────────────────────────────────────────
+    const ADMIN_EMAIL = 'celeste1311@gmail.com';
+
+    document.getElementById('suggestion-text').addEventListener('focus', function() {
+      this.style.borderColor = 'var(--purple)';
+    });
+    document.getElementById('suggestion-text').addEventListener('blur', function() {
+      this.style.borderColor = 'var(--border)';
+    });
+
+    document.getElementById('suggestion-btn').addEventListener('click', () => {
+      const text = document.getElementById('suggestion-text').value.trim();
+      const statusEl = document.getElementById('suggestion-status');
+      const btn = document.getElementById('suggestion-btn');
+      if (!text) {
+        statusEl.style.color = 'var(--red)';
+        statusEl.textContent = 'Please write something first!';
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      statusEl.textContent = '';
+
+      // Write to Firestore
+      db.collection('Suggestions').add({
+        message:     text,
+        parentEmail: currentUser.email,
+        parentUid:   currentUser.uid,
+        timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        document.getElementById('suggestion-text').value = '';
+        statusEl.style.color = 'var(--green)';
+        statusEl.textContent = '✅ Thanks! Suggestion sent.';
+        btn.disabled = false;
+        btn.textContent = 'Send Suggestion ✈️';
+      }).catch(err => {
+        statusEl.style.color = 'var(--red)';
+        statusEl.textContent = 'Could not send: ' + err.message;
+        btn.disabled = false;
+        btn.textContent = 'Send Suggestion ✈️';
+      });
+
+      // Also email via FormSubmit (silent — doesn't block the save)
+      fetch('https://formsubmit.co/ajax/' + ADMIN_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: '💡 New FAST Track suggestion',
+          From: currentUser.email,
+          Message: text
+        })
+      }).catch(() => {}); // fail silently
+    });
+
+    // ── Admin suggestions panel (only visible to admin email) ──────────────────
+    function loadAdminSuggestions() {
+      if (!currentUser || currentUser.email !== ADMIN_EMAIL) return;
+      const adminSection = document.getElementById('admin-suggestions');
+      if (!adminSection) return;
+      adminSection.style.display = 'block';
+      db.collection('Suggestions').get().then(snap => {
+        if (snap.empty) {
+          adminSection.querySelector('#admin-suggestions-list').innerHTML =
+            '<p style="color:var(--muted);font-size:0.9rem;">No suggestions yet.</p>';
+          adminSection.querySelector('#admin-suggestions-count').textContent = '0 suggestions';
+          return;
+        }
+        const docs = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+          .sort((a, b) => (b.timestamp?.toMillis?.() || 0) - (a.timestamp?.toMillis?.() || 0));
+        adminSection.querySelector('#admin-suggestions-count').textContent =
+          docs.length + ' suggestion' + (docs.length !== 1 ? 's' : '');
+        adminSection.querySelector('#admin-suggestions-list').innerHTML = docs.map(s => {
+          const date = s.timestamp?.toDate
+            ? s.timestamp.toDate().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: '2-digit', hour: '2-digit', minute: '2-digit' })
+            : '—';
+          return `<div style="background:#f9fafb;border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--purple);">
+            <div style="font-size:0.78rem;font-weight:700;color:var(--muted);margin-bottom:6px;">${escHtml(s.parentEmail || '—')} · ${date}</div>
+            <div style="font-size:0.93rem;line-height:1.5;">${escHtml(s.message || '')}</div>
+          </div>`;
+        }).join('');
+      }).catch(() => {
+        adminSection.querySelector('#admin-suggestions-list').innerHTML =
+          '<p style="color:var(--red);font-size:0.9rem;">Could not load suggestions.</p>';
+      });
+    }
+  </script>
+</body>
+</html>

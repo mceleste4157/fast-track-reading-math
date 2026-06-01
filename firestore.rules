@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /Progress/{doc} {
+      allow read, write: if true;
+    }
+    match /MathProgress/{doc} {
+      allow read, write: if true;
+    }
+    match /TriviaScores/{doc} {
+      allow read, write: if true;
+    }
+    match /StudentStats/{readerId} {
+      allow read, write: if true;
+    }
+    match /TypingProgress/{doc} {
+      allow read, write: if true;
+    }
+    match /StudentActivity/{activityId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if false;
+    }
+    match /Suggestions/{docId} {
+      allow read: if request.auth != null
+        && request.auth.token.email == 'celeste1311@gmail.com';
+      allow create: if request.auth != null;
+      allow update, delete: if false;
+    }
+    match /StudentProfiles/{profileId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null
+        && request.auth.uid == resource.data.parentUid;
+    }
+    match /ParentProfiles/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}

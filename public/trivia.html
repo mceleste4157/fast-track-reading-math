@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story Trivia – FAST Track Reading & Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --orange: #f59e0b; --orange-soft: #fffbeb;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --blue: #2563eb;
+      --gold: #f59e0b;
+      --bg: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+      --surface: rgba(255,255,255,0.08);
+      --surface-solid: #1e1b4b;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    .nav {
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(0,0,0,0.25); backdrop-filter: blur(8px);
+    }
+    .nav-back { text-decoration: none; color: #c4b5fd; font-weight: 700; font-size: 0.95rem; }
+    .nav-back:hover { color: #fff; }
+    .nav-title { font-weight: 800; flex: 1; text-align: center; font-size: 1.1rem; letter-spacing: 0.5px; }
+
+    /* SCREENS */
+    .screen { display: none; max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
+    .screen.active { display: block; }
+
+    /* ── INTRO SCREEN ─────────────────────────────────────────────── */
+    .intro-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px; padding: 40px 32px; text-align: center;
+    }
+    .intro-icon { font-size: 4rem; margin-bottom: 16px; display: block; }
+    .intro-title { font-size: 2rem; font-weight: 900; margin-bottom: 8px; }
+    .intro-sub { font-size: 1.05rem; opacity: 0.8; line-height: 1.5; margin-bottom: 28px; }
+    .rules { background: rgba(0,0,0,0.2); border-radius: 14px; padding: 18px 20px; margin-bottom: 28px; text-align: left; }
+    .rules li { font-size: 0.95rem; opacity: 0.9; margin-bottom: 10px; line-height: 1.4; list-style: none; padding-left: 0; }
+    .rules li::before { content: '→ '; color: #a78bfa; font-weight: 700; }
+    .btn-start {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff; border: none; border-radius: 14px;
+      font-size: 1.2rem; font-weight: 800;
+      padding: 16px 40px; cursor: pointer;
+      box-shadow: 0 4px 24px rgba(124,58,237,0.5);
+      transition: transform 0.15s, box-shadow 0.15s;
+      width: 100%;
+    }
+    .btn-start:hover { transform: translateY(-2px); box-shadow: 0 6px 32px rgba(124,58,237,0.6); }
+    .no-stories-msg { font-size: 1rem; opacity: 0.8; line-height: 1.6; }
+
+    /* ── ROUND INTRO ─────────────────────────────────────────────── */
+    .round-intro {
+      text-align: center; padding: 60px 20px;
+    }
+    .round-badge {
+      display: inline-block; background: rgba(245,158,11,0.25);
+      border: 2px solid #f59e0b; border-radius: 99px;
+      font-size: 0.9rem; font-weight: 800; color: #fcd34d;
+      padding: 6px 18px; margin-bottom: 20px;
+    }
+    .round-num { font-size: 3rem; font-weight: 900; margin-bottom: 8px; }
+    .round-theme { font-size: 1.2rem; opacity: 0.8; margin-bottom: 32px; }
+    .countdown { font-size: 4rem; font-weight: 900; color: #a78bfa; margin: 24px 0; }
+
+    /* ── QUESTION SCREEN ─────────────────────────────────────────── */
+    .q-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .q-round-badge {
+      background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.4);
+      color: #fcd34d; font-size: 0.82rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 99px;
+    }
+    .q-score-live {
+      font-size: 0.95rem; font-weight: 800; color: #a78bfa;
+    }
+
+    /* Timer bar */
+    .timer-wrap { height: 8px; background: rgba(255,255,255,0.15); border-radius: 99px; margin-bottom: 28px; overflow: hidden; }
+    .timer-fill { height: 100%; border-radius: 99px; transition: width 0.25s linear, background 0.5s; }
+
+    /* Story source pill */
+    .story-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1); border-radius: 99px;
+      font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7);
+      padding: 4px 12px; margin-bottom: 16px;
+    }
+
+    /* Question text */
+    .q-text { font-size: 1.25rem; font-weight: 700; line-height: 1.45; margin-bottom: 24px; }
+
+    /* Answer options */
+    .options { display: flex; flex-direction: column; gap: 12px; }
+    .opt-btn {
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 14px; color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      padding: 14px 18px; text-align: left; cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+    .opt-btn:hover:not(:disabled) { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); transform: translateX(3px); }
+    .opt-btn.correct { background: rgba(16,185,129,0.25); border-color: #10b981; }
+    .opt-btn.wrong   { background: rgba(239,68,68,0.2);  border-color: #ef4444; }
+    .opt-btn:disabled { cursor: default; transform: none; }
+
+    /* Answer feedback */
+    .feedback {
+      margin-top: 18px; padding: 14px 18px;
+      border-radius: 12px; font-size: 0.95rem; font-weight: 600;
+      display: none; line-height: 1.5;
+    }
+    .feedback.correct { background: rgba(16,185,129,0.2); border: 1px solid rgba(16,185,129,0.4); color: #6ee7b7; display: block; }
+    .feedback.wrong   { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; display: block; }
+
+    .next-btn {
+      margin-top: 20px; width: 100%;
+      background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 12px; color: #fff; font-family: 'Inter', sans-serif;
+      font-size: 1rem; font-weight: 700; padding: 12px;
+      cursor: pointer; display: none;
+      transition: background 0.15s;
+    }
+    .next-btn:hover { background: rgba(255,255,255,0.2); }
+    .next-btn.show { display: block; }
+
+    /* Question progress dots */
+    .q-dots { display: flex; gap: 8px; justify-content: center; margin-bottom: 20px; }
+    .q-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,255,0.25); transition: background 0.3s;
+    }
+    .q-dot.answered-correct { background: #10b981; }
+    .q-dot.answered-wrong   { background: #ef4444; }
+    .q-dot.current { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+
+    /* ── ROUND RESULT ────────────────────────────────────────────── */
+    .round-result { text-align: center; padding: 20px 0; }
+    .round-result-icon { font-size: 4rem; margin-bottom: 12px; }
+    .round-result-title { font-size: 1.8rem; font-weight: 900; margin-bottom: 8px; }
+    .round-result-sub { font-size: 1rem; opacity: 0.8; margin-bottom: 24px; }
+    .round-pts {
+      font-size: 2.5rem; font-weight: 900; color: #fcd34d;
+      margin-bottom: 8px;
+    }
+    .round-pts-label { font-size: 0.9rem; opacity: 0.6; margin-bottom: 28px; }
+    .btn-next-round {
+      background: linear-gradient(135deg, #f59e0b, #fb923c);
+      color: #1a1a1a; border: none; border-radius: 14px;
+      font-size: 1.1rem; font-weight: 800; padding: 14px 36px;
+      cursor: pointer; transition: transform 0.15s;
+    }
+    .btn-next-round:hover { transform: translateY(-2px); }
+
+    /* ── FINAL SCORE ─────────────────────────────────────────────── */
+    .final-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px; padding: 36px 28px; text-align: center;
+    }
+    .trophy-anim { font-size: 5rem; margin-bottom: 16px; animation: bounce 0.6s ease infinite alternate; }
+    @keyframes bounce { to { transform: translateY(-10px); } }
+    .final-title { font-size: 2rem; font-weight: 900; margin-bottom: 6px; }
+    .final-sub { font-size: 1rem; opacity: 0.7; margin-bottom: 28px; }
+    .score-grid { display: flex; gap: 16px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+    .score-box {
+      background: rgba(255,255,255,0.1); border-radius: 16px;
+      padding: 16px 24px; text-align: center; min-width: 120px;
+    }
+    .score-box-val { font-size: 2rem; font-weight: 900; color: #fcd34d; }
+    .score-box-lbl { font-size: 0.8rem; opacity: 0.7; margin-top: 4px; font-weight: 600; }
+    .stars-earned { font-size: 2.5rem; margin: 8px 0 20px; }
+    .stars-label { font-size: 0.95rem; opacity: 0.75; margin-bottom: 24px; }
+    .final-btns { display: flex; flex-direction: column; gap: 12px; }
+    .btn-play-again {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff; border: none; border-radius: 14px;
+      font-size: 1.05rem; font-weight: 800; padding: 14px;
+      cursor: pointer; transition: transform 0.15s;
+    }
+    .btn-play-again:hover { transform: translateY(-2px); }
+    .btn-library {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; border-radius: 14px; text-decoration: none;
+      font-size: 1rem; font-weight: 700; padding: 13px;
+      display: block; text-align: center; transition: background 0.15s;
+    }
+    .btn-library:hover { background: rgba(255,255,255,0.18); }
+
+    /* Confetti particles */
+    .confetti-wrap { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 50; }
+    .confetti-piece {
+      position: absolute; top: -20px; width: 10px; height: 14px;
+      border-radius: 2px; opacity: 0;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      0%   { opacity: 1; transform: translateY(0) rotate(0deg); }
+      100% { opacity: 0.3; transform: translateY(110vh) rotate(720deg); }
+    }
+
+    /* Round progress pip */
+    .round-pips { display: flex; gap: 10px; justify-content: center; margin-bottom: 28px; }
+    .round-pip {
+      width: 36px; height: 8px; border-radius: 99px;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.4s;
+    }
+    .round-pip.done { background: #10b981; }
+    .round-pip.current { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="library.html" class="nav-back">← Library</a>
+  <div class="nav-title">🎮 Story Trivia</div>
+</nav>
+
+<div class="confetti-wrap" id="confetti-wrap"></div>
+
+<!-- ── INTRO ─────────────────────────────────────────── -->
+<div class="screen active" id="screen-intro">
+  <div style="max-width:680px; margin:0 auto; padding:32px 20px;">
+    <div class="intro-card">
+      <span class="intro-icon">🎮</span>
+      <div class="intro-title">Story Trivia!</div>
+      <div class="intro-sub">Answer questions from the stories you've already read.<br>3 rounds · 5 questions each · Earn bonus stars!</div>
+      <ul class="rules">
+        <li>Each round has 5 questions from different stories you've read</li>
+        <li>Answer fast for bonus points — the timer counts down!</li>
+        <li>Score 12+ out of 15 to earn ⭐⭐⭐ bonus stars</li>
+        <li>Questions get harder in Round 3 — the Lightning Round! ⚡</li>
+      </ul>
+      <div id="intro-action">
+        <div style="font-size:1rem;opacity:0.7;">Loading your stories…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ROUND INTRO ────────────────────────────────────── -->
+<div class="screen" id="screen-round-intro">
+  <div class="round-intro">
+    <div class="round-pips" id="round-pips"></div>
+    <div class="round-badge" id="ri-badge">Round 1 of 3</div>
+    <div class="round-num" id="ri-num">Round 1</div>
+    <div class="round-theme" id="ri-theme">5 questions from your stories</div>
+    <div class="countdown" id="ri-countdown">3</div>
+    <div style="font-size:0.9rem;opacity:0.6;">Get ready…</div>
+  </div>
+</div>
+
+<!-- ── QUESTION ───────────────────────────────────────── -->
+<div class="screen" id="screen-question">
+  <div class="q-header">
+    <div class="q-round-badge" id="q-round-label">Round 1 · Q1/5</div>
+    <div class="q-score-live" id="q-score-live">0 pts</div>
+  </div>
+
+  <div class="timer-wrap">
+    <div class="timer-fill" id="timer-fill" style="width:100%; background:#10b981;"></div>
+  </div>
+
+  <div class="q-dots" id="q-dots"></div>
+
+  <div class="story-pill" id="q-story-pill">📖 Story title</div>
+
+  <div class="q-text" id="q-text">Question goes here</div>
+
+  <div class="options" id="q-options"></div>
+  <div class="feedback" id="q-feedback"></div>
+  <button class="next-btn" id="q-next">Next →</button>
+</div>
+
+<!-- ── ROUND RESULT ───────────────────────────────────── -->
+<div class="screen" id="screen-round-result">
+  <div class="round-result">
+    <div class="round-pips" id="rr-round-pips"></div>
+    <div class="round-result-icon" id="rr-icon">🎉</div>
+    <div class="round-result-title" id="rr-title">Nice round!</div>
+    <div class="round-result-sub" id="rr-sub">You got 4 out of 5!</div>
+    <div class="round-pts" id="rr-pts">+650 pts</div>
+    <div class="round-pts-label">this round</div>
+    <button class="btn-next-round" id="rr-next-btn">Continue →</button>
+  </div>
+</div>
+
+<!-- ── FINAL ──────────────────────────────────────────── -->
+<div class="screen" id="screen-final">
+  <div class="final-card">
+    <div class="trophy-anim" id="final-trophy">🏆</div>
+    <div class="final-title" id="final-title">Great job!</div>
+    <div class="final-sub" id="final-sub">Here's how you did:</div>
+    <div class="score-grid">
+      <div class="score-box">
+        <div class="score-box-val" id="final-correct">0/15</div>
+        <div class="score-box-lbl">Correct</div>
+      </div>
+      <div class="score-box">
+        <div class="score-box-val" id="final-pts">0</div>
+        <div class="score-box-lbl">Points</div>
+      </div>
+    </div>
+    <div class="stars-earned" id="final-stars">⭐</div>
+    <div class="stars-label" id="final-stars-label">Bonus star earned!</div>
+    <div class="final-btns">
+      <button class="btn-play-again" onclick="location.reload()">🎮 Play Again</button>
+      <a href="library.html" class="btn-library">📚 Back to Library</a>
+    </div>
+  </div>
+</div>
+
+<script src="stories.js"></script>
+<script defer src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+<script defer src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+<script defer src="/__/firebase/init.js"></script>
+<script>
+  // ─── Profile ───────────────────────────────────────────────────────────────
+  const profile = (() => {
+    try {
+      const p = JSON.parse(localStorage.getItem('readerProfile'));
+      if (p && p.readerId) return p;
+    } catch(e) {}
+    return null;
+  })();
+  if (!profile) { window.location.href = 'login.html'; }
+
+  // ─── Game state ────────────────────────────────────────────────────────────
+  const ROUNDS        = 3;
+  const QS_PER_ROUND  = 5;
+  const TIMER_SECS    = [14, 12, 10]; // seconds per round (Round 3 = Lightning!)
+  const ROUND_LABELS  = ['Round 1', 'Round 2', '⚡ Lightning Round'];
+  const ROUND_THEMES  = ['5 questions from your stories', 'More questions — keep going!', 'Faster! 10 seconds per question'];
+
+  let triviaPool    = []; // all available {question, storyTitle, coverEmoji, ...}
+  let roundQuestions = [];
+  let currentRound  = 0;
+  let currentQ      = 0;
+  let totalPoints   = 0;
+  let roundPoints   = 0;
+  let roundCorrect  = 0;
+  let totalCorrect  = 0;
+  let timerInterval = null;
+  let timerSecs     = 0;
+  let answered      = false;
+
+  // ─── Helpers ───────────────────────────────────────────────────────────────
+  function shuffleArray(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function buildRoundPips(containerId, doneCount) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    let html = '';
+    for (let i = 0; i < ROUNDS; i++) {
+      if (i < doneCount)      html += '<div class="round-pip done"></div>';
+      else if (i === doneCount) html += '<div class="round-pip current"></div>';
+      else                      html += '<div class="round-pip"></div>';
+    }
+    el.innerHTML = html;
+  }
+
+  // ─── Build question pool from completed stories ─────────────────────────────
+  function buildPool(completedStoryIds) {
+    const pool = [];
+    STORIES.forEach(story => {
+      if (!completedStoryIds.has(story.id)) return;
+      story.questions.forEach((q, qi) => {
+        pool.push({
+          question:    q.question,
+          options:     q.options,
+          correctIndex: q.correctIndex,
+          explanation: q.explanation,
+          storyTitle:  story.title,
+          storyEmoji:  story.coverEmoji,
+          storyId:     story.id,
+          qIdx:        qi
+        });
+      });
+    });
+    return shuffleArray(pool);
+  }
+
+  // ─── Intro screen setup ────────────────────────────────────────────────────
+  window.addEventListener('DOMContentLoaded', () => {
+    // Wait for Firebase, then load Firestore progress
+    document.addEventListener('firebase-ready', init);
+    // Fallback polling if event missed
+    const poll = setInterval(() => {
+      if (typeof firebase !== 'undefined' && firebase.firestore) {
+        clearInterval(poll);
+        init();
+      }
+    }, 250);
+  });
+
+  let initCalled = false;
+  function init() {
+    if (initCalled) return;
+    initCalled = true;
+
+    const db = firebase.firestore();
+    db.collection('Progress')
+      .where('readerId', '==', profile.readerId)
+      .get()
+      .then(snap => {
+        const completedIds = new Set();
+        snap.forEach(d => {
+          const data = d.data();
+          if (data.storyId && (data.quizScore || 0) >= 1) {
+            completedIds.add(data.storyId);
+          }
+        });
+        const actionEl = document.getElementById('intro-action');
+        if (completedIds.size < 3) {
+          actionEl.innerHTML = `
+            <div class="no-stories-msg">
+              You need to read at least <strong>3 stories</strong> before playing Trivia!<br><br>
+              You've completed <strong>${completedIds.size}</strong> so far — keep reading!<br><br>
+              <a href="library.html" style="color:#a78bfa; font-weight:700; text-decoration:none;">📚 Go Read More Stories →</a>
+            </div>`;
+          return;
+        }
+        triviaPool = buildPool(completedIds);
+        if (triviaPool.length < QS_PER_ROUND * ROUNDS) {
+          // Not enough unique questions — allow repeats by expanding
+          while (triviaPool.length < QS_PER_ROUND * ROUNDS) {
+            triviaPool = triviaPool.concat(shuffleArray(triviaPool));
+          }
+        }
+        actionEl.innerHTML = `
+          <div style="font-size:1rem;opacity:0.75;margin-bottom:16px;">
+            📖 Questions from your <strong>${completedIds.size}</strong> completed ${completedIds.size === 1 ? 'story' : 'stories'}
+          </div>
+          <button class="btn-start" onclick="startGame()">Let's Play! →</button>`;
+      })
+      .catch(() => {
+        // Firestore unavailable — use all stories as fallback
+        triviaPool = buildPool(new Set(STORIES.map(s => s.id)));
+        document.getElementById('intro-action').innerHTML =
+          `<button class="btn-start" onclick="startGame()">Let's Play! →</button>`;
+      });
+  }
+
+  // ─── Start game ───────────────────────────────────────────────────────────
+  function startGame() {
+    currentRound  = 0;
+    currentQ      = 0;
+    totalPoints   = 0;
+    totalCorrect  = 0;
+    startRoundIntro();
+  }
+
+  // ─── Round intro countdown ─────────────────────────────────────────────────
+  function startRoundIntro() {
+    clearInterval(timerInterval);
+    showScreen('screen-round-intro');
+    buildRoundPips('round-pips', currentRound);
+    document.getElementById('ri-badge').textContent   = 'Round ' + (currentRound + 1) + ' of ' + ROUNDS;
+    document.getElementById('ri-num').textContent     = ROUND_LABELS[currentRound];
+    document.getElementById('ri-theme').textContent   = ROUND_THEMES[currentRound];
+
+    let count = 3;
+    document.getElementById('ri-countdown').textContent = count;
+    timerInterval = setInterval(() => {
+      count--;
+      if (count > 0) {
+        document.getElementById('ri-countdown').textContent = count;
+      } else {
+        clearInterval(timerInterval);
+        startRound();
+      }
+    }, 900);
+  }
+
+  // ─── Pick questions for the round ─────────────────────────────────────────
+  function startRound() {
+    // Slice next 5 from the pool (pool was pre-shuffled globally)
+    const startIdx = currentRound * QS_PER_ROUND;
+    roundQuestions = triviaPool.slice(startIdx, startIdx + QS_PER_ROUND);
+    roundPoints  = 0;
+    roundCorrect = 0;
+    currentQ     = 0;
+    showQuestion();
+  }
+
+  // ─── Show a question ──────────────────────────────────────────────────────
+  function showQuestion() {
+    showScreen('screen-question');
+    clearInterval(timerInterval);
+    answered = false;
+
+    const q = roundQuestions[currentQ];
+    document.getElementById('q-round-label').textContent =
+      ROUND_LABELS[currentRound] + ' · Q' + (currentQ + 1) + '/' + QS_PER_ROUND;
+    document.getElementById('q-score-live').textContent = totalPoints + ' pts';
+    document.getElementById('q-story-pill').textContent = q.storyEmoji + ' ' + q.storyTitle;
+    document.getElementById('q-text').textContent = q.question;
+
+    // Progress dots
+    let dotsHtml = '';
+    for (let i = 0; i < QS_PER_ROUND; i++) {
+      if (i < currentQ) {
+        dotsHtml += `<div class="q-dot answered-${roundQuestions[i]._answeredCorrect ? 'correct' : 'wrong'}"></div>`;
+      } else if (i === currentQ) {
+        dotsHtml += '<div class="q-dot current"></div>';
+      } else {
+        dotsHtml += '<div class="q-dot"></div>';
+      }
+    }
+    document.getElementById('q-dots').innerHTML = dotsHtml;
+
+    // Options
+    const optEl = document.getElementById('q-options');
+    optEl.innerHTML = q.options.map((opt, i) =>
+      `<button class="opt-btn" onclick="chooseAnswer(${i})" data-idx="${i}">${escHtml(opt)}</button>`
+    ).join('');
+
+    // Reset feedback / next btn
+    const fb = document.getElementById('q-feedback');
+    fb.className = 'feedback';
+    fb.textContent = '';
+    document.getElementById('q-next').className = 'next-btn';
+
+    // Timer
+    timerSecs = TIMER_SECS[currentRound];
+    const fill = document.getElementById('timer-fill');
+    fill.style.width = '100%';
+    fill.style.background = '#10b981';
+    timerInterval = setInterval(() => {
+      timerSecs -= 0.25;
+      const pct = Math.max(0, (timerSecs / TIMER_SECS[currentRound]) * 100);
+      fill.style.width = pct + '%';
+      if (pct < 40) fill.style.background = '#f59e0b';
+      if (pct < 15) fill.style.background = '#ef4444';
+      if (timerSecs <= 0) {
+        clearInterval(timerInterval);
+        if (!answered) timeUp();
+      }
+    }, 250);
+  }
+
+  // ─── Answer selected ──────────────────────────────────────────────────────
+  function chooseAnswer(idx) {
+    if (answered) return;
+    answered = true;
+    clearInterval(timerInterval);
+
+    const q = roundQuestions[currentQ];
+    const isCorrect = idx === q.correctIndex;
+    q._answeredCorrect = isCorrect;
+
+    // Points: base 200 if correct, +speed bonus (up to 150)
+    let pts = 0;
+    if (isCorrect) {
+      const timeUsed = TIMER_SECS[currentRound] - Math.max(0, timerSecs);
+      const speedBonus = Math.round(150 * (1 - timeUsed / TIMER_SECS[currentRound]));
+      pts = 200 + speedBonus;
+      roundPoints  += pts;
+      roundCorrect += 1;
+      totalCorrect += 1;
+      totalPoints  += pts;
+    }
+
+    // Style buttons
+    document.querySelectorAll('.opt-btn').forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.correctIndex) btn.classList.add('correct');
+      else if (i === idx && !isCorrect) btn.classList.add('wrong');
+    });
+
+    // Feedback
+    const fb = document.getElementById('q-feedback');
+    if (isCorrect) {
+      fb.className = 'feedback correct';
+      fb.textContent = '✅ Correct! +' + pts + ' points — ' + q.explanation;
+    } else {
+      fb.className = 'feedback wrong';
+      fb.textContent = '❌ Not quite — ' + q.explanation;
+    }
+
+    document.getElementById('q-score-live').textContent = totalPoints + ' pts';
+    document.getElementById('q-next').className = 'next-btn show';
+  }
+
+  // ─── Timer ran out ────────────────────────────────────────────────────────
+  function timeUp() {
+    answered = true;
+    const q = roundQuestions[currentQ];
+    q._answeredCorrect = false;
+
+    document.querySelectorAll('.opt-btn').forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.correctIndex) btn.classList.add('correct');
+    });
+
+    const fb = document.getElementById('q-feedback');
+    fb.className = 'feedback wrong';
+    fb.textContent = '⏰ Time\'s up! ' + q.explanation;
+    document.getElementById('q-next').className = 'next-btn show';
+  }
+
+  // ─── Next question / end of round ─────────────────────────────────────────
+  document.getElementById('q-next').addEventListener('click', () => {
+    currentQ++;
+    if (currentQ < QS_PER_ROUND) {
+      showQuestion();
+    } else {
+      showRoundResult();
+    }
+  });
+
+  // ─── Round result screen ──────────────────────────────────────────────────
+  function showRoundResult() {
+    showScreen('screen-round-result');
+    buildRoundPips('rr-round-pips', currentRound + 1);
+
+    const icons  = ['😅', '🙂', '😊', '🎉', '🌟', '🔥'];
+    const titles = ['Keep trying!', 'Not bad!', 'Good round!', 'Great round!', 'Awesome round!', 'Perfect round! 🔥'];
+    const subs   = [
+      'You got ' + roundCorrect + '/5.',
+      'You got ' + roundCorrect + '/5. Keep going!',
+      'You got ' + roundCorrect + '/5. Nice work!',
+      'You got ' + roundCorrect + '/5. You\'re on fire!',
+      'You got ' + roundCorrect + '/5. Incredible!',
+      'Perfect 5/5! Legendary!'
+    ];
+
+    document.getElementById('rr-icon').textContent  = icons[roundCorrect]  || '🎉';
+    document.getElementById('rr-title').textContent = titles[roundCorrect] || 'Good round!';
+    document.getElementById('rr-sub').textContent   = subs[roundCorrect]   || '';
+    document.getElementById('rr-pts').textContent   = '+' + roundPoints + ' pts';
+
+    const isLast = currentRound >= ROUNDS - 1;
+    const btn = document.getElementById('rr-next-btn');
+    btn.textContent = isLast ? 'See Final Score! 🏆' : 'Next Round →';
+    btn.onclick = isLast ? showFinalScore : () => { currentRound++; startRoundIntro(); };
+  }
+
+  // ─── Final score ──────────────────────────────────────────────────────────
+  function showFinalScore() {
+    showScreen('screen-final');
+
+    const totalQs = ROUNDS * QS_PER_ROUND;
+    const bonusStars = totalCorrect >= 12 ? 3 : totalCorrect >= 8 ? 2 : 1;
+    const trophies = ['🥉', '🥈', '🥇'];
+    const titles   = ['Nice Try!', 'Good Job!', 'Amazing! 🔥'];
+    const subs     = [
+      'You got ' + totalCorrect + '/' + totalQs + '. Keep reading for more questions!',
+      'You got ' + totalCorrect + '/' + totalQs + '. You\'re getting really good!',
+      'You got ' + totalCorrect + '/' + totalQs + '. You know your stories!'
+    ];
+
+    document.getElementById('final-trophy').textContent = trophies[bonusStars - 1];
+    document.getElementById('final-title').textContent  = titles[bonusStars - 1];
+    document.getElementById('final-sub').textContent    = subs[bonusStars - 1];
+    document.getElementById('final-correct').textContent = totalCorrect + '/' + totalQs;
+    document.getElementById('final-pts').textContent    = totalPoints;
+    document.getElementById('final-stars').textContent  = '⭐'.repeat(bonusStars);
+    document.getElementById('final-stars-label').textContent =
+      bonusStars === 3 ? '3 bonus stars earned — PERFECT!' :
+      bonusStars === 2 ? '2 bonus stars earned — well done!' :
+      '1 bonus star earned!';
+
+    // Confetti on 2+ stars
+    if (bonusStars >= 2) spawnConfetti();
+
+    // Save to Firestore
+    saveTriviaResult(bonusStars, totalCorrect, totalPoints);
+  }
+
+  // ─── Save to Firestore ────────────────────────────────────────────────────
+  function saveTriviaResult(bonusStars, correct, points) {
+    try {
+      const db = firebase.firestore();
+      db.collection('TriviaScores').add({
+        readerId:   profile.readerId,
+        playerName: profile.name || 'Leo',
+        bonusStars,
+        correctAnswers: correct,
+        totalQuestions: ROUNDS * QS_PER_ROUND,
+        points,
+        rounds: ROUNDS,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    } catch(e) { /* non-critical */ }
+  }
+
+  // ─── Confetti ─────────────────────────────────────────────────────────────
+  function spawnConfetti() {
+    const colors = ['#fcd34d','#f87171','#34d399','#60a5fa','#c084fc','#fb923c'];
+    const wrap = document.getElementById('confetti-wrap');
+    wrap.innerHTML = '';
+    for (let i = 0; i < 60; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.background = colors[Math.floor(Math.random() * colors.length)];
+      el.style.width  = (8 + Math.random() * 8) + 'px';
+      el.style.height = (10 + Math.random() * 12) + 'px';
+      el.style.animationDuration = (1.8 + Math.random() * 2) + 's';
+      el.style.animationDelay   = (Math.random() * 0.8) + 's';
+      wrap.appendChild(el);
+    }
+    setTimeout(() => { wrap.innerHTML = ''; }, 5000);
+  }
+</script>
+
+</body>
+</html>

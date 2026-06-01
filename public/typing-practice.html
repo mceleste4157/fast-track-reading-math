@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Practice – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #0891b2; --teal-soft: #cffafe; --teal-dark: #0e7490;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444;   --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --purple: #7c3aed;
+      --bg: linear-gradient(135deg, #ecfeff 0%, #f0f9ff 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b;    --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); user-select: none; }
+
+    /* NAV */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 12px 20px; display: flex; align-items: center; gap: 14px;
+      position: sticky; top: 0; z-index: 20;
+    }
+    .nav-back  { text-decoration: none; color: var(--teal); font-weight: 700; font-size: 0.92rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-lesson { font-weight: 800; font-size: 1rem; flex: 1; }
+    .stat-pill {
+      display: flex; align-items: center; gap: 5px;
+      background: #f0f9ff; border-radius: 99px; padding: 5px 12px;
+      font-size: 0.85rem; font-weight: 800; color: var(--teal-dark);
+    }
+    .stat-pill .val { font-size: 1.1rem; }
+    .stat-pill.accuracy .val { color: var(--green); }
+    .stat-pill.timer .val    { color: var(--orange); }
+
+    /* PROGRESS BAR */
+    .prog-wrap { height: 5px; background: #e5e7eb; }
+    .prog-fill  { height: 100%; background: linear-gradient(90deg, var(--teal), var(--green)); transition: width 0.15s; }
+
+    /* MAIN */
+    .page { max-width: 760px; margin: 0 auto; padding: 36px 20px 80px; }
+
+    /* Instruction banner */
+    .instruct {
+      background: var(--teal-soft); border: 2px solid var(--teal);
+      border-radius: 12px; padding: 12px 18px; margin-bottom: 24px;
+      font-size: 0.88rem; font-weight: 600; color: var(--teal-dark);
+      text-align: center;
+    }
+
+    /* Text display */
+    .text-box {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(8,145,178,0.10);
+      padding: 30px 32px; margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      line-height: 2; letter-spacing: 0.02em;
+      cursor: text; min-height: 120px;
+      position: relative;
+    }
+    .text-box:focus-within { box-shadow: 0 4px 24px rgba(8,145,178,0.22); }
+
+    /* Characters */
+    .ch { transition: color 0.05s; }
+    .ch.correct  { color: var(--green); }
+    .ch.wrong    { color: var(--red); text-decoration: underline wavy var(--red); background: var(--red-soft); border-radius: 2px; }
+    .ch.cursor   { color: var(--text); background: var(--teal); color: #fff; border-radius: 3px; animation: blink 1s step-end infinite; }
+    .ch.pending  { color: #d1d5db; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.35; }
+    }
+
+    /* Hidden textarea — captures all keyboard input */
+    #input-capture {
+      position: absolute; opacity: 0; pointer-events: none;
+      left: 0; top: 0; width: 1px; height: 1px;
+    }
+
+    /* Start prompt */
+    .start-prompt {
+      text-align: center; padding: 16px;
+      font-size: 0.95rem; color: var(--muted); font-weight: 600;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--surface); border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 16px; text-align: center;
+    }
+    .stat-card .s-val   { font-size: 1.8rem; font-weight: 800; color: var(--teal); }
+    .stat-card .s-label { font-size: 0.72rem; color: var(--muted); font-weight: 700; margin-top: 2px; }
+
+    /* Virtual keyboard */
+    .kbd-toggle {
+      display: flex; align-items: center; gap: 8px; cursor: pointer;
+      color: var(--muted); font-size: 0.85rem; font-weight: 700; margin-bottom: 16px;
+      background: none; border: none; font-family: inherit; padding: 0;
+    }
+    .kbd-toggle:hover { color: var(--teal); }
+    .keyboard { display: none; margin-bottom: 24px; }
+    .keyboard.show { display: block; }
+    .kb-row { display: flex; gap: 5px; margin-bottom: 5px; justify-content: center; }
+    .kb-key {
+      min-width: 38px; height: 38px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 800; background: #f3f4f6;
+      color: var(--text); border-bottom: 2px solid #e5e7eb;
+      transition: all 0.08s;
+    }
+    .kb-key.wide-1 { min-width: 56px; }
+    .kb-key.wide-2 { min-width: 72px; }
+    .kb-key.wide-3 { min-width: 96px; }
+    .kb-key.space  { min-width: 260px; }
+    .kb-key.lp  { background: #fee2e2; color: #dc2626; }  /* left pinky */
+    .kb-key.lr  { background: #fed7aa; color: #c2410c; }  /* left ring */
+    .kb-key.lm  { background: #fef08a; color: #92400e; }  /* left middle */
+    .kb-key.li  { background: #bbf7d0; color: #065f46; }  /* left index */
+    .kb-key.ri  { background: #bfdbfe; color: #1e40af; }  /* right index */
+    .kb-key.rm  { background: #e9d5ff; color: #5b21b6; }  /* right middle */
+    .kb-key.rr  { background: #fce7f3; color: #9d174d; }  /* right ring */
+    .kb-key.rp  { background: #f1f5f9; color: #475569; }  /* right pinky */
+    .kb-key.thumb { background: #f0fdf4; color: #065f46; } /* thumbs */
+    .kb-key.active { transform: scale(0.92); border-bottom-width: 1px; filter: brightness(0.85); }
+    .kb-key.focus-key { box-shadow: 0 0 0 2px var(--teal); border-color: var(--teal); }
+
+    .kb-legend {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;
+    }
+    .kb-leg-item { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 700; color: var(--muted); }
+    .kb-leg-dot  { width: 10px; height: 10px; border-radius: 3px; }
+
+    /* Results overlay */
+    .results-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 100;
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .results-overlay.show { display: flex; }
+    .results-card {
+      background: var(--surface); border-radius: 24px;
+      padding: 36px 32px; width: 100%; max-width: 440px;
+      text-align: center; box-shadow: 0 12px 48px rgba(0,0,0,0.2);
+    }
+    .results-emoji { font-size: 3rem; margin-bottom: 10px; }
+    .results-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+    .results-sub   { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; }
+    .results-stats {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 24px;
+    }
+    .r-stat { background: #f9fafb; border-radius: 12px; padding: 14px 8px; }
+    .r-stat .rv { font-size: 1.6rem; font-weight: 800; color: var(--teal); }
+    .r-stat .rl { font-size: 0.72rem; color: var(--muted); font-weight: 700; margin-top: 2px; }
+    .stars-row { font-size: 1.8rem; margin-bottom: 8px; }
+    .xp-badge  { display: inline-block; background: var(--teal-soft); color: var(--teal-dark); padding: 6px 18px; border-radius: 99px; font-weight: 800; font-size: 1rem; margin-bottom: 24px; }
+    .results-btns { display: flex; gap: 10px; }
+    .btn-result {
+      flex: 1; padding: 13px; border: none; border-radius: 12px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-primary   { background: var(--teal); color: #fff; }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-secondary { background: #f3f4f6; color: var(--text); }
+    .btn-secondary:hover { background: #e5e7eb; }
+
+    @media (max-width: 480px) {
+      .text-box { padding: 20px 18px; font-size: 1.05rem; }
+      .kb-key { min-width: 28px; height: 32px; font-size: 0.65rem; }
+      .kb-key.space { min-width: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="typing.html" class="nav-back">← Lessons</a>
+    <div class="nav-lesson" id="nav-lesson">Typing Practice</div>
+    <div class="stat-pill" id="wpm-pill"><span>⌨️</span><span class="val" id="wpm-val">0</span><span>WPM</span></div>
+    <div class="stat-pill accuracy"><span>✓</span><span class="val" id="acc-val">—</span></div>
+    <div class="stat-pill timer"><span>⏱</span><span class="val" id="timer-val">0:00</span></div>
+  </nav>
+  <div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+
+  <div class="page">
+    <div class="instruct" id="instruct">Click below (or tap) and start typing!</div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card"><div class="s-val" id="s-wpm">0</div><div class="s-label">WPM</div></div>
+      <div class="stat-card"><div class="s-val" id="s-acc" style="color:var(--green);">100%</div><div class="s-label">Accuracy</div></div>
+      <div class="stat-card"><div class="s-val" id="s-time" style="color:var(--orange);">0:00</div><div class="s-label">Time</div></div>
+    </div>
+
+    <!-- Text display -->
+    <div class="text-box" id="text-box" onclick="document.getElementById('input-capture').focus()">
+      <div id="text-display"></div>
+      <input id="input-capture" type="text" autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false" tabindex="0" style="position:absolute;opacity:0;left:0;top:0;width:100%;height:100%;cursor:text;" />
+    </div>
+
+    <!-- Keyboard toggle -->
+    <button class="kbd-toggle" id="kbd-toggle" onclick="toggleKeyboard()">⌨️ Show Keyboard Guide</button>
+    <div class="keyboard" id="keyboard">
+      <div class="kb-legend">
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#fee2e2;"></div>Left Pinky</div>
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#fed7aa;"></div>Left Ring</div>
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#fef08a;"></div>Left Middle</div>
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#bbf7d0;"></div>Left Index</div>
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#bfdbfe;"></div>Right Index</div>
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#e9d5ff;"></div>Right Middle</div>
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#fce7f3;"></div>Right Ring</div>
+        <div class="kb-leg-item"><div class="kb-leg-dot" style="background:#f1f5f9;"></div>Right Pinky</div>
+      </div>
+      <div id="kb-rows"></div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="results-overlay" id="results-overlay">
+    <div class="results-card">
+      <div class="results-emoji" id="r-emoji">🎉</div>
+      <div class="results-title" id="r-title">Lesson Complete!</div>
+      <div class="results-sub"  id="r-sub"></div>
+      <div class="stars-row"    id="r-stars"></div>
+      <div class="results-stats">
+        <div class="r-stat"><div class="rv" id="r-wpm"></div><div class="rl">WPM</div></div>
+        <div class="r-stat"><div class="rv" id="r-acc"></div><div class="rl">Accuracy</div></div>
+        <div class="r-stat"><div class="rv" id="r-time"></div><div class="rl">Time</div></div>
+      </div>
+      <div class="xp-badge" id="r-xp">+20 XP</div>
+      <div class="results-btns">
+        <button class="btn-result btn-secondary" onclick="restartLesson()">🔄 Try Again</button>
+        <button class="btn-result btn-primary"   onclick="window.location.href='typing.html'">📚 All Lessons →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    // ── Profile + lesson setup ──────────────────────────────────────────────────
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'login.html'; }
+
+    const LESSONS = {
+      l1:  { emoji:'👈', title:'Left Home Row',    sub:'a · s · d · f · g',         xp:15, text:'aaa sss ddd fff asd fds fad sad add lass flask glass glad flask adds' },
+      l2:  { emoji:'👉', title:'Right Home Row',   sub:'h · j · k · l · ;',          xp:15, text:'jjj kkk lll jkl jal kal jak hall fall silk disk hall hjkl' },
+      l3:  { emoji:'👐', title:'Full Home Row',    sub:'Both hands together',         xp:20, text:'ask all fall flask glad lads add silk hall shall salad flask asks' },
+      l4:  { emoji:'🔤', title:'Adding E and I',   sub:'Middle fingers reach up',     xp:20, text:'else idea file like side hide fill feel skill aide said desk isle' },
+      l5:  { emoji:'☝️', title:'Adding T and O',   sub:'Index fingers stretch up',    xp:20, text:'told old look store floor tool root foot total loose stool told' },
+      l6:  { emoji:'🤙', title:'Adding R and U',   sub:'More index finger reaches',   xp:20, text:'true tour rust door ruler ruse road rule four pour sure lure true' },
+      l7:  { emoji:'🖐️', title:'Adding N and G',   sub:'Center keys',                 xp:25, text:'sing ring king long song gone fine nine line mine sign tongue ring' },
+      l8:  { emoji:'🔡', title:'Bottom Row',       sub:'c · v · b · n · m',           xp:25, text:'came mice back come make black much cave comb became mice back came' },
+      l9:  { emoji:'⇧',  title:'Capitals',         sub:'Using the Shift key',         xp:25, text:'The dog ran. I see a cat. Go now! Please help me. Sam likes fish.' },
+      l10: { emoji:'📝', title:'Common Words',     sub:'Words you use every day',     xp:25, text:'they were have when that with this will been some what from which more' },
+      l11: { emoji:'✍️', title:'Sentences',        sub:'Punctuation and flow',        xp:30, text:'Reading every day makes you a better writer. Try your best and you will improve.' },
+      l12: { emoji:'📄', title:'Full Paragraph',   sub:'Florida theme',               xp:35, text:'Florida is a warm and sunny state. Many animals live in its forests and wetlands. The Everglades is home to alligators, birds, and fish. Protecting nature helps everyone.' },
+    };
+
+    const params   = new URLSearchParams(location.search);
+    const lessonId = params.get('lesson') || 'l1';
+    const lesson   = LESSONS[lessonId] || LESSONS.l1;
+    const target   = lesson.text.replace(/\s+/g, ' ').trim();
+
+    document.getElementById('nav-lesson').textContent = lesson.emoji + ' ' + lesson.title;
+    document.title = lesson.title + ' — Typing Practice';
+
+    // ── State ──────────────────────────────────────────────────────────────────
+    let typed     = '';
+    let started   = false;
+    let finished  = false;
+    let startTime = 0;
+    let elapsed   = 0; // seconds
+    let timerInterval = null;
+    let errors    = 0; // cumulative error count
+
+    // ── Keyboard layout ────────────────────────────────────────────────────────
+    const KB_ROWS = [
+      [['`','rp'],['1','lp'],['2','lr'],['3','lm'],['4','li'],['5','li'],['6','ri'],['7','ri'],['8','rm'],['9','rr'],['0','rp'],['-','rp'],['=','rp'],['⌫','rp wide-3']],
+      [['⇥','lp wide-1'],['q','lp'],['w','lr'],['e','lm'],['r','li'],['t','li'],['y','ri'],['u','ri'],['i','rm'],['o','rr'],['p','rp'],['[','rp'],[']','rp'],['\\','rp']],
+      [['⇪','lp wide-2'],['a','lp'],['s','lr'],['d','lm'],['f','li'],['g','li'],['h','ri'],['j','ri'],['k','rm'],['l','rr'],[';','rp'],["'",'rp'],['↵','rp wide-2']],
+      [['⇧','lp wide-2'],['z','lp'],['x','lr'],['c','lm'],['v','li'],['b','li'],['n','ri'],['m','ri'],[',','rm'],['.','rr'],['/','rp'],['⇧','rp wide-2']],
+      [['','thumb wide-3'],['SPACE','thumb space'],['','thumb wide-3']]
+    ];
+
+    function buildKeyboard() {
+      const rows = document.getElementById('kb-rows');
+      rows.innerHTML = KB_ROWS.map(row =>
+        `<div class="kb-row">${row.map(([label, cls]) => {
+          if (!label) return `<div class="kb-key ${cls || ''}"></div>`;
+          const id = label.length === 1 ? 'kb-' + label.charCodeAt(0) : '';
+          return `<div class="kb-key ${cls || ''}" ${id ? 'id="'+id+'"' : ''}>${label === 'SPACE' ? '' : label}</div>`;
+        }).join('')}</div>`
+      ).join('');
+    }
+    buildKeyboard();
+
+    function flashKey(ch) {
+      const code = ch === ' ' ? 32 : ch.toUpperCase().charCodeAt(0);
+      const el = document.getElementById('kb-' + code) || document.getElementById('kb-' + ch.charCodeAt(0));
+      if (!el) return;
+      el.classList.add('active');
+      setTimeout(() => el.classList.remove('active'), 120);
+    }
+
+    // ── Render text display ────────────────────────────────────────────────────
+    function render() {
+      const display = document.getElementById('text-display');
+      let html = '';
+      let errCount = 0;
+      for (let i = 0; i < target.length; i++) {
+        const ch = target[i] === ' ' ? ' ' : target[i]; // nbsp for spaces
+        if (i < typed.length) {
+          if (typed[i] === target[i]) {
+            html += `<span class="ch correct">${ch}</span>`;
+          } else {
+            html += `<span class="ch wrong">${ch}</span>`;
+            errCount++;
+          }
+        } else if (i === typed.length) {
+          html += `<span class="ch cursor">${ch}</span>`;
+        } else {
+          html += `<span class="ch pending">${ch}</span>`;
+        }
+      }
+      display.innerHTML = html;
+
+      // Progress
+      const pct = Math.min(100, Math.round((typed.length / target.length) * 100));
+      document.getElementById('prog-fill').style.width = pct + '%';
+
+      // Stats
+      const correct = typed.split('').filter((c,i) => c === target[i]).length;
+      const totalTyped = typed.length;
+      const wpm = elapsed > 0 ? Math.max(0, Math.round((correct / 5) / (elapsed / 60))) : 0;
+      const acc = totalTyped > 0 ? Math.round((correct / totalTyped) * 100) : 100;
+
+      document.getElementById('wpm-val').textContent  = wpm;
+      document.getElementById('s-wpm').textContent    = wpm;
+      document.getElementById('s-acc').textContent    = acc + '%';
+      document.getElementById('acc-val').textContent  = acc + '%';
+
+      // Completion check
+      if (typed.length >= target.length && !finished) {
+        finishLesson(wpm, acc);
+      }
+    }
+
+    // ── Input handling ─────────────────────────────────────────────────────────
+    const inputEl = document.getElementById('input-capture');
+
+    function handleInput(e) {
+      if (finished) return;
+      const val = inputEl.value;
+      if (!started && val.length > 0) {
+        started = true;
+        startTime = Date.now();
+        document.getElementById('instruct').style.display = 'none';
+        timerInterval = setInterval(() => {
+          elapsed = Math.floor((Date.now() - startTime) / 1000);
+          const m = Math.floor(elapsed / 60);
+          const s = elapsed % 60;
+          const ts = m + ':' + String(s).padStart(2,'0');
+          document.getElementById('timer-val').textContent = ts;
+          document.getElementById('s-time').textContent   = ts;
+          render();
+        }, 500);
+      }
+      // Limit input to target length
+      if (val.length > target.length) {
+        inputEl.value = val.slice(0, target.length);
+        return;
+      }
+      typed = val;
+      if (val.length > 0) flashKey(val[val.length - 1]);
+      render();
+    }
+
+    inputEl.addEventListener('input', handleInput);
+    inputEl.addEventListener('focus', () => { document.getElementById('text-box').style.boxShadow = '0 4px 24px rgba(8,145,178,0.25)'; });
+    inputEl.addEventListener('blur',  () => { document.getElementById('text-box').style.boxShadow = ''; });
+
+    // Auto-focus on page click
+    document.getElementById('text-box').addEventListener('click', () => inputEl.focus());
+    document.addEventListener('keydown', () => { if (document.activeElement !== inputEl) inputEl.focus(); });
+    setTimeout(() => inputEl.focus(), 300);
+
+    // Initial render
+    render();
+
+    // ── Timer display ──────────────────────────────────────────────────────────
+    function formatTime(secs) {
+      const m = Math.floor(secs / 60);
+      const s = secs % 60;
+      return m + ':' + String(s).padStart(2, '0');
+    }
+
+    // ── Stars based on WPM + accuracy ─────────────────────────────────────────
+    function calcStars(wpm, acc) {
+      if (wpm >= 45 && acc >= 98) return 5;
+      if (wpm >= 35 && acc >= 95) return 4;
+      if (wpm >= 25 && acc >= 90) return 3;
+      if (wpm >= 15 && acc >= 80) return 2;
+      return 1;
+    }
+    function starsHtml(n) {
+      return '⭐'.repeat(n) + '☆'.repeat(5 - n);
+    }
+
+    // ── Finish lesson ──────────────────────────────────────────────────────────
+    function finishLesson(wpm, acc) {
+      finished = true;
+      clearInterval(timerInterval);
+
+      const stars  = calcStars(wpm, acc);
+      const xpBase = lesson.xp;
+      const xpBonus = wpm >= 45 ? 20 : wpm >= 35 ? 15 : wpm >= 25 ? 10 : wpm >= 15 ? 5 : 0;
+      const xp = xpBase + xpBonus;
+
+      // Results overlay
+      document.getElementById('r-emoji').textContent = stars === 5 ? '🏆' : stars >= 3 ? '🎉' : '👍';
+      document.getElementById('r-title').textContent = stars === 5 ? 'Perfect Run!' : stars >= 3 ? 'Great Job!' : 'Lesson Complete!';
+      document.getElementById('r-sub').textContent   = lesson.title + ' — ' + lesson.sub;
+      document.getElementById('r-stars').textContent = starsHtml(stars);
+      document.getElementById('r-wpm').textContent   = wpm;
+      document.getElementById('r-acc').textContent   = acc + '%';
+      document.getElementById('r-time').textContent  = formatTime(elapsed);
+      document.getElementById('r-xp').textContent    = '+' + xp + ' XP';
+
+      document.getElementById('results-overlay').classList.add('show');
+
+      // Confetti for 4+ stars
+      if (stars >= 4) spawnConfetti();
+
+      // Save to Firestore
+      const db = firebase.firestore();
+      db.collection('TypingProgress').add({
+        readerId:   profile.readerId,
+        readerName: profile.name,
+        lessonId,
+        lessonTitle: lesson.title,
+        wpm, accuracy: acc, stars,
+        xpEarned: xp,
+        timeSeconds: elapsed,
+        completedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(() => {});
+
+      // Also contribute to general XP via MathProgress-style write (StudentStats)
+      // We'll just log it — no need for full StudentStats update here
+    }
+
+    function restartLesson() {
+      typed = ''; started = false; finished = false; elapsed = 0;
+      clearInterval(timerInterval);
+      inputEl.value = '';
+      document.getElementById('results-overlay').classList.remove('show');
+      document.getElementById('instruct').style.display = 'block';
+      document.getElementById('timer-val').textContent = '0:00';
+      document.getElementById('s-time').textContent    = '0:00';
+      render();
+      setTimeout(() => inputEl.focus(), 100);
+    }
+
+    // ── Keyboard toggle ────────────────────────────────────────────────────────
+    function toggleKeyboard() {
+      const kb  = document.getElementById('keyboard');
+      const btn = document.getElementById('kbd-toggle');
+      const show = !kb.classList.contains('show');
+      kb.classList.toggle('show', show);
+      btn.textContent = show ? '⌨️ Hide Keyboard Guide' : '⌨️ Show Keyboard Guide';
+      localStorage.setItem('showKeyboard', show ? '1' : '0');
+    }
+    if (localStorage.getItem('showKeyboard') === '1') toggleKeyboard();
+
+    // ── Confetti ───────────────────────────────────────────────────────────────
+    function spawnConfetti() {
+      const colors = ['#0891b2','#10b981','#f59e0b','#7c3aed','#ec4899'];
+      for (let i = 0; i < 60; i++) {
+        const el = document.createElement('div');
+        el.style.cssText = `position:fixed;width:${8+Math.random()*8}px;height:${12+Math.random()*8}px;
+          background:${colors[Math.floor(Math.random()*colors.length)]};
+          left:${Math.random()*100}vw;top:-20px;border-radius:3px;z-index:200;pointer-events:none;
+          animation:cf-fall ${2.5+Math.random()*3}s linear ${Math.random()*2}s forwards;opacity:0.9;`;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 6000);
+      }
+      if (!document.getElementById('cf-style')) {
+        const s = document.createElement('style');
+        s.id = 'cf-style';
+        s.textContent = '@keyframes cf-fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}';
+        document.head.appendChild(s);
+      }
+    }
+  </script>
+</body>
+</html>

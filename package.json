@@ -1,0 +1,14 @@
+{
+  "name": "school-reading-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --kill-others --names \"firebase,bs\" \"firebase serve --host localhost --port 4500\" \"wait-on http://localhost:4500 && browser-sync start --proxy localhost:4500 --files 'public/**/*' --port 3000 --no-open\"",
+    "deploy": "firebase deploy --only hosting,firestore:rules"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.1.2",
+    "wait-on": "^8.0.3"
+  }
+}
