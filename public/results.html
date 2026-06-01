@@ -225,6 +225,16 @@
       <div id="answers-list"></div>
     </div>
 
+    <!-- Story rating -->
+    <div style="background:var(--surface);border-radius:var(--radius);box-shadow:0 2px 12px rgba(124,58,237,0.08);padding:18px 22px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <div style="flex:1;font-size:0.95rem;font-weight:700;">Did you enjoy this story?</div>
+      <div style="display:flex;gap:10px;" id="rating-btns">
+        <button id="rate-up" onclick="rateStory(1)" style="padding:10px 18px;border-radius:10px;border:2px solid var(--border);background:var(--surface);font-size:1.2rem;cursor:pointer;transition:all 0.12s;">👍</button>
+        <button id="rate-down" onclick="rateStory(-1)" style="padding:10px 18px;border-radius:10px;border:2px solid var(--border);background:var(--surface);font-size:1.2rem;cursor:pointer;transition:all 0.12s;">👎</button>
+      </div>
+      <div id="rating-status" style="font-size:0.85rem;font-weight:700;color:var(--muted);"></div>
+    </div>
+
     <!-- Writing prompt -->
     <div class="writing-card" id="writing-card">
       <h3>✍️ Reflect on What You Read</h3>
@@ -564,6 +574,33 @@
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(err => console.error('Firestore write failed:', err));
     }
+
+    // ─── Story rating ──────────────────────────────────────────────────────────
+    window.rateStory = function(val) {
+      const RATED_KEY = 'rated_' + result.storyId;
+      if (localStorage.getItem(RATED_KEY)) return;
+      localStorage.setItem(RATED_KEY, val);
+      const upBtn   = document.getElementById('rate-up');
+      const downBtn = document.getElementById('rate-down');
+      const status  = document.getElementById('rating-status');
+      if (val === 1) {
+        upBtn.style.background   = '#d1fae5'; upBtn.style.borderColor = '#10b981';
+        status.textContent = 'Thanks! 😊'; status.style.color = '#10b981';
+      } else {
+        downBtn.style.background = '#fee2e2'; downBtn.style.borderColor = '#ef4444';
+        status.textContent = 'Thanks for the feedback!'; status.style.color = '#6b7280';
+      }
+      // Save to Firestore
+      db.collection('StoryRatings').doc(profile.readerId + '_' + result.storyId).set({
+        readerId:   profile.readerId,
+        readerName: profile.name,
+        storyId:    result.storyId,
+        storyTitle: result.storyTitle || story.title,
+        rating:     val,
+        grade:      profile.gradeLevel,
+        timestamp:  firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(() => {});
+    };
 
     // ─── Writing prompt ────────────────────────────────────────────────────────
     (function () {

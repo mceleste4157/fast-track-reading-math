@@ -3947,6 +3947,565 @@ The ocean has been making its own light for hundreds of millions of years. We ar
     ]
   },
 
+  // ── EARLY ── Grade 1-2 | Florida Nature
+  {
+    id: 'pelican-fishing',
+    title: 'The Pelican Goes Fishing',
+    topic: 'florida-nature',
+    coverEmoji: '🐦',
+    coverColor: '#0891b2',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 145,
+    readTimeMin: 1,
+    text: `Brown pelicans live near the ocean in Florida. They are big birds with long beaks and a stretchy pouch underneath.
+
+Pelicans eat fish. They have a very special way of catching them.
+
+First, a pelican **soars** high in the sky. It looks down into the water below. When it sees a fish, it folds its wings and dives straight down — fast as an arrow!
+
+It hits the water with a big splash. The pouch under its beak opens wide and **scoops** up water and fish at the same time.
+
+Then the pelican lifts its head. The water drains out through the sides of its beak. The fish stays inside. Gulp!
+
+Pelicans are very good fishers. Sometimes they sit on docks and wait for people to share their catch. They are one of the most fun birds to watch at a Florida beach.`,
+    vocabulary: [
+      { word: 'soars', definition: 'Flies high up in the sky without flapping wings much.', example: 'The eagle soars above the mountains.' },
+      { word: 'pouch', definition: 'A soft bag or pocket — on a pelican, it hangs under the beak.', example: 'The pelican\'s pouch was full of fish.' },
+      { word: 'scoops', definition: 'Picks up something quickly with a cup or hollow shape.', example: 'She scoops ice cream into the bowl.' },
+      { word: 'dives', definition: 'Drops down quickly, head first.', example: 'The dolphin dives into the wave.' },
+      { word: 'drains', definition: 'Flows out until empty.', example: 'The water drains from the bathtub.' }
+    ],
+    questions: [
+      {
+        question: 'How does a pelican catch fish?',
+        options: ['It uses its feet to grab fish', 'It dives from the sky and scoops fish in its pouch', 'It waits for fish to jump out of the water', 'It uses its wings like a net'],
+        correctIndex: 1,
+        explanation: 'The pelican soars high, spots a fish, then dives down and scoops it up in the stretchy pouch under its beak.'
+      },
+      {
+        question: 'What does the word "soars" mean?',
+        options: ['Swims fast', 'Digs in the sand', 'Flies high in the sky', 'Calls loudly'],
+        correctIndex: 2,
+        explanation: 'Soars means to fly high up in the sky — the pelican soars above the water so it can look for fish below.'
+      },
+      {
+        question: 'What happens to the water after the pelican scoops up a fish?',
+        options: ['The pelican drinks it', 'It stays in the pouch', 'It drains out through the sides of the beak', 'It splashes onto the dock'],
+        correctIndex: 2,
+        explanation: 'The water drains out through the sides of the pelican\'s beak while the fish stays inside — then the pelican swallows the fish.'
+      }
+    ]
+  },
+
+  // ── EARLY ── Grade 1-2 | Florida Nature | Hatchling sea turtle
+  {
+    id: 'tiny-turtle',
+    title: 'The Tiny Turtle\'s Big Journey',
+    topic: 'florida-nature',
+    coverEmoji: '🐢',
+    coverColor: '#10b981',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 148,
+    readTimeMin: 1,
+    text: `It was a warm summer night on a Florida beach. Under the sand, something was moving.
+
+Crack! Crack! Crack!
+
+Baby sea turtles were **hatching** from their eggs. They pushed out of their shells and dug up through the sand. It took a long time, but they did not give up.
+
+At last, they reached the top. The ocean was right in front of them, shining under the moon.
+
+The baby turtles ran as fast as their little flippers could carry them. Seabirds were watching, so they had to hurry!
+
+One by one, the tiny turtles reached the waves. The cold water felt wonderful. They swam and swam, going farther and farther out to sea.
+
+Someday these little turtles will grow very large. And someday, the females will swim all the way back to this exact same beach to lay their own eggs.
+
+The beach will be waiting for them.`,
+    vocabulary: [
+      { word: 'hatching', definition: 'Breaking out of an egg to be born.', example: 'The chicks were hatching one by one.' },
+      { word: 'flippers', definition: 'Flat, wide limbs that animals use to swim.', example: 'The seal used its flippers to push through the water.' },
+      { word: 'shell', definition: 'A hard outer covering that protects an animal or egg.', example: 'The baby turtle broke through its shell.' },
+      { word: 'females', definition: 'The girl animals of a species.', example: 'The female sea turtle laid her eggs on the beach.' },
+      { word: 'exact', definition: 'The very same — not a different one.', example: 'She sat in the exact same seat every day.' }
+    ],
+    questions: [
+      {
+        question: 'What do the baby turtles do as soon as they reach the top of the sand?',
+        options: ['They rest and sleep', 'They run toward the ocean', 'They look for food on the beach', 'They climb into the trees'],
+        correctIndex: 1,
+        explanation: 'As soon as the baby turtles reach the top, they run toward the ocean as fast as they can — they have to hurry because seabirds are watching.'
+      },
+      {
+        question: 'What does "hatching" mean?',
+        options: ['Digging a hole in the sand', 'Swimming in the ocean', 'Breaking out of an egg to be born', 'Running from a bird'],
+        correctIndex: 2,
+        explanation: 'Hatching means breaking out of an egg — the baby turtles cracked through their shells to be born.'
+      },
+      {
+        question: 'What will the female turtles do when they grow up?',
+        options: ['They will stay in the ocean forever', 'They will return to the same beach to lay their eggs', 'They will travel to a different beach each time', 'They will build nests in trees'],
+        correctIndex: 1,
+        explanation: 'The story says the females will swim all the way back to "this exact same beach" to lay their own eggs someday.'
+      }
+    ]
+  },
+
+  // ── EARLY ── Grade 1-2 | Character | Making a friend
+  {
+    id: 'new-neighbor',
+    title: 'The New Neighbor',
+    topic: 'character',
+    coverEmoji: '🏠',
+    coverColor: '#7c3aed',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 142,
+    readTimeMin: 1,
+    text: `A moving truck stopped next door on Saturday morning.
+
+Rosa watched from her window. A girl climbed out of a car. She had dark braids and was carrying a stuffed elephant. She looked a little **nervous**.
+
+Rosa knew that feeling. She had moved to this street two years ago. She remembered how quiet everything felt at first.
+
+She went outside.
+
+"Hi," Rosa said. "I'm Rosa. I live next door."
+
+The girl looked up. "I'm Amara. We just moved here from Miami."
+
+"Do you want to see the park?" Rosa asked. "It has a really good swing."
+
+Amara looked back at her mom, who smiled and nodded.
+
+"Yes," Amara said. And then she smiled too.
+
+They walked to the park together, Amara still holding her elephant. By the time they came home, they were already making plans for the next day.
+
+Moving to a new place is hard. But sometimes a **neighbor** is waiting just next door.`,
+    vocabulary: [
+      { word: 'nervous', definition: 'Feeling a little worried or unsure about something new.', example: 'She felt nervous on her first day of school.' },
+      { word: 'neighbor', definition: 'Someone who lives very close to you.', example: 'Our neighbor brought us cookies when we moved in.' },
+      { word: 'moving truck', definition: 'A big vehicle used to carry furniture and boxes when someone moves to a new home.', example: 'The moving truck took all day to unload.' },
+      { word: 'smiled', definition: 'Made a happy face by turning up the corners of the mouth.', example: 'He smiled when he heard the good news.' },
+      { word: 'plans', definition: 'Decisions about what to do in the future.', example: 'They made plans to meet at the park on Saturday.' }
+    ],
+    questions: [
+      {
+        question: 'Why does Rosa decide to go outside and talk to Amara?',
+        options: ['Her mom told her to go say hello', 'She remembered how quiet and lonely moving felt, and wanted to help', 'She wanted to see what was in the moving truck', 'Amara knocked on her door first'],
+        correctIndex: 1,
+        explanation: 'Rosa remembered how it felt when she moved — quiet and lonely at first. She wanted to help Amara feel welcome, so she went outside on her own.'
+      },
+      {
+        question: 'What does "nervous" mean as used in the story?',
+        options: ['Very happy and excited', 'A little worried or unsure about something new', 'Tired from a long trip', 'Angry about something'],
+        correctIndex: 1,
+        explanation: 'Amara looked nervous — she was in a new place and didn\'t know anyone yet. Nervous means feeling a little worried or unsure.'
+      },
+      {
+        question: 'What is the MAIN IDEA of this story?',
+        options: ['Miami is very far from this town', 'Moving trucks are very large', 'Being kind to a new neighbor can turn a hard day into a good one', 'Parks are the best places to make friends'],
+        correctIndex: 2,
+        explanation: 'Rosa reaches out to Amara, who is nervous and new. By the end, they are already making plans together — the story shows that a small act of kindness can make a big difference.'
+      }
+    ]
+  },
+
+  // ── EARLY ── Grade 1-2 | Florida Nature | Manatee calf
+  {
+    id: 'manatee-calf',
+    title: 'Mama and the Calf',
+    topic: 'florida-nature',
+    coverEmoji: '🐟',
+    coverColor: '#0891b2',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 138,
+    readTimeMin: 1,
+    text: `A baby manatee was born in a warm Florida river.
+
+The baby — called a **calf** — was already as big as a large dog. But it needed its mama to take care of it.
+
+The calf stayed very close to its mother. It nudged her with its nose. She nudged it back. This is how manatees show they love each other.
+
+Every few minutes, the calf swam up to the surface to breathe air. Manatees are not fish — they are **mammals**, like whales and dolphins. They must come up for air.
+
+The mama manatee ate thick river grass all day. The calf watched and learned.
+
+They moved slowly through the water, side by side. Manatees are very gentle animals. They do not hurt anyone.
+
+People in boats must drive slowly to keep manatees safe. In Florida, it is a law.
+
+Gentle animals need gentle neighbors.`,
+    vocabulary: [
+      { word: 'calf', definition: 'A baby manatee, whale, or large animal.', example: 'The manatee calf stayed right next to its mother.' },
+      { word: 'mammal', definition: 'A warm-blooded animal that breathes air and feeds milk to its babies.', example: 'Dogs, whales, and humans are all mammals.' },
+      { word: 'nudged', definition: 'Pushed gently with the nose or elbow.', example: 'The puppy nudged her hand with its nose.' },
+      { word: 'surface', definition: 'The top of the water.', example: 'The dolphin came up to the surface to breathe.' },
+      { word: 'gentle', definition: 'Soft, calm, and careful — not rough or loud.', example: 'Be gentle when you pet the rabbit.' }
+    ],
+    questions: [
+      {
+        question: 'Why does the manatee calf swim to the surface every few minutes?',
+        options: ['To look for food', 'To play with boats', 'To breathe air', 'To find its mother'],
+        correctIndex: 2,
+        explanation: 'Manatees are mammals, not fish — they must come up to the surface to breathe air, just like whales and dolphins.'
+      },
+      {
+        question: 'What does it mean that manatees are "mammals"?',
+        options: ['They live only in salt water', 'They are fish with special gills', 'They breathe air and are warm-blooded, like whales and dogs', 'They never need to eat'],
+        correctIndex: 2,
+        explanation: 'The story says manatees are mammals, like whales and dolphins — they breathe air and are not fish.'
+      },
+      {
+        question: 'Why must boats drive slowly near manatees?',
+        options: ['So the boats don\'t make too much noise', 'Because manatees are gentle animals and the law protects them from being hurt', 'So the manatees can see the boats clearly', 'Because manatees sometimes block the river'],
+        correctIndex: 1,
+        explanation: 'The story says manatees are gentle and do not hurt anyone — and that in Florida it is a law to drive boats slowly to keep them safe.'
+      }
+    ]
+  },
+
+  // ── EARLY ── Grade 1-2 | Science | Florida weather
+  {
+    id: 'afternoon-thunder',
+    title: 'Florida\'s Afternoon Thunderstorm',
+    topic: 'science',
+    coverEmoji: '⛈️',
+    coverColor: '#374151',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 150,
+    readTimeMin: 1,
+    text: `Almost every summer afternoon in Florida, something happens. The sky turns dark gray. Clouds pile up tall and wide. And then — BOOM! Thunder!
+
+Florida gets more **thunderstorms** than almost anywhere else in the United States. This happens because Florida is hot and wet in the summer. The sun heats the ground. Warm, wet air rises into the sky. When that air gets high enough, it cools down and forms big clouds. These clouds hold water and electricity.
+
+The electricity makes **lightning** — a bright flash that shoots through the sky. Lightning is very hot. When it heats the air so fast, the air makes a loud booming sound. That is **thunder**.
+
+Most Florida thunderstorms happen in the afternoon. They usually last about an hour. Then the sky clears, the sun comes back out, and everything smells fresh and clean.
+
+Florida rain is warm. Sometimes kids play in it anyway!
+
+But if you hear thunder, go inside right away. Lightning can be dangerous.`,
+    vocabulary: [
+      { word: 'thunderstorm', definition: 'A storm with heavy rain, lightning, and thunder.', example: 'We stayed inside during the thunderstorm.' },
+      { word: 'lightning', definition: 'A bright flash of electricity in the sky during a storm.', example: 'We saw lightning flash across the dark clouds.' },
+      { word: 'thunder', definition: 'The loud booming sound that comes after lightning heats the air.', example: 'The thunder was so loud it shook the windows.' },
+      { word: 'electricity', definition: 'A form of energy — lightning is a giant spark of natural electricity.', example: 'Electricity powers our lights and computers.' },
+      { word: 'dangerous', definition: 'Not safe; could cause harm.', example: 'Swimming during a thunderstorm is dangerous.' }
+    ],
+    questions: [
+      {
+        question: 'Why does Florida get so many thunderstorms?',
+        options: ['Because Florida is close to the North Pole', 'Because Florida is hot and wet — warm air rises and forms big storm clouds', 'Because Florida has very tall mountains', 'Because the ocean is very cold near Florida'],
+        correctIndex: 1,
+        explanation: 'Florida is hot and wet in summer. The sun heats the ground, warm wet air rises, cools, and forms storm clouds — which is why Florida gets more thunderstorms than almost anywhere else.'
+      },
+      {
+        question: 'What causes the SOUND of thunder?',
+        options: ['Clouds bumping into each other', 'Rain hitting the ground very hard', 'Lightning heating air so fast that it booms', 'Wind blowing through the trees'],
+        correctIndex: 2,
+        explanation: 'Lightning heats the air so fast that the air makes a loud booming sound — that\'s thunder.'
+      },
+      {
+        question: 'What should you do if you hear thunder?',
+        options: ['Keep playing outside', 'Swim in the pool quickly before it rains', 'Go inside right away', 'Stand under a tall tree'],
+        correctIndex: 2,
+        explanation: 'The story says "if you hear thunder, go inside right away" because lightning can be dangerous.'
+      }
+    ]
+  },
+
+  // ── ADVANCED ── Grade 5-8 | ELA.5-8.R.2.4 (claim + evidence) | Science/Tech
+  {
+    id: 'artificial-intelligence',
+    title: 'The Machine That Learns: How Artificial Intelligence Works',
+    topic: 'science',
+    coverEmoji: '🤖',
+    coverColor: '#1e3a8a',
+    gradeLevel: '5-8',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 455,
+    readTimeMin: 3,
+    text: `When you ask a phone assistant for directions, receive a personalized playlist, or get a social media feed tailored to your interests, you are interacting with **artificial intelligence** (AI) — software that has been trained to perform tasks that previously required human thinking. AI is no longer a concept from science fiction. It is embedded in everyday life, and understanding how it works has become one of the most important skills of this century.
+
+Traditional computer programs follow explicit instructions written by human programmers. If you tell a traditional program to sort a list of numbers, it follows the exact steps you give it — no more, no less. AI systems work differently. Rather than following rigid rules, most modern AI systems **learn from data**.
+
+Consider the example of image recognition. To teach an AI to identify cats in photographs, engineers do not write rules like "look for fur" or "check for whiskers." Instead, they feed the system millions of labeled photographs — cat, not a cat, cat, not a cat — and allow the system to find its own patterns. Over many **iterations**, the system adjusts its internal settings (called parameters) until it can reliably distinguish cats from non-cats with remarkable accuracy.
+
+This approach, called **machine learning**, is extraordinarily powerful but carries real limitations. An AI is only as good as the data it trains on. If that data contains **biases** — for example, if a facial recognition system is trained mostly on photographs of one demographic group — the system will perform poorly on others. This has caused documented cases of AI incorrectly identifying people, with serious real-world consequences in law enforcement and hiring.
+
+AI also lacks genuine understanding. A language AI that produces fluent, confident sentences has no idea whether those sentences are true. It generates statistically probable sequences of words based on patterns in its training data. This makes it capable of producing plausible-sounding misinformation at enormous scale — a challenge that researchers, journalists, and governments are only beginning to address.
+
+Despite these challenges, the potential applications of AI are extraordinary. Medical AI systems already detect certain cancers from imaging scans more accurately than many trained specialists. Climate scientists use AI to model complex weather systems. Educators are beginning to use AI to personalize instruction for individual students in ways that would be impossible for a single teacher to deliver.
+
+The machine does not understand. But it learns. And that learning — powerful, useful, and imperfect — is reshaping every field of human activity. Understanding what AI can and cannot do is no longer optional knowledge. It is part of what it means to be an informed person in the twenty-first century.`,
+    vocabulary: [
+      { word: 'artificial intelligence', definition: 'Computer systems trained to perform tasks that normally require human thinking, such as recognizing images or understanding language.', example: 'Artificial intelligence helped the doctor detect the tumor earlier than expected.' },
+      { word: 'iterations', definition: 'Repetitions of a process, each one building on the results of the last.', example: 'After hundreds of iterations, the design was finally ready to test.' },
+      { word: 'machine learning', definition: 'A type of AI in which systems learn from data by finding patterns, rather than following explicit programmed rules.', example: 'Machine learning allowed the app to improve its recommendations the more you used it.' },
+      { word: 'biases', definition: 'Unfair tendencies built into a system, often from unrepresentative data, that cause it to favor or disadvantage certain groups.', example: 'The researchers found biases in the hiring algorithm that consistently overlooked qualified candidates.' },
+      { word: 'demographic', definition: 'Relating to groups of people defined by characteristics such as age, race, gender, or location.', example: 'The study showed differences in outcomes across several demographic groups.' }
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Artificial intelligence is dangerous and should be banned.',
+          'AI is a powerful technology that learns from data, but it has real limitations that everyone should understand.',
+          'Traditional computer programs are better than AI for most tasks.',
+          'AI will eventually replace all human workers in every profession.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes how AI works, its powerful capabilities (medical diagnosis, climate modeling), and its significant limitations (bias, lack of understanding). The central idea is that AI is powerful but imperfect — and understanding it matters.'
+      },
+      {
+        question: 'According to the passage, how is machine learning DIFFERENT from traditional programming?',
+        options: [
+          'Traditional programs are faster, but machine learning is more accurate.',
+          'Traditional programs follow explicit rules written by humans; machine learning systems find their own patterns from data.',
+          'Machine learning requires more hardware but produces simpler results.',
+          'Traditional programs can only sort numbers, while machine learning can do everything else.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage directly states: "Rather than following rigid rules, most modern AI systems learn from data." Traditional programs follow exact instructions; machine learning systems discover patterns on their own.'
+      },
+      {
+        question: 'The author states that AI "lacks genuine understanding." What EVIDENCE supports this claim?',
+        options: [
+          'AI systems require millions of labeled photographs to learn anything.',
+          'A language AI produces statistically probable word sequences without knowing whether they are true — making it capable of confident misinformation.',
+          'AI facial recognition systems have performed poorly on certain demographic groups.',
+          'AI medical systems can detect cancers from scans more accurately than some specialists.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that language AI generates "statistically probable sequences of words" without any knowledge of truth. This directly supports the claim that AI lacks genuine understanding — it mimics language without comprehending meaning.'
+      },
+      {
+        question: 'What does the word "biases" suggest about how AI learns?',
+        options: [
+          'AI systems deliberately choose to treat certain groups unfairly.',
+          'Biases show that AI systems are impossible to improve over time.',
+          'If training data is unrepresentative, the AI\'s patterns will reflect those imbalances, causing unfair or inaccurate results.',
+          'Biases are a minor technical issue that engineers have already solved.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that AI learns from data — so if that data is skewed toward certain groups, the AI\'s results will be skewed too. Biases in data produce biases in outcomes, which has had "documented cases" of real harm.'
+      },
+      {
+        question: 'How does the author BALANCE the argument about AI in this passage?',
+        options: [
+          'The author argues only that AI is dangerous and must be regulated.',
+          'The author presents both significant limitations (bias, misinformation) and powerful benefits (medical diagnosis, climate modeling) to give a complete picture.',
+          'The author argues only that AI is beneficial and should be adopted everywhere.',
+          'The author avoids taking any position and only defines technical terms.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly discusses AI\'s risks (bias in hiring/law enforcement, misinformation) alongside its benefits (cancer detection, climate science, personalized education). This balanced approach reflects the author\'s goal of informing rather than alarming or promoting.'
+      }
+    ]
+  },
+
+  // ── ADVANCED ── Grade 5-8 | ELA.5-8.R.1.2 (theme) | ELA.5-8.R.2.3 (author's perspective) | Biography
+  {
+    id: 'douglass-literacy',
+    title: 'Frederick Douglass: The Power of the Forbidden Word',
+    topic: 'biography',
+    coverEmoji: '✊',
+    coverColor: '#7c3aed',
+    gradeLevel: '5-8',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 450,
+    readTimeMin: 3,
+    text: `In 1826, a slaveholder named Hugh Auld discovered that his wife Sophia had been teaching their enslaved servant, Frederick, to read. Auld was furious. "If you teach that n----- how to read," he reportedly told his wife, "there will be no keeping him. It will forever unfit him to be a slave."
+
+He was right.
+
+Frederick Douglass would later describe this moment as the turning point of his life. Overhearing Auld's words did not discourage him — it ignited him. "From that moment, I understood the pathway from slavery to freedom," he wrote in his 1845 **autobiography**. He recognized instantly what Auld already knew: that **literacy** — the ability to read and write — was the most powerful tool a human being could possess, and that those in power had deliberately kept it from enslaved people for exactly that reason.
+
+Douglass taught himself the rest. He **solicited** lessons from poor white children in Baltimore, trading bread for alphabet instruction. He studied newspapers, pamphlets, and discarded writing exercises. He memorized passages. By the time he escaped north at age twenty, he could read, write, argue, and inspire.
+
+He used all of it.
+
+In 1841, Douglass gave his first major speech at an abolitionist convention in Massachusetts. The audience was stunned. Here was a formerly enslaved man speaking with precision, authority, and **eloquence** that matched any university-trained orator of the day. He became the most prominent Black voice in the American abolitionist movement, publishing his autobiography, founding a newspaper called The North Star, and advising President Abraham Lincoln on matters of emancipation and Black military service.
+
+Douglass understood that his voice was his most dangerous weapon — not just because of what he said, but because of what his existence **proved**: that the intellectual **inferiority** attributed to enslaved people by defenders of slavery was a lie constructed to maintain a system, not a truth rooted in fact. Every speech he gave was evidence.
+
+His argument was simple and devastating: if enslaved people were truly incapable of reason, why did the law make it a crime to teach them to read?
+
+The question answered itself.
+
+Frederick Douglass died in 1895, having lived to see slavery abolished, Black men granted the right to vote, and three constitutional amendments rewrite the law of the land. He had done it largely with words — words that had once been forbidden to him, and that he had claimed anyway.`,
+    vocabulary: [
+      { word: 'autobiography', definition: 'A book a person writes about their own life.', example: 'In her autobiography, she described growing up in rural Georgia during the Great Depression.' },
+      { word: 'literacy', definition: 'The ability to read and write.', example: 'Literacy programs helped thousands of adults learn to read for the first time.' },
+      { word: 'solicited', definition: 'Actively asked for or sought out something needed.', example: 'He solicited advice from every expert he could find.' },
+      { word: 'eloquence', definition: 'The ability to speak or write in a clear, powerful, and persuasive way.', example: 'Her eloquence during the debate convinced many undecided voters.' },
+      { word: 'inferiority', definition: 'The false belief or claim that one group is less capable or less valuable than another.', example: 'The movement challenged centuries of propaganda about the supposed inferiority of certain peoples.' }
+    ],
+    questions: [
+      {
+        question: 'What is the THEME of this passage?',
+        options: [
+          'Violence is the only effective tool against injustice.',
+          'Literacy is a form of power, and those who control it control the people around them.',
+          'Education is most valuable when it comes from formal schooling.',
+          'One person\'s actions cannot change unjust laws.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage shows that slaveholders deliberately kept literacy from enslaved people because it would "unfit" them for slavery — and Douglass\'s entire life demonstrates that literacy was the pathway to freedom and influence. The theme is that literacy is power.'
+      },
+      {
+        question: 'What was the EFFECT of overhearing Hugh Auld\'s words on Frederick Douglass?',
+        options: [
+          'It frightened Douglass and made him stop trying to learn to read.',
+          'It made Douglass angry at Sophia Auld for revealing his progress.',
+          'It confirmed for Douglass that literacy was the pathway to freedom and intensified his drive to learn.',
+          'It caused Douglass to escape north the very next day.'
+        ],
+        correctIndex: 2,
+        explanation: 'Douglass wrote that from that moment, he "understood the pathway from slavery to freedom." Auld\'s words — meant as a warning — instead revealed to Douglass exactly why literacy was so important, which "ignited" him rather than discouraging him.'
+      },
+      {
+        question: 'The author writes that Douglass\'s "existence proved" something. What did it prove?',
+        options: [
+          'That formerly enslaved people could always escape if they tried hard enough.',
+          'That the claimed intellectual inferiority of enslaved people was a deliberate lie used to justify slavery, not a fact.',
+          'That university training was unnecessary for success as a public speaker.',
+          'That abolitionist conventions were the most effective way to change public opinion.'
+        ],
+        correctIndex: 1,
+        explanation: 'The author explains that every speech Douglass gave was evidence against the claim that enslaved people were incapable of reason. His existence as an educated, eloquent, published writer proved the supposed "inferiority" was a constructed justification for slavery, not reality.'
+      },
+      {
+        question: 'What does "solicited" suggest about how Douglass learned to read after Auld stopped his lessons?',
+        options: [
+          'He waited patiently until someone offered to teach him again.',
+          'He actively sought out and pursued opportunities to learn, trading bread for lessons from poor white children.',
+          'He found books in the library and taught himself without any help.',
+          'He convinced Sophia Auld to continue teaching him in secret.'
+        ],
+        correctIndex: 1,
+        explanation: '"Solicited" means he actively sought out what he needed — he didn\'t wait, he pursued. The passage describes him trading bread for instruction, studying newspapers and pamphlets, memorizing passages — all active, self-directed efforts.'
+      },
+      {
+        question: 'The author ends with the phrase "words that had once been forbidden to him, and that he had claimed anyway." What does this reveal about the AUTHOR\'S PERSPECTIVE?',
+        options: [
+          'The author believes Douglass was lucky to escape and learn to read.',
+          'The author views Douglass\'s reclaiming of literacy as an act of deliberate resistance — taking back what was unjustly withheld.',
+          'The author thinks Douglass should have focused on politics rather than writing and speaking.',
+          'The author presents a neutral, fact-only account with no opinion about Douglass.'
+        ],
+        correctIndex: 1,
+        explanation: 'The word "claimed" — not "earned" or "received" — implies active reclamation of something wrongfully taken. The phrase "forbidden to him" acknowledges the injustice, while "claimed anyway" celebrates his defiance. The author clearly admires Douglass\'s determination and frames his literacy as an act of resistance.'
+      }
+    ]
+  },
+
+  // ── ADVANCED ── Grade 5-8 | ELA.5-8.R.2.1 (text structure) | ELA.5-8.R.2.2 (central idea) | Florida/Environment
+  {
+    id: 'florida-coral-reefs',
+    title: 'The Third Largest: Florida\'s Coral Reef',
+    topic: 'florida-nature',
+    coverEmoji: '🪸',
+    coverColor: '#0891b2',
+    gradeLevel: '5-8',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 448,
+    readTimeMin: 3,
+    text: `Stretching approximately 360 miles along the Florida Keys, the Florida Reef Tract is the third largest **coral reef** system in the world, after the Great Barrier Reef of Australia and the Mesoamerican Reef of Central America. For most of Florida's history, this underwater wilderness was one of the most biodiverse ecosystems on the planet — a labyrinth of living structures housing thousands of species of fish, invertebrates, sea turtles, sharks, and marine mammals.
+
+That reef is now in critical condition.
+
+Since the 1970s, Florida's coral cover — the percentage of the reef surface actually covered by living coral — has declined from roughly 30 percent to less than 2 percent. The causes are interconnected and **cumulative**: rising ocean temperatures cause coral **bleaching**, in which corals expel the colorful algae that feed them and turn ghostly white; **eutrophication** from agricultural and residential runoff delivers excess nutrients that fuel algae growth, smothering coral; boat anchors, fishing gear, and physical contact from divers cause direct structural damage; and invasive species — particularly the lionfish, introduced to Atlantic waters from the Pacific — consume the small fish that would otherwise control algae growth on the reef.
+
+In 2023, ocean temperatures near the Florida Keys reached record highs — in some areas exceeding 100°F, temperatures that are lethal to coral. Scientists described the event as the most severe bleaching episode in recorded history for this reef system. Thousands of coral colonies died within weeks.
+
+The response has been extraordinary. Florida's coral nurseries — underwater gardens where scientists grow coral fragments on tree-shaped metal structures — now house the largest collection of **genetically distinct** coral individuals in the world. Restoration teams **transplant** these lab-grown corals onto damaged sections of reef. Researchers are also selectively breeding heat-tolerant coral varieties in hopes of developing strains that can survive the warmer temperatures projected by climate models.
+
+Community engagement has proven equally important. Local dive shops, school groups, and volunteers participate in reef monitoring programs, reporting coral health data that scientists could never collect alone. Some Florida counties have adopted **ordinances** restricting certain sunscreen chemicals — specifically oxybenzone and octinoxate, which are toxic to coral larvae — from being worn in reef waters.
+
+Recovery will not be fast. Scientists caution that even under the most optimistic projections, full reef restoration will take decades. But the commitment of researchers, communities, and policymakers has demonstrated something significant: when a community decides that an ecosystem is worth saving, the tools and the will to do so can be found.
+
+Florida's reef is still here. Barely. And that is, against all odds, enough to work with.`,
+    vocabulary: [
+      { word: 'coral reef', definition: 'An underwater structure built from the skeletons of tiny marine animals called coral polyps, forming a complex ecosystem.', example: 'The coral reef supported hundreds of species of fish and invertebrates.' },
+      { word: 'cumulative', definition: 'Building up gradually over time as multiple factors combine.', example: 'The cumulative effect of small temperature increases caused widespread damage.' },
+      { word: 'bleaching', definition: 'A stress response in coral where it expels its colorful algae and turns white, often leading to death.', example: 'Scientists documented widespread coral bleaching after the record ocean temperatures.' },
+      { word: 'genetically distinct', definition: 'Containing different DNA from other individuals of the same species, which increases a population\'s ability to adapt.', example: 'Planting genetically distinct coral increases the chances that some will survive warming waters.' },
+      { word: 'ordinances', definition: 'Local laws passed by a city or county government.', example: 'New ordinances limited construction near the wetland to protect wildlife.' }
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Florida\'s coral reef is the largest in the world and is perfectly healthy.',
+          'Florida\'s coral reef is critically damaged by multiple interconnected causes, but active restoration and community efforts give reason for cautious hope.',
+          'Coral bleaching is caused entirely by sunscreen chemicals and can be solved by banning them.',
+          'The only solution to reef decline is to stop all diving and boating near the reef permanently.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the reef\'s dramatic decline, the multiple causes, the severity of recent bleaching, and the extraordinary restoration efforts underway. The central idea is that the reef is in crisis — but that human commitment to saving it makes recovery possible.'
+      },
+      {
+        question: 'How does the author ORGANIZE information about the reef\'s decline?',
+        options: [
+          'Chronologically, describing each decade from 1970 to the present.',
+          'By comparing Florida\'s reef to the Great Barrier Reef.',
+          'Using cause and effect — listing multiple interconnected causes of coral decline and their specific impacts.',
+          'By describing the problem from the perspective of a single coral colony.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage lists causes (rising temperatures → bleaching, runoff → algae growth, physical damage, invasive species) and explains the specific effects each cause produces. This is a clear cause-and-effect structure within the description of decline.'
+      },
+      {
+        question: 'According to the passage, why are GENETICALLY DISTINCT corals important for restoration?',
+        options: [
+          'They grow faster than other coral varieties.',
+          'They are less likely to be damaged by anchors and fishing gear.',
+          'A diverse genetic collection increases the chances that some individuals will survive changing conditions.',
+          'They produce more oxygen than corals grown in natural conditions.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that Florida\'s nurseries house "the largest collection of genetically distinct coral individuals in the world" — genetic diversity means different individuals have different traits, increasing the likelihood that some can survive warmer or more stressful conditions.'
+      },
+      {
+        question: 'What does the word "cumulative" suggest about the threats to Florida\'s reef?',
+        options: [
+          'Each threat acts independently and has no connection to the others.',
+          'The threats are temporary and will naturally reverse themselves.',
+          'The threats build on each other over time, making the combined damage greater than any single cause alone.',
+          'Scientists have already identified which single cause is most responsible.'
+        ],
+        correctIndex: 2,
+        explanation: 'The author uses "cumulative" to describe the causes as "interconnected and cumulative" — meaning they combine and build over time. Bleaching from warming, algae from runoff, physical damage, and invasive species together create damage far greater than any one factor would cause alone.'
+      },
+      {
+        question: 'The author concludes: "Florida\'s reef is still here. Barely. And that is, against all odds, enough to work with." What does this reveal about the AUTHOR\'S PERSPECTIVE?',
+        options: [
+          'The author believes the reef cannot be saved and is already gone.',
+          'The author thinks survival, even in a damaged state, is still a foundation worth building on — the situation is serious but not hopeless.',
+          'The author is relieved that the reef has fully recovered thanks to restoration efforts.',
+          'The author is critical of scientists for not acting sooner.'
+        ],
+        correctIndex: 1,
+        explanation: 'The phrase "barely" acknowledges the severity honestly — but "enough to work with" reframes survival as opportunity rather than defeat. The author presents cautious but genuine hope, grounded in the real restoration work being done.'
+      }
+    ]
+  },
+
   // ── PAIRED PASSAGE ── ELA.4.R.1.3 + ELA.4.R.2.3 (compare perspectives) | FAST format
   {
     id: 'springs-paired',

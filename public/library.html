@@ -224,6 +224,15 @@
     <!-- Math Zone Banner -->
     <div id="math-banner"></div>
 
+    <!-- Search bar -->
+    <div style="margin-bottom:14px;">
+      <input type="text" id="library-search" placeholder="🔍 Search stories by title or topic…"
+        style="width:100%;padding:11px 16px;border:2px solid var(--border);border-radius:12px;font-size:0.95rem;font-family:inherit;outline:none;transition:border-color 0.15s;"
+        oninput="filterLibrary(this.value)"
+        onfocus="this.style.borderColor='var(--purple)'"
+        onblur="this.style.borderColor='var(--border)'" />
+    </div>
+
     <!-- Filter tabs -->
     <div class="filter-tabs">
       <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">📚 All Stories</button>
@@ -320,6 +329,17 @@
       { key: 'advanced', level: 'advanced', btnClass: 'advanced-btn' },
     ];
 
+    function getDifficultyLabel(s) {
+      if (s.level === 'early' || s.level === 'emerging') return '⭐ Beginner';
+      if (s.level === 'advanced' || s.paired) return '🔥 Challenge';
+      return '📘 Grade Level';
+    }
+    function getDifficultyColor(s) {
+      if (s.level === 'early' || s.level === 'emerging') return '#10b981';
+      if (s.level === 'advanced' || s.paired) return '#7c3aed';
+      return '#2563eb';
+    }
+
     function renderStars(n, total) {
       let s = '';
       for (let i = 0; i < total; i++) s += i < n ? '★' : '☆';
@@ -346,7 +366,7 @@
       return `<div class="story-card${doneClass}" onclick="window.location='read.html?story=${story.id}'">
         <div class="card-cover" style="background:${story.coverColor}20;">${story.coverEmoji}</div>
         <div class="card-body">
-          <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''}
+          <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''} <span style="font-size:0.68rem;font-weight:800;padding:2px 7px;border-radius:99px;vertical-align:middle;background:${getDifficultyColor(story)}20;color:${getDifficultyColor(story)};">${getDifficultyLabel(story)}</span>
           <div class="card-title">${story.title}</div>
           <div class="card-meta">~${story.readTimeMin} min · ${story.wordCount} words</div>
           ${statusHtml}
@@ -556,6 +576,27 @@
       } else {
         empty.style.display = 'none';
       }
+    }
+
+    // ─── Library search ────────────────────────────────────────────────────────
+    function filterLibrary(q) {
+      const query = q.toLowerCase().trim();
+      const cards = document.querySelectorAll('.story-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const show = !query || text.includes(query);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      // Show/hide section headers based on whether any card in grid is visible
+      ['early','emerging','grade4','advanced'].forEach(sec => {
+        const grid = document.getElementById('grid-' + sec);
+        const header = document.getElementById('section-header-' + sec);
+        if (!grid || !header) return;
+        const anyVisible = [...grid.querySelectorAll('.story-card')].some(c => c.style.display !== 'none');
+        header.style.display = anyVisible ? '' : 'none';
+      });
     }
   </script>
 </body>

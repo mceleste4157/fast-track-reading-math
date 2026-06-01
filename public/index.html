@@ -240,6 +240,19 @@
         </div>
       </div>
 
+      <!-- Monthly Challenge -->
+      <div id="monthly-challenge-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
+        <div style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:14px;padding:14px 16px;">
+          <div style="font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">☀️ June Challenge</div>
+          <div style="font-weight:800;font-size:0.95rem;color:#1e1b4b;margin-bottom:4px;" id="challenge-title"></div>
+          <div style="font-size:0.82rem;color:#78350f;margin-bottom:10px;" id="challenge-desc"></div>
+          <div style="height:7px;background:#fde68a;border-radius:99px;overflow:hidden;margin-bottom:5px;">
+            <div id="challenge-bar" style="height:100%;background:linear-gradient(90deg,#f59e0b,#f97316);border-radius:99px;width:0%;transition:width 0.8s;"></div>
+          </div>
+          <div style="font-size:0.78rem;font-weight:700;color:#92400e;" id="challenge-progress-text"></div>
+        </div>
+      </div>
+
       <!-- Modules -->
       <div class="module-grid">
         <a href="library.html" id="reading-card" class="module-card reading">
@@ -666,6 +679,68 @@
         ? '📖 ' + remaining + ' more stor' + (remaining === 1 ? 'y' : 'ies') + ' to reach your goal this week!'
         : '🎉 Goal reached! Keep reading for bonus XP!';
       goalWrap.style.display = 'block';
+
+      // ── Monthly challenge ─────────────────────────────────────────────────────
+      (function() {
+        const now   = new Date();
+        const month = now.getMonth(); // 0=Jan
+        const CHALLENGES = [
+          { month: 0,  title: 'New Year Reader',        desc: 'Read 8 stories in January',         goal: 8,  field: 'storiesTotal' },
+          { month: 1,  title: 'Florida History Month',  desc: 'Read 4 Florida history stories',    goal: 4,  field: 'storiesTotal' },
+          { month: 2,  title: 'March Reading Marathon', desc: 'Read 10 stories this month',         goal: 10, field: 'storiesTotal' },
+          { month: 3,  title: 'Spring Sprint',          desc: 'Complete 5 quizzes with 4+ stars',  goal: 5,  field: 'storiesTotal' },
+          { month: 4,  title: 'May the Reading Be With You', desc: 'Read 8 stories in May',        goal: 8,  field: 'storiesTotal' },
+          { month: 5,  title: 'Summer Kickoff',         desc: 'Read 10 stories to start summer',   goal: 10, field: 'storiesTotal' },
+          { month: 6,  title: 'July FAST Prep',         desc: 'Read 12 stories this month',        goal: 12, field: 'storiesTotal' },
+          { month: 7,  title: 'August Academy',         desc: 'Complete 10 stories before school', goal: 10, field: 'storiesTotal' },
+          { month: 8,  title: 'Back to School Blitz',  desc: 'Read 8 stories in September',       goal: 8,  field: 'storiesTotal' },
+          { month: 9,  title: 'October Adventure',      desc: 'Read 6 stories in October',         goal: 6,  field: 'storiesTotal' },
+          { month: 10, title: 'November Knowledge',     desc: 'Read 8 stories in November',        goal: 8,  field: 'storiesTotal' },
+          { month: 11, title: 'December Dash',          desc: 'Finish 6 stories before winter break', goal: 6, field: 'storiesTotal' },
+        ];
+        const challenge = CHALLENGES[month];
+        if (!challenge) return;
+
+        // Count stories read THIS month from StudentActivity
+        firebase.firestore().collection('StudentActivity')
+          .where('readerId', '==', profile.readerId)
+          .where('type', '==', 'story')
+          .get().then(snap => {
+            const monthStr = (now.getMonth() + 1).toString().padStart(2, '0');
+            const prefix   = now.getFullYear() + '-' + monthStr;
+            const done = snap.docs.filter(d => (d.data().date || '').startsWith(prefix)).length;
+            const pct  = Math.min(100, Math.round((done / challenge.goal) * 100));
+
+            document.getElementById('challenge-title').textContent = challenge.title;
+            document.getElementById('challenge-desc').textContent  = challenge.desc;
+            document.getElementById('challenge-bar').style.width   = pct + '%';
+            document.getElementById('challenge-progress-text').textContent =
+              done + ' / ' + challenge.goal + ' stories' + (done >= challenge.goal ? ' — ✅ Complete!' : '');
+            document.getElementById('monthly-challenge-wrap').style.display = 'block';
+          }).catch(() => {});
+      })();
+
+      // ── Continue reading banner ───────────────────────────────────────────────
+      // Requires Firestore composite index on StudentActivity: (readerId ASC, type ASC, timestamp DESC)
+      db.collection('StudentActivity')
+        .where('readerId', '==', profile.readerId)
+        .where('type', '==', 'story')
+        .orderBy('timestamp', 'desc')
+        .limit(1)
+        .get().then(lastSnap => {
+          if (lastSnap.empty) return;
+          const last = lastSnap.docs[0].data();
+          // Only show if the story hasn't been read today already
+          if (last.date === new Date().toISOString().slice(0,10)) return;
+          const story = (typeof STORIES !== 'undefined') ? STORIES.find(s => s.id === last.storyId) : null;
+          if (!story) return;
+          const banner = document.createElement('div');
+          banner.style.cssText = 'width:100%;max-width:480px;margin-bottom:16px;background:var(--surface);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:14px 16px;display:flex;align-items:center;gap:12px;border-left:4px solid var(--purple);';
+          banner.innerHTML = `<div style="font-size:1.8rem;flex-shrink:0;">${story.coverEmoji}</div><div style="flex:1;min-width:0;"><div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--purple);margin-bottom:2px;">Continue Reading</div><div style="font-weight:700;font-size:0.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${story.title}</div></div><a href="read.html?story=${story.id}" style="flex-shrink:0;padding:8px 14px;background:var(--purple);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;">Read →</a>`;
+          // Insert before the module grid
+          const moduleGrid = document.querySelector('.module-grid');
+          if (moduleGrid) moduleGrid.before(banner);
+        }).catch(() => {});
 
       // Stats
       document.getElementById('s-stars').textContent   = '⭐ ' + readStars;
