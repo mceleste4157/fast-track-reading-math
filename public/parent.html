@@ -499,6 +499,12 @@
         const longestStreak = sd.longestStreak || 0;
         const storiesThisWeek = sd.storiesThisWeek || 0;
         const mathThisWeek = sd.mathThisWeek || 0;
+        const lastWeekStories = sd.lastWeekStories || 0;
+        const lastWeekMath    = sd.lastWeekMath    || 0;
+        const storyTrend = storiesThisWeek > lastWeekStories ? '↑' : storiesThisWeek < lastWeekStories ? '↓' : '→';
+        const mathTrend  = mathThisWeek   > lastWeekMath    ? '↑' : mathThisWeek   < lastWeekMath    ? '↓' : '→';
+        const storyTrendColor = storiesThisWeek > lastWeekStories ? '#10b981' : storiesThisWeek < lastWeekStories ? '#ef4444' : '#6b7280';
+        const mathTrendColor  = mathThisWeek   > lastWeekMath    ? '#10b981' : mathThisWeek   < lastWeekMath    ? '#ef4444' : '#6b7280';
         const badges = sd.badges || [];
 
         // Weekly goal from StudentProfile
@@ -544,6 +550,14 @@
               </div>
             </div>`;
           weeklySummaryEl.style.display = 'block';
+          // Week-over-week trend
+          const trendEl = document.getElementById('weekly-summary-inject');
+          if (trendEl && lastWeekStories > 0) {
+            const trendDiv = document.createElement('div');
+            trendDiv.style.cssText = 'margin-top:10px;font-size:0.82rem;font-weight:700;color:#6b7280;display:flex;gap:16px;flex-wrap:wrap;';
+            trendDiv.innerHTML = `<span>vs last week: <span style="color:${storyTrendColor}">${storyTrend} ${Math.abs(storiesThisWeek - lastWeekStories)} stor${Math.abs(storiesThisWeek - lastWeekStories) === 1 ? 'y' : 'ies'}</span> reading</span><span><span style="color:${mathTrendColor}">${mathTrend} ${Math.abs(mathThisWeek - lastWeekMath)} math</span></span>`;
+            trendEl.appendChild(trendDiv);
+          }
         }
 
         // ── Activity feed ─────────────────────────────────────────────────────

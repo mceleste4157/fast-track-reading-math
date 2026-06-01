@@ -126,6 +126,16 @@
     @media (max-width: 420px) {
       .stats-row { grid-template-columns: repeat(2, 1fr); }
     }
+    @media print {
+      .nav, .no-print { display: none !important; }
+      .cert-card { box-shadow: none !important; border: 2px solid #7c3aed !important; }
+    }
+    .cert-card {
+      background: linear-gradient(135deg, #faf5ff, #eff6ff);
+      border: 3px solid var(--purple); border-radius: 20px;
+      padding: 32px; text-align: center; margin-bottom: 28px;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.15);
+    }
   </style>
 </head>
 <body>
@@ -135,6 +145,7 @@
   </nav>
 
   <div class="page">
+    <div id="cert-section" style="display:none;"></div>
     <!-- Hero -->
     <div class="hero">
       <div class="hero-avatar" id="hero-avatar">?</div>
@@ -544,6 +555,26 @@
             <div class="act-score">${a.score}</div>
           </div>
         `).join('');
+      }
+
+      // ── Grade completion certificate ───────────────────────────────────────
+      const grade = parseInt(profile.gradeLevel) || 4;
+      const gradeStories = (typeof STORIES !== 'undefined') ? STORIES.filter(s => Array.isArray(s.grades) && s.grades.includes(grade) && (s.level === 'grade4' || s.level === 'emerging' || s.level === 'advanced' || s.level === 'early')) : [];
+      const completedIds = new Set(Object.keys(bestPerStory || {}));
+      const allDone = gradeStories.length > 0 && gradeStories.every(s => completedIds.has(s.id));
+      if (allDone) {
+        const certSection = document.getElementById('cert-section');
+        certSection.style.display = 'block';
+        const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        certSection.innerHTML = `<div class="cert-card">
+          <div style="font-size:3rem;margin-bottom:10px;">🏆</div>
+          <div style="font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--purple);margin-bottom:8px;">Certificate of Achievement</div>
+          <div style="font-size:1.6rem;font-weight:800;margin-bottom:6px;">${profile.name || 'Student'}</div>
+          <div style="font-size:0.95rem;color:var(--muted);margin-bottom:4px;">has completed all Grade ${grade} stories in</div>
+          <div style="font-size:1.2rem;font-weight:800;color:var(--purple);margin-bottom:16px;">FAST Track Reading & Math</div>
+          <div style="font-size:0.85rem;color:var(--muted);margin-bottom:20px;">${today}</div>
+          <button onclick="window.print()" style="padding:11px 24px;background:var(--purple);color:#fff;border:none;border-radius:11px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit;">🖨️ Print Certificate</button>
+        </div>`;
       }
 
     }).catch(err => {

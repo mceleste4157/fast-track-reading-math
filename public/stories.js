@@ -4063,4 +4063,358 @@ The challenge is balancing Florida's continued growth against the preservation o
     ]
   }
 
+  ,
+
+  // ── PAIRED 2 ── ELA.4.R.2.3 + ELA.4.R.2.4 | Florida Nature | Two perspectives on manatees
+  {
+    id: 'manatee-paired',
+    title: 'Two Views of the Gentle Giant — Paired Passages',
+    topic: 'florida-nature',
+    coverEmoji: '🐟',
+    coverColor: '#0891b2',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 400,
+    readTimeMin: 3,
+    paired: true,
+    text: `**PAIRED PASSAGES** — Read both passages, then answer the questions.
+
+---
+
+**Passage 1 — Literary**
+*"The Shadow Beneath the Boat"*
+
+The first time Maya saw a manatee, she thought the boat had drifted over a boulder.
+
+Then the boulder moved.
+
+It rose slowly toward the surface — enormous, gray-brown, and entirely unbothered by the small aluminum boat above it. Maya grabbed the side railing and leaned over. The manatee's whiskered snout broke the surface three feet from her hand, releasing a slow breath that sounded, somehow, like a sigh.
+
+"Don't touch," her grandfather said quietly from behind her. He wasn't warning her against the manatee. He was warning the manatee against her.
+
+They watched it feed for twenty minutes. It grazed along the river bottom in a kind of slow **deliberateness**, pulling up clumps of grass with the same unhurried certainty as a cow in a field. Once it bumped gently against the hull, rocking the boat — not aggressively, Maya realized, but curiously, the way a very large, very gentle thing might explore something new.
+
+When it finally sank back into the green water and disappeared, Maya felt an unexpected **pang** — like saying goodbye to something she hadn't known she needed to meet.
+
+"Will it come back?" she asked.
+
+"They always do," her grandfather said. "Same river, same grass, same slow life. They don't change. That's what makes them **vulnerable**."
+
+---
+
+**Passage 2 — Informational**
+*"Manatees: Slow Giants in a Fast World"*
+
+The West Indian manatee is one of Florida's most recognizable animals — and one of its most at-risk. Weighing up to 1,200 pounds and stretching as long as 13 feet, manatees are the largest herbivores in Florida's waterways. They feed almost entirely on seagrass, consuming up to 10 percent of their body weight each day.
+
+Manatees are **cold-sensitive**: they cannot survive in water below 68°F. Florida's warm springs and the discharge channels of power plants have become essential winter refuges, sometimes drawing hundreds of manatees into a single location.
+
+This dependence on warmth and predictable food sources has made manatees highly **susceptible** to human activity. Boat propeller strikes remain the leading cause of manatee injury and death — most adult manatees carry distinctive scar patterns on their backs from past encounters. Water pollution has destroyed vast stretches of seagrass in Florida's Indian River Lagoon, triggering a starvation crisis that killed over 1,100 manatees between 2021 and 2022 — the largest die-off ever recorded.
+
+In response, wildlife managers began emergency supplemental feedings — providing lettuce to starving animals directly — a measure considered extraordinary in wild animal conservation. The U.S. Fish and Wildlife Service reclassified manatees as **"threatened"** in 2017, though conservation groups argue that "endangered" status would provide stronger legal protection.
+
+Recovery is possible. Where seagrass is restored and boat speeds are reduced, manatee populations stabilize. The question is whether Florida's human growth will outpace those conservation efforts.`,
+    vocabulary: [
+      { word: 'deliberateness', definition: 'The quality of doing something carefully and without rushing, with clear intention.', example: 'She moved with deliberateness, checking each step before committing to it.' },
+      { word: 'pang', definition: 'A sudden, brief feeling of emotion — often sadness, longing, or regret.', example: 'He felt a pang of nostalgia looking at old photos from his childhood.' },
+      { word: 'vulnerable', definition: 'Easily hurt or harmed; at risk because of a particular weakness or situation.', example: 'Young birds are most vulnerable before they learn to fly.' },
+      { word: 'susceptible', definition: 'Easily affected by something harmful; likely to be impacted by a particular threat.', example: 'Plants in direct sun without water are susceptible to wilting quickly.' },
+      { word: 'supplemental', definition: 'Added to something to make it more complete or to make up for what is missing.', example: 'The doctor recommended supplemental vitamins to fill gaps in her diet.' }
+    ],
+    questions: [
+      {
+        question: 'How do the TWO PASSAGES approach the subject of manatees differently?',
+        options: [
+          'Passage 1 focuses on manatee biology; Passage 2 tells a personal story.',
+          'Passage 1 uses personal experience and emotion to show the impact of encountering a manatee; Passage 2 uses facts and data to explain their biology and the threats they face.',
+          'Passage 1 argues manatees should be left alone; Passage 2 argues they need more protection.',
+          'Both passages focus on the same thing — the dangers manatees face from boats.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 1 is a narrative — Maya\'s emotional encounter with a manatee. Passage 2 is informational — facts, statistics, and analysis of the threats to manatees. The two passages complement each other by showing the same animal through completely different lenses.'
+      },
+      {
+        question: 'In Passage 1, Maya\'s grandfather says manatees\' predictability is "what makes them vulnerable." How does Passage 2 SUPPORT this idea?',
+        options: [
+          'By explaining that manatees are too large to hide from predators.',
+          'By showing that manatees\' dependence on warm water and predictable food sources makes them concentrated in specific locations, where human threats are greatest.',
+          'By noting that manatees always return to the same rivers regardless of danger.',
+          'By explaining that manatees cannot change their diet when seagrass disappears.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 2 explains that manatees gather in predictable spots (warm springs, power plant channels) and depend on specific food sources — exactly the kind of predictability the grandfather describes. This predictability concentrates them in areas where boat strikes and food loss become deadly threats.'
+      },
+      {
+        question: 'What does the word "pang" suggest about Maya\'s feelings at the end of Passage 1?',
+        options: [
+          'She felt frightened when the manatee bumped the boat.',
+          'She felt a brief, unexpected sadness when the manatee left — as if she had lost something meaningful.',
+          'She felt pain from leaning too far over the railing.',
+          'She felt disappointed that the manatee was not as large as she expected.'
+        ],
+        correctIndex: 1,
+        explanation: 'A "pang" is a sudden feeling of emotion, often sadness. Maya describes it as "saying goodbye to something she hadn\'t known she needed to meet" — the unexpected depth of feeling after a brief encounter. It suggests the manatee affected her more deeply than she anticipated.'
+      },
+      {
+        question: 'Which piece of information from Passage 2 would BEST help the reader understand why Maya\'s grandfather says the manatees "always" return to the same river?',
+        options: [
+          'The fact that manatees weigh up to 1,200 pounds.',
+          'The fact that manatees are cold-sensitive and depend on warm springs and predictable food sources.',
+          'The fact that most adult manatees have scar patterns from boat strikes.',
+          'The fact that over 1,100 manatees died between 2021 and 2022.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 2 explains that manatees depend on specific warm water locations and seagrass feeding grounds. This biological need for consistency directly explains why they "always" return — they have no choice but to come back to the same places.'
+      },
+      {
+        question: 'Both passages suggest manatees are at risk. Which AUTHOR shows more urgency about the threat?',
+        options: [
+          'The Passage 1 narrator, because she describes the manatee as "vulnerable" directly.',
+          'The Passage 2 author, because they use specific death statistics and describe the die-off as "extraordinary" to convey the scale of the crisis.',
+          'Both authors show equal urgency.',
+          'Neither author — both present the information neutrally without concern.'
+        ],
+        correctIndex: 1,
+        explanation: 'The Passage 2 author uses specific, alarming data: 1,100 deaths, the largest die-off ever recorded, and emergency feedings described as "extraordinary." These concrete details create urgency. Passage 1\'s grandfather uses one quiet word — "vulnerable" — which is more understated by comparison.'
+      }
+    ]
+  },
+
+  // ── PAIRED 3 ── ELA.4.R.1.2 + ELA.4.R.2.2 | Character vs. Informational | Perseverance
+  {
+    id: 'marathon-paired',
+    title: 'Running to the Finish — Paired Passages',
+    topic: 'character',
+    coverEmoji: '🏃',
+    coverColor: '#7c3aed',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 390,
+    readTimeMin: 3,
+    paired: true,
+    text: `**PAIRED PASSAGES** — Read both passages, then answer the questions.
+
+---
+
+**Passage 1 — Literary**
+*"Mile Twenty-Two"*
+
+By mile twenty-two, Darnell's legs had stopped feeling like legs.
+
+They were moving — he could see them moving — but the connection between his brain and his feet had become something **theoretical**, like a signal traveling through a very long, very tired wire. Around him, other runners looked the same way: hollowed out, faces blank, eyes fixed on some private point ahead.
+
+He had not told anyone he was running the race. Not his coach. Not his parents. He had signed up, trained in secret for eight months, and arrived at the start line alone, because he needed to know — privately, without witnesses — whether he was the kind of person who could finish something this hard.
+
+At mile twenty-three, a cramp hit his calf like a fist. He slowed to a walk. A few runners passed him. He thought about stopping.
+
+Then he thought about the first day he could only run three blocks without stopping. He thought about the January mornings when the ground was iced over and he ran anyway. He thought about why he had started.
+
+He started running again.
+
+The last mile was the longest thing he had ever experienced. But when the finish line appeared — a banner strung between two orange poles — he felt something **give way** inside him, not like breaking, but like a door opening.
+
+He crossed.
+
+He stood on the other side.
+
+He knew.
+
+---
+
+**Passage 2 — Informational**
+*"The Science of Hitting the Wall"*
+
+In long-distance running, "hitting the wall" refers to the sudden, **extreme** fatigue that many runners experience between miles 18 and 23 of a marathon. It is not simply tiredness — it is a physiological event with a specific cause.
+
+The human body stores energy in the form of **glycogen**, a carbohydrate found in the muscles and liver. During intense exercise, the body burns through these glycogen stores steadily. A typical marathon runner has enough stored glycogen for approximately 20 miles of racing. When those stores are depleted, the body is forced to switch to burning fat — a much slower fuel source. This transition causes a sudden, dramatic drop in energy output, which runners experience as a near-total loss of power and focus.
+
+The mental effects are just as significant as the physical ones. Studies show that when glycogen drops, the brain — which also runs on glucose — begins to struggle with decision-making, focus, and **emotional regulation**. Runners may feel despair, confusion, or an overwhelming urge to stop, even when they are physically capable of continuing.
+
+**Elite** runners minimize the wall through careful pacing, nutrition during the race (consuming carbohydrates every 30–45 minutes), and years of training that teach the body to burn fat more efficiently.
+
+The wall is real. But it is also survivable — which is exactly what experienced runners know that beginners do not yet believe.`,
+    vocabulary: [
+      { word: 'theoretical', definition: 'Based on ideas or concepts rather than actual experience; existing in theory but not fully felt in reality.', example: 'After hours in the cold, the warmth of the fire felt almost theoretical — she could barely feel it.' },
+      { word: 'give way', definition: 'To break down, collapse, or release — can be physical or emotional.', example: 'After weeks of holding it together, her composure finally gave way and she cried.' },
+      { word: 'glycogen', definition: 'A form of stored energy (carbohydrate) that the body draws on during physical activity.', example: 'Athletes eat carbohydrates before a race to maximize their glycogen stores.' },
+      { word: 'emotional regulation', definition: 'The ability to manage and control one\'s own feelings and emotional responses.', example: 'Good sleep helps with emotional regulation, making it easier to stay calm under pressure.' },
+      { word: 'elite', definition: 'Among the very best; at the highest level of skill or performance in a field.', example: 'Elite gymnasts train for hours every day to maintain their competitive edge.' }
+    ],
+    questions: [
+      {
+        question: 'What connection can be made between Darnell\'s experience at mile twenty-two and the information in Passage 2?',
+        options: [
+          'Darnell stopped running at mile twenty-two because he was not well-trained enough.',
+          'Darnell\'s loss of feeling in his legs, mental struggle, and urge to stop match the physiological description of "hitting the wall" — glycogen depletion causing physical and mental collapse.',
+          'Passage 2 explains that marathon runners should never run alone, which is what Darnell did wrong.',
+          'Darnell\'s experience proves that the wall only affects beginner runners, not experienced ones.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 2 describes hitting the wall: sudden fatigue, loss of power, mental despair, and an urge to stop. Darnell experiences all of these — disconnection from his legs, a calf cramp, slowing to a walk, and considering quitting. The scientific explanation in Passage 2 perfectly describes what Darnell physically went through.'
+      },
+      {
+        question: 'What is the THEME of Passage 1?',
+        options: [
+          'Marathons are too dangerous for untrained runners to attempt.',
+          'Proving yourself to others is the most important reason to take on challenges.',
+          'True self-knowledge comes from privately choosing to push through something hard.',
+          'Running injuries can be prevented with proper training.'
+        ],
+        correctIndex: 2,
+        explanation: 'Darnell specifically runs alone, in secret, "because he needed to know — privately, without witnesses — whether he was the kind of person who could finish something this hard." The theme is about internal discovery — what we learn about ourselves when we choose to keep going despite difficulty.'
+      },
+      {
+        question: 'Passage 2 ends with: "The wall is real. But it is also survivable — which is exactly what experienced runners know that beginners do not yet believe." How does Darnell\'s story ILLUSTRATE this statement?',
+        options: [
+          'Darnell is an experienced runner who easily manages his glycogen through nutrition.',
+          'Darnell is a beginner who initially does not believe he can survive the wall, but chooses to continue and discovers it is survivable.',
+          'Darnell proves that believing in yourself eliminates the physical effects of glycogen depletion.',
+          'Darnell\'s story contradicts Passage 2 because he does not use any nutrition strategy during the race.'
+        ],
+        correctIndex: 1,
+        explanation: 'Darnell is not an elite runner — he trained secretly, alone. When he hits the wall, he faces the despair Passage 2 describes ("he thought about stopping"). But he continues, and crosses the finish line. His story is a personal illustration of the statement: the wall is survivable, even for someone who didn\'t know that yet.'
+      },
+      {
+        question: 'The word "theoretical" is used in Passage 1 to describe Darnell\'s connection to his legs. What does this suggest?',
+        options: [
+          'Darnell is thinking about the theory of running while he races.',
+          'The connection between his mind and body still existed in concept but had become so weak that it barely felt real.',
+          'Darnell has studied the science of running and is applying that knowledge.',
+          'His legs have gone completely numb and he can no longer move them.'
+        ],
+        correctIndex: 1,
+        explanation: 'Darnell says his legs are "moving — he could see them moving — but the connection...had become something theoretical." This means the link still existed technically, but had become so faint it barely felt like a real experience. It is a precise description of the dissociation that glycogen depletion causes, as described in Passage 2.'
+      },
+      {
+        question: 'What do BOTH passages agree on?',
+        options: [
+          'Runners should always train with a team for safety and motivation.',
+          'The hardest part of a marathon is physical, not mental.',
+          'The wall is a real, difficult experience — but it can be overcome.',
+          'Only elite runners should attempt to run a full marathon.'
+        ],
+        correctIndex: 2,
+        explanation: 'Passage 2 states directly: "The wall is real. But it is also survivable." Passage 1 shows Darnell experiencing exactly this — the wall nearly stops him, but he continues and finishes. Both passages agree that the difficulty is genuine but not insurmountable.'
+      }
+    ]
+  },
+
+  // ── PAIRED 4 ── ELA.4.R.2.1 + ELA.4.R.2.3 | Florida History | Two accounts of same event
+  {
+    id: 'hurricane-paired',
+    title: 'The Storm That Changed Florida — Paired Passages',
+    topic: 'florida-history',
+    coverEmoji: '🌀',
+    coverColor: '#374151',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 410,
+    readTimeMin: 3,
+    paired: true,
+    text: `**PAIRED PASSAGES** — Read both passages, then answer the questions.
+
+---
+
+**Passage 1 — Historical Fiction**
+*"The Morning After"*
+
+The morning after the hurricane, Clara walked out of the school gymnasium where her family had sheltered and did not recognize the street she had lived on for nine years.
+
+The oaks were down. Three of them — the ones she used to climb — lay across the road like fallen soldiers, roots pointing skyward, dirt still clinging to them. Mrs. Okafor's front porch had migrated into the intersection. A car she did not recognize sat upside-down in what had been, yesterday, somebody's front yard.
+
+Her mother put a hand on her shoulder. "It will be rebuilt," she said.
+
+Clara had heard this phrase before, in history class. Hurricanes, her teacher had said, had shaped Florida more than almost anything else — the land, the laws, the way people built their houses. Every devastating storm brought new building codes, new **evacuation** routes, new knowledge about how to survive the next one.
+
+She looked at the overturned car. At the vanished porch. At the great roots reaching at the sky.
+
+"How long?" she asked.
+
+Her mother squeezed her shoulder. "Longer than we want. Not as long as it feels."
+
+---
+
+**Passage 2 — Informational**
+*"How Hurricanes Shaped Modern Florida"*
+
+Florida has been struck by more major hurricanes than any other U.S. state. This is not a coincidence — Florida's position at the meeting point of the warm Gulf of Mexico and the Atlantic Ocean, combined with its long coastline, makes it uniquely exposed to tropical storms.
+
+The consequences of this history go far beyond the storms themselves. Each major hurricane has directly changed how Florida is built, governed, and **prepared**.
+
+The 1926 Miami Hurricane nearly destroyed the city and ended Florida's first real estate boom, demonstrating that rapid, unplanned development had created a fragile and **vulnerable** coastline. After Hurricane Donna in 1960 and Hurricane Andrew in 1992 — which leveled entire neighborhoods in Miami-Dade County and caused $27 billion in damage — Florida overhauled its building codes. Modern Florida homes must be constructed to withstand winds exceeding 140 miles per hour, one of the strictest standards in the world.
+
+Florida also developed one of the most **sophisticated** evacuation systems in the United States, with clearly marked evacuation zones, coordinated shelter networks, and mandatory evacuation orders that have saved thousands of lives.
+
+Scientists warn that as ocean temperatures rise due to climate change, hurricanes are expected to become more intense. Florida's challenge is not simply recovering from storms — it is building a state that can **absorb** repeated, more powerful impacts while still growing.
+
+The storms do not stop. But neither does Florida.`,
+    vocabulary: [
+      { word: 'evacuation', definition: 'The organized removal of people from a dangerous area to safety.', example: 'The evacuation of the coastal towns began as soon as the hurricane warning was issued.' },
+      { word: 'vulnerable', definition: 'Easily hurt or damaged; exposed to risk.', example: 'Beachfront homes are especially vulnerable to storm surge during hurricanes.' },
+      { word: 'sophisticated', definition: 'Complex, well-developed, and effective; showing advanced knowledge or skill.', example: 'The hospital\'s sophisticated equipment allowed doctors to detect problems early.' },
+      { word: 'absorb', definition: 'To take in and deal with something without being destroyed or overwhelmed by it.', example: 'The thick walls absorbed most of the sound from outside.' },
+      { word: 'overhaul', definition: 'To completely examine and make major improvements or changes to something.', example: 'After several accidents, the factory overhauled its entire safety system.' }
+    ],
+    questions: [
+      {
+        question: 'Clara\'s mother says the street "will be rebuilt." Which detail from Passage 2 BEST supports this statement?',
+        options: [
+          'The fact that Florida has stricter building codes than almost any other state.',
+          'The fact that Florida has been struck by more major hurricanes than any other U.S. state.',
+          'The fact that Hurricane Andrew caused $27 billion in damage.',
+          'The fact that scientists warn hurricanes will become more intense.'
+        ],
+        correctIndex: 0,
+        explanation: 'Passage 2 explains that Florida\'s strict building codes and evacuation systems were developed specifically to survive and recover from hurricanes. These systems exist to make recovery — rebuilding — possible. This directly supports the mother\'s confidence that things will be rebuilt.'
+      },
+      {
+        question: 'Clara\'s teacher told the class that hurricanes "shaped Florida more than almost anything else." How does Passage 2 SUPPORT this claim?',
+        options: [
+          'By explaining that Florida\'s location makes it impossible to avoid hurricanes.',
+          'By showing that major hurricanes directly caused changes to Florida\'s building codes, evacuation systems, and development practices.',
+          'By listing the specific damage cost of Hurricane Andrew.',
+          'By warning that future hurricanes will be even more powerful.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 2 provides specific examples of how storms changed Florida: the 1926 hurricane ended a real estate boom; Andrew led to overhauled building codes; the storm history created one of the nation\'s most sophisticated evacuation systems. Each storm changed something permanently — directly supporting the teacher\'s claim.'
+      },
+      {
+        question: 'How does the STRUCTURE of Passage 2 help the reader understand its main idea?',
+        options: [
+          'It lists events in random order to show that hurricanes are unpredictable.',
+          'It uses a cause-and-effect structure, showing how each major storm caused specific changes to Florida\'s laws, buildings, and preparation.',
+          'It compares Florida\'s hurricanes to those in other states.',
+          'It presents the story of one hurricane from beginning to end.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 2 consistently links specific storms to specific outcomes: the 1926 hurricane → exposed fragile development; Andrew → new building codes; storm history → sophisticated evacuation systems. This cause-and-effect structure supports the central idea that hurricanes shaped Florida.'
+      },
+      {
+        question: 'Both passages describe the same type of event but from different perspectives. What does Passage 1 provide that Passage 2 does NOT?',
+        options: [
+          'Scientific explanations of why Florida gets so many hurricanes.',
+          'Specific statistics about the cost of hurricane damage.',
+          'An emotional, human perspective that shows how a storm feels to someone living through its aftermath.',
+          'Information about how Florida\'s building codes have changed over time.'
+        ],
+        correctIndex: 2,
+        explanation: 'Passage 1 is a personal narrative — Clara\'s experience of loss and disorientation in her own neighborhood. Passage 2 provides facts and analysis but no emotional perspective. Only Passage 1 gives readers a sense of what it actually feels like to live through a hurricane\'s aftermath.'
+      },
+      {
+        question: 'Passage 2 ends: "The storms do not stop. But neither does Florida." What is the AUTHOR\'S PERSPECTIVE in this sentence?',
+        options: [
+          'The author believes Florida will eventually be destroyed by hurricanes.',
+          'The author is frustrated that Florida has not done enough to prepare.',
+          'The author views Florida as resilient — a place that endures and adapts rather than surrendering to repeated disasters.',
+          'The author is neutral and presents no opinion about Florida\'s future.'
+        ],
+        correctIndex: 2,
+        explanation: 'The parallel structure — "The storms do not stop. But neither does Florida." — places Florida\'s persistence as equal to the persistence of the storms. The author is clearly presenting Florida as resilient. This is not a neutral observation — it is a deliberate framing that shows admiration for the state\'s ability to endure.'
+      }
+    ]
+  }
+
 ];

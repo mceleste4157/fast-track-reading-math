@@ -223,6 +223,7 @@
         <input class="search-input" id="student-search" placeholder="🔍 Search by name, grade, or parent…" oninput="filterStudents()" />
         <span class="count-badge" id="student-count">Loading…</span>
         <button class="btn-refresh" onclick="loadStudents()">↻ Refresh</button>
+        <button class="btn-refresh" id="export-btn" onclick="exportCSV()">📥 Export CSV</button>
       </div>
       <div class="table-wrap">
         <table>
@@ -634,6 +635,30 @@
         if (s) s.archived = !currentlyArchived;
         renderSuggestions();
       }).catch(err => alert('Could not update: ' + err.message));
+  }
+
+  // ── CSV Export ─────────────────────────────────────────────────────────────
+  function exportCSV() {
+    if (!allStudents.length) { alert('Load students first.'); return; }
+    const headers = ['Name','Grade','Parent','XP','Level','Streak','Stories This Week','Math Topics','Last Active','Reader ID'];
+    const rows = allStudents.map(s => [
+      s.name || '',
+      s.gradeLevel || '',
+      s.parentName || '',
+      s.xp,
+      getLevel(s.xp).name,
+      s.stats.currentStreak || 0,
+      s.stats.storiesThisWeek || 0,
+      s.mathTopics,
+      s.stats.lastReadDate || '',
+      s.readerId || ''
+    ].map(v => '"' + String(v).replace(/"/g, '""') + '"').join(','));
+    const csv  = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = 'fast-track-students-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click(); URL.revokeObjectURL(url);
   }
 </script>
 </body>

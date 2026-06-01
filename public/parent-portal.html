@@ -310,7 +310,53 @@
       </div>
       <div class="rn-body">
 
-        <div class="rn-date">June 1, 2026</div>
+        <div class="rn-date">June 1, 2026 — Latest Update</div>
+        <div class="rn-section">
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">🧊</div>
+              <div class="rn-item-text"><strong>Streak Freeze</strong> — Earned every 7-day streak milestone. If a child misses a day, it auto-applies and saves their streak.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📖</div>
+              <div class="rn-item-text"><strong>4 Paired Passages</strong> — More FAST ELA format practice: Florida Springs, Manatees, Marathon Running, and Florida Hurricanes (50 stories total).</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">💬</div>
+              <div class="rn-item-text"><strong>Parent message to child</strong> — Leave an encouraging note in Edit; your child sees it as a toast when they log in.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📱</div>
+              <div class="rn-item-text"><strong>Add to Home Screen</strong> — FAST Track can now be installed on phones and tablets for quick app-like access.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🌟</div>
+              <div class="rn-item-text"><strong>Daily login bonus</strong> — Kids earn +10 XP just for showing up each day.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🎮</div>
+              <div class="rn-item-text"><strong>Vocab Games</strong> — Word Match and Fill in the Blank games built from story vocab. Find them in the library nav.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📈</div>
+              <div class="rn-item-text"><strong>Week-over-week trends</strong> — Parent view shows ↑↓ arrows comparing this week's reading and math to last week.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">⚠️</div>
+              <div class="rn-item-text"><strong>Inactivity alerts</strong> — Parent portal flags children who haven't logged in for 3+ days, with a Send Reminder button.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📥</div>
+              <div class="rn-item-text"><strong>CSV export</strong> — Admin dashboard can now download all student progress as a spreadsheet.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🏆</div>
+              <div class="rn-item-text"><strong>Grade completion certificate</strong> — A printable certificate appears on the Quest Board when a child finishes every story for their grade.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-date">June 1, 2026 — Earlier</div>
         <div class="rn-section">
           <div class="rn-items">
             <div class="rn-item">
@@ -535,6 +581,12 @@
         </select>
       </div>
 
+      <!-- Parent message to child -->
+      <div class="form-group">
+        <label for="f-message">Message to child <span style="color:#6b7280;font-weight:500;">(shown at login)</span></label>
+        <input type="text" id="f-message" placeholder="e.g. 'Great job this week! Keep it up! 🌟'" maxlength="120" />
+      </div>
+
       <!-- Read-Aloud Setting -->
       <div class="form-group" style="margin-top:4px;">
         <label for="f-read-aloud">Read-Aloud</label>
@@ -632,6 +684,13 @@
         <button type="button" class="btn-cancel-form" id="form-cancel-btn">Cancel</button>
         <button type="button" class="btn-submit" id="form-submit-btn">Save Child</button>
       </div>
+    </div>
+
+    <!-- Inactivity Alert -->
+    <div id="inactivity-section" style="display:none;margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+      <div class="section-heading">⚠️ Needs Attention</div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;">Children who haven't logged in for 3 or more days.</p>
+      <div id="inactivity-list"></div>
     </div>
 
     <!-- Sibling Comparison -->
@@ -1067,7 +1126,8 @@
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
               readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on'),
               dailyScreenMins:   kid.dailyScreenMins  ?? 60,
-              activeDays:        kid.activeDays        ?? [0,1,2,3,4,5,6]
+              activeDays:        kid.activeDays        ?? [0,1,2,3,4,5,6],
+              parentMessage:     kid.parentMessage      || ''
             }));
             window.location.href = 'index.html';
           }
@@ -1093,6 +1153,7 @@
         area.innerHTML = '';
         area.appendChild(grid);
         loadCompare(children);
+        checkInactivity(children);
       });
     }
 
@@ -1177,6 +1238,7 @@
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
       document.getElementById('f-read-aloud').value   = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
       document.getElementById('f-screen-mins').value  = child.dailyScreenMins ?? 60;
+      document.getElementById('f-message').value      = child.parentMessage || '';
       const activeDays = child.activeDays ?? [0,1,2,3,4,5,6];
       document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => {
         cb.checked = activeDays.includes(parseInt(cb.value));
@@ -1259,6 +1321,7 @@
           readAloudMode:     readAloudMode,
           dailyScreenMins:   dailyScreenMins,
           activeDays:        activeDays,
+          parentMessage:     document.getElementById('f-message').value.trim(),
           timestamp:         firebase.firestore.FieldValue.serverTimestamp()
         };
         // Only update readerId if legacyId provided and different
@@ -1289,6 +1352,7 @@
           readAloudMode:     readAloudMode,
           dailyScreenMins:   dailyScreenMins,
           activeDays:        activeDays,
+          parentMessage:     document.getElementById('f-message').value.trim(),
           parentUid:         currentUser.uid,
           readerId:          legacyId || '', // filled in after .add() if blank
           createdAt:   firebase.firestore.FieldValue.serverTimestamp(),
@@ -1591,6 +1655,44 @@
             <div style="height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden;">
               <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--purple),var(--blue));border-radius:99px;transition:width 0.8s;"></div>
             </div>
+          </div>`;
+        }).join('');
+      });
+    }
+
+    // ── Inactivity check ──────────────────────────────────────────────────────
+    function checkInactivity(children) {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const today = new Date(todayStr);
+      const inactivePromises = children.map(child =>
+        db.collection('StudentStats').doc(child.readerId).get()
+          .then(s => ({ child, lastRead: s.exists ? (s.data().lastReadDate || '') : '' }))
+          .catch(() => ({ child, lastRead: '' }))
+      );
+      Promise.all(inactivePromises).then(results => {
+        const inactive = results.filter(({ lastRead }) => {
+          if (!lastRead) return true;
+          const diff = Math.floor((today - new Date(lastRead)) / (1000 * 60 * 60 * 24));
+          return diff >= 3;
+        });
+        if (!inactive.length) return;
+        const section = document.getElementById('inactivity-section');
+        const list    = document.getElementById('inactivity-list');
+        section.style.display = 'block';
+        list.innerHTML = inactive.map(({ child, lastRead }) => {
+          const days = lastRead
+            ? Math.floor((today - new Date(lastRead)) / (1000 * 60 * 60 * 24))
+            : null;
+          const color = child.avatarColor || '#7c3aed';
+          const emoji = child.avatarEmoji || child.name.charAt(0).toUpperCase();
+          return `<div style="display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--orange);box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <div style="width:38px;height:38px;border-radius:50%;background:${escHtml(color)};display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;">${escHtml(emoji)}</div>
+            <div style="flex:1;">
+              <div style="font-weight:800;font-size:0.95rem;">${escHtml(child.name)}</div>
+              <div style="font-size:0.82rem;color:var(--muted);">${days !== null ? days + ' days since last activity' : 'No activity recorded yet'}</div>
+            </div>
+            <a href="mailto:?subject=Time+to+read!&body=Hey+${encodeURIComponent(child.name)}%2C+your+reading+streak+is+waiting+for+you+on+FAST+Track!+Log+in+today+%F0%9F%93%9A"
+              style="padding:8px 14px;background:var(--orange);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Send Reminder</a>
           </div>`;
         }).join('');
       });

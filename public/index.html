@@ -607,7 +607,31 @@
 
       // ── Streak from StudentStats ──────────────────────────────────────────────
       const sd = statsSnap.exists ? statsSnap.data() : {};
-      const currentStreak = sd.currentStreak || 0;
+      let currentStreak = sd.currentStreak || 0;
+      const longestStreak = sd.longestStreak || 0;
+      const freezeTokens  = sd.freezeTokens  || 0;
+      // Auto-apply freeze if streak would break
+      const lastRead = sd.lastReadDate || '';
+      const todayCheck = new Date().toISOString().slice(0,10);
+      const yday = new Date(); yday.setDate(yday.getDate()-1);
+      const ydayStr = yday.toISOString().slice(0,10);
+      const twoDaysAgo = new Date(); twoDaysAgo.setDate(twoDaysAgo.getDate()-2);
+      const twoDaysStr = twoDaysAgo.toISOString().slice(0,10);
+      if (lastRead === twoDaysStr && freezeTokens > 0 && currentStreak > 0) {
+        // Missed yesterday but have a freeze — restore streak
+        firebase.firestore().collection('StudentStats').doc(profile.readerId).update({
+          lastReadDate: ydayStr,
+          freezeTokens: freezeTokens - 1
+        }).catch(() => {});
+        // Show freeze used toast
+        setTimeout(() => {
+          const t = document.createElement('div');
+          t.textContent = '🧊 Streak Freeze used! Your ' + currentStreak + '-day streak is saved.';
+          t.style.cssText = 'position:fixed;top:74px;left:50%;transform:translateX(-50%);background:#0891b2;color:#fff;padding:11px 20px;border-radius:12px;font-weight:700;font-size:0.88rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);max-width:360px;text-align:center;';
+          document.body.appendChild(t);
+          setTimeout(() => t.remove(), 4000);
+        }, 500);
+      }
 
       // Streak / warning banner
       const bannerEl = document.getElementById('streak-banner');
@@ -648,6 +672,13 @@
       document.getElementById('s-xp').textContent      = effectiveXp;
       document.getElementById('s-stories').textContent = uniqueStories.size;
       document.getElementById('s-math').textContent    = uniqueMath.size + '/' + MATH_SETS.length;
+
+      if (freezeTokens > 0) {
+        const streakEl = document.getElementById('streak-banner');
+        if (streakEl && streakEl.style.display !== 'none') {
+          streakEl.innerHTML += ' <span style="font-size:0.82rem;background:rgba(255,255,255,0.3);border-radius:8px;padding:2px 8px;margin-left:6px;">🧊 ×' + freezeTokens + ' freeze</span>';
+        }
+      }
 
       // Level (based on effectiveXp — shows lower level if inactive)
       const { level, nextLevel } = getLevel(effectiveXp);
@@ -753,6 +784,71 @@
           timer = setTimeout(() => { taps = 0; }, 800);
         }
       });
+    })();
+
+    // ─── PWA install prompt ───────────────────────────────────────────────────
+    (function () {
+      let deferredPrompt = null;
+      const DISMISSED_KEY = 'pwaPromptDismissed';
+      if (localStorage.getItem(DISMISSED_KEY)) return;
+      window.addEventListener('beforeinstallprompt', e => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const banner = document.createElement('div');
+        banner.id = 'pwa-banner';
+        banner.style.cssText = 'position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#1e1b4b;color:#fff;border-radius:14px;padding:12px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25);z-index:50;max-width:360px;width:90vw;font-family:inherit;';
+        banner.innerHTML = `<div style="font-size:1.5rem;">📱</div><div style="flex:1;font-size:0.88rem;font-weight:600;">Add FAST Track to your home screen for quick access!</div><button id="pwa-install" style="background:#7c3aed;color:#fff;border:none;border-radius:9px;padding:8px 13px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;font-size:0.82rem;">Install</button><button id="pwa-dismiss" style="background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:1.1rem;padding:4px;">✕</button>`;
+        document.body.appendChild(banner);
+        document.getElementById('pwa-install').addEventListener('click', () => {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(() => { banner.remove(); deferredPrompt = null; });
+        });
+        document.getElementById('pwa-dismiss').addEventListener('click', () => {
+          banner.remove(); localStorage.setItem(DISMISSED_KEY, '1');
+        });
+      });
+    })();
+
+    // ─── Daily login bonus (+10 XP) ───────────────────────────────────────────
+    (function () {
+      if (!profile) return;
+      const BONUS_KEY = 'dailyBonus_' + profile.readerId;
+      const todayStr  = new Date().toISOString().slice(0, 10);
+      if (localStorage.getItem(BONUS_KEY) === todayStr) return;
+      localStorage.setItem(BONUS_KEY, todayStr);
+      // Write +10 XP to Firestore
+      firebase.firestore().collection('Progress').add({
+        readerId:   profile.readerId,
+        readerName: profile.name,
+        storyId:    '__daily_bonus__',
+        storyTitle: 'Daily Login Bonus',
+        storyTopic: 'bonus',
+        quizScore:  0, quizTotal: 0, starsEarned: 0,
+        xpEarned:   10,
+        completedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        const toast = document.createElement('div');
+        toast.textContent = '🌟 Daily bonus! +10 XP for showing up today!';
+        toast.style.cssText = 'position:fixed;top:74px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:11px 20px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(124,58,237,0.35);max-width:360px;text-align:center;';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3500);
+      }).catch(() => {});
+    })();
+
+    // ─── Parent message ────────────────────────────────────────────────────────
+    (function () {
+      if (!profile || !profile.parentMessage) return;
+      const MSG_KEY = 'lastSeenMsg_' + profile.readerId;
+      if (localStorage.getItem(MSG_KEY) === profile.parentMessage) return;
+      localStorage.setItem(MSG_KEY, profile.parentMessage);
+      setTimeout(() => {
+        const toast = document.createElement('div');
+        toast.style.cssText = 'position:fixed;top:74px;left:50%;transform:translateX(-50%);background:#fff;color:#1e1b4b;border:2px solid #7c3aed;padding:14px 20px;border-radius:14px;font-weight:700;font-size:0.92rem;z-index:9999;box-shadow:0 4px 20px rgba(124,58,237,0.2);max-width:380px;text-align:center;line-height:1.5;';
+        toast.innerHTML = '💬 Message from your parent:<br><span style="font-weight:500;font-size:0.88rem;">' + profile.parentMessage.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 6000);
+      }, 1500);
     })();
   </script>
 </body>

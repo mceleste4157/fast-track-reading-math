@@ -461,18 +461,34 @@
       let currentStreak = sd.currentStreak || 0;
       let longestStreak = sd.longestStreak || 0;
       const isFirstToday = lastReadDate !== todayStr;
+      let earnedFreeze = false;
       if (isFirstToday) {
         const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
         const yStr = yesterday.toISOString().slice(0, 10);
         currentStreak = lastReadDate === yStr ? currentStreak + 1 : 1;
         longestStreak = Math.max(longestStreak, currentStreak);
         showStreakBanner(currentStreak);
+        // Award a freeze token every 7-day streak milestone
+        if (currentStreak > 0 && currentStreak % 7 === 0) earnedFreeze = true;
+      }
+      const priorFreezes  = sd.freezeTokens || 0;
+      const freezeTokens  = priorFreezes + (earnedFreeze ? 1 : 0);
+      if (earnedFreeze) {
+        setTimeout(() => {
+          const toast = document.createElement('div');
+          toast.textContent = '🧊 Streak Freeze earned! You can use it to protect your streak if you miss a day.';
+          toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#0891b2;color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;font-size:0.88rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);max-width:380px;text-align:center;';
+          document.body.appendChild(toast);
+          setTimeout(() => toast.remove(), 4000);
+        }, 2000);
       }
 
       // Weekly counts
       const isNewWeek = (sd.weekStartDate || '') !== weekStart;
       const storiesThisWeek = (isNewWeek ? 0 : (sd.storiesThisWeek || 0)) + 1;
       const mathThisWeek    = isNewWeek ? 0 : (sd.mathThisWeek || 0);
+      const lastWeekStories = isNewWeek ? (sd.storiesThisWeek || 0) : (sd.lastWeekStories || 0);
+      const lastWeekMath    = isNewWeek ? (sd.mathThisWeek    || 0) : (sd.lastWeekMath    || 0);
 
       // Weekly goal celebration
       const weeklyGoal = profile.weeklyGoalStories || 3;
@@ -499,7 +515,7 @@
         readerId: profile.readerId,
         currentStreak, longestStreak,
         lastReadDate: todayStr, weekStartDate: weekStart,
-        storiesThisWeek, mathThisWeek,
+        storiesThisWeek, mathThisWeek, freezeTokens, lastWeekStories, lastWeekMath,
         badges: [...currentBadges, ...newBadgeIds],
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
       }, { merge: true }).catch(() => {});

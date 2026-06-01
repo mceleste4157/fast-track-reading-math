@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocab Games – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --blue: #2563eb; --blue-soft: #dbeafe;
+      --green: #10b981; --green-soft: #d1fae5;
+      --red: #ef4444; --red-soft: #fee2e2;
+      --orange: #f59e0b;
+      --bg: linear-gradient(135deg,#faf5ff 0%,#eff6ff 50%,#fff7ed 100%);
+      --surface: #fff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-back  { text-decoration: none; color: var(--purple); font-weight: 700; font-size: 0.95rem; }
+    .nav-title { font-weight: 800; font-size: 1.1rem; flex: 1; text-align: center; }
+
+    .page { max-width: 680px; margin: 0 auto; padding: 28px 16px 80px; }
+
+    .hero {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      border-radius: 20px; padding: 22px 28px; color: #fff;
+      display: flex; align-items: center; gap: 18px; margin-bottom: 28px;
+    }
+    .hero-icon { font-size: 3rem; flex-shrink: 0; }
+    .hero-body h1 { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; }
+    .hero-body p  { font-size: 0.9rem; opacity: 0.88; }
+
+    /* Mode picker */
+    .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+    .mode-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 14px rgba(124,58,237,0.09);
+      padding: 24px 20px; text-align: center; cursor: pointer;
+      border: 3px solid transparent; transition: border-color 0.15s, transform 0.12s;
+    }
+    .mode-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+    .mode-card-icon  { font-size: 2.4rem; margin-bottom: 10px; }
+    .mode-card-title { font-size: 1rem; font-weight: 800; margin-bottom: 4px; }
+    .mode-card-desc  { font-size: 0.82rem; color: var(--muted); }
+
+    /* Shared game UI */
+    .game-area { display: none; }
+    .game-area.active { display: block; }
+
+    .prog-wrap { margin-bottom: 20px; }
+    .prog-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
+    .prog-bar { height: 8px; background: #e5e7eb; border-radius: 99px; overflow: hidden; }
+    .prog-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--blue)); border-radius: 99px; transition: width 0.4s; }
+
+    .score-row { display: flex; gap: 10px; margin-bottom: 20px; }
+    .score-pill { padding: 6px 14px; border-radius: 99px; font-size: 0.82rem; font-weight: 800; }
+    .score-pill.correct { background: var(--green-soft); color: #065f46; }
+    .score-pill.wrong   { background: var(--red-soft);   color: #7f1d1d; }
+
+    /* ── MATCHING GAME ── */
+    .match-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .match-col { display: flex; flex-direction: column; gap: 8px; }
+    .match-chip {
+      padding: 12px 14px; border-radius: 12px; font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; border: 2px solid var(--border); background: var(--surface);
+      text-align: center; line-height: 1.4; transition: border-color 0.15s, background 0.15s;
+      min-height: 56px; display: flex; align-items: center; justify-content: center;
+    }
+    .match-chip.word { background: var(--purple-soft); border-color: var(--purple); color: var(--purple); }
+    .match-chip.def  { background: var(--blue-soft);   border-color: var(--blue);   color: var(--blue); }
+    .match-chip.selected { transform: scale(1.03); box-shadow: 0 4px 14px rgba(124,58,237,0.2); }
+    .match-chip.matched-ok  { background: var(--green-soft); border-color: var(--green); color: #065f46; cursor: default; }
+    .match-chip.matched-err { background: var(--red-soft);   border-color: var(--red);   color: #7f1d1d; }
+    .match-chip.matched-err { animation: shake 0.3s ease; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+
+    /* ── FILL IN THE BLANK ── */
+    .fitb-card {
+      background: var(--surface); border-radius: var(--radius);
+      box-shadow: 0 2px 14px rgba(124,58,237,0.09);
+      padding: 26px; margin-bottom: 18px;
+    }
+    .fitb-sentence {
+      font-size: 1.1rem; font-weight: 600; line-height: 1.8; margin-bottom: 18px;
+      color: var(--text);
+    }
+    .fitb-blank { display: inline-block; min-width: 140px; border-bottom: 3px solid var(--purple); margin: 0 4px; text-align: center; font-weight: 800; color: var(--purple); }
+    .choices { display: flex; flex-wrap: wrap; gap: 10px; }
+    .choice-btn {
+      padding: 10px 18px; border-radius: 10px; border: 2px solid var(--border);
+      background: var(--surface); font-size: 0.92rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; color: var(--text);
+      transition: border-color 0.12s, background 0.12s;
+    }
+    .choice-btn:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-soft); color: var(--purple); }
+    .choice-btn.correct { background: var(--green-soft); border-color: var(--green); color: #065f46; }
+    .choice-btn.wrong   { background: var(--red-soft);   border-color: var(--red);   color: #7f1d1d; }
+    .fitb-feedback { font-size: 0.88rem; font-weight: 700; margin-top: 14px; min-height: 1.4em; }
+    .fitb-feedback.ok  { color: var(--green); }
+    .fitb-feedback.err { color: var(--red); }
+    .next-btn {
+      margin-top: 16px; padding: 11px 24px; background: var(--purple); color: #fff;
+      border: none; border-radius: 11px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; display: none;
+    }
+    .next-btn:hover { background: #6d28d9; }
+
+    /* Results */
+    .results-area { text-align: center; }
+    .results-big { font-size: 3.2rem; font-weight: 800; color: var(--purple); }
+    .results-msg { font-size: 1rem; color: var(--muted); margin: 6px 0 24px; }
+    .play-again-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .play-btn {
+      padding: 12px 22px; border-radius: 12px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; border: none;
+    }
+    .play-btn.primary { background: var(--purple); color: #fff; }
+    .play-btn.secondary { background: var(--surface); color: var(--text); border: 2px solid var(--border); }
+
+    .spinner { width: 32px; height: 32px; border: 4px solid #e5e7eb; border-top-color: var(--purple); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 40px auto; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty { text-align: center; padding: 40px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a href="library.html" class="nav-back">← Library</a>
+  <div class="nav-title">🎮 Vocab Games</div>
+</nav>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-icon">🎮</div>
+    <div class="hero-body">
+      <h1>Vocabulary Games</h1>
+      <p>Practice words from stories you've read — two fun game modes!</p>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div id="loading"><div class="spinner"></div></div>
+
+  <!-- Mode picker -->
+  <div class="mode-grid" id="mode-picker" style="display:none;">
+    <div class="mode-card" onclick="startGame('match')">
+      <div class="mode-card-icon">🔗</div>
+      <div class="mode-card-title">Word Match</div>
+      <div class="mode-card-desc">Connect each word to its definition</div>
+    </div>
+    <div class="mode-card" onclick="startGame('fitb')">
+      <div class="mode-card-icon">✏️</div>
+      <div class="mode-card-title">Fill in the Blank</div>
+      <div class="mode-card-desc">Pick the right word to complete the sentence</div>
+    </div>
+  </div>
+
+  <!-- Matching game -->
+  <div class="game-area" id="match-area">
+    <div class="prog-wrap">
+      <div class="prog-label"><span id="match-prog-label">Matched 0 of 6</span><span id="match-score-label"></span></div>
+      <div class="prog-bar"><div class="prog-fill" id="match-prog" style="width:0%"></div></div>
+    </div>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;">Tap a word, then tap its definition to match them.</p>
+    <div class="match-grid">
+      <div class="match-col" id="match-words"></div>
+      <div class="match-col" id="match-defs"></div>
+    </div>
+  </div>
+
+  <!-- Fill in the blank -->
+  <div class="game-area" id="fitb-area">
+    <div class="prog-wrap">
+      <div class="prog-label"><span id="fitb-prog-label">Question 1 of 10</span><span id="fitb-score-label"></span></div>
+      <div class="prog-bar"><div class="prog-fill" id="fitb-prog" style="width:0%"></div></div>
+    </div>
+    <div class="fitb-card">
+      <div class="fitb-sentence" id="fitb-sentence"></div>
+      <div class="choices" id="fitb-choices"></div>
+      <div class="fitb-feedback" id="fitb-feedback"></div>
+      <button class="next-btn" id="fitb-next">Next →</button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="game-area" id="results-area">
+    <div class="results-area">
+      <div id="results-emoji" style="font-size:3.5rem;margin-bottom:10px;"></div>
+      <div class="results-big" id="results-score"></div>
+      <div class="results-msg" id="results-msg"></div>
+      <div class="play-again-row">
+        <button class="play-btn primary" onclick="startGame(lastMode)">🔄 Play Again</button>
+        <button class="play-btn secondary" onclick="showModes()">← Change Mode</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="stories.js"></script>
+<script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+<script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script>
+  const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+  if (!profile) { window.location.href = 'index.html'; }
+
+  const db = firebase.firestore();
+  let vocab = [];
+  let lastMode = 'match';
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // Load vocab from completed stories
+  db.collection('Progress').where('readerId', '==', profile.readerId).get().then(snap => {
+    const readIds = new Set();
+    snap.forEach(d => readIds.add(d.data().storyId));
+    STORIES.forEach(s => {
+      if (!readIds.has(s.id)) return;
+      (s.vocabulary || []).forEach(v => {
+        if (v.word && v.definition && v.example) {
+          vocab.push({ word: v.word, definition: v.definition, example: v.example });
+        }
+      });
+    });
+    document.getElementById('loading').style.display = 'none';
+    if (vocab.length < 4) {
+      document.getElementById('loading').innerHTML = `<div class="empty"><div style="font-size:2.5rem;margin-bottom:12px;">📖</div><p style="font-weight:700;font-size:1rem;margin-bottom:8px;">Not enough words yet!</p><p>Complete a few reading quizzes first to unlock vocab game content.</p><a href="library.html" style="display:inline-block;margin-top:16px;padding:11px 22px;background:var(--purple);color:#fff;border-radius:11px;font-weight:700;text-decoration:none;">📚 Go Read</a></div>`;
+      document.getElementById('loading').style.display = 'block';
+      return;
+    }
+    showModes();
+  }).catch(() => {
+    document.getElementById('loading').innerHTML = `<div class="empty">⚠️ Could not load. Try again.</div>`;
+    document.getElementById('loading').style.display = 'block';
+  });
+
+  function showModes() {
+    hideAll();
+    document.getElementById('mode-picker').style.display = 'grid';
+  }
+
+  function hideAll() {
+    document.getElementById('mode-picker').style.display = 'none';
+    document.querySelectorAll('.game-area').forEach(el => el.classList.remove('active'));
+  }
+
+  function showResults(correct, total, mode) {
+    lastMode = mode;
+    hideAll();
+    const pct = Math.round((correct / total) * 100);
+    document.getElementById('results-emoji').textContent = pct === 100 ? '🏆' : pct >= 80 ? '⭐' : pct >= 60 ? '👍' : '📖';
+    document.getElementById('results-score').textContent = correct + ' / ' + total;
+    document.getElementById('results-msg').textContent = pct === 100 ? 'Perfect! You know these words cold.' : pct >= 80 ? 'Great work!' : pct >= 60 ? 'Good effort — keep playing to improve!' : 'Keep reading to build your vocabulary!';
+    document.getElementById('results-area').classList.add('active');
+  }
+
+  // ── MATCHING GAME ──────────────────────────────────────────────────────────
+  function startGame(mode) {
+    lastMode = mode;
+    if (mode === 'match') startMatch();
+    else startFitb();
+  }
+
+  function startMatch() {
+    hideAll();
+    document.getElementById('match-area').classList.add('active');
+    const pool = shuffle(vocab).slice(0, 6);
+    const words = shuffle(pool.map(v => v.word));
+    const defs  = shuffle(pool.map(v => v.definition));
+    const defMap = Object.fromEntries(pool.map(v => [v.word, v.definition]));
+
+    let selectedWord = null;
+    let matched = 0;
+    let errors  = 0;
+    const total = pool.length;
+
+    function updateProg() {
+      document.getElementById('match-prog-label').textContent = 'Matched ' + matched + ' of ' + total;
+      document.getElementById('match-prog').style.width = Math.round((matched / total) * 100) + '%';
+      document.getElementById('match-score-label').textContent = errors + ' mistakes';
+    }
+    updateProg();
+
+    const wordCol = document.getElementById('match-words');
+    const defCol  = document.getElementById('match-defs');
+    wordCol.innerHTML = '';
+    defCol.innerHTML  = '';
+
+    words.forEach(w => {
+      const chip = document.createElement('div');
+      chip.className = 'match-chip word';
+      chip.textContent = w;
+      chip.dataset.word = w;
+      chip.addEventListener('click', () => {
+        if (chip.classList.contains('matched-ok')) return;
+        document.querySelectorAll('.match-chip.word.selected').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        selectedWord = w;
+      });
+      wordCol.appendChild(chip);
+    });
+
+    defs.forEach(d => {
+      const chip = document.createElement('div');
+      chip.className = 'match-chip def';
+      chip.textContent = d;
+      chip.dataset.def = d;
+      chip.addEventListener('click', () => {
+        if (!selectedWord) return;
+        if (chip.classList.contains('matched-ok')) return;
+        const correctDef = defMap[selectedWord];
+        const wordChip = document.querySelector(`.match-chip.word[data-word="${CSS.escape(selectedWord)}"]`);
+        if (d === correctDef) {
+          wordChip.classList.remove('selected');
+          wordChip.classList.add('matched-ok');
+          chip.classList.add('matched-ok');
+          matched++;
+          updateProg();
+          selectedWord = null;
+          if (matched === total) {
+            setTimeout(() => showResults(total - errors, total, 'match'), 600);
+          }
+        } else {
+          errors++;
+          chip.classList.add('matched-err');
+          wordChip.classList.add('matched-err');
+          setTimeout(() => {
+            chip.classList.remove('matched-err');
+            wordChip.classList.remove('matched-err', 'selected');
+            selectedWord = null;
+            updateProg();
+          }, 600);
+        }
+      });
+      defCol.appendChild(chip);
+    });
+  }
+
+  // ── FILL IN THE BLANK ──────────────────────────────────────────────────────
+  let fitbItems = [];
+  let fitbIdx = 0;
+  let fitbCorrect = 0;
+
+  function startFitb() {
+    hideAll();
+    document.getElementById('fitb-area').classList.add('active');
+    fitbItems = shuffle(vocab).slice(0, 10);
+    fitbIdx = 0;
+    fitbCorrect = 0;
+    renderFitb();
+  }
+
+  function renderFitb() {
+    if (fitbIdx >= fitbItems.length) { showResults(fitbCorrect, fitbItems.length, 'fitb'); return; }
+    const item = fitbItems[fitbIdx];
+    const pct  = Math.round((fitbIdx / fitbItems.length) * 100);
+
+    document.getElementById('fitb-prog-label').textContent = 'Question ' + (fitbIdx + 1) + ' of ' + fitbItems.length;
+    document.getElementById('fitb-prog').style.width = pct + '%';
+    document.getElementById('fitb-score-label').textContent = '✅ ' + fitbCorrect + ' correct';
+
+    // Build sentence with blank
+    const sentence = item.example.replace(new RegExp('\\b' + item.word + '\\b', 'i'), '___________');
+    document.getElementById('fitb-sentence').innerHTML = sentence.replace('___________', '<span class="fitb-blank">___________</span>');
+
+    // Build 4 choices — 1 correct + 3 distractors
+    const wrong = shuffle(vocab.filter(v => v.word !== item.word)).slice(0, 3).map(v => v.word);
+    const choices = shuffle([item.word, ...wrong]);
+
+    const choicesEl = document.getElementById('fitb-choices');
+    const feedback  = document.getElementById('fitb-feedback');
+    const nextBtn   = document.getElementById('fitb-next');
+    feedback.textContent = '';
+    feedback.className   = 'fitb-feedback';
+    nextBtn.style.display = 'none';
+
+    choicesEl.innerHTML = '';
+    choices.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = c;
+      btn.addEventListener('click', () => {
+        choicesEl.querySelectorAll('.choice-btn').forEach(b => b.disabled = true);
+        if (c === item.word) {
+          btn.classList.add('correct');
+          feedback.textContent = '✅ Correct! "' + item.word + '" — ' + item.definition;
+          feedback.className = 'fitb-feedback ok';
+          fitbCorrect++;
+          document.getElementById('fitb-sentence').innerHTML = item.example.replace(
+            new RegExp('\\b' + item.word + '\\b', 'i'),
+            '<span class="fitb-blank" style="color:var(--green);">' + item.word + '</span>'
+          );
+        } else {
+          btn.classList.add('wrong');
+          choicesEl.querySelectorAll('.choice-btn').forEach(b => { if (b.textContent === item.word) b.classList.add('correct'); });
+          feedback.textContent = '❌ The answer was: ' + item.word + ' — ' + item.definition;
+          feedback.className = 'fitb-feedback err';
+        }
+        nextBtn.style.display = 'inline-block';
+      });
+      choicesEl.appendChild(btn);
+    });
+
+    nextBtn.onclick = () => { fitbIdx++; renderFitb(); };
+  }
+</script>
+</body>
+</html>
