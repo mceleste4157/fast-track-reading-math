@@ -1189,7 +1189,9 @@
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         const displayName = data.displayName || user.email;
-        document.getElementById('nav-user').textContent = displayName;
+        // Always show email in nav bar
+        document.getElementById('nav-user').textContent = user.email;
+        // Show display name in profile section
         document.getElementById('profile-name-display').textContent = displayName;
         injectAdminLink(user.email);
 
@@ -1244,7 +1246,7 @@
         updatedAt: firebase.firestore.FieldValue.serverTimestamp()
       })
         .then(() => {
-          document.getElementById('nav-user').textContent = newName;
+          // Only update profile display, not nav bar (nav shows email)
           document.getElementById('profile-name-display').textContent = newName;
           document.getElementById('profile-form-card').style.display = 'none';
           btn.disabled = false;
