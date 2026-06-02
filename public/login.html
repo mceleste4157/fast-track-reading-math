@@ -134,6 +134,31 @@
     }
     .auth-forgot:hover { color: var(--purple); }
 
+    .auth-divider {
+      display: flex; align-items: center; gap: 12px; margin: 20px 0;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .auth-divider span {
+      font-size: 0.8rem; font-weight: 600; color: var(--muted);
+    }
+
+    .btn-demo {
+      display: block; width: 100%; padding: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--purple); border: 2px solid var(--purple);
+      border-radius: 12px; font-size: 1.05rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-demo:hover {
+      background: var(--purple-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(124,58,237,0.2);
+    }
+    .btn-demo:active { transform: translateY(0); }
+
     /* Mini PIN numpad for signup */
     .pin-row { display: flex; gap: 10px; justify-content: center; margin: 12px 0 6px; }
     .pin-dot {
@@ -257,6 +282,9 @@
         <button class="btn-auth" id="si-btn">Sign In →</button>
         <button class="auth-forgot" id="si-forgot">Forgot password?</button>
         <div class="auth-error" id="si-error"></div>
+
+        <div class="auth-divider"><span>or</span></div>
+        <button class="btn-demo" id="demo-btn">🎯 Try Demo — No Sign-Up Required</button>
       </div>
 
       <!-- Create Account -->
@@ -499,6 +527,26 @@
       localStorage.removeItem('readerProfile');
       sessionStorage.removeItem('portalPinVerified');
       firebase.auth().signOut();
+    });
+
+    // ── Demo mode ────────────────────────────────────────────────────────────
+    document.getElementById('demo-btn').addEventListener('click', () => {
+      // Create demo profile with all features accessible
+      const demoProfile = {
+        readerId: 'demo-' + Date.now(),
+        name: 'Demo Student',
+        gradeLevel: 3,
+        avatarColor: '#2563eb',
+        avatarEmoji: '🎯',
+        profileDocId: 'demo',
+        weeklyGoalStories: 3,
+        mathUnlockScore: 3,
+        dailyReadMinutes: 30,
+        dailyMathMinutes: 10,
+        isDemo: true  // Flag to show demo banner
+      };
+      localStorage.setItem('readerProfile', JSON.stringify(demoProfile));
+      window.location.href = 'index.html';
     });
   </script>
 </body>
