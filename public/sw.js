@@ -1,8 +1,8 @@
-// FAST Track — Service Worker v5
+// FAST Track — Service Worker v6
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
 // Auto-reload on update
-const CACHE = 'fast-track-v5';
+const CACHE = 'fast-track-v6';
 const STATIC_ASSETS = [
   '/stories.js', '/math-data.js'
 ];
