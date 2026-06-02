@@ -37,8 +37,10 @@ self.addEventListener('fetch', e => {
   const isHTML = e.request.destination === 'document' ||
                  url.endsWith('.html') || url.endsWith('/');
 
-  if (isHTML) {
-    // Network-first: always try to get fresh HTML, fall back to cache if offline
+  const isStories = url.includes('stories.js');
+
+  if (isHTML || isStories) {
+    // Network-first: always try to get fresh HTML/stories, fall back to cache if offline
     e.respondWith(
       fetch(e.request).then(res => {
         if (res.ok) {
