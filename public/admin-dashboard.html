@@ -400,6 +400,8 @@
       if (dataLoadedFlags.profiles && dataLoadedFlags.stats && dataLoadedFlags.progress &&
           dataLoadedFlags.math && dataLoadedFlags.parents) {
 
+        console.log('✅ All data loaded! Building student table...');
+
         // Build parent email map: uid → email
         const parentMap = {};
         parentsData.forEach(d => { parentMap[d.id] = d.data().displayName || d.data().email || d.id; });
@@ -437,6 +439,7 @@
           parentName:   parentMap[d.data().parentUid] || '—'
         })).sort((a, b) => b.xp - a.xp);
 
+        console.log('📋 Rendering', allStudents.length, 'students');
         renderStudents(allStudents);
       }
     };
@@ -444,30 +447,37 @@
     db.collection('StudentProfiles').onSnapshot(snap => {
       profilesData = snap.docs;
       dataLoadedFlags.profiles = true;
+      console.log('📚 StudentProfiles loaded:', snap.size, 'students');
+      snap.docs.forEach(d => console.log('  - Student:', d.data().name, 'Parent UID:', d.data().parentUid));
       checkAndRender();
     });
 
     db.collection('StudentStats').onSnapshot(snap => {
       statsData = snap.docs;
       dataLoadedFlags.stats = true;
+      console.log('📊 StudentStats loaded:', snap.size, 'records');
       checkAndRender();
     });
 
     db.collection('Progress').onSnapshot(snap => {
       progressData = snap.docs;
       dataLoadedFlags.progress = true;
+      console.log('📈 Progress loaded:', snap.size, 'records');
       checkAndRender();
     });
 
     db.collection('MathProgress').onSnapshot(snap => {
       mathData = snap.docs;
       dataLoadedFlags.math = true;
+      console.log('🔢 MathProgress loaded:', snap.size, 'records');
       checkAndRender();
     });
 
     db.collection('ParentProfiles').onSnapshot(snap => {
       parentsData = snap.docs;
       dataLoadedFlags.parents = true;
+      console.log('👨‍👩‍👧 ParentProfiles loaded:', snap.size, 'parents');
+      snap.docs.forEach(d => console.log('  - Parent:', d.data().email || d.data().displayName, 'UID:', d.id));
       checkAndRender();
     });
   }
