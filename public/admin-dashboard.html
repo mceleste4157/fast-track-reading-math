@@ -361,21 +361,23 @@
     loadOverviewStats();
   }
 
-  // ── Overview stats ─────────────────────────────────────────────────────────
+  // ── Overview stats (real-time) ─────────────────────────────────────────────
   function loadOverviewStats() {
-    Promise.all([
-      db.collection('StudentProfiles').get(),
-      db.collection('ParentProfiles').get(),
-      db.collection('Progress').get(),
-      db.collection('MathProgress').get(),
-      db.collection('StudentStats').get(),
-      db.collection('WritingResponses').get()
-    ]).then(([sp, pp, prog, math, stats, wr]) => {
-      document.getElementById('s-students').textContent = sp.size;
-      document.getElementById('s-parents').textContent  = pp.size;
-      document.getElementById('s-stories').textContent  = prog.size;
-      document.getElementById('s-math').textContent     = math.size;
-      document.getElementById('s-writing').textContent  = wr.size;
+    // Real-time listeners for stats
+    db.collection('StudentProfiles').onSnapshot(snap => {
+      document.getElementById('s-students').textContent = snap.size;
+    });
+    db.collection('ParentProfiles').onSnapshot(snap => {
+      document.getElementById('s-parents').textContent = snap.size;
+    });
+    db.collection('Progress').onSnapshot(snap => {
+      document.getElementById('s-stories').textContent = snap.size;
+    });
+    db.collection('MathProgress').onSnapshot(snap => {
+      document.getElementById('s-math').textContent = snap.size;
+    });
+    db.collection('WritingResponses').onSnapshot(snap => {
+      document.getElementById('s-writing').textContent = snap.size;
       // Active this week = students with storiesThisWeek > 0
       let active = 0;
       stats.forEach(d => { if ((d.data().storiesThisWeek || 0) > 0 || (d.data().mathThisWeek || 0) > 0) active++; });
@@ -388,13 +390,15 @@
 
   function loadStudents() {
     document.getElementById('students-tbody').innerHTML = '<tr><td colspan="9"><div class="spinner"></div></td></tr>';
-    Promise.all([
-      db.collection('StudentProfiles').get(),
-      db.collection('StudentStats').get(),
-      db.collection('Progress').get(),
-      db.collection('MathProgress').get(),
-      db.collection('ParentProfiles').get()
-    ]).then(([spSnap, statsSnap, progSnap, mathSnap, ppSnap]) => {
+
+    // Use real-time listener for students
+    db.collection('StudentProfiles').onSnapshot(spSnap => {
+      Promise.all([
+        db.collection('StudentStats').get(),
+        db.collection('Progress').get(),
+        db.collection('MathProgress').get(),
+        db.collection('ParentProfiles').get()
+      ]).then(([statsSnap, progSnap, mathSnap, ppSnap]) => {
 
       // Build parent email map: uid → email
       const parentMap = {};
@@ -433,8 +437,11 @@
         parentName:   parentMap[d.data().parentUid] || '—'
       })).sort((a, b) => b.xp - a.xp);
 
-      renderStudents(allStudents);
-    }).catch(err => {
+        renderStudents(allStudents);
+      }).catch(err => {
+        document.getElementById('students-tbody').innerHTML = `<tr><td colspan="9" style="color:var(--red);padding:20px;">Error: ${escHtml(err.message)}</td></tr>`;
+      });
+    }, err => {
       document.getElementById('students-tbody').innerHTML = `<tr><td colspan="9" style="color:var(--red);padding:20px;">Error: ${escHtml(err.message)}</td></tr>`;
     });
   }
@@ -491,13 +498,14 @@
 
   function loadActivity() {
     document.getElementById('activity-feed').innerHTML = '<div class="spinner"></div>';
+    // Real-time listener for activity
     db.collection('StudentActivity')
       .orderBy('timestamp', 'desc')
       .limit(100)
-      .get().then(snap => {
+      .onSnapshot(snap => {
         allActivity = snap.docs.map(d => ({ id: d.id, ...d.data() }));
         renderActivity(allActivity);
-      }).catch(() => {
+      }, () => {
         document.getElementById('activity-feed').innerHTML = '<div class="empty">Could not load activity.</div>';
       });
   }
@@ -540,13 +548,14 @@
 
   function loadWriting() {
     document.getElementById('writing-feed').innerHTML = '<div class="spinner"></div>';
+    // Real-time listener for writing
     db.collection('WritingResponses')
       .orderBy('timestamp', 'desc')
       .limit(200)
-      .get().then(snap => {
+      .onSnapshot(snap => {
         allWriting = snap.docs.map(d => ({ id: d.id, ...d.data() }));
         renderWriting(allWriting);
-      }).catch(() => {
+      }, () => {
         document.getElementById('writing-feed').innerHTML = '<div class="empty">Could not load writing responses.</div>';
       });
   }
@@ -581,10 +590,11 @@
 
   function loadSuggestions() {
     document.getElementById('sug-feed').innerHTML = '<div class="spinner"></div>';
-    db.collection('Suggestions').orderBy('timestamp', 'desc').get().then(snap => {
+    // Real-time listener for suggestions
+    db.collection('Suggestions').orderBy('timestamp', 'desc').onSnapshot(snap => {
       allSuggestions = snap.docs.map(d => ({ id: d.id, ...d.data() }));
       renderSuggestions();
-    }).catch(() => {
+    }, () => {
       document.getElementById('sug-feed').innerHTML = '<div class="empty">Could not load suggestions.</div>';
     });
   }
