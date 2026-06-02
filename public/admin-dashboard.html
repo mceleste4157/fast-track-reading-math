@@ -393,11 +393,13 @@
 
     // Use real-time listeners for core data
     let profilesData, statsData, progressData, mathData, parentsData;
-    let dataLoaded = 0;
-    const totalSources = 5;
+    const dataLoadedFlags = { profiles: false, stats: false, progress: false, math: false, parents: false };
 
     const checkAndRender = () => {
-      if (dataLoaded === totalSources) {
+      // Only render if all data sources have loaded at least once
+      if (dataLoadedFlags.profiles && dataLoadedFlags.stats && dataLoadedFlags.progress &&
+          dataLoadedFlags.math && dataLoadedFlags.parents) {
+
         // Build parent email map: uid → email
         const parentMap = {};
         parentsData.forEach(d => { parentMap[d.id] = d.data().displayName || d.data().email || d.id; });
@@ -441,31 +443,31 @@
 
     db.collection('StudentProfiles').onSnapshot(snap => {
       profilesData = snap.docs;
-      dataLoaded = Math.max(dataLoaded, 1);
+      dataLoadedFlags.profiles = true;
       checkAndRender();
     });
 
     db.collection('StudentStats').onSnapshot(snap => {
       statsData = snap.docs;
-      dataLoaded = Math.max(dataLoaded, 2);
+      dataLoadedFlags.stats = true;
       checkAndRender();
     });
 
     db.collection('Progress').onSnapshot(snap => {
       progressData = snap.docs;
-      dataLoaded = Math.max(dataLoaded, 3);
+      dataLoadedFlags.progress = true;
       checkAndRender();
     });
 
     db.collection('MathProgress').onSnapshot(snap => {
       mathData = snap.docs;
-      dataLoaded = Math.max(dataLoaded, 4);
+      dataLoadedFlags.math = true;
       checkAndRender();
     });
 
     db.collection('ParentProfiles').onSnapshot(snap => {
       parentsData = snap.docs;
-      dataLoaded = Math.max(dataLoaded, 5);
+      dataLoadedFlags.parents = true;
       checkAndRender();
     });
   }
