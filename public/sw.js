@@ -1,7 +1,8 @@
-// FAST Track — Service Worker v3
+// FAST Track — Service Worker v4
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
-const CACHE = 'fast-track-v3';
+// Auto-reload on update
+const CACHE = 'fast-track-v4';
 const STATIC_ASSETS = [
   '/stories.js', '/math-data.js'
 ];
@@ -14,7 +15,12 @@ self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys => Promise.all(
       keys.filter(k => k !== CACHE).map(k => caches.delete(k))
-    )).then(() => self.clients.claim())
+    )).then(() => self.clients.claim()).then(() => {
+      // Tell all clients to reload when new version activates
+      return self.clients.matchAll().then(clients => {
+        clients.forEach(client => client.postMessage({ type: 'SW_UPDATED' }));
+      });
+    })
   );
 });
 
