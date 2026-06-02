@@ -617,6 +617,10 @@
            </div>`;
     }
 
+    // Auto-unlock math for demo users
+    if (profile.isDemo) {
+      localStorage.setItem(MATH_UNLOCK_KEY, 'true');
+    }
     renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
 
     // ─── Load Firestore stats ──────────────────────────────────────────────────
