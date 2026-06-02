@@ -215,7 +215,7 @@
           <div class="word-num">From: ${escHtml(w.storyTitle)}</div>
           <div class="definition">${escHtml(w.definition)}</div>
           ${w.example ? `<div class="example">"${escHtml(w.example)}"</div>` : ''}
-          <button class="hear-btn" id="hear-btn">🔊 Hear the definition</button>
+          <button class="hear-btn" id="hear-btn">🔊 Hear the word</button>
           <input class="spell-input" id="spell-input" type="text" placeholder="Type the word here…" autocomplete="off" autocorrect="off" spellcheck="false" />
           <div class="feedback" id="feedback"></div>
           <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -236,7 +236,7 @@
       document.getElementById('hear-btn').addEventListener('click', () => {
         if (!window.speechSynthesis) return;
         speechSynthesis.cancel();
-        speechSynthesis.speak(new SpeechSynthesisUtterance(w.definition));
+        speechSynthesis.speak(new SpeechSynthesisUtterance(w.word));
       });
 
       document.getElementById('hint-btn').addEventListener('click', () => {
