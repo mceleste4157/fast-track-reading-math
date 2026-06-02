@@ -284,7 +284,16 @@
 
   <div class="q-dots" id="q-dots"></div>
 
-  <div class="story-pill" id="q-story-pill">📖 Story title</div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+    <div class="story-pill" id="q-story-pill" style="margin-bottom:0;">📖 Story title</div>
+    <button id="q-show-story-btn" onclick="toggleStoryText()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:99px;color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:700;padding:4px 12px;cursor:pointer;font-family:inherit;flex-shrink:0;">📄 Show Story</button>
+  </div>
+
+  <!-- Collapsible story text -->
+  <div id="q-story-text-wrap" style="display:none;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:16px 18px;margin-bottom:18px;max-height:240px;overflow-y:auto;">
+    <div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.5);margin-bottom:10px;">📖 Story Passage</div>
+    <div id="q-story-text" style="font-size:0.88rem;line-height:1.65;color:rgba(255,255,255,0.85);white-space:pre-wrap;"></div>
+  </div>
 
   <div class="q-text" id="q-text">Question goes here</div>
 
@@ -402,14 +411,23 @@
     STORIES.forEach(story => {
       if (!completedStoryIds.has(story.id)) return;
       story.questions.forEach((q, qi) => {
+        // Shuffle options while keeping correctIndex updated
+        const idxMap = q.options.map((_, i) => i);
+        for (let i = idxMap.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [idxMap[i], idxMap[j]] = [idxMap[j], idxMap[i]];
+        }
+        const shuffledOptions = idxMap.map(i => q.options[i]);
+        const newCorrectIndex = idxMap.indexOf(q.correctIndex);
         pool.push({
           question:    q.question,
-          options:     q.options,
-          correctIndex: q.correctIndex,
+          options:     shuffledOptions,
+          correctIndex: newCorrectIndex,
           explanation: q.explanation,
           storyTitle:  story.title,
           storyEmoji:  story.coverEmoji,
           storyId:     story.id,
+          storyText:   story.text,
           qIdx:        qi
         });
       });
@@ -531,6 +549,13 @@
       ROUND_LABELS[currentRound] + ' · Q' + (currentQ + 1) + '/' + QS_PER_ROUND;
     document.getElementById('q-score-live').textContent = totalPoints + ' pts';
     document.getElementById('q-story-pill').textContent = q.storyEmoji + ' ' + q.storyTitle;
+    // Populate story text panel and reset toggle
+    const storyTextEl = document.getElementById('q-story-text');
+    const storyWrap   = document.getElementById('q-story-text-wrap');
+    const storyBtn    = document.getElementById('q-show-story-btn');
+    if (storyTextEl) storyTextEl.textContent = q.storyText || '';
+    if (storyWrap)   storyWrap.style.display = 'none';
+    if (storyBtn)    storyBtn.textContent = '📄 Show Story';
     document.getElementById('q-text').textContent = q.question;
 
     // Progress dots
@@ -720,6 +745,16 @@
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       });
     } catch(e) { /* non-critical */ }
+  }
+
+  // ─── Toggle story text panel ──────────────────────────────────────────────
+  function toggleStoryText() {
+    const wrap = document.getElementById('q-story-text-wrap');
+    const btn  = document.getElementById('q-show-story-btn');
+    if (!wrap) return;
+    const isHidden = wrap.style.display === 'none';
+    wrap.style.display = isHidden ? 'block' : 'none';
+    if (btn) btn.textContent = isHidden ? '📄 Hide Story' : '📄 Show Story';
   }
 
   // ─── Confetti ─────────────────────────────────────────────────────────────
