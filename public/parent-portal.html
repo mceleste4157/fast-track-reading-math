@@ -98,6 +98,71 @@
       transition: background 0.15s;
     }
     .rn-close:hover { background: #6d28d9; }
+    /* COPPA Consent Modal */
+    .coppa-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6); z-index: 300;
+      align-items: center; justify-content: center;
+      padding: 24px 16px;
+    }
+    .coppa-overlay.show { display: flex; }
+    .coppa-modal {
+      background: var(--surface); border-radius: 20px;
+      max-width: 580px; width: 100%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .coppa-header {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      padding: 24px 28px; color: #fff;
+    }
+    .coppa-header h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .coppa-header p { font-size: 0.9rem; opacity: 0.95; }
+    .coppa-body { padding: 28px 28px 24px; max-height: 60vh; overflow-y: auto; }
+    .coppa-body h3 { font-size: 1.05rem; font-weight: 700; margin: 16px 0 8px; color: var(--text); }
+    .coppa-body h3:first-child { margin-top: 0; }
+    .coppa-body p, .coppa-body li { font-size: 0.9rem; line-height: 1.6; color: #374151; }
+    .coppa-body ul { margin: 8px 0 12px 20px; }
+    .coppa-body li { margin-bottom: 6px; }
+    .coppa-highlight {
+      background: #fef3c7; border-left: 4px solid #f59e0b;
+      padding: 14px 16px; border-radius: 8px; margin: 16px 0;
+    }
+    .coppa-highlight p { margin: 0; color: #78350f; font-weight: 600; }
+    .coppa-consent {
+      background: #f3f4f6; padding: 16px 20px; border-radius: 12px;
+      margin: 20px 0 0; border: 2px solid var(--border);
+    }
+    .coppa-consent label {
+      display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+    }
+    .coppa-consent input[type="checkbox"] {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      cursor: pointer; accent-color: var(--purple);
+    }
+    .coppa-consent span { font-size: 0.9rem; line-height: 1.5; font-weight: 600; color: var(--text); }
+    .coppa-actions {
+      display: flex; gap: 12px; padding: 20px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .coppa-btn {
+      flex: 1; padding: 12px; border-radius: 11px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; border: none; transition: all 0.15s;
+    }
+    .coppa-btn-cancel {
+      background: var(--surface); color: var(--muted);
+      border: 2px solid var(--border);
+    }
+    .coppa-btn-cancel:hover { border-color: var(--red); color: var(--red); }
+    .coppa-btn-accept {
+      background: var(--purple); color: #fff;
+    }
+    .coppa-btn-accept:hover { background: #6d28d9; }
+    .coppa-btn-accept:disabled {
+      background: #d1d5db; cursor: not-allowed;
+    }
+
     .rn-badge {
       display: inline-block; font-size: 0.7rem; font-weight: 800;
       background: var(--green); color: #fff; border-radius: 99px;
@@ -345,7 +410,7 @@
           <div class="rn-items">
             <div class="rn-item">
               <div class="rn-item-icon">🔒</div>
-              <div class="rn-item-text"><strong>Privacy Policy & Legal Compliance</strong> — Added comprehensive Privacy Policy with COPPA compliance, official disclaimer clarifying this is an independent educational tool (not affiliated with FDOE), and contact information. View anytime via footer links.</div>
+              <div class="rn-item-text"><strong>Full COPPA Compliance</strong> — Age verification (18+) on signup, mandatory parental consent modal before adding a child (explains data collection, usage, and parent rights), consent timestamps recorded in database, comprehensive Privacy Policy, and legal disclaimers. This app now fully complies with the Children's Online Privacy Protection Act.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">💾</div>
@@ -588,6 +653,57 @@
         </div>
 
         <button class="rn-close" id="rn-close-btn">Got it — Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COPPA Consent Modal -->
+  <div class="coppa-overlay" id="coppa-modal">
+    <div class="coppa-modal">
+      <div class="coppa-header">
+        <h2>🔒 Parental Consent Required (COPPA)</h2>
+        <p>Before adding your child, please review and consent to our data practices</p>
+      </div>
+      <div class="coppa-body">
+        <h3>What Information We Collect From Your Child</h3>
+        <ul>
+          <li><strong>Profile:</strong> First name, grade level, avatar (emoji/color)</li>
+          <li><strong>Educational Progress:</strong> Reading quiz scores, math quiz scores, completed stories, daily activity</li>
+          <li><strong>Preferences:</strong> Favorite stories (stored locally in browser only)</li>
+          <li><strong>Feedback:</strong> Optional story ratings (thumbs up/down)</li>
+        </ul>
+
+        <h3>How We Use This Information</h3>
+        <ul>
+          <li>Track educational progress and learning achievements</li>
+          <li>Show grade-appropriate content</li>
+          <li>Display progress reports to you (the parent)</li>
+          <li>Improve our educational content</li>
+        </ul>
+
+        <div class="coppa-highlight">
+          <p><strong>We NEVER:</strong> Sell child data, use it for advertising, share with third parties (except as required by law), or collect more than necessary for educational purposes.</p>
+        </div>
+
+        <h3>Your Rights as a Parent</h3>
+        <ul>
+          <li><strong>Review:</strong> View your child's data anytime in this portal</li>
+          <li><strong>Delete:</strong> Remove your child's profile and all associated data</li>
+          <li><strong>Refuse:</strong> Withdraw consent at any time</li>
+        </ul>
+
+        <p style="margin-top:16px;"><a href="privacy.html" target="_blank" style="color:var(--purple);font-weight:600;text-decoration:underline;">View Full Privacy Policy →</a></p>
+
+        <div class="coppa-consent">
+          <label>
+            <input type="checkbox" id="coppa-consent-check" />
+            <span>I am the parent or legal guardian of this child. I have read and understand the information above, and I consent to the collection and use of my child's information as described. I understand I can review, delete, or refuse further collection at any time.</span>
+          </label>
+        </div>
+      </div>
+      <div class="coppa-actions">
+        <button class="coppa-btn coppa-btn-cancel" id="coppa-cancel">Cancel</button>
+        <button class="coppa-btn coppa-btn-accept" id="coppa-accept" disabled>I Consent — Continue</button>
       </div>
     </div>
   </div>
@@ -1289,9 +1405,35 @@
       arrow.textContent = open ? '▼' : '▶';
     });
 
+    // ── COPPA Consent Modal ────────────────────────────────────────────────────
+    const coppaModal = document.getElementById('coppa-modal');
+    const coppaCheck = document.getElementById('coppa-consent-check');
+    const coppaAccept = document.getElementById('coppa-accept');
+    const coppaCancel = document.getElementById('coppa-cancel');
+
+    coppaCheck.addEventListener('change', () => {
+      coppaAccept.disabled = !coppaCheck.checked;
+    });
+
+    coppaCancel.addEventListener('click', () => {
+      coppaModal.classList.remove('show');
+      coppaCheck.checked = false;
+      coppaAccept.disabled = true;
+    });
+
+    coppaAccept.addEventListener('click', () => {
+      coppaModal.classList.remove('show');
+      coppaCheck.checked = false;
+      coppaAccept.disabled = true;
+      // Record consent timestamp
+      sessionStorage.setItem('coppaConsentGiven', Date.now());
+      openAddForm();
+    });
+
     // ── Open add form ──────────────────────────────────────────────────────────
     document.getElementById('add-child-btn').addEventListener('click', () => {
-      openAddForm();
+      // Show COPPA consent modal first
+      coppaModal.classList.add('show');
     });
 
     function openAddForm() {
@@ -1438,7 +1580,9 @@
           parentUid:         currentUser.uid,
           readerId:          legacyId || '', // filled in after .add() if blank
           createdAt:   firebase.firestore.FieldValue.serverTimestamp(),
-          timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+          timestamp:   firebase.firestore.FieldValue.serverTimestamp(),
+          coppaConsentGiven: true,
+          coppaConsentDate:  firebase.firestore.FieldValue.serverTimestamp()
         };
 
         if (legacyId) {

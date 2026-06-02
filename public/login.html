@@ -362,7 +362,12 @@
           <div></div>
         </div>
 
-        <button class="btn-auth" id="su-btn" style="margin-top:16px;">Create Account →</button>
+        <label class="remember-me" style="margin-top:16px;">
+          <input type="checkbox" id="age-verify-check" />
+          <span style="font-size:0.85rem;">I am 18+ years old and agree to the <a href="privacy.html" target="_blank" style="color:var(--purple);text-decoration:underline;">Privacy Policy</a></span>
+        </label>
+
+        <button class="btn-auth" id="su-btn" style="margin-top:12px;">Create Account →</button>
         <div class="auth-error" id="su-error"></div>
       </div>
     </div>
@@ -553,6 +558,7 @@
       const name  = document.getElementById('su-name').value.trim();
       const email = document.getElementById('su-email').value.trim();
       const pass  = document.getElementById('su-password').value;
+      const ageVerified = document.getElementById('age-verify-check').checked;
       const errEl = document.getElementById('su-error');
       const btn   = document.getElementById('su-btn');
       errEl.textContent = '';
@@ -561,13 +567,17 @@
       if (!email) { errEl.textContent = 'Please enter your email.'; return; }
       if (pass.length < 6) { errEl.textContent = 'Password must be at least 6 characters.'; return; }
       if (signupPin.length !== 4) { errEl.textContent = 'Please set a 4-digit Parent Portal PIN.'; return; }
+      if (!ageVerified) { errEl.textContent = 'You must be 18+ and agree to the Privacy Policy to create an account.'; return; }
 
       btn.disabled = true; btn.textContent = 'Creating account…';
       try {
         const cred = await firebase.auth().createUserWithEmailAndPassword(email, pass);
         await db.collection('ParentProfiles').doc(cred.user.uid).set({
           email, displayName: name, portalPin: signupPin,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          privacyPolicyAccepted: true,
+          privacyPolicyAcceptedDate: firebase.firestore.FieldValue.serverTimestamp(),
+          ageVerified: true
         });
         // Auth state change will show kid selector automatically
       } catch (err) {
