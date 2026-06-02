@@ -391,58 +391,82 @@
   function loadStudents() {
     document.getElementById('students-tbody').innerHTML = '<tr><td colspan="9"><div class="spinner"></div></td></tr>';
 
-    // Use real-time listener for students
-    db.collection('StudentProfiles').onSnapshot(spSnap => {
-      Promise.all([
-        db.collection('StudentStats').get(),
-        db.collection('Progress').get(),
-        db.collection('MathProgress').get(),
-        db.collection('ParentProfiles').get()
-      ]).then(([statsSnap, progSnap, mathSnap, ppSnap]) => {
+    // Use real-time listeners for core data
+    let profilesData, statsData, progressData, mathData, parentsData;
+    let dataLoaded = 0;
+    const totalSources = 5;
 
-      // Build parent email map: uid → email
-      const parentMap = {};
-      ppSnap.forEach(d => { parentMap[d.id] = d.data().displayName || d.data().email || d.id; });
+    const checkAndRender = () => {
+      if (dataLoaded === totalSources) {
+        // Build parent email map: uid → email
+        const parentMap = {};
+        parentsData.forEach(d => { parentMap[d.id] = d.data().displayName || d.data().email || d.id; });
 
-      // Build XP map: readerId → { readXp, mathXp }
-      const xpMap = {};
-      progSnap.forEach(d => {
-        const r = d.data().readerId;
-        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
-        xpMap[r].readXp += (d.data().xpEarned || 0);
-      });
-      mathSnap.forEach(d => {
-        const r = d.data().readerId;
-        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
-        xpMap[r].mathXp += (d.data().xpEarned || 0);
-      });
+        // Build XP map: readerId → { readXp, mathXp }
+        const xpMap = {};
+        progressData.forEach(d => {
+          const r = d.data().readerId;
+          if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
+          xpMap[r].readXp += (d.data().xpEarned || 0);
+        });
+        mathData.forEach(d => {
+          const r = d.data().readerId;
+          if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
+          xpMap[r].mathXp += (d.data().xpEarned || 0);
+        });
 
-      // Math topics per student
-      const mathTopicsMap = {};
-      mathSnap.forEach(d => {
-        const r = d.data().readerId;
-        if (!mathTopicsMap[r]) mathTopicsMap[r] = new Set();
-        mathTopicsMap[r].add(d.data().setId);
-      });
+        // Math topics per student
+        const mathTopicsMap = {};
+        mathData.forEach(d => {
+          const r = d.data().readerId;
+          if (!mathTopicsMap[r]) mathTopicsMap[r] = new Set();
+          mathTopicsMap[r].add(d.data().setId);
+        });
 
-      // Stats map
-      const statsMap = {};
-      statsSnap.forEach(d => { statsMap[d.id] = d.data(); });
+        // Stats map
+        const statsMap = {};
+        statsData.forEach(d => { statsMap[d.id] = d.data(); });
 
-      allStudents = spSnap.docs.map(d => ({
-        id: d.id, ...d.data(),
-        xp:           (xpMap[d.data().readerId]?.readXp || 0) + (xpMap[d.data().readerId]?.mathXp || 0),
-        stats:        statsMap[d.data().readerId] || {},
-        mathTopics:   mathTopicsMap[d.data().readerId]?.size || 0,
-        parentName:   parentMap[d.data().parentUid] || '—'
-      })).sort((a, b) => b.xp - a.xp);
+        allStudents = profilesData.map(d => ({
+          id: d.id, ...d.data(),
+          xp:           (xpMap[d.data().readerId]?.readXp || 0) + (xpMap[d.data().readerId]?.mathXp || 0),
+          stats:        statsMap[d.data().readerId] || {},
+          mathTopics:   mathTopicsMap[d.data().readerId]?.size || 0,
+          parentName:   parentMap[d.data().parentUid] || '—'
+        })).sort((a, b) => b.xp - a.xp);
 
         renderStudents(allStudents);
-      }).catch(err => {
-        document.getElementById('students-tbody').innerHTML = `<tr><td colspan="9" style="color:var(--red);padding:20px;">Error: ${escHtml(err.message)}</td></tr>`;
-      });
-    }, err => {
-      document.getElementById('students-tbody').innerHTML = `<tr><td colspan="9" style="color:var(--red);padding:20px;">Error: ${escHtml(err.message)}</td></tr>`;
+      }
+    };
+
+    db.collection('StudentProfiles').onSnapshot(snap => {
+      profilesData = snap.docs;
+      dataLoaded = Math.max(dataLoaded, 1);
+      checkAndRender();
+    });
+
+    db.collection('StudentStats').onSnapshot(snap => {
+      statsData = snap.docs;
+      dataLoaded = Math.max(dataLoaded, 2);
+      checkAndRender();
+    });
+
+    db.collection('Progress').onSnapshot(snap => {
+      progressData = snap.docs;
+      dataLoaded = Math.max(dataLoaded, 3);
+      checkAndRender();
+    });
+
+    db.collection('MathProgress').onSnapshot(snap => {
+      mathData = snap.docs;
+      dataLoaded = Math.max(dataLoaded, 4);
+      checkAndRender();
+    });
+
+    db.collection('ParentProfiles').onSnapshot(snap => {
+      parentsData = snap.docs;
+      dataLoaded = Math.max(dataLoaded, 5);
+      checkAndRender();
     });
   }
 
@@ -459,7 +483,37 @@
       const emoji   = s.avatarEmoji || (s.name ? s.name.charAt(0).toUpperCase() : '?');
       const streak  = s.stats.currentStreak || 0;
       const week    = s.stats.storiesThisWeek || 0;
-      const last    = s.stats.lastReadDate || '—';
+
+      // Format last active - use lastReadDate or today if they're currently active
+      let last = '—';
+      if (s.stats.lastReadDate) {
+        const lastDate = new Date(s.stats.lastReadDate);
+        const today = new Date();
+        const todayStr = today.toISOString().split('T')[0];
+
+        if (s.stats.lastReadDate === todayStr) {
+          last = 'Today';
+        } else {
+          const yesterday = new Date(today);
+          yesterday.setDate(yesterday.getDate() - 1);
+          const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+          if (s.stats.lastReadDate === yesterdayStr) {
+            last = 'Yesterday';
+          } else {
+            const diffTime = Math.abs(today - lastDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if (diffDays < 7) {
+              last = diffDays + ' days ago';
+            } else if (diffDays < 30) {
+              const weeks = Math.floor(diffDays / 7);
+              last = weeks + ' week' + (weeks > 1 ? 's' : '') + ' ago';
+            } else {
+              last = s.stats.lastReadDate;
+            }
+          }
+        }
+      }
       return `<tr>
         <td>
           <div style="display:flex;align-items:center;">
