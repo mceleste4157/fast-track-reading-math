@@ -342,7 +342,7 @@
 
   </div>
 
-  <a href="parent-portal.html" class="parent-btn">👨‍👩‍👧 Parent</a>
+  <a href="#" id="parent-portal-btn" class="parent-btn">👨‍👩‍👧 Parent</a>
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -530,6 +530,14 @@
       requireParentPin(() => {
         localStorage.removeItem('readerProfile');
         window.location.href = 'login.html';
+      });
+    });
+
+    // Parent portal button requires PIN
+    document.getElementById('parent-portal-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      requireParentPin(() => {
+        window.location.href = 'parent-portal.html';
       });
     });
 
