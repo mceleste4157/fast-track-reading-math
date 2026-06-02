@@ -107,6 +107,7 @@
       display: flex; gap: 10px; align-items: flex-start;
       background: #f9fafb; border-radius: 10px; padding: 11px 13px;
     }
+    body.dark-mode .rn-item { background: rgba(255,255,255,0.05); }
     .rn-item-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
     .rn-item-text { font-size: 0.88rem; line-height: 1.5; color: var(--text); }
     .rn-item-text strong { font-weight: 700; }
@@ -571,6 +572,14 @@
         <div class="rn-date">June 2, 2026 — Latest Update</div>
         <div class="rn-section">
           <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">🌙</div>
+              <div class="rn-item-text"><strong>Dark Mode added!</strong> — Both Parent Portal and student pages now support dark mode. Click the 🌙/☀️ button in the top nav to switch between light and dark themes. Your preference is saved and synced across all pages!</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🔄</div>
+              <div class="rn-item-text"><strong>Admin Dashboard real-time updates fixed</strong> — New students now appear instantly without needing to refresh. Improved synchronization logic ensures all student data loads correctly every time.</div>
+            </div>
             <div class="rn-item">
               <div class="rn-item-icon">📚</div>
               <div class="rn-item-text"><strong>New content added — 10 stories + 25 math questions!</strong> — Added 5 new B.E.S.T.-aligned reading stories (Butterfly Life Cycle for grades 1-2, Snorkeling in the Keys for grade 3, Greenhouse Effect for grade 5, Electoral College for grades 6-7, Social Media debate for grade 8) and 5 new math practice sets covering addition/subtraction, multiplication/division, fractions, ratios, and algebra across all grade levels.</div>
@@ -1257,7 +1266,7 @@
     })();
 
     // Last content update timestamp - UPDATE THIS WHEN ADDING NEW FEATURES TO WHAT'S NEW
-    const LAST_CONTENT_UPDATE = new Date('2026-06-02T15:45:00'); // June 2, 2026 at 3:45 PM
+    const LAST_CONTENT_UPDATE = new Date('2026-06-02T14:34:00'); // June 2, 2026 at 2:34 PM
 
     // Format and display last update time
     (function() {
