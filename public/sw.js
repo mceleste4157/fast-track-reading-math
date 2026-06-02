@@ -1,8 +1,8 @@
-// FAST Track — Service Worker v4
+// FAST Track — Service Worker v5
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
 // Auto-reload on update
-const CACHE = 'fast-track-v4';
+const CACHE = 'fast-track-v5';
 const STATIC_ASSETS = [
   '/stories.js', '/math-data.js'
 ];
@@ -37,8 +37,10 @@ self.addEventListener('fetch', e => {
   const isHTML = e.request.destination === 'document' ||
                  url.endsWith('.html') || url.endsWith('/');
 
-  if (isHTML) {
-    // Network-first: always try to get fresh HTML, fall back to cache if offline
+  const isStories = url.includes('stories.js');
+
+  if (isHTML || isStories) {
+    // Network-first: always try to get fresh HTML/stories, fall back to cache if offline
     e.respondWith(
       fetch(e.request).then(res => {
         if (res.ok) {

@@ -16,6 +16,19 @@
       --surface: #ffffff; --border: rgba(0,0,0,0.08);
       --text: #1e1b4b; --muted: #6b7280; --radius: 20px;
     }
+
+    /* Dark mode */
+    body.dark-mode {
+      --bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #1e293b 100%);
+      --surface: #1e293b;
+      --border: rgba(255,255,255,0.1);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --purple-soft: #2e1065;
+      --blue-soft: #1e3a8a;
+      --green-soft: #064e3b;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
 
@@ -56,6 +69,26 @@
       }
       .sidebar { position: static; width: 100%; }
     }
+
+    /* DEMO BANNER */
+    .demo-banner {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #78350f; padding: 12px 20px; border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(245,158,11,0.3);
+      width: 100%; max-width: 480px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px; font-size: 0.88rem;
+      font-weight: 600; line-height: 1.4;
+    }
+    .demo-banner-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .demo-banner-text { flex: 1; }
+    .demo-banner-text strong { font-weight: 800; }
+    .btn-demo-signup {
+      padding: 7px 14px; background: #fff; color: var(--purple);
+      border: none; border-radius: 8px; font-weight: 700;
+      font-size: 0.82rem; cursor: pointer; font-family: inherit;
+      white-space: nowrap; transition: transform 0.15s;
+    }
+    .btn-demo-signup:hover { transform: scale(1.05); }
 
     /* HEADER */
     .greeting { font-size: clamp(1.8rem, 7vw, 3rem); font-weight: 800; color: var(--purple); text-align: center; margin-bottom: 4px; }
@@ -202,7 +235,11 @@
       <div style="display:flex;gap:8px;margin-top:8px;">
       <button class="switch-user-btn" id="switch-user-btn">🔄 Switch User</button>
       <button id="sound-toggle-btn" class="switch-user-btn" title="Toggle sound effects" style="font-size:1rem;padding:4px 10px;">🔊</button>
+      <button id="dark-mode-toggle" class="switch-user-btn" title="Toggle dark mode" style="font-size:1rem;padding:4px 10px;">🌙</button>
     </div>
+
+      <!-- Demo banner (filled by JS if in demo mode) -->
+      <div id="demo-banner" style="display:none;"></div>
 
       <!-- Streak / decay banner (filled by JS) -->
       <div id="streak-banner" class="streak-banner" style="display:none;"></div>
@@ -305,7 +342,7 @@
 
   </div>
 
-  <a href="parent-portal.html" class="parent-btn">👨‍👩‍👧 Parent</a>
+  <a href="#" id="parent-portal-btn" class="parent-btn">👨‍👩‍👧 Parent</a>
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -319,7 +356,7 @@
       });
     }
   </script>
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260602"></script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
@@ -347,6 +384,20 @@
       if (profile.name) {
         document.getElementById('quest-link').textContent = '🗺️ See ' + profile.name + '\'s Quest Board →';
       }
+
+      // Show demo banner if in demo mode
+      if (profile.isDemo) {
+        const demoBanner = document.getElementById('demo-banner');
+        demoBanner.className = 'demo-banner';
+        demoBanner.style.display = 'flex';
+        demoBanner.innerHTML = `
+          <div class="demo-banner-icon">🎯</div>
+          <div class="demo-banner-text">
+            <strong>Demo Mode</strong> — You're exploring without an account. Progress won't be saved.
+          </div>
+          <button class="btn-demo-signup" onclick="window.location.href='login.html'">Sign Up Free</button>
+        `;
+      }
     }
 
     // ─── Switch user button ───────────────────────────────────────────────────
@@ -364,6 +415,22 @@
       document.getElementById('sotd-title').textContent = story.title;
       document.getElementById('sotd-meta').textContent  = '~' + story.readTimeMin + ' min · ' + story.wordCount + ' words';
       card.style.display = 'block';
+    })();
+
+    // ─── Dark mode toggle ─────────────────────────────────────────────────────────
+    (function() {
+      const darkMode = localStorage.getItem('darkMode') === 'true';
+      const toggle = document.getElementById('dark-mode-toggle');
+      if (darkMode) {
+        document.body.classList.add('dark-mode');
+        toggle.textContent = '☀️';
+      }
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        toggle.textContent = isDark ? '☀️' : '🌙';
+      });
     })();
 
     // ─── Sound toggle ─────────────────────────────────────────────────────────────
@@ -463,6 +530,14 @@
       requireParentPin(() => {
         localStorage.removeItem('readerProfile');
         window.location.href = 'login.html';
+      });
+    });
+
+    // Parent portal button requires PIN
+    document.getElementById('parent-portal-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      requireParentPin(() => {
+        window.location.href = 'parent-portal.html';
       });
     });
 
@@ -580,7 +655,9 @@
            </div>`;
     }
 
-    renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+    // Math is always unlocked by default
+    localStorage.setItem(MATH_UNLOCK_KEY, 'true');
+    renderMathCard(true);
 
     // ─── Load Firestore stats ──────────────────────────────────────────────────
     const db = firebase.firestore();
@@ -617,12 +694,6 @@
       });
 
       const totalXp = readXp + mathXp;
-
-      // Update math unlock from Firestore
-      if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
-        localStorage.setItem(MATH_UNLOCK_KEY, 'true');
-        renderMathCard(true);
-      }
 
       // ── Inactivity decay ────────────────────────────────────────────────────
       const { daysMissed, decay } = getActivityStatus(profile.readerId);

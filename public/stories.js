@@ -4974,6 +4974,1028 @@ The storms do not stop. But neither does Florida.`,
         explanation: 'The parallel structure — "The storms do not stop. But neither does Florida." — places Florida\'s persistence as equal to the persistence of the storms. The author is clearly presenting Florida as resilient. This is not a neutral observation — it is a deliberate framing that shows admiration for the state\'s ability to endure.'
       }
     ]
+  },
+
+  // ── NEW STORIES ─────────────────────────────────────────────────────────────
+
+  // ── GRADE 1-2 | INFORMATIONAL | Butterfly Life Cycle
+  {
+    id: 'butterfly-life-cycle',
+    title: 'From Caterpillar to Butterfly',
+    topic: 'science-nature',
+    coverEmoji: '🦋',
+    coverColor: '#ec4899',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 180,
+    readTimeMin: 1,
+    text: `Have you ever seen a butterfly? Butterflies are beautiful insects with colorful wings. But they don't start out that way!
+
+A butterfly begins its life as a tiny egg. The mother butterfly lays the egg on a leaf. After a few days, a tiny caterpillar hatches from the egg.
+
+The caterpillar is very hungry. It eats leaves all day long. As it eats, it grows bigger and bigger. The caterpillar sheds its skin several times because it is growing so fast.
+
+When the caterpillar is fully grown, it does something amazing. It hangs upside down from a branch and forms a hard shell around itself. This shell is called a chrysalis. Inside the chrysalis, the caterpillar is changing.
+
+After about two weeks, the chrysalis opens. Out comes a beautiful butterfly! At first, its wings are wet and wrinkled. The butterfly rests while its wings dry and spread out.
+
+Soon the butterfly flies away to find flowers and nectar. One day, it will lay eggs of its own, and the life cycle will start all over again.`,
+    vocabulary: [
+      { word: 'chrysalis', definition: 'The hard shell that a caterpillar makes around itself while it changes into a butterfly.', example: 'The chrysalis hung from the branch for two weeks.' },
+      { word: 'hatches', definition: 'When a baby animal breaks out of its egg.', example: 'The baby bird hatches from the egg in the nest.' },
+      { word: 'life cycle', definition: 'The stages that a living thing goes through from birth to death.', example: 'We learned about the life cycle of a frog in science class.' }
+    ],
+    questions: [
+      {
+        question: 'What happens FIRST in a butterfly\'s life cycle?',
+        options: [
+          'The caterpillar eats leaves.',
+          'A tiny egg is laid on a leaf.',
+          'The chrysalis opens.',
+          'The butterfly flies away.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says "A butterfly begins its life as a tiny egg." This is the first stage.'
+      },
+      {
+        question: 'What does the caterpillar do inside the chrysalis?',
+        options: [
+          'It sleeps for a long time.',
+          'It eats more leaves.',
+          'It changes into a butterfly.',
+          'It lays eggs.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says "Inside the chrysalis, the caterpillar is changing." It is turning into a butterfly.'
+      },
+      {
+        question: 'Why does the butterfly rest after coming out of the chrysalis?',
+        options: [
+          'It is tired from flying.',
+          'It needs to find food.',
+          'Its wings need to dry and spread out.',
+          'It is hiding from birds.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states: "At first, its wings are wet and wrinkled. The butterfly rests while its wings dry and spread out."'
+      }
+    ]
+  },
+
+  // ── GRADE 3 | NARRATIVE | Florida Keys Adventure
+  {
+    id: 'keys-snorkeling',
+    title: 'Snorkeling in the Florida Keys',
+    topic: 'florida-nature',
+    coverEmoji: '🤿',
+    coverColor: '#0ea5e9',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [3, 4, 5],
+    wordCount: 320,
+    readTimeMin: 2,
+    text: `Maya pressed her mask against her face and bit down on the snorkel mouthpiece. She had been waiting all year for this trip to the Florida Keys, and now she was finally here, floating in the warm, clear water above a coral reef.
+
+"Remember to breathe slowly through your mouth," her dad reminded her from the boat. Maya gave him a thumbs-up and put her face in the water.
+
+The underwater world exploded with color. Purple sea fans swayed gently in the current. Bright yellow fish darted between branches of coral. A school of silver fish moved together like one giant creature, turning and twisting in perfect unison.
+
+Maya kicked her fins and glided deeper. She spotted a sea turtle munching on seagrass. Its flippers moved slowly, gracefully. The turtle didn't seem to mind Maya watching. It just kept eating, pausing now and then to come up for air.
+
+Suddenly, her dad tapped her shoulder and pointed. A spotted eagle ray was gliding through the water like an underwater bird. Its wings flapped in slow motion. Maya held her breath, trying not to scare it away. The ray passed right below her, close enough that she could see the white spots on its dark back.
+
+After an hour in the water, Maya's fingers were wrinkled like raisins, but she didn't want to leave. There was so much to see — lobsters hiding in cracks, a moray eel peeking out from a hole, tiny seahorses clinging to seagrass.
+
+"Time to go, Maya!" her dad called.
+
+Maya lifted her head and looked back at the reef one more time. She couldn't wait to tell her friends about the sea turtle and the eagle ray. But most of all, she couldn't wait to come back.`,
+    vocabulary: [
+      { word: 'unison', definition: 'Acting together at the same time; in perfect agreement.', example: 'The dancers moved in unison, making the same steps at the same moment.' },
+      { word: 'current', definition: 'The movement of water in a particular direction.', example: 'The current carried the boat downstream.' },
+      { word: 'glided', definition: 'Moved smoothly and easily, as if floating.', example: 'The ice skater glided across the frozen pond.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN purpose of this story?',
+        options: [
+          'To teach readers how to snorkel safely.',
+          'To describe Maya\'s exciting experience snorkeling in the Florida Keys.',
+          'To explain how coral reefs are formed.',
+          'To convince readers to visit Florida.'
+        ],
+        correctIndex: 1,
+        explanation: 'The story describes Maya\'s snorkeling adventure in detail, showing what she saw and how she felt. It is a narrative about her experience.'
+      },
+      {
+        question: 'How did Maya feel about her snorkeling trip?',
+        options: [
+          'She was scared of the fish and wanted to leave.',
+          'She was bored because there wasn\'t much to see.',
+          'She was excited and didn\'t want to leave.',
+          'She was tired and ready to go home.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says "she didn\'t want to leave" and "she couldn\'t wait to come back," showing she was very excited.'
+      },
+      {
+        question: 'Which detail shows that Maya saw many different sea creatures?',
+        options: [
+          '"Maya pressed her mask against her face."',
+          '"There was so much to see — lobsters hiding in cracks, a moray eel peeking out from a hole, tiny seahorses clinging to seagrass."',
+          '"After an hour in the water, Maya\'s fingers were wrinkled like raisins."',
+          '"Maya gave him a thumbs-up."'
+        ],
+        correctIndex: 1,
+        explanation: 'This sentence lists multiple types of sea creatures Maya observed, showing the variety of wildlife she encountered.'
+      }
+    ]
+  },
+
+  // ── GRADE 5 | INFORMATIONAL | Climate Science
+  {
+    id: 'greenhouse-effect',
+    title: 'Understanding the Greenhouse Effect',
+    topic: 'science-climate',
+    coverEmoji: '🌡️',
+    coverColor: '#f59e0b',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 3,
+    text: `Earth's atmosphere works like a blanket, trapping just enough heat to keep our planet warm enough for life. This natural process is called the greenhouse effect, and without it, Earth would be a frozen wasteland with an average temperature of about 0°F instead of the comfortable 59°F we enjoy today.
+
+Here's how it works: Sunlight travels through space and enters Earth's atmosphere. Some of this energy bounces back into space, but much of it reaches the surface and warms the land and oceans. The warmed Earth then releases heat energy back toward space in the form of infrared radiation — a type of light our eyes cannot see.
+
+This is where greenhouse gases become important. Gases like carbon dioxide (CO₂), methane (CH₄), and water vapor (H₂O) act like the glass in a greenhouse. They let sunlight pass through easily, but they absorb and trap infrared radiation, preventing it from escaping back into space. The trapped heat warms the atmosphere, which in turn warms the planet.
+
+For thousands of years, this system stayed in balance. Plants absorbed CO₂ through photosynthesis. Oceans absorbed CO₂ from the air. Volcanic eruptions released some, but overall, the amount of greenhouse gases remained relatively stable.
+
+Then, in the 1800s, humans began burning massive amounts of coal, oil, and natural gas for energy. This combustion releases CO₂ that had been locked underground for millions of years. At the same time, deforestation reduced the number of trees available to absorb that CO₂. The result? Atmospheric CO₂ levels have risen from about 280 parts per million (ppm) before the Industrial Revolution to over 420 ppm today — a 50% increase in just 200 years.
+
+More greenhouse gases mean more trapped heat. Scientists have measured this warming with precision: Earth's average temperature has risen about 2°F since 1880, and the ten warmest years on record have all occurred since 2010.
+
+The consequences are real and measurable. Ice sheets in Greenland and Antarctica are melting faster than expected. Sea levels are rising. Hurricanes are intensifying. Droughts and wildfires are becoming more severe.
+
+Understanding the greenhouse effect isn't just about science — it's about understanding the future we are creating. The choices we make today about energy, transportation, and consumption will determine how much warmer our planet becomes.`,
+    vocabulary: [
+      { word: 'infrared radiation', definition: 'A type of heat energy that is invisible to the human eye but can be felt as warmth.', example: 'Infrared radiation from the campfire warmed their hands even though they couldn\'t see the heat waves.' },
+      { word: 'combustion', definition: 'The process of burning something, releasing energy as heat and light.', example: 'The combustion of gasoline in a car engine powers the vehicle.' },
+      { word: 'deforestation', definition: 'The large-scale removal of trees from forests, usually for farming or development.', example: 'Deforestation in the Amazon rainforest has destroyed habitats for thousands of species.' },
+      { word: 'atmospheric', definition: 'Relating to the layer of gases surrounding Earth.', example: 'Atmospheric pressure changes when a storm approaches.' }
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'The greenhouse effect is a natural process that has been intensified by human activity, causing Earth to warm.',
+          'Greenhouses are useful for growing plants in cold weather.',
+          'Carbon dioxide is the only greenhouse gas that matters.',
+          'Earth\'s temperature has always stayed exactly the same.'
+        ],
+        correctIndex: 0,
+        explanation: 'The passage explains the natural greenhouse effect, then describes how human activities have increased greenhouse gases and caused warming. This is the main point throughout.'
+      },
+      {
+        question: 'According to the passage, why have CO₂ levels increased since the 1800s?',
+        options: [
+          'Volcanoes have become more active.',
+          'The sun has gotten hotter.',
+          'Humans have burned fossil fuels and cut down forests.',
+          'More animals are exhaling CO₂.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states: "humans began burning massive amounts of coal, oil, and natural gas" and "deforestation reduced the number of trees available to absorb that CO₂."'
+      },
+      {
+        question: 'Which piece of evidence BEST supports the claim that Earth is warming?',
+        options: [
+          '"Sunlight travels through space and enters Earth\'s atmosphere."',
+          '"Earth\'s average temperature has risen about 2°F since 1880, and the ten warmest years on record have all occurred since 2010."',
+          '"Gases like carbon dioxide act like the glass in a greenhouse."',
+          '"Plants absorbed CO₂ through photosynthesis."'
+        ],
+        correctIndex: 1,
+        explanation: 'This sentence provides specific temperature data and timing that directly proves the planet is warming. The other sentences explain processes but don\'t provide evidence of warming.'
+      }
+    ]
+  },
+
+  // ── GRADE 6-7 | INFORMATIONAL | Civics/Government
+  {
+    id: 'electoral-college',
+    title: 'The Electoral College: How We Really Elect the President',
+    topic: 'civics-government',
+    coverEmoji: '🗳️',
+    coverColor: '#3b82f6',
+    gradeLevel: '7',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 460,
+    readTimeMin: 3,
+    text: `Every four years, millions of Americans cast ballots for president. But those votes don't directly choose the winner. Instead, they elect members of the Electoral College — a group of 538 people who officially select the president. This indirect system has shaped American democracy for over 200 years, and it remains one of the most debated features of the Constitution.
+
+The Electoral College was created in 1787 during the Constitutional Convention. The Founding Fathers faced a dilemma: How should the president be chosen? Some delegates wanted Congress to select the president. Others wanted a direct popular vote. Both ideas had problems. Letting Congress choose the president might make the executive branch too dependent on the legislative branch. A popular vote seemed impractical in a time when news traveled slowly and most Americans knew little about candidates outside their own states.
+
+The compromise was the Electoral College. Each state would receive a number of electors equal to its total number of senators and representatives in Congress. Today, that means every state gets at least three electors (two senators plus at least one representative), with more electors assigned to states with larger populations. California, for example, has 54 electoral votes, while Wyoming has only three.
+
+Here's how it works: When you vote for president, you're actually voting for a slate of electors pledged to that candidate. In most states, whichever candidate wins the popular vote wins all of that state's electoral votes — a "winner-take-all" system. Maine and Nebraska are exceptions; they award some electors by congressional district.
+
+To win the presidency, a candidate must receive at least 270 of the 538 electoral votes. This creates a strategic map: Candidates focus heavily on "swing states" — states where neither party has a reliable majority — because winning those states can tip the balance.
+
+Critics argue that the Electoral College gives disproportionate power to smaller states and allows a candidate to win the presidency while losing the popular vote. This has happened five times in U.S. history, most recently in 2016. They point out that a voter in Wyoming has roughly three times more influence per capita than a voter in California.
+
+Supporters counter that the Electoral College forces candidates to build geographically diverse coalitions. Without it, they argue, candidates might focus only on large cities and ignore rural areas entirely. The system also preserves the federal structure of government, ensuring that states — not just individual voters — have a role in selecting the president.
+
+Whether the Electoral College is fair or outdated remains a subject of intense debate. What's clear is that understanding how it works is essential for understanding American democracy.`,
+    vocabulary: [
+      { word: 'electoral', definition: 'Related to elections or voting.', example: 'The electoral process includes primaries, campaigns, and the final vote.' },
+      { word: 'indirect', definition: 'Not straight or direct; happening through an intermediate step.', example: 'The indirect route to the airport took longer but avoided traffic.' },
+      { word: 'disproportionate', definition: 'Too large or too small in comparison to something else; not balanced or fair.', example: 'The tiny town had a disproportionate number of police officers for its size.' },
+      { word: 'per capita', definition: 'For each person; by dividing the total by the number of people.', example: 'The per capita income in the country increased last year.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN purpose of this passage?',
+        options: [
+          'To persuade readers that the Electoral College should be abolished.',
+          'To explain how the Electoral College works and present arguments for and against it.',
+          'To describe the life of the Founding Fathers.',
+          'To teach readers how to vote in an election.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains the history and mechanics of the Electoral College, then presents both criticisms and defenses of the system. It is informative and balanced, not persuasive.'
+      },
+      {
+        question: 'According to the passage, why was the Electoral College created?',
+        options: [
+          'The Founding Fathers wanted to make elections more complicated.',
+          'It was a compromise between letting Congress choose the president and holding a direct popular vote.',
+          'The Constitution required every state to have equal power.',
+          'Large states demanded more influence in elections.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states: "The compromise was the Electoral College" after explaining that both congressional selection and popular vote had problems.'
+      },
+      {
+        question: 'Which sentence BEST supports the claim that the Electoral College can produce controversial results?',
+        options: [
+          '"To win the presidency, a candidate must receive at least 270 of the 538 electoral votes."',
+          '"Critics argue that the Electoral College gives disproportionate power to smaller states and allows a candidate to win the presidency while losing the popular vote."',
+          '"Each state would receive a number of electors equal to its total number of senators and representatives."',
+          '"Maine and Nebraska are exceptions; they award some electors by congressional district."'
+        ],
+        correctIndex: 1,
+        explanation: 'This sentence directly states a major criticism — that the system can produce a winner who didn\'t win the popular vote, which is controversial.'
+      }
+    ]
+  },
+
+  // ── GRADE 7-8 | PAIRED PASSAGES | Technology Ethics
+  {
+    id: 'social-media-debate',
+    title: 'Social Media: Connection or Isolation?',
+    topic: 'technology-society',
+    coverEmoji: '📱',
+    coverColor: '#8b5cf6',
+    gradeLevel: '8',
+    level: 'paired',
+    grades: [7, 8],
+    wordCount: 520,
+    readTimeMin: 4,
+    text: `**Passage 1: The Case for Social Media**
+
+Social media has fundamentally transformed how humans connect. For the first time in history, a teenager in rural Florida can have a real-time conversation with someone in Tokyo, share artwork with thousands of viewers, or organize a community service project with peers across the country — all from a smartphone.
+
+Critics often portray social media as shallow and isolating, but research tells a more complex story. A 2023 study by the Pew Research Center found that 81% of teens say social media helps them feel more connected to their friends' lives. For young people dealing with niche interests, chronic illnesses, or LGBTQ+ identities, online communities provide validation and support that might not exist in their immediate physical environment.
+
+During the COVID-19 pandemic, social media became a lifeline. When schools closed and families isolated, platforms like Zoom, Discord, and Instagram allowed students to maintain friendships, collaborate on projects, and combat loneliness. Teachers held virtual classes. Families celebrated birthdays over video calls. Social media didn't replace in-person connection — it supplemented it during an unprecedented crisis.
+
+Moreover, social media has given voice to movements that traditional media ignored. The March for Our Lives gun safety movement was organized largely by teenagers using Twitter and Instagram. The #MeToo movement spread across continents in days, not years. Social media democratizes information and activism in ways that were unimaginable a generation ago.
+
+Like any tool, social media can be misused. But blaming the platform for the actions of its users is like blaming the printing press for propaganda. The question isn't whether social media is good or bad — it's how we choose to use it.
+
+**Passage 2: The Hidden Costs of Constant Connection**
+
+Social media promises connection, but delivers something else: a curated performance of connection designed to maximize engagement and profit.
+
+The business model is simple and troubling. Platforms like Instagram, TikTok, and Facebook make money by keeping users scrolling. The longer you're on the app, the more ads you see. To achieve this, algorithms are specifically designed to trigger psychological responses — outrage, envy, validation-seeking — that keep you clicking. Former Facebook executive Chamath Palihapitiya admitted in 2017: "The short-term, dopamine-driven feedback loops that we have created are destroying how society works."
+
+The mental health data is alarming. A 2021 study published in the *Journal of the American Medical Association* found that adolescents who spend more than three hours per day on social media face double the risk of depression and anxiety. Instagram's own internal research, leaked in 2021, revealed that the platform worsens body image issues for one in three teenage girls.
+
+Social media doesn't just reflect our insecurities — it manufactures them. Every post becomes a performance, every photo a test: Will people like it? Will they comment? The constant comparison to others' highlight reels creates a pervasive sense of inadequacy. We're more "connected" than ever, yet loneliness rates among teenagers have reached historic highs.
+
+Furthermore, the claim that social media democratizes information is half-true at best. Yes, anyone can post — but algorithms decide what gets seen. Misinformation spreads six times faster than factual news on Twitter, according to MIT research. Echo chambers reinforce existing beliefs rather than fostering genuine dialogue.
+
+The printing press analogy is flawed. Books don't track your eye movements, exploit your psychology, or algorithmically push content designed to provoke outrage. Social media isn't a neutral tool — it's an attention economy built on behavioral manipulation.
+
+We don't need to abandon social media entirely, but we do need to recognize its costs and regulate it like the powerful, profit-driven industry it is.`,
+    vocabulary: [
+      { word: 'curated', definition: 'Carefully selected and organized for presentation.', example: 'The museum\'s curated collection featured only the finest paintings.' },
+      { word: 'democratizes', definition: 'Makes something available or accessible to everyone, not just a privileged few.', example: 'The internet democratizes education by providing free learning resources worldwide.' },
+      { word: 'algorithm', definition: 'A set of rules or calculations that a computer follows to solve a problem or make decisions.', example: 'The recommendation algorithm suggests videos based on what you\'ve watched before.' },
+      { word: 'pervasive', definition: 'Spreading throughout every part of something; widespread.', example: 'The pervasive smell of smoke filled the entire building.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN difference between Passage 1 and Passage 2?',
+        options: [
+          'Passage 1 discusses teenagers, while Passage 2 discusses adults.',
+          'Passage 1 argues that social media helps connection, while Passage 2 argues it harms mental health and manipulates users.',
+          'Passage 1 is about technology, while Passage 2 is about books.',
+          'Passage 1 is informational, while Passage 2 is a personal narrative.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 1 presents evidence that social media benefits users and helps connection. Passage 2 argues that social media is harmful, manipulative, and designed to exploit users for profit.'
+      },
+      {
+        question: 'Which statement would the author of Passage 2 MOST LIKELY agree with?',
+        options: [
+          'Social media is no different from the printing press.',
+          'Social media platforms should be regulated because they are designed to manipulate users for profit.',
+          'Teenagers should spend at least three hours per day on social media.',
+          'Social media has no effect on mental health.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 2 ends by calling for regulation, stating that social media is "an attention economy built on behavioral manipulation" and should be treated as "the powerful, profit-driven industry it is."'
+      },
+      {
+        question: 'Both passages mention research or data. How do they use evidence differently?',
+        options: [
+          'Passage 1 uses evidence to show benefits, while Passage 2 uses evidence to show harms.',
+          'Passage 1 provides no evidence at all.',
+          'Passage 2 only uses personal opinions, not evidence.',
+          'Both passages use the exact same evidence.'
+        ],
+        correctIndex: 0,
+        explanation: 'Passage 1 cites Pew Research showing teens feel more connected. Passage 2 cites JAMA research showing increased depression and Instagram\'s internal research showing body image issues. Both use evidence, but to support opposite claims.'
+      },
+      {
+        question: 'Which of the following is an example of BIAS in Passage 2?',
+        options: [
+          'The passage presents only negative effects of social media without acknowledging any benefits.',
+          'The passage includes a direct quote from a Facebook executive.',
+          'The passage mentions specific research studies.',
+          'The passage uses the word "algorithm."'
+        ],
+        correctIndex: 0,
+        explanation: 'Bias means showing favoritism or prejudice toward one side. Passage 2 focuses entirely on harms and dismisses benefits, showing a clear bias against social media. Including quotes and research is not bias — it\'s the selective use of only negative information that reveals bias.'
+      }
+    ]
+  },
+
+  // ── NEW STORIES - GRADE 1-2 ──
+
+  {
+    id: 'rain-puddle',
+    title: 'The Rain Puddle',
+    topic: 'nature',
+    coverEmoji: '🌧️',
+    coverColor: '#3b82f6',
+    gradeLevel: '1-2',
+    level: 'beginner',
+    grades: [1, 2],
+    wordCount: 145,
+    readTimeMin: 1,
+    text: `It rained all morning. When the sun came out, Mia put on her boots. She ran outside.
+
+There was a big puddle in the driveway. It looked like a mirror. Mia could see the sky in it. She could see the trees too.
+
+"Look, Mom!" she said. "The puddle has a whole world in it!"
+
+A bird flew by. Mia saw it in the puddle. Then she saw something move in the water.
+
+It was a tiny frog! The frog hopped out of the puddle. It sat on a rock.
+
+"Hello, little frog," Mia whispered. She did not want to scare it.
+
+The frog blinked at her. Then it hopped back into the grass.
+
+Mia smiled. The rain had made a home for the frog. Now the sun would dry the puddle. But for today, it was a special place.`,
+    vocabulary: [
+      { word: 'puddle', definition: 'A small pool of water on the ground.', example: 'After the rain, there were puddles everywhere.' },
+      { word: 'mirror', definition: 'A shiny surface that shows your reflection.', example: 'She looked at herself in the mirror.' },
+      { word: 'whispered', definition: 'Spoke very quietly.', example: 'He whispered so he would not wake the baby.' }
+    ],
+    questions: [
+      {
+        question: 'What did Mia see in the puddle?',
+        options: ['Fish swimming', 'The sky and trees', 'Her house', 'Other kids playing'],
+        correctIndex: 1,
+        explanation: 'The story says Mia could see the sky and trees reflected in the puddle like a mirror.'
+      },
+      {
+        question: 'Why did Mia whisper to the frog?',
+        options: ['She was tired', 'She did not want to scare it', 'Her mom told her to be quiet', 'The frog was sleeping'],
+        correctIndex: 1,
+        explanation: 'The text says, "She did not want to scare it."'
+      },
+      {
+        question: 'What will happen to the puddle?',
+        options: ['It will freeze', 'The sun will dry it', 'It will get bigger', 'It will turn into a river'],
+        correctIndex: 1,
+        explanation: 'The story says, "Now the sun would dry the puddle."'
+      }
+    ]
+  },
+
+  {
+    id: 'library-card',
+    title: 'My First Library Card',
+    topic: 'school',
+    coverEmoji: '📚',
+    coverColor: '#8b5cf6',
+    gradeLevel: '1-2',
+    level: 'beginner',
+    grades: [1, 2],
+    wordCount: 155,
+    readTimeMin: 1,
+    text: `"Today we are going to the library," Mom said. "You can get your own library card!"
+
+I was so excited. A library card with my name on it!
+
+At the library, a nice woman helped me. She asked for my name. She typed on the computer. Then she gave me a card.
+
+My name was on it! It was blue with a picture of a book.
+
+"Now you can check out books," the woman said. "But you have to bring them back on time."
+
+I picked out three books. One was about dinosaurs. One was about space. One was a funny story about a talking cat.
+
+The woman scanned my card. Beep! The books were mine for two weeks.
+
+At home, I put my library card in a safe place. I read all three books. I cannot wait to go back and get more!
+
+The library is my favorite place now.`,
+    vocabulary: [
+      { word: 'library', definition: 'A place where books are kept and you can borrow them.', example: 'We go to the library every Saturday.' },
+      { word: 'check out', definition: 'To borrow something from a library.', example: 'I checked out five books last week.' },
+      { word: 'scanned', definition: 'Used a machine to read information.', example: 'The cashier scanned the items at the store.' }
+    ],
+    questions: [
+      {
+        question: 'What did the narrator get at the library?',
+        options: ['A new backpack', 'A library card', 'A pet cat', 'A computer'],
+        correctIndex: 1,
+        explanation: 'The whole story is about getting a library card for the first time.'
+      },
+      {
+        question: 'How many books did the narrator check out?',
+        options: ['One', 'Two', 'Three', 'Four'],
+        correctIndex: 2,
+        explanation: 'The story says, "I picked out three books."'
+      },
+      {
+        question: 'How long can the narrator keep the books?',
+        options: ['One week', 'Two weeks', 'One month', 'Forever'],
+        correctIndex: 1,
+        explanation: 'The text says, "The books were mine for two weeks."'
+      }
+    ]
+  },
+
+  // ── GRADE 2-3 ──
+
+  {
+    id: 'ant-colony',
+    title: 'Life in an Ant Colony',
+    topic: 'science',
+    coverEmoji: '🐜',
+    coverColor: '#dc2626',
+    gradeLevel: '2-3',
+    level: 'beginner',
+    grades: [2, 3, 4],
+    wordCount: 220,
+    readTimeMin: 2,
+    text: `Have you ever watched ants march across the sidewalk? They look busy. That is because ants live in a **colony**, and every ant has a job.
+
+An ant colony is like a tiny city underground. There can be thousands of ants living together. At the center is the **queen**. She is the most important ant. Her only job is to lay eggs. She can live for many years.
+
+Worker ants are all females. They do not lay eggs. Instead, they build the nest, find food, and take care of baby ants. Some worker ants are **soldiers**. They protect the colony from enemies.
+
+Male ants have only one job: to help the queen make more ants. After they do this, they die.
+
+Baby ants hatch from eggs. They look like tiny white worms called **larvae**. Worker ants feed them and keep them clean. When they are ready, the larvae become adult ants.
+
+Ants are strong. They can carry objects that weigh more than their own bodies! They also leave invisible trails using chemicals so other ants can follow them to food.
+
+Ant colonies work because every ant helps. No single ant could survive alone. Together, they build, protect, and care for one another. That is the power of **teamwork**.`,
+    vocabulary: [
+      { word: 'colony', definition: 'A group of animals of the same kind living together.', example: 'The bee colony was inside a hollow tree.' },
+      { word: 'queen', definition: 'The female ant that lays all the eggs.', example: 'The queen bee is the largest bee in the hive.' },
+      { word: 'larvae', definition: 'The worm-like stage of an insect before it becomes an adult.', example: 'The larvae will become butterflies soon.' },
+      { word: 'teamwork', definition: 'Working together as a group.', example: 'Our teamwork helped us win the game.' }
+    ],
+    questions: [
+      {
+        question: "What is the queen ant's main job?",
+        options: ['Find food', 'Lay eggs', 'Build the nest', 'Protect the colony'],
+        correctIndex: 1,
+        explanation: 'The story says, "Her only job is to lay eggs."'
+      },
+      {
+        question: 'Who does most of the work in an ant colony?',
+        options: ['The queen', 'Worker ants', 'Male ants', 'Baby ants'],
+        correctIndex: 1,
+        explanation: 'Worker ants build, find food, and care for babies. They do most of the work.'
+      },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Ants are strong and can carry heavy things.', 'Every ant in a colony has a job, and they work together.', 'Queen ants live longer than other ants.', 'Ants like to eat sugar.'],
+        correctIndex: 1,
+        explanation: 'The passage explains different ant roles and ends by saying the colony works because every ant helps — the main idea is teamwork and organization.'
+      }
+    ]
+  },
+
+  {
+    id: 'lightning-safety',
+    title: 'What to Do When Lightning Strikes',
+    topic: 'safety',
+    coverEmoji: '⚡',
+    coverColor: '#facc15',
+    gradeLevel: '2-3',
+    level: 'beginner',
+    grades: [2, 3, 4],
+    wordCount: 235,
+    readTimeMin: 2,
+    text: `You are playing outside. Suddenly, you see a bright flash of light. Then you hear a loud BOOM! It is a **thunderstorm**.
+
+**Lightning** is electricity in the sky. It can be very dangerous. But if you know what to do, you can stay safe.
+
+**Rule 1: Get inside fast.** When you see lightning or hear thunder, go inside a building or a car right away. Do not stay outside. Do not stand under a tree. Lightning can hit trees, and the electricity can hurt you.
+
+**Rule 2: Stay away from water.** Do not swim, take a bath, or wash dishes during a storm. Water can carry electricity from lightning.
+
+**Rule 3: Wait 30 minutes.** Even after the storm seems over, wait at least 30 minutes before going back outside. Lightning can still strike.
+
+If you are stuck outside and cannot get inside, crouch down low. Do not lie flat. Make yourself as small as possible. Stay away from tall objects like trees, poles, and fences.
+
+If someone is hit by lightning, call 911 right away. It is safe to touch them — they will not shock you.
+
+Thunder and lightning can be scary, but they are part of nature. By following these rules, you can stay safe every time a storm rolls in.`,
+    vocabulary: [
+      { word: 'thunderstorm', definition: 'A storm with thunder, lightning, and heavy rain.', example: 'We stayed inside during the thunderstorm.' },
+      { word: 'lightning', definition: 'A bright flash of electricity in the sky during a storm.', example: 'The lightning lit up the whole sky.' },
+      { word: 'electricity', definition: 'A form of energy that can power machines or cause shocks.', example: 'Be careful around electricity — it can be dangerous.' }
+    ],
+    questions: [
+      {
+        question: 'What should you do when you see lightning?',
+        options: ['Stand under a tree', 'Go inside fast', 'Jump in the pool', 'Keep playing outside'],
+        correctIndex: 1,
+        explanation: 'The passage says, "Get inside fast. When you see lightning or hear thunder, go inside a building or a car right away."'
+      },
+      {
+        question: 'Why should you stay away from water during a storm?',
+        options: ['Water can freeze', 'Water can carry electricity', 'Water will disappear', 'Water smells bad'],
+        correctIndex: 1,
+        explanation: 'The story says, "Water can carry electricity from lightning."'
+      },
+      {
+        question: 'How long should you wait after a storm before going outside?',
+        options: ['5 minutes', '10 minutes', '30 minutes', '1 hour'],
+        correctIndex: 2,
+        explanation: 'The text says, "Wait at least 30 minutes before going back outside."'
+      }
+    ]
+  },
+
+  // ── GRADE 3-4 ──
+
+  {
+    id: 'moon-phases',
+    title: 'Why Does the Moon Change Shape?',
+    topic: 'science',
+    coverEmoji: '🌙',
+    coverColor: '#1e293b',
+    gradeLevel: '3',
+    level: 'grade-level',
+    grades: [3, 4, 5],
+    wordCount: 280,
+    readTimeMin: 2,
+    text: `Look up at the night sky. Sometimes the Moon is a bright full circle. Other nights, it looks like a thin slice. Why does the Moon seem to change shape?
+
+The Moon does not actually change. It is always a sphere, like a ball. What changes is how much of the **sunlit** side we can see from Earth.
+
+The Moon does not make its own light. It reflects light from the Sun. As the Moon **orbits** Earth — traveling in a circle around our planet — the Sun lights up different parts of it. Depending on where the Moon is in its orbit, we see different amounts of the lit side.
+
+This creates the **phases** of the Moon. When the Moon is between Earth and the Sun, the side facing us is dark. We call this the **new moon**. We cannot see it at all.
+
+As the Moon moves, we start to see a thin sliver of light. This is the **crescent moon**. A few days later, we see half of the Moon lit up. This is the **first quarter**.
+
+About two weeks after the new moon, the entire face of the Moon is lit. This is the **full moon**. Then the cycle reverses. The lit part gets smaller again, moving back toward a new moon.
+
+The whole cycle takes about 29 days. That is why we see a full moon about once a month. Ancient people used the Moon's phases to track time. Today, we still use a **lunar calendar** in many cultures.
+
+The Moon's changing face is not magic. It is science — a beautiful dance of light and shadow as our neighbor in space circles Earth.`,
+    vocabulary: [
+      { word: 'sunlit', definition: 'Lit up by the Sun.', example: 'The sunlit side of the mountain was warm and bright.' },
+      { word: 'orbits', definition: 'Travels in a curved path around something.', example: 'Earth orbits the Sun once every year.' },
+      { word: 'phases', definition: 'Different stages or appearances.', example: 'The caterpillar goes through several phases before becoming a butterfly.' },
+      { word: 'lunar calendar', definition: 'A calendar based on the cycles of the Moon.', example: 'Some holidays are determined by the lunar calendar.' }
+    ],
+    questions: [
+      {
+        question: 'Why does the Moon seem to change shape?',
+        options: ['The Moon actually grows and shrinks.', 'Clouds cover parts of the Moon.', 'We see different amounts of the sunlit side as the Moon orbits Earth.', 'The Moon moves farther away from Earth.'],
+        correctIndex: 2,
+        explanation: 'The passage explains that the Moon reflects sunlight, and as it orbits Earth, we see different amounts of the lit side.'
+      },
+      {
+        question: 'What is a "new moon"?',
+        options: ['When the Moon is full and bright.', 'When the side facing us is dark and we cannot see it.', 'When the Moon is closest to Earth.', 'When the Moon has craters.'],
+        correctIndex: 1,
+        explanation: 'The text says, "When the Moon is between Earth and the Sun, the side facing us is dark. We call this the new moon."'
+      },
+      {
+        question: 'How long does the full Moon cycle take?',
+        options: ['About 7 days', 'About 29 days', 'About 365 days', 'About 12 hours'],
+        correctIndex: 1,
+        explanation: 'The passage states, "The whole cycle takes about 29 days."'
+      },
+      {
+        question: 'What does the word "orbits" mean in this passage?',
+        options: ['Crashes into', 'Travels around', 'Lights up', 'Disappears from'],
+        correctIndex: 1,
+        explanation: 'The text says the Moon "orbits Earth — traveling in a circle around our planet," so orbits means travels around.'
+      }
+    ]
+  },
+
+  {
+    id: 'recycling-matters',
+    title: 'Why Recycling Matters',
+    topic: 'environment',
+    coverEmoji: '♻️',
+    coverColor: '#10b981',
+    gradeLevel: '3',
+    level: 'grade-level',
+    grades: [3, 4, 5],
+    wordCount: 265,
+    readTimeMin: 2,
+    text: `Every day, people throw away tons of trash. Plastic bottles, aluminum cans, cardboard boxes — all of it ends up in landfills. But it doesn't have to.
+
+**Recycling** means turning old items into new ones. Instead of throwing away a soda can, you put it in the recycling bin. The can gets melted down and made into a new can. This saves **resources** and protects the environment.
+
+Here's why recycling is important:
+
+**It saves materials.** Making new aluminum from recycled cans uses 95% less energy than making it from scratch. Recycling paper saves trees. Recycling plastic reduces the need to drill for oil.
+
+**It reduces pollution.** Factories that make new products create smoke and chemicals. Recycling produces less pollution because it takes less energy.
+
+**It keeps landfills smaller.** Landfills are huge piles of garbage. When we recycle, less trash goes into landfills, and we don't need as many of them.
+
+Not everything can be recycled. Food scraps, styrofoam, and broken glass usually can't go in the bin. But paper, cardboard, most plastics, glass bottles, and metal cans can.
+
+To recycle correctly, rinse out containers so they are clean. Don't put plastic bags in the bin — they can jam the machines. Check your city's rules, because every place is a little different.
+
+Recycling is easy. It takes just a few extra seconds to put your bottle in the right bin instead of the trash. Those small actions add up. When millions of people recycle, we save energy, protect nature, and make the Earth cleaner for everyone.`,
+    vocabulary: [
+      { word: 'recycling', definition: 'Turning old materials into new products instead of throwing them away.', example: 'Recycling paper helps save trees.' },
+      { word: 'resources', definition: 'Materials from nature that people use, like trees, water, or oil.', example: 'We must protect our natural resources.' },
+      { word: 'landfill', definition: 'A place where garbage is buried.', example: 'The landfill was full of old furniture and trash.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Recycling is too hard for most people.', 'Recycling helps save resources, reduce pollution, and protect the environment.', 'Landfills are the best way to handle trash.', 'Only aluminum cans can be recycled.'],
+        correctIndex: 1,
+        explanation: 'The passage lists three reasons why recycling matters: saving materials, reducing pollution, and keeping landfills smaller.'
+      },
+      {
+        question: 'According to the passage, why does recycling reduce pollution?',
+        options: ['Because recycled products are always cleaner.', 'Because recycling takes less energy than making new products.', 'Because factories close when people recycle.', 'Because pollution only comes from landfills.'],
+        correctIndex: 1,
+        explanation: 'The text says, "Recycling produces less pollution because it takes less energy."'
+      },
+      {
+        question: 'Which item can you usually recycle?',
+        options: ['Food scraps', 'Styrofoam', 'Plastic bags', 'Aluminum cans'],
+        correctIndex: 3,
+        explanation: 'The passage says aluminum cans can be recycled, but food, styrofoam, and plastic bags usually cannot.'
+      }
+    ]
+  },
+
+  // ── GRADE 5-6 ──
+
+  {
+    id: 'honey-bees',
+    title: 'The Amazing World of Honey Bees',
+    topic: 'science',
+    coverEmoji: '🐝',
+    coverColor: '#f59e0b',
+    gradeLevel: '5',
+    level: 'grade-level',
+    grades: [4, 5, 6],
+    wordCount: 340,
+    readTimeMin: 3,
+    text: `Honey bees are some of the hardest workers in nature. A single hive can contain 60,000 bees, all working together with incredible **organization**. Each bee has a specific role, and the survival of the hive depends on every bee doing its job.
+
+At the center of the hive is the **queen bee**. She is larger than the other bees, and her only job is to lay eggs — up to 2,000 per day. The queen can live for several years, but most worker bees live only about six weeks.
+
+**Worker bees** are all female. When they are young, they stay inside the hive. They clean cells, feed larvae, build honeycomb from wax, and care for the queen. As they get older, they leave the hive to collect nectar and pollen from flowers.
+
+Bees visit flowers to gather nectar, a sweet liquid. They store it in a special stomach and carry it back to the hive. There, other bees chew the nectar and spread it into honeycomb cells. They fan it with their wings to evaporate the water. What remains is honey — concentrated food that the hive can eat all winter.
+
+While collecting nectar, bees accidentally **pollinate** flowers. Pollen sticks to their fuzzy bodies and transfers from flower to flower. This allows plants to make seeds and fruit. Without bees, many crops — including apples, almonds, and blueberries — would not grow.
+
+Unfortunately, bee populations are **declining**. Pesticides, habitat loss, and disease are killing bees. Scientists warn that losing bees could harm our food supply.
+
+We can help by planting flowers that bees love, avoiding pesticides, and supporting local beekeepers. Bees give us honey, but more importantly, they give us food. Protecting them protects us, too.`,
+    vocabulary: [
+      { word: 'organization', definition: 'The way something is arranged or structured.', example: 'The organization of the library made it easy to find books.' },
+      { word: 'pollinate', definition: 'To transfer pollen from one flower to another, allowing plants to reproduce.', example: 'Bees pollinate flowers as they collect nectar.' },
+      { word: 'declining', definition: 'Decreasing or going down in number.', example: 'The number of wild tigers is declining.' }
+    ],
+    questions: [
+      {
+        question: "What is the queen bee's main job?",
+        options: ['Collect nectar', 'Lay eggs', 'Build honeycomb', 'Protect the hive'],
+        correctIndex: 1,
+        explanation: 'The passage says, "Her only job is to lay eggs — up to 2,000 per day."'
+      },
+      {
+        question: 'How do bees turn nectar into honey?',
+        options: ['They mix it with pollen.', 'They chew it and fan it to evaporate water.', 'They freeze it overnight.', 'They bury it underground.'],
+        correctIndex: 1,
+        explanation: 'The text explains that bees chew the nectar, spread it into cells, and fan it to evaporate water, creating honey.'
+      },
+      {
+        question: 'Why are bees important to our food supply?',
+        options: ['They make honey that people eat.', 'They pollinate plants, which allows crops to grow.', 'They kill harmful insects.', 'They clean the environment.'],
+        correctIndex: 1,
+        explanation: 'The passage says that while collecting nectar, bees pollinate flowers, allowing plants to make seeds and fruit. Many crops depend on this.'
+      },
+      {
+        question: 'What does "declining" mean in the passage?',
+        options: ['Increasing rapidly', 'Staying the same', 'Decreasing in number', 'Moving to new areas'],
+        correctIndex: 2,
+        explanation: 'The passage says bee populations are declining due to pesticides and habitat loss — meaning their numbers are going down.'
+      }
+    ]
+  },
+
+  {
+    id: 'underground-railroad',
+    title: 'The Underground Railroad: A Path to Freedom',
+    topic: 'history',
+    coverEmoji: '🚂',
+    coverColor: '#64748b',
+    gradeLevel: '5',
+    level: 'grade-level',
+    grades: [5, 6, 7],
+    wordCount: 380,
+    readTimeMin: 3,
+    text: `Before the Civil War, millions of African Americans were enslaved in the southern United States. They had no freedom, no rights, and no hope — unless they could escape.
+
+The **Underground Railroad** was not a real railroad. It was a secret network of people, safe houses, and routes that helped enslaved people escape to freedom in the North and Canada. The network used railroad terms as **code words** to keep their work secret. Safe houses were called "stations." People who guided runaways were called "conductors." The escaping people were "passengers" or "cargo."
+
+The journey was dangerous. Enslaved people had to travel at night, often on foot, through forests and swamps. They followed the North Star or listened for directions hidden in songs. If they were caught, they faced brutal punishment or death.
+
+**Conductors** risked their lives to help. Harriet Tubman, the most famous conductor, was born into slavery but escaped in 1849. She could have stayed safe in the North. Instead, she returned to the South **19 times** and led more than 70 people to freedom. She carried a gun — not to hurt anyone, but to convince scared passengers to keep going. "I never lost a passenger," she said proudly.
+
+Free Black people, white abolitionists, and Quakers all participated. They hid people in secret rooms, barns, and cellars. They gave them food, clothes, and directions to the next station.
+
+The Underground Railroad saved thousands of lives. Some historians estimate that 100,000 people escaped slavery using these routes between 1810 and 1850.
+
+The network proved that ordinary people could stand up against injustice, even when it was dangerous. The courage of the passengers and conductors reminds us that freedom is worth fighting for — and that even in the darkest times, there are people willing to help.`,
+    vocabulary: [
+      { word: 'enslaved', definition: 'Forced to work without freedom or pay; owned by someone else.', example: 'Enslaved people had no legal rights.' },
+      { word: 'code words', definition: 'Secret words used to hide the real meaning.', example: 'Spies used code words so enemies would not understand their messages.' },
+      { word: 'conductors', definition: 'People who guided enslaved people to freedom on the Underground Railroad.', example: 'Conductors risked their lives to help others escape.' },
+      { word: 'abolitionists', definition: 'People who worked to end slavery.', example: 'Abolitionists gave speeches and wrote articles against slavery.' }
+    ],
+    questions: [
+      {
+        question: 'Why was the Underground Railroad called by that name?',
+        options: ['It used real trains to transport people.', 'It was a secret network that used railroad terms as code words.', 'It was built underground.', 'It only operated at railroad stations.'],
+        correctIndex: 1,
+        explanation: 'The passage explains that it was a secret network and used railroad terms like "stations" and "conductors" as code words to keep the work secret.'
+      },
+      {
+        question: 'What does the passage say about Harriet Tubman?',
+        options: ['She escaped slavery once and stayed in the North.', 'She returned to the South 19 times and led over 70 people to freedom.', 'She was caught and sent back to slavery.', 'She only helped her own family escape.'],
+        correctIndex: 1,
+        explanation: 'The text says Tubman escaped but returned to the South 19 times and led more than 70 people to freedom.'
+      },
+      {
+        question: 'Why did enslaved people travel at night?',
+        options: ['Because it was cooler at night.', 'Because they could follow the North Star and avoid being caught.', 'Because the trains only ran at night.', 'Because conductors only worked at night.'],
+        correctIndex: 1,
+        explanation: 'The passage says they traveled at night, followed the North Star, and tried to avoid capture.'
+      },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Harriet Tubman was the only person who helped enslaved people.', 'The Underground Railroad was a secret network that helped thousands escape slavery.', 'Slavery ended because of the Underground Railroad.', 'The North Star was the most important tool for escaping slavery.'],
+        correctIndex: 1,
+        explanation: 'The passage describes what the Underground Railroad was, how it worked, and how it saved thousands of lives — this is the central idea.'
+      }
+    ]
+  },
+
+  // ── GRADE 6-7 ──
+
+  {
+    id: 'plastic-ocean',
+    title: 'Plastic in Our Oceans: A Growing Crisis',
+    topic: 'environment',
+    coverEmoji: '🌊',
+    coverColor: '#0ea5e9',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 3,
+    text: `In 1997, a sailor named Charles Moore was crossing the Pacific Ocean when he noticed something strange. Floating in the water, as far as he could see, was trash. Plastic bottles, bags, fishing nets, and tiny fragments covered the surface. Moore had discovered what scientists now call the **Great Pacific Garbage Patch** — a massive accumulation of ocean plastic twice the size of Texas.
+
+Today, more than **8 million tons** of plastic enter the ocean every year. That is the equivalent of dumping one garbage truck of plastic into the sea every single minute. The plastic does not disappear. It breaks into smaller and smaller pieces called **microplastics**, which can be smaller than a grain of rice.
+
+Ocean animals mistake plastic for food. Sea turtles eat plastic bags, thinking they are jellyfish. Seabirds feed plastic fragments to their chicks. Whales have been found dead with stomachs full of plastic. Scientists estimate that more than 100,000 marine animals die each year from eating or becoming tangled in plastic.
+
+Microplastics are even more dangerous because they are nearly invisible. Fish, shellfish, and plankton consume them. When humans eat seafood, we may be eating plastic too. Researchers have found microplastics in drinking water, table salt, and even the air we breathe.
+
+Why is there so much plastic in the ocean? Most comes from land. Rivers carry plastic waste from cities into the sea. Coastal areas with poor waste management dump garbage directly into the water. Fishing boats lose or abandon nets, which drift for years, trapping animals.
+
+Solving the plastic crisis requires action at every level. Governments can ban single-use plastics like straws and bags. Companies can design biodegradable packaging. Individuals can reduce plastic use, recycle properly, and participate in beach cleanups.
+
+Some scientists are developing technology to remove plastic from the ocean. Organizations like The Ocean Cleanup use floating barriers to collect trash. But experts agree: the real solution is to stop plastic from entering the ocean in the first place.
+
+The ocean covers more than 70% of our planet. It produces half the oxygen we breathe and regulates our climate. Protecting it from plastic pollution is not just about saving sea turtles — it is about protecting the future of life on Earth.`,
+    vocabulary: [
+      { word: 'accumulation', definition: 'A buildup or gathering of something over time.', example: 'The accumulation of snow blocked the road.' },
+      { word: 'microplastics', definition: 'Tiny pieces of plastic smaller than 5 millimeters.', example: 'Microplastics have been found in fish and drinking water.' },
+      { word: 'biodegradable', definition: 'Able to break down naturally without harming the environment.', example: 'Biodegradable packaging dissolves in soil over time.' }
+    ],
+    questions: [
+      {
+        question: 'What is the Great Pacific Garbage Patch?',
+        options: ['A recycling center in the Pacific Ocean.', 'A massive area of floating plastic trash in the ocean.', 'A protected marine habitat.', 'A new island made of garbage.'],
+        correctIndex: 1,
+        explanation: 'The passage describes it as "a massive accumulation of ocean plastic twice the size of Texas."'
+      },
+      {
+        question: 'According to the passage, how much plastic enters the ocean each year?',
+        options: ['8 thousand tons', '8 million tons', '100,000 tons', '1 billion tons'],
+        correctIndex: 1,
+        explanation: 'The text states, "More than 8 million tons of plastic enter the ocean every year."'
+      },
+      {
+        question: 'Why are microplastics dangerous?',
+        options: ['They are sharp and cut animals.', 'They are so small that fish and humans consume them without knowing.', 'They cause ocean temperatures to rise.', 'They block sunlight from reaching the ocean floor.'],
+        correctIndex: 1,
+        explanation: 'The passage says microplastics are nearly invisible, fish eat them, and humans may consume them when eating seafood.'
+      },
+      {
+        question: 'What is the BEST solution to ocean plastic pollution, according to the passage?',
+        options: ['Building more recycling centers.', 'Using barriers to collect trash from the ocean.', 'Stopping plastic from entering the ocean in the first place.', 'Banning all ocean fishing.'],
+        correctIndex: 2,
+        explanation: 'The passage says, "Experts agree: the real solution is to stop plastic from entering the ocean in the first place."'
+      },
+      {
+        question: 'Which organizational pattern does the author use in this passage?',
+        options: ['Chronological order (events in time order).', 'Problem and solution.', 'Compare and contrast.', 'Cause and effect with a proposed solution.'],
+        correctIndex: 3,
+        explanation: 'The passage describes the problem (plastic in the ocean), explains causes (waste from land, fishing nets), and proposes solutions (bans, technology, reducing use).'
+      }
+    ]
+  },
+
+  {
+    id: 'mars-exploration',
+    title: 'Journey to Mars: The Next Frontier',
+    topic: 'science',
+    coverEmoji: '🚀',
+    coverColor: '#dc2626',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 410,
+    readTimeMin: 3,
+    text: `For centuries, humans have looked up at the red dot in the night sky and wondered: could we ever go there? Mars, our neighboring planet, has always fascinated scientists. Now, space agencies around the world are preparing for the most ambitious journey in human history — sending people to Mars.
+
+Why Mars? Of all the planets in our solar system, Mars is the most similar to Earth. It has seasons, polar ice caps, and evidence of ancient rivers. Most importantly, scientists believe Mars once had liquid water on its surface, and where there is water, there might have been life.
+
+**Robotic missions** have already landed on Mars. NASA's rovers — Spirit, Opportunity, Curiosity, and Perseverance — have explored the surface, analyzed rocks, and sent back thousands of photos. These robots confirmed that Mars once had lakes and streams. They found organic molecules, the building blocks of life. While they have not found living organisms, the possibility remains.
+
+Sending humans to Mars is far more difficult than sending robots. The journey would take about **seven months** — much longer than the three-day trip to the Moon. Astronauts would face intense radiation, zero gravity, and extreme isolation. Mars has almost no atmosphere, so they could not breathe outside without a spacesuit. Temperatures can drop to -80°F at night.
+
+Once on Mars, astronauts would need to grow food, produce oxygen, and create fuel for the return trip. Some scientists propose using Martian soil and ice to produce water and breathable air. Others suggest building habitats underground to protect from radiation.
+
+NASA plans to send humans to Mars in the 2030s. Private companies like SpaceX are developing reusable rockets to make space travel cheaper. Elon Musk, founder of SpaceX, has stated his goal of building a self-sustaining city on Mars within 50 years.
+
+Critics argue that the money spent on Mars missions could be used to solve problems on Earth — poverty, disease, climate change. Supporters counter that space exploration drives innovation. Technologies developed for space, like water purification systems and medical devices, have improved life on Earth.
+
+Mars represents the ultimate challenge. It tests our engineering, our endurance, and our courage. If we succeed, humanity will become a multi-planet species. The red planet may one day be our second home.`,
+    vocabulary: [
+      { word: 'robotic missions', definition: 'Space missions that use robots instead of humans.', example: 'Robotic missions to Mars have sent back valuable data.' },
+      { word: 'organic molecules', definition: 'Chemical compounds that contain carbon and are found in living things.', example: 'Scientists discovered organic molecules in the soil sample.' },
+      { word: 'isolation', definition: 'Being separated from others; loneliness.', example: 'Astronauts must prepare for the isolation of long space missions.' }
+    ],
+    questions: [
+      {
+        question: 'Why are scientists interested in sending humans to Mars?',
+        options: ['Mars has gold and valuable minerals.', 'Mars is the closest planet to Earth.', 'Mars is the most Earth-like planet and may have once had life.', 'Mars is easier to reach than the Moon.'],
+        correctIndex: 2,
+        explanation: 'The passage says Mars is the most similar to Earth, once had liquid water, and might have had life.'
+      },
+      {
+        question: 'What have rovers discovered on Mars?',
+        options: ['Living plants and animals.', 'Evidence of ancient water and organic molecules.', 'A breathable atmosphere.', 'Alien civilizations.'],
+        correctIndex: 1,
+        explanation: 'The text says rovers confirmed Mars once had lakes and streams and found organic molecules.'
+      },
+      {
+        question: 'What is one major challenge of sending humans to Mars?',
+        options: ['The journey only takes three days.', 'Mars has too much oxygen.', 'Astronauts would face radiation, zero gravity, and extreme isolation for seven months.', 'Mars is too close to the Sun.'],
+        correctIndex: 2,
+        explanation: 'The passage lists these specific challenges: radiation, zero gravity, extreme isolation, and a seven-month journey.'
+      },
+      {
+        question: 'What do critics of Mars missions argue?',
+        options: ['Mars is too dangerous to explore.', 'The money could be used to solve problems on Earth.', 'Space exploration is not important.', 'Robots are better than humans.'],
+        correctIndex: 1,
+        explanation: 'The passage says critics argue that the money spent on Mars could be used to solve Earth problems like poverty and climate change.'
+      },
+      {
+        question: "What is the author's PURPOSE in this passage?",
+        options: ['To persuade readers that Mars missions are a waste of money.', 'To inform readers about the challenges and goals of Mars exploration.', 'To entertain readers with a fictional story about Mars.', 'To argue that we should stop exploring space.'],
+        correctIndex: 1,
+        explanation: 'The passage presents factual information about why scientists want to go to Mars, the challenges involved, and different perspectives — this is informational writing.'
+      }
+    ]
+  },
+
+  // ── GRADE 8 ──
+
+  {
+    id: 'ai-revolution',
+    title: 'Artificial Intelligence: Promise and Peril',
+    topic: 'technology',
+    coverEmoji: '🤖',
+    coverColor: '#6366f1',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 450,
+    readTimeMin: 4,
+    text: `In 2023, a computer program called ChatGPT became the fastest-growing application in history, gaining 100 million users in just two months. It could write essays, solve math problems, and hold conversations that felt eerily human. This was not science fiction — it was **artificial intelligence** (AI), and it is transforming society at breathtaking speed.
+
+AI refers to computer systems that can perform tasks that normally require human intelligence: recognizing faces, translating languages, driving cars, diagnosing diseases. Unlike traditional software that follows programmed rules, AI **learns** from data. The more information it processes, the better it becomes.
+
+The benefits of AI are profound. In medicine, AI analyzes X-rays and MRIs faster and more accurately than human doctors, catching cancers that radiologists miss. In climate science, AI models predict weather patterns and optimize energy use. Self-driving cars could reduce traffic deaths caused by human error. AI tutors provide personalized education to students worldwide.
+
+Yet AI also raises serious concerns. **Job displacement** is one. As machines become capable of performing tasks once done by humans — from driving trucks to writing code — millions of workers may lose their livelihoods. A 2020 report estimated that AI could automate 47% of U.S. jobs within two decades.
+
+**Bias** is another problem. AI learns from data created by humans, and if that data contains prejudice, the AI will too. Facial recognition systems have been shown to misidentify people of color at higher rates. Hiring algorithms have discriminated against women. When decisions about loans, policing, or healthcare are made by biased AI, the consequences can be devastating.
+
+Privacy is at risk. AI systems collect enormous amounts of personal data — where we go, what we buy, who we talk to. Companies and governments use this information to predict and influence our behavior. China has deployed AI-powered surveillance that tracks citizens constantly, assigning them "social credit scores" based on their actions.
+
+Perhaps most frightening is the question of control. As AI systems become more powerful, will we be able to understand or manage them? Some researchers warn of **superintelligent AI** — machines that surpass human intelligence and pursue goals misaligned with human values. While this scenario remains speculative, experts like Stephen Hawking and Elon Musk have called it an existential threat.
+
+So what should we do? Some advocate for strict regulation. Others call for international cooperation, treating AI development like nuclear weapons — too dangerous to leave uncontrolled. Education will be critical, preparing workers for an AI-driven economy and teaching citizens to think critically about the technology shaping their lives.
+
+AI is not inherently good or evil. It is a tool, and like all tools, its impact depends on how we use it. The challenge of our generation is to harness AI's power while preventing its dangers. The decisions we make today will shape the world for centuries.`,
+    vocabulary: [
+      { word: 'artificial intelligence', definition: 'Computer systems that can perform tasks requiring human-like thinking.', example: 'Artificial intelligence is used in virtual assistants like Siri and Alexa.' },
+      { word: 'job displacement', definition: 'When workers lose their jobs because machines or technology replace them.', example: 'Automation has caused job displacement in manufacturing.' },
+      { word: 'bias', definition: 'Unfair preference or prejudice for or against something.', example: 'The algorithm showed bias against certain groups of people.' },
+      { word: 'superintelligent AI', definition: 'Hypothetical artificial intelligence that is smarter than the best human minds.', example: 'Scientists debate whether superintelligent AI could ever exist.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN PURPOSE of this passage?',
+        options: ['To explain what AI is and explore both its benefits and risks.', 'To argue that AI should be banned completely.', 'To prove that AI is smarter than humans.', 'To teach readers how to build AI systems.'],
+        correctIndex: 0,
+        explanation: 'The passage defines AI, describes its benefits (medicine, climate, education), and discusses concerns (job loss, bias, privacy, control) — it is balanced and informational.'
+      },
+      {
+        question: 'According to the passage, what is one way AI has improved medicine?',
+        options: ['AI has replaced all human doctors.', 'AI analyzes medical images faster and more accurately than humans.', 'AI has cured all diseases.', 'AI performs surgery without supervision.'],
+        correctIndex: 1,
+        explanation: 'The text says, "AI analyzes X-rays and MRIs faster and more accurately than human doctors, catching cancers that radiologists miss."'
+      },
+      {
+        question: "Why does the passage mention China's social credit system?",
+        options: ['To show that China has the best AI technology.', 'To illustrate privacy concerns and government surveillance enabled by AI.', 'To argue that all countries should adopt the same system.', 'To prove that AI cannot track people.'],
+        correctIndex: 1,
+        explanation: 'The passage uses China as an example of how AI enables massive surveillance and control, illustrating privacy risks.'
+      },
+      {
+        question: 'What does the author mean by "AI is not inherently good or evil"?',
+        options: ['AI has no emotions or morals.', "AI's impact depends on how humans choose to use it.", 'AI will always help humanity.', 'AI will always harm humanity.'],
+        correctIndex: 1,
+        explanation: 'The passage says, "It is a tool, and like all tools, its impact depends on how we use it" — meaning humans determine whether AI helps or harms.'
+      },
+      {
+        question: "Which statement BEST describes the author's tone in this passage?",
+        options: ['Completely optimistic — AI will solve all problems.', 'Completely pessimistic — AI will destroy humanity.', 'Balanced — presenting both benefits and serious risks.', 'Humorous — making jokes about technology.'],
+        correctIndex: 2,
+        explanation: 'The author presents both the benefits (medicine, climate) and dangers (bias, job loss, surveillance) without taking an extreme position — this is a balanced tone.'
+      }
+    ]
   }
 
 ];

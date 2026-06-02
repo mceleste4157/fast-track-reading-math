@@ -274,11 +274,19 @@
     <div class="story-grid" id="grid-advanced"></div>
   </div>
 
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260602"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
+    console.log('🔍 DEBUG: STORIES loaded?', typeof STORIES !== 'undefined');
+    if (typeof STORIES !== 'undefined') {
+      console.log('📚 Total stories:', STORIES.length);
+      console.log('📖 First story:', STORIES[0]?.id);
+    } else {
+      console.error('❌ STORIES is undefined! Check stories.js');
+    }
+
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) { window.location.href = 'login.html'; }
 

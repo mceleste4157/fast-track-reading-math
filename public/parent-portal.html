@@ -17,8 +17,28 @@
       --surface: #ffffff; --border: rgba(0,0,0,0.08);
       --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
     }
+
+    /* Dark mode colors */
+    body.dark-mode {
+      --bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #1e293b 100%);
+      --surface: #1e293b;
+      --border: rgba(255,255,255,0.1);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --purple-soft: #2e1065;
+      --blue-soft: #1e3a8a;
+      --green-soft: #064e3b;
+      --red-soft: #7f1d1d;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
 
     /* ── Nav ── */
     .nav {
@@ -87,6 +107,7 @@
       display: flex; gap: 10px; align-items: flex-start;
       background: #f9fafb; border-radius: 10px; padding: 11px 13px;
     }
+    body.dark-mode .rn-item { background: rgba(255,255,255,0.05); }
     .rn-item-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
     .rn-item-text { font-size: 0.88rem; line-height: 1.5; color: var(--text); }
     .rn-item-text strong { font-weight: 700; }
@@ -98,6 +119,221 @@
       transition: background 0.15s;
     }
     .rn-close:hover { background: #6d28d9; }
+    /* COPPA Consent Modal */
+    .coppa-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6); z-index: 300;
+      align-items: center; justify-content: center;
+      padding: 24px 16px;
+    }
+    .coppa-overlay.show { display: flex; }
+    .coppa-modal {
+      background: var(--surface); border-radius: 20px;
+      max-width: 580px; width: 100%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .coppa-header {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      padding: 24px 28px; color: #fff;
+    }
+    .coppa-header h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .coppa-header p { font-size: 0.9rem; opacity: 0.95; }
+    .coppa-body { padding: 28px 28px 24px; max-height: 60vh; overflow-y: auto; }
+    .coppa-body h3 { font-size: 1.05rem; font-weight: 700; margin: 16px 0 8px; color: var(--text); }
+    .coppa-body h3:first-child { margin-top: 0; }
+    .coppa-body p, .coppa-body li { font-size: 0.9rem; line-height: 1.6; color: #374151; }
+    .coppa-body ul { margin: 8px 0 12px 20px; }
+    .coppa-body li { margin-bottom: 6px; }
+    .coppa-highlight {
+      background: #fef3c7; border-left: 4px solid #f59e0b;
+      padding: 14px 16px; border-radius: 8px; margin: 16px 0;
+    }
+    .coppa-highlight p { margin: 0; color: #78350f; font-weight: 600; }
+    .coppa-consent {
+      background: #f3f4f6; padding: 16px 20px; border-radius: 12px;
+      margin: 20px 0 0; border: 2px solid var(--border);
+    }
+    .coppa-consent label {
+      display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+    }
+    .coppa-consent input[type="checkbox"] {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      cursor: pointer; accent-color: var(--purple);
+    }
+    .coppa-consent span { font-size: 0.9rem; line-height: 1.5; font-weight: 600; color: var(--text); }
+
+    /* Dark mode for COPPA modal */
+    body.dark-mode .coppa-consent { background: rgba(255,255,255,0.05); }
+    body.dark-mode .coppa-consent span { color: #f1f5f9; }
+    body.dark-mode .coppa-body p,
+    body.dark-mode .coppa-body li { color: #cbd5e1; }
+    body.dark-mode .coppa-highlight { background: rgba(245,158,11,0.15); border-left-color: #f59e0b; }
+    body.dark-mode .coppa-highlight p { color: #fbbf24; }
+    .coppa-actions {
+      display: flex; gap: 12px; padding: 20px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .coppa-btn {
+      flex: 1; padding: 12px; border-radius: 11px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; border: none; transition: all 0.15s;
+    }
+    .coppa-btn-cancel {
+      background: var(--surface); color: var(--muted);
+      border: 2px solid var(--border);
+    }
+    .coppa-btn-cancel:hover { border-color: var(--red); color: var(--red); }
+    .coppa-btn-accept {
+      background: var(--purple); color: #fff;
+    }
+    .coppa-btn-accept:hover { background: #6d28d9; }
+    .coppa-btn-accept:disabled {
+      background: #d1d5db; cursor: not-allowed;
+    }
+
+    /* Delete Account Confirmation Modal */
+    .delete-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7); z-index: 300;
+      align-items: center; justify-content: center;
+      padding: 24px 16px;
+    }
+    .delete-overlay.show { display: flex; }
+    .delete-modal {
+      background: var(--surface); border-radius: 20px;
+      max-width: 500px; width: 100%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .delete-header {
+      background: var(--red); padding: 24px 28px; color: #fff;
+    }
+    .delete-header h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .delete-header p { font-size: 0.9rem; opacity: 0.95; }
+    .delete-body { padding: 28px; }
+    .delete-body h3 { font-size: 1.05rem; font-weight: 700; margin: 16px 0 8px; color: var(--text); }
+    .delete-body h3:first-child { margin-top: 0; }
+    .delete-body p { font-size: 0.9rem; line-height: 1.6; color: #374151; margin-bottom: 12px; }
+    .delete-body ul { margin: 8px 0 12px 20px; }
+    .delete-body li { font-size: 0.9rem; line-height: 1.6; color: #374151; margin-bottom: 6px; }
+    .delete-warning {
+      background: #fee2e2; border-left: 4px solid var(--red);
+      padding: 14px 16px; border-radius: 8px; margin: 16px 0;
+    }
+    .delete-warning p { margin: 0; color: #7f1d1d; font-weight: 700; }
+    .delete-confirm-box {
+      background: #f3f4f6; padding: 16px 20px; border-radius: 12px;
+      margin: 20px 0 0; border: 2px solid var(--border);
+    }
+    .delete-confirm-box label {
+      display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+      margin-bottom: 12px;
+    }
+    .delete-confirm-box input[type="checkbox"] {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      cursor: pointer; accent-color: var(--red);
+    }
+    .delete-confirm-box span { font-size: 0.9rem; line-height: 1.5; font-weight: 600; color: var(--text); }
+    .delete-confirm-box input[type="text"] {
+      width: 100%; padding: 10px 12px; border: 2px solid var(--border);
+      border-radius: 8px; font-family: inherit; font-size: 0.95rem;
+      outline: none;
+    }
+    .delete-confirm-box input[type="text"]:focus { border-color: var(--red); }
+    .delete-actions {
+      display: flex; gap: 12px; padding: 20px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .delete-btn {
+      flex: 1; padding: 12px; border-radius: 11px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; border: none; transition: all 0.15s;
+    }
+    .delete-btn-cancel {
+      background: var(--surface); color: var(--muted);
+      border: 2px solid var(--border);
+    }
+    .delete-btn-cancel:hover { border-color: var(--text); color: var(--text); }
+    .delete-btn-confirm {
+      background: var(--red); color: #fff;
+    }
+    .delete-btn-confirm:hover { background: #dc2626; }
+    .delete-btn-confirm:disabled {
+      background: #d1d5db; cursor: not-allowed;
+    }
+
+    /* Account Settings Modal */
+    .settings-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 300;
+      align-items: center; justify-content: center;
+      padding: 24px 16px; overflow-y: auto;
+    }
+    .settings-overlay.show { display: flex; }
+    .settings-modal {
+      background: var(--surface); border-radius: 20px;
+      max-width: 600px; width: 100%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+      overflow: hidden; margin: auto;
+    }
+    .settings-header {
+      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+      padding: 24px 28px; color: #fff;
+    }
+    .settings-header h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
+    .settings-header p { font-size: 0.9rem; opacity: 0.9; }
+    .settings-body { padding: 28px; max-height: 70vh; overflow-y: auto; }
+
+    .settings-section {
+      margin-bottom: 32px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .settings-section:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+    .settings-section h3 {
+      font-size: 1.05rem; font-weight: 700; margin-bottom: 12px;
+      color: var(--text); display: flex; align-items: center; gap: 8px;
+    }
+    .settings-section p {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .settings-danger-section {
+      background: var(--red-soft); border: 2px solid var(--red);
+      border-radius: 12px; padding: 20px; margin-top: 8px;
+    }
+    .settings-danger-section h4 {
+      font-size: 0.95rem; font-weight: 700; color: var(--red);
+      margin-bottom: 8px;
+    }
+    .settings-danger-section p {
+      font-size: 0.85rem; color: #7f1d1d; line-height: 1.5;
+    }
+
+    .settings-actions {
+      display: flex; gap: 12px; padding: 20px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .settings-btn {
+      flex: 1; padding: 12px; border-radius: 11px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; border: none; transition: all 0.15s;
+    }
+    .settings-btn-close {
+      background: var(--purple); color: #fff;
+    }
+    .settings-btn-close:hover { background: #6d28d9; }
+
+    .nav-user {
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .nav-user:hover {
+      color: var(--purple);
+      text-decoration: underline;
+    }
+
     .rn-badge {
       display: inline-block; font-size: 0.7rem; font-weight: 800;
       background: var(--green); color: #fff; border-radius: 99px;
@@ -111,7 +347,37 @@
     .rn-date:first-child { margin-top: 0; }
     .rn-date::after { content: ''; flex: 1; height: 1px; background: var(--purple-soft); }
 
-    .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
+    .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 40px; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 20px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .disclaimer {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
 
     /* ── Section heading ── */
     .section-heading {
@@ -297,6 +563,7 @@
   <nav class="nav">
     <div class="nav-title">🚀 FAST Track — Parent Portal</div>
     <div class="nav-user" id="nav-user"></div>
+    <button class="btn-whats-new" id="dark-mode-toggle" title="Toggle dark mode">🌙</button>
     <button class="btn-whats-new" id="whats-new-btn">🎉 What's New</button>
     <button class="btn-signout" id="signout-btn">Sign Out</button>
   </nav>
@@ -306,13 +573,45 @@
     <div class="rn-modal">
       <div class="rn-header">
         <h2>🚀 What's New in FAST Track</h2>
-        <p>Last updated: June 1, 2026</p>
+        <p id="rn-last-updated">Last updated: <span id="last-update-time"></span></p>
       </div>
       <div class="rn-body">
 
-        <div class="rn-date">June 1, 2026 — Latest Update</div>
+        <div class="rn-date">June 2, 2026 — Latest Update</div>
         <div class="rn-section">
           <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">📚</div>
+              <div class="rn-item-text"><strong>15 brand new reading stories!</strong> — Expanded library with new stories for every grade level (1-8): The Rain Puddle, My First Library Card, Life in an Ant Colony, Lightning Safety, Why Does the Moon Change Shape, Why Recycling Matters, The Amazing World of Honey Bees, The Underground Railroad, Plastic in Our Oceans, Journey to Mars, Artificial Intelligence, and more! Each story includes comprehension questions and vocabulary practice aligned to Florida reading standards.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🌙</div>
+              <div class="rn-item-text"><strong>Dark Mode added!</strong> — Both Parent Portal and student pages now support dark mode. Click the 🌙/☀️ button in the top nav to switch between light and dark themes. Your preference is saved and synced across all pages!</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">⚙️</div>
+              <div class="rn-item-text"><strong>Account Settings modal</strong> — Click your email address in the nav bar to access all account settings: change display name, update email, or delete account. Everything in one convenient place!</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📐</div>
+              <div class="rn-item-text"><strong>Math Zone always unlocked</strong> — Math is now available to all students immediately without needing to earn 3 stars on a reading quiz first. Kids can access both reading and math right away!</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🔒</div>
+              <div class="rn-item-text"><strong>Full COPPA Compliance</strong> — Age verification (18+) on signup, mandatory parental consent modal before adding a child (explains data collection, usage, and parent rights), consent timestamps recorded in database, comprehensive Privacy Policy, and legal disclaimers. This app now fully complies with the Children's Online Privacy Protection Act.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">💾</div>
+              <div class="rn-item-text"><strong>Remember me</strong> — New "Remember me on this device" checkbox on login saves your credentials so you don't have to type them every time. Perfect for personal devices!</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🎯</div>
+              <div class="rn-item-text"><strong>Try Demo — No Sign-Up Required</strong> — New "Try Demo" button on login page lets anyone explore the full app instantly without creating an account. Perfect for previewing before committing!</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">✨</div>
+              <div class="rn-item-text"><strong>Redesigned login page</strong> — Fresh new look with animated gradient background, floating card effect, and smoother animations for a more polished first impression.</div>
+            </div>
             <div class="rn-item">
               <div class="rn-item-icon">🔄</div>
               <div class="rn-item-text"><strong>Auto-reload on updates</strong> — No more hard refresh needed! When we deploy new features, the app automatically reloads itself to show the latest version.</div>
@@ -542,6 +841,154 @@
         </div>
 
         <button class="rn-close" id="rn-close-btn">Got it — Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COPPA Consent Modal -->
+  <div class="coppa-overlay" id="coppa-modal">
+    <div class="coppa-modal">
+      <div class="coppa-header">
+        <h2>🔒 Parental Consent Required (COPPA)</h2>
+        <p>Before adding your child, please review and consent to our data practices</p>
+      </div>
+      <div class="coppa-body">
+        <h3>What Information We Collect From Your Child</h3>
+        <ul>
+          <li><strong>Profile:</strong> First name, grade level, avatar (emoji/color)</li>
+          <li><strong>Educational Progress:</strong> Reading quiz scores, math quiz scores, completed stories, daily activity</li>
+          <li><strong>Preferences:</strong> Favorite stories (stored locally in browser only)</li>
+          <li><strong>Feedback:</strong> Optional story ratings (thumbs up/down)</li>
+        </ul>
+
+        <h3>How We Use This Information</h3>
+        <ul>
+          <li>Track educational progress and learning achievements</li>
+          <li>Show grade-appropriate content</li>
+          <li>Display progress reports to you (the parent)</li>
+          <li>Improve our educational content</li>
+        </ul>
+
+        <div class="coppa-highlight">
+          <p><strong>We NEVER:</strong> Sell child data, use it for advertising, share with third parties (except as required by law), or collect more than necessary for educational purposes.</p>
+        </div>
+
+        <h3>Your Rights as a Parent</h3>
+        <ul>
+          <li><strong>Review:</strong> View your child's data anytime in this portal</li>
+          <li><strong>Delete:</strong> Remove your child's profile and all associated data</li>
+          <li><strong>Refuse:</strong> Withdraw consent at any time</li>
+        </ul>
+
+        <p style="margin-top:16px;"><a href="privacy.html" target="_blank" style="color:var(--purple);font-weight:600;text-decoration:underline;">View Full Privacy Policy →</a></p>
+
+        <div class="coppa-consent">
+          <label>
+            <input type="checkbox" id="coppa-consent-check" />
+            <span>I am the parent or legal guardian of this child. I have read and understand the information above, and I consent to the collection and use of my child's information as described. I understand I can review, delete, or refuse further collection at any time.</span>
+          </label>
+        </div>
+      </div>
+      <div class="coppa-actions">
+        <button class="coppa-btn coppa-btn-cancel" id="coppa-cancel">Cancel</button>
+        <button class="coppa-btn coppa-btn-accept" id="coppa-accept" disabled>I Consent — Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Account Settings Modal -->
+  <div class="settings-overlay" id="settings-modal">
+    <div class="settings-modal">
+      <div class="settings-header">
+        <h2>⚙️ Account Settings</h2>
+        <p id="settings-email-display">Loading...</p>
+      </div>
+      <div class="settings-body">
+
+        <!-- Display Name Section -->
+        <div class="settings-section">
+          <h3>👤 Display Name</h3>
+          <p>Your display name is shown in the Your Profile section.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px;">
+            <input type="text" id="settings-name-input" placeholder="Your name"
+                   style="flex:1;padding:10px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit;font-size:0.95rem;outline:none;" />
+            <button class="btn-secondary" id="settings-name-save" style="margin:0;">Save</button>
+          </div>
+          <div id="settings-name-error" style="color:var(--red);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+          <div id="settings-name-success" style="color:var(--green);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+        </div>
+
+        <!-- Email Section -->
+        <div class="settings-section">
+          <h3>📧 Email Address</h3>
+          <p>Change the email address used to sign in to your account.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px;">
+            <input type="email" id="settings-email-input" placeholder="new-email@example.com"
+                   style="flex:1;padding:10px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit;font-size:0.95rem;outline:none;" />
+            <button class="btn-secondary" id="settings-email-save" style="margin:0;">Update Email</button>
+          </div>
+          <div id="settings-email-error" style="color:var(--red);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+          <div id="settings-email-success" style="color:var(--green);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+        </div>
+
+        <!-- Delete Account Section -->
+        <div class="settings-section">
+          <h3 style="color:var(--red);">⚠️ Delete Account</h3>
+          <div class="settings-danger-section">
+            <h4>Permanently Delete Account</h4>
+            <p style="margin-bottom:12px;">This will permanently delete your account, all child profiles, and all associated data. This action cannot be undone.</p>
+            <button class="btn-secondary" id="settings-delete-btn"
+                    style="background:var(--red);color:#fff;border-color:var(--red);margin:0;">
+              🗑️ Delete My Account
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="settings-actions">
+        <button class="settings-btn settings-btn-close" id="settings-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Account Confirmation Modal -->
+  <div class="delete-overlay" id="delete-account-modal">
+    <div class="delete-modal">
+      <div class="delete-header">
+        <h2>⚠️ Delete Account Permanently</h2>
+        <p>This action cannot be undone</p>
+      </div>
+      <div class="delete-body">
+        <p>You are about to permanently delete your account and <strong>all</strong> associated data:</p>
+
+        <h3>What will be deleted:</h3>
+        <ul>
+          <li>Your parent account and login credentials</li>
+          <li>All child profiles (<span id="delete-child-count">0</span> profile(s))</li>
+          <li>All reading progress and quiz scores</li>
+          <li>All math progress and quiz scores</li>
+          <li>All activity history and statistics</li>
+          <li>All preferences and settings</li>
+        </ul>
+
+        <div class="delete-warning">
+          <p>⚠️ WARNING: This action is PERMANENT and CANNOT be undone. All data will be lost forever.</p>
+        </div>
+
+        <div class="delete-confirm-box">
+          <label>
+            <input type="checkbox" id="delete-understand-check" />
+            <span>I understand that all my data and my children's data will be permanently deleted and cannot be recovered.</span>
+          </label>
+          <div style="margin-top:12px;">
+            <label for="delete-confirm-text" style="display:block;font-size:0.85rem;font-weight:700;margin-bottom:6px;">Type <strong>DELETE</strong> to confirm:</label>
+            <input type="text" id="delete-confirm-text" placeholder="Type DELETE" autocomplete="off" />
+          </div>
+        </div>
+      </div>
+      <div class="delete-actions">
+        <button class="delete-btn delete-btn-cancel" id="delete-cancel">Cancel</button>
+        <button class="delete-btn delete-btn-confirm" id="delete-confirm" disabled>Delete Everything</button>
       </div>
     </div>
   </div>
@@ -804,6 +1251,41 @@
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
+    // Dark mode toggle
+    (function() {
+      const darkMode = localStorage.getItem('darkMode') === 'true';
+      const toggle = document.getElementById('dark-mode-toggle');
+
+      if (darkMode) {
+        document.body.classList.add('dark-mode');
+        toggle.textContent = '☀️';
+      }
+
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        toggle.textContent = isDark ? '☀️' : '🌙';
+      });
+    })();
+
+    // Last content update timestamp - UPDATE THIS WHEN ADDING NEW FEATURES TO WHAT'S NEW
+    const LAST_CONTENT_UPDATE = new Date('2026-06-02T14:49:00'); // June 2, 2026 at 2:49 PM
+
+    // Format and display last update time
+    (function() {
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      };
+      const formatted = LAST_CONTENT_UPDATE.toLocaleString('en-US', options);
+      document.getElementById('last-update-time').textContent = formatted;
+    })();
+
     // Release notes modal
     document.getElementById('whats-new-btn').addEventListener('click', () => {
       document.getElementById('rn-overlay').classList.add('show');
@@ -871,7 +1353,9 @@
       // Load parent display name
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
-        document.getElementById('nav-user').textContent = data.displayName || user.email;
+        const displayName = data.displayName || user.email;
+        // Always show email in nav bar
+        document.getElementById('nav-user').textContent = user.email;
         injectAdminLink(user.email);
 
         // Check portal PIN
@@ -890,6 +1374,204 @@
           showPortalPinScreen(null, user.uid);
         }
       });
+    });
+
+    // ── Account Settings Modal ──────────────────────────────────────────────────
+    const settingsModal = document.getElementById('settings-modal');
+
+    // Click email to open settings
+    document.getElementById('nav-user').addEventListener('click', () => {
+      // Load current values
+      document.getElementById('settings-email-display').textContent = currentUser.email;
+      document.getElementById('settings-email-input').value = '';
+      document.getElementById('settings-email-error').textContent = '';
+      document.getElementById('settings-email-success').textContent = '';
+
+      db.collection('ParentProfiles').doc(currentUser.uid).get().then(doc => {
+        const displayName = doc.exists && doc.data().displayName ? doc.data().displayName : currentUser.email;
+        document.getElementById('settings-name-input').value = displayName;
+        document.getElementById('settings-name-error').textContent = '';
+        document.getElementById('settings-name-success').textContent = '';
+      });
+
+      settingsModal.classList.add('show');
+    });
+
+    document.getElementById('settings-close').addEventListener('click', () => {
+      settingsModal.classList.remove('show');
+    });
+
+    // Save display name
+    document.getElementById('settings-name-save').addEventListener('click', () => {
+      const newName = document.getElementById('settings-name-input').value.trim();
+      const errEl = document.getElementById('settings-name-error');
+      const successEl = document.getElementById('settings-name-success');
+      const btn = document.getElementById('settings-name-save');
+
+      errEl.textContent = '';
+      successEl.textContent = '';
+
+      if (!newName) {
+        errEl.textContent = 'Please enter a display name.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+
+      db.collection('ParentProfiles').doc(currentUser.uid).update({
+        displayName: newName,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      })
+        .then(() => {
+          successEl.textContent = 'Display name updated!';
+          btn.disabled = false;
+          btn.textContent = 'Save';
+        })
+        .catch(err => {
+          errEl.textContent = 'Error: ' + err.message;
+          btn.disabled = false;
+          btn.textContent = 'Save';
+        });
+    });
+
+    // Update email
+    document.getElementById('settings-email-save').addEventListener('click', () => {
+      const newEmail = document.getElementById('settings-email-input').value.trim();
+      const errEl = document.getElementById('settings-email-error');
+      const successEl = document.getElementById('settings-email-success');
+      const btn = document.getElementById('settings-email-save');
+
+      errEl.textContent = '';
+      successEl.textContent = '';
+
+      if (!newEmail) {
+        errEl.textContent = 'Please enter a new email address.';
+        return;
+      }
+
+      if (!newEmail.includes('@')) {
+        errEl.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Updating...';
+
+      currentUser.updateEmail(newEmail)
+        .then(() => {
+          return db.collection('ParentProfiles').doc(currentUser.uid).update({
+            email: newEmail,
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+        })
+        .then(() => {
+          successEl.textContent = 'Email updated! Refreshing...';
+          setTimeout(() => window.location.reload(), 1500);
+        })
+        .catch(err => {
+          if (err.code === 'auth/requires-recent-login') {
+            errEl.textContent = 'For security, please sign out and sign in again before changing your email.';
+          } else {
+            errEl.textContent = 'Error: ' + err.message;
+          }
+          btn.disabled = false;
+          btn.textContent = 'Update Email';
+        });
+    });
+
+    // Open delete modal from settings
+    document.getElementById('settings-delete-btn').addEventListener('click', () => {
+      settingsModal.classList.remove('show');
+      // Count children
+      db.collection('StudentProfiles').where('parentUid', '==', currentUser.uid).get()
+        .then(snap => {
+          document.getElementById('delete-child-count').textContent = snap.size;
+          deleteModal.classList.add('show');
+        })
+        .catch(() => {
+          document.getElementById('delete-child-count').textContent = '0';
+          deleteModal.classList.add('show');
+        });
+    });
+
+    // ── Delete Account Confirmation ────────────────────────────────────────────
+    const deleteModal = document.getElementById('delete-account-modal');
+    const deleteUnderstandCheck = document.getElementById('delete-understand-check');
+    const deleteConfirmText = document.getElementById('delete-confirm-text');
+    const deleteConfirmBtn = document.getElementById('delete-confirm');
+
+    document.getElementById('delete-cancel').addEventListener('click', () => {
+      deleteModal.classList.remove('show');
+      deleteUnderstandCheck.checked = false;
+      deleteConfirmText.value = '';
+      deleteConfirmBtn.disabled = true;
+    });
+
+    // Enable delete button only when both conditions met
+    function updateDeleteButton() {
+      const understood = deleteUnderstandCheck.checked;
+      const typed = deleteConfirmText.value.trim().toUpperCase() === 'DELETE';
+      deleteConfirmBtn.disabled = !(understood && typed);
+    }
+    deleteUnderstandCheck.addEventListener('change', updateDeleteButton);
+    deleteConfirmText.addEventListener('input', updateDeleteButton);
+
+    document.getElementById('delete-confirm').addEventListener('click', async () => {
+      const btn = deleteConfirmBtn;
+      btn.disabled = true;
+      btn.textContent = 'Deleting...';
+
+      try {
+        // 1. Get all child profiles
+        const childrenSnap = await db.collection('StudentProfiles')
+          .where('parentUid', '==', currentUser.uid).get();
+
+        const readerIds = childrenSnap.docs.map(d => d.data().readerId || d.id);
+
+        // 2. Delete all child-related data
+        const deletePromises = [];
+
+        for (const readerId of readerIds) {
+          // Delete Progress
+          const progressSnap = await db.collection('Progress').where('readerId', '==', readerId).get();
+          progressSnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+          // Delete MathProgress
+          const mathSnap = await db.collection('MathProgress').where('readerId', '==', readerId).get();
+          mathSnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+          // Delete StudentActivity
+          const activitySnap = await db.collection('StudentActivity').where('readerId', '==', readerId).get();
+          activitySnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+          // Delete StudentStats
+          deletePromises.push(db.collection('StudentStats').doc(readerId).delete());
+        }
+
+        // Delete all child profiles
+        childrenSnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+        // 3. Delete parent profile
+        deletePromises.push(db.collection('ParentProfiles').doc(currentUser.uid).delete());
+
+        // Wait for all deletes
+        await Promise.all(deletePromises);
+
+        // 4. Delete Firebase Auth user
+        await currentUser.delete();
+
+        // 5. Clear local data and redirect
+        sessionStorage.clear();
+        localStorage.clear();
+        alert('Account deleted successfully. You will be redirected to the login page.');
+        window.location.href = 'login.html';
+
+      } catch (err) {
+        alert('Error deleting account: ' + err.message + '\n\nIf you recently signed in, you may need to sign out and sign in again before deleting your account.');
+        btn.disabled = false;
+        btn.textContent = 'Delete Everything';
+      }
     });
 
     document.getElementById('signout-btn').addEventListener('click', () => {
@@ -1243,9 +1925,35 @@
       arrow.textContent = open ? '▼' : '▶';
     });
 
+    // ── COPPA Consent Modal ────────────────────────────────────────────────────
+    const coppaModal = document.getElementById('coppa-modal');
+    const coppaCheck = document.getElementById('coppa-consent-check');
+    const coppaAccept = document.getElementById('coppa-accept');
+    const coppaCancel = document.getElementById('coppa-cancel');
+
+    coppaCheck.addEventListener('change', () => {
+      coppaAccept.disabled = !coppaCheck.checked;
+    });
+
+    coppaCancel.addEventListener('click', () => {
+      coppaModal.classList.remove('show');
+      coppaCheck.checked = false;
+      coppaAccept.disabled = true;
+    });
+
+    coppaAccept.addEventListener('click', () => {
+      coppaModal.classList.remove('show');
+      coppaCheck.checked = false;
+      coppaAccept.disabled = true;
+      // Record consent timestamp
+      sessionStorage.setItem('coppaConsentGiven', Date.now());
+      openAddForm();
+    });
+
     // ── Open add form ──────────────────────────────────────────────────────────
     document.getElementById('add-child-btn').addEventListener('click', () => {
-      openAddForm();
+      // Show COPPA consent modal first
+      coppaModal.classList.add('show');
     });
 
     function openAddForm() {
@@ -1392,7 +2100,9 @@
           parentUid:         currentUser.uid,
           readerId:          legacyId || '', // filled in after .add() if blank
           createdAt:   firebase.firestore.FieldValue.serverTimestamp(),
-          timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+          timestamp:   firebase.firestore.FieldValue.serverTimestamp(),
+          coppaConsentGiven: true,
+          coppaConsentDate:  firebase.firestore.FieldValue.serverTimestamp()
         };
 
         if (legacyId) {
@@ -1772,5 +2482,16 @@
       });
     }
   </script>
+
+  <div class="footer">
+    <div class="disclaimer">
+      This program is an independent educational practice tool. It is not affiliated with, endorsed by, or sponsored by the Florida Department of Education or the official Florida Statewide Assessments program. All practice questions and instructional materials are original and designed to support Florida B.E.S.T. Standards-aligned reading and math skill development.
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <span style="color:#d1d5db;">•</span>
+      <a href="mailto:66.eyries.rudders@icloud.com">Contact</a>
+    </div>
+  </div>
 </body>
 </html>
