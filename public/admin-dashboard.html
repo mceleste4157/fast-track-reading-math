@@ -207,6 +207,7 @@
       <div class="stat-card orange"><div class="stat-val" id="s-math">—</div><div class="stat-label">Math Quizzes (all time)</div></div>
       <div class="stat-card red"><div class="stat-val" id="s-active">—</div><div class="stat-label">Active This Week</div></div>
       <div class="stat-card"><div class="stat-val" id="s-writing">—</div><div class="stat-label">Writing Responses</div></div>
+      <div class="stat-card" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#fff;"><div class="stat-val" id="s-demo">—</div><div class="stat-label">Demo Sessions</div></div>
     </div>
 
     <!-- Tabs -->
@@ -383,6 +384,11 @@
       stats.forEach(d => { if ((d.data().storiesThisWeek || 0) > 0 || (d.data().mathThisWeek || 0) > 0) active++; });
       document.getElementById('s-active').textContent = active;
     }).catch(() => {});
+    db.collection('DemoSessions').onSnapshot(snap => {
+      document.getElementById('s-demo').textContent = snap.size;
+    }).catch(() => {
+      document.getElementById('s-demo').textContent = '0';
+    });
   }
 
   // ── Students ───────────────────────────────────────────────────────────────
@@ -616,10 +622,12 @@
       .orderBy('timestamp', 'desc')
       .limit(100)
       .onSnapshot(snap => {
+        console.log('📋 Activity feed updated:', snap.size, 'events');
         allActivity = snap.docs.map(d => ({ id: d.id, ...d.data() }));
         renderActivity(allActivity);
-      }, () => {
-        document.getElementById('activity-feed').innerHTML = '<div class="empty">Could not load activity.</div>';
+      }, err => {
+        console.error('❌ Activity feed error:', err);
+        document.getElementById('activity-feed').innerHTML = '<div class="empty">Could not load activity. Error: ' + err.message + '</div>';
       });
   }
 

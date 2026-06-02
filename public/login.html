@@ -623,6 +623,14 @@
         dailyMathMinutes: 10,
         isDemo: true  // Flag to show demo banner
       };
+
+      // Track demo session in Firestore
+      db.collection('DemoSessions').add({
+        startedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer || 'direct'
+      }).catch(err => console.error('Failed to log demo session:', err));
+
       localStorage.setItem('readerProfile', JSON.stringify(demoProfile));
       window.location.href = 'index.html';
     });
