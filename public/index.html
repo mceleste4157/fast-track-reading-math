@@ -617,11 +617,9 @@
            </div>`;
     }
 
-    // Auto-unlock math for demo users
-    if (profile.isDemo) {
-      localStorage.setItem(MATH_UNLOCK_KEY, 'true');
-    }
-    renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+    // Math is always unlocked by default
+    localStorage.setItem(MATH_UNLOCK_KEY, 'true');
+    renderMathCard(true);
 
     // ─── Load Firestore stats ──────────────────────────────────────────────────
     const db = firebase.firestore();
@@ -658,12 +656,6 @@
       });
 
       const totalXp = readXp + mathXp;
-
-      // Update math unlock from Firestore
-      if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
-        localStorage.setItem(MATH_UNLOCK_KEY, 'true');
-        renderMathCard(true);
-      }
 
       // ── Inactivity decay ────────────────────────────────────────────────────
       const { daysMissed, decay } = getActivityStatus(profile.readerId);
