@@ -13,40 +13,80 @@
       --green: #10b981; --green-soft: #d1fae5;
       --red: #ef4444;
       --orange: #f59e0b;
-      --bg: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #fff7ed 100%);
       --surface: #ffffff; --border: rgba(0,0,0,0.08);
       --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(-45deg, #faf5ff, #eff6ff, #fff7ed, #fef3c7);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      min-height: 100vh; color: var(--text);
+    }
+    @keyframes gradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
 
     /* ── AUTH PHASE ── */
     .auth-wrap {
       min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center; padding: 24px;
     }
-    .auth-logo { font-size: 2.8rem; margin-bottom: 10px; }
-    .auth-title { font-size: 1.7rem; font-weight: 800; color: var(--purple); margin-bottom: 4px; }
-    .auth-sub { font-size: 0.95rem; color: var(--muted); margin-bottom: 28px; }
+    .auth-logo {
+      font-size: 4.5rem; margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .auth-title {
+      font-size: 2.4rem; font-weight: 900;
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .auth-sub {
+      font-size: 1.05rem; color: var(--muted); margin-bottom: 36px;
+      font-weight: 500;
+    }
 
     .auth-card {
-      background: var(--surface); border-radius: var(--radius);
-      box-shadow: 0 4px 32px rgba(124,58,237,0.12);
-      padding: 32px; width: 100%; max-width: 400px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      box-shadow: 0 8px 48px rgba(124,58,237,0.18), 0 0 0 1px rgba(255,255,255,0.5);
+      padding: 36px; width: 100%; max-width: 420px;
+      animation: cardSlideIn 0.5s ease-out;
+    }
+    @keyframes cardSlideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Tabs */
     .auth-tabs {
-      display: flex; gap: 4px; background: #f3f4f6;
-      border-radius: 12px; padding: 4px; margin-bottom: 24px;
+      display: flex; gap: 6px; background: #f3f4f6;
+      border-radius: 14px; padding: 5px; margin-bottom: 28px;
     }
     .tab-btn {
-      flex: 1; padding: 9px; border: none; border-radius: 9px;
-      font-family: inherit; font-size: 0.88rem; font-weight: 700;
+      flex: 1; padding: 11px; border: none; border-radius: 10px;
+      font-family: inherit; font-size: 0.92rem; font-weight: 700;
       cursor: pointer; background: transparent; color: var(--muted);
-      transition: background 0.15s, color 0.15s;
+      transition: all 0.2s ease;
     }
-    .tab-btn.active { background: var(--surface); color: var(--purple); box-shadow: 0 1px 4px rgba(0,0,0,0.10); }
+    .tab-btn:hover:not(.active) { background: rgba(255,255,255,0.5); color: var(--text); }
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--purple);
+      box-shadow: 0 2px 8px rgba(124,58,237,0.15);
+      transform: translateY(-1px);
+    }
 
     .form-input {
       width: 100%; padding: 13px 14px; margin-bottom: 12px;
@@ -62,14 +102,26 @@
     }
 
     .btn-auth {
-      display: block; width: 100%; padding: 14px;
-      background: var(--purple); color: #fff; border: none;
-      border-radius: 12px; font-size: 1rem; font-weight: 700;
-      cursor: pointer; margin-top: 8px; transition: background 0.15s;
+      display: block; width: 100%; padding: 15px;
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: #fff; border: none;
+      border-radius: 12px; font-size: 1.05rem; font-weight: 700;
+      cursor: pointer; margin-top: 12px;
+      transition: all 0.2s ease;
       font-family: inherit;
+      box-shadow: 0 4px 14px rgba(124,58,237,0.3);
     }
-    .btn-auth:hover { background: #6d28d9; }
-    .btn-auth:disabled { background: #a78bfa; cursor: not-allowed; }
+    .btn-auth:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124,58,237,0.4);
+    }
+    .btn-auth:active { transform: translateY(0); }
+    .btn-auth:disabled {
+      background: #a78bfa;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
 
     .auth-error {
       color: var(--red); font-size: 0.88rem; font-weight: 600;
@@ -118,15 +170,21 @@
     @media (max-width: 700px) { .student-grid { grid-template-columns: repeat(2, 1fr); } }
 
     .student-card {
-      background: var(--surface); border-radius: var(--radius);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.12);
       padding: 24px 16px; display: flex; flex-direction: column;
       align-items: center; cursor: pointer; border: 2px solid transparent;
-      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      transition: all 0.2s ease;
       user-select: none;
     }
-    .student-card:hover  { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(124,58,237,0.15); border-color: var(--purple); }
-    .student-card:active { transform: scale(0.97); }
+    .student-card:hover  {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 36px rgba(124,58,237,0.25);
+      border-color: var(--purple);
+    }
+    .student-card:active { transform: translateY(-2px) scale(0.98); }
 
     .card-avatar {
       width: 72px; height: 72px; border-radius: 50%;
@@ -184,7 +242,7 @@
   <div id="auth-phase" class="auth-wrap" style="display:none;">
     <div class="auth-logo">🚀</div>
     <div class="auth-title">FAST Track</div>
-    <div class="auth-sub">Reading & Math — parent sign-in</div>
+    <div class="auth-sub">Florida B.E.S.T. Reading & Math for Grades 1–8</div>
 
     <div class="auth-card">
       <div class="auth-tabs">
