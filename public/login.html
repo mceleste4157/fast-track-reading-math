@@ -270,6 +270,35 @@
       animation: spin 0.8s linear infinite; margin: 40px auto;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .disclaimer {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -278,7 +307,7 @@
   <div id="auth-phase" class="auth-wrap" style="display:none;">
     <div class="auth-logo">🚀</div>
     <div class="auth-title">FAST Track</div>
-    <div class="auth-sub">Florida B.E.S.T. Reading & Math for Grades 1–8</div>
+    <div class="auth-sub">Florida B.E.S.T. Standards-Aligned Reading & Math • Grades 1–8</div>
 
     <div class="auth-card">
       <div class="auth-tabs">
@@ -588,5 +617,16 @@
       window.location.href = 'index.html';
     });
   </script>
+
+  <div class="footer">
+    <div class="disclaimer">
+      This program is an independent educational practice tool. It is not affiliated with, endorsed by, or sponsored by the Florida Department of Education or the official Florida Statewide Assessments program. All practice questions and instructional materials are original and designed to support Florida B.E.S.T. Standards-aligned reading and math skill development.
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <span style="color:#d1d5db;">•</span>
+      <a href="mailto:celeste1311@gmail.com">Contact</a>
+    </div>
+  </div>
 </body>
 </html>

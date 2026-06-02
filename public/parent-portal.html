@@ -111,7 +111,37 @@
     .rn-date:first-child { margin-top: 0; }
     .rn-date::after { content: ''; flex: 1; height: 1px; background: var(--purple-soft); }
 
-    .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
+    .page { max-width: 900px; margin: 0 auto; padding: 32px 16px 40px; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 20px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .disclaimer {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
 
     /* ── Section heading ── */
     .section-heading {
@@ -313,6 +343,10 @@
         <div class="rn-date">June 2, 2026 — Latest Update</div>
         <div class="rn-section">
           <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">🔒</div>
+              <div class="rn-item-text"><strong>Privacy Policy & Legal Compliance</strong> — Added comprehensive Privacy Policy with COPPA compliance, official disclaimer clarifying this is an independent educational tool (not affiliated with FDOE), and contact information. View anytime via footer links.</div>
+            </div>
             <div class="rn-item">
               <div class="rn-item-icon">💾</div>
               <div class="rn-item-text"><strong>Remember me</strong> — New "Remember me on this device" checkbox on login saves your credentials so you don't have to type them every time. Perfect for personal devices!</div>
@@ -1784,5 +1818,16 @@
       });
     }
   </script>
+
+  <div class="footer">
+    <div class="disclaimer">
+      This program is an independent educational practice tool. It is not affiliated with, endorsed by, or sponsored by the Florida Department of Education or the official Florida Statewide Assessments program. All practice questions and instructional materials are original and designed to support Florida B.E.S.T. Standards-aligned reading and math skill development.
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <span style="color:#d1d5db;">•</span>
+      <a href="mailto:celeste1311@gmail.com">Contact</a>
+    </div>
+  </div>
 </body>
 </html>
