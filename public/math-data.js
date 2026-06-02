@@ -1055,6 +1055,384 @@ const MATH_SETS = [
         ]
       }
     ]
+  },
+
+  // ── NEW MATH SETS ───────────────────────────────────────────────────────────
+
+  // ── GRADE 1-2 | Addition and Subtraction Within 20
+  {
+    id: 'add-subtract-20',
+    title: 'Addition & Subtraction Within 20',
+    topic: 'addition-subtraction',
+    gradeLevel: 2,
+    icon: '➕',
+    color: '#10b981',
+    standards: ['MA.2.NSO.1.3', 'MA.2.AR.1.1'],
+    questions: [
+      {
+        question: 'What is 8 + 7?',
+        type: 'multiple-choice',
+        options: ['14', '15', '16', '17'],
+        correctIndex: 1,
+        explanation: 'Count on from 8: 9, 10, 11, 12, 13, 14, 15. Or break it down: 8 + 2 = 10, then 10 + 5 = 15.',
+        steps: [
+          'Start with 8',
+          'Break 7 into 2 + 5',
+          '8 + 2 = 10',
+          '10 + 5 = 15'
+        ]
+      },
+      {
+        question: '17 - 9 = ?',
+        type: 'multiple-choice',
+        options: ['6', '7', '8', '9'],
+        correctIndex: 2,
+        explanation: 'Think: 9 + ? = 17. Count up from 9 to 17, which is 8 steps.',
+        steps: [
+          'Think: 9 + ? = 17',
+          'Count up: 10, 11, 12, 13, 14, 15, 16, 17',
+          'That\'s 8 steps',
+          '17 - 9 = 8'
+        ]
+      },
+      {
+        question: 'Maya has 12 stickers. Her friend gives her 6 more. How many stickers does Maya have now?',
+        type: 'multiple-choice',
+        options: ['16', '17', '18', '19'],
+        correctIndex: 2,
+        explanation: '12 + 6 = 18. We can use the "make ten" strategy: 12 + 6 = (10 + 2) + 6 = 10 + 8 = 18.',
+        steps: [
+          'Start with 12 stickers',
+          'Add 6 more',
+          '12 + 6 = 18',
+          'Maya has 18 stickers'
+        ]
+      },
+      {
+        question: 'There are 15 apples in a basket. 8 apples are eaten. How many apples are left?',
+        type: 'multiple-choice',
+        options: ['5', '6', '7', '8'],
+        correctIndex: 2,
+        explanation: '15 - 8 = 7. We can count back from 15 or think: 8 + 7 = 15.',
+        steps: [
+          'Start with 15 apples',
+          'Subtract 8',
+          'Think: 8 + ? = 15',
+          '8 + 7 = 15, so 15 - 8 = 7'
+        ]
+      },
+      {
+        question: 'What is 9 + 9?',
+        type: 'multiple-choice',
+        options: ['16', '17', '18', '19'],
+        correctIndex: 2,
+        explanation: 'Double 9 is 18. You can also think: 9 + 9 = 10 + 8 = 18.',
+        steps: [
+          '9 + 9 is a doubles fact',
+          'Double 9 = 18',
+          'Or: 9 + 9 = (10 - 1) + 9 = 10 + 8 = 18'
+        ]
+      }
+    ]
+  },
+
+  // ── GRADE 3 | Multiplication & Division
+  {
+    id: 'multiply-divide-basic',
+    title: 'Multiplication & Division Facts',
+    topic: 'multiplication-division',
+    gradeLevel: 3,
+    icon: '✖️',
+    color: '#f59e0b',
+    standards: ['MA.3.NSO.2.1', 'MA.3.AR.1.2'],
+    questions: [
+      {
+        question: '7 × 6 = ?',
+        type: 'multiple-choice',
+        options: ['36', '40', '42', '48'],
+        correctIndex: 2,
+        explanation: '7 × 6 = 42. Think: 7 groups of 6, or 6 groups of 7.',
+        steps: [
+          '7 × 6 means 7 groups of 6',
+          'Or count by 6s: 6, 12, 18, 24, 30, 36, 42',
+          '7 × 6 = 42'
+        ]
+      },
+      {
+        question: '56 ÷ 8 = ?',
+        type: 'multiple-choice',
+        options: ['6', '7', '8', '9'],
+        correctIndex: 1,
+        explanation: 'Think: 8 × ? = 56. We know 8 × 7 = 56, so 56 ÷ 8 = 7.',
+        steps: [
+          'Think: 8 × ? = 56',
+          '8 × 7 = 56',
+          'So 56 ÷ 8 = 7'
+        ]
+      },
+      {
+        question: 'A baker makes 9 batches of cookies. Each batch has 8 cookies. How many cookies total?',
+        type: 'multiple-choice',
+        options: ['63', '72', '81', '90'],
+        correctIndex: 1,
+        explanation: '9 × 8 = 72 cookies.',
+        steps: [
+          '9 batches × 8 cookies per batch',
+          '9 × 8 = 72',
+          'The baker made 72 cookies'
+        ]
+      },
+      {
+        question: '48 ÷ 6 = ?',
+        type: 'multiple-choice',
+        options: ['6', '7', '8', '9'],
+        correctIndex: 2,
+        explanation: 'Think: 6 × ? = 48. We know 6 × 8 = 48, so 48 ÷ 6 = 8.',
+        steps: [
+          'Think: 6 × ? = 48',
+          '6 × 8 = 48',
+          'So 48 ÷ 6 = 8'
+        ]
+      },
+      {
+        question: 'If 5 × 9 = 45, what is 45 ÷ 5?',
+        type: 'multiple-choice',
+        options: ['7', '8', '9', '10'],
+        correctIndex: 2,
+        explanation: 'Division is the inverse of multiplication. Since 5 × 9 = 45, then 45 ÷ 5 = 9.',
+        steps: [
+          'We know 5 × 9 = 45',
+          'Division undoes multiplication',
+          '45 ÷ 5 = 9'
+        ]
+      }
+    ]
+  },
+
+  // ── GRADE 5 | Fractions
+  {
+    id: 'fractions-operations',
+    title: 'Adding & Subtracting Fractions',
+    topic: 'fractions',
+    gradeLevel: 5,
+    icon: '½',
+    color: '#8b5cf6',
+    standards: ['MA.5.FR.2.1', 'MA.5.FR.2.2'],
+    questions: [
+      {
+        question: '1/4 + 3/4 = ?',
+        type: 'multiple-choice',
+        options: ['1/2', '3/4', '4/4 or 1', '4/8'],
+        correctIndex: 2,
+        explanation: 'When fractions have the same denominator, add the numerators: 1 + 3 = 4. So 1/4 + 3/4 = 4/4 = 1.',
+        steps: [
+          'Same denominators (4)',
+          'Add numerators: 1 + 3 = 4',
+          '4/4 = 1 whole'
+        ]
+      },
+      {
+        question: '2/5 + 1/5 = ?',
+        type: 'multiple-choice',
+        options: ['1/5', '2/5', '3/5', '3/10'],
+        correctIndex: 2,
+        explanation: 'Same denominator, so add numerators: 2 + 1 = 3. The answer is 3/5.',
+        steps: [
+          'Same denominators (5)',
+          'Add numerators: 2 + 1 = 3',
+          '2/5 + 1/5 = 3/5'
+        ]
+      },
+      {
+        question: '5/6 - 2/6 = ?',
+        type: 'multiple-choice',
+        options: ['1/6', '2/6', '3/6 or 1/2', '4/6'],
+        correctIndex: 2,
+        explanation: 'Same denominator, so subtract numerators: 5 - 2 = 3. The answer is 3/6, which simplifies to 1/2.',
+        steps: [
+          'Same denominators (6)',
+          'Subtract numerators: 5 - 2 = 3',
+          '3/6 simplifies to 1/2'
+        ]
+      },
+      {
+        question: 'Maya ate 1/3 of a pizza. Her brother ate 1/3 of the same pizza. What fraction did they eat together?',
+        type: 'multiple-choice',
+        options: ['1/6', '1/3', '2/3', '3/3 or 1'],
+        correctIndex: 2,
+        explanation: '1/3 + 1/3 = 2/3. They ate two-thirds of the pizza together.',
+        steps: [
+          'Maya: 1/3',
+          'Brother: 1/3',
+          '1/3 + 1/3 = 2/3'
+        ]
+      },
+      {
+        question: 'A recipe calls for 3/4 cup of sugar. You only have 1/4 cup. How much more do you need?',
+        type: 'multiple-choice',
+        options: ['1/4 cup', '2/4 or 1/2 cup', '3/4 cup', '4/4 or 1 cup'],
+        correctIndex: 1,
+        explanation: '3/4 - 1/4 = 2/4 = 1/2 cup. You need 2/4 (or 1/2) cup more.',
+        steps: [
+          'Need: 3/4 cup',
+          'Have: 1/4 cup',
+          '3/4 - 1/4 = 2/4 = 1/2 cup'
+        ]
+      }
+    ]
+  },
+
+  // ── GRADE 6 | Ratios and Proportions
+  {
+    id: 'ratios-proportions',
+    title: 'Ratios & Proportional Reasoning',
+    topic: 'ratios-proportions',
+    gradeLevel: 6,
+    icon: '⚖️',
+    color: '#06b6d4',
+    standards: ['MA.6.AR.3.1', 'MA.6.AR.3.2'],
+    questions: [
+      {
+        question: 'The ratio of cats to dogs at a shelter is 3:5. If there are 15 cats, how many dogs are there?',
+        type: 'multiple-choice',
+        options: ['9', '15', '20', '25'],
+        correctIndex: 3,
+        explanation: 'If 3 cats corresponds to 5 dogs, then 15 cats (which is 3 × 5) corresponds to 25 dogs (which is 5 × 5).',
+        steps: [
+          'Ratio: 3 cats : 5 dogs',
+          '15 cats = 3 × 5',
+          'So multiply dogs by 5 too: 5 × 5 = 25',
+          'There are 25 dogs'
+        ]
+      },
+      {
+        question: 'A recipe for 4 servings uses 2 cups of flour. How many cups for 12 servings?',
+        type: 'multiple-choice',
+        options: ['4 cups', '6 cups', '8 cups', '10 cups'],
+        correctIndex: 1,
+        explanation: '12 servings is 3 times as many as 4 servings, so multiply flour by 3: 2 × 3 = 6 cups.',
+        steps: [
+          '4 servings → 2 cups',
+          '12 servings = 4 × 3',
+          '2 cups × 3 = 6 cups'
+        ]
+      },
+      {
+        question: 'A car travels 120 miles in 2 hours. At this rate, how far in 5 hours?',
+        type: 'multiple-choice',
+        options: ['200 miles', '240 miles', '300 miles', '360 miles'],
+        correctIndex: 2,
+        explanation: 'Rate: 120 miles / 2 hours = 60 miles per hour. In 5 hours: 60 × 5 = 300 miles.',
+        steps: [
+          'Find rate: 120 ÷ 2 = 60 mph',
+          'Multiply by 5 hours',
+          '60 × 5 = 300 miles'
+        ]
+      },
+      {
+        question: 'If 3 pencils cost $1.50, how much do 7 pencils cost?',
+        type: 'multiple-choice',
+        options: ['$2.50', '$3.00', '$3.50', '$4.00'],
+        correctIndex: 2,
+        explanation: 'Each pencil costs $1.50 ÷ 3 = $0.50. Seven pencils: 7 × $0.50 = $3.50.',
+        steps: [
+          'Cost per pencil: $1.50 ÷ 3 = $0.50',
+          '7 pencils × $0.50',
+          '7 × $0.50 = $3.50'
+        ]
+      },
+      {
+        question: 'In a class, the ratio of boys to girls is 4:3. If there are 28 students total, how many are boys?',
+        type: 'multiple-choice',
+        options: ['12', '14', '16', '18'],
+        correctIndex: 2,
+        explanation: 'The ratio 4:3 means 4 + 3 = 7 parts total. 28 students ÷ 7 parts = 4 students per part. Boys = 4 parts × 4 = 16.',
+        steps: [
+          'Ratio: 4 boys : 3 girls',
+          'Total parts: 4 + 3 = 7',
+          '28 ÷ 7 = 4 students per part',
+          'Boys: 4 parts × 4 = 16'
+        ]
+      }
+    ]
+  },
+
+  // ── GRADE 7-8 | Algebraic Expressions & Equations
+  {
+    id: 'algebra-equations',
+    title: 'Solving Linear Equations',
+    topic: 'algebra',
+    gradeLevel: 7,
+    icon: '📐',
+    color: '#ef4444',
+    standards: ['MA.7.AR.2.1', 'MA.7.AR.2.2'],
+    questions: [
+      {
+        question: 'Solve: x + 7 = 15',
+        type: 'multiple-choice',
+        options: ['x = 6', 'x = 7', 'x = 8', 'x = 22'],
+        correctIndex: 2,
+        explanation: 'Subtract 7 from both sides: x + 7 - 7 = 15 - 7, so x = 8.',
+        steps: [
+          'x + 7 = 15',
+          'Subtract 7 from both sides',
+          'x = 15 - 7',
+          'x = 8'
+        ]
+      },
+      {
+        question: 'Solve: 3x = 21',
+        type: 'multiple-choice',
+        options: ['x = 3', 'x = 6', 'x = 7', 'x = 63'],
+        correctIndex: 2,
+        explanation: 'Divide both sides by 3: x = 21 ÷ 3 = 7.',
+        steps: [
+          '3x = 21',
+          'Divide both sides by 3',
+          'x = 21 ÷ 3',
+          'x = 7'
+        ]
+      },
+      {
+        question: 'Solve: 2x - 5 = 9',
+        type: 'multiple-choice',
+        options: ['x = 2', 'x = 4', 'x = 7', 'x = 14'],
+        correctIndex: 2,
+        explanation: 'Add 5 to both sides: 2x = 14. Then divide by 2: x = 7.',
+        steps: [
+          '2x - 5 = 9',
+          'Add 5 to both sides: 2x = 14',
+          'Divide by 2',
+          'x = 7'
+        ]
+      },
+      {
+        question: 'Solve: x/4 = 6',
+        type: 'multiple-choice',
+        options: ['x = 2', 'x = 10', 'x = 24', 'x = 30'],
+        correctIndex: 2,
+        explanation: 'Multiply both sides by 4: x = 6 × 4 = 24.',
+        steps: [
+          'x/4 = 6',
+          'Multiply both sides by 4',
+          'x = 6 × 4',
+          'x = 24'
+        ]
+      },
+      {
+        question: 'A number minus 8 equals 12. What is the number?',
+        type: 'multiple-choice',
+        options: ['4', '12', '20', '96'],
+        correctIndex: 2,
+        explanation: 'Let x be the number. x - 8 = 12. Add 8 to both sides: x = 20.',
+        steps: [
+          'Let x = the number',
+          'x - 8 = 12',
+          'Add 8 to both sides',
+          'x = 20'
+        ]
+      }
+    ]
   }
 
 ];

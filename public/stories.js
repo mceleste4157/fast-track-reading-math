@@ -4974,6 +4974,375 @@ The storms do not stop. But neither does Florida.`,
         explanation: 'The parallel structure — "The storms do not stop. But neither does Florida." — places Florida\'s persistence as equal to the persistence of the storms. The author is clearly presenting Florida as resilient. This is not a neutral observation — it is a deliberate framing that shows admiration for the state\'s ability to endure.'
       }
     ]
+  },
+
+  // ── NEW STORIES ─────────────────────────────────────────────────────────────
+
+  // ── GRADE 1-2 | INFORMATIONAL | Butterfly Life Cycle
+  {
+    id: 'butterfly-life-cycle',
+    title: 'From Caterpillar to Butterfly',
+    topic: 'science-nature',
+    coverEmoji: '🦋',
+    coverColor: '#ec4899',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 180,
+    readTimeMin: 1,
+    text: `Have you ever seen a butterfly? Butterflies are beautiful insects with colorful wings. But they don't start out that way!
+
+A butterfly begins its life as a tiny egg. The mother butterfly lays the egg on a leaf. After a few days, a tiny caterpillar hatches from the egg.
+
+The caterpillar is very hungry. It eats leaves all day long. As it eats, it grows bigger and bigger. The caterpillar sheds its skin several times because it is growing so fast.
+
+When the caterpillar is fully grown, it does something amazing. It hangs upside down from a branch and forms a hard shell around itself. This shell is called a chrysalis. Inside the chrysalis, the caterpillar is changing.
+
+After about two weeks, the chrysalis opens. Out comes a beautiful butterfly! At first, its wings are wet and wrinkled. The butterfly rests while its wings dry and spread out.
+
+Soon the butterfly flies away to find flowers and nectar. One day, it will lay eggs of its own, and the life cycle will start all over again.`,
+    vocabulary: [
+      { word: 'chrysalis', definition: 'The hard shell that a caterpillar makes around itself while it changes into a butterfly.', example: 'The chrysalis hung from the branch for two weeks.' },
+      { word: 'hatches', definition: 'When a baby animal breaks out of its egg.', example: 'The baby bird hatches from the egg in the nest.' },
+      { word: 'life cycle', definition: 'The stages that a living thing goes through from birth to death.', example: 'We learned about the life cycle of a frog in science class.' }
+    ],
+    questions: [
+      {
+        question: 'What happens FIRST in a butterfly\'s life cycle?',
+        options: [
+          'The caterpillar eats leaves.',
+          'A tiny egg is laid on a leaf.',
+          'The chrysalis opens.',
+          'The butterfly flies away.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says "A butterfly begins its life as a tiny egg." This is the first stage.'
+      },
+      {
+        question: 'What does the caterpillar do inside the chrysalis?',
+        options: [
+          'It sleeps for a long time.',
+          'It eats more leaves.',
+          'It changes into a butterfly.',
+          'It lays eggs.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says "Inside the chrysalis, the caterpillar is changing." It is turning into a butterfly.'
+      },
+      {
+        question: 'Why does the butterfly rest after coming out of the chrysalis?',
+        options: [
+          'It is tired from flying.',
+          'It needs to find food.',
+          'Its wings need to dry and spread out.',
+          'It is hiding from birds.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states: "At first, its wings are wet and wrinkled. The butterfly rests while its wings dry and spread out."'
+      }
+    ]
+  },
+
+  // ── GRADE 3 | NARRATIVE | Florida Keys Adventure
+  {
+    id: 'keys-snorkeling',
+    title: 'Snorkeling in the Florida Keys',
+    topic: 'florida-nature',
+    coverEmoji: '🤿',
+    coverColor: '#0ea5e9',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [3, 4, 5],
+    wordCount: 320,
+    readTimeMin: 2,
+    text: `Maya pressed her mask against her face and bit down on the snorkel mouthpiece. She had been waiting all year for this trip to the Florida Keys, and now she was finally here, floating in the warm, clear water above a coral reef.
+
+"Remember to breathe slowly through your mouth," her dad reminded her from the boat. Maya gave him a thumbs-up and put her face in the water.
+
+The underwater world exploded with color. Purple sea fans swayed gently in the current. Bright yellow fish darted between branches of coral. A school of silver fish moved together like one giant creature, turning and twisting in perfect unison.
+
+Maya kicked her fins and glided deeper. She spotted a sea turtle munching on seagrass. Its flippers moved slowly, gracefully. The turtle didn't seem to mind Maya watching. It just kept eating, pausing now and then to come up for air.
+
+Suddenly, her dad tapped her shoulder and pointed. A spotted eagle ray was gliding through the water like an underwater bird. Its wings flapped in slow motion. Maya held her breath, trying not to scare it away. The ray passed right below her, close enough that she could see the white spots on its dark back.
+
+After an hour in the water, Maya's fingers were wrinkled like raisins, but she didn't want to leave. There was so much to see — lobsters hiding in cracks, a moray eel peeking out from a hole, tiny seahorses clinging to seagrass.
+
+"Time to go, Maya!" her dad called.
+
+Maya lifted her head and looked back at the reef one more time. She couldn't wait to tell her friends about the sea turtle and the eagle ray. But most of all, she couldn't wait to come back.`,
+    vocabulary: [
+      { word: 'unison', definition: 'Acting together at the same time; in perfect agreement.', example: 'The dancers moved in unison, making the same steps at the same moment.' },
+      { word: 'current', definition: 'The movement of water in a particular direction.', example: 'The current carried the boat downstream.' },
+      { word: 'glided', definition: 'Moved smoothly and easily, as if floating.', example: 'The ice skater glided across the frozen pond.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN purpose of this story?',
+        options: [
+          'To teach readers how to snorkel safely.',
+          'To describe Maya\'s exciting experience snorkeling in the Florida Keys.',
+          'To explain how coral reefs are formed.',
+          'To convince readers to visit Florida.'
+        ],
+        correctIndex: 1,
+        explanation: 'The story describes Maya\'s snorkeling adventure in detail, showing what she saw and how she felt. It is a narrative about her experience.'
+      },
+      {
+        question: 'How did Maya feel about her snorkeling trip?',
+        options: [
+          'She was scared of the fish and wanted to leave.',
+          'She was bored because there wasn\'t much to see.',
+          'She was excited and didn\'t want to leave.',
+          'She was tired and ready to go home.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says "she didn\'t want to leave" and "she couldn\'t wait to come back," showing she was very excited.'
+      },
+      {
+        question: 'Which detail shows that Maya saw many different sea creatures?',
+        options: [
+          '"Maya pressed her mask against her face."',
+          '"There was so much to see — lobsters hiding in cracks, a moray eel peeking out from a hole, tiny seahorses clinging to seagrass."',
+          '"After an hour in the water, Maya\'s fingers were wrinkled like raisins."',
+          '"Maya gave him a thumbs-up."'
+        ],
+        correctIndex: 1,
+        explanation: 'This sentence lists multiple types of sea creatures Maya observed, showing the variety of wildlife she encountered.'
+      }
+    ]
+  },
+
+  // ── GRADE 5 | INFORMATIONAL | Climate Science
+  {
+    id: 'greenhouse-effect',
+    title: 'Understanding the Greenhouse Effect',
+    topic: 'science-climate',
+    coverEmoji: '🌡️',
+    coverColor: '#f59e0b',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 3,
+    text: `Earth's atmosphere works like a blanket, trapping just enough heat to keep our planet warm enough for life. This natural process is called the greenhouse effect, and without it, Earth would be a frozen wasteland with an average temperature of about 0°F instead of the comfortable 59°F we enjoy today.
+
+Here's how it works: Sunlight travels through space and enters Earth's atmosphere. Some of this energy bounces back into space, but much of it reaches the surface and warms the land and oceans. The warmed Earth then releases heat energy back toward space in the form of infrared radiation — a type of light our eyes cannot see.
+
+This is where greenhouse gases become important. Gases like carbon dioxide (CO₂), methane (CH₄), and water vapor (H₂O) act like the glass in a greenhouse. They let sunlight pass through easily, but they absorb and trap infrared radiation, preventing it from escaping back into space. The trapped heat warms the atmosphere, which in turn warms the planet.
+
+For thousands of years, this system stayed in balance. Plants absorbed CO₂ through photosynthesis. Oceans absorbed CO₂ from the air. Volcanic eruptions released some, but overall, the amount of greenhouse gases remained relatively stable.
+
+Then, in the 1800s, humans began burning massive amounts of coal, oil, and natural gas for energy. This combustion releases CO₂ that had been locked underground for millions of years. At the same time, deforestation reduced the number of trees available to absorb that CO₂. The result? Atmospheric CO₂ levels have risen from about 280 parts per million (ppm) before the Industrial Revolution to over 420 ppm today — a 50% increase in just 200 years.
+
+More greenhouse gases mean more trapped heat. Scientists have measured this warming with precision: Earth's average temperature has risen about 2°F since 1880, and the ten warmest years on record have all occurred since 2010.
+
+The consequences are real and measurable. Ice sheets in Greenland and Antarctica are melting faster than expected. Sea levels are rising. Hurricanes are intensifying. Droughts and wildfires are becoming more severe.
+
+Understanding the greenhouse effect isn't just about science — it's about understanding the future we are creating. The choices we make today about energy, transportation, and consumption will determine how much warmer our planet becomes.`,
+    vocabulary: [
+      { word: 'infrared radiation', definition: 'A type of heat energy that is invisible to the human eye but can be felt as warmth.', example: 'Infrared radiation from the campfire warmed their hands even though they couldn\'t see the heat waves.' },
+      { word: 'combustion', definition: 'The process of burning something, releasing energy as heat and light.', example: 'The combustion of gasoline in a car engine powers the vehicle.' },
+      { word: 'deforestation', definition: 'The large-scale removal of trees from forests, usually for farming or development.', example: 'Deforestation in the Amazon rainforest has destroyed habitats for thousands of species.' },
+      { word: 'atmospheric', definition: 'Relating to the layer of gases surrounding Earth.', example: 'Atmospheric pressure changes when a storm approaches.' }
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'The greenhouse effect is a natural process that has been intensified by human activity, causing Earth to warm.',
+          'Greenhouses are useful for growing plants in cold weather.',
+          'Carbon dioxide is the only greenhouse gas that matters.',
+          'Earth\'s temperature has always stayed exactly the same.'
+        ],
+        correctIndex: 0,
+        explanation: 'The passage explains the natural greenhouse effect, then describes how human activities have increased greenhouse gases and caused warming. This is the main point throughout.'
+      },
+      {
+        question: 'According to the passage, why have CO₂ levels increased since the 1800s?',
+        options: [
+          'Volcanoes have become more active.',
+          'The sun has gotten hotter.',
+          'Humans have burned fossil fuels and cut down forests.',
+          'More animals are exhaling CO₂.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states: "humans began burning massive amounts of coal, oil, and natural gas" and "deforestation reduced the number of trees available to absorb that CO₂."'
+      },
+      {
+        question: 'Which piece of evidence BEST supports the claim that Earth is warming?',
+        options: [
+          '"Sunlight travels through space and enters Earth\'s atmosphere."',
+          '"Earth\'s average temperature has risen about 2°F since 1880, and the ten warmest years on record have all occurred since 2010."',
+          '"Gases like carbon dioxide act like the glass in a greenhouse."',
+          '"Plants absorbed CO₂ through photosynthesis."'
+        ],
+        correctIndex: 1,
+        explanation: 'This sentence provides specific temperature data and timing that directly proves the planet is warming. The other sentences explain processes but don\'t provide evidence of warming.'
+      }
+    ]
+  },
+
+  // ── GRADE 6-7 | INFORMATIONAL | Civics/Government
+  {
+    id: 'electoral-college',
+    title: 'The Electoral College: How We Really Elect the President',
+    topic: 'civics-government',
+    coverEmoji: '🗳️',
+    coverColor: '#3b82f6',
+    gradeLevel: '7',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 460,
+    readTimeMin: 3,
+    text: `Every four years, millions of Americans cast ballots for president. But those votes don't directly choose the winner. Instead, they elect members of the Electoral College — a group of 538 people who officially select the president. This indirect system has shaped American democracy for over 200 years, and it remains one of the most debated features of the Constitution.
+
+The Electoral College was created in 1787 during the Constitutional Convention. The Founding Fathers faced a dilemma: How should the president be chosen? Some delegates wanted Congress to select the president. Others wanted a direct popular vote. Both ideas had problems. Letting Congress choose the president might make the executive branch too dependent on the legislative branch. A popular vote seemed impractical in a time when news traveled slowly and most Americans knew little about candidates outside their own states.
+
+The compromise was the Electoral College. Each state would receive a number of electors equal to its total number of senators and representatives in Congress. Today, that means every state gets at least three electors (two senators plus at least one representative), with more electors assigned to states with larger populations. California, for example, has 54 electoral votes, while Wyoming has only three.
+
+Here's how it works: When you vote for president, you're actually voting for a slate of electors pledged to that candidate. In most states, whichever candidate wins the popular vote wins all of that state's electoral votes — a "winner-take-all" system. Maine and Nebraska are exceptions; they award some electors by congressional district.
+
+To win the presidency, a candidate must receive at least 270 of the 538 electoral votes. This creates a strategic map: Candidates focus heavily on "swing states" — states where neither party has a reliable majority — because winning those states can tip the balance.
+
+Critics argue that the Electoral College gives disproportionate power to smaller states and allows a candidate to win the presidency while losing the popular vote. This has happened five times in U.S. history, most recently in 2016. They point out that a voter in Wyoming has roughly three times more influence per capita than a voter in California.
+
+Supporters counter that the Electoral College forces candidates to build geographically diverse coalitions. Without it, they argue, candidates might focus only on large cities and ignore rural areas entirely. The system also preserves the federal structure of government, ensuring that states — not just individual voters — have a role in selecting the president.
+
+Whether the Electoral College is fair or outdated remains a subject of intense debate. What's clear is that understanding how it works is essential for understanding American democracy.`,
+    vocabulary: [
+      { word: 'electoral', definition: 'Related to elections or voting.', example: 'The electoral process includes primaries, campaigns, and the final vote.' },
+      { word: 'indirect', definition: 'Not straight or direct; happening through an intermediate step.', example: 'The indirect route to the airport took longer but avoided traffic.' },
+      { word: 'disproportionate', definition: 'Too large or too small in comparison to something else; not balanced or fair.', example: 'The tiny town had a disproportionate number of police officers for its size.' },
+      { word: 'per capita', definition: 'For each person; by dividing the total by the number of people.', example: 'The per capita income in the country increased last year.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN purpose of this passage?',
+        options: [
+          'To persuade readers that the Electoral College should be abolished.',
+          'To explain how the Electoral College works and present arguments for and against it.',
+          'To describe the life of the Founding Fathers.',
+          'To teach readers how to vote in an election.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains the history and mechanics of the Electoral College, then presents both criticisms and defenses of the system. It is informative and balanced, not persuasive.'
+      },
+      {
+        question: 'According to the passage, why was the Electoral College created?',
+        options: [
+          'The Founding Fathers wanted to make elections more complicated.',
+          'It was a compromise between letting Congress choose the president and holding a direct popular vote.',
+          'The Constitution required every state to have equal power.',
+          'Large states demanded more influence in elections.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states: "The compromise was the Electoral College" after explaining that both congressional selection and popular vote had problems.'
+      },
+      {
+        question: 'Which sentence BEST supports the claim that the Electoral College can produce controversial results?',
+        options: [
+          '"To win the presidency, a candidate must receive at least 270 of the 538 electoral votes."',
+          '"Critics argue that the Electoral College gives disproportionate power to smaller states and allows a candidate to win the presidency while losing the popular vote."',
+          '"Each state would receive a number of electors equal to its total number of senators and representatives."',
+          '"Maine and Nebraska are exceptions; they award some electors by congressional district."'
+        ],
+        correctIndex: 1,
+        explanation: 'This sentence directly states a major criticism — that the system can produce a winner who didn\'t win the popular vote, which is controversial.'
+      }
+    ]
+  },
+
+  // ── GRADE 7-8 | PAIRED PASSAGES | Technology Ethics
+  {
+    id: 'social-media-debate',
+    title: 'Social Media: Connection or Isolation?',
+    topic: 'technology-society',
+    coverEmoji: '📱',
+    coverColor: '#8b5cf6',
+    gradeLevel: '8',
+    level: 'paired',
+    grades: [7, 8],
+    wordCount: 520,
+    readTimeMin: 4,
+    text: `**Passage 1: The Case for Social Media**
+
+Social media has fundamentally transformed how humans connect. For the first time in history, a teenager in rural Florida can have a real-time conversation with someone in Tokyo, share artwork with thousands of viewers, or organize a community service project with peers across the country — all from a smartphone.
+
+Critics often portray social media as shallow and isolating, but research tells a more complex story. A 2023 study by the Pew Research Center found that 81% of teens say social media helps them feel more connected to their friends' lives. For young people dealing with niche interests, chronic illnesses, or LGBTQ+ identities, online communities provide validation and support that might not exist in their immediate physical environment.
+
+During the COVID-19 pandemic, social media became a lifeline. When schools closed and families isolated, platforms like Zoom, Discord, and Instagram allowed students to maintain friendships, collaborate on projects, and combat loneliness. Teachers held virtual classes. Families celebrated birthdays over video calls. Social media didn't replace in-person connection — it supplemented it during an unprecedented crisis.
+
+Moreover, social media has given voice to movements that traditional media ignored. The March for Our Lives gun safety movement was organized largely by teenagers using Twitter and Instagram. The #MeToo movement spread across continents in days, not years. Social media democratizes information and activism in ways that were unimaginable a generation ago.
+
+Like any tool, social media can be misused. But blaming the platform for the actions of its users is like blaming the printing press for propaganda. The question isn't whether social media is good or bad — it's how we choose to use it.
+
+**Passage 2: The Hidden Costs of Constant Connection**
+
+Social media promises connection, but delivers something else: a curated performance of connection designed to maximize engagement and profit.
+
+The business model is simple and troubling. Platforms like Instagram, TikTok, and Facebook make money by keeping users scrolling. The longer you're on the app, the more ads you see. To achieve this, algorithms are specifically designed to trigger psychological responses — outrage, envy, validation-seeking — that keep you clicking. Former Facebook executive Chamath Palihapitiya admitted in 2017: "The short-term, dopamine-driven feedback loops that we have created are destroying how society works."
+
+The mental health data is alarming. A 2021 study published in the *Journal of the American Medical Association* found that adolescents who spend more than three hours per day on social media face double the risk of depression and anxiety. Instagram's own internal research, leaked in 2021, revealed that the platform worsens body image issues for one in three teenage girls.
+
+Social media doesn't just reflect our insecurities — it manufactures them. Every post becomes a performance, every photo a test: Will people like it? Will they comment? The constant comparison to others' highlight reels creates a pervasive sense of inadequacy. We're more "connected" than ever, yet loneliness rates among teenagers have reached historic highs.
+
+Furthermore, the claim that social media democratizes information is half-true at best. Yes, anyone can post — but algorithms decide what gets seen. Misinformation spreads six times faster than factual news on Twitter, according to MIT research. Echo chambers reinforce existing beliefs rather than fostering genuine dialogue.
+
+The printing press analogy is flawed. Books don't track your eye movements, exploit your psychology, or algorithmically push content designed to provoke outrage. Social media isn't a neutral tool — it's an attention economy built on behavioral manipulation.
+
+We don't need to abandon social media entirely, but we do need to recognize its costs and regulate it like the powerful, profit-driven industry it is.`,
+    vocabulary: [
+      { word: 'curated', definition: 'Carefully selected and organized for presentation.', example: 'The museum\'s curated collection featured only the finest paintings.' },
+      { word: 'democratizes', definition: 'Makes something available or accessible to everyone, not just a privileged few.', example: 'The internet democratizes education by providing free learning resources worldwide.' },
+      { word: 'algorithm', definition: 'A set of rules or calculations that a computer follows to solve a problem or make decisions.', example: 'The recommendation algorithm suggests videos based on what you\'ve watched before.' },
+      { word: 'pervasive', definition: 'Spreading throughout every part of something; widespread.', example: 'The pervasive smell of smoke filled the entire building.' }
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN difference between Passage 1 and Passage 2?',
+        options: [
+          'Passage 1 discusses teenagers, while Passage 2 discusses adults.',
+          'Passage 1 argues that social media helps connection, while Passage 2 argues it harms mental health and manipulates users.',
+          'Passage 1 is about technology, while Passage 2 is about books.',
+          'Passage 1 is informational, while Passage 2 is a personal narrative.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 1 presents evidence that social media benefits users and helps connection. Passage 2 argues that social media is harmful, manipulative, and designed to exploit users for profit.'
+      },
+      {
+        question: 'Which statement would the author of Passage 2 MOST LIKELY agree with?',
+        options: [
+          'Social media is no different from the printing press.',
+          'Social media platforms should be regulated because they are designed to manipulate users for profit.',
+          'Teenagers should spend at least three hours per day on social media.',
+          'Social media has no effect on mental health.'
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 2 ends by calling for regulation, stating that social media is "an attention economy built on behavioral manipulation" and should be treated as "the powerful, profit-driven industry it is."'
+      },
+      {
+        question: 'Both passages mention research or data. How do they use evidence differently?',
+        options: [
+          'Passage 1 uses evidence to show benefits, while Passage 2 uses evidence to show harms.',
+          'Passage 1 provides no evidence at all.',
+          'Passage 2 only uses personal opinions, not evidence.',
+          'Both passages use the exact same evidence.'
+        ],
+        correctIndex: 0,
+        explanation: 'Passage 1 cites Pew Research showing teens feel more connected. Passage 2 cites JAMA research showing increased depression and Instagram\'s internal research showing body image issues. Both use evidence, but to support opposite claims.'
+      },
+      {
+        question: 'Which of the following is an example of BIAS in Passage 2?',
+        options: [
+          'The passage presents only negative effects of social media without acknowledging any benefits.',
+          'The passage includes a direct quote from a Facebook executive.',
+          'The passage mentions specific research studies.',
+          'The passage uses the word "algorithm."'
+        ],
+        correctIndex: 0,
+        explanation: 'Bias means showing favoritism or prejudice toward one side. Passage 2 focuses entirely on harms and dismisses benefits, showing a clear bias against social media. Including quotes and research is not bias — it\'s the selective use of only negative information that reveals bias.'
+      }
+    ]
   }
 
 ];
