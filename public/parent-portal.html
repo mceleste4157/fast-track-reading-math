@@ -17,8 +17,28 @@
       --surface: #ffffff; --border: rgba(0,0,0,0.08);
       --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
     }
+
+    /* Dark mode colors */
+    body.dark-mode {
+      --bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #1e293b 100%);
+      --surface: #1e293b;
+      --border: rgba(255,255,255,0.1);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --purple-soft: #2e1065;
+      --blue-soft: #1e3a8a;
+      --green-soft: #064e3b;
+      --red-soft: #7f1d1d;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); min-height: 100vh; color: var(--text); }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
 
     /* ── Nav ── */
     .nav {
@@ -534,6 +554,7 @@
   <nav class="nav">
     <div class="nav-title">🚀 FAST Track — Parent Portal</div>
     <div class="nav-user" id="nav-user"></div>
+    <button class="btn-whats-new" id="dark-mode-toggle" title="Toggle dark mode">🌙</button>
     <button class="btn-whats-new" id="whats-new-btn">🎉 What's New</button>
     <button class="btn-signout" id="signout-btn">Sign Out</button>
   </nav>
@@ -1217,6 +1238,24 @@
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
+    // Dark mode toggle
+    (function() {
+      const darkMode = localStorage.getItem('darkMode') === 'true';
+      const toggle = document.getElementById('dark-mode-toggle');
+
+      if (darkMode) {
+        document.body.classList.add('dark-mode');
+        toggle.textContent = '☀️';
+      }
+
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        toggle.textContent = isDark ? '☀️' : '🌙';
+      });
+    })();
+
     // Last content update timestamp - UPDATE THIS WHEN ADDING NEW FEATURES TO WHAT'S NEW
     const LAST_CONTENT_UPDATE = new Date('2026-06-02T15:45:00'); // June 2, 2026 at 3:45 PM
 
