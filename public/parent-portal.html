@@ -714,6 +714,32 @@
 
   <div class="page">
 
+    <!-- Parent Profile section -->
+    <div class="section-heading">👤 Your Profile</div>
+    <div style="background:var(--surface);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--muted);margin-bottom:4px;">DISPLAY NAME</div>
+          <div style="font-size:1.1rem;font-weight:700;" id="profile-name-display">Loading...</div>
+        </div>
+        <button class="btn-add-child" id="edit-profile-btn" style="margin:0;">✏️ Edit Name</button>
+      </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="form-card" id="profile-form-card" style="display:none;">
+      <h3>Edit Your Profile</h3>
+      <div class="form-error" id="profile-error"></div>
+      <div class="form-group">
+        <label for="profile-name-input">Display Name</label>
+        <input type="text" id="profile-name-input" placeholder="Your name" />
+      </div>
+      <div class="form-actions">
+        <button class="btn-secondary" id="profile-cancel-btn">Cancel</button>
+        <button class="btn-primary" id="profile-save-btn">Save Changes</button>
+      </div>
+    </div>
+
     <!-- Children section -->
     <div class="section-heading">👦 Your Children</div>
     <div id="children-area">
@@ -1037,7 +1063,9 @@
       // Load parent display name
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
-        document.getElementById('nav-user').textContent = data.displayName || user.email;
+        const displayName = data.displayName || user.email;
+        document.getElementById('nav-user').textContent = displayName;
+        document.getElementById('profile-name-display').textContent = displayName;
         injectAdminLink(user.email);
 
         // Check portal PIN
@@ -1049,6 +1077,7 @@
         }
       }).catch(() => {
         document.getElementById('nav-user').textContent = user.email;
+        document.getElementById('profile-name-display').textContent = user.email;
         injectAdminLink(user.email);
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
@@ -1056,6 +1085,51 @@
           showPortalPinScreen(null, user.uid);
         }
       });
+    });
+
+    // ── Edit Profile ────────────────────────────────────────────────────────────
+    document.getElementById('edit-profile-btn').addEventListener('click', () => {
+      const currentName = document.getElementById('profile-name-display').textContent;
+      document.getElementById('profile-name-input').value = currentName;
+      document.getElementById('profile-form-card').style.display = 'block';
+      document.getElementById('profile-error').textContent = '';
+      document.getElementById('profile-form-card').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('profile-cancel-btn').addEventListener('click', () => {
+      document.getElementById('profile-form-card').style.display = 'none';
+    });
+
+    document.getElementById('profile-save-btn').addEventListener('click', () => {
+      const newName = document.getElementById('profile-name-input').value.trim();
+      const errEl = document.getElementById('profile-error');
+      const btn = document.getElementById('profile-save-btn');
+
+      if (!newName) {
+        errEl.textContent = 'Please enter a display name.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+      errEl.textContent = '';
+
+      db.collection('ParentProfiles').doc(currentUser.uid).update({
+        displayName: newName,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      })
+        .then(() => {
+          document.getElementById('nav-user').textContent = newName;
+          document.getElementById('profile-name-display').textContent = newName;
+          document.getElementById('profile-form-card').style.display = 'none';
+          btn.disabled = false;
+          btn.textContent = 'Save Changes';
+        })
+        .catch(err => {
+          errEl.textContent = 'Error saving: ' + err.message;
+          btn.disabled = false;
+          btn.textContent = 'Save Changes';
+        });
     });
 
     document.getElementById('signout-btn').addEventListener('click', () => {
