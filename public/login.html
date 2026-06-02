@@ -127,6 +127,17 @@
       color: var(--red); font-size: 0.88rem; font-weight: 600;
       min-height: 1.2em; margin-top: 8px;
     }
+    .remember-me {
+      display: flex; align-items: center; gap: 8px; margin-top: 10px;
+      font-size: 0.88rem; color: var(--text); cursor: pointer;
+      user-select: none;
+    }
+    .remember-me input[type="checkbox"] {
+      width: 18px; height: 18px; cursor: pointer;
+      accent-color: var(--purple);
+    }
+    .remember-me:hover { color: var(--purple); }
+
     .auth-forgot {
       background: none; border: none; color: var(--muted); font-size: 0.85rem;
       font-weight: 600; cursor: pointer; font-family: inherit; margin-top: 10px;
@@ -279,6 +290,12 @@
       <div id="panel-signin">
         <input class="form-input" type="email"    id="si-email"    placeholder="Email address" autocomplete="email" />
         <input class="form-input" type="password" id="si-password" placeholder="Password"      autocomplete="current-password" />
+
+        <label class="remember-me">
+          <input type="checkbox" id="remember-me-check" />
+          <span>Remember me on this device</span>
+        </label>
+
         <button class="btn-auth" id="si-btn">Sign In →</button>
         <button class="auth-forgot" id="si-forgot">Forgot password?</button>
         <div class="auth-error" id="si-error"></div>
@@ -350,6 +367,17 @@
 
     const db = firebase.firestore();
     let currentUser = null;
+
+    // ── Load saved credentials ─────────────────────────────────────────────────
+    const savedCreds = (() => {
+      try { return JSON.parse(localStorage.getItem('savedCredentials')); }
+      catch(e) { return null; }
+    })();
+    if (savedCreds && savedCreds.email) {
+      document.getElementById('si-email').value = savedCreds.email;
+      document.getElementById('si-password').value = savedCreds.password || '';
+      document.getElementById('remember-me-check').checked = true;
+    }
 
     // ── Auth state ──────────────────────────────────────────────────────────
     firebase.auth().onAuthStateChanged(user => {
@@ -438,10 +466,21 @@
       const pass  = document.getElementById('si-password').value;
       const errEl = document.getElementById('si-error');
       const btn   = document.getElementById('si-btn');
+      const rememberMe = document.getElementById('remember-me-check').checked;
+
       if (!email || !pass) { errEl.textContent = 'Please enter your email and password.'; return; }
       btn.disabled = true; btn.textContent = 'Signing in…';
       errEl.textContent = '';
+
       firebase.auth().signInWithEmailAndPassword(email, pass)
+        .then(() => {
+          // Save credentials if "Remember me" is checked
+          if (rememberMe) {
+            localStorage.setItem('savedCredentials', JSON.stringify({ email, password: pass }));
+          } else {
+            localStorage.removeItem('savedCredentials');
+          }
+        })
         .catch(err => {
           errEl.textContent = err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password'
             ? 'Incorrect email or password.'
