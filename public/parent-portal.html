@@ -234,6 +234,77 @@
       background: #d1d5db; cursor: not-allowed;
     }
 
+    /* Account Settings Modal */
+    .settings-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 300;
+      align-items: center; justify-content: center;
+      padding: 24px 16px; overflow-y: auto;
+    }
+    .settings-overlay.show { display: flex; }
+    .settings-modal {
+      background: var(--surface); border-radius: 20px;
+      max-width: 600px; width: 100%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+      overflow: hidden; margin: auto;
+    }
+    .settings-header {
+      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+      padding: 24px 28px; color: #fff;
+    }
+    .settings-header h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
+    .settings-header p { font-size: 0.9rem; opacity: 0.9; }
+    .settings-body { padding: 28px; max-height: 70vh; overflow-y: auto; }
+
+    .settings-section {
+      margin-bottom: 32px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .settings-section:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+    .settings-section h3 {
+      font-size: 1.05rem; font-weight: 700; margin-bottom: 12px;
+      color: var(--text); display: flex; align-items: center; gap: 8px;
+    }
+    .settings-section p {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .settings-danger-section {
+      background: var(--red-soft); border: 2px solid var(--red);
+      border-radius: 12px; padding: 20px; margin-top: 8px;
+    }
+    .settings-danger-section h4 {
+      font-size: 0.95rem; font-weight: 700; color: var(--red);
+      margin-bottom: 8px;
+    }
+    .settings-danger-section p {
+      font-size: 0.85rem; color: #7f1d1d; line-height: 1.5;
+    }
+
+    .settings-actions {
+      display: flex; gap: 12px; padding: 20px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .settings-btn {
+      flex: 1; padding: 12px; border-radius: 11px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; border: none; transition: all 0.15s;
+    }
+    .settings-btn-close {
+      background: var(--purple); color: #fff;
+    }
+    .settings-btn-close:hover { background: #6d28d9; }
+
+    .nav-user {
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .nav-user:hover {
+      color: var(--purple);
+      text-decoration: underline;
+    }
+
     .rn-badge {
       display: inline-block; font-size: 0.7rem; font-weight: 800;
       background: var(--green); color: #fff; border-radius: 99px;
@@ -783,6 +854,61 @@
     </div>
   </div>
 
+  <!-- Account Settings Modal -->
+  <div class="settings-overlay" id="settings-modal">
+    <div class="settings-modal">
+      <div class="settings-header">
+        <h2>⚙️ Account Settings</h2>
+        <p id="settings-email-display">Loading...</p>
+      </div>
+      <div class="settings-body">
+
+        <!-- Display Name Section -->
+        <div class="settings-section">
+          <h3>👤 Display Name</h3>
+          <p>Your display name is shown in the Your Profile section.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px;">
+            <input type="text" id="settings-name-input" placeholder="Your name"
+                   style="flex:1;padding:10px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit;font-size:0.95rem;outline:none;" />
+            <button class="btn-secondary" id="settings-name-save" style="margin:0;">Save</button>
+          </div>
+          <div id="settings-name-error" style="color:var(--red);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+          <div id="settings-name-success" style="color:var(--green);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+        </div>
+
+        <!-- Email Section -->
+        <div class="settings-section">
+          <h3>📧 Email Address</h3>
+          <p>Change the email address used to sign in to your account.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px;">
+            <input type="email" id="settings-email-input" placeholder="new-email@example.com"
+                   style="flex:1;padding:10px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit;font-size:0.95rem;outline:none;" />
+            <button class="btn-secondary" id="settings-email-save" style="margin:0;">Update Email</button>
+          </div>
+          <div id="settings-email-error" style="color:var(--red);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+          <div id="settings-email-success" style="color:var(--green);font-size:0.85rem;margin-top:8px;font-weight:600;"></div>
+        </div>
+
+        <!-- Delete Account Section -->
+        <div class="settings-section">
+          <h3 style="color:var(--red);">⚠️ Delete Account</h3>
+          <div class="settings-danger-section">
+            <h4>Permanently Delete Account</h4>
+            <p style="margin-bottom:12px;">This will permanently delete your account, all child profiles, and all associated data. This action cannot be undone.</p>
+            <button class="btn-secondary" id="settings-delete-btn"
+                    style="background:var(--red);color:#fff;border-color:var(--red);margin:0;">
+              🗑️ Delete My Account
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="settings-actions">
+        <button class="settings-btn settings-btn-close" id="settings-close">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Delete Account Confirmation Modal -->
   <div class="delete-overlay" id="delete-account-modal">
     <div class="delete-modal">
@@ -826,44 +952,6 @@
   </div>
 
   <div class="page">
-
-    <!-- Parent Profile section -->
-    <div class="section-heading">👤 Your Profile</div>
-    <div style="background:var(--surface);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <div style="flex:1;min-width:200px;">
-          <div style="font-size:0.75rem;font-weight:700;color:var(--muted);margin-bottom:4px;">DISPLAY NAME</div>
-          <div style="font-size:1.1rem;font-weight:700;" id="profile-name-display">Loading...</div>
-        </div>
-        <button class="btn-add-child" id="edit-profile-btn" style="margin:0;">✏️ Edit Name</button>
-      </div>
-    </div>
-
-    <!-- Edit Profile Modal -->
-    <div class="form-card" id="profile-form-card" style="display:none;">
-      <h3>Edit Your Profile</h3>
-      <div class="form-error" id="profile-error"></div>
-      <div class="form-group">
-        <label for="profile-name-input">Display Name</label>
-        <input type="text" id="profile-name-input" placeholder="Your name" />
-      </div>
-      <div class="form-actions">
-        <button class="btn-secondary" id="profile-cancel-btn">Cancel</button>
-        <button class="btn-primary" id="profile-save-btn">Save Changes</button>
-      </div>
-    </div>
-
-    <!-- Danger Zone -->
-    <div class="section-heading" style="margin-top:48px;color:var(--red);">⚠️ Danger Zone</div>
-    <div style="background:var(--red-soft);border:2px solid var(--red);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;">
-      <div style="margin-bottom:12px;">
-        <div style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:4px;">Delete Account Permanently</div>
-        <div style="font-size:0.88rem;line-height:1.5;color:#7f1d1d;">
-          This will permanently delete your account, all child profiles, and all associated progress data (reading scores, math scores, activity history). <strong>This action cannot be undone.</strong>
-        </div>
-      </div>
-      <button class="btn-secondary" id="delete-account-btn" style="background:var(--red);color:#fff;border-color:var(--red);">🗑️ Delete My Account</button>
-    </div>
 
     <!-- Children section -->
     <div class="section-heading">👦 Your Children</div>
@@ -1191,8 +1279,6 @@
         const displayName = data.displayName || user.email;
         // Always show email in nav bar
         document.getElementById('nav-user').textContent = user.email;
-        // Show display name in profile section
-        document.getElementById('profile-name-display').textContent = displayName;
         injectAdminLink(user.email);
 
         // Check portal PIN
@@ -1204,7 +1290,6 @@
         }
       }).catch(() => {
         document.getElementById('nav-user').textContent = user.email;
-        document.getElementById('profile-name-display').textContent = user.email;
         injectAdminLink(user.email);
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
@@ -1214,23 +1299,40 @@
       });
     });
 
-    // ── Edit Profile ────────────────────────────────────────────────────────────
-    document.getElementById('edit-profile-btn').addEventListener('click', () => {
-      const currentName = document.getElementById('profile-name-display').textContent;
-      document.getElementById('profile-name-input').value = currentName;
-      document.getElementById('profile-form-card').style.display = 'block';
-      document.getElementById('profile-error').textContent = '';
-      document.getElementById('profile-form-card').scrollIntoView({ behavior: 'smooth' });
+    // ── Account Settings Modal ──────────────────────────────────────────────────
+    const settingsModal = document.getElementById('settings-modal');
+
+    // Click email to open settings
+    document.getElementById('nav-user').addEventListener('click', () => {
+      // Load current values
+      document.getElementById('settings-email-display').textContent = currentUser.email;
+      document.getElementById('settings-email-input').value = '';
+      document.getElementById('settings-email-error').textContent = '';
+      document.getElementById('settings-email-success').textContent = '';
+
+      db.collection('ParentProfiles').doc(currentUser.uid).get().then(doc => {
+        const displayName = doc.exists && doc.data().displayName ? doc.data().displayName : currentUser.email;
+        document.getElementById('settings-name-input').value = displayName;
+        document.getElementById('settings-name-error').textContent = '';
+        document.getElementById('settings-name-success').textContent = '';
+      });
+
+      settingsModal.classList.add('show');
     });
 
-    document.getElementById('profile-cancel-btn').addEventListener('click', () => {
-      document.getElementById('profile-form-card').style.display = 'none';
+    document.getElementById('settings-close').addEventListener('click', () => {
+      settingsModal.classList.remove('show');
     });
 
-    document.getElementById('profile-save-btn').addEventListener('click', () => {
-      const newName = document.getElementById('profile-name-input').value.trim();
-      const errEl = document.getElementById('profile-error');
-      const btn = document.getElementById('profile-save-btn');
+    // Save display name
+    document.getElementById('settings-name-save').addEventListener('click', () => {
+      const newName = document.getElementById('settings-name-input').value.trim();
+      const errEl = document.getElementById('settings-name-error');
+      const successEl = document.getElementById('settings-name-success');
+      const btn = document.getElementById('settings-name-save');
+
+      errEl.textContent = '';
+      successEl.textContent = '';
 
       if (!newName) {
         errEl.textContent = 'Please enter a display name.';
@@ -1239,33 +1341,71 @@
 
       btn.disabled = true;
       btn.textContent = 'Saving...';
-      errEl.textContent = '';
 
       db.collection('ParentProfiles').doc(currentUser.uid).update({
         displayName: newName,
         updatedAt: firebase.firestore.FieldValue.serverTimestamp()
       })
         .then(() => {
-          // Only update profile display, not nav bar (nav shows email)
-          document.getElementById('profile-name-display').textContent = newName;
-          document.getElementById('profile-form-card').style.display = 'none';
+          successEl.textContent = 'Display name updated!';
           btn.disabled = false;
-          btn.textContent = 'Save Changes';
+          btn.textContent = 'Save';
         })
         .catch(err => {
-          errEl.textContent = 'Error saving: ' + err.message;
+          errEl.textContent = 'Error: ' + err.message;
           btn.disabled = false;
-          btn.textContent = 'Save Changes';
+          btn.textContent = 'Save';
         });
     });
 
-    // ── Delete Account ──────────────────────────────────────────────────────────
-    const deleteModal = document.getElementById('delete-account-modal');
-    const deleteUnderstandCheck = document.getElementById('delete-understand-check');
-    const deleteConfirmText = document.getElementById('delete-confirm-text');
-    const deleteConfirmBtn = document.getElementById('delete-confirm');
+    // Update email
+    document.getElementById('settings-email-save').addEventListener('click', () => {
+      const newEmail = document.getElementById('settings-email-input').value.trim();
+      const errEl = document.getElementById('settings-email-error');
+      const successEl = document.getElementById('settings-email-success');
+      const btn = document.getElementById('settings-email-save');
 
-    document.getElementById('delete-account-btn').addEventListener('click', () => {
+      errEl.textContent = '';
+      successEl.textContent = '';
+
+      if (!newEmail) {
+        errEl.textContent = 'Please enter a new email address.';
+        return;
+      }
+
+      if (!newEmail.includes('@')) {
+        errEl.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Updating...';
+
+      currentUser.updateEmail(newEmail)
+        .then(() => {
+          return db.collection('ParentProfiles').doc(currentUser.uid).update({
+            email: newEmail,
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+        })
+        .then(() => {
+          successEl.textContent = 'Email updated! Refreshing...';
+          setTimeout(() => window.location.reload(), 1500);
+        })
+        .catch(err => {
+          if (err.code === 'auth/requires-recent-login') {
+            errEl.textContent = 'For security, please sign out and sign in again before changing your email.';
+          } else {
+            errEl.textContent = 'Error: ' + err.message;
+          }
+          btn.disabled = false;
+          btn.textContent = 'Update Email';
+        });
+    });
+
+    // Open delete modal from settings
+    document.getElementById('settings-delete-btn').addEventListener('click', () => {
+      settingsModal.classList.remove('show');
       // Count children
       db.collection('StudentProfiles').where('parentUid', '==', currentUser.uid).get()
         .then(snap => {
@@ -1277,6 +1417,12 @@
           deleteModal.classList.add('show');
         });
     });
+
+    // ── Delete Account Confirmation ────────────────────────────────────────────
+    const deleteModal = document.getElementById('delete-account-modal');
+    const deleteUnderstandCheck = document.getElementById('delete-understand-check');
+    const deleteConfirmText = document.getElementById('delete-confirm-text');
+    const deleteConfirmBtn = document.getElementById('delete-confirm');
 
     document.getElementById('delete-cancel').addEventListener('click', () => {
       deleteModal.classList.remove('show');
