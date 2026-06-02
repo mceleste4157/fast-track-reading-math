@@ -428,6 +428,10 @@
               <div class="rn-item-text"><strong>Daily screen time cap</strong> — Set a total daily limit across all modules. A friendly "Time's Up" screen appears when the limit is reached.</div>
             </div>
             <div class="rn-item">
+              <div class="rn-item-icon">⏱️</div>
+              <div class="rn-item-text"><strong>Reading timer control</strong> — Choose how long a child must spend reading before the quiz button unlocks: full time, half time, 1 minute, 2× time, or no timer at all.</div>
+            </div>
+            <div class="rn-item">
               <div class="rn-item-icon">📅</div>
               <div class="rn-item-text"><strong>App schedule</strong> — Choose which days of the week the app is available. On off-days, children see a "Come back on [day]" screen.</div>
             </div>
@@ -630,6 +634,18 @@
           <option value="on">🔊 Full — read whole story aloud + tap any word</option>
           <option value="words">🔤 Vocab words only — tap a word to hear it</option>
           <option value="off">🔇 Disabled — no read-aloud</option>
+        </select>
+      </div>
+
+      <!-- Reading Timer -->
+      <div class="form-group" style="margin-top:4px;">
+        <label for="f-reading-timer">Reading timer <span style="color:#6b7280;font-weight:500;">(how long before the quiz unlocks)</span></label>
+        <select id="f-reading-timer" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+          <option value="full">⏱️ Full reading time — Recommended ⭐</option>
+          <option value="half">⏱️ Half the reading time</option>
+          <option value="1min">⏱️ 1 minute minimum</option>
+          <option value="double">⏱️ 2× the reading time (encourage slower reading)</option>
+          <option value="off">🚀 No timer — quiz is always available</option>
         </select>
       </div>
 
@@ -1161,7 +1177,8 @@
               dailyReadMinutes:  kid.dailyReadMinutes  ?? 30,
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
               readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on'),
-              dailyScreenMins:   kid.dailyScreenMins  ?? 60,
+              readingTimerMode:  kid.readingTimerMode  || 'full',
+              dailyScreenMins:   kid.dailyScreenMins   ?? 60,
               activeDays:        kid.activeDays        ?? [0,1,2,3,4,5,6],
               parentMessage:     kid.parentMessage      || ''
             }));
@@ -1272,8 +1289,9 @@
       document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 3;
       document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 30;
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
-      document.getElementById('f-read-aloud').value   = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
-      document.getElementById('f-screen-mins').value  = child.dailyScreenMins ?? 60;
+      document.getElementById('f-read-aloud').value     = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
+      document.getElementById('f-reading-timer').value = child.readingTimerMode || 'full';
+      document.getElementById('f-screen-mins').value   = child.dailyScreenMins ?? 60;
       document.getElementById('f-message').value      = child.parentMessage || '';
       const activeDays = child.activeDays ?? [0,1,2,3,4,5,6];
       document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => {
@@ -1329,8 +1347,9 @@
       const mathUnlockScore   = parseInt(document.getElementById('f-math-unlock').value);
       const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
       const dailyMathMinutes  = parseInt(document.getElementById('f-math-mins').value);
-      const readAloudMode  = document.getElementById('f-read-aloud').value;
-      const dailyScreenMins = parseInt(document.getElementById('f-screen-mins').value) || 0;
+      const readAloudMode    = document.getElementById('f-read-aloud').value;
+      const readingTimerMode = document.getElementById('f-reading-timer').value;
+      const dailyScreenMins  = parseInt(document.getElementById('f-screen-mins').value) || 0;
       const activeDays = Array.from(document.querySelectorAll('#days-chips input[name="day"]:checked')).map(cb => parseInt(cb.value));
       const errEl    = document.getElementById('form-error');
       errEl.style.display = 'none';
@@ -1355,6 +1374,7 @@
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
           readAloudMode:     readAloudMode,
+          readingTimerMode:  readingTimerMode,
           dailyScreenMins:   dailyScreenMins,
           activeDays:        activeDays,
           parentMessage:     document.getElementById('f-message').value.trim(),
@@ -1386,6 +1406,7 @@
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
           readAloudMode:     readAloudMode,
+          readingTimerMode:  readingTimerMode,
           dailyScreenMins:   dailyScreenMins,
           activeDays:        activeDays,
           parentMessage:     document.getElementById('f-message').value.trim(),

@@ -324,7 +324,15 @@
     document.getElementById('btn-start-reading').addEventListener('click', dismissVocabOverlay);
 
     // ─── Reading timer (persisted per story in localStorage) ───────────────────
-    const QUIZ_UNLOCK_SECONDS = story.readTimeMin * 60; // scales with story length
+    // Duration is parent-controlled via readingTimerMode in the child's profile
+    const timerMode = profile.readingTimerMode || 'full';
+    const baseSeconds = story.readTimeMin * 60;
+    const QUIZ_UNLOCK_SECONDS =
+      timerMode === 'off'    ? 0 :
+      timerMode === '1min'   ? 60 :
+      timerMode === 'half'   ? Math.round(baseSeconds / 2) :
+      timerMode === 'double' ? baseSeconds * 2 :
+      baseSeconds; // 'full' (default)
     const LS_KEY = 'readStart_' + storyId;
 
     // Use existing start time if available (so reloads don't reset the clock).
@@ -345,8 +353,19 @@
     let countdownInterval = null;
 
     function updateQuizButton() {
+      // If timer is off, unlock immediately regardless of readStart
+      if (QUIZ_UNLOCK_SECONDS === 0) {
+        if (!quizUnlocked) {
+          quizUnlocked = true;
+          clearInterval(countdownInterval);
+          quizBtn.textContent = '✏️ Take the Quiz →';
+          quizBtn.classList.remove('btn-quiz-locked');
+          quizBtn.href = 'quiz.html?story=' + storyId;
+        }
+        return;
+      }
       if (!readStart) {
-        quizBtn.textContent = '⏳ Quiz in 2:00'; // vocab overlay not yet dismissed
+        quizBtn.textContent = `⏳ Quiz in ${Math.floor(QUIZ_UNLOCK_SECONDS/60)}:${String(QUIZ_UNLOCK_SECONDS%60).padStart(2,'0')}`;
         return;
       }
       const elapsed   = (Date.now() - readStart) / 1000;
