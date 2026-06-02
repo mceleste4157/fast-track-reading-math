@@ -150,7 +150,7 @@
     <div id="main-content"><div class="spinner"></div></div>
   </div>
 
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260602b"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -214,7 +214,7 @@
         <div class="card">
           <div class="word-num">From: ${escHtml(w.storyTitle)}</div>
           <div class="definition">${escHtml(w.definition)}</div>
-          <div class="example">"${escHtml(w.example)}"</div>
+          ${w.example ? `<div class="example">"${escHtml(w.example)}"</div>` : ''}
           <button class="hear-btn" id="hear-btn">🔊 Hear the definition</button>
           <input class="spell-input" id="spell-input" type="text" placeholder="Type the word here…" autocomplete="off" autocorrect="off" spellcheck="false" />
           <div class="feedback" id="feedback"></div>

@@ -37,10 +37,10 @@ The Everglades teaches us that protecting one extraordinary place means protecti
       {
         question: 'What is the CENTRAL IDEA of this passage?',
         options: [
-          'Alligators are dangerous animals that people should avoid.',
+          'Alligators are the most dangerous animals in the Everglades and visitors must avoid them at all times.',
           'The Everglades is a unique and threatened ecosystem that is now being restored.',
-          'Florida has more wetlands than any other state in the country.',
-          'Building farms and cities is more important than protecting natural areas.'
+          'Florida has more acres of protected natural wetlands than any other state in the United States.',
+          'Building farms and cities near the Everglades is more important than preserving the natural habitat.'
         ],
         correctIndex: 1,
         explanation: 'The passage introduces the Everglades as extraordinary, explains its rich biodiversity, describes how it was damaged, and ends with restoration efforts — the central idea is that it is a unique and threatened place now being saved.'
@@ -70,10 +70,10 @@ The Everglades teaches us that protecting one extraordinary place means protecti
       {
         question: 'How does the author ORGANIZE the information in this passage?',
         options: [
-          'By comparing the Everglades to other wetlands around the world.',
+          'By comparing the Everglades to other important wetland ecosystems found around the world.',
           'By describing the problem, the damage it caused, and the solution underway.',
-          'By listing all the animals of the Everglades in order of importance.',
-          'By following a single animal through its daily life in the Everglades.'
+          'By listing the animals of the Everglades from the most to least important for the ecosystem.',
+          'By following a single alligator through its daily life and habits deep in the Everglades.'
         ],
         correctIndex: 1,
         explanation: 'The passage describes what the Everglades is and its value, then explains how it was damaged, and finally describes the restoration efforts — this is a problem/solution structure.'
@@ -81,10 +81,10 @@ The Everglades teaches us that protecting one extraordinary place means protecti
       {
         question: 'Which detail BEST supports the idea that the Everglades provides habitat for a wide variety of wildlife?',
         options: [
-          'The Everglades flows slowly southward from Lake Okeechobee to Florida Bay.',
-          'Developers drained and filled parts of it to build farms and cities.',
+          'The Everglades is a wide, shallow river flowing slowly southward from Lake Okeechobee all the way to Florida Bay.',
+          'Developers drained and filled large portions of the wetland over decades to build farms, roads, and cities.',
           'More than 360 bird species live or feed there, including the roseate spoonbill and great blue heron.',
-          'The Comprehensive Everglades Restoration Plan is working to reverse damage.'
+          'The Comprehensive Everglades Restoration Plan is actively working to reverse damage from decades of drainage.'
         ],
         correctIndex: 2,
         explanation: 'Mentioning more than 360 bird species and naming specific examples directly supports the idea that the Everglades supports an extraordinary variety of wildlife.'
@@ -142,10 +142,10 @@ Elena laughed. "Exactly like bugs."`,
       {
         question: 'What is the CONFLICT Elena faces at the beginning of the story?',
         options: [
-          'Her brother breaks her completed science fair project.',
+          'Her brother Marco accidentally knocks over and completely destroys her finished science fair display.',
           'She cannot think of an idea for her science fair project and feels discouraged.',
-          'Her teacher tells her she is not allowed to enter the science fair.',
-          'She runs out of materials to complete her experiment.'
+          'Her teacher tells her she has not done enough work to be allowed to enter the science fair.',
+          'She runs out of the colored containers and materials she needs to continue her experiment.'
         ],
         correctIndex: 1,
         explanation: 'Elena says her brain is "completely empty" and she has "zero ideas." Her internal conflict is the pressure of needing an idea while feeling stuck and discouraged.'
@@ -153,10 +153,10 @@ Elena laughed. "Exactly like bugs."`,
       {
         question: 'What is the THEME of this story?',
         options: [
-          'Science fairs are more important than sports or other activities.',
-          'Younger siblings always have the best ideas.',
+          'Science fair projects and competitions are much more important than sports or other school activities.',
+          'Younger siblings like Marco almost always come up with the most original and creative project ideas.',
           'Persistence and refusing to give up turn small sparks into great ideas.',
-          'Only students who study hardest win science fair competitions.'
+          'Only students who study the hardest and prepare the longest ever win first place at science fairs.'
         ],
         correctIndex: 2,
         explanation: 'Elena herself states the theme at the end: "great ideas don\'t arrive all at once. They start as small sparks. You just have to refuse to give up until they catch fire."'
@@ -164,10 +164,10 @@ Elena laughed. "Exactly like bugs."`,
       {
         question: 'How does Elena\'s CHARACTER CHANGE from the beginning to the end of the story?',
         options: [
-          'She goes from being confident to feeling unsure of herself.',
+          'She starts out feeling completely confident and ends up deeply disappointed by her science fair results.',
           'She starts disappointed and ready to quit, but becomes determined and proud of her careful work.',
-          'She learns to ask for help instead of working alone.',
-          'She gives up on science and discovers she prefers art instead.'
+          'She learns that asking her classmates and teacher for help is always better than working completely alone.',
+          'She gives up on science entirely and realizes she has a much stronger talent for drawing and art instead.'
         ],
         correctIndex: 1,
         explanation: 'At the beginning, Elena is snapping at her brother and her confidence is "shrinking." By the end, she stands at her display answering questions "without hesitating" and wins second place — showing clear growth from discouragement to determination.'
@@ -175,10 +175,10 @@ Elena laughed. "Exactly like bugs."`,
       {
         question: 'How does Elena find her idea for the project?',
         options: [
-          'She reads about color and heat in a library book.',
-          'Her teacher gives her a suggestion after class.',
+          'She searches websites and eventually discovers the perfect idea in a science magazine at the library.',
+          'Her teacher notices her struggling and quietly pulls her aside after class to offer a helpful suggestion.',
           'Watching water pour at dinner connects to a memory about the school fountain, sparking her idea.',
-          'Marco tells her about a project he saw online.'
+          'Marco watches a science documentary and describes an experiment that gives Elena the inspiration she needs.'
         ],
         correctIndex: 2,
         explanation: 'The passage says watching water pour made her think of the school\'s colored fountain, and "slowly...an idea began to grow." Her idea came from making an unexpected connection.'
@@ -186,10 +186,10 @@ Elena laughed. "Exactly like bugs."`,
       {
         question: 'Read this sentence: "She could feel her confidence shrinking with each crumpled page." What does this suggest about Elena?',
         options: [
-          'She was running out of paper to write on.',
+          'She was quickly running out of notebook paper and needed her brother Marco to bring her more.',
           'She was frustrated that her ideas were not good enough, which made her feel less sure of herself.',
-          'She was angry at her teacher for giving such a difficult assignment.',
-          'She was happy to be working on a difficult challenge.'
+          'She was deeply angry at her teacher for assigning such a difficult and unreasonable science fair project.',
+          'She was actually very excited and happy to be facing such a difficult and rewarding creative challenge.'
         ],
         correctIndex: 1,
         explanation: 'Each crumpled page represents an idea she rejected. "Confidence shrinking" is figurative language — it shows that every failed attempt made Elena feel less capable and more discouraged.'
@@ -229,10 +229,10 @@ The monarch population is declining, and three causes are responsible. First, mi
       {
         question: 'What is the MAIN IDEA of this passage?',
         options: [
-          'Monarch butterflies are the most colorful insects in North America.',
+          'Monarch butterflies are among the most colorful and widely recognized insects found in North America.',
           'The monarch migration is a remarkable but threatened natural event that people are working to protect.',
-          'Milkweed is a plant that scientists want to grow in every garden.',
-          'Mexico is an important location for winter tourism because of its warm weather.'
+          'Milkweed is the only plant monarch caterpillars eat, so scientists want everyone to grow it in their gardens.',
+          'Mexico has become an important destination for ecotourists each winter because of its warm mountain forests.'
         ],
         correctIndex: 1,
         explanation: 'The passage describes the migration as "remarkable," explains how it works, identifies three threats, and describes conservation responses — all supporting the idea that it is both extraordinary and in danger.'
@@ -240,10 +240,10 @@ The monarch population is declining, and three causes are responsible. First, mi
       {
         question: 'According to the passage, what makes the "super generation" of monarchs different from summer generations?',
         options: [
-          'They are twice the size of regular monarch butterflies.',
-          'They travel a different, shorter route than previous generations.',
+          'They grow to nearly twice the size and weight of the regular summer monarch butterflies.',
+          'They fly a completely different, shorter southern route that avoids the mountains of central Mexico.',
           'They live six to eight months — long enough to complete the full migration to Mexico and back.',
-          'They are born with knowledge from previous generations passed down genetically.'
+          'They hatch already knowing the full migration route because the knowledge is passed down genetically.'
         ],
         correctIndex: 2,
         explanation: 'The text defines the super generation as monarchs that "live six to eight months — long enough to make the full journey back to Mexico, spend the winter, and return north in spring."'
@@ -251,10 +251,10 @@ The monarch population is declining, and three causes are responsible. First, mi
       {
         question: 'The author states that the monarch population is declining. What evidence does the author provide to SUPPORT this claim?',
         options: [
-          'Monarchs are being caught and sold illegally in some countries.',
+          'Monarchs are increasingly being caught, sold, and traded illegally in countries along their migration route.',
           'The population dropped from up to one billion in the early 1990s to fewer than 250 million recently.',
-          'Scientists have stopped tagging and tracking monarchs because there are too few left.',
-          'Monarchs can no longer find enough flowers to drink nectar from along their route.'
+          'Scientists have been forced to stop tagging and tracking monarchs entirely because so few remain.',
+          'Monarchs can no longer find enough milkweed flowers along their migration route to feed their caterpillars.'
         ],
         correctIndex: 1,
         explanation: 'The author directly compares the past population (up to one billion in the early 1990s) to the current count (fewer than 250 million) — specific numbers that provide strong evidence for the claim of decline.'
@@ -262,10 +262,10 @@ The monarch population is declining, and three causes are responsible. First, mi
       {
         question: 'How does the author organize the information about causes of decline and conservation efforts?',
         options: [
-          'By comparing monarch butterflies to other migrating animals.',
+          'By comparing monarch butterflies to other migrating animals such as geese, salmon, and gray whales.',
           'By listing causes of a problem and then describing solutions being used to address them.',
-          'By telling the story of one monarch butterfly\'s entire migration journey.',
-          'By explaining events in the order they happened throughout history.'
+          'By following one monarch butterfly through every stage of its complete fall migration journey to Mexico.',
+          'By explaining the history of monarch research in the exact order that key discoveries were made over time.'
         ],
         correctIndex: 1,
         explanation: 'After introducing the migration, the author lists three specific causes of decline (problem) and then describes conservation responses such as planting milkweed and creating reserves (solutions) — a clear problem/solution structure.'
@@ -273,10 +273,10 @@ The monarch population is declining, and three causes are responsible. First, mi
       {
         question: 'What does the word "navigation" MOST LIKELY mean based on how it is used in the passage?',
         options: [
-          'The ability to sense changes in temperature.',
-          'A type of antenna found on butterflies and moths.',
+          'The ability of an animal to sense and respond to small changes in outside temperature.',
+          'A special type of antenna structure found only on butterflies and certain moths.',
           'The process of finding the correct route from one place to another.',
-          'A scientific tool used by researchers to track animals.'
+          'A scientific tracking device that researchers attach to the wings of monarch butterflies.'
         ],
         correctIndex: 2,
         explanation: 'In context, the author describes monarchs using the sun and Earth\'s magnetic field to find their way south — both are methods of navigation, meaning finding the correct path to a destination.'
@@ -348,10 +348,10 @@ They went back to work. Over the next week, their project became something neith
       {
         question: 'Why does the author tell the same event from TWO different perspectives?',
         options: [
-          'To show that Jaylen is always right and Maya is always wrong.',
+          'To clearly demonstrate that Jaylen\'s interpretation of events was correct while Maya\'s version was wrong and dishonest.',
           'To help the reader understand that both characters had different but reasonable interpretations of what happened.',
-          'To prove that looking at someone\'s artwork is always against the rules.',
-          'To show that Maya was actually planning to copy Jaylen\'s design.'
+          'To prove once and for all that looking at another student\'s artwork without asking is strictly against school rules.',
+          'To slowly reveal that Maya was in fact secretly planning to copy Jaylen\'s detailed design for her own art project.'
         ],
         correctIndex: 1,
         explanation: 'By showing both sides, the reader sees that Jaylen had a reason to think Maya was touching his work, and Maya had a real reason to feel wrongly accused — neither character had the full picture. This is the power of showing multiple perspectives.'
@@ -381,10 +381,10 @@ They went back to work. Over the next week, their project became something neith
       {
         question: 'How is the conflict RESOLVED at the end of the story?',
         options: [
-          'Their teacher forces them to apologize to each other.',
+          'Their homeroom teacher steps in and forces both of them to formally apologize to each other in front of the class.',
           'Maya proves she didn\'t draw on Jaylen\'s paper by showing her own sketchbook and having an honest conversation.',
-          'Jaylen decides the mural doesn\'t matter anymore and throws it away.',
-          'They both apologize and agree never to sit at the same lunch table again.'
+          'Jaylen concludes that the mural project no longer matters to him and decides to throw away all his drawings permanently.',
+          'They both apologize to each other but mutually agree that they will never sit at the same lunch table again going forward.'
         ],
         correctIndex: 1,
         explanation: 'Seeing Maya\'s sketchbook full of architecture gives Jaylen evidence that her interest in his work was genuine. Their honest conversation — and Jaylen\'s apology for assuming — resolves the misunderstanding.'
@@ -435,10 +435,10 @@ The impact of space exploration reaches far beyond the rockets themselves. Techn
       {
         question: 'What is the AUTHOR\'S PURPOSE in this passage?',
         options: [
-          'To warn readers about the dangers of living near a rocket launch site.',
-          'To persuade readers to become astronauts when they grow up.',
+          'To warn readers about the real health and safety dangers of living too close to an active rocket launch site.',
+          'To persuade and inspire young readers to study hard in school so they can one day become professional astronauts.',
           'To inform readers about Florida\'s significant role in American and international space exploration.',
-          'To argue that private companies do a better job than NASA.'
+          'To argue that private companies like SpaceX should replace NASA and do a better and cheaper job launching rockets.'
         ],
         correctIndex: 2,
         explanation: 'The passage presents facts about Kennedy Space Center\'s location, history, achievements, and future — all organized to inform the reader. The author does not try to persuade or warn; the purpose is to share information.'
@@ -446,10 +446,10 @@ The impact of space exploration reaches far beyond the rockets themselves. Techn
       {
         question: 'According to the passage, why was Florida chosen as the location for Kennedy Space Center?',
         options: [
-          'It was already home to the largest airport in the United States.',
+          'Florida was already home to the largest and best-equipped international airport in the entire United States at that time.',
           'Its location near the equator, flat coastal land, and eastward ocean launch path make it ideal.',
-          'The Florida climate keeps rockets from getting too cold before launch.',
-          'It was chosen because many astronauts already lived in Florida.'
+          'Florida\'s consistently warm and sunny climate keeps rockets from freezing or being damaged before they can be launched.',
+          'Florida was selected primarily because a majority of the astronauts who would fly the missions already lived and trained there.'
         ],
         correctIndex: 1,
         explanation: 'The author gives three specific reasons: the equator speed boost, the flat open coastal land, and the safe eastward launch over the ocean — not weather or personal convenience.'
@@ -468,10 +468,10 @@ The impact of space exploration reaches far beyond the rockets themselves. Techn
       {
         question: 'How does the author support the claim that space exploration benefits everyday life?',
         options: [
-          'By describing how exciting it is to watch a rocket launch from a Florida beach.',
+          'By describing in vivid detail just how exciting and awe-inspiring it is to witness a rocket launch from a Florida beach.',
           'By naming specific inventions — memory foam, invisible braces, scratch-resistant lenses, and water purification systems — that came from NASA research.',
-          'By explaining that SpaceX can reuse rockets, making launches cheaper.',
-          'By noting that 135 Space Shuttle missions helped build the International Space Station.'
+          'By explaining that SpaceX has developed reusable first-stage rocket boosters, which dramatically reduces the cost of every launch.',
+          'By pointing out that the 135 total Space Shuttle missions were essential to assembling and supplying the International Space Station.'
         ],
         correctIndex: 1,
         explanation: 'The author directly names four specific inventions that came from NASA technology. These concrete examples are evidence supporting the claim that space exploration has real benefits for people on Earth.'
@@ -530,10 +530,10 @@ The old ones say the Limpkin still makes that same cry today. Not because it is 
       {
         question: 'What is the THEME of this story?',
         options: [
-          'Animals should always protect their food from competitors.',
-          'The Everglades is the most important place in Florida.',
+          'Animals in the wild should always protect their food supply from all competing creatures nearby.',
+          'The Everglades is the most important and irreplaceable natural place in the entire state of Florida.',
           'Sharing and calling others to help, even when it costs you something, is the most meaningful action.',
-          'Having a beautiful singing voice is a gift that should not be wasted.'
+          'Having a beautiful and musical singing voice is a rare gift that should never be allowed to go to waste.'
         ],
         correctIndex: 2,
         explanation: 'The story ends with the lesson: "the call worth giving is the one that brings others in from the cold." The Limpkin gave up a private food source to help others — and that act of generosity is what the story celebrates as its theme.'
@@ -541,10 +541,10 @@ The old ones say the Limpkin still makes that same cry today. Not because it is 
       {
         question: 'Which detail BEST shows that the Limpkin made a difficult choice?',
         options: [
-          'The Limpkin had walked farther than it had ever walked before.',
+          'The Limpkin had walked farther across the dried marsh than it had ever walked in its whole life before.',
           'The Limpkin could have eaten in silence and no one would have blamed it, but it chose to cry out instead.',
-          'The other animals were watching the pool with desperate eyes.',
-          'The drought caused the apple snails to bury themselves in the mud.'
+          'The other animals waiting at the edge of the hidden pool had desperate and hungry eyes fixed on the water.',
+          'The long drought had caused all the apple snails to bury themselves deep inside the cracking mud.'
         ],
         correctIndex: 1,
         explanation: 'The phrase "No one would have blamed it" shows that staying silent was a reasonable, understandable choice. The Limpkin actively chose the harder, more generous option — which makes the choice meaningful.'
@@ -552,10 +552,10 @@ The old ones say the Limpkin still makes that same cry today. Not because it is 
       {
         question: 'Read this sentence from the story: "the frogs swell into a chorus at dusk." What does the word "swell" suggest about the frogs\' song?',
         options: [
-          'The frogs are sick and their throats are swollen.',
+          'The frogs have become sick and infected, causing their throats to swell up painfully with each croak.',
           'The frogs\' sound grows louder and fuller, like something expanding.',
-          'The frogs sing only one note, repeated over and over.',
-          'The frogs are much larger than the Limpkin.'
+          'The frogs repeatedly sing only a single flat note over and over throughout the entire evening.',
+          'The frogs are described as being physically much larger and heavier than the slender Limpkin bird.'
         ],
         correctIndex: 1,
         explanation: '"Swell" is figurative language — it describes the frogs\' sound building and growing louder and richer, the way water swells when rising. It paints a picture of a growing, full sound filling the evening air.'
@@ -563,10 +563,10 @@ The old ones say the Limpkin still makes that same cry today. Not because it is 
       {
         question: 'This story is a folktale. Which feature of folktales does it include?',
         options: [
-          'A scientist explaining how birds develop their calls over evolution.',
-          'A map showing the locations described in the story.',
+          'A scientist carefully explaining how birds gradually develop their unique calls through the process of evolution.',
+          'A detailed map drawn by the author showing the exact Everglades locations described throughout the story.',
           'An explanation of why a real animal has a distinctive feature — the Limpkin\'s call.',
-          'A first-person narrator who personally witnessed the events.'
+          'A first-person narrator who was personally present in the Everglades and witnessed the drought events.'
         ],
         correctIndex: 2,
         explanation: 'Many folktales are "origin stories" that explain why something in nature is the way it is. This story explains how the Limpkin got its distinctive wailing call — a classic folktale feature.'
@@ -574,10 +574,10 @@ The old ones say the Limpkin still makes that same cry today. Not because it is 
       {
         question: 'At the end, the author says the Limpkin\'s cry is "not mournful" — it only sounds that way. What does the author MEAN?',
         options: [
-          'Scientists have proven the Limpkin\'s call is not actually sad at all.',
+          'Ornithologists and wildlife scientists have recently proven that the Limpkin\'s call is not acoustically sad.',
           'The Limpkin\'s cry is a sound of generosity and welcome, not sadness, even though it sounds like wailing.',
-          'The Limpkin learned to change its cry to sound happier after the drought ended.',
-          'The other animals taught the Limpkin a more cheerful version of its call.'
+          'After the rains returned and the drought ended, the Limpkin gradually learned to change its cry to sound happier.',
+          'The otter, heron, and turtle who were fed at the pool later taught the Limpkin a more joyful version of its call.'
         ],
         correctIndex: 1,
         explanation: 'The story redefines what the cry means — not sadness but a summons, an invitation. The author is saying that the sound may seem sorrowful to listeners, but its true meaning, rooted in the Limpkin\'s story, is one of compassion and generosity.'
@@ -619,10 +619,10 @@ The ocean cannot clean itself. But the combination of prevention, policy, and ne
       {
         question: 'What is the TEXT STRUCTURE of this passage?',
         options: [
-          'Sequence — events are described in the order they happened.',
-          'Compare and contrast — ocean plastic is compared to land pollution.',
+          'Sequence — the events and discoveries about ocean plastic are described in the exact chronological order they happened.',
+          'Compare and contrast — ocean plastic pollution is thoroughly compared to the different types of pollution found on land.',
           'Problem and solution — a serious issue is described along with responses being used to address it.',
-          'Description — the author describes the ocean without making any argument.'
+          'Description — the author paints a vivid picture of the ocean and its current condition without presenting any central argument.'
         ],
         correctIndex: 2,
         explanation: 'The passage introduces the plastic pollution problem, explains why it is dangerous, describes its scale, and then presents both prevention strategies and technological solutions — a clear problem/solution structure.'
@@ -630,10 +630,10 @@ The ocean cannot clean itself. But the combination of prevention, policy, and ne
       {
         question: 'According to the passage, why are microplastics especially harmful to ocean animals?',
         options: [
-          'They sink to the ocean floor and block light from reaching coral reefs.',
-          'They dissolve into the water and change its saltiness.',
+          'They slowly drift down and permanently settle on the ocean floor, blocking essential light from reaching fragile coral reef systems.',
+          'They gradually dissolve into the salt water and significantly alter the ocean\'s natural level of saltiness and chemical balance.',
           'Animals mistake them for food, which can block digestion, deliver toxins, or cause starvation.',
-          'They are so small that animals cannot see them and accidentally breathe them in.'
+          'They are so microscopically small that ocean animals cannot see them at all and routinely breathe them directly into their lungs.'
         ],
         correctIndex: 2,
         explanation: 'The passage lists specific harms: blocking digestive systems, delivering toxic chemicals, and causing starvation by making animals feel full without providing nutrition. All are caused by animals eating microplastics.'
@@ -641,10 +641,10 @@ The ocean cannot clean itself. But the combination of prevention, policy, and ne
       {
         question: 'How does the author use the Great Pacific Garbage Patch to support the central idea?',
         options: [
-          'To compare plastic pollution in the Pacific Ocean to pollution in the Atlantic.',
-          'To explain where most of the world\'s plastic originally comes from.',
+          'To make a detailed scientific comparison between the level of plastic pollution in the Pacific Ocean versus the Atlantic Ocean.',
+          'To carefully explain the original geographic sources and river systems where most of the world\'s ocean plastic comes from.',
           'To show that the problem is enormous by providing a concrete, measurable example of its scale.',
-          'To describe where the Ocean Cleanup project is currently working.'
+          'To describe the exact Pacific Ocean location where the Ocean Cleanup project has positioned its floating barrier system.'
         ],
         correctIndex: 2,
         explanation: 'After stating the problem is "enormous," the author immediately describes the Garbage Patch, comparing it to twice the size of Texas — a concrete comparison that helps readers understand the scale of the problem.'
@@ -652,9 +652,9 @@ The ocean cannot clean itself. But the combination of prevention, policy, and ne
       {
         question: 'According to the author, what is the MOST POWERFUL solution to ocean plastic pollution?',
         options: [
-          'Training bacteria and fungi to eat plastic as fast as it is produced.',
-          'Building more Ocean Cleanup floating barriers in every ocean.',
-          'Having governments fund more scientific research on plastic alternatives.',
+          'Engineering and mass-producing specialized bacteria and fungi that can digest and break down plastic as fast as it is produced.',
+          'Constructing many more large-scale Ocean Cleanup floating barrier systems and deploying them across every major ocean worldwide.',
+          'Pressuring governments around the world to dramatically increase their funding for scientific research into biodegradable plastic alternatives.',
           'Preventing plastic from entering the environment in the first place by using less of it.'
         ],
         correctIndex: 3,
@@ -663,10 +663,10 @@ The ocean cannot clean itself. But the combination of prevention, policy, and ne
       {
         question: 'What does the word "exceed" suggest about the plastic pollution crisis?',
         options: [
-          'That plastic pollution has already been solved in some oceans.',
+          'That the ocean plastic crisis has already been successfully solved and cleaned up in several of the world\'s major oceans.',
           'That the amount of plastic in the ocean could grow to be greater than the weight of all ocean fish.',
-          'That scientists are exceeding their goals in cleaning up plastic.',
-          'That plastic breaks down faster than scientists originally estimated.'
+          'That scientists and cleanup organizations have already exceeded and surpassed all of their ambitious plastic removal goals.',
+          'That plastic actually breaks down and decomposes in ocean water much faster than scientists had originally predicted and estimated.'
         ],
         correctIndex: 1,
         explanation: 'The author says the weight of ocean plastic could "exceed" the weight of all the fish — meaning surpass or go beyond. This comparison emphasizes how extreme the plastic problem could become without action.'
@@ -706,10 +706,10 @@ Edison believed that genius was "one percent inspiration and ninety-nine percent
       {
         question: 'What is the CENTRAL IDEA of this passage?',
         options: [
-          'Thomas Edison invented more things than anyone else in American history.',
-          'Home schooling is more effective than public school for talented children.',
+          'Thomas Edison holds more patents than any other single inventor in all of recorded American history.',
+          'Home schooling has consistently proven to be far more effective than public education for talented and curious children.',
           'Thomas Edison\'s extraordinary success came from his persistence and willingness to learn from failure.',
-          'The electric light bulb was the most important invention of the nineteenth century.'
+          'The electric light bulb was the single most transformative and world-changing invention of the entire nineteenth century.'
         ],
         correctIndex: 2,
         explanation: 'Every paragraph supports the idea that Edison succeeded not through natural talent, but through refusing to stop — from his early home experiments to 1,200 failed light bulb tests to his belief in "ninety-nine percent perspiration."'
@@ -717,10 +717,10 @@ Edison believed that genius was "one percent inspiration and ninety-nine percent
       {
         question: 'How does the detail about Edison\'s teachers SUPPORT the central idea?',
         options: [
-          'It shows that school systems in the 1800s were poorly organized.',
-          'It proves that children should be taught at home rather than in public schools.',
+          'It reveals that public school systems in nineteenth-century America were poorly run and unfair to curious students.',
+          'It proves once and for all that children with unusual talents should always be homeschooled rather than sent to public school.',
           'It creates a powerful contrast: the people who gave up on Edison were completely wrong about his potential.',
-          'It explains why Edison was so interested in education reform later in his life.'
+          'It explains the specific reason why Edison dedicated so much of his later life and resources to reforming public education.'
         ],
         correctIndex: 2,
         explanation: 'Being called "too addled to learn" makes Edison\'s 1,093 patents even more striking — people who gave up on him were entirely wrong. This contrast directly supports the idea that persistence matters more than early judgments.'
@@ -739,10 +739,10 @@ Edison believed that genius was "one percent inspiration and ninety-nine percent
       {
         question: 'Read this quote: "I have not failed. I\'ve just found 10,000 ways that won\'t work." What does this reveal about Edison\'s attitude toward failure?',
         options: [
-          'He was frustrated by how long the light bulb was taking to invent.',
-          'He was bragging to the reporter about how many experiments he had tried.',
+          'He was deeply frustrated by how many years the light bulb project was taking and was venting his feelings to the press.',
+          'He was boasting and exaggerating to the reporter in order to impress the public with how hard he had been working.',
           'He viewed each failed attempt as useful information that brought him closer to success, not as evidence of defeat.',
-          'He was not being honest about how discouraged he actually felt.'
+          'He was choosing not to be honest about just how discouraged and ready to quit he had actually begun to feel.'
         ],
         correctIndex: 2,
         explanation: 'Instead of calling his attempts "failures," Edison reframes them as findings — "ways that won\'t work." This shows he saw every setback as useful knowledge, not defeat — an attitude that allowed him to keep trying.'
@@ -750,10 +750,10 @@ Edison believed that genius was "one percent inspiration and ninety-nine percent
       {
         question: 'What does "ninety-nine percent perspiration" MOST LIKELY mean based on the context of the passage?',
         options: [
-          'Edison believed inventors needed to exercise to stay healthy.',
+          'Edison was convinced that inventors needed to maintain their physical fitness and exercise regularly to keep their minds sharp.',
           'Edison meant that success comes mostly from hard, sustained effort rather than natural talent.',
-          'Edison thought sweat was a sign that a person was working in the wrong field.',
-          'Edison believed inspiration was more important than work, since it came first.'
+          'Edison believed that breaking into an intense sweat was actually a clear sign that someone was working in completely the wrong field.',
+          'Edison privately believed that a single brilliant flash of inspiration was ultimately more valuable than years of hard physical work.'
         ],
         correctIndex: 1,
         explanation: 'Edison used "perspiration" (sweat) as a metaphor for hard work. By saying success is ninety-nine percent perspiration, he meant that sustained effort — not natural genius — is what produces great results.'
@@ -797,10 +797,10 @@ The Florida panther's story shows that extinction is not inevitable. With the ri
       {
         question: 'What is the CENTRAL IDEA of this passage?',
         options: [
-          'Florida panthers are the most dangerous predators in North America.',
-          'Development and highway construction are the biggest threats to all endangered animals.',
+          'Florida panthers are such powerful and aggressive predators that protecting them creates risks for nearby communities.',
+          'Development, habitat loss, and highway construction are the most significant ongoing threats to all endangered animals across North America.',
           'Through science-based conservation efforts, the Florida panther has made a remarkable recovery, though challenges remain.',
-          'The Texas puma and Florida panther are identical animals with different names.'
+          'DNA studies have confirmed that Texas pumas and Florida panthers are essentially the same subspecies split by geography.'
         ],
         correctIndex: 2,
         explanation: 'The passage traces the panther from near-extinction to significant recovery, credits specific conservation actions, and ends by noting that challenges remain — all supporting the idea of a remarkable but ongoing recovery.'
@@ -819,10 +819,10 @@ The Florida panther's story shows that extinction is not inevitable. With the ri
       {
         question: 'According to the passage, why did biologists bring Texas pumas to Florida in 1995?',
         options: [
-          'To replace Florida panthers with a larger, stronger subspecies.',
-          'To teach Florida panthers better hunting strategies.',
+          'To gradually replace the existing Florida panther subspecies with a larger and stronger Texas subspecies over time.',
+          'To pair Texas pumas with Florida panthers so the Florida cats could learn stronger and more efficient hunting strategies.',
           'To introduce genetic diversity and reverse the health problems caused by inbreeding.',
-          'To increase the panther population quickly by adding more individual animals.'
+          'To quickly boost the total panther count by adding more individual animals to the Florida population as fast as possible.'
         ],
         correctIndex: 2,
         explanation: 'The passage explains that inbreeding caused serious health problems. Bringing in Texas pumas introduced new genetic diversity, resulting in healthier kittens with "far more likely to survive" rates — the goal was genetic rescue, not just adding numbers.'
@@ -830,10 +830,10 @@ The Florida panther's story shows that extinction is not inevitable. With the ri
       {
         question: 'What does the word "intervention" suggest about how scientists approached the panther\'s recovery?',
         options: [
-          'Scientists chose to observe the panthers without interfering with nature.',
-          'Scientists accidentally discovered a solution while studying other Florida animals.',
+          'Scientists decided it was best to observe and document the panthers from a distance without interfering with natural processes.',
+          'Scientists stumbled upon an unexpected and accidental solution to the panther\'s genetic problems while studying unrelated Florida wildlife.',
           'Scientists took deliberate, planned action to change the panther\'s situation before it was too late.',
-          'Scientists were uncertain whether their actions would have any effect on the panther population.'
+          'Scientists remained deeply uncertain and divided about whether any human action could meaningfully help the panther population survive.'
         ],
         correctIndex: 2,
         explanation: '"Intervention" implies a purposeful, deliberate action. The 1995 breeding program was carefully designed and executed — it was not accidental, passive, or uncertain. Scientists made a decision and acted on it.'
@@ -841,10 +841,10 @@ The Florida panther's story shows that extinction is not inevitable. With the ri
       {
         question: 'According to the passage, what are TWO ongoing threats to the Florida panther?',
         options: [
-          'Poachers and disease from contact with domestic cats.',
+          'Illegal poaching by hunters and spreading disease from contact with domesticated house cats in suburban areas.',
           'Loss of habitat to development and deaths from cars on highways crossing panther territory.',
-          'Competition with Texas pumas and loss of prey animals.',
-          'Inbreeding and a lack of protected land.'
+          'Increasing competition with Texas pumas for food and territory, and a sharp decline in available prey animals.',
+          'A return of inbreeding problems and a serious shortage of officially protected and designated land in South Florida.'
         ],
         correctIndex: 1,
         explanation: 'The final paragraph specifically mentions two current threats: Florida\'s growing human population shrinking panther habitat, and dozens of panthers killed annually by vehicles on highways that cross their range.'
@@ -910,10 +910,10 @@ Marisol looked at Diego, still half asleep against her arm.
       {
         question: 'What is the CONFLICT in this story?',
         options: [
-          'Marisol and Diego disagree about whether to wake their father.',
-          'The storm destroys their house and the family must find a new place to live.',
+          'Marisol and Diego argue intensely about whether they should go wake their sleeping father immediately.',
+          'The powerful storm completely destroys their house and forces the entire family to find a new place to live.',
           'Marisol and Diego must keep themselves safe during a hurricane while their father sleeps.',
-          'Diego is scared of storms and Marisol must convince him they are not dangerous.'
+          'Diego has always been terrified of storms and Marisol spends the whole night trying to convince him they are safe.'
         ],
         correctIndex: 2,
         explanation: 'The central conflict is that two children face a dangerous hurricane alone (their father is deeply asleep) and must make decisions to stay safe without adult help — this is the problem they must resolve.'
@@ -921,10 +921,10 @@ Marisol looked at Diego, still half asleep against her arm.
       {
         question: 'How does the SETTING — the hurricane at night with the power out — affect the conflict?',
         options: [
-          'It makes the story funny by putting the characters in an absurd situation.',
+          'It makes the story feel lighthearted and funny by placing the main characters in a ridiculous and harmless situation.',
           'The darkness and storm make the conflict more urgent and frightening, forcing Marisol to act despite her fear.',
-          'The setting explains why their father did not wake up during the storm.',
-          'The night setting allows Marisol to pretend the storm is not serious.'
+          'The setting mainly serves to give a scientific explanation for why their deeply tired father did not wake up during the storm.',
+          'The darkness of nighttime actually makes things easier by allowing Marisol to pretend the storm outside is not very serious.'
         ],
         correctIndex: 1,
         explanation: 'The darkness, the groaning glass doors, and the violence of the storm all make the situation feel dangerous and frightening. This setting raises the stakes of the conflict and makes Marisol\'s decision to act — despite her fear — more meaningful.'
@@ -932,10 +932,10 @@ Marisol looked at Diego, still half asleep against her arm.
       {
         question: 'How does Marisol\'s CHARACTER DEVELOP over the course of the story?',
         options: [
-          'She begins confident and ends unsure of herself.',
+          'She begins the night feeling completely confident and certain, but ends up deeply unsure of herself by dawn.',
           'She starts frightened and uncertain but acts on her training to protect her brother, showing quiet courage.',
-          'She relies entirely on Diego\'s ideas to get them through the night.',
-          'She panics and makes a series of mistakes that put them both in danger.'
+          'She has no real ideas of her own and ends up relying entirely on her younger brother Diego to get them through.',
+          'She panics badly under the pressure of the storm and makes a series of dangerous mistakes that put both of them at risk.'
         ],
         correctIndex: 1,
         explanation: 'Marisol\'s heart "was beating hard" and she "tried to sound more certain than she felt" — she IS scared. But she acts anyway: she remembers her training, crosses the living room, and keeps Diego calm. Her courage is not the absence of fear, but action despite it.'
@@ -943,10 +943,10 @@ Marisol looked at Diego, still half asleep against her arm.
       {
         question: 'What role does Marisol\'s school hurricane preparedness lesson play in resolving the conflict?',
         options: [
-          'It tells her to call emergency services when the storm begins.',
+          'It instructs her on the correct procedure for calling emergency services and first responders at the start of a storm.',
           'It gives her a plan — stay from windows, go to an interior room, use the emergency kit — that she follows successfully.',
-          'It warns her that Category 1 hurricanes are always more dangerous than they seem.',
-          'It explains exactly how long the storm will last so she knows when it will be over.'
+          'It specifically warns her ahead of time that Category 1 hurricanes are always far more dangerous than they first appear.',
+          'It includes a detailed timeline that explains exactly how many hours any given hurricane will last once it makes landfall.'
         ],
         correctIndex: 1,
         explanation: 'Marisol explicitly recalls her school lesson — "Stay away from windows. Move to an interior room. Keep the emergency kit nearby." — and follows it step by step to resolve the conflict. Her education is what saves them.'
@@ -954,10 +954,10 @@ Marisol looked at Diego, still half asleep against her arm.
       {
         question: 'At the end, Marisol says "Yeah. We did." What does this suggest about her CHARACTER?',
         options: [
-          'She is angry that her father slept through the emergency.',
-          'She is not sure they actually handled anything — she is just agreeing to make her father feel better.',
+          'She is angry and resentful that her exhausted father slept through the entire dangerous emergency without helping.',
+          'She is honestly not confident they actually handled anything and is only agreeing with her dad to protect his feelings.',
           'She has grown through the experience and now recognizes her own ability to handle something difficult.',
-          'She is embarrassed that her father saw the emergency kit on the floor.'
+          'She is embarrassed and hoping her father will not ask too many questions about the emergency kit left out on the floor.'
         ],
         correctIndex: 2,
         explanation: 'By the end, Marisol is not dismissing what she did — she affirms it: "Yeah. We did." This confident, simple statement shows she has grown to recognize her own capability, a clear change from the girl who was "trying to sound more certain than she felt" at the beginning.'
@@ -1097,10 +1097,10 @@ He thought: maybe the score wasn't the most important part. Maybe showing up and
       {
         question: 'What is the THEME of this story?',
         options: [
-          'Being the best student in class is the most important goal.',
+          'Being the best and highest-scoring student in the entire class is always the most important goal to work toward.',
           'Hard work and persistence can help you improve, even when something is difficult.',
-          'Spelling tests are not important for learning.',
-          'Teachers should not give students difficult assignments.'
+          'Spelling tests and written assessments are generally not important or useful tools for learning new things.',
+          'Teachers who give their students extremely difficult assignments are making a serious mistake in judgment.'
         ],
         correctIndex: 1,
         explanation: 'Marcus struggles with spelling but keeps practicing. His improved score and the feeling of pride at the end show that hard work and not giving up lead to real growth — that is the theme.'
@@ -1108,10 +1108,10 @@ He thought: maybe the score wasn't the most important part. Maybe showing up and
       {
         question: 'What does the word "persist" MOST LIKELY mean as it is used in the story?',
         options: [
-          'To take a break and rest when things get hard.',
-          'To ask someone else to do the hard parts for you.',
+          'To slow down, take a long break, and fully rest your mind whenever things begin to feel too difficult.',
+          'To politely ask a classmate, parent, or teacher to take care of the most challenging parts for you.',
           'To keep going and trying even when something feels impossible.',
-          'To study only the easy words on a spelling list.'
+          'To focus all your study time only on the easiest words you already know on the spelling list.'
         ],
         correctIndex: 2,
         explanation: 'Ms. Rivera says to "keep going even when it feels impossible" right after using the word "persist" — so persist means to keep trying without giving up.'
@@ -1119,10 +1119,10 @@ He thought: maybe the score wasn't the most important part. Maybe showing up and
       {
         question: 'How did Marcus TRY to get better at spelling?',
         options: [
-          'He asked Ms. Rivera to give him an easier test.',
+          'He politely went to Ms. Rivera and asked her if she would please give him a shorter and easier version of the test.',
           'He made flashcards, practiced out loud, and had his mom quiz him.',
-          'He copied the words from another student\'s paper.',
-          'He stayed after school to study with Ms. Rivera every evening.'
+          'He secretly copied the correct spellings from a nearby classmate\'s paper while Ms. Rivera was not looking.',
+          'He asked Ms. Rivera if he could stay after school each evening so she could tutor him one-on-one for extra help.'
         ],
         correctIndex: 1,
         explanation: 'The passage describes Marcus making flashcards, practicing out loud, and asking his mom to quiz him — all things he did to get better on his own.'
@@ -1130,10 +1130,10 @@ He thought: maybe the score wasn't the most important part. Maybe showing up and
       {
         question: 'Why does Ms. Rivera say Marcus\'s score is something to be proud of?',
         options: [
-          'Because 18 out of 20 is a perfect score on any spelling test.',
+          'Because getting 18 out of 20 is technically considered a perfect and flawless score on any spelling test given.',
           'Because he improved by eight points, showing his hard work paid off.',
-          'Because he helped other students study for the test.',
-          'Because he spelled every word on the list correctly.'
+          'Because Marcus spent time before the test generously helping several other struggling students prepare and study.',
+          'Because Marcus was the only student in the entire class who managed to spell every single word on the list correctly.'
         ],
         correctIndex: 1,
         explanation: 'Ms. Rivera says "You improved by eight points — your hard work is paying off." The improvement shows that effort leads to real change, which is worth being proud of.'
@@ -1141,10 +1141,10 @@ He thought: maybe the score wasn't the most important part. Maybe showing up and
       {
         question: 'How does Marcus CHANGE from the beginning of the story to the end?',
         options: [
-          'He starts confident and ends feeling worried.',
-          'He starts avoiding spelling tests and ends refusing to study.',
+          'He starts the story feeling completely confident and sure of himself, but ends the story feeling worried and unsure.',
+          'He starts the story skipping and avoiding all spelling tests, and ends by completely refusing to study at all.',
           'He starts feeling nervous and struggles, but ends feeling proud after working hard.',
-          'He starts getting perfect scores and ends making many mistakes.'
+          'He starts by earning perfect scores on every spelling test, but ends the story making many embarrassing mistakes.'
         ],
         correctIndex: 2,
         explanation: 'At the start, Marcus feels nervous and finds spelling very hard. By the end, after persisting and practicing, he earns a better score and feels proud — that is clear character growth.'
@@ -1762,10 +1762,10 @@ It was something about staying calm when the plan broke, and trusting what she k
       {
         question: 'What is the CONFLICT in this story?',
         options: [
-          'Kira is running late and her family is searching the park for her.',
+          'Kira realizes she is running dangerously late and worries that her family is already searching the entire park for her.',
           'Kira encounters an unexpected fork in the trail and must figure out which path leads back.',
-          'Kira\'s phone has no signal and she cannot call anyone for help.',
-          'Kira is completely lost after hiking in the wrong direction for over an hour.'
+          'Kira\'s phone has no cell signal and she has no way to call anyone from her family to come help her get directions.',
+          'Kira hikes in the completely wrong direction for over an hour and becomes totally disoriented deep in the park interior.'
         ],
         correctIndex: 1,
         explanation: 'The conflict begins when Kira finds an unexpected trail fork — something the map did not show. She must use her knowledge to determine which path is correct. Her phone\'s lack of signal is a detail, but the actual conflict is the decision she must make at the fork.'
@@ -1773,10 +1773,10 @@ It was something about staying calm when the plan broke, and trusting what she k
       {
         question: 'How does Kira RESOLVE the conflict?',
         options: [
-          'She waits at the trail fork until a park ranger arrives to point the way.',
-          'She turns around completely and hikes back the way she came.',
+          'She decides it is safest to wait patiently at the trail fork until an experienced park ranger arrives to point her in the right direction.',
+          'She decides to play it safe and turns completely around, retracing all her steps back along the exact same trail she came in on.',
           'She uses the position of the sun and a paper map to determine which path leads back.',
-          'She follows the turtle, which leads her to the path near the pond.'
+          'She decides to follow the softshell turtle she spotted, which she correctly guesses will lead her toward the pond on the map.'
         ],
         correctIndex: 2,
         explanation: 'Kira uses two tools — the sun\'s position (to determine direction) and the paper map (to identify where the fork must be) — to reason out that "left" leads back toward the picnic area. The turtle appears after she has already made the correct decision.'
@@ -1784,10 +1784,10 @@ It was something about staying calm when the plan broke, and trusting what she k
       {
         question: 'What does the author\'s description of the turtle CONTRIBUTE to the story?',
         options: [
-          'It provides a clue that helps Kira identify the correct path back to the picnic area.',
-          'It shows that the Florida scrub habitat contains animals that are dangerous to approach.',
+          'It provides Kira with the final key clue she needs to correctly identify the right path back to the picnic area.',
+          'It serves as an important reminder to readers that the Florida scrub habitat contains animals that can be dangerous to approach.',
           'It shows that once Kira solves the conflict, she is calm enough to appreciate the world around her.',
-          'It proves that Kira is an expert in Florida wildlife who has trained for this kind of situation.'
+          'It proves that Kira has become a genuine expert in all of Florida\'s wildlife species through years of dedicated study and training.'
         ],
         correctIndex: 2,
         explanation: 'By the time Kira notices the turtle, she has already solved her problem — the pond confirms she is on the right path. Her ability to pause, recognize the turtle\'s species, and smile shows that her anxiety is gone and she is fully present again.'
@@ -1795,10 +1795,10 @@ It was something about staying calm when the plan broke, and trusting what she k
       {
         question: 'What is the THEME of this story?',
         options: [
-          'Technology cannot be trusted in nature, so everyone should carry paper maps.',
+          'Technology like cell phones and GPS can never be trusted in the wilderness, so hikers must always carry physical paper maps.',
           'Staying calm under pressure and trusting what you know can carry you through unexpected challenges.',
-          'Young people should never hike alone, even on short, familiar trails.',
-          'The natural world is full of dangers that even experienced hikers cannot predict.'
+          'Young people should absolutely never hike alone in wilderness areas, even on short and apparently familiar trails.',
+          'The natural world is completely full of unpredictable dangers that even the most experienced and prepared hikers cannot possibly avoid.'
         ],
         correctIndex: 1,
         explanation: 'Kira\'s final reflection — "something about staying calm when the plan broke, and trusting what she knew" — is the story\'s stated theme. She didn\'t panic; she used her knowledge. That combination is what resolved the conflict.'
@@ -1806,10 +1806,10 @@ It was something about staying calm when the plan broke, and trusting what she k
       {
         question: 'Why does Kira say "Interesting" instead of explaining the whole story to her father?',
         options: [
-          'She is embarrassed that she got turned around and does not want her family to know.',
-          'She wants to protect the location of the turtle pond so others don\'t disturb it.',
+          'She feels embarrassed and ashamed that she got turned around on the trail and does not want her family to find out what happened.',
+          'She wants to keep the specific location of the hidden turtle pond a total secret so that other visitors don\'t go there and disturb it.',
           'She feels the full experience was too meaningful and complete to reduce to a simple summary.',
-          'She plans to write about the hike later and does not want to reveal the ending yet.'
+          'She is planning to write a detailed account of the hike later in her journal and does not want to spoil the ending by telling it now.'
         ],
         correctIndex: 2,
         explanation: 'The narrator explains that Kira keeps it to herself "not because they were secret, but because putting them into a sentence would shrink them." She wants to preserve the fullness of the experience, not hide anything.'
@@ -1940,10 +1940,10 @@ Scientists say the best way to protect dolphins is to keep Florida's water clean
       {
         question: 'What is the MAIN IDEA of this passage?',
         options: [
-          'Bottlenose dolphins are dangerous animals that people should stay away from.',
+          'Bottlenose dolphins are aggressive and unpredictable animals that Florida beachgoers should actively stay away from.',
           'Florida\'s bottlenose dolphins are intelligent, social animals that face real threats and need protection.',
-          'Dolphins are found only in Florida and nowhere else in the world.',
-          'Scientists have given every wild dolphin in Florida an official name.'
+          'Dolphins are exclusive to Florida\'s waters and are found nowhere else in the entire ocean world.',
+          'Marine biologists have now successfully assigned an official scientific name and ID number to every wild dolphin in Florida.'
         ],
         correctIndex: 1,
         explanation: 'The passage describes what dolphins are, how smart and social they are, the dangers they face, and how people can help protect them. Together, these details support the central idea that dolphins are remarkable animals facing threats.'
@@ -1984,9 +1984,9 @@ Scientists say the best way to protect dolphins is to keep Florida's water clean
       {
         question: 'Which detail BEST supports the idea that dolphins are intelligent animals?',
         options: [
-          'Bottlenose dolphins are often seen near Florida\'s Gulf Coast beaches.',
-          'Dolphins sometimes ride the waves created by moving boats.',
-          'A pod usually has between five and fifteen dolphins.',
+          'Bottlenose dolphins are very commonly seen swimming near Florida\'s popular Gulf Coast and Atlantic beaches.',
+          'Dolphins have been frequently observed riding the bow waves created by moving boats, which seems to be a form of play.',
+          'A typical dolphin pod in Florida waters usually contains between five and fifteen individual members.',
           'Each dolphin has a unique signature whistle that works like a personal name to identify individuals.'
         ],
         correctIndex: 3,
@@ -2032,9 +2032,9 @@ You can test this yourself. Cover one leaf with dark tape for a few days and lea
         question: 'What is the MAIN IDEA of this passage?',
         options: [
           'Plants make their own food through photosynthesis, using sunlight, water, and carbon dioxide.',
-          'All living things make their own food, but plants do it most efficiently.',
-          'Chlorophyll is the most important chemical substance on Earth.',
-          'Plants cannot survive indoors because they need fresh outdoor air.'
+          'All living things are capable of making their own food, but plants happen to do it more efficiently than any other organism.',
+          'Chlorophyll is by far the single most important and essential chemical substance found anywhere on the entire planet Earth.',
+          'Plants cannot survive in any indoor environment because they absolutely require access to completely fresh, unfiltered outdoor air.'
         ],
         correctIndex: 0,
         explanation: 'The whole passage is organized around explaining photosynthesis — what it is, what ingredients it needs, and what it produces. That is the main idea the author builds step by step.'
@@ -2053,10 +2053,10 @@ You can test this yourself. Cover one leaf with dark tape for a few days and lea
       {
         question: 'What does the word "byproduct" MOST LIKELY mean in this passage?',
         options: [
-          'The main ingredient a plant uses to make its food.',
+          'The single most important and essential ingredient that a plant needs to successfully produce its food supply.',
           'Something extra that is produced while making something else.',
-          'A gas that plants pull in from the air around them.',
-          'The root system that carries water up to the leaves.'
+          'A specific gas such as carbon dioxide that plants actively pull in and absorb directly from the surrounding air.',
+          'The underground root system of a plant that continuously carries water upward from the soil into the leaves above.'
         ],
         correctIndex: 1,
         explanation: 'The passage says oxygen is made "at the same time" as the plant\'s food, and calls it a byproduct — something produced alongside the main product (sugar), not the main goal of the process.'
@@ -2064,10 +2064,10 @@ You can test this yourself. Cover one leaf with dark tape for a few days and lea
       {
         question: 'Why do plants in a dark room grow pale and weak?',
         options: [
-          'Dark rooms are too cold for most plants to grow properly.',
-          'Without sunlight, roots cannot absorb enough water from the soil.',
+          'Dark rooms are consistently too cold and drafty for the large majority of common houseplants to grow in properly.',
+          'Without sunlight shining on their leaves, the roots of the plant are somehow unable to absorb enough water from the soil.',
           'Without light, chlorophyll cannot capture energy, so the plant cannot make food.',
-          'Dark rooms have less carbon dioxide than rooms with windows.'
+          'Dark rooms and enclosed spaces tend to contain significantly less carbon dioxide than rooms with open windows and sunlight.'
         ],
         correctIndex: 2,
         explanation: 'The passage explains that without sunlight, photosynthesis cannot occur — meaning the plant cannot produce sugar (its food). Without food, it weakens and turns pale. The lack of light is the cause of the problem.'
@@ -2075,10 +2075,10 @@ You can test this yourself. Cover one leaf with dark tape for a few days and lea
       {
         question: 'Based on the passage, what would MOST LIKELY happen if you covered a plant\'s leaves so no carbon dioxide could enter?',
         options: [
-          'The plant would grow faster because it would store more water in its roots.',
-          'The plant would still make food normally because it gets carbon dioxide from the soil.',
+          'The plant would actually grow faster than usual because it would begin storing much more water in its expanded root system.',
+          'The plant would continue making food at a completely normal rate because it absorbs most of its carbon dioxide from the soil below.',
           'Photosynthesis would stop because one of the three needed ingredients could not get in.',
-          'The leaves would turn a brighter green because more chlorophyll would build up.'
+          'The uncovered leaves would turn a noticeably brighter and deeper shade of green as even more chlorophyll began to build up inside them.'
         ],
         correctIndex: 2,
         explanation: 'Since carbon dioxide enters through the stomata and is one of the three ingredients needed for photosynthesis, blocking it would stop the process — just like blocking sunlight stops it. Without all three ingredients, photosynthesis cannot happen.'
@@ -2225,10 +2225,10 @@ Today, Hurston is recognized as one of the most important American writers of th
       {
         question: 'What is the CENTRAL IDEA of this passage?',
         options: [
-          'Zora Neale Hurston was the most popular author of the 1930s.',
-          'Barnard College and Howard University produced many important Black scholars.',
+          'Zora Neale Hurston was by far the most widely read and celebrated fiction author throughout all of the 1930s decade.',
+          'Barnard College and Howard University together produced a remarkable number of influential Black scholars and writers.',
           'Hurston\'s dedication to preserving Black stories and voices made her an enduring and important American author.',
-          'Alice Walker was more influential than Hurston because she helped bring Hurston\'s work back into print.'
+          'Alice Walker was ultimately more culturally influential than Hurston because her essay brought Hurston\'s work back into print.'
         ],
         correctIndex: 2,
         explanation: 'Every paragraph supports the idea that Hurston devoted her life to collecting and creating stories for people whose voices were often ignored — and that this work ultimately gave her a lasting place in American literature.'
@@ -2236,10 +2236,10 @@ Today, Hurston is recognized as one of the most important American writers of th
       {
         question: 'How did Franz Boas influence Hurston\'s work?',
         options: [
-          'He taught her to write novels based on personal experience rather than community research.',
-          'He gave her money to travel to Florida and publish her first book.',
+          'He specifically trained her to write fiction novels drawing on personal experiences rather than conducting field research.',
+          'He personally funded and arranged her first research trip to Florida and then helped her publish her earliest book.',
           'He helped her see that the folk traditions of Black communities had real cultural and literary value.',
-          'He encouraged her to leave the South and never return to her hometown.'
+          'He persuaded Hurston that she should permanently leave the South behind and never return to Eatonville again.'
         ],
         correctIndex: 2,
         explanation: 'The passage says Boas taught Hurston that folk songs, stories, and traditions "had real cultural value — not as curiosities, but as literature and history." This shaped her decision to travel south and record those traditions.'
@@ -2247,10 +2247,10 @@ Today, Hurston is recognized as one of the most important American writers of th
       {
         question: 'What does the word "obscurity" suggest about what happened to Hurston\'s work after her death?',
         options: [
-          'Her books became more popular than ever and were printed in large quantities.',
-          'Her work was banned by publishers who disagreed with her ideas.',
+          'Her novels and essays became more widely read and celebrated than ever, printed in unusually large quantities.',
+          'Publishers deliberately banned and refused to reprint her books because they strongly disagreed with her political ideas.',
           'Her writing became widely unknown and out of print, as if it had never existed.',
-          'Her work was celebrated in Florida but ignored in the rest of the country.'
+          'Her novels continued to be celebrated and taught throughout Florida but were completely ignored everywhere else in the nation.'
         ],
         correctIndex: 2,
         explanation: '"Obscurity" means being unknown or forgotten. The passage says her work fell "out of print, largely forgotten" — exactly the kind of disappearance that "obscurity" describes.'
@@ -2258,10 +2258,10 @@ Today, Hurston is recognized as one of the most important American writers of th
       {
         question: 'What is the AUTHOR\'S PERSPECTIVE toward Zora Neale Hurston?',
         options: [
-          'The author thinks Hurston made a mistake by focusing on personal stories instead of politics.',
-          'The author is neutral and presents only facts without expressing any view of Hurston.',
+          'The author believes Hurston made a serious artistic mistake by choosing to focus on personal stories rather than political activism.',
+          'The author remains completely neutral throughout, presenting only documented facts without ever expressing any personal view of Hurston.',
           'The author admires Hurston and presents her as a courageous figure who preserved an important cultural legacy.',
-          'The author believes Alice Walker deserves more credit than Hurston for keeping Black literature alive.'
+          'The author quietly argues that Alice Walker deserves significantly more credit than Hurston for keeping Black American literature alive.'
         ],
         correctIndex: 2,
         explanation: 'The author calls Hurston\'s act "extraordinary," credits her for being the first to publish Black folklore as a Black author, and ends the passage by praising her life\'s work — all signs of deep admiration and respect.'
@@ -2269,9 +2269,9 @@ Today, Hurston is recognized as one of the most important American writers of th
       {
         question: 'How does Alice Walker fit into the STRUCTURE of this passage?',
         options: [
-          'She is introduced at the beginning to show how Hurston was first discovered.',
-          'She appears in the middle to explain why critics disliked Hurston\'s novel.',
-          'She is used as a contrast to show that Hurston\'s methods were outdated.',
+          'She is introduced at the very beginning of the passage as the first person who initially discovered Hurston\'s work.',
+          'She appears in the middle section of the passage to help explain exactly why so many critics disliked Hurston\'s novel.',
+          'She is used as a direct contrast to Hurston to help show that Hurston\'s research methods had become outdated by modern standards.',
           'She is introduced near the end as the person who recovered and restored Hurston\'s lost legacy.'
         ],
         correctIndex: 3,
@@ -2316,10 +2316,10 @@ Florida's springs took thousands of years to form. They are connections to a dee
       {
         question: 'What is the CENTRAL IDEA of this passage?',
         options: [
-          'Florida\'s springs are warmer than ocean water and have always been popular tourist destinations.',
+          'Florida\'s springs are warmer than ocean water and have long been among the state\'s most consistently popular tourist destinations.',
           'Florida\'s freshwater springs are extraordinary natural resources that face serious threats and need protection.',
-          'The Floridan Aquifer is the largest underground water system in the entire world.',
-          'Manatees are the only reason Florida\'s springs are considered important enough to protect.'
+          'The Floridan Aquifer is one of the largest and most productive underground freshwater systems anywhere in the entire world.',
+          'Manatees are the primary and most important reason that Florida\'s spring habitats are currently considered worth protecting.'
         ],
         correctIndex: 1,
         explanation: 'The passage describes what makes springs remarkable (their temperature, clarity, biodiversity), then identifies threats (overpumping, fertilizers), and ends with conservation responses — supporting the central idea that they are extraordinary and at risk.'
@@ -2327,10 +2327,10 @@ Florida's springs took thousands of years to form. They are connections to a dee
       {
         question: 'According to the passage, why do manatees rely on Florida\'s springs in winter?',
         options: [
-          'Springs provide manatees with the sea grass and algae they eat during winter months.',
-          'The spring water washes parasites from manatees\' skin and keeps them healthy.',
+          'Florida\'s springs provide manatees with an abundant and reliable supply of sea grass and aquatic plants to eat in winter.',
+          'The constantly flowing spring water actively cleans parasites and harmful organisms from the manatees\' thick skin.',
           'Springs maintain a constant warm temperature that manatees require to survive cold seasons.',
-          'Florida law requires manatees to gather at springs so scientists can count them each year.'
+          'Florida wildlife law specifically requires all manatees to gather at designated spring sites so researchers can count and monitor them.'
         ],
         correctIndex: 2,
         explanation: 'The passage states that manatees "cannot survive in cold water" and gather at spring-fed rivers because of their "constant 68 to 72 degrees Fahrenheit year-round." The stable warmth is what manatees depend on.'
@@ -2338,10 +2338,10 @@ Florida's springs took thousands of years to form. They are connections to a dee
       {
         question: 'What does the word "insulated" suggest about the springs\' temperature?',
         options: [
-          'The springs are artificially heated by a power source beneath the ground.',
+          'The springs are powered by a hidden geothermal energy source that artificially heats the water from deep underground.',
           'The underground location protects the water from seasonal temperature changes, keeping it stable.',
-          'The springs stay warm only in winter and cool only in summer.',
-          'Scientists pour insulating material into the aquifer to keep the water temperature steady.'
+          'The springs become warmer only during Florida winters and naturally cooler during the hot summer months.',
+          'Scientists have introduced special insulating materials into the aquifer tunnels to help maintain a steady water temperature.'
         ],
         correctIndex: 1,
         explanation: '"Insulated" means protected from temperature changes. The passage explains that because the water comes from deep underground, it is insulated from seasonal shifts — keeping it at a constant temperature all year.'
@@ -2349,10 +2349,10 @@ Florida's springs took thousands of years to form. They are connections to a dee
       {
         question: 'How does the AUTHOR ORGANIZE the information in this passage?',
         options: [
-          'By comparing Florida\'s springs to springs in other states.',
+          'By directly comparing Florida\'s unique springs to similar freshwater spring systems found in other U.S. states.',
           'By describing the springs, explaining the threats they face, and then presenting conservation solutions.',
-          'By following a single manatee\'s journey through Florida\'s spring system.',
-          'By listing the names of all 700 springs from largest to smallest.'
+          'By closely following a single manatee\'s complete journey through several of Florida\'s most important spring habitats.',
+          'By listing all 700 documented Florida springs in order from the largest and most powerful to the smallest and most gentle.'
         ],
         correctIndex: 1,
         explanation: 'The passage describes the springs and their value, then identifies the problems they face (dropping aquifer pressure, fertilizer runoff), and ends with conservation responses — a clear problem-solution structure.'
@@ -2360,10 +2360,10 @@ Florida's springs took thousands of years to form. They are connections to a dee
       {
         question: 'Which detail BEST supports the claim that Florida\'s springs are unusually clear?',
         options: [
-          'The aquifer holds billions of gallons of water filtered through limestone over thousands of years.',
+          'The Floridan Aquifer stores billions of gallons of ancient rainwater that has been slowly filtered through limestone for thousands of years.',
           'At Silver Springs, glass-bottom boat tours gave visitors the feeling of floating above a living aquarium.',
-          'More than 700 springs have been documented throughout Florida.',
-          'Florida law limits the amount of groundwater that can be pumped in many regions.'
+          'Florida has officially documented more than 700 individual freshwater springs scattered throughout the state.',
+          'Florida state law currently limits the amount of groundwater that can be pumped in many regions across the state.'
         ],
         correctIndex: 1,
         explanation: 'The glass-bottom boat detail is a vivid, specific example that directly illustrates exceptional water clarity — clear enough that looking down through it felt like looking into an aquarium. This is the strongest support for the claim.'
@@ -2405,10 +2405,10 @@ Ocean currents are not merely physical features. They are the planet's circulato
       {
         question: 'What is the CENTRAL IDEA of this passage?',
         options: [
-          'The Gulf Stream was discovered by Spanish explorers who used it to cross the Atlantic quickly.',
+          'The Gulf Stream was first discovered by early Spanish explorers who learned to ride it for faster Atlantic crossings.',
           'Ocean currents, especially the Gulf Stream, are powerful forces that regulate climate worldwide and face risks from warming.',
-          'Florida\'s coral reefs depend entirely on the Gulf Stream for their survival.',
-          'Ocean currents are the same as rivers, but they flow through the sea instead of over land.'
+          'Florida\'s coral reef system depends almost entirely on the Gulf Stream for its survival and healthy nutrient supply.',
+          'Ocean currents function essentially like rivers, flowing in steady paths, but they move through the sea instead of over land.'
         ],
         correctIndex: 1,
         explanation: 'The passage introduces ocean currents as a global force, focuses on the Gulf Stream\'s effects on Florida and Europe, and ends by explaining that a weakening current could affect weather worldwide — all supporting the idea that currents are powerful climate regulators under threat.'
@@ -2449,10 +2449,10 @@ Ocean currents are not merely physical features. They are the planet's circulato
       {
         question: 'The author compares ocean currents to a "circulatory system." What does this comparison SUGGEST?',
         options: [
-          'Ocean currents move in only one direction, like blood in a vein.',
-          'The ocean is alive and currents are its way of breathing.',
+          'Ocean currents always move in a single fixed direction, never changing, just like blood flows one way through a vein.',
+          'The ocean itself is a living organism, and its currents function as the equivalent of breathing in and out.',
           'Currents continuously move essential things — heat, oxygen, nutrients — through the connected ocean, the way blood moves through a body.',
-          'Scientists should study currents using the same tools doctors use to study the human heart.'
+          'Scientists studying ocean currents should use the exact same instruments and diagnostic tools that cardiologists use to study the human heart.'
         ],
         correctIndex: 2,
         explanation: 'A circulatory system moves essential substances throughout a body to keep it alive. The author uses this comparison to show that ocean currents serve the same function for the planet — distributing heat and nutrients throughout the connected ocean system.'
@@ -2610,10 +2610,10 @@ It turns out the tangled, unwalkable forest that developers once dismissed as wo
       {
         question: 'How does the author use CONTRAST to show a change in how people view mangroves?',
         options: [
-          'By comparing red mangroves to black mangroves to show one is more valuable than the other.',
-          'By contrasting Florida\'s coastline with coastlines in other states.',
+          'By making a direct scientific comparison between red mangroves and black mangroves to show which species is objectively more valuable.',
+          'By extensively contrasting the current condition of Florida\'s eroding coastline with the healthier shorelines of other nearby states.',
           'By describing how developers once saw mangroves as worthless obstacles, compared to how communities now recognize them as valuable protections.',
-          'By contrasting the height of mangrove trees with the height of concrete seawalls.'
+          'By drawing a systematic contrast between the visual height and structural strength of mangrove root systems versus concrete seawalls.'
         ],
         correctIndex: 2,
         explanation: 'The passage explicitly contrasts two perspectives: mangroves were once "viewed as obstacles" and destroyed; now they are legally protected, restored, and recognized as "cheaper and more durable than concrete seawalls." This before-and-after contrast shows a shift in understanding.'
@@ -2632,10 +2632,10 @@ It turns out the tangled, unwalkable forest that developers once dismissed as wo
       {
         question: 'What does the word "ecological" suggest about the role mangroves play?',
         options: [
-          'Mangroves are unusual because they do not interact with any other living things.',
-          'Mangroves are important primarily for human economic and commercial reasons.',
+          'Mangroves are quite unusual as coastal trees because they do not interact with or benefit any other living things nearby.',
+          'Mangroves are considered important and worth protecting primarily for human economic, tourist, and commercial development reasons.',
           'Mangroves play a powerful role in how many living things — fish, birds, plants — interact with their coastal environment.',
-          'Scientists have only recently studied mangroves and do not yet understand their role.'
+          'Scientists have only begun studying mangroves in recent decades and do not yet fully understand or agree on their ecological role.'
         ],
         correctIndex: 2,
         explanation: '"Ecological" means relating to the relationships between living things and their environment. Calling mangroves "ecological powerhouses" signals that they play a central role in how many different species — fish, birds, plants — interact with each other and the coastal environment.'
@@ -2643,10 +2643,10 @@ It turns out the tangled, unwalkable forest that developers once dismissed as wo
       {
         question: 'Why does the author end the passage by saying mangroves are valuable "precisely because" they stand in the water?',
         options: [
-          'To argue that Florida should flood more land so mangroves can spread inland.',
+          'To argue that the state of Florida should deliberately flood more of its coastal land so that mangroves can naturally spread inland.',
           'To show that the very quality that made people dismiss mangroves — standing in the water — is exactly what makes them so effective as coastline protectors.',
-          'To explain that mangroves only grow where the water is too shallow for boats.',
-          'To prove that mangroves are more valuable than coral reefs because they are on land.'
+          'To clarify a scientific fact: that mangroves are only capable of growing in areas where the water is too shallow for any boats to pass through.',
+          'To make a definitive ecological argument proving that mangroves are ultimately more valuable than coral reef systems because they grow on land.'
         ],
         correctIndex: 1,
         explanation: 'Mangroves were cut down partly because people didn\'t want "swamps." But it is exactly their position in the water — roots submerged, trapping sediment, absorbing wave energy — that makes them so effective. The final line reframes their "weakness" as their strength.'
@@ -2876,11 +2876,11 @@ The next time it gets dark outside, look up at the sky. You might see an owl or 
 
 These animals love the night. The dark is their home.`,
     vocabulary: [
-      { word: 'nocturnal', definition: 'Active at night and sleeping during the day' },
-      { word: 'echolocation', definition: 'Finding things by listening for echoes of sounds' },
-      { word: 'glow', definition: 'To give off a soft light' },
-      { word: 'echo', definition: 'A sound that bounces back to you' },
-      { word: 'insect', definition: 'A small animal with six legs and three body parts' }
+      { word: 'nocturnal', definition: 'Active at night and sleeping during the day', example: 'Owls are nocturnal animals that hunt mice after dark.' },
+      { word: 'echolocation', definition: 'Finding things by listening for echoes of sounds', example: 'Bats use echolocation to find insects in total darkness.' },
+      { word: 'glow', definition: 'To give off a soft light', example: 'Fireflies glow in the dark to signal to each other.' },
+      { word: 'echo', definition: 'A sound that bounces back to you', example: 'When she shouted in the cave, she heard her own echo come back.' },
+      { word: 'insect', definition: 'A small animal with six legs and three body parts', example: 'A butterfly is an insect with six legs and colorful wings.' }
     ],
     questions: [
       {
@@ -2928,11 +2928,11 @@ Hamsters are small and furry. They run on a wheel to get exercise. They need fre
 
 Every pet is different, but they all need the same thing — a caring owner. When you have a pet, you make a promise to take care of it every single day.`,
     vocabulary: [
-      { word: 'common', definition: 'Seen or found often; not rare' },
-      { word: 'exercise', definition: 'Moving your body to stay healthy and strong' },
-      { word: 'temperature', definition: 'How hot or cold something is' },
-      { word: 'furry', definition: 'Covered with soft, thick hair' },
-      { word: 'owner', definition: 'A person who has something that belongs to them' }
+      { word: 'common', definition: 'Seen or found often; not rare', example: 'Dogs are a common pet found in many homes.' },
+      { word: 'exercise', definition: 'Moving your body to stay healthy and strong', example: 'Running and jumping are good forms of exercise.' },
+      { word: 'temperature', definition: 'How hot or cold something is', example: 'The temperature of the water was just right for the fish.' },
+      { word: 'furry', definition: 'Covered with soft, thick hair', example: 'The furry kitten curled up on the warm blanket.' },
+      { word: 'owner', definition: 'A person who has something that belongs to them', example: 'The dog ran to its owner when called by name.' }
     ],
     questions: [
       {
@@ -2994,11 +2994,11 @@ Individuals can contribute through choices such as reducing energy use, eating l
 
 Climate change is not a distant threat — its effects are already measurable and its consequences will shape the world today's students will inherit. Understanding the science behind it is the first step toward meaningful action.`,
     vocabulary: [
-      { word: 'greenhouse effect', definition: 'The process by which gases in the atmosphere trap heat from the sun, warming the planet' },
-      { word: 'fossil fuels', definition: 'Coal, oil, and natural gas formed from ancient organisms; burn to release energy and CO₂' },
-      { word: 'deforestation', definition: 'The large-scale cutting down of forests' },
-      { word: 'precipitation', definition: 'Any form of water that falls from clouds, including rain and snow' },
-      { word: 'carbon capture', definition: 'Technology that removes carbon dioxide from the atmosphere and stores it' }
+      { word: 'greenhouse effect', definition: 'The process by which gases in the atmosphere trap heat from the sun, warming the planet', example: 'Without the greenhouse effect, Earth would be too cold for life.' },
+      { word: 'fossil fuels', definition: 'Coal, oil, and natural gas formed from ancient organisms; burn to release energy and CO₂', example: 'Cars that run on gasoline burn fossil fuels and release carbon dioxide.' },
+      { word: 'deforestation', definition: 'The large-scale cutting down of forests', example: 'Deforestation in the Amazon has destroyed habitat for thousands of species.' },
+      { word: 'precipitation', definition: 'Any form of water that falls from clouds, including rain and snow', example: 'Heavy precipitation flooded the streets after the storm.' },
+      { word: 'carbon capture', definition: 'Technology that removes carbon dioxide from the atmosphere and stores it', example: 'Scientists are testing carbon capture machines that scrub CO₂ from the air.' }
     ],
     questions: [
       {
@@ -3090,11 +3090,11 @@ Political pressure, combined with continued protests and significant loss of lif
 
 The Civil Rights Movement demonstrated that organized, persistent, and principled resistance could change even deeply entrenched systems of injustice. Yet movement leaders acknowledged that legislation was a beginning, not an end. The work of achieving genuine equality — in education, wealth, housing, and criminal justice — continues to be debated and pursued today.`,
     vocabulary: [
-      { word: 'segregation', definition: 'The forced separation of people by race in public places' },
-      { word: 'Jim Crow laws', definition: 'State laws that enforced racial segregation in the American South after the Civil War' },
-      { word: 'nonviolent direct action', definition: 'Peaceful protest tactics designed to draw attention to injustice without violence' },
-      { word: 'boycott', definition: 'A refusal to use a product or service as a form of protest' },
-      { word: 'landmark legislation', definition: 'Important laws that bring significant change' }
+      { word: 'segregation', definition: 'The forced separation of people by race in public places', example: 'Segregation meant Black and white students attended different schools.' },
+      { word: 'Jim Crow laws', definition: 'State laws that enforced racial segregation in the American South after the Civil War', example: 'Jim Crow laws forced Black Americans to use separate water fountains and entrances.' },
+      { word: 'nonviolent direct action', definition: 'Peaceful protest tactics designed to draw attention to injustice without violence', example: 'Sitting peacefully at a lunch counter was a form of nonviolent direct action.' },
+      { word: 'boycott', definition: 'A refusal to use a product or service as a form of protest', example: 'The community organized a boycott and refused to shop at the store until it changed its policies.' },
+      { word: 'landmark legislation', definition: 'Important laws that bring significant change', example: 'The Civil Rights Act of 1964 was landmark legislation that banned discrimination.' }
     ],
     questions: [
       {
@@ -3490,10 +3490,10 @@ No single person shaped modern Florida more dramatically than Henry Flagler. He 
       {
         question: 'What is the AUTHOR\'S PERSPECTIVE toward Henry Flagler?',
         options: [
-          'The author believes Flagler was a villain who should not be celebrated.',
+          'The author firmly believes Flagler was a destructive villain whose legacy should not be celebrated or honored.',
           'The author views Flagler as a bold and important figure whose impact was both positive and negative.',
-          'The author thinks Flagler was Florida\'s greatest hero with no flaws.',
-          'The author is completely neutral and offers no opinion about Flagler at all.'
+          'The author clearly thinks Flagler was Florida\'s greatest hero, praising him throughout without acknowledging any flaws.',
+          'The author maintains complete neutrality throughout the passage and never expresses any personal opinion about Flagler.'
         ],
         correctIndex: 1,
         explanation: 'The author calls Flagler\'s impact "not simple" and describes both his accomplishments (creating cities, connecting Florida) and his harms (displacement, overdevelopment). The final line — "for better and for worse" — shows the author sees Flagler as a complex figure.'
@@ -3501,10 +3501,10 @@ No single person shaped modern Florida more dramatically than Henry Flagler. He 
       {
         question: 'How does the author SUPPORT the claim that the Overseas Railroad was an extraordinary achievement?',
         options: [
-          'By explaining that Flagler had already built successful railroads in other states.',
+          'By providing background showing that Flagler had already constructed several highly successful railroads in other southern states.',
           'By noting that engineers called it one of the greatest construction achievements of its era, and that critics who called it impossible were proven wrong.',
-          'By describing the number of passengers who rode the train each year after it opened.',
-          'By comparing the Overseas Railroad to other famous bridges in the United States.'
+          'By listing the exact number of passengers who rode the Key West train during each of its first ten years in operation.',
+          'By drawing direct comparisons between the Overseas Railroad and other famous and celebrated bridges across the United States.'
         ],
         correctIndex: 1,
         explanation: 'The author cites what engineers said ("one of the greatest construction achievements of its era"), describes the challenge (128 miles over the ocean), and notes that critics called it impossible — yet it was completed. These are concrete pieces of evidence supporting the claim.'
@@ -3512,10 +3512,10 @@ No single person shaped modern Florida more dramatically than Henry Flagler. He 
       {
         question: 'What does the word "audacious" suggest about Flagler\'s decision to build the Overseas Railroad?',
         options: [
-          'It was a plan that most experts considered safe and straightforward.',
+          'It was a carefully reviewed project that most engineering experts evaluated as completely safe and straightforward to build.',
           'It was a bold, risky undertaking that most people thought could not succeed.',
-          'It was a plan that Flagler copied from engineers in another country.',
-          'It was too expensive for Flagler to complete without government help.'
+          'It was a detailed plan that Flagler had adapted directly from successful railroad engineers he consulted in another country.',
+          'It was far too expensive for Flagler to finance and complete without major financial assistance from the federal government.'
         ],
         correctIndex: 1,
         explanation: 'The author uses "audacious" to describe the Overseas Railroad project, then immediately confirms its risky nature: critics called it "Flagler\'s Folly" and said it was "too expensive, too dangerous, and impossible to complete." Audacious means bold enough to try what others say is impossible.'
@@ -3523,10 +3523,10 @@ No single person shaped modern Florida more dramatically than Henry Flagler. He 
       {
         question: 'According to the passage, what was one NEGATIVE consequence of Flagler\'s development of Florida?',
         options: [
-          'His hotels were too expensive for most tourists to afford.',
-          'His railroads caused conflict between the U.S. government and Florida settlers.',
+          'His luxury hotels were priced so high that virtually no ordinary American tourists could ever afford to stay in them.',
+          'His aggressive railroad construction created serious and lasting conflict between the U.S. government and Florida settlers.',
           'His development displaced local communities and launched overdevelopment of Florida\'s natural coasts.',
-          'His Overseas Railroad was destroyed by a hurricane and never rebuilt.'
+          'His famous Overseas Railroad to Key West was completely destroyed by a catastrophic hurricane and was never repaired or rebuilt.'
         ],
         correctIndex: 2,
         explanation: 'The author specifically states that Flagler\'s growth "displaced local communities" and "launched a wave of development that permanently altered Florida\'s natural landscape" — these are clear negative consequences named in the passage.'
@@ -3534,10 +3534,10 @@ No single person shaped modern Florida more dramatically than Henry Flagler. He 
       {
         question: 'How does the author use the phrase "for better and for worse" to conclude the passage?',
         options: [
-          'To suggest that Flagler was uncertain whether his decisions were right.',
+          'To suggest that even Flagler himself remained personally uncertain and conflicted about whether his major decisions were right.',
           'To show that Florida\'s growth under Flagler produced both significant benefits and significant harms.',
-          'To argue that Florida would have been better off without Flagler\'s involvement.',
-          'To signal that historians still disagree about whether Flagler existed at all.'
+          'To clearly argue that Florida would ultimately have been far better off if Flagler had never invested in the state at all.',
+          'To signal to readers that modern historians and scholars still actively debate and disagree about whether Flagler really existed.'
         ],
         correctIndex: 1,
         explanation: 'The phrase "for better and for worse" summarizes the entire passage\'s argument: Flagler\'s transformation of Florida brought real benefits (tourism, cities, connections) alongside real costs (displacement, overdevelopment). The author uses this phrase to hold both truths at once.'
@@ -3599,10 +3599,10 @@ She always started making plans.`,
       {
         question: 'What is the THEME of this story?',
         options: [
-          'Hurricanes cause more damage to gardens than to any other type of property.',
+          'Hurricanes and tropical storms tend to cause far more damage to gardens and plants than to any other type of property.',
           'After loss or hardship, choosing to act and begin again is what defines a person\'s character.',
-          'Grandparents always know more than their grandchildren about dealing with problems.',
-          'Florida\'s weather makes it impossible to grow a successful garden.'
+          'Grandparents and elderly relatives almost always know far more than their grandchildren about coping with any kind of problem.',
+          'Florida\'s unpredictable and severe tropical weather ultimately makes it impossible to grow and maintain a truly successful garden.'
         ],
         correctIndex: 1,
         explanation: 'Grandma does not grieve the storm — she acts. Her words ("A storm is not the end. It is the most important moment for deciding what you do next") and the image of Lucia later planning when storms approach both reinforce the theme: responding with action after hardship defines who we are.'
@@ -3610,10 +3610,10 @@ She always started making plans.`,
       {
         question: 'Read this sentence: "their stakes snapped like broken pencils." What type of FIGURATIVE LANGUAGE is this, and what does it help the reader understand?',
         options: [
-          'Metaphor — it suggests the stakes and pencils are the same object.',
-          'Personification — it gives the stakes human qualities.',
+          'Metaphor — it directly states that the garden stakes and pencils are the exact same object without using "like" or "as."',
+          'Personification — it assigns the wooden garden stakes a set of human emotional qualities that make them seem alive.',
           'Simile — it compares the broken stakes to broken pencils to help the reader picture how completely they were snapped.',
-          'Hyperbole — it greatly exaggerates how many stakes were broken.'
+          'Hyperbole — it uses wild exaggeration to comically overstate the total number of stakes that were broken in the storm.'
         ],
         correctIndex: 2,
         explanation: '"Like broken pencils" uses the word "like" to make a direct comparison — that is a simile. The comparison helps the reader visualize the stakes as thin, snapped completely in two, the way a pencil breaks cleanly when too much pressure is applied.'
@@ -3621,10 +3621,10 @@ She always started making plans.`,
       {
         question: 'At the end, the author describes small green leaves "reaching upward — stubborn, unhurried, as if they hadn\'t even heard about the hurricane." What type of figurative language is this?',
         options: [
-          'Simile — the leaves are compared to stubborn people.',
+          'Simile — the leaves are directly compared to stubborn, calm people using the comparison word "as if."',
           'Personification — the leaves are given human traits: stubbornness, calm, and the ability to "hear" news.',
-          'Alliteration — the repeated sounds create a musical effect.',
-          'Metaphor — the leaves become a direct symbol for Grandma.'
+          'Alliteration — the author uses repeated beginning consonant sounds to create a satisfying musical and rhythmic effect.',
+          'Metaphor — the leaves transform into a direct and literal symbol that stands in for Grandma herself without comparison words.'
         ],
         correctIndex: 1,
         explanation: 'The leaves are described as "stubborn" and "unhurried," and the phrase "as if they hadn\'t even heard about the hurricane" gives them the human ability to know about events. This is personification — giving non-human things human qualities.'
@@ -3632,10 +3632,10 @@ She always started making plans.`,
       {
         question: 'How does Grandma\'s response to the storm damage DEVELOP her character?',
         options: [
-          'She becomes overwhelmed and asks Lucia to handle everything.',
+          'She becomes quickly overwhelmed by the destruction she sees and immediately asks Lucia to take charge and handle everything.',
           'She shows that she is the kind of person who responds to difficulty with immediate, purposeful action rather than despair.',
-          'She becomes angry about the storm and expresses that anger by working in the garden.',
-          'She waits for a sunny day before deciding whether the garden can be saved.'
+          'She becomes visibly angry and upset about the storm\'s damage, and she channels that raw emotion by furiously working in the garden.',
+          'She insists on waiting for a completely sunny and dry day before she will even begin to assess whether the garden can possibly be saved.'
         ],
         correctIndex: 1,
         explanation: 'Lucia expects Grandma to cry or retreat to her chair — but instead she walks into the mud and starts working. The author reveals Grandma\'s character through her actions: she is someone who chooses action over grief, and that choice is what the whole story is about.'
@@ -3643,10 +3643,10 @@ She always started making plans.`,
       {
         question: 'What does Grandma mean when she says "Especially after this" in response to Lucia\'s surprise about planting seeds?',
         options: [
-          'The storm created more open ground, so now is the best time to plant more seeds.',
+          'The hurricane cleared and broke up so much of the hard soil that right now is actually the ideal moment to plant new seeds.',
           'After a storm is exactly the right moment to plant — it is an act of hope and commitment, not despite the damage, but because of it.',
-          'The rain from the storm will help the seeds grow faster than usual.',
-          'She means they must plant quickly before another storm arrives.'
+          'The unusually heavy rainfall from the storm has left the soil so moist that the seeds will sprout and grow much faster now.',
+          'She is saying they need to get the seeds into the ground as quickly as possible before the next major storm system arrives.'
         ],
         correctIndex: 1,
         explanation: 'Grandma explains: "A storm is not the end. It is the most important moment for deciding what you do next." Planting seeds immediately after destruction is a deliberate act — it says that you intend to continue. "Especially after this" means the hard moment is exactly when it matters most to choose to go on.'
@@ -3714,10 +3714,10 @@ He started sitting in the back seat the next day. And the day after that.`,
       {
         question: 'The story is told from DOMINIC\'S point of view. How does his perspective LIMIT what the reader knows at the beginning?',
         options: [
-          'Dominic knows Priya\'s name and class schedule, so the reader learns everything about her.',
+          'Dominic already knows Priya\'s full name and her class schedule, which means the reader learns everything important about her right away.',
           'Because the reader only sees Priya through Dominic\'s observations and assumptions, Priya appears unfriendly — until she explains herself.',
-          'Dominic is an unreliable narrator who lies about what happened on the bus.',
-          'Dominic\'s perspective gives the reader more information about Priya than Priya has about herself.'
+          'Dominic is a completely unreliable narrator who makes up and deliberately lies to the reader about what happened on the bus.',
+          'Dominic\'s first-person perspective actually gives the reader far more information about Priya than Priya herself has about her own feelings.'
         ],
         correctIndex: 1,
         explanation: 'Because the reader only has Dominic\'s view, Priya seems cold and isolated — the same way Dominic sees her. It is only when Priya speaks and explains herself that the reader (and Dominic) understand what was actually happening. The narrator\'s limited perspective creates the story\'s central misunderstanding.'
@@ -3725,10 +3725,10 @@ He started sitting in the back seat the next day. And the day after that.`,
       {
         question: 'What is the CONFLICT in this story, and how is it resolved?',
         options: [
-          'Dominic and Priya argue about Florida history, but eventually agree.',
+          'Dominic and Priya get into a heated disagreement about the facts of Florida history, but they eventually manage to agree.',
           'Dominic incorrectly assumes Priya is unfriendly; a forced conversation reveals the truth and changes his perspective.',
-          'Priya is bullied by Keisha and Dominic, but tells a teacher who resolves the problem.',
-          'The bus is too crowded, forcing students to sit with people they don\'t know.'
+          'Priya is being actively bullied by both Keisha and Dominic, so she tells a teacher and the teacher steps in to resolve it.',
+          'The overcrowded school bus forces students from different friend groups to sit awkwardly together against their will every day.'
         ],
         correctIndex: 1,
         explanation: 'The conflict is Dominic\'s misunderstanding of Priya — he has assumed she is stuck-up. The resolution comes through their unexpected conversation, where Priya\'s real interests and the real reason she wears headphones are revealed. The conflict dissolves when assumptions are replaced by actual communication.'
@@ -3736,10 +3736,10 @@ He started sitting in the back seat the next day. And the day after that.`,
       {
         question: 'What does Priya mean when she says "It\'s easier to assume something than to ask"?',
         options: [
-          'She means that asking questions is rude and people should mind their own business.',
+          'She is explaining that asking personal questions about someone is rude and invasive, and people should simply mind their own business.',
           'She is pointing out that people often judge without communicating — it takes more effort to actually find out the truth.',
-          'She means that Dominic was right to make assumptions about her behavior.',
-          'She is saying that she prefers not to talk to people on the bus.'
+          'She is calmly telling Dominic that he was completely right to make all the assumptions he made about her behavior on the bus.',
+          'She is directly telling Dominic that she does not enjoy making small talk or having conversations with people she does not know on the bus.'
         ],
         correctIndex: 1,
         explanation: 'Priya is acknowledging that many people — not just Keisha — have judged her without asking why she behaves as she does. Her statement is a quiet critique: making assumptions is the lazy path; actually asking someone takes more courage and effort, but it produces understanding.'
@@ -3747,10 +3747,10 @@ He started sitting in the back seat the next day. And the day after that.`,
       {
         question: 'Read this sentence: "He laughed — the kind of laugh that dissolves tension the way warm water dissolves sugar." What type of figurative language is this?',
         options: [
-          'Personification — the laugh is given the ability to feel tension.',
+          'Personification — the laugh is given the human ability to actively feel, hold, and then release the tension between them.',
           'Simile — the laugh is compared to warm water dissolving sugar to show how it melted the awkwardness.',
-          'Hyperbole — the comparison greatly exaggerates how funny the moment was.',
-          'Alliteration — the repeated sounds create a rhythmic effect.'
+          'Hyperbole — the author wildly and humorously exaggerates just how extraordinarily funny and memorable this moment actually was.',
+          'Alliteration — the author deliberately repeats beginning consonant sounds throughout the sentence to create a satisfying rhythmic effect.'
         ],
         correctIndex: 1,
         explanation: '"The way warm water dissolves sugar" is a comparison using "the way" — making it a simile. The comparison helps the reader feel exactly what happened: just as sugar disappears in warm water, the awkwardness between them simply vanished when they both laughed.'
@@ -3758,10 +3758,10 @@ He started sitting in the back seat the next day. And the day after that.`,
       {
         question: 'How does DOMINIC\'S CHARACTER CHANGE from the beginning of the story to the end?',
         options: [
-          'He starts friendly and ends suspicious of Priya.',
+          'He starts the story feeling warm and friendly toward Priya, but ends the story feeling suspicious and wary of her motives.',
           'He begins by going along with unfair assumptions about Priya and ends by choosing to know her as she actually is.',
-          'He becomes less interested in Florida history after talking to Priya.',
-          'He starts afraid of Priya and ends up replacing Keisha as his best friend.'
+          'After their conversation, he actually loses most of his previous enthusiasm and interest in Florida history as a subject.',
+          'He starts the story feeling afraid and intimidated by Priya, and by the end he has replaced Keisha entirely as his best friend.'
         ],
         correctIndex: 1,
         explanation: 'At the start, Dominic nods when Keisha calls Priya "stuck-up" — he doesn\'t push back. By the end, he chooses to sit with Priya day after day. The change is subtle but clear: he moves from passive assumption to active understanding.'
