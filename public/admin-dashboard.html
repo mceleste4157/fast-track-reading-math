@@ -440,6 +440,27 @@
         })).sort((a, b) => b.xp - a.xp);
 
         console.log('📋 Rendering', allStudents.length, 'students');
+
+        // Check for orphan progress records (reader IDs that don't match any student profile)
+        const profileReaderIds = new Set(profilesData.map(d => d.data().readerId));
+        const progressReaderIds = new Set();
+        progressData.forEach(d => {
+          const rid = d.data().readerId;
+          if (rid) progressReaderIds.add(rid);
+        });
+        const orphanIds = Array.from(progressReaderIds).filter(id => !profileReaderIds.has(id));
+        if (orphanIds.length > 0) {
+          console.warn('⚠️ Found', orphanIds.length, 'reader IDs with progress but NO student profile:');
+          orphanIds.forEach(rid => {
+            const records = progressData.filter(d => d.data().readerId === rid);
+            console.warn('  - Reader ID:', rid, '(' + records.length + ' progress records)');
+            if (records.length > 0) {
+              const sample = records[0].data();
+              console.warn('    Sample story:', sample.storyId, 'Date:', sample.completedAt ? sample.completedAt.toDate() : 'N/A');
+            }
+          });
+        }
+
         renderStudents(allStudents);
       }
     };
@@ -448,7 +469,13 @@
       profilesData = snap.docs;
       dataLoadedFlags.profiles = true;
       console.log('📚 StudentProfiles loaded:', snap.size, 'students');
-      snap.docs.forEach(d => console.log('  - Student:', d.data().name, 'Parent UID:', d.data().parentUid));
+      snap.docs.forEach(d => {
+        const data = d.data();
+        console.log('  - Student:', data.name, 'Grade:', data.grade);
+        console.log('    Reader ID:', data.readerId);
+        console.log('    Parent UID:', data.parentUid);
+        console.log('    Parent Email:', data.parentEmail || 'N/A');
+      });
       checkAndRender();
     });
 
@@ -463,6 +490,16 @@
       progressData = snap.docs;
       dataLoadedFlags.progress = true;
       console.log('📈 Progress loaded:', snap.size, 'records');
+
+      // Check for unique reader IDs
+      const uniqueReaderIds = new Set();
+      snap.docs.forEach(d => {
+        const readerId = d.data().readerId;
+        if (readerId) uniqueReaderIds.add(readerId);
+      });
+      console.log('   Unique reader IDs in Progress:', uniqueReaderIds.size);
+      console.log('   Reader IDs:', Array.from(uniqueReaderIds));
+
       checkAndRender();
     });
 
@@ -477,8 +514,18 @@
       parentsData = snap.docs;
       dataLoadedFlags.parents = true;
       console.log('👨‍👩‍👧 ParentProfiles loaded:', snap.size, 'parents');
-      snap.docs.forEach(d => console.log('  - Parent:', d.data().email || d.data().displayName, 'UID:', d.id));
+      snap.docs.forEach(d => {
+        const data = d.data();
+        console.log('  - Parent:', data.email || data.displayName, 'UID:', d.id);
+        console.log('    Display Name:', data.displayName);
+        console.log('    Email:', data.email);
+        console.log('    Created:', data.createdAt ? data.createdAt.toDate() : 'N/A');
+      });
       checkAndRender();
+    }, err => {
+      console.error('❌ Error loading ParentProfiles:', err);
+      console.error('Error code:', err.code);
+      console.error('Error message:', err.message);
     });
   }
 
