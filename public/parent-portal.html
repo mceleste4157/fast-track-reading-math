@@ -163,6 +163,77 @@
       background: #d1d5db; cursor: not-allowed;
     }
 
+    /* Delete Account Confirmation Modal */
+    .delete-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7); z-index: 300;
+      align-items: center; justify-content: center;
+      padding: 24px 16px;
+    }
+    .delete-overlay.show { display: flex; }
+    .delete-modal {
+      background: var(--surface); border-radius: 20px;
+      max-width: 500px; width: 100%;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .delete-header {
+      background: var(--red); padding: 24px 28px; color: #fff;
+    }
+    .delete-header h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .delete-header p { font-size: 0.9rem; opacity: 0.95; }
+    .delete-body { padding: 28px; }
+    .delete-body h3 { font-size: 1.05rem; font-weight: 700; margin: 16px 0 8px; color: var(--text); }
+    .delete-body h3:first-child { margin-top: 0; }
+    .delete-body p { font-size: 0.9rem; line-height: 1.6; color: #374151; margin-bottom: 12px; }
+    .delete-body ul { margin: 8px 0 12px 20px; }
+    .delete-body li { font-size: 0.9rem; line-height: 1.6; color: #374151; margin-bottom: 6px; }
+    .delete-warning {
+      background: #fee2e2; border-left: 4px solid var(--red);
+      padding: 14px 16px; border-radius: 8px; margin: 16px 0;
+    }
+    .delete-warning p { margin: 0; color: #7f1d1d; font-weight: 700; }
+    .delete-confirm-box {
+      background: #f3f4f6; padding: 16px 20px; border-radius: 12px;
+      margin: 20px 0 0; border: 2px solid var(--border);
+    }
+    .delete-confirm-box label {
+      display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+      margin-bottom: 12px;
+    }
+    .delete-confirm-box input[type="checkbox"] {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      cursor: pointer; accent-color: var(--red);
+    }
+    .delete-confirm-box span { font-size: 0.9rem; line-height: 1.5; font-weight: 600; color: var(--text); }
+    .delete-confirm-box input[type="text"] {
+      width: 100%; padding: 10px 12px; border: 2px solid var(--border);
+      border-radius: 8px; font-family: inherit; font-size: 0.95rem;
+      outline: none;
+    }
+    .delete-confirm-box input[type="text"]:focus { border-color: var(--red); }
+    .delete-actions {
+      display: flex; gap: 12px; padding: 20px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .delete-btn {
+      flex: 1; padding: 12px; border-radius: 11px;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      font-family: inherit; border: none; transition: all 0.15s;
+    }
+    .delete-btn-cancel {
+      background: var(--surface); color: var(--muted);
+      border: 2px solid var(--border);
+    }
+    .delete-btn-cancel:hover { border-color: var(--text); color: var(--text); }
+    .delete-btn-confirm {
+      background: var(--red); color: #fff;
+    }
+    .delete-btn-confirm:hover { background: #dc2626; }
+    .delete-btn-confirm:disabled {
+      background: #d1d5db; cursor: not-allowed;
+    }
+
     .rn-badge {
       display: inline-block; font-size: 0.7rem; font-weight: 800;
       background: var(--green); color: #fff; border-radius: 99px;
@@ -712,6 +783,48 @@
     </div>
   </div>
 
+  <!-- Delete Account Confirmation Modal -->
+  <div class="delete-overlay" id="delete-account-modal">
+    <div class="delete-modal">
+      <div class="delete-header">
+        <h2>⚠️ Delete Account Permanently</h2>
+        <p>This action cannot be undone</p>
+      </div>
+      <div class="delete-body">
+        <p>You are about to permanently delete your account and <strong>all</strong> associated data:</p>
+
+        <h3>What will be deleted:</h3>
+        <ul>
+          <li>Your parent account and login credentials</li>
+          <li>All child profiles (<span id="delete-child-count">0</span> profile(s))</li>
+          <li>All reading progress and quiz scores</li>
+          <li>All math progress and quiz scores</li>
+          <li>All activity history and statistics</li>
+          <li>All preferences and settings</li>
+        </ul>
+
+        <div class="delete-warning">
+          <p>⚠️ WARNING: This action is PERMANENT and CANNOT be undone. All data will be lost forever.</p>
+        </div>
+
+        <div class="delete-confirm-box">
+          <label>
+            <input type="checkbox" id="delete-understand-check" />
+            <span>I understand that all my data and my children's data will be permanently deleted and cannot be recovered.</span>
+          </label>
+          <div style="margin-top:12px;">
+            <label for="delete-confirm-text" style="display:block;font-size:0.85rem;font-weight:700;margin-bottom:6px;">Type <strong>DELETE</strong> to confirm:</label>
+            <input type="text" id="delete-confirm-text" placeholder="Type DELETE" autocomplete="off" />
+          </div>
+        </div>
+      </div>
+      <div class="delete-actions">
+        <button class="delete-btn delete-btn-cancel" id="delete-cancel">Cancel</button>
+        <button class="delete-btn delete-btn-confirm" id="delete-confirm" disabled>Delete Everything</button>
+      </div>
+    </div>
+  </div>
+
   <div class="page">
 
     <!-- Parent Profile section -->
@@ -738,6 +851,18 @@
         <button class="btn-secondary" id="profile-cancel-btn">Cancel</button>
         <button class="btn-primary" id="profile-save-btn">Save Changes</button>
       </div>
+    </div>
+
+    <!-- Danger Zone -->
+    <div class="section-heading" style="margin-top:48px;color:var(--red);">⚠️ Danger Zone</div>
+    <div style="background:var(--red-soft);border:2px solid var(--red);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;">
+      <div style="margin-bottom:12px;">
+        <div style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:4px;">Delete Account Permanently</div>
+        <div style="font-size:0.88rem;line-height:1.5;color:#7f1d1d;">
+          This will permanently delete your account, all child profiles, and all associated progress data (reading scores, math scores, activity history). <strong>This action cannot be undone.</strong>
+        </div>
+      </div>
+      <button class="btn-secondary" id="delete-account-btn" style="background:var(--red);color:#fff;border-color:var(--red);">🗑️ Delete My Account</button>
     </div>
 
     <!-- Children section -->
@@ -1130,6 +1255,98 @@
           btn.disabled = false;
           btn.textContent = 'Save Changes';
         });
+    });
+
+    // ── Delete Account ──────────────────────────────────────────────────────────
+    const deleteModal = document.getElementById('delete-account-modal');
+    const deleteUnderstandCheck = document.getElementById('delete-understand-check');
+    const deleteConfirmText = document.getElementById('delete-confirm-text');
+    const deleteConfirmBtn = document.getElementById('delete-confirm');
+
+    document.getElementById('delete-account-btn').addEventListener('click', () => {
+      // Count children
+      db.collection('StudentProfiles').where('parentUid', '==', currentUser.uid).get()
+        .then(snap => {
+          document.getElementById('delete-child-count').textContent = snap.size;
+          deleteModal.classList.add('show');
+        })
+        .catch(() => {
+          document.getElementById('delete-child-count').textContent = '0';
+          deleteModal.classList.add('show');
+        });
+    });
+
+    document.getElementById('delete-cancel').addEventListener('click', () => {
+      deleteModal.classList.remove('show');
+      deleteUnderstandCheck.checked = false;
+      deleteConfirmText.value = '';
+      deleteConfirmBtn.disabled = true;
+    });
+
+    // Enable delete button only when both conditions met
+    function updateDeleteButton() {
+      const understood = deleteUnderstandCheck.checked;
+      const typed = deleteConfirmText.value.trim().toUpperCase() === 'DELETE';
+      deleteConfirmBtn.disabled = !(understood && typed);
+    }
+    deleteUnderstandCheck.addEventListener('change', updateDeleteButton);
+    deleteConfirmText.addEventListener('input', updateDeleteButton);
+
+    document.getElementById('delete-confirm').addEventListener('click', async () => {
+      const btn = deleteConfirmBtn;
+      btn.disabled = true;
+      btn.textContent = 'Deleting...';
+
+      try {
+        // 1. Get all child profiles
+        const childrenSnap = await db.collection('StudentProfiles')
+          .where('parentUid', '==', currentUser.uid).get();
+
+        const readerIds = childrenSnap.docs.map(d => d.data().readerId || d.id);
+
+        // 2. Delete all child-related data
+        const deletePromises = [];
+
+        for (const readerId of readerIds) {
+          // Delete Progress
+          const progressSnap = await db.collection('Progress').where('readerId', '==', readerId).get();
+          progressSnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+          // Delete MathProgress
+          const mathSnap = await db.collection('MathProgress').where('readerId', '==', readerId).get();
+          mathSnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+          // Delete StudentActivity
+          const activitySnap = await db.collection('StudentActivity').where('readerId', '==', readerId).get();
+          activitySnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+          // Delete StudentStats
+          deletePromises.push(db.collection('StudentStats').doc(readerId).delete());
+        }
+
+        // Delete all child profiles
+        childrenSnap.forEach(doc => deletePromises.push(doc.ref.delete()));
+
+        // 3. Delete parent profile
+        deletePromises.push(db.collection('ParentProfiles').doc(currentUser.uid).delete());
+
+        // Wait for all deletes
+        await Promise.all(deletePromises);
+
+        // 4. Delete Firebase Auth user
+        await currentUser.delete();
+
+        // 5. Clear local data and redirect
+        sessionStorage.clear();
+        localStorage.clear();
+        alert('Account deleted successfully. You will be redirected to the login page.');
+        window.location.href = 'login.html';
+
+      } catch (err) {
+        alert('Error deleting account: ' + err.message + '\n\nIf you recently signed in, you may need to sign out and sign in again before deleting your account.');
+        btn.disabled = false;
+        btn.textContent = 'Delete Everything';
+      }
     });
 
     document.getElementById('signout-btn').addEventListener('click', () => {
