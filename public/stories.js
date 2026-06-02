@@ -5489,7 +5489,7 @@ Ant colonies work because every ant helps. No single ant could survive alone. To
     ],
     questions: [
       {
-        question: 'What is the queen ant's main job?',
+        question: "What is the queen ant's main job?",
         options: ['Find food', 'Lay eggs', 'Build the nest', 'Protect the colony'],
         correctIndex: 1,
         explanation: 'The story says, "Her only job is to lay eggs."'
@@ -5712,7 +5712,7 @@ We can help by planting flowers that bees love, avoiding pesticides, and support
     ],
     questions: [
       {
-        question: 'What is the queen bee's main job?',
+        question: "What is the queen bee's main job?",
         options: ['Collect nectar', 'Lay eggs', 'Build honeycomb', 'Protect the hive'],
         correctIndex: 1,
         explanation: 'The passage says, "Her only job is to lay eggs — up to 2,000 per day."'
@@ -5920,7 +5920,7 @@ Mars represents the ultimate challenge. It tests our engineering, our endurance,
         explanation: 'The passage says critics argue that the money spent on Mars could be used to solve Earth problems like poverty and climate change.'
       },
       {
-        question: 'What is the author's PURPOSE in this passage?',
+        question: "What is the author's PURPOSE in this passage?",
         options: ['To persuade readers that Mars missions are a waste of money.', 'To inform readers about the challenges and goals of Mars exploration.', 'To entertain readers with a fictional story about Mars.', 'To argue that we should stop exploring space.'],
         correctIndex: 1,
         explanation: 'The passage presents factual information about why scientists want to go to Mars, the challenges involved, and different perspectives — this is informational writing.'
@@ -5978,19 +5978,19 @@ AI is not inherently good or evil. It is a tool, and like all tools, its impact 
         explanation: 'The text says, "AI analyzes X-rays and MRIs faster and more accurately than human doctors, catching cancers that radiologists miss."'
       },
       {
-        question: 'Why does the passage mention China's social credit system?',
+        question: "Why does the passage mention China's social credit system?",
         options: ['To show that China has the best AI technology.', 'To illustrate privacy concerns and government surveillance enabled by AI.', 'To argue that all countries should adopt the same system.', 'To prove that AI cannot track people.'],
         correctIndex: 1,
         explanation: 'The passage uses China as an example of how AI enables massive surveillance and control, illustrating privacy risks.'
       },
       {
         question: 'What does the author mean by "AI is not inherently good or evil"?',
-        options: ['AI has no emotions or morals.', 'AI's impact depends on how humans choose to use it.', 'AI will always help humanity.', 'AI will always harm humanity.'],
+        options: ['AI has no emotions or morals.', "AI's impact depends on how humans choose to use it.", 'AI will always help humanity.', 'AI will always harm humanity.'],
         correctIndex: 1,
         explanation: 'The passage says, "It is a tool, and like all tools, its impact depends on how we use it" — meaning humans determine whether AI helps or harms.'
       },
       {
-        question: 'Which statement BEST describes the author's tone in this passage?',
+        question: "Which statement BEST describes the author's tone in this passage?",
         options: ['Completely optimistic — AI will solve all problems.', 'Completely pessimistic — AI will destroy humanity.', 'Balanced — presenting both benefits and serious risks.', 'Humorous — making jokes about technology.'],
         correctIndex: 2,
         explanation: 'The author presents both the benefits (medicine, climate) and dangers (bias, job loss, surveillance) without taking an extreme position — this is a balanced tone.'
