@@ -543,7 +543,7 @@
     <div class="rn-modal">
       <div class="rn-header">
         <h2>🚀 What's New in FAST Track</h2>
-        <p>Last updated: June 1, 2026</p>
+        <p id="rn-last-updated">Last updated: <span id="last-update-time"></span></p>
       </div>
       <div class="rn-body">
 
@@ -1217,6 +1217,23 @@
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
+    // Last content update timestamp - UPDATE THIS WHEN ADDING NEW FEATURES TO WHAT'S NEW
+    const LAST_CONTENT_UPDATE = new Date('2026-06-02T15:45:00'); // June 2, 2026 at 3:45 PM
+
+    // Format and display last update time
+    (function() {
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      };
+      const formatted = LAST_CONTENT_UPDATE.toLocaleString('en-US', options);
+      document.getElementById('last-update-time').textContent = formatted;
+    })();
+
     // Release notes modal
     document.getElementById('whats-new-btn').addEventListener('click', () => {
       document.getElementById('rn-overlay').classList.add('show');
