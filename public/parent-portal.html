@@ -1324,8 +1324,17 @@
       ['f-name','f-pin','f-emoji','f-legacy-id'].forEach(id => {
         document.getElementById(id).value = '';
       });
-      document.getElementById('f-grade').value = '';
-      document.getElementById('f-color').value = '#2563eb';
+      document.getElementById('f-grade').value         = '';
+      document.getElementById('f-color').value         = '#2563eb';
+      document.getElementById('f-goal').value          = '3';
+      document.getElementById('f-read-aloud').value    = 'on';
+      document.getElementById('f-reading-timer').value = 'full';
+      document.getElementById('f-math-unlock').value   = '3';
+      document.getElementById('f-read-mins').value     = '30';
+      document.getElementById('f-math-mins').value     = '10';
+      document.getElementById('f-screen-mins').value   = '60';
+      document.getElementById('f-message').value       = '';
+      document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => { cb.checked = true; });
       document.querySelectorAll('.emoji-chip').forEach(c => c.classList.remove('selected'));
       document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
       document.getElementById('form-error').style.display = 'none';
