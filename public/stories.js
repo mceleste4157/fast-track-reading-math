@@ -4974,6 +4974,11327 @@ The storms do not stop. But neither does Florida.`,
         explanation: 'The parallel structure — "The storms do not stop. But neither does Florida." — places Florida\'s persistence as equal to the persistence of the storms. The author is clearly presenting Florida as resilient. This is not a neutral observation — it is a deliberate framing that shows admiration for the state\'s ability to endure.'
       }
     ]
-  }
+  },
+
+
+  // ══════════════════════════════════════════════════════════════════
+
+
+  // NEW STORIES — Grades 1, 2, 3, 5, 6, 7, 8
+  // ══════════════════════════════════════════════════════════════════
+
+// ── Grade 1 ──
+  {
+    id: 'florida-flamingos',
+    title: 'Florida Flamingos',
+    topic: 'florida-nature',
+    coverEmoji: '🦩',
+    coverColor: '#f9a8d4',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 138,
+    readTimeMin: 1,
+    text: `Flamingos are pink birds. They live near water. You can see flamingos in Florida!
+
+Why are flamingos pink? They eat tiny pink and orange shrimp. The food makes their feathers turn pink. A flamingo that does not eat shrimp would turn white.
+
+Flamingos have long, thin legs. They like to stand on one leg. No one knows exactly why, but it may help them stay warm.
+
+Flamingos live in big groups called **flocks**. A flock can have hundreds of birds. They make loud honking sounds to talk to each other.
+
+Baby flamingos are born with white or gray feathers. They drink milk from their parents. Slowly, as they eat more shrimp, their feathers turn pink.
+
+Flamingos are **graceful** birds. Watching a flock take flight is one of the most beautiful things you can see in Florida!`,
+    vocabulary: [
+      { word: 'flocks', definition: 'Groups of birds that live and move together.', example: 'A flock of flamingos stood along the shore.' },
+      { word: 'graceful', definition: 'Moving in a smooth, beautiful way.', example: 'The graceful flamingo lifted its long wings and flew away.' },
+      { word: 'feathers', definition: 'The soft, light covering that grows on a bird\'s body.', example: 'The flamingo\'s pink feathers shone in the sun.' },
+      { word: 'shrimp', definition: 'Small sea animals with thin shells, often used as food.', example: 'Flamingos eat shrimp to keep their pink color.' },
+      { word: 'exactly', definition: 'In a way that is completely correct or certain.', example: 'No one knows exactly why flamingos stand on one leg.' }
+    ],
+    questions: [
+      {
+        question: 'Why are flamingos pink?',
+        options: ['They are born that way', 'They paint their feathers', 'They eat pink and orange shrimp', 'They stand in pink water'],
+        correctIndex: 2,
+        explanation: 'The passage says flamingos eat tiny pink and orange shrimp, which makes their feathers turn pink.'
+      },
+      {
+        question: 'What color are baby flamingos when they are born?',
+        options: ['Bright pink', 'White or gray', 'Orange', 'Blue and white'],
+        correctIndex: 1,
+        explanation: 'The passage says baby flamingos are born with white or gray feathers and slowly turn pink as they eat shrimp.'
+      },
+      {
+        question: 'What is a flock?',
+        options: ['A flamingo\'s long leg', 'A kind of shrimp flamingos eat', 'A group of birds that live together', 'The sound a flamingo makes'],
+        correctIndex: 2,
+        explanation: 'The passage says flamingos live in big groups called flocks.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'butterfly-life-cycle',
+    title: 'From Egg to Butterfly',
+    topic: 'florida-nature',
+    coverEmoji: '🦋',
+    coverColor: '#a78bfa',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 142,
+    readTimeMin: 1,
+    text: `Butterflies are pretty insects. They start life in a very different way than they look now!
+
+First, a butterfly lays a tiny **egg** on a leaf. The egg is very small. After a few days, a caterpillar hatches from the egg.
+
+The caterpillar eats and eats. It munches on leaves all day. As it grows, it sheds its old skin and grows new skin. This happens a few times.
+
+Next, the caterpillar makes a **chrysalis**. A chrysalis is like a little sleeping bag made of silk. The caterpillar rests inside.
+
+Something amazing happens inside the chrysalis. The caterpillar slowly changes. After a few weeks, a beautiful butterfly comes out!
+
+The butterfly dries its wings. Then it flies away to find flowers. It drinks a sweet liquid called nectar.
+
+Florida is home to many kinds of butterflies. Look for them in gardens and parks!`,
+    vocabulary: [
+      { word: 'egg', definition: 'A small round object laid by a female animal, from which a baby hatches.', example: 'The butterfly laid a tiny egg on the green leaf.' },
+      { word: 'chrysalis', definition: 'A hard covering that a caterpillar makes around itself before becoming a butterfly.', example: 'The caterpillar rested quietly inside its chrysalis.' },
+      { word: 'hatches', definition: 'Breaks out of an egg.', example: 'A tiny caterpillar hatches from the egg.' },
+      { word: 'nectar', definition: 'A sweet liquid made by flowers that insects like to drink.', example: 'The butterfly landed on a flower to drink its nectar.' },
+      { word: 'sheds', definition: 'Loses or drops something from the body, like old skin.', example: 'The caterpillar sheds its old skin as it grows bigger.' }
+    ],
+    questions: [
+      {
+        question: 'What is the correct order of a butterfly\'s life cycle?',
+        options: ['Butterfly, egg, caterpillar, chrysalis', 'Egg, caterpillar, chrysalis, butterfly', 'Caterpillar, egg, butterfly, chrysalis', 'Chrysalis, butterfly, egg, caterpillar'],
+        correctIndex: 1,
+        explanation: 'The passage explains the order: first an egg, then a caterpillar, then a chrysalis, then a butterfly.'
+      },
+      {
+        question: 'What does a caterpillar do inside a chrysalis?',
+        options: ['Eats lots of leaves', 'Lays eggs', 'Rests and slowly changes into a butterfly', 'Learns to fly'],
+        correctIndex: 2,
+        explanation: 'The passage says the caterpillar rests inside the chrysalis and slowly changes into a butterfly.'
+      },
+      {
+        question: 'What does a butterfly drink from flowers?',
+        options: ['Water', 'Nectar', 'Juice', 'Milk'],
+        correctIndex: 1,
+        explanation: 'The passage says butterflies drink a sweet liquid called nectar from flowers.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'florida-sunshine',
+    title: 'The Sunshine State',
+    topic: 'florida-nature',
+    coverEmoji: '☀️',
+    coverColor: '#fbbf24',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 130,
+    readTimeMin: 1,
+    text: `Florida is called the Sunshine State. That is because Florida gets a lot of sunny days every year!
+
+Sunshine feels warm and good. But did you know sunshine is also good for your body? When sunlight touches your skin, your body makes **vitamin D**. Vitamin D helps your bones grow strong.
+
+Going outside on a sunny day is fun. You can run, play, and get vitamin D all at the same time!
+
+But too much sun can hurt your skin. It can cause a **sunburn**. A sunburn makes your skin red and sore.
+
+To stay safe, wear **sunscreen** before you go outside. Sunscreen protects your skin from getting burned. A hat and sunglasses help too.
+
+In Florida, the sun shines most of the year. So go outside, play, and soak up that Florida sunshine — safely!`,
+    vocabulary: [
+      { word: 'vitamin D', definition: 'Something your body makes using sunlight that helps keep your bones strong.', example: 'Playing outside helps your body get vitamin D from the sun.' },
+      { word: 'sunburn', definition: 'Red, sore skin caused by spending too much time in the sun.', example: 'She got a sunburn because she forgot to wear sunscreen.' },
+      { word: 'sunscreen', definition: 'A lotion that you put on skin to protect it from the sun\'s rays.', example: 'Mom put sunscreen on his shoulders before he went to the beach.' },
+      { word: 'protects', definition: 'Keeps something safe from harm.', example: 'A hat protects your face from the hot sun.' },
+      { word: 'soak up', definition: 'To take in or absorb something fully.', example: 'The flowers soak up the sunlight to help them grow.' }
+    ],
+    questions: [
+      {
+        question: 'Why is Florida called the Sunshine State?',
+        options: ['Because it is very hot all year', 'Because it gets a lot of sunny days', 'Because it is close to the sun', 'Because it has no clouds'],
+        correctIndex: 1,
+        explanation: 'The passage says Florida is called the Sunshine State because it gets a lot of sunny days every year.'
+      },
+      {
+        question: 'What does vitamin D do for your body?',
+        options: ['Makes your hair grow', 'Helps your bones grow strong', 'Keeps you from getting wet', 'Makes you run faster'],
+        correctIndex: 1,
+        explanation: 'The passage says vitamin D helps your bones grow strong.'
+      },
+      {
+        question: 'What should you do before going outside in the sun?',
+        options: ['Drink lots of juice', 'Wear sunscreen to protect your skin', 'Stay inside until noon', 'Eat a big meal'],
+        correctIndex: 1,
+        explanation: 'The passage says to wear sunscreen before you go outside so your skin does not get burned.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'sand-dollars',
+    title: 'What Is a Sand Dollar?',
+    topic: 'florida-nature',
+    coverEmoji: '🪙',
+    coverColor: '#d1fae5',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 136,
+    readTimeMin: 1,
+    text: `Have you ever found a flat, round thing on the beach? It might have been a sand dollar!
+
+Sand dollars are sea animals. They are related to starfish and sea urchins. They live on the sandy floor of the ocean.
+
+A sand dollar has tiny, hair-like feet called **spines**. It uses its spines to move slowly along the ocean floor. It also uses them to find tiny pieces of food.
+
+When a sand dollar is alive, it is covered in soft brown or purple fuzz. The white, hard shell you find on the beach is what is left after the animal has died.
+
+If you find a sand dollar on the beach, look at the top. You will see a pretty flower pattern. That pattern is part of the sand dollar's shell.
+
+Always be **gentle** with sand dollars. They break very easily!`,
+    vocabulary: [
+      { word: 'spines', definition: 'Tiny, sharp, hair-like bumps on an animal that help it move or protect itself.', example: 'The sand dollar used its small spines to walk on the ocean floor.' },
+      { word: 'gentle', definition: 'Soft and careful, not rough.', example: 'She was gentle when she picked up the fragile sand dollar.' },
+      { word: 'related', definition: 'Connected to something by belonging to the same family or group.', example: 'Sand dollars are related to starfish because they are in the same animal group.' },
+      { word: 'pattern', definition: 'A design that repeats or forms a special shape.', example: 'The top of the sand dollar has a flower-shaped pattern.' },
+      { word: 'fragile', definition: 'Easy to break or damage.', example: 'Be careful — the sand dollar is fragile and will crack if you squeeze it.' }
+    ],
+    questions: [
+      {
+        question: 'What is a sand dollar?',
+        options: ['A coin found in the sand', 'A type of shell from a clam', 'A sea animal related to starfish', 'A kind of flat rock'],
+        correctIndex: 2,
+        explanation: 'The passage says sand dollars are sea animals related to starfish and sea urchins.'
+      },
+      {
+        question: 'What do sand dollars use their spines for?',
+        options: ['To swim quickly', 'To move along the ocean floor and find food', 'To hide from sharks', 'To float on top of the water'],
+        correctIndex: 1,
+        explanation: 'The passage says sand dollars use their spines to move slowly along the ocean floor and to find food.'
+      },
+      {
+        question: 'What color is a living sand dollar?',
+        options: ['Bright white', 'Covered in brown or purple fuzz', 'Bright orange', 'Shiny silver'],
+        correctIndex: 1,
+        explanation: 'The passage says a living sand dollar is covered in soft brown or purple fuzz. The white shell is what remains after it has died.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'pelicans-diving',
+    title: 'Pelicans Dive for Fish',
+    topic: 'florida-nature',
+    coverEmoji: '🐦',
+    coverColor: '#bfdbfe',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 133,
+    readTimeMin: 1,
+    text: `Pelicans are big birds that live near water. In Florida, you can spot them at the beach and near rivers!
+
+Pelicans are great at catching fish. They fly high above the water. When they see a fish, they fold their wings and **dive** straight down. Splash! They hit the water fast.
+
+Under a pelican's beak is a stretchy **pouch**. When the pelican dives, its pouch fills up with water and fish. Then the pelican lifts its head and drains out the water. It swallows the fish whole!
+
+Brown pelicans are the kind most people see in Florida. They have brown and white feathers and long orange beaks.
+
+Pelicans often sit on docks or posts near the water. They wait and watch for fish to swim close.
+
+The next time you visit a Florida beach, look up! You might see a pelican **soaring** through the sky, getting ready to dive.`,
+    vocabulary: [
+      { word: 'dive', definition: 'To jump or fall headfirst into water.', example: 'The pelican dove down into the ocean to catch a fish.' },
+      { word: 'pouch', definition: 'A loose flap of skin under a pelican\'s beak that holds fish and water.', example: 'The pelican\'s pouch was full of water and a big fish.' },
+      { word: 'drains', definition: 'Lets liquid flow out.', example: 'The pelican tilts its beak so the water drains out before it swallows the fish.' },
+      { word: 'soaring', definition: 'Flying high and smoothly through the air.', example: 'We watched the pelican soaring above the waves.' },
+      { word: 'spot', definition: 'To see or notice something.', example: 'Can you spot the pelican sitting on that post?' }
+    ],
+    questions: [
+      {
+        question: 'How does a pelican catch fish?',
+        options: ['It uses its feet to grab fish from the water', 'It flies high, then dives down into the water', 'It waits on shore for fish to jump out', 'It uses its wings to scoop up fish'],
+        correctIndex: 1,
+        explanation: 'The passage says pelicans fly high, then fold their wings and dive straight down to catch fish.'
+      },
+      {
+        question: 'What does the pelican\'s pouch do?',
+        options: ['It helps the pelican float', 'It keeps the pelican warm', 'It fills with water and fish when the pelican dives', 'It makes a loud sound to scare fish'],
+        correctIndex: 2,
+        explanation: 'The passage says the pouch fills up with water and fish when the pelican dives, and then the pelican drains out the water.'
+      },
+      {
+        question: 'What kind of pelican is most common in Florida?',
+        options: ['White pelican', 'Brown pelican', 'Gray pelican', 'Spotted pelican'],
+        correctIndex: 1,
+        explanation: 'The passage says brown pelicans are the kind most people see in Florida.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'stars-at-night',
+    title: 'Looking at Stars',
+    topic: 'science',
+    coverEmoji: '⭐',
+    coverColor: '#1e1b4b',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 129,
+    readTimeMin: 1,
+    text: `Have you ever looked up at the sky on a clear night? You can see hundreds of tiny, bright dots. Those are **stars**!
+
+Stars are very far away. They look small because they are so far from Earth. But most stars are actually very big — some are even bigger than our sun!
+
+Our sun is a star too. It is the star closest to Earth. That is why it looks so much bigger and brighter than the other stars we see at night.
+
+On some nights, you can see the moon too. The moon is not a star. It is a big ball of rock that goes around Earth.
+
+Groups of stars can make pictures in the sky. These groups are called **constellations**. One famous constellation looks like a big bear!
+
+To see stars best, go to a dark place away from bright lights. Look up and enjoy the show!`,
+    vocabulary: [
+      { word: 'stars', definition: 'Giant balls of hot gas in space that glow with light.', example: 'On a clear night, you can see many stars twinkling in the sky.' },
+      { word: 'constellations', definition: 'Groups of stars that seem to form a picture or shape in the night sky.', example: 'The teacher showed us a constellation that looks like a hunter.' },
+      { word: 'moon', definition: 'The large, round object that orbits Earth and reflects sunlight at night.', example: 'The full moon lit up the backyard at night.' },
+      { word: 'actually', definition: 'In truth or in reality.', example: 'The star looks tiny, but it is actually very large.' },
+      { word: 'closest', definition: 'Nearest in distance.', example: 'Our sun is the star closest to Earth.' }
+    ],
+    questions: [
+      {
+        question: 'Why do stars look so small in the sky?',
+        options: ['They are very cold', 'They are very small', 'They are very far away from Earth', 'They only come out at night'],
+        correctIndex: 2,
+        explanation: 'The passage says stars look small because they are so far away from Earth.'
+      },
+      {
+        question: 'What is our sun?',
+        options: ['The largest planet', 'The star closest to Earth', 'A big ball of rock', 'A constellation'],
+        correctIndex: 1,
+        explanation: 'The passage says our sun is a star — the star closest to Earth.'
+      },
+      {
+        question: 'What is a constellation?',
+        options: ['A very bright single star', 'The moon on a clear night', 'A group of stars that makes a picture in the sky', 'A planet near Earth'],
+        correctIndex: 2,
+        explanation: 'The passage says constellations are groups of stars that can make pictures in the sky.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'florida-rain-rainbows',
+    title: 'Rain and Rainbows in Florida',
+    topic: 'florida-nature',
+    coverEmoji: '🌈',
+    coverColor: '#6ee7f7',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 135,
+    readTimeMin: 1,
+    text: `Florida gets a lot of rain. In summer, it rains almost every afternoon! The rain is warm and comes down fast. Then it stops, and the sun comes back out.
+
+Rain is important. It fills up rivers and lakes. Plants drink the rainwater through their roots. Animals need the water too.
+
+After a rain shower, something magical can happen. If the sun shines while it is still a little rainy, you might see a **rainbow**!
+
+A rainbow is a curved band of colors in the sky. The colors are always in the same order: red, orange, yellow, green, blue, and purple.
+
+Rainbows happen because sunlight passes through tiny water drops in the air. The water splits the light into all its different colors.
+
+You can only see a rainbow if the sun is behind you and the rain is in front of you. So turn your back to the sun and look for that beautiful arc of color!`,
+    vocabulary: [
+      { word: 'rainbow', definition: 'A curved band of colors that appears in the sky when sunlight passes through raindrops.', example: 'After the storm, a bright rainbow stretched across the sky.' },
+      { word: 'roots', definition: 'The parts of a plant that grow underground and soak up water.', example: 'The tree\'s roots reach deep into the ground to find water.' },
+      { word: 'splits', definition: 'Divides something into separate parts.', example: 'Water splits sunlight into different colors to make a rainbow.' },
+      { word: 'curved', definition: 'Bent or rounded, not straight.', example: 'The rainbow made a curved shape across the cloudy sky.' },
+      { word: 'arc', definition: 'A smooth, curved shape like part of a circle.', example: 'The rainbow\'s arc was wide enough to see over the whole field.' }
+    ],
+    questions: [
+      {
+        question: 'When does it usually rain in Florida in the summer?',
+        options: ['Early in the morning', 'Almost every afternoon', 'Only at night', 'During the winter'],
+        correctIndex: 1,
+        explanation: 'The passage says in summer it rains almost every afternoon in Florida.'
+      },
+      {
+        question: 'What causes a rainbow to appear?',
+        options: ['Clouds blocking the moon', 'Sunlight passing through tiny water drops in the air', 'Lightning during a storm', 'Wind blowing colored dust'],
+        correctIndex: 1,
+        explanation: 'The passage says rainbows happen because sunlight passes through tiny water drops in the air, splitting the light into colors.'
+      },
+      {
+        question: 'Where should you stand to see a rainbow?',
+        options: ['With the rain behind you and the sun in front', 'With the sun behind you and the rain in front', 'Facing north always', 'Under a tree away from rain'],
+        correctIndex: 1,
+        explanation: 'The passage says you can only see a rainbow if the sun is behind you and the rain is in front of you.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'dolphins-jumping',
+    title: 'Dolphins Jump and Play',
+    topic: 'florida-nature',
+    coverEmoji: '🐬',
+    coverColor: '#7dd3fc',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 128,
+    readTimeMin: 1,
+    text: `Dolphins are amazing animals. They live in the ocean, but they are not fish. Dolphins are **mammals**, just like dogs and people!
+
+Dolphins breathe air. They come to the surface of the water to breathe through a hole on top of their head. This hole is called a **blowhole**.
+
+Dolphins love to swim fast and jump. They leap out of the water and spin in the air. Scientists think dolphins jump for fun, to see farther, or to talk to each other.
+
+Dolphins live in groups called **pods**. A pod can have a few dolphins or many. They look out for each other and work together to find food.
+
+Dolphins are very smart. They talk to each other using clicks and whistles. Each dolphin has its own special whistle, like a name!
+
+In Florida, you can see dolphins from the beach or from a boat. Watch for their gray fins cutting through the water!`,
+    vocabulary: [
+      { word: 'mammals', definition: 'Warm-blooded animals that breathe air and feed milk to their babies.', example: 'Dolphins are mammals, so they must come up for air.' },
+      { word: 'blowhole', definition: 'The hole on top of a dolphin\'s head that it uses to breathe.', example: 'The dolphin shot a spray of water from its blowhole.' },
+      { word: 'pods', definition: 'Groups of dolphins or whales that live and travel together.', example: 'A pod of dolphins swam alongside our boat.' },
+      { word: 'surface', definition: 'The top layer of the water.', example: 'The dolphin came to the surface to take a breath.' },
+      { word: 'leap', definition: 'To jump up quickly and with energy.', example: 'We watched the dolphin leap high out of the water.' }
+    ],
+    questions: [
+      {
+        question: 'How do dolphins breathe?',
+        options: ['Through gills on their sides', 'Through a blowhole on top of their head', 'Through their mouth under water', 'They do not need to breathe'],
+        correctIndex: 1,
+        explanation: 'The passage says dolphins breathe through a blowhole on top of their head and must come to the surface for air.'
+      },
+      {
+        question: 'Why are dolphins called mammals?',
+        options: ['Because they live in the ocean', 'Because they have fins', 'Because they breathe air and are warm-blooded', 'Because they are gray'],
+        correctIndex: 2,
+        explanation: 'The passage says dolphins are mammals just like dogs and people, meaning they breathe air.'
+      },
+      {
+        question: 'What is special about each dolphin\'s whistle?',
+        options: ['It is always the same sound', 'Each dolphin has its own special whistle like a name', 'Only baby dolphins make whistles', 'Whistles help them swim faster'],
+        correctIndex: 1,
+        explanation: 'The passage says each dolphin has its own special whistle, like a name.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'seed-grows-tree',
+    title: 'How a Seed Becomes a Tree',
+    topic: 'science',
+    coverEmoji: '🌳',
+    coverColor: '#86efac',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 131,
+    readTimeMin: 1,
+    text: `Every big tree started as a tiny seed. A seed has everything it needs to grow into a plant!
+
+First, a seed needs to land in good soil. Soil is the dirt that has water and nutrients in it. **Nutrients** are like food for plants. They help the plant grow.
+
+Next, the seed drinks water. Inside the seed, a tiny plant begins to wake up. A small root pushes down into the soil. A tiny **sprout** pushes up toward the sunlight.
+
+The sprout grows into a seedling. The seedling has a thin stem and a few small leaves. The leaves catch sunlight. Plants use sunlight and water to make their own food. This is called **photosynthesis**.
+
+Over many years, the seedling grows taller and stronger. Its trunk gets wider. Its branches spread out.
+
+One day, the tree makes flowers or fruit. Inside the fruit are new seeds! Those seeds fall to the ground and the cycle begins again.`,
+    vocabulary: [
+      { word: 'nutrients', definition: 'Natural substances in soil or food that help plants and animals grow.', example: 'The dark soil was full of nutrients that helped the seedling grow.' },
+      { word: 'sprout', definition: 'A tiny new plant that has just started to grow out of a seed.', example: 'A green sprout poked through the soil three days after planting.' },
+      { word: 'photosynthesis', definition: 'The way plants use sunlight and water to make their own food.', example: 'Without sunlight, a plant cannot do photosynthesis and will not grow.' },
+      { word: 'seedling', definition: 'A very young plant that has just started to grow from a seed.', example: 'She watered the tiny seedling every morning.' },
+      { word: 'cycle', definition: 'A set of events that happen over and over in the same order.', example: 'The life cycle of a tree starts with a seed and ends with new seeds.' }
+    ],
+    questions: [
+      {
+        question: 'What does a seed need first to start growing?',
+        options: ['Lots of wind', 'Good soil with water and nutrients', 'Very cold weather', 'Another plant nearby'],
+        correctIndex: 1,
+        explanation: 'The passage says a seed needs to land in good soil that has water and nutrients in it.'
+      },
+      {
+        question: 'What is photosynthesis?',
+        options: ['When a seed falls to the ground', 'The way animals find food in a forest', 'How plants use sunlight and water to make their own food', 'When a tree loses its leaves'],
+        correctIndex: 2,
+        explanation: 'The passage says plants use sunlight and water to make their own food, and this is called photosynthesis.'
+      },
+      {
+        question: 'How does the life cycle of a tree start again?',
+        options: ['When the tree gets cut down', 'When new seeds fall from the tree\'s fruit', 'When a seedling is watered', 'When the roots grow deeper'],
+        correctIndex: 1,
+        explanation: 'The passage says the tree makes fruit with seeds inside, the seeds fall to the ground, and the cycle starts again.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'community-firefighters',
+    title: 'Firefighters Help Us',
+    topic: 'community',
+    coverEmoji: '🚒',
+    coverColor: '#fca5a5',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 127,
+    readTimeMin: 1,
+    text: `Firefighters are community helpers. They work hard to keep us safe every day!
+
+When there is a fire, firefighters rush to help. They ride in big red fire trucks. The truck carries hoses, ladders, and water. Firefighters use the hose to spray water on the fire to put it out.
+
+Firefighters wear special **gear** to stay safe. Their jacket and pants protect them from heat and flames. Their helmet protects their head. They also wear a mask so they can breathe in smoky places.
+
+But firefighters do more than fight fires. They also help people who are hurt. Many firefighters are trained to give first aid.
+
+Firefighters also visit schools to teach fire safety. They show kids how to **stop, drop, and roll** if their clothes ever catch fire.
+
+If there is ever a fire, call 911 right away. Get out of the building and do not go back in. Let the brave firefighters do their job!`,
+    vocabulary: [
+      { word: 'gear', definition: 'Special clothing or equipment worn for protection during a job.', example: 'The firefighter put on all of her gear before entering the smoky building.' },
+      { word: 'community', definition: 'A group of people who live and work together in the same area.', example: 'Firefighters serve the whole community, not just one family.' },
+      { word: 'first aid', definition: 'Basic care given to someone who is hurt until a doctor can help.', example: 'The firefighter used first aid to help the hurt child.' },
+      { word: 'protect', definition: 'To keep something safe from harm or danger.', example: 'The helmet protects the firefighter\'s head from falling objects.' },
+      { word: 'flames', definition: 'The bright, hot, moving parts of a fire.', example: 'The firefighter sprayed water on the flames.' }
+    ],
+    questions: [
+      {
+        question: 'Why do firefighters wear special gear?',
+        options: ['To look cool at school', 'To stay safe from heat and flames', 'To run faster', 'To carry more water'],
+        correctIndex: 1,
+        explanation: 'The passage says firefighters wear special gear — jackets, pants, and a helmet — to protect them from heat and flames.'
+      },
+      {
+        question: 'What else do firefighters do besides fight fires?',
+        options: ['They drive school buses', 'They build houses', 'They help people who are hurt and teach fire safety', 'They cook meals at the fire station'],
+        correctIndex: 2,
+        explanation: 'The passage says firefighters help people who are hurt and also visit schools to teach fire safety.'
+      },
+      {
+        question: 'What should you do if there is a fire?',
+        options: ['Hide under your bed', 'Try to put it out yourself', 'Call 911 and get out of the building', 'Wait for someone to come find you'],
+        correctIndex: 2,
+        explanation: 'The passage says to call 911 right away and get out of the building if there is a fire.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'community-teachers',
+    title: 'Teachers Make a Difference',
+    topic: 'community',
+    coverEmoji: '📚',
+    coverColor: '#fde68a',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 126,
+    readTimeMin: 1,
+    text: `Teachers are very important people in our lives. Every day, they help us learn new things!
+
+A teacher's job starts before school. They plan **lessons** for the class. A lesson is a plan for what students will learn that day. Teachers pick books, make activities, and think about how to explain ideas clearly.
+
+In the classroom, teachers help us read, write, and do math. When something is hard, a teacher finds a different way to explain it. They never give up on their students.
+
+Teachers also teach us how to be kind and fair. They help solve problems when friends disagree. They make the classroom feel safe and **welcoming**.
+
+After school, teachers grade papers and plan for the next day. Being a teacher is a lot of work!
+
+Have you ever told your teacher thank you? Teachers love to know that their hard work **matters** to their students. A simple "thank you" can make a teacher's day!`,
+    vocabulary: [
+      { word: 'lessons', definition: 'Planned activities or instructions meant to teach a new skill or idea.', example: 'The teacher had lessons ready for reading and math.' },
+      { word: 'welcoming', definition: 'Friendly and making others feel comfortable and wanted.', example: 'The classroom felt welcoming, with colorful posters and happy music.' },
+      { word: 'matters', definition: 'Is important or makes a difference.', example: 'Your kind words matter to the people around you.' },
+      { word: 'disagree', definition: 'To have a different opinion from someone else.', example: 'Even when friends disagree, they can still be kind to each other.' },
+      { word: 'grade', definition: 'To review and mark a student\'s work to show how well they did.', example: 'After school, the teacher stayed late to grade the spelling tests.' }
+    ],
+    questions: [
+      {
+        question: 'What does a teacher do before school starts?',
+        options: ['Goes grocery shopping', 'Plans lessons for the class', 'Grades tests at home', 'Reads books to relax'],
+        correctIndex: 1,
+        explanation: 'The passage says teachers plan lessons for the class before school, picking books and making activities.'
+      },
+      {
+        question: 'Besides reading and math, what else do teachers help students learn?',
+        options: ['How to cook meals', 'How to drive', 'How to be kind and fair', 'How to build things'],
+        correctIndex: 2,
+        explanation: 'The passage says teachers also teach students how to be kind and fair and help solve problems.'
+      },
+      {
+        question: 'What is one simple way to show a teacher you care?',
+        options: ['Do all your homework perfectly', 'Say thank you', 'Bring them a gift every day', 'Be the loudest in class'],
+        correctIndex: 1,
+        explanation: 'The passage says a simple "thank you" can make a teacher\'s day and lets them know their work matters.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'sharing-with-friends',
+    title: 'Sharing Is Caring',
+    topic: 'character',
+    coverEmoji: '🤝',
+    coverColor: '#fbcfe8',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 124,
+    readTimeMin: 1,
+    text: `Maya loved her big box of crayons. It had every color — even gold and silver. She brought it to school one day.
+
+At art time, her friend Leo looked sad. "I only have four crayons," he said. "I can't make a good picture."
+
+Maya thought for a moment. She did not want to give away her crayons. But she also did not like seeing Leo sad.
+
+"We can **share**," she said. She slid the box to the middle of the table. "We can both use them!"
+
+Leo's face lit up. "Thank you, Maya!" He picked up the green crayon and began to draw tall palm trees.
+
+Maya picked up gold and started drawing a sunshine. Working together, they made the best picture in the class!
+
+Their teacher hung it on the wall. "What a great example of **teamwork**," she said with a smile.
+
+Sharing is not always easy. But it always makes things better for everyone!`,
+    vocabulary: [
+      { word: 'share', definition: 'To let others use or have some of what you have.', example: 'Leo was happy when Maya agreed to share her crayons.' },
+      { word: 'teamwork', definition: 'Working together with others to reach a goal.', example: 'Their great drawing was an example of teamwork.' },
+      { word: 'example', definition: 'Something that shows what something is or how it works.', example: 'Sharing your lunch is a good example of being kind.' },
+      { word: 'moment', definition: 'A very short period of time.', example: 'Maya thought for a moment before she decided what to do.' },
+      { word: 'slid', definition: 'Moved something smoothly along a surface.', example: 'She slid the crayon box to the middle of the table.' }
+    ],
+    questions: [
+      {
+        question: 'Why did Maya decide to share her crayons?',
+        options: ['She did not like her crayons anymore', 'Her teacher told her to', 'She did not like seeing Leo sad', 'Leo asked her teacher for help'],
+        correctIndex: 2,
+        explanation: 'The passage says Maya did not like seeing Leo sad, so she decided to share her crayons with him.'
+      },
+      {
+        question: 'What happened after Maya and Leo shared the crayons?',
+        options: ['They argued about colors', 'They made the best picture in the class', 'They gave the crayons away', 'They went outside to play'],
+        correctIndex: 1,
+        explanation: 'The passage says working together they made the best picture in the class and the teacher hung it on the wall.'
+      },
+      {
+        question: 'What does the word "teamwork" mean?',
+        options: ['Playing a sport', 'Working together with others to reach a goal', 'Having lots of supplies', 'Being the best in class'],
+        correctIndex: 1,
+        explanation: 'The teacher used the word "teamwork" to describe Maya and Leo working together, meaning they cooperated to reach a goal.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'brave-at-school',
+    title: 'Being Brave at School',
+    topic: 'character',
+    coverEmoji: '💪',
+    coverColor: '#c7d2fe',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 132,
+    readTimeMin: 1,
+    text: `It was the first day of first grade. Carlos felt his stomach flip. What if the kids were mean? What if he got lost? What if school was too hard?
+
+His mom gave him a hug. "Being brave doesn't mean you aren't scared," she said. "It means you try anyway."
+
+Carlos walked into the classroom. His legs felt shaky. He looked around and saw bright posters and a friendly teacher.
+
+"Welcome!" said his teacher, Ms. Rivera. "Find a seat and say hello to your neighbor."
+
+Carlos sat down next to a boy named Aiden. "Hi," Carlos said quietly. His voice came out small, but he said it.
+
+Aiden smiled. "Hi! I like your backpack." Carlos looked down at his rocket ship backpack and grinned.
+
+By lunch, Carlos had made two new friends. And he wasn't scared anymore.
+
+**Courage** is not the same as not being afraid. Courage is taking that first step even when you feel nervous.`,
+    vocabulary: [
+      { word: 'courage', definition: 'The strength to do something even when you are scared or nervous.', example: 'It took courage for Carlos to say hello on his first day.' },
+      { word: 'nervous', definition: 'Feeling worried or unsure about something that is going to happen.', example: 'She felt nervous before her first day of school.' },
+      { word: 'neighbor', definition: 'Someone who sits or lives near you.', example: 'Carlos said hello to his neighbor at the lunch table.' },
+      { word: 'shaky', definition: 'Trembling or unsteady, often because of fear or nerves.', example: 'His hands felt shaky as he opened the classroom door.' },
+      { word: 'grinned', definition: 'Smiled widely with happiness.', example: 'Carlos grinned when Aiden said something nice about his backpack.' }
+    ],
+    questions: [
+      {
+        question: 'What was Carlos afraid of at the start of the story?',
+        options: ['Getting a bad grade on a test', 'That kids would be mean, he\'d get lost, or school would be hard', 'His mom leaving without saying goodbye', 'Forgetting his lunch'],
+        correctIndex: 1,
+        explanation: 'The passage says Carlos worried about kids being mean, getting lost, and school being too hard.'
+      },
+      {
+        question: 'What did Carlos\'s mom mean when she said "being brave means you try anyway"?',
+        options: ['You should never feel scared', 'Brave people do not have problems', 'Courage means acting even when you feel scared', 'You must smile all day at school'],
+        correctIndex: 2,
+        explanation: 'Carlos\'s mom explained that being brave does not mean you aren\'t scared — it means you try anyway, which is the definition of courage.'
+      },
+      {
+        question: 'How did Carlos feel by lunchtime?',
+        options: ['Still very scared and alone', 'Angry at his teacher', 'He had made two new friends and was not scared anymore', 'Tired and ready to go home'],
+        correctIndex: 2,
+        explanation: 'The passage says by lunch Carlos had made two new friends and was not scared anymore.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'florida-oranges',
+    title: 'Florida Oranges',
+    topic: 'florida-nature',
+    coverEmoji: '🍊',
+    coverColor: '#fed7aa',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 134,
+    readTimeMin: 1,
+    text: `Florida is famous for its oranges. Orange trees grow well in Florida because the weather is warm and sunny.
+
+An orange tree has dark green leaves and white flowers. The flowers smell sweet. After the flowers bloom, small green fruits begin to grow. Slowly, they turn orange!
+
+Inside an orange is sweet, juicy fruit. Oranges are full of **vitamin C**. Vitamin C helps your body fight off colds and keeps you healthy.
+
+Oranges can be eaten whole or squeezed into juice. Florida orange juice is sold all over the country!
+
+Farmers grow oranges on big farms called **groves**. In a grove, there are rows and rows of orange trees. Workers **harvest**, or pick, the oranges when they are ripe.
+
+Ripe oranges are the best! A ripe orange is bright orange on the outside and very sweet on the inside.
+
+The next time you drink a glass of orange juice, it just might be from a Florida orange tree!`,
+    vocabulary: [
+      { word: 'vitamin C', definition: 'A nutrient found in fruits like oranges that helps your body stay healthy.', example: 'Eating oranges gives you vitamin C to help fight colds.' },
+      { word: 'groves', definition: 'Groups of the same kind of fruit tree planted together in rows.', example: 'We drove past miles of orange groves on the way to the beach.' },
+      { word: 'harvest', definition: 'To pick or gather crops when they are ready to eat.', example: 'Farmers harvest the oranges in the fall and winter months.' },
+      { word: 'ripe', definition: 'Fully grown and ready to be picked and eaten.', example: 'A ripe orange is bright orange and very sweet.' },
+      { word: 'bloom', definition: 'When flowers open up on a plant.', example: 'The orange tree\'s white flowers bloom in the spring.' }
+    ],
+    questions: [
+      {
+        question: 'Why do orange trees grow well in Florida?',
+        options: ['Because Florida has lots of snow', 'Because the weather is warm and sunny', 'Because Florida has no bugs', 'Because oranges need cold weather'],
+        correctIndex: 1,
+        explanation: 'The passage says orange trees grow well in Florida because the weather is warm and sunny.'
+      },
+      {
+        question: 'What does vitamin C do for your body?',
+        options: ['Makes your hair grow faster', 'Helps your body fight off colds and keeps you healthy', 'Makes oranges taste sweet', 'Turns orange skin orange'],
+        correctIndex: 1,
+        explanation: 'The passage says vitamin C helps your body fight off colds and keeps you healthy.'
+      },
+      {
+        question: 'What is a grove?',
+        options: ['A glass of juice', 'A type of orange with no seeds', 'A group of the same kind of fruit trees planted together', 'The machine that squeezes juice'],
+        correctIndex: 2,
+        explanation: 'The passage says farmers grow oranges on big farms called groves, with rows and rows of orange trees.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'ants-colonies',
+    title: 'Ants Work Together',
+    topic: 'science',
+    coverEmoji: '🐜',
+    coverColor: '#d97706',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 137,
+    readTimeMin: 1,
+    text: `Have you ever watched a line of ants marching across the ground? Ants are tiny, but they do amazing things!
+
+Ants live together in groups called **colonies**. A colony can have hundreds or even thousands of ants. They all live in an underground home called an **anthill**.
+
+Every ant in the colony has a job. The **queen** ant lays all the eggs. Worker ants find food and bring it back to the anthill. Soldier ants protect the colony from danger.
+
+Ants are incredibly strong for their size. An ant can carry something ten times heavier than itself! If you were that strong, you could carry a small car!
+
+Ants find food by following the smell of other ants. When a worker ant finds food, it leaves a scent trail going back home. Other ants follow the trail to the food.
+
+In Florida, fire ants are very common. Fire ants bite, so be careful around their hills. Never step on a fire ant hill!`,
+    vocabulary: [
+      { word: 'colonies', definition: 'Large groups of the same kind of insect or animal that live together.', example: 'The ant colony had thousands of workers living underground.' },
+      { word: 'anthill', definition: 'The mound of dirt that marks the entrance to an ant colony underground.', example: 'We watched ants going in and out of the anthill.' },
+      { word: 'queen', definition: 'The main female ant in a colony whose job is to lay eggs.', example: 'All the ants in the colony work to protect the queen.' },
+      { word: 'scent', definition: 'A smell that an animal leaves behind to send a message.', example: 'The ant followed the scent trail left by other worker ants.' },
+      { word: 'incredibly', definition: 'In a way that is hard to believe; extremely.', example: 'Ants are incredibly strong for how small they are.' }
+    ],
+    questions: [
+      {
+        question: 'What is an ant colony?',
+        options: ['A single ant and its eggs', 'A trail that ants follow to find food', 'A large group of ants that live together', 'The queen ant\'s special room'],
+        correctIndex: 2,
+        explanation: 'The passage says a colony is a group of ants that live together, sometimes with thousands of members.'
+      },
+      {
+        question: 'How do worker ants help other ants find food?',
+        options: ['They carry the food back and share it at the anthill', 'They leave a scent trail from the food back home', 'They dig holes near the food', 'They make loud sounds to call others'],
+        correctIndex: 1,
+        explanation: 'The passage says a worker ant leaves a scent trail back to the anthill when it finds food, so other ants can follow it.'
+      },
+      {
+        question: 'What should you do if you see a fire ant hill in Florida?',
+        options: ['Tap it gently to see what happens', 'Never step on it — fire ants bite', 'Dig it up with a stick', 'Pour water on it'],
+        correctIndex: 1,
+        explanation: 'The passage says fire ants bite and warns readers to be careful and never step on a fire ant hill.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'frogs-near-pond',
+    title: 'Frogs at the Pond',
+    topic: 'florida-nature',
+    coverEmoji: '🐸',
+    coverColor: '#6ee7b7',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 130,
+    readTimeMin: 1,
+    text: `If you walk near a pond in Florida, you might hear a loud **ribbit**! That is the sound of a frog.
+
+Frogs are **amphibians**. That means they can live both in water and on land. Young frogs, called **tadpoles**, look like tiny fish. They live in the water and breathe through gills.
+
+As they grow, tadpoles slowly grow legs. Their tail gets shorter. They grow lungs so they can breathe air. Then they hop out of the water as little frogs!
+
+Frogs have long, sticky tongues. They flick their tongue out super fast to catch bugs. Flies, crickets, and mosquitoes — a frog eats them all!
+
+Frogs also have special skin. They can drink water right through their skin! Their skin must stay wet or they will dry out.
+
+Florida has many kinds of frogs. The green tree frog is one you might see stuck to a window at night, looking for bugs near the light.`,
+    vocabulary: [
+      { word: 'ribbit', definition: 'The croaking sound a frog makes.', example: 'We heard a loud ribbit coming from the edge of the pond.' },
+      { word: 'amphibians', definition: 'Animals that can live both in water and on land, like frogs and salamanders.', example: 'Frogs are amphibians because they start life in water and later live on land.' },
+      { word: 'tadpoles', definition: 'Young frogs that live in water and look like tiny fish with tails.', example: 'The tadpoles swam in circles at the edge of the pond.' },
+      { word: 'gills', definition: 'The body parts a fish or tadpole uses to breathe underwater.', example: 'Before it grows lungs, a tadpole breathes with its gills.' },
+      { word: 'flick', definition: 'To move something quickly with a sharp snap.', example: 'The frog can flick its tongue out and back in less than a second.' }
+    ],
+    questions: [
+      {
+        question: 'What is a tadpole?',
+        options: ['An adult frog that lives on land', 'A young frog that lives in water and looks like a tiny fish', 'A kind of water plant', 'A baby fish that becomes a frog'],
+        correctIndex: 1,
+        explanation: 'The passage says young frogs are called tadpoles, they live in the water, and they look like tiny fish.'
+      },
+      {
+        question: 'How do frogs drink water?',
+        options: ['They use their long tongue to scoop water', 'They drink it with their mouths by the pond', 'They absorb water right through their skin', 'They catch raindrops on their back'],
+        correctIndex: 2,
+        explanation: 'The passage says frogs can drink water right through their skin, and their skin must stay wet.'
+      },
+      {
+        question: 'What do frogs eat?',
+        options: ['Seeds and berries', 'Water plants and moss', 'Flies, crickets, and mosquitoes', 'Small fish only'],
+        correctIndex: 2,
+        explanation: 'The passage says frogs eat flies, crickets, and mosquitoes using their long sticky tongues.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'clouds-and-weather',
+    title: 'What Do Clouds Tell Us?',
+    topic: 'science',
+    coverEmoji: '☁️',
+    coverColor: '#e0f2fe',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 133,
+    readTimeMin: 1,
+    text: `Look up at the sky. What do you see? Clouds can tell us a lot about the weather!
+
+Clouds are made of tiny drops of water floating in the air. The water comes from oceans, rivers, and lakes. When water heats up, it turns into a gas called **water vapor** and floats up into the sky. Up high, it cools down and turns back into tiny water drops. Those drops make clouds!
+
+There are different kinds of clouds. **Cumulus** clouds are big, fluffy, and white. They look like cotton balls. You often see them on nice days.
+
+**Cumulonimbus** clouds are dark and very tall. These are storm clouds! When you see them, rain may be on the way.
+
+Thin, wispy clouds high in the sky are called **cirrus** clouds. They usually mean the weather is fine.
+
+In Florida, you can see all kinds of clouds. Learning their names is like learning a secret weather code!`,
+    vocabulary: [
+      { word: 'water vapor', definition: 'Water that has turned into an invisible gas in the air.', example: 'Water vapor rises into the sky and later becomes clouds.' },
+      { word: 'cumulus', definition: 'Big, fluffy white clouds often seen on sunny days.', example: 'The cumulus clouds looked like giant marshmallows floating in the sky.' },
+      { word: 'cumulonimbus', definition: 'Tall, dark storm clouds that bring heavy rain and thunder.', example: 'The cumulonimbus cloud grew dark before the storm hit.' },
+      { word: 'cirrus', definition: 'Thin, wispy clouds high in the sky that often mean fair weather.', example: 'Cirrus clouds look like thin streaks of white paint across the sky.' },
+      { word: 'wispy', definition: 'Thin, light, and not very solid-looking.', example: 'The wispy cirrus clouds drifted high above the treetops.' }
+    ],
+    questions: [
+      {
+        question: 'What are clouds made of?',
+        options: ['Smoke and dust from the ground', 'Tiny drops of water floating in the air', 'Frozen air and ice', 'Cotton fibers blown by wind'],
+        correctIndex: 1,
+        explanation: 'The passage says clouds are made of tiny drops of water floating in the air.'
+      },
+      {
+        question: 'What kind of clouds warn you that rain may be coming?',
+        options: ['Cumulus clouds', 'Cirrus clouds', 'Cumulonimbus clouds', 'White fluffy clouds'],
+        correctIndex: 2,
+        explanation: 'The passage says cumulonimbus clouds are dark storm clouds and when you see them, rain may be on the way.'
+      },
+      {
+        question: 'What do cirrus clouds usually mean?',
+        options: ['A big storm is nearby', 'The weather is fine', 'It will snow soon', 'Heavy winds are coming'],
+        correctIndex: 1,
+        explanation: 'The passage says cirrus clouds are thin and wispy and usually mean the weather is fine.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'beach-ocean-waves',
+    title: 'The Beach and the Waves',
+    topic: 'florida-nature',
+    coverEmoji: '🌊',
+    coverColor: '#38bdf8',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 129,
+    readTimeMin: 1,
+    text: `Florida has beautiful beaches. The sand is soft and white. The water is warm and clear. Many families visit the beach every year!
+
+Waves are one of the best things about the beach. A **wave** is a ridge of water that rolls toward the shore. Waves are made by wind blowing across the ocean. The stronger the wind, the bigger the waves!
+
+When a wave reaches the beach, it crashes on the shore. The water rushes up the sand, then rolls back out. This is called the **tide**.
+
+Waves bring things to the beach. Shells, seaweed, and sometimes sand dollars wash up on shore. These are gifts from the ocean!
+
+The ocean is **vast**, meaning very, very large. It covers more than half of Earth. Many animals live in the ocean, from tiny shrimp to giant whales.
+
+Always stay safe at the beach. Never swim alone. Watch out for **riptides**, which are strong currents that can pull swimmers away from shore. Always swim near a lifeguard!`,
+    vocabulary: [
+      { word: 'wave', definition: 'A ridge of water that moves across the surface of the ocean toward the shore.', example: 'The big wave splashed over our feet as it reached the sand.' },
+      { word: 'tide', definition: 'The regular rising and falling of ocean water along the shore.', example: 'At high tide, the water covered the whole beach.' },
+      { word: 'vast', definition: 'Very large in size or amount.', example: 'The vast ocean stretched as far as we could see.' },
+      { word: 'riptides', definition: 'Strong underwater currents that can pull swimmers away from shore quickly.', example: 'The lifeguard warned swimmers about the dangerous riptides.' },
+      { word: 'shore', definition: 'The land along the edge of an ocean, lake, or river.', example: 'Shells washed up on the shore after the storm.' }
+    ],
+    questions: [
+      {
+        question: 'What causes waves in the ocean?',
+        options: ['Fish swimming near the surface', 'Wind blowing across the ocean', 'The moon pulling on the water', 'Rain hitting the water'],
+        correctIndex: 1,
+        explanation: 'The passage says waves are made by wind blowing across the ocean — the stronger the wind, the bigger the waves.'
+      },
+      {
+        question: 'What is a riptide?',
+        options: ['A very tall wave near the shore', 'A strong current that can pull swimmers away from shore', 'A type of seashell found at the beach', 'A wave caused by a storm'],
+        correctIndex: 1,
+        explanation: 'The passage says riptides are strong currents that can pull swimmers away from shore.'
+      },
+      {
+        question: 'What does the word "vast" mean in this passage?',
+        options: ['Very fast', 'Very cold and dark', 'Very large', 'Very shallow'],
+        correctIndex: 2,
+        explanation: 'The passage says the ocean is "vast," and then explains it means very, very large, covering more than half of Earth.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'baby-sea-turtles',
+    title: 'Baby Sea Turtles Hatch',
+    topic: 'florida-nature',
+    coverEmoji: '🐢',
+    coverColor: '#6ee7b7',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 140,
+    readTimeMin: 1,
+    text: `On warm Florida nights, something amazing happens on the beach. Baby sea turtles **hatch** from their eggs!
+
+A mother sea turtle comes ashore at night. She digs a deep hole in the sand with her flippers. She lays about 100 eggs inside. Then she covers the eggs with sand and goes back to the ocean. She will never see her babies.
+
+The eggs stay buried in the warm sand for about two months. The sun heats the sand and keeps the eggs warm.
+
+Then one night, the eggs crack open! The baby turtles, called **hatchlings**, dig up through the sand together. It can take days of pushing to reach the top!
+
+When they finally reach the surface, the hatchlings run toward the ocean. They follow the **moonlight** shining on the water.
+
+Many hatchlings do not make it. Birds, crabs, and fish try to eat them. But the ones that survive grow up to swim across the whole ocean.
+
+In Florida, people protect nesting beaches so sea turtles can safely hatch each year.`,
+    vocabulary: [
+      { word: 'hatch', definition: 'To break out of an egg.', example: 'The baby turtles hatch from their eggs and run to the sea.' },
+      { word: 'hatchlings', definition: 'Animals that have just hatched from eggs.', example: 'The tiny hatchlings scrambled across the sand toward the water.' },
+      { word: 'flippers', definition: 'The wide, flat limbs of a sea turtle or other sea animal used for swimming.', example: 'The mother sea turtle used her flippers to dig a hole in the sand.' },
+      { word: 'moonlight', definition: 'The light of the moon that shines at night.', example: 'The hatchlings followed the moonlight to find the ocean.' },
+      { word: 'survive', definition: 'To stay alive despite danger or hardship.', example: 'Only a few hatchlings survive the trip from the nest to the ocean.' }
+    ],
+    questions: [
+      {
+        question: 'What does a mother sea turtle do after she lays her eggs?',
+        options: ['She stays to guard the nest', 'She covers them with sand and returns to the ocean', 'She carries them to the water herself', 'She buries them in seaweed'],
+        correctIndex: 1,
+        explanation: 'The passage says the mother covers the eggs with sand and goes back to the ocean, never seeing her babies.'
+      },
+      {
+        question: 'How do hatchlings know which way to go when they reach the surface?',
+        options: ['They smell the ocean water', 'They follow the moonlight shining on the water', 'Their mother calls them from the sea', 'They follow other hatchlings'],
+        correctIndex: 1,
+        explanation: 'The passage says hatchlings follow the moonlight shining on the water to find the ocean.'
+      },
+      {
+        question: 'Why do people protect nesting beaches in Florida?',
+        options: ['To keep people from swimming there', 'So sea turtles can safely hatch each year', 'To stop birds from living near the beach', 'To build new hotels'],
+        correctIndex: 1,
+        explanation: 'The passage says people protect nesting beaches so sea turtles can safely hatch each year.'
+      }
+    ]
+  },
+
+// ── Grade 1 ──
+  {
+    id: 'florida-lighthouses',
+    title: 'Florida\'s Tall Lighthouses',
+    topic: 'florida-history',
+    coverEmoji: '🗼',
+    coverColor: '#fef9c3',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 135,
+    readTimeMin: 1,
+    text: `Have you ever seen a tall striped tower near the ocean? It might be a **lighthouse**!
+
+Lighthouses are tall towers built near the water. They have a very bright light at the top. Long ago, before GPS and computers, ships could get lost at sea. The lighthouse helped them!
+
+The light in a lighthouse **flashes** on and off in a pattern. Each lighthouse has its own special pattern. A sailor could see the flashing light and know exactly which lighthouse it was. This helped sailors figure out where they were.
+
+Lighthouses also warned sailors about **dangerous** places. Rocky shores and shallow water could wreck a ship. The light said, "Watch out! Danger is near!"
+
+A person called a **lighthouse keeper** took care of the lighthouse. The keeper made sure the light was always on at night.
+
+Florida has many famous lighthouses. The Cape Florida Lighthouse in Miami is over 150 years old! The Ponce de León Inlet Lighthouse is the tallest lighthouse in Florida.
+
+Today, lighthouses still work. They are also a favorite place to visit!`,
+    vocabulary: [
+      { word: 'lighthouse', definition: 'A tall tower with a bright light at the top, built near water to guide ships safely.', example: 'The sailors saw the lighthouse beam and steered away from the rocks.' },
+      { word: 'flashes', definition: 'Sends out quick, bright bursts of light.', example: 'The lighthouse flashes a pattern of light that sailors can recognize.' },
+      { word: 'dangerous', definition: 'Likely to cause harm or injury.', example: 'Rocky shores are dangerous for ships sailing in the dark.' },
+      { word: 'lighthouse keeper', definition: 'The person whose job was to maintain a lighthouse and keep the light burning.', example: 'The lighthouse keeper climbed the stairs each night to light the lamp.' },
+      { word: 'pattern', definition: 'A repeating order or design that can be recognized.', example: 'Each lighthouse has its own pattern of flashing so sailors can tell them apart.' }
+    ],
+    questions: [
+      {
+        question: 'Why were lighthouses built near the ocean?',
+        options: ['To give people a place to swim', 'To help sailors know where they were and warn them of danger', 'To store fishing equipment', 'To watch for storms coming from the sea'],
+        correctIndex: 1,
+        explanation: 'The passage says lighthouses helped sailors figure out where they were and warned them about dangerous rocky shores and shallow water.'
+      },
+      {
+        question: 'Why does each lighthouse have its own flashing pattern?',
+        options: ['To make the light last longer', 'To look pretty from far away', 'So sailors can tell one lighthouse from another', 'To scare away birds'],
+        correctIndex: 2,
+        explanation: 'The passage says each lighthouse has a special pattern so sailors can recognize which lighthouse it is and know where they are.'
+      },
+      {
+        question: 'What was a lighthouse keeper\'s job?',
+        options: ['To sail ships past rocky shores', 'To make sure the light was always on at night', 'To paint the lighthouse stripes', 'To find dangerous rocks in the water'],
+        correctIndex: 1,
+        explanation: 'The passage says the lighthouse keeper took care of the lighthouse and made sure the light was always on at night.'
+      }
+    ]
+  },
+
+// ── Grade 2 ──
+  {
+    id: 'florida-lighthouse-history',
+    title: 'Lights in the Dark: Florida Lighthouses',
+    topic: 'florida-history',
+    coverEmoji: '🗼',
+    coverColor: '#b45309',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 230,
+    readTimeMin: 1,
+    text: `Long ago, ships traveled along Florida's coast every day. Sailors needed help finding safe paths through the dark water at night. Rocks and shallow water near the shore could sink a ship. That is why people built **lighthouses**.
+
+A lighthouse is a tall tower with a bright light at the top. The light spins around and shines far out to sea. When sailors saw the flashing light, they knew where the shore was. This helped them steer away from danger.
+
+Florida has more than thirty lighthouses. Some are very old. The St. Augustine Lighthouse was built in 1874. It is painted with black and white stripes. Visitors can climb its 219 steps to see the view from the top.
+
+The Cape Florida Lighthouse is on a small island near Miami. During a battle long ago, the keeper was hurt and the lighthouse caught fire. But it was repaired and it still stands today.
+
+Lighthouses need a person called a **keeper** to take care of them. Keepers made sure the light never went out. They polished the lens and filled the oil lamps every single day. It was hard but important work.
+
+Today, most lighthouses use electric lights and do not need keepers anymore. But Floridians still love these tall towers. They remind us of the brave sailors and keepers of the past.`,
+    vocabulary: [
+      { word: 'lighthouse', definition: 'A tall tower with a bright flashing light that warns sailors of dangerous shores.', example: 'The captain was relieved when he spotted the lighthouse through the fog.' },
+      { word: 'sailor', definition: 'A person who works on a ship or boat.', example: 'The sailor used the stars to find his way across the ocean.' },
+      { word: 'shallow', definition: 'Not deep; having little distance from the top to the bottom.', example: 'The water near the beach was so shallow that he could stand on the bottom.' },
+      { word: 'keeper', definition: 'A person who takes care of a place or thing.', example: 'The lighthouse keeper climbed the stairs every night to turn on the light.' },
+      { word: 'lens', definition: 'A curved piece of glass that bends light to make it brighter or change its direction.', example: 'The huge lens in the lighthouse made the beam of light shine for miles.' }
+    ],
+    questions: [
+      {
+        question: 'Why did sailors need lighthouses?',
+        options: [
+          'To find fresh water and food on long trips',
+          'To know where the shore was so they could avoid rocks and shallow water',
+          'To signal other ships so they could sail together',
+          'To get directions to the nearest port city'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that lighthouses helped sailors find safe paths and steer away from rocks and shallow water near the shore.'
+      },
+      {
+        question: 'What was one job of a lighthouse keeper?',
+        options: [
+          'Steering ships safely into the harbor',
+          'Painting the lighthouse stripes every year',
+          'Making sure the light never went out',
+          'Climbing the steps to greet visiting sailors'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says keepers made sure the light never went out, and they polished the lens and filled the oil lamps every day.'
+      },
+      {
+        question: 'How are lighthouses different today compared to the past?',
+        options: [
+          'They are built much taller so ships can see them from farther away',
+          'They use electric lights and mostly do not need keepers anymore',
+          'They are painted in bright colors so planes can see them too',
+          'They are placed only in large cities along the coast'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that today most lighthouses use electric lights and do not need keepers anymore.'
+      }
+    ]
+  },
+
+  {
+    id: 'doctors-and-nurses',
+    title: 'Helpers Who Keep Us Healthy',
+    topic: 'community-helpers',
+    coverEmoji: '🩺',
+    coverColor: '#0891b2',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 218,
+    readTimeMin: 1,
+    text: `Have you ever visited a doctor when you were sick? Doctors and nurses are **community helpers**. They work hard every day to keep people healthy and safe.
+
+Doctors go to school for many years to learn about the human body. They learn how the heart pumps blood and how the lungs breathe air. When you are sick, a doctor listens to your chest, looks in your ears, and asks you questions. Then the doctor figures out what is wrong and how to help you feel better.
+
+Nurses work with doctors to take care of patients. A **patient** is a person who is getting medical help. Nurses take your **temperature** and check how fast your heart is beating. They give medicines and make sure patients are comfortable.
+
+Doctors and nurses work in many places. Some work in big hospitals. Others work in small clinics in neighborhoods. Some nurses go to schools to help children who get hurt or feel sick during the day.
+
+It takes a lot of kindness to be a doctor or nurse. Patients are often scared or in pain. Doctors and nurses listen carefully and speak gently. They explain what they are going to do so patients feel less afraid.
+
+Next time you see a doctor or nurse, you can say thank you. Their work helps everyone in our community stay strong and well.`,
+    vocabulary: [
+      { word: 'community', definition: 'A group of people who live or work together in the same place.', example: 'The whole community came together to plant a garden in the park.' },
+      { word: 'patient', definition: 'A person who is receiving care from a doctor or nurse.', example: 'The patient smiled when the nurse brought him a glass of water.' },
+      { word: 'temperature', definition: 'A measurement of how hot or cold something is; used to check if a person has a fever.', example: 'The nurse took the child\'s temperature and found he had a slight fever.' },
+      { word: 'medicine', definition: 'A substance used to treat illness or injury and help a person get well.', example: 'The doctor prescribed medicine to help fight the infection.' },
+      { word: 'clinic', definition: 'A small medical office or center where people go for health care.', example: 'My family goes to the neighborhood clinic for checkups every year.' }
+    ],
+    questions: [
+      {
+        question: 'What do doctors do when a patient comes to see them?',
+        options: [
+          'They send the patient to a hospital right away',
+          'They listen, examine the patient, and figure out how to help',
+          'They only give medicine and send the patient home',
+          'They ask the nurse to take care of everything'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that doctors listen to your chest, look in your ears, ask questions, and then figure out what is wrong and how to help.'
+      },
+      {
+        question: 'What is one job that nurses do?',
+        options: [
+          'They go to school to study how the heart pumps blood',
+          'They build new hospitals in neighborhoods',
+          'They check a patient\'s temperature and how fast the heart is beating',
+          'They choose what medicine the doctor will prescribe'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says nurses take your temperature and check how fast your heart is beating, and they give medicines.'
+      },
+      {
+        question: 'Why do doctors and nurses need to be kind?',
+        options: [
+          'So patients will give them good reviews online',
+          'Because patients are often scared or in pain and need to feel less afraid',
+          'Because the hospital rules say they must always be kind',
+          'So that other doctors will want to work with them'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that patients are often scared or in pain, and doctors and nurses speak gently and explain things so patients feel less afraid.'
+      }
+    ]
+  },
+
+  {
+    id: 'water-cycle-grade2',
+    title: 'Water\'s Amazing Journey',
+    topic: 'science-weather',
+    coverEmoji: '🌧️',
+    coverColor: '#2563eb',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 222,
+    readTimeMin: 1,
+    text: `Have you ever wondered where rain comes from? Water goes on an amazing journey over and over again. This journey is called the **water cycle**.
+
+It all starts when the sun shines on water in lakes, rivers, and oceans. The sun's heat turns some water into a gas called **water vapor**. The water vapor floats up into the air. This is called **evaporation**. You cannot see it happening, but it is always going on.
+
+As the water vapor rises higher, the air gets cooler. The cool air turns the vapor back into tiny drops of water. These tiny drops group together to form **clouds**. Clouds are really just millions of tiny water droplets floating in the sky.
+
+When a cloud collects too much water, the drops get bigger and heavier. They become too heavy to stay up in the sky. Then they fall to the ground as rain or snow. This is called **precipitation**.
+
+When rain falls, some of it soaks into the ground. Some runs into streams and rivers. The rivers carry the water back to the ocean. Then the sun starts the cycle all over again.
+
+In Florida, the water cycle is very active. Florida gets a lot of rain in summer. The warm sun quickly evaporates the water again. That is why Florida has so many big afternoon thunderstorms during the hot months.`,
+    vocabulary: [
+      { word: 'water cycle', definition: 'The journey water takes as it moves from the ground to the sky and back again.', example: 'Because of the water cycle, the same water on Earth is used over and over again.' },
+      { word: 'evaporation', definition: 'The process where liquid water turns into water vapor and rises into the air.', example: 'After the rain stopped, evaporation quickly dried up the puddles on the sidewalk.' },
+      { word: 'water vapor', definition: 'Water in the form of a gas that floats in the air.', example: 'The steam rising from the hot soup was water vapor.' },
+      { word: 'cloud', definition: 'A white or gray mass in the sky made of millions of tiny water droplets.', example: 'Dark clouds gathered over the ocean before the storm arrived.' },
+      { word: 'precipitation', definition: 'Water that falls from clouds in the form of rain, snow, sleet, or hail.', example: 'The weather forecast called for heavy precipitation in the afternoon.' }
+    ],
+    questions: [
+      {
+        question: 'What causes water to evaporate?',
+        options: [
+          'Wind blowing across the surface of the water',
+          'The moon pulling water upward at night',
+          'The sun\'s heat turning water into water vapor',
+          'Clouds dropping tiny drops of water on lakes'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that the sun\'s heat turns water into water vapor, which then floats up into the air — this is evaporation.'
+      },
+      {
+        question: 'How do clouds form?',
+        options: [
+          'Smoke and dust from cities rise up and clump together',
+          'Water vapor rises, cools, and turns back into tiny water drops that group together',
+          'Wind pushes rain drops upward until they float in the sky',
+          'Ice from mountain tops melts and floats into the air'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says that as water vapor rises and cools, it turns back into tiny drops of water that group together to form clouds.'
+      },
+      {
+        question: 'Why does Florida have so many big afternoon thunderstorms in summer?',
+        options: [
+          'Florida is close to cold air coming from the north in summer',
+          'The ocean pushes large waves of water onto the land',
+          'The warm sun evaporates water quickly, making the water cycle very active',
+          'Florida\'s flat ground does not let rain drain away fast enough'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that Florida\'s warm sun quickly evaporates water, making the water cycle very active and causing big afternoon thunderstorms.'
+      }
+    ]
+  },
+
+  {
+    id: 'florida-mockingbird',
+    title: 'Florida\'s Singing State Bird',
+    topic: 'florida-nature',
+    coverEmoji: '🐦',
+    coverColor: '#4d7c0f',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 234,
+    readTimeMin: 1,
+    text: `Florida has an official state bird. It is the **Northern Mockingbird**. This small gray bird is found all over Florida. You can hear it singing in parks, backyards, and along roadsides.
+
+The mockingbird is famous for a very special talent. It can **imitate** the songs of other birds. One mockingbird can copy more than thirty different bird songs! It sings one song, then switches to another, then another. Scientists say the bird does this to show other birds how strong and smart it is.
+
+Mockingbirds do not only copy other birds. They also imitate sounds like car alarms, barking dogs, and even cell phone rings. They learn new sounds by listening carefully. Younger birds learn faster and keep adding songs throughout their lives.
+
+Mockingbirds are **territorial**. That means they protect the area around their nest from other animals. They will bravely chase away cats, squirrels, and even hawks that come too close. They are much smaller than a hawk, but they do not back down.
+
+These birds build their nests in shrubs and small trees. The female lays three to five eggs. Both the mother and father help feed the baby chicks after they hatch.
+
+Florida chose the mockingbird as its state bird in 1927. People loved it because it is found all over the state and its cheerful singing makes neighborhoods feel alive. If you sit quietly outside, you might hear one singing nearby right now!`,
+    vocabulary: [
+      { word: 'imitate', definition: 'To copy the sounds or actions of something else.', example: 'The parrot could imitate its owner\'s voice perfectly.' },
+      { word: 'territorial', definition: 'Defending a certain area against others who might enter it.', example: 'The territorial dog barked whenever anyone walked near his yard.' },
+      { word: 'official', definition: 'Chosen or approved by a government or group in charge.', example: 'The official state flower of Florida is the orange blossom.' },
+      { word: 'talent', definition: 'A natural ability to do something well.', example: 'Her talent for singing surprised everyone at the school concert.' },
+      { word: 'shrub', definition: 'A small, bushy plant with many branches, shorter than a tree.', example: 'The bird built its nest deep inside the prickly shrub.' }
+    ],
+    questions: [
+      {
+        question: 'What makes the Northern Mockingbird special?',
+        options: [
+          'It is the largest bird found in Florida',
+          'It can fly faster than any other Florida bird',
+          'It can imitate the songs of many other birds and even everyday sounds',
+          'It builds bigger nests than any other bird in the state'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that the mockingbird can copy more than thirty bird songs and also imitate sounds like car alarms, dogs barking, and cell phone rings.'
+      },
+      {
+        question: 'Why do mockingbirds chase cats and squirrels away from their nests?',
+        options: [
+          'They want to steal food from other animals',
+          'They are territorial and protect the area around their nest',
+          'They are trying to teach their chicks to be brave',
+          'They only chase animals that are smaller than they are'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says mockingbirds are territorial — they protect the area around their nest from other animals, even larger ones like hawks.'
+      },
+      {
+        question: 'When did Florida choose the mockingbird as its state bird?',
+        options: [
+          '1776',
+          '1845',
+          '1927',
+          '1960'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that Florida chose the mockingbird as its state bird in 1927.'
+      }
+    ]
+  },
+
+  {
+    id: 'how-bread-is-made',
+    title: 'From Wheat to Bread',
+    topic: 'science-food',
+    coverEmoji: '🍞',
+    coverColor: '#92400e',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 226,
+    readTimeMin: 1,
+    text: `Do you like to eat bread? Bread is one of the oldest foods in the world. Before you can eat a slice of bread, it goes through many steps — all starting with a tiny grain of wheat.
+
+Farmers plant wheat seeds in big fields. The plants grow tall and green. After several months, the wheat is ready to **harvest**. Farmers use big machines to cut the wheat and collect the seeds. The seeds are called **grain**.
+
+Next, the grain is taken to a mill. At the mill, huge machines grind the grain into a powder called **flour**. Long ago, stones were used to grind grain by hand. Today, steel rollers do it much faster.
+
+To make bread, a baker mixes flour with water, salt, sugar, and a tiny living thing called **yeast**. Yeast makes the dough rise and become fluffy. When the baker mixes everything together, the dough starts out stiff and sticky. After some time, it puffs up and doubles in size.
+
+The baker shapes the dough into loaves and places them in a hot oven. The heat bakes the bread until it is golden brown on the outside and soft on the inside. The whole kitchen smells wonderful.
+
+When the bread cools, it is ready to slice and eat. The next time you have a piece of toast or a sandwich, think about all the steps it took to make it!`,
+    vocabulary: [
+      { word: 'harvest', definition: 'To gather crops that are ready to be picked or cut.', example: 'The farmer worked long hours to harvest the corn before the frost arrived.' },
+      { word: 'grain', definition: 'The small, hard seed of a plant like wheat, corn, or rice.', example: 'Each grain of wheat is tiny, but millions of them fill an entire field.' },
+      { word: 'flour', definition: 'A fine powder made by grinding grain, used to make bread and other foods.', example: 'She measured two cups of flour before mixing the bread dough.' },
+      { word: 'yeast', definition: 'A tiny living thing added to dough that makes it rise and become fluffy.', example: 'Without yeast, the bread would be flat and dense instead of soft and fluffy.' },
+      { word: 'dough', definition: 'A thick mixture of flour and water that is shaped and baked into bread.', example: 'She kneaded the dough until it was smooth before putting it in the pan.' }
+    ],
+    questions: [
+      {
+        question: 'What is the correct order of steps for making bread?',
+        options: [
+          'Bake the dough, grind the grain, plant the seeds, harvest the wheat',
+          'Plant wheat seeds, harvest the grain, grind it into flour, mix dough, and bake',
+          'Mix flour and yeast, plant seeds, grind grain, bake the loaf',
+          'Harvest wheat, mix dough, grind grain into flour, bake in the oven'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the steps in order: plant seeds, harvest grain, grind grain into flour, mix dough, and then bake it.'
+      },
+      {
+        question: 'What does yeast do to bread dough?',
+        options: [
+          'It makes the crust turn golden brown in the oven',
+          'It keeps the bread from going stale after it is baked',
+          'It makes the dough rise and become fluffy',
+          'It adds a sweet flavor to the finished loaf'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that yeast makes the dough rise and become fluffy, causing it to puff up and double in size.'
+      },
+      {
+        question: 'How has grinding grain changed over time?',
+        options: [
+          'Farmers no longer grind grain — they buy flour from other countries',
+          'Long ago, stones were used by hand; today steel rollers do it much faster',
+          'Today farmers use the same stone mills that were used hundreds of years ago',
+          'Grinding is done by hand on small farms but by machines on large ones'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says long ago stones were used to grind grain by hand, but today steel rollers do it much faster.'
+      }
+    ]
+  },
+
+  {
+    id: 'life-on-florida-farm',
+    title: 'A Day on a Florida Farm',
+    topic: 'florida-community',
+    coverEmoji: '🌽',
+    coverColor: '#15803d',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 238,
+    readTimeMin: 1,
+    text: `Florida is not just beaches and theme parks. It is also home to thousands of farms. Florida farmers grow food that people all over the country eat every day.
+
+Farm life starts early in the morning. Before the sun rises, farmers are already awake. Animals need to be fed first thing. Cows are milked, chickens are given grain, and pigs are led to their pens. After the animals are cared for, the real outdoor work begins.
+
+Florida farmers grow many kinds of fruits and vegetables. **Citrus** fruits like oranges, grapefruits, and tangerines grow well in Florida's warm weather. Strawberries are grown in fields near Plant City. Tomatoes, peppers, and sweet corn grow in rows across flat Florida fields.
+
+Farmers must watch out for **pests** — bugs and animals that eat or damage crops. Farmers also worry about too much rain or **drought**, which means not enough rain. Florida's summer rains can flood a field. A dry winter can kill young plants.
+
+Many Florida farms use special watering systems called **irrigation**. These systems pump water through pipes to reach the crops even when it is not raining.
+
+Farm work is hard, but it is very important. Without farmers, grocery stores would have empty shelves. The fruits and vegetables you eat for lunch most likely came from a farm — possibly right here in Florida.`,
+    vocabulary: [
+      { word: 'citrus', definition: 'A group of fruits with a bright peel and juicy inside, such as oranges, lemons, and grapefruits.', example: 'Florida is famous for its sweet citrus fruits, especially oranges.' },
+      { word: 'pest', definition: 'An insect or animal that causes damage to plants, food, or property.', example: 'The farmer sprayed the plants to protect them from pests.' },
+      { word: 'drought', definition: 'A long period of time with very little or no rain.', example: 'The drought lasted three months and dried up the river.' },
+      { word: 'irrigation', definition: 'A system that brings water to crops through pipes, ditches, or sprinklers.', example: 'The irrigation system kept the strawberry field moist even during the dry season.' },
+      { word: 'crop', definition: 'A plant that farmers grow in large amounts for food or other uses.', example: 'Corn is an important crop grown on many Florida farms.' }
+    ],
+    questions: [
+      {
+        question: 'Why do farmers start their day before the sun rises?',
+        options: [
+          'To avoid the afternoon heat while working in the fields',
+          'Because animals need to be fed first thing in the morning',
+          'Florida law requires farmwork to start before sunrise',
+          'Markets only buy produce that is picked before dawn'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says farm life starts early because animals need to be fed first thing — cows milked, chickens fed, and pigs cared for.'
+      },
+      {
+        question: 'What are TWO challenges Florida farmers face?',
+        options: [
+          'Too many tourists and not enough workers on the farm',
+          'Pests that damage crops and too much or too little rain',
+          'High electricity bills and old farm equipment',
+          'Hot weather and competition from other countries\' farmers'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage specifically mentions pests that damage crops and weather problems — too much rain flooding fields or drought killing plants.'
+      },
+      {
+        question: 'What is the purpose of irrigation systems on farms?',
+        options: [
+          'To protect crops from insects and other pests',
+          'To store food until it is ready to be sold',
+          'To bring water to crops even when it is not raining',
+          'To keep the soil loose so roots can grow deep'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that irrigation systems pump water through pipes to reach crops even when it is not raining.'
+      }
+    ]
+  },
+
+  {
+    id: 'good-neighbor',
+    title: 'Being a Good Neighbor',
+    topic: 'character-education',
+    coverEmoji: '🏘️',
+    coverColor: '#7c3aed',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 221,
+    readTimeMin: 1,
+    text: `Where you live, there are people nearby called **neighbors**. Neighbors are the people who live close to you — down the street, next door, or in the same apartment building. Being a good neighbor makes your whole community a better place.
+
+Good neighbors are **respectful**. They keep their voices down at night so others can sleep. They do not leave their yard messy or play loud music all day long. Small things like these show that you care about the people around you.
+
+Good neighbors also look out for each other. If an elderly neighbor needs help carrying groceries, a good neighbor offers to help. If a child falls off a bicycle, a neighbor runs over to make sure the child is okay. **Kindness** is at the heart of being a good neighbor.
+
+Sometimes neighbors have problems with each other. Maybe a ball lands in someone's garden, or a dog barks too much at night. Good neighbors talk about these problems calmly and try to find a **solution** that is fair for everyone.
+
+When neighbors work together, they can do great things. Neighbors can plant a community garden, clean up litter on the street, or organize a block party. Working together builds **trust** and makes a neighborhood feel safe and friendly.
+
+You do not have to wait until you are grown up to be a good neighbor. Small acts of kindness today can make a big difference in the place you call home.`,
+    vocabulary: [
+      { word: 'neighbor', definition: 'A person who lives very close to you.', example: 'My neighbor brought us cookies when we first moved into our new house.' },
+      { word: 'respectful', definition: 'Showing care for other people\'s feelings, needs, and property.', example: 'She was respectful by turning down her music when her baby sister was sleeping.' },
+      { word: 'kindness', definition: 'Being friendly, generous, and caring toward others.', example: 'He showed kindness by helping the lost puppy find its way home.' },
+      { word: 'solution', definition: 'An answer to a problem or a way to fix something that is not working.', example: 'They found a solution by agreeing to share the community garden space.' },
+      { word: 'trust', definition: 'A firm belief that someone is honest, safe, and reliable.', example: 'Years of helping each other built a strong trust between the two neighbors.' }
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what is at the heart of being a good neighbor?',
+        options: [
+          'Keeping your yard clean and tidy at all times',
+          'Knowing everyone\'s name on your street',
+          'Kindness toward the people who live near you',
+          'Following all the rules of your neighborhood'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states that "Kindness is at the heart of being a good neighbor," and it gives examples like helping elderly neighbors and checking on hurt children.'
+      },
+      {
+        question: 'What should good neighbors do when they have a problem with each other?',
+        options: [
+          'Call the police right away before things get worse',
+          'Talk about the problem calmly and find a fair solution',
+          'Move away from the neighborhood to avoid more conflict',
+          'Ignore the problem and hope it goes away on its own'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says good neighbors talk about problems calmly and try to find a solution that is fair for everyone.'
+      },
+      {
+        question: 'What is one thing neighbors can do together to improve their neighborhood?',
+        options: [
+          'Build a fence so each family has more private space',
+          'Ask the city to build more parking lots',
+          'Plant a community garden or clean up litter on the street',
+          'Agree never to play loud music in their homes'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says neighbors can plant a community garden, clean up litter, or organize a block party to improve their neighborhood.'
+      }
+    ]
+  },
+
+  // ── Grade 3 ──
+  {
+    id: 'florida-state-symbols',
+    title: 'Florida\'s Official State Symbols',
+    topic: 'florida-history',
+    coverEmoji: '🐆',
+    coverColor: '#b45309',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 305,
+    readTimeMin: 2,
+    text: `Every state in the United States has official symbols that represent who its people are and what makes the state unique. Florida has chosen many symbols to celebrate its natural beauty, history, and culture.
+
+The Florida **panther** is the state animal. This large, rare cat once roamed all of the southeastern United States. Today, fewer than 200 Florida panthers remain in the wild. They live mostly in the forests and swamps of South Florida. The panther was chosen as the state animal to remind Floridians of the importance of **conservation** — protecting wild animals and their habitats before it is too late.
+
+Florida's state flower is the **orange blossom**. The fragrant white flower grows on orange trees, which have been central to Florida's farming economy for over a century. Orange blossoms have a sweet, strong scent that perfumes the air during spring in central Florida. The blossom represents the state's long history of citrus growing.
+
+The **mockingbird** is Florida's state bird. This small gray bird can mimic the songs of dozens of other birds, as well as everyday sounds like car alarms. The mockingbird is found throughout the state and is admired for its fearless personality and beautiful, changing song.
+
+Florida also has a state saltwater fish — the **Atlantic sailfish** — known for its speed and the tall, bright blue fin on its back. The state marine mammal is the beloved **West Indian manatee**, a slow-moving, gentle giant that grazes on sea grass in Florida's warm coastal waters.
+
+All of these symbols were chosen through official laws passed by Florida's government. They connect Floridians to their land and to one another, serving as reminders of what makes the Sunshine State truly special.`,
+    vocabulary: [
+      { word: 'symbol', definition: 'An object, animal, or image that represents or stands for an idea, place, or group.', example: 'The eagle is a symbol of strength and freedom in the United States.' },
+      { word: 'conservation', definition: 'The careful protection of nature, animals, and resources so they are not destroyed.', example: 'Conservation efforts helped the bald eagle population recover from near extinction.' },
+      { word: 'fragrant', definition: 'Having a pleasant, sweet smell.', example: 'The fragrant orange blossoms filled the grove with a lovely scent.' },
+      { word: 'mimic', definition: 'To copy or imitate the sounds or actions of something else.', example: 'The mockingbird could mimic a cell phone ringtone perfectly.' },
+      { word: 'economy', definition: 'The system of making, buying, and selling goods and services in a place.', example: 'Orange farming was an important part of Florida\'s economy for many decades.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main idea of this passage?',
+        options: [
+          'Florida\'s state animal, the panther, is in danger of becoming extinct',
+          'Florida has many official symbols that represent its nature, history, and culture',
+          'The orange blossom is the most important symbol in Florida',
+          'Florida\'s government creates laws to protect wild animals'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage introduces multiple state symbols — the panther, orange blossom, mockingbird, sailfish, and manatee — and explains they all represent what makes Florida unique.'
+      },
+      {
+        question: 'Why was the Florida panther chosen as the state animal?',
+        options: [
+          'Because it is the largest cat in North America and easy to spot',
+          'To remind Floridians of the importance of conservation before it is too late',
+          'Because it is found throughout the entire state of Florida',
+          'To attract tourists who want to see Florida\'s wildlife'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the panther was chosen to remind Floridians of the importance of conservation — protecting wild animals and their habitats.'
+      },
+      {
+        question: 'Based on context, what does the word "fragrant" most likely mean?',
+        options: [
+          'Having a shape that is easy to recognize',
+          'Being very colorful and bright',
+          'Growing quickly in warm weather',
+          'Having a pleasant, sweet smell'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage says orange blossoms have "a sweet, strong scent that perfumes the air," which matches the meaning of fragrant — having a pleasant smell.'
+      },
+      {
+        question: 'What do all of Florida\'s state symbols have in common, according to the passage?',
+        options: [
+          'They are all animals that live in Florida\'s water',
+          'They were all chosen more than two hundred years ago',
+          'They connect Floridians to their land and remind them of what makes Florida special',
+          'They are all found only in South Florida'
+        ],
+        correctIndex: 2,
+        explanation: 'The last paragraph states that all the symbols connect Floridians to their land and to one another, reminding them of what makes Florida special.'
+      }
+    ]
+  },
+
+  {
+    id: 'how-volcanoes-form',
+    title: 'Fire Mountains: How Volcanoes Form',
+    topic: 'earth-science',
+    coverEmoji: '🌋',
+    coverColor: '#dc2626',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 318,
+    readTimeMin: 2,
+    text: `Deep beneath the surface of Earth, it is incredibly hot. The rock is so hot that it melts into a thick, flowing liquid called **magma**. This molten rock sits inside Earth's **mantle** — the layer between the core at Earth's center and the thin crust we live on. Volcanoes form when magma finds a path to the surface and erupts.
+
+Earth's outer crust is broken into large pieces called **tectonic plates**. These plates float on the mantle and move very slowly — about as fast as your fingernails grow. Most volcanoes form along the edges of these plates. When two plates pull apart, magma rises up to fill the gap. When one plate slides under another, the rock melts and magma builds up until it forces its way out through cracks in the crust.
+
+When magma reaches the surface, it is called **lava**. Lava flows out of the volcano and slowly cools. As it hardens, it builds up layers of rock. After many eruptions over thousands of years, these layers stack up to form the tall mountain shape we recognize as a volcano.
+
+Not all volcanoes are the same. Some erupt with gentle, slow-moving lava flows. Others explode violently, shooting ash, gases, and rocks high into the atmosphere. The type of eruption depends on the **viscosity** of the lava — how thick or runny it is.
+
+Volcanoes are found on every continent and even under the ocean. The Hawaiian Islands were formed entirely by underwater volcanoes that grew tall enough to rise above the sea.
+
+Although volcanoes are dangerous, they also create new land, enrich soil with minerals, and shape Earth's surface. Scientists called **volcanologists** study volcanoes closely to understand Earth's history and to warn communities before dangerous eruptions occur.`,
+    vocabulary: [
+      { word: 'magma', definition: 'Melted rock found inside the Earth, below the surface.', example: 'When magma reaches the surface, scientists call it lava.' },
+      { word: 'tectonic plates', definition: 'Large pieces of Earth\'s outer crust that float on the mantle and move slowly over time.', example: 'When tectonic plates collide, they can form mountains or cause earthquakes.' },
+      { word: 'lava', definition: 'Magma that has reached Earth\'s surface and flows out of a volcano.', example: 'The slow-moving lava gradually covered the road before it cooled and hardened.' },
+      { word: 'viscosity', definition: 'How thick and resistant to flowing a liquid is; high viscosity means it flows slowly.', example: 'Honey has a high viscosity, while water has a low viscosity.' },
+      { word: 'volcanologist', definition: 'A scientist who studies volcanoes and volcanic activity.', example: 'The volcanologist camped near the crater to record temperature and gas readings.' }
+    ],
+    questions: [
+      {
+        question: 'What causes magma to reach Earth\'s surface?',
+        options: [
+          'Heavy rainstorms that push water deep into the ground',
+          'Earthquakes that suddenly shake the ground open',
+          'Magma finds a path through gaps or cracks in the tectonic plates',
+          'The sun\'s heat warms the ground until the rock melts'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that magma rises when plates pull apart or when one slides under another, building up until it forces out through cracks in the crust.'
+      },
+      {
+        question: 'How do volcanic mountains form over time?',
+        options: [
+          'Tectonic plates push against each other and squeeze rock upward',
+          'Layers of cooled lava stack up after many eruptions over thousands of years',
+          'Ash and dust from eruptions pile up and harden into mountains',
+          'Magma cools underground and lifts the ground above it higher'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says that as lava cools and hardens, it builds up layers of rock, and after many eruptions over thousands of years, these layers form the tall mountain shape.'
+      },
+      {
+        question: 'What determines what kind of eruption a volcano has?',
+        options: [
+          'How close the volcano is to the ocean',
+          'How deep the magma is inside the mantle',
+          'The size of the tectonic plates surrounding the volcano',
+          'The viscosity, or thickness, of the lava'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage states that the type of eruption depends on the viscosity of the lava — how thick or runny it is.'
+      },
+      {
+        question: 'What is one positive effect of volcanoes mentioned in the passage?',
+        options: [
+          'They cool Earth\'s atmosphere by releasing gases into the air',
+          'They create new land and enrich soil with minerals',
+          'They push tectonic plates apart so earthquakes happen less often',
+          'They provide a source of heat that communities can use for energy'
+        ],
+        correctIndex: 1,
+        explanation: 'The last paragraph states that volcanoes create new land, enrich soil with minerals, and shape Earth\'s surface.'
+      }
+    ]
+  },
+
+  {
+    id: 'water-cycle-grade3',
+    title: 'The Water Cycle: Earth\'s Recycling System',
+    topic: 'science-weather',
+    coverEmoji: '💧',
+    coverColor: '#0891b2',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 312,
+    readTimeMin: 2,
+    text: `Earth has a remarkable recycling system that has been running for billions of years. The same water that fell as rain on ancient forests is still moving through our world today. This continuous process is called the **water cycle**, and it is powered entirely by the sun.
+
+The cycle begins with **evaporation**. When sunlight hits the surface of oceans, lakes, and rivers, it transfers energy to the water molecules. The molecules absorb this energy and escape into the air as water vapor, an invisible gas. An enormous amount of water evaporates from Earth's oceans every single day.
+
+As water vapor rises into the atmosphere, it encounters cooler temperatures. Cooler air cannot hold as much water vapor, so the vapor condenses — it changes back into tiny liquid droplets. These droplets cluster around microscopic particles of dust or pollen, forming clouds. This process is called **condensation**.
+
+When water droplets in a cloud collide and combine, they grow larger and heavier. Eventually the droplets become too heavy to remain suspended in the air and fall to Earth as **precipitation** — rain, snow, sleet, or hail, depending on the temperature.
+
+Once precipitation reaches the ground, it follows several paths. Some water soaks into the soil through a process called **infiltration**, replenishing underground water supplies called aquifers. Some flows along the surface in streams and rivers, eventually returning to the ocean. Some is absorbed by plant roots and later released from leaves as water vapor through a process called **transpiration**.
+
+The water cycle is essential for all life on Earth. It distributes fresh water across the planet, regulates temperature, shapes landscapes, and supports every ecosystem from tropical rainforests to dry deserts. Understanding the water cycle helps scientists predict weather patterns and manage Earth's precious fresh water supplies.`,
+    vocabulary: [
+      { word: 'evaporation', definition: 'The process by which liquid water changes into water vapor and enters the atmosphere.', example: 'Evaporation from the ocean produces the water vapor that eventually falls as rain.' },
+      { word: 'condensation', definition: 'The process by which water vapor cools and changes back into liquid water droplets.', example: 'Condensation on a cold glass of water forms because warm air contacts the cool surface.' },
+      { word: 'precipitation', definition: 'Water that falls from clouds to Earth\'s surface in the form of rain, snow, sleet, or hail.', example: 'Florida receives most of its precipitation during the summer rainy season.' },
+      { word: 'infiltration', definition: 'The process by which water soaks into the ground and replenishes underground water supplies.', example: 'Forests help increase infiltration by slowing water down so it can soak into the soil.' },
+      { word: 'transpiration', definition: 'The process by which plants release water vapor through their leaves into the atmosphere.', example: 'Transpiration from a single large tree can release hundreds of gallons of water each day.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main idea of this passage?',
+        options: [
+          'Florida receives more rain than most other states because of its warm climate',
+          'The water cycle is Earth\'s continuous process of moving water through the environment',
+          'Clouds form when water vapor cools and turns into tiny droplets',
+          'Evaporation is the most important step in the water cycle'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes all stages of the water cycle and concludes by explaining why it is essential — making the continuous movement of water the central idea.'
+      },
+      {
+        question: 'What causes water vapor to condense and form clouds?',
+        options: [
+          'Wind pushes water vapor together until droplets form',
+          'Water vapor rises until it hits solid particles in outer space',
+          'Rising water vapor encounters cooler temperatures, which causes it to change back into liquid droplets',
+          'The sun heats water vapor so much that it clumps together into clouds'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that as water vapor rises, it encounters cooler temperatures, and since cooler air cannot hold as much vapor, condensation occurs and droplets form.'
+      },
+      {
+        question: 'Based on the passage, what does "infiltration" mean?',
+        options: [
+          'Water flowing along Earth\'s surface into rivers and streams',
+          'Water soaking into the soil to replenish underground water supplies',
+          'Water evaporating from a lake or ocean into the air',
+          'Water being absorbed by plant roots and released as vapor'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines infiltration as the process by which water soaks into the soil, replenishing underground water supplies called aquifers.'
+      },
+      {
+        question: 'What is the author\'s purpose in the final paragraph?',
+        options: [
+          'To warn readers about the dangers of water pollution',
+          'To explain in detail how precipitation falls from clouds',
+          'To convince readers that the water cycle is important and worth understanding',
+          'To describe how scientists measure evaporation rates'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph lists ways the water cycle is "essential for all life" and says understanding it helps scientists predict weather and manage water — the author\'s purpose is to show its importance.'
+      }
+    ]
+  },
+
+  {
+    id: 'bird-migration-florida',
+    title: 'Florida: A Highway for Migrating Birds',
+    topic: 'florida-nature',
+    coverEmoji: '🦅',
+    coverColor: '#166534',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 296,
+    readTimeMin: 2,
+    text: `Every year, billions of birds take an incredible journey. They travel hundreds or even thousands of miles between their summer and winter homes. This seasonal journey is called **migration**. Florida is one of the most important migration stops in North America.
+
+Birds migrate primarily because of food and temperature. As winter approaches in northern states and Canada, insects disappear and plants stop producing seeds and berries. Birds that depend on these food sources must fly south to find warmer places where food is still available. When spring returns and food is plentiful in the north, the birds fly back to breed.
+
+Florida's location at the tip of the eastern United States makes it a natural **funnel** for migrating birds. Many species follow what scientists call the Atlantic Flyway — a major migration route along the East Coast of North America. As they travel south, birds often stop in Florida to rest and feed before continuing to the Caribbean or South America.
+
+Some birds travel all the way through Florida. Others choose to spend the whole winter here. The **ruby-throated hummingbird** is one of the most impressive travelers. It weighs less than a nickel but can fly nonstop across the Gulf of Mexico — a journey of 500 miles over open water.
+
+**Shorebirds** like sandpipers and plovers gather by the thousands on Florida's beaches during migration. Warblers fill Florida's forests with color and song each spring and fall. Raptors — hunting birds like hawks and falcons — soar on warm air currents along the coasts.
+
+Birdwatchers from around the world come to Florida specifically to observe migrating birds. By protecting Florida's wetlands, forests, and coastlines, we help ensure that these remarkable travelers always have a safe place to stop and rest.`,
+    vocabulary: [
+      { word: 'migration', definition: 'The seasonal movement of animals from one region to another to find food or better conditions.', example: 'The migration of monarch butterflies takes them from Canada all the way to Mexico.' },
+      { word: 'funnel', definition: 'A cone-shaped object with a wide opening that narrows — used here to describe how birds are channeled into a narrower path.', example: 'The mountains funneled all the hikers onto a single trail.' },
+      { word: 'flyway', definition: 'A regular route followed by birds during migration.', example: 'The Mississippi Flyway is one of four major bird migration routes in North America.' },
+      { word: 'shorebird', definition: 'A type of bird that lives and feeds along the shores of beaches, wetlands, and rivers.', example: 'The shorebird probed the wet sand with its long beak searching for worms.' },
+      { word: 'raptor', definition: 'A bird of prey that hunts and eats other animals, such as a hawk, eagle, or falcon.', example: 'The raptor circled high above the field before diving to catch a mouse.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main reason birds migrate south for the winter?',
+        options: [
+          'They prefer warmer temperatures so they can grow stronger feathers',
+          'They need to find mates in southern climates during winter months',
+          'Food sources like insects, seeds, and berries disappear in the cold north',
+          'Northern birds are driven away by larger animals that compete for nests'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that as winter arrives in northern areas, insects disappear and plants stop producing food, so birds must fly south where food is still available.'
+      },
+      {
+        question: 'Why is Florida\'s location important for migrating birds?',
+        options: [
+          'Florida has more trees than any other state for birds to nest in',
+          'Florida is at the tip of the eastern United States, funneling birds along the Atlantic Flyway',
+          'Florida\'s warm ocean water provides fish for all migrating bird species',
+          'Florida has no predators that hunt migrating birds'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says Florida\'s location at the tip of the eastern United States makes it a natural funnel for birds following the Atlantic Flyway south.'
+      },
+      {
+        question: 'What makes the ruby-throated hummingbird\'s migration impressive?',
+        options: [
+          'It travels the farthest distance of any bird in North America',
+          'Despite weighing less than a nickel, it flies 500 miles nonstop over open water',
+          'It visits every single state on the East Coast before reaching Florida',
+          'It makes the trip in less than twenty-four hours without stopping'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage highlights that the ruby-throated hummingbird weighs less than a nickel but can fly 500 miles nonstop across the Gulf of Mexico — an impressive feat for such a tiny bird.'
+      },
+      {
+        question: 'What does the author suggest people should do to help migrating birds?',
+        options: [
+          'Build more birdhouses in backyards across Florida',
+          'Stop all construction near the coasts during migration season',
+          'Protect Florida\'s wetlands, forests, and coastlines',
+          'Feed shorebirds on Florida\'s beaches during winter months'
+        ],
+        correctIndex: 2,
+        explanation: 'The final sentence states that by protecting Florida\'s wetlands, forests, and coastlines, we help ensure migrating birds always have a safe place to stop and rest.'
+      }
+    ]
+  },
+
+  {
+    id: 'life-cycle-frog',
+    title: 'From Egg to Frog: A Remarkable Transformation',
+    topic: 'science-life-cycles',
+    coverEmoji: '🐸',
+    coverColor: '#16a34a',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 307,
+    readTimeMin: 2,
+    text: `Frogs are amazing animals because they completely change their body form as they grow. This dramatic change is called **metamorphosis**. A frog's life cycle has four distinct stages: egg, tadpole, froglet, and adult.
+
+The cycle begins when a female frog lays hundreds or even thousands of **eggs** in or near a body of water. Frogs lay so many eggs because most will be eaten by fish, birds, and insects before they hatch. Each egg is surrounded by a clear, jelly-like material that protects it and keeps it moist. Most frog eggs hatch within one to three weeks, depending on the temperature of the water.
+
+When the eggs hatch, tiny **tadpoles** emerge. Tadpoles look nothing like frogs. They have long tails, no legs, and breathe through **gills** — the same way fish do. Tadpoles spend their early weeks eating algae and plant matter while growing rapidly.
+
+Gradually, the tadpole's body begins to change. Small **hind legs** sprout from the back of the body first, followed by front legs. As the legs develop, the tail slowly shrinks and is absorbed into the body. The gills disappear as the tadpole's **lungs** develop, allowing it to breathe air. At this stage, the animal is called a **froglet** — it looks like a small frog but still has a short tail.
+
+Once the tail is completely gone, the froglet is a full adult frog. Adult frogs breathe air through lungs and can live both in water and on land. This ability to live in two environments gives frogs their scientific classification name: **amphibians**, from a Greek word meaning "both lives."
+
+Florida is home to more than thirty frog species. Many are important to the ecosystem because they eat insects and are eaten by larger animals, connecting different parts of the food chain.`,
+    vocabulary: [
+      { word: 'metamorphosis', definition: 'A dramatic change in form that some animals go through as they develop from young to adult.', example: 'A butterfly goes through metamorphosis, changing from a caterpillar to a winged insect.' },
+      { word: 'tadpole', definition: 'The early stage of a frog or toad, which lives in water and breathes through gills.', example: 'The pond was full of tadpoles wiggling near the surface.' },
+      { word: 'gills', definition: 'Organs that allow fish and some young amphibians to take oxygen from water.', example: 'The fish used its gills to breathe as it swam through the river.' },
+      { word: 'amphibian', definition: 'A cold-blooded animal that can live both in water and on land, such as a frog or salamander.', example: 'Because the salamander is an amphibian, it can survive both in ponds and on dry ground.' },
+      { word: 'hind legs', definition: 'The back pair of legs on an animal.', example: 'The frog used its powerful hind legs to leap from the lily pad.' }
+    ],
+    questions: [
+      {
+        question: 'What is the correct order of a frog\'s life cycle stages?',
+        options: [
+          'Tadpole, egg, froglet, adult frog',
+          'Egg, froglet, tadpole, adult frog',
+          'Egg, tadpole, froglet, adult frog',
+          'Tadpole, froglet, egg, adult frog'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage clearly lists the four stages in order: egg, tadpole, froglet, and adult frog.'
+      },
+      {
+        question: 'Why do frogs lay hundreds or thousands of eggs at a time?',
+        options: [
+          'Because each tadpole needs its own separate body of water to grow',
+          'Because most eggs will be eaten by predators before they can hatch',
+          'Because more eggs means the tadpoles will grow faster and stronger',
+          'Because the eggs must be spread across a wide area to survive'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that frogs lay so many eggs because most will be eaten by fish, birds, and insects before they hatch.'
+      },
+      {
+        question: 'Based on context, what does "metamorphosis" mean?',
+        options: [
+          'The ability to live in both water and on land',
+          'The process of laying eggs in or near water',
+          'A dramatic change in body form as an animal develops',
+          'The growth of new legs in young animals'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage defines metamorphosis directly as "this dramatic change" in body form — introduced when explaining how frogs completely change as they grow.'
+      },
+      {
+        question: 'How do tadpoles breathe compared to adult frogs?',
+        options: [
+          'Tadpoles breathe through their skin, while adult frogs use lungs',
+          'Tadpoles breathe through gills in water, while adult frogs breathe through lungs in air',
+          'Both tadpoles and adult frogs breathe through gills in water',
+          'Tadpoles breathe through small lungs, while adult frogs can also use gills'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that tadpoles breathe through gills like fish, but as they develop, gills disappear and lungs form, allowing adult frogs to breathe air.'
+      }
+    ]
+  },
+
+  {
+    id: 'fossils-and-clues',
+    title: 'Fossils: Clues from the Ancient Past',
+    topic: 'earth-science',
+    coverEmoji: '🦕',
+    coverColor: '#78350f',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 303,
+    readTimeMin: 2,
+    text: `Millions of years before humans walked on Earth, strange and magnificent creatures lived on this planet. We know about them because they left behind **fossils** — the preserved remains or imprints of once-living things found in rock.
+
+Fossils form in a very specific way. When an animal dies, its soft parts usually decay quickly. But sometimes the hard parts — bones, shells, or teeth — are buried in sand or mud before they can decompose. Over millions of years, minerals in the ground slowly replace the original material, turning the remains into rock. This process is called **petrification**.
+
+Not all fossils are made of bones. Some are **trace fossils** — impressions left behind by living things, such as footprints, burrows, or imprints of leaves. A dinosaur footprint preserved in ancient mud can tell scientists how big the animal was, how fast it moved, and whether it walked on two or four legs.
+
+Scientists who study fossils are called **paleontologists**. They carefully dig fossils out of rock using small tools and brushes. Every detail matters. The layer of rock where a fossil is found tells paleontologists approximately when the creature lived. Fossils found in deeper layers are generally older than those near the surface.
+
+Fossils have revealed the existence of creatures that no one alive has ever seen — from enormous dinosaurs to tiny creatures smaller than a hummingbird. They show us how life on Earth has changed dramatically over time through a process called **evolution**.
+
+Florida is a surprisingly rich source of fossils. The state's ancient sea floors have preserved the bones of giant sharks, mastodons, and the ancestors of modern horses. Many of these fossils are found in river beds when water levels drop during dry seasons.`,
+    vocabulary: [
+      { word: 'fossil', definition: 'The preserved remains or imprint of a living thing from long ago, found in rock.', example: 'The museum displayed a fossil of a dinosaur that lived 65 million years ago.' },
+      { word: 'petrification', definition: 'The process by which organic material slowly turns to stone as minerals replace original material.', example: 'Petrification of the ancient tree took millions of years, but the wood\'s original pattern is still visible.' },
+      { word: 'trace fossil', definition: 'A fossil that shows evidence of an animal\'s activity — such as footprints or burrows — rather than body parts.', example: 'The dinosaur\'s trace fossil footprints were preserved in dried mud.' },
+      { word: 'paleontologist', definition: 'A scientist who studies fossils to learn about ancient life on Earth.', example: 'The paleontologist carefully brushed away dirt to reveal the ancient skull buried in the sandstone.' },
+      { word: 'evolution', definition: 'The gradual process by which living things change over many generations to adapt to their environment.', example: 'Evolution explains how modern whales descended from ancient land-dwelling mammals.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main idea of this passage?',
+        options: [
+          'Florida\'s rivers contain many fossils of sharks and ancient horses',
+          'Paleontologists dig up fossils using small brushes and careful tools',
+          'Fossils are preserved remains that help scientists understand ancient life on Earth',
+          'The process of petrification turns bones into rock over millions of years'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage introduces fossils, explains how they form and what types exist, describes what scientists learn from them, and gives Florida examples — all supporting the idea that fossils reveal information about ancient life.'
+      },
+      {
+        question: 'What causes a fossil to form rather than bones simply decaying away?',
+        options: [
+          'The animal must have lived near water for its bones to survive',
+          'Hard parts are buried in sand or mud, and minerals slowly replace the material over millions of years',
+          'The entire animal must freeze rapidly before any decay can begin',
+          'Soft parts must be removed by predators so only bones remain'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that hard parts sometimes get buried in sand or mud, and over millions of years minerals replace the original material — the process of petrification.'
+      },
+      {
+        question: 'What can a dinosaur footprint fossil tell paleontologists?',
+        options: [
+          'What the dinosaur ate and where it found water',
+          'The color of the dinosaur\'s skin and scales',
+          'How big the animal was, how fast it moved, and how many legs it used',
+          'Whether the dinosaur lived alone or in groups'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that a footprint can tell scientists how big the animal was, how fast it moved, and whether it walked on two or four legs.'
+      },
+      {
+        question: 'How do paleontologists know how old a fossil is?',
+        options: [
+          'They analyze the color of the rock surrounding the fossil',
+          'They count the number of bones in the fossil to estimate its age',
+          'The layer of rock where the fossil is found tells them approximately when it lived',
+          'They compare the fossil\'s size to fossils of known ages'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says the layer of rock where a fossil is found tells paleontologists approximately when the creature lived, with deeper layers being generally older.'
+      }
+    ]
+  },
+
+  {
+    id: 'calusa-people',
+    title: 'The Calusa: Builders of the Shell Mounds',
+    topic: 'florida-native-americans',
+    coverEmoji: '🐚',
+    coverColor: '#1e3a8a',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 309,
+    readTimeMin: 2,
+    text: `Long before Spanish explorers arrived in Florida, a powerful group of Native Americans called the **Calusa** lived along the southern and southwestern coasts of the state. The Calusa built a remarkable civilization based almost entirely on the resources of the sea.
+
+Unlike many Native American groups, the Calusa were not farmers. Instead, they were skilled **hunter-gatherers** who relied on the rich waters of the Gulf of Mexico, Charlotte Harbor, and the Ten Thousand Islands. They caught fish, shellfish, turtles, and manatees using nets, spears, and clever traps. The warm coastal waters provided so much food that the Calusa never needed to plant crops.
+
+The Calusa constructed enormous **shell mounds** — hills built entirely from discarded shells, bones, and soil accumulated over many generations. Some of these mounds still exist today, rising ten to thirty feet above the surrounding land. The mounds served as building platforms where the Calusa constructed their homes and temples above flood level.
+
+At their peak, the Calusa controlled most of South Florida and demanded **tribute** — gifts of food and valuables — from neighboring tribes. Their leader, called the **chief**, held enormous political and religious power over the entire region. When the Spanish explorer Juan Ponce de León arrived in 1513, the Calusa greeted him with hostility rather than friendship, having already heard of the Spanish from other tribes.
+
+Sadly, the Calusa population collapsed rapidly after contact with Europeans. **Diseases** brought by Spanish explorers, to which the Calusa had no immunity, wiped out most of the population within two centuries.
+
+Today, the Calusa legacy survives in the shell mounds they built along Florida's coasts. These ancient structures remind us of the sophisticated culture that thrived in Florida for thousands of years before European arrival.`,
+    vocabulary: [
+      { word: 'hunter-gatherer', definition: 'A person who finds food by hunting animals and gathering wild plants rather than farming.', example: 'Early hunter-gatherers moved from place to place following herds of animals.' },
+      { word: 'shell mound', definition: 'A large pile of discarded shells and other materials built up over many generations by Native American communities.', example: 'The ancient shell mound stood fifteen feet tall and contained thousands of oyster shells.' },
+      { word: 'tribute', definition: 'A payment made to a more powerful leader or group as a sign of respect or submission.', example: 'Smaller villages paid tribute to the Calusa chief with fish and woven baskets.' },
+      { word: 'immunity', definition: 'The ability of the body to resist a disease.', example: 'Because they had never been exposed to measles, the Native Americans had no immunity to it.' },
+      { word: 'civilization', definition: 'An organized and advanced society with culture, systems of government, and shared ways of life.', example: 'The ancient Egyptian civilization built massive pyramids that still stand today.' }
+    ],
+    questions: [
+      {
+        question: 'Why did the Calusa not need to farm for food?',
+        options: [
+          'They traded for food with neighboring tribes who grew crops',
+          'The warm coastal waters provided so much seafood that farming was unnecessary',
+          'Florida\'s sandy soil was too poor to grow any crops',
+          'The Calusa believed farming was forbidden by their religious traditions'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that the warm coastal waters provided so much food through fish, shellfish, turtles, and manatees that the Calusa never needed to plant crops.'
+      },
+      {
+        question: 'What was the purpose of the shell mounds the Calusa built?',
+        options: [
+          'To store food and keep it safe from animals',
+          'To mark the edges of Calusa territory for other tribes to see',
+          'To serve as building platforms for homes and temples above flood level',
+          'To honor ancestors who had died by creating large burial mounds'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that the mounds served as building platforms where the Calusa constructed their homes and temples above flood level.'
+      },
+      {
+        question: 'What caused the Calusa population to collapse after European contact?',
+        options: [
+          'Spanish soldiers attacked and defeated the Calusa in a series of battles',
+          'The Calusa were forced to farm land, which made their population weak',
+          'European ships overfished the coastal waters that the Calusa depended on',
+          'Diseases brought by Europeans, to which the Calusa had no immunity, killed most of the population'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage states that diseases brought by Spanish explorers, to which the Calusa had no immunity, wiped out most of the population within two centuries.'
+      },
+      {
+        question: 'Based on the passage, what can readers conclude about the Calusa civilization?',
+        options: [
+          'The Calusa were a simple people who depended on luck to survive',
+          'The Calusa built a sophisticated culture that was well adapted to Florida\'s coastal environment',
+          'The Calusa refused to interact with neighboring tribes',
+          'The Calusa were weaker than most other Florida Native American groups'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the Calusa as building shell mounds, controlling most of South Florida, and thriving for thousands of years — evidence of a sophisticated civilization adapted to the coast.'
+      }
+    ]
+  },
+
+  {
+    id: 'wright-brothers-flight',
+    title: 'The Wright Brothers: Taking to the Sky',
+    topic: 'science-inventors',
+    coverEmoji: '✈️',
+    coverColor: '#1e40af',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 316,
+    readTimeMin: 2,
+    text: `On December 17, 1903, on a cold, windy beach in Kitty Hawk, North Carolina, two brothers from Ohio changed history forever. Orville and Wilbur Wright became the first people to successfully fly a powered, **heavier-than-air** aircraft under the pilot's control.
+
+Orville and Wilbur were not scientists with university degrees. They owned a bicycle repair shop in Dayton, Ohio. But they were brilliant **engineers** who studied problems carefully and solved them with creativity and patience. For years, they had observed birds in flight, noting how they tilted their wings to turn and balance. They applied these observations to their designs.
+
+Other inventors before the Wright Brothers had tried to build flying machines and failed. Many thought flight was simply impossible. The brothers believed the key problems to solve were three-dimensional control — controlling a plane's **pitch** (nose up or down), **roll** (tilting side to side), and **yaw** (turning left or right). They invented a system of "wing warping" that allowed the pilot to twist the wings slightly to maintain balance.
+
+After years of testing gliders — unpowered aircraft — at Kitty Hawk, the brothers built a gasoline engine small enough and light enough to power their **Flyer**. On that December morning, Orville made the first flight. It lasted only 12 seconds and covered 120 feet — barely longer than a large airplane's wingspan today. But it was a flight completely under control.
+
+The Wright Brothers made four flights that day. By the last flight, Wilbur stayed in the air for 59 seconds and covered 852 feet.
+
+Their achievement opened the door to modern aviation. Within fifty years, aircraft would carry passengers across oceans in hours. The Wright Brothers proved that careful observation, creative thinking, and persistence could make the **impossible** possible.`,
+    vocabulary: [
+      { word: 'heavier-than-air', definition: 'A type of aircraft that is denser than air but achieves flight through lift generated by its wings.', example: 'The Wright Flyer was the first heavier-than-air craft to achieve controlled flight.' },
+      { word: 'engineer', definition: 'A person who designs and builds machines, structures, or systems using scientific knowledge.', example: 'The engineer designed a stronger bridge that could handle heavy traffic.' },
+      { word: 'pitch', definition: 'The up or down angle of an aircraft\'s nose relative to the horizon.', example: 'The pilot adjusted the pitch to climb higher into the clouds.' },
+      { word: 'glider', definition: 'An aircraft without an engine that flies by riding air currents.', example: 'The brothers tested their glider designs by launching from the sandy hills.' },
+      { word: 'persistence', definition: 'Continuing to work toward a goal despite obstacles or failures.', example: 'Her persistence paid off after she practiced the piece for three months and finally played it perfectly.' }
+    ],
+    questions: [
+      {
+        question: 'What was significant about the Wright Brothers\' first successful flight?',
+        options: [
+          'It was the longest flight anyone had ever made up to that point',
+          'It was the first powered, heavier-than-air aircraft flight under the pilot\'s control',
+          'It was the first time two people flew together in the same aircraft',
+          'It was the first time a gasoline engine had ever been used to power a vehicle'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes it as the first time anyone "successfully flew a powered, heavier-than-air aircraft under the pilot\'s control."'
+      },
+      {
+        question: 'What important lesson did the Wright Brothers learn from observing birds?',
+        options: [
+          'That wings must be covered with feathers to provide enough lift',
+          'That aircraft should be built as light as possible to leave the ground',
+          'That birds tilt their wings to turn and balance — an idea they applied to their designs',
+          'That flying requires calm weather with little wind'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that the brothers observed birds tilting their wings to turn and balance, and they applied these observations to their aircraft designs.'
+      },
+      {
+        question: 'What were the three flight control problems the Wright Brothers identified and solved?',
+        options: [
+          'Speed, altitude, and direction',
+          'Pitch, roll, and yaw',
+          'Lift, drag, and thrust',
+          'Balance, weight, and wind resistance'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage specifically names the three control problems as pitch (nose up/down), roll (tilting side to side), and yaw (turning left or right).'
+      },
+      {
+        question: 'What does the author suggest is the lesson of the Wright Brothers\' story?',
+        options: [
+          'Anyone who builds a bicycle shop can eventually become a famous inventor',
+          'Scientific degrees and university training are necessary to solve hard problems',
+          'Careful observation, creative thinking, and persistence can make the impossible possible',
+          'The best inventors work alone rather than as a team'
+        ],
+        correctIndex: 2,
+        explanation: 'The final line directly states: "The Wright Brothers proved that careful observation, creative thinking, and persistence could make the impossible possible."'
+      }
+    ]
+  },
+
+  {
+    id: 'rocks-and-minerals',
+    title: 'Rocks and Minerals: Building Blocks of Earth',
+    topic: 'earth-science',
+    coverEmoji: '🪨',
+    coverColor: '#57534e',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 298,
+    readTimeMin: 2,
+    text: `Beneath your feet, the ground is made of minerals and rocks that took millions — sometimes billions — of years to form. Understanding rocks and minerals helps scientists learn about Earth's history and provides materials that humans use in everyday life.
+
+A **mineral** is a naturally occurring, nonliving solid with a specific chemical makeup. Minerals have predictable properties: a particular color, hardness, shininess called **luster**, and the way they break. Scientists use these properties to identify minerals. Quartz, feldspar, calcite, and iron ore are common examples. Minerals are the building blocks of rocks.
+
+A **rock** is made of one or more minerals bonded together. Rocks are classified into three main types based on how they form. **Igneous rocks** form when magma from deep inside Earth cools and hardens. Granite and basalt are igneous rocks. **Sedimentary rocks** form when tiny particles of sand, mud, or shell are pressed together over millions of years. Limestone, sandstone, and shale are sedimentary rocks. **Metamorphic rocks** form when existing rocks are changed by extreme heat and pressure underground. Marble and slate are examples.
+
+Florida's bedrock is mostly **limestone**, a sedimentary rock formed from the shells and skeletons of ancient sea creatures that lived here when Florida was covered by a warm, shallow ocean. Limestone dissolves in rainwater over thousands of years, creating underground caves and sinkholes — features common in Florida's landscape.
+
+Minerals and rocks are essential resources. We use granite in buildings, quartz in electronics, iron ore in steel, and limestone in cement. The device you used this morning likely contains minerals mined from several different countries.
+
+Studying rocks is like reading Earth's autobiography — each layer records the conditions of a different chapter in our planet's long history.`,
+    vocabulary: [
+      { word: 'mineral', definition: 'A naturally occurring, nonliving solid found in the Earth with a specific chemical makeup.', example: 'Salt is a mineral that forms when seawater evaporates.' },
+      { word: 'luster', definition: 'The way a mineral reflects light; how shiny or dull its surface appears.', example: 'Gold has a bright metallic luster that makes it easy to spot in a streambed.' },
+      { word: 'igneous rock', definition: 'Rock formed when magma cools and hardens, either underground or at Earth\'s surface.', example: 'The volcanic island was made entirely of igneous rock formed from hardened lava.' },
+      { word: 'sedimentary rock', definition: 'Rock formed from compressed layers of sand, mud, shells, or other particles over millions of years.', example: 'The fossil was perfectly preserved inside a block of sedimentary rock.' },
+      { word: 'metamorphic rock', definition: 'Rock that has been changed in form by intense heat and pressure deep underground.', example: 'The marble countertop was once limestone that was transformed into metamorphic rock.' }
+    ],
+    questions: [
+      {
+        question: 'What is the relationship between minerals and rocks?',
+        options: [
+          'Minerals and rocks are two different names for the same thing',
+          'Rocks break down over time to form minerals',
+          'Minerals are the building blocks that make up rocks',
+          'Rocks are found deep underground, while minerals are found at the surface'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states directly that "minerals are the building blocks of rocks" — one or more minerals bond together to form a rock.'
+      },
+      {
+        question: 'Why is most of Florida\'s bedrock made of limestone?',
+        options: [
+          'Florida\'s volcanoes produced enormous amounts of limestone lava long ago',
+          'Florida was once covered by a warm, shallow ocean whose creatures left shells that formed limestone',
+          'Limestone was deposited by rivers flowing south across the continent',
+          'Extreme heat and pressure underground transformed Florida\'s rocks into limestone'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that Florida\'s limestone formed from the shells and skeletons of ancient sea creatures when Florida was covered by a warm, shallow ocean.'
+      },
+      {
+        question: 'What causes sinkholes to form in Florida?',
+        options: [
+          'Underground rivers carve large tunnels that eventually collapse',
+          'Limestone bedrock dissolves in rainwater over thousands of years, creating caves that can collapse',
+          'Heavy rainfall washes away sandy soil until the ground falls in',
+          'Igneous rock pushes up from below and cracks the limestone above it'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that limestone dissolves in rainwater over thousands of years, creating underground caves and sinkholes common in Florida\'s landscape.'
+      },
+      {
+        question: 'What does the author mean when comparing studying rocks to "reading Earth\'s autobiography"?',
+        options: [
+          'Scientists write books about rocks using clues found in the ground',
+          'Each rock layer records conditions from a different period of Earth\'s history, like chapters in a life story',
+          'Rocks contain hidden messages left by ancient civilizations',
+          'Earth\'s rocks spell out letters when viewed from above'
+        ],
+        correctIndex: 1,
+        explanation: 'The author uses autobiography as a metaphor — each rock layer records the conditions of a different time period, just as chapters of an autobiography tell different parts of a person\'s life.'
+      }
+    ]
+  },
+
+  {
+    id: 'florida-food-chain',
+    title: 'Who Eats Whom: The Florida Food Chain',
+    topic: 'florida-nature',
+    coverEmoji: '🦎',
+    coverColor: '#15803d',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 304,
+    readTimeMin: 2,
+    text: `Every living thing in Florida — from the tiniest blade of saw grass to the largest alligator — is connected through a system of eating and being eaten. This system is called a **food chain**, and it shows the path of energy from one living thing to the next.
+
+All food chains begin with **producers** — plants and algae that capture the sun's energy through **photosynthesis** and turn it into food. In the Florida Everglades, saw grass is an important producer. It converts sunlight, water, and carbon dioxide into sugars that power plant growth.
+
+**Primary consumers** eat the producers. In the Everglades, small fish, insects, snails, and crayfish feed on algae and plant matter. These animals are also called **herbivores** because they eat only plants or plant-like organisms.
+
+**Secondary consumers** eat the primary consumers. Herons, raccoons, and bass are secondary consumers that feast on the fish and invertebrates. These animals are **omnivores** or **carnivores** — they eat other animals or both animals and plants.
+
+At the top of many food chains are **apex predators** — animals that have no natural predators of their own. In the Everglades, the American alligator is an apex predator. It eats fish, birds, turtles, and even large mammals. The Florida panther is another apex predator found in South Florida.
+
+When plants and animals die, **decomposers** like bacteria and fungi break down the dead matter and return its nutrients to the soil, where producers can use them again. This completes the cycle.
+
+If any link in a food chain is removed or weakened, the entire system can be thrown off balance. When the Florida panther population dropped to very low levels, prey animals like deer became overpopulated in some areas. This is why scientists work hard to protect every species — each one plays a vital role.`,
+    vocabulary: [
+      { word: 'food chain', definition: 'The sequence showing how energy passes from one organism to the next through eating.', example: 'A simple food chain might go: grass → grasshopper → frog → heron.' },
+      { word: 'producer', definition: 'A living thing, usually a plant, that makes its own food using energy from the sun.', example: 'Saw grass is a producer that forms the base of the Everglades food chain.' },
+      { word: 'photosynthesis', definition: 'The process plants use to convert sunlight, water, and carbon dioxide into food.', example: 'Through photosynthesis, the plant turned sunlight into the sugar it needed to grow.' },
+      { word: 'apex predator', definition: 'An animal at the top of the food chain that is not hunted by any other animal.', example: 'The great white shark is an apex predator in the ocean ecosystem.' },
+      { word: 'decomposer', definition: 'An organism such as bacteria or fungi that breaks down dead plants and animals and returns nutrients to the soil.', example: 'Without decomposers, fallen leaves would pile up and never return their nutrients to the ground.' }
+    ],
+    questions: [
+      {
+        question: 'What is the correct order of an Everglades food chain based on the passage?',
+        options: [
+          'Alligator → heron → fish → saw grass',
+          'Saw grass → small fish → heron → alligator',
+          'Insect → saw grass → raccoon → alligator',
+          'Algae → alligator → heron → small fish'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the chain from producers (saw grass/algae) to primary consumers (small fish/insects), to secondary consumers (herons), to apex predators (alligators) at the top.'
+      },
+      {
+        question: 'What would most likely happen if all alligators disappeared from the Everglades?',
+        options: [
+          'Plants would stop producing food because there would be no apex predators',
+          'Decomposers would no longer be able to break down dead matter',
+          'Prey animals like fish and birds could become overpopulated and disturb the balance',
+          'Other apex predators would immediately move in and fill the empty role'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage gives a direct example: when the Florida panther population dropped, prey animals like deer became overpopulated. The same logic applies to alligators.'
+      },
+      {
+        question: 'What is the role of decomposers in the food chain?',
+        options: [
+          'They eat apex predators and keep their populations from growing too large',
+          'They break down dead matter and return nutrients to the soil for producers to use again',
+          'They convert sunlight into food and supply energy to primary consumers',
+          'They eat both plants and animals, connecting different levels of the food chain'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that decomposers like bacteria and fungi break down dead matter and return nutrients to the soil, completing the cycle so producers can use them again.'
+      },
+      {
+        question: 'Why does the author argue that every species in a food chain deserves protection?',
+        options: [
+          'Because some species are rare and tourists pay to see them in Florida',
+          'Because the loss of any one species can throw the entire food chain off balance',
+          'Because federal laws require the protection of all plants and animals in national parks',
+          'Because each species produces a special chemical that other species need to survive'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states: "If any link in a food chain is removed or weakened, the entire system can be thrown off balance," and gives the example of the panther\'s decline causing deer overpopulation.'
+      }
+    ]
+  },
+
+  {
+    id: 'florida-american-revolution',
+    title: 'Florida and the American Revolution',
+    topic: 'florida-history',
+    coverEmoji: '🎯',
+    coverColor: '#991b1b',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 295,
+    readTimeMin: 2,
+    text: `When the thirteen American colonies declared independence from Britain in 1776, Florida was not among them. At the time, Florida was divided into two British **colonies** — East Florida, with its capital at St. Augustine, and West Florida, centered around Pensacola. Florida was loyal to the British Crown, and its story during the Revolution is often overlooked in history books.
+
+Many colonists from Georgia and South Carolina who remained loyal to Britain — called **Loyalists** — fled south to East Florida when the Revolution began. St. Augustine became a refuge for thousands of Loyalists who did not wish to fight against their king. The city also served as a base for British military operations in the South.
+
+British and Loyalist soldiers launched raids into Georgia from East Florida throughout the war. Meanwhile, Spain, which controlled land west of the Mississippi River, sided with the American colonists against Britain. Spanish Governor Bernardo de Gálvez led a brilliant military campaign and captured the British fort at Pensacola in 1781, removing British control from West Florida.
+
+When the war ended in 1783, Britain signed the Treaty of Paris, officially recognizing American independence. As part of the settlement, Britain returned both East and West Florida to **Spain**, which had controlled Florida before the British. Thousands of Loyalists who had settled in Florida were forced to leave — many sailed to the Bahamas or Canada.
+
+Florida did not become part of the United States until 1821, when Spain agreed to sell it to the American government. This came decades after the Revolution had ended.
+
+Florida's role in the American Revolution reminds us that history is complex — not every part of the future United States supported independence, and the war affected many different people in many different ways.`,
+    vocabulary: [
+      { word: 'colony', definition: 'A territory controlled by a distant country, whose settlers remain under that country\'s laws.', example: 'Georgia was one of thirteen British colonies that declared independence in 1776.' },
+      { word: 'Loyalist', definition: 'A colonist who remained loyal to the British Crown during the American Revolution.', example: 'Many Loyalists left New York and moved to Canada after the Revolution ended.' },
+      { word: 'refuge', definition: 'A safe place that provides shelter or protection from danger.', example: 'The monastery served as a refuge for families fleeing the fighting.' },
+      { word: 'treaty', definition: 'A formal agreement made between two or more countries.', example: 'The two countries signed a peace treaty to officially end the war.' },
+      { word: 'campaign', definition: 'A series of planned military actions meant to achieve a specific goal.', example: 'The general led a successful campaign to capture the three key bridges.' }
+    ],
+    questions: [
+      {
+        question: 'Why did Florida NOT join the other American colonies in declaring independence?',
+        options: [
+          'Florida had already formed its own independent country before the Revolution',
+          'Florida was divided into two British colonies that remained loyal to the British Crown',
+          'Florida did not have enough people to send representatives to the Continental Congress',
+          'Florida\'s colonists believed the war would be too dangerous to fight'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that Florida was divided into two British colonies — East and West Florida — and was loyal to the British Crown at the time of the Revolution.'
+      },
+      {
+        question: 'What was St. Augustine\'s role during the American Revolution?',
+        options: [
+          'It was the headquarters of the American Continental Army in the South',
+          'It was a center for trading supplies with Spain and France',
+          'It served as a refuge for Loyalists and a base for British military operations',
+          'It was the site of the most important battle fought in Florida'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that St. Augustine became a refuge for thousands of Loyalists and also served as a base for British military operations in the South.'
+      },
+      {
+        question: 'What happened to Florida after the American Revolution ended in 1783?',
+        options: [
+          'Florida immediately became part of the newly independent United States',
+          'Britain kept East Florida but gave West Florida to Spain',
+          'Britain returned both East and West Florida to Spain as part of the peace settlement',
+          'Florida became an independent nation for several decades'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says that as part of the Treaty of Paris settlement, Britain returned both East and West Florida to Spain.'
+      },
+      {
+        question: 'What is the author\'s main purpose in the final paragraph?',
+        options: [
+          'To explain when Florida officially became a state in the Union',
+          'To remind readers that history is complex and affected many different people differently',
+          'To argue that Florida should have supported American independence',
+          'To show that Spanish control of Florida was better than British control'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph concludes that "history is complex — not every part of the future United States supported independence, and the war affected many different people in many different ways."'
+      }
+    ]
+  },
+
+  {
+    id: 'how-earthquakes-happen',
+    title: 'Shaking Ground: How Earthquakes Happen',
+    topic: 'earth-science',
+    coverEmoji: '🌍',
+    coverColor: '#92400e',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 310,
+    readTimeMin: 2,
+    text: `The ground beneath our feet seems solid and still, but it is actually in constant, slow motion. Earth's outer crust is divided into large sections called **tectonic plates** that drift across the surface on a layer of hot, flowing rock. When these plates interact, the result can be a powerful event we call an **earthquake**.
+
+Tectonic plates move in different ways. Some plates slide past each other horizontally along cracks in Earth's crust called **faults**. The San Andreas Fault in California is one of the most famous. Some plates push into each other head-on, causing the land to buckle upward and form mountain ranges. Other plates pull apart, creating deep valleys called rift zones.
+
+As two plates grind past each other, they do not always slide smoothly. Rough edges catch and lock together. Pressure builds in the rock, like energy being stored in a stretched rubber band. When the stress becomes too great, the rock suddenly slips, releasing that stored energy all at once. The energy travels outward from the **epicenter** — the point on Earth's surface directly above where the rocks slipped — as waves that shake the ground.
+
+Scientists measure the strength of earthquakes using a scale called the **Richter scale**. Each increase of one number on the scale represents an earthquake ten times stronger than the previous level. A magnitude 6.0 earthquake is ten times more powerful than a 5.0 and one hundred times stronger than a 4.0.
+
+Scientists who study earthquakes are called **seismologists**. They use instruments called seismographs to detect and record ground movement anywhere in the world. By studying the patterns of these movements, seismologists can identify fault locations and help city planners design buildings that can withstand shaking.
+
+Florida rarely experiences damaging earthquakes because it sits far from the edges of tectonic plates. However, the Sunshine State is not entirely immune from small tremors.`,
+    vocabulary: [
+      { word: 'tectonic plates', definition: 'Large pieces of Earth\'s outer crust that slowly move on the layer of hot rock below.', example: 'The collision of tectonic plates built the Himalayan mountains over millions of years.' },
+      { word: 'fault', definition: 'A crack in Earth\'s crust where two sections of rock meet and can move past each other.', example: 'Many buildings near the fault were damaged when the earthquake struck.' },
+      { word: 'epicenter', definition: 'The point on Earth\'s surface directly above where an earthquake\'s energy is released underground.', example: 'The city closest to the epicenter suffered the most damage from the quake.' },
+      { word: 'Richter scale', definition: 'A scale used to measure the strength or magnitude of an earthquake.', example: 'The earthquake measured 7.2 on the Richter scale, causing widespread damage.' },
+      { word: 'seismologist', definition: 'A scientist who studies earthquakes and the movement of Earth\'s crust.', example: 'The seismologist warned that the fault was overdue for a major earthquake.' }
+    ],
+    questions: [
+      {
+        question: 'What causes an earthquake to occur?',
+        options: [
+          'Heavy rain soaks into the ground and loosens the soil beneath cities',
+          'Underground volcanoes explode and shake the ground from below',
+          'Tectonic plates lock together, build up pressure, then suddenly slip and release energy',
+          'Ocean waves push against the coastline with enough force to shake the land'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that rough edges of tectonic plates lock together, pressure builds, and when the stress is too great, the rock slips suddenly and releases stored energy as shaking waves.'
+      },
+      {
+        question: 'According to the Richter scale, how much stronger is a 6.0 earthquake than a 4.0 earthquake?',
+        options: [
+          'Two times stronger',
+          'Twenty times stronger',
+          'Fifty times stronger',
+          'One hundred times stronger'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage states that each increase of one number is ten times stronger. So a 6.0 is ten times a 5.0, which is ten times a 4.0 — making a 6.0 one hundred times stronger than a 4.0.'
+      },
+      {
+        question: 'Why does Florida rarely experience damaging earthquakes?',
+        options: [
+          'Florida\'s limestone bedrock absorbs earthquake energy before it can cause shaking',
+          'Florida has no rivers or lakes that could amplify earthquake waves',
+          'Florida is located far from the edges of tectonic plates',
+          'Florida\'s flat landscape prevents earthquake waves from traveling far'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states that Florida rarely experiences damaging earthquakes because it sits far from the edges of tectonic plates.'
+      },
+      {
+        question: 'How do seismologists help protect communities?',
+        options: [
+          'They move people away from earthquake zones before major quakes occur',
+          'They identify fault locations and help planners design buildings that can withstand shaking',
+          'They rebuild damaged buildings after earthquakes using stronger materials',
+          'They predict the exact day and time of future earthquakes using satellites'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says seismologists study patterns to identify fault locations and help city planners design buildings that can withstand shaking.'
+      }
+    ]
+  },
+
+  {
+    id: 'ocean-zones',
+    title: 'Into the Deep: Exploring the Ocean\'s Zones',
+    topic: 'science-ocean',
+    coverEmoji: '🌊',
+    coverColor: '#1e3a8a',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 317,
+    readTimeMin: 2,
+    text: `The ocean covers more than seventy percent of Earth's surface, yet most of it remains unexplored. Scientists divide the ocean into distinct zones based on how much sunlight reaches each depth. The deeper you go, the darker, colder, and more pressurized the water becomes.
+
+The uppermost layer is the **sunlight zone**, also called the **euphotic zone**. It extends from the surface down to about 650 feet. Sunlight penetrates this zone, allowing **photosynthesis** to occur. Most ocean plants, algae, and sea grasses live here. Coral reefs, tuna, dolphins, sea turtles, and countless other familiar animals make the sunlight zone their home. Nearly all of Earth's ocean life depends on the energy produced in this bright layer.
+
+Below the sunlight zone lies the **twilight zone**, or **mesopelagic zone**, which stretches from 650 to about 3,300 feet. Very little sunlight filters down to these depths — just enough to create a faint, perpetual twilight. No plants can grow here since there is not enough light for photosynthesis. Animals in the twilight zone have developed remarkable **adaptations** to survive. Many are **bioluminescent** — they produce their own light to attract prey, communicate, or confuse predators. Some migrate upward to feed in the sunlight zone at night, then return to the darkness during the day.
+
+Below 3,300 feet begins the **midnight zone**, or **bathypelagic zone** — a world of complete darkness and crushing pressure. Temperatures hover just above freezing. Yet life exists even here. Lanternfish, anglerfish, and giant squid roam these dark waters. Food is scarce, so animals are adapted to eat anything they can find.
+
+At the very deepest points — the ocean trenches — extreme pressures and total darkness make survival seem impossible. Yet tiny organisms and unusual creatures called **extremophiles** thrive even there.
+
+Exploring the ocean's deeper zones has revealed that life finds a way to exist in nearly every environment on Earth.`,
+    vocabulary: [
+      { word: 'euphotic zone', definition: 'The uppermost layer of the ocean where sunlight can penetrate and support photosynthesis.', example: 'Coral reefs form in the euphotic zone where light is plentiful.' },
+      { word: 'mesopelagic zone', definition: 'The dimly lit "twilight zone" of the ocean, between 650 and 3,300 feet deep.', example: 'Many mesopelagic animals migrate upward at night to feed in shallower water.' },
+      { word: 'adaptation', definition: 'A feature or behavior that helps a living thing survive in its environment.', example: 'The polar bear\'s thick white fur is an adaptation for surviving in the Arctic cold.' },
+      { word: 'bioluminescent', definition: 'Able to produce and emit light through a chemical reaction in the body.', example: 'The bioluminescent jellyfish glowed blue-green as it drifted through the dark water.' },
+      { word: 'extremophile', definition: 'An organism that can survive in extreme conditions such as intense pressure, heat, cold, or darkness.', example: 'Scientists discovered extremophiles living near boiling volcanic vents on the ocean floor.' }
+    ],
+    questions: [
+      {
+        question: 'Why is the sunlight zone the most important zone for ocean life?',
+        options: [
+          'It is warm enough for fish to lay their eggs and raise their young',
+          'It contains most of the salt that the ocean needs to support living things',
+          'Photosynthesis occurs there, producing the energy that almost all ocean life depends on',
+          'Most of Earth\'s fresh water enters the ocean through the sunlight zone'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that photosynthesis occurs in the sunlight zone and that nearly all of Earth\'s ocean life depends on the energy produced in this bright layer.'
+      },
+      {
+        question: 'Why can\'t plants grow in the twilight zone?',
+        options: [
+          'The water pressure in the twilight zone crushes plant cells',
+          'There is not enough light for photosynthesis at those depths',
+          'The water is too salty for plants to absorb nutrients',
+          'The temperature in the twilight zone is too cold for any plants to survive'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly states: "No plants can grow here since there is not enough light for photosynthesis."'
+      },
+      {
+        question: 'Based on context clues, what does "bioluminescent" mean?',
+        options: [
+          'Able to survive without any light or food for long periods',
+          'Able to see clearly in total darkness using sensitive eyes',
+          'Able to produce and emit light from the body',
+          'Able to change color to blend into the surrounding water'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that bioluminescent animals "produce their own light to attract prey, communicate, or confuse predators," indicating the word means producing light from the body.'
+      },
+      {
+        question: 'What conclusion can be drawn from the final paragraph of this passage?',
+        options: [
+          'Scientists have already fully mapped and explored all areas of the deep ocean',
+          'Life on Earth is only found where conditions are comfortable and warm',
+          'Most deep-ocean creatures are too dangerous for scientists to study safely',
+          'Living things can survive in almost any environment on Earth, even extreme ones'
+        ],
+        correctIndex: 3,
+        explanation: 'The final paragraph notes that even in ocean trenches with extreme pressure and total darkness, extremophiles thrive — leading to the conclusion that life finds a way in nearly every environment.'
+      }
+    ]
+  },
+
+  {
+    id: 'rainforest-layers',
+    title: 'Layers of Life: The Tropical Rainforest',
+    topic: 'science-biomes',
+    coverEmoji: '🌿',
+    coverColor: '#14532d',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 308,
+    readTimeMin: 2,
+    text: `Tropical rainforests are the most **biodiverse** places on Earth. Although they cover only about six percent of Earth's land surface, they are home to more than half of the world's plant and animal species. Rainforests are organized into distinct layers, and each layer supports a different community of life.
+
+The top layer is the **emergent layer**. Towering trees rise above the forest, sometimes reaching 200 feet tall. These giants break through the lower canopy and receive direct sunlight. Eagles, butterflies, and certain monkeys live here. Strong winds at this height scatter seeds far and wide.
+
+Just below is the **canopy** — a dense roof of leaves, branches, and vines formed by trees 60 to 150 feet tall. The canopy absorbs most of the sunlight reaching the forest. It is home to the greatest variety of life: toucans, parrots, sloths, howler monkeys, and thousands of insect species. Many canopy animals spend their entire lives without ever coming to the ground.
+
+The **understory** lies beneath the canopy. In this dim, humid layer, younger trees, large-leafed plants, and shrubs compete for the small amount of sunlight that filters through. Jaguars, tree frogs, and many insects and snakes call the understory home. Plants here have developed large leaves to capture as much light as possible.
+
+The **forest floor** is the darkest layer of all. Very little sunlight reaches the ground, but the soil is rich from decomposing leaves and animals. Giant anteaters, gorillas, forest elephants, and an enormous variety of insects live here. **Decomposers** like fungi and bacteria are especially abundant on the forest floor, breaking down dead matter and returning nutrients to the soil.
+
+Rainforests are being destroyed at an alarming rate by logging and agriculture. Scientists warn that losing the rainforest means losing countless species that have never even been named or studied by humans.`,
+    vocabulary: [
+      { word: 'biodiverse', definition: 'Having a wide variety of different species of plants and animals in one area.', example: 'The coral reef is one of the most biodiverse ecosystems on the planet.' },
+      { word: 'emergent layer', definition: 'The topmost layer of a rainforest, consisting of the tallest trees that rise above the canopy.', example: 'Harpy eagles nest in the emergent layer, high above the rest of the forest.' },
+      { word: 'canopy', definition: 'The dense, continuous layer of tree branches and leaves forming the roof of the rainforest.', example: 'The monkey leaped from branch to branch through the canopy without touching the ground.' },
+      { word: 'understory', definition: 'The layer of a rainforest between the canopy above and the forest floor below.', example: 'Large-leafed plants thrive in the understory by catching every bit of filtered light.' },
+      { word: 'decomposer', definition: 'An organism that breaks down dead plants and animals and releases nutrients back into the soil.', example: 'Fungi acting as decomposers covered the fallen log on the forest floor.' }
+    ],
+    questions: [
+      {
+        question: 'Why does the canopy layer have the greatest variety of life?',
+        options: [
+          'The canopy is the largest layer by area and has the most space for animals',
+          'The canopy absorbs most of the sunlight, making it the warmest and most productive layer',
+          'Animals in the canopy are protected from ground predators like jaguars',
+          'Most food sources in the rainforest are found only in the canopy layer'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that the canopy absorbs most of the sunlight reaching the forest, making it rich in energy and home to the greatest variety of life.'
+      },
+      {
+        question: 'How have understory plants adapted to their environment?',
+        options: [
+          'They have developed thorns and poisons to protect themselves from too much direct sun',
+          'They grow very slowly to conserve energy in the dim light',
+          'They have developed large leaves to capture as much filtered light as possible',
+          'They produce extra water in their roots to survive the dry understory air'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states that plants in the understory have developed large leaves to capture as much light as possible in the dim conditions.'
+      },
+      {
+        question: 'What is the role of decomposers on the forest floor?',
+        options: [
+          'They compete with large animals for the food that falls from the canopy',
+          'They produce seeds that grow into the tallest emergent layer trees',
+          'They break down dead matter and return nutrients to the soil',
+          'They provide shelter for insects and small animals in the dark floor layer'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that decomposers like fungi and bacteria break down dead matter and return nutrients to the soil on the forest floor.'
+      },
+      {
+        question: 'Why do scientists consider the destruction of rainforests especially alarming?',
+        options: [
+          'Rainforests produce most of the oxygen that humans and animals breathe',
+          'Countless species that have never been named or studied could be lost forever',
+          'Rainforests absorb most of Earth\'s rainfall, and without them floods would increase',
+          'The wood from rainforest trees is used to build homes for millions of people'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph states that scientists warn that losing the rainforest means losing countless species that have never even been named or studied.'
+      }
+    ]
+  },
+
+  {
+    id: 'simple-machines',
+    title: 'Simple Machines: Making Work Easier',
+    topic: 'science-physics',
+    coverEmoji: '⚙️',
+    coverColor: '#374151',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 302,
+    readTimeMin: 2,
+    text: `Have you ever used a doorknob, a ramp, or a pair of scissors? If so, you have used a **simple machine**. Simple machines are basic devices that make work easier by changing the direction or amount of **force** needed to move an object. All complex machines — from bicycles to construction cranes — are built from combinations of six simple machines.
+
+A **lever** is a rigid bar that rests on a pivot point called a **fulcrum**. When you push down on one end of a lever, the other end lifts up. A seesaw is a lever. So is a crowbar used to pry open a lid. Levers can multiply your force, letting you lift objects heavier than you could move with your hands alone.
+
+A **pulley** is a wheel with a groove around its edge. A rope fits into the groove. When you pull one end of the rope, the pulley changes the direction of your force, making it easier to lift heavy objects. Flagpoles use pulleys. Construction cranes use many pulleys together to lift tons of steel.
+
+A **wheel and axle** is a large wheel attached to a smaller rod. When the wheel is turned, the axle turns too. Doorknobs, steering wheels, and screwdrivers all use the wheel-and-axle principle. The larger the wheel compared to the axle, the less force is needed.
+
+A **ramp**, or inclined plane, lets you move an object to a greater height without lifting it straight up. Loading docks, wheelchair ramps, and ski slopes are all inclined planes. The longer and gentler the slope, the less force is needed to push or pull an object up it.
+
+The **wedge** and **screw** complete the six simple machines. A wedge splits objects apart — like an axe blade or a knife edge. A screw is actually a ramp wrapped in a spiral, used to hold things together or bore into materials.
+
+Simple machines are everywhere. Once you know what to look for, you will find them in nearly every tool and device you use.`,
+    vocabulary: [
+      { word: 'simple machine', definition: 'A basic device that makes doing work easier by changing the direction or amount of force needed.', example: 'The ramp was a simple machine that helped the movers slide the heavy couch into the truck.' },
+      { word: 'force', definition: 'A push or pull that can change the motion or shape of an object.', example: 'She applied force to the lever and the heavy rock began to lift.' },
+      { word: 'lever', definition: 'A simple machine made of a rigid bar that rests on a pivot point and can lift or move things.', example: 'The mechanic used a long steel lever to lift the engine out of the car.' },
+      { word: 'fulcrum', definition: 'The pivot point on which a lever rests and rotates.', example: 'Moving the fulcrum closer to the heavy rock made it much easier to lift.' },
+      { word: 'pulley', definition: 'A simple machine using a wheel with a groove and a rope that makes lifting objects easier.', example: 'The builders used a pulley system to lift buckets of bricks to the top floor.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main purpose of all simple machines?',
+        options: [
+          'To create electricity that can power larger, more complex machines',
+          'To make work easier by changing the direction or amount of force needed',
+          'To allow people to do things that are completely impossible without a machine',
+          'To combine natural materials like wood and metal into useful tools'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states directly that simple machines "make work easier by changing the direction or amount of force needed to move an object."'
+      },
+      {
+        question: 'Why is a ramp useful for moving a heavy object upward?',
+        options: [
+          'The ramp creates a rolling force that pushes objects upward automatically',
+          'A ramp lets you move an object to a greater height without lifting it straight up, requiring less force',
+          'The longer the ramp, the faster an object can move up to a higher point',
+          'Ramps change the direction of gravity so the object weighs less'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that a ramp lets you move an object to greater height without lifting it straight up, and the longer and gentler the slope, the less force is needed.'
+      },
+      {
+        question: 'Based on the passage, how is a screw related to an inclined plane?',
+        options: [
+          'A screw and an inclined plane both change the direction of force using a wheel',
+          'A screw and a ramp both split objects apart to make separation easier',
+          'A screw is actually a ramp wrapped in a spiral shape',
+          'A screw is a flattened inclined plane with a sharp edge on both sides'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states that "a screw is actually a ramp wrapped in a spiral, used to hold things together or bore into materials."'
+      },
+      {
+        question: 'What does the author suggest in the final paragraph?',
+        options: [
+          'Simple machines will eventually be replaced by more advanced technology',
+          'Only engineers and builders need to understand how simple machines work',
+          'Once you understand simple machines, you will recognize them in tools and devices around you',
+          'Simple machines should be studied in school because they are difficult to understand'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph says: "Once you know what to look for, you will find them in nearly every tool and device you use" — suggesting awareness leads to seeing simple machines everywhere.'
+      }
+    ]
+  },
+
+  {
+    id: 'rosa-parks-courage',
+    title: 'Rosa Parks: One Seat That Changed a Nation',
+    topic: 'biography',
+    coverEmoji: '🌹',
+    coverColor: '#7c3aed',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 311,
+    readTimeMin: 2,
+    text: `On December 1, 1955, a seamstress named Rosa Parks boarded a city bus in Montgomery, Alabama, after a long day of work. What happened next was a small act — she refused to give up her seat on the bus — but it sparked a movement that changed American history.
+
+In 1955, many Southern states had laws called **segregation** laws that kept Black Americans and white Americans separated in public places. On Montgomery's buses, Black passengers were required to sit in the back section. If the white-only section in the front became full, Black passengers were forced to give up their seats to white passengers.
+
+That evening, the bus driver ordered Rosa Parks and three other Black passengers to move so a white passenger could sit down. The other three moved. Rosa Parks did not. She was arrested and charged with violating the city's segregation laws.
+
+Rosa Parks had not planned the moment in advance, but she had spent years working with the **NAACP** — the National Association for the Advancement of Colored People — fighting for equal rights. She understood the power of her decision. "I had decided that I would not be pushed around anymore," she later explained.
+
+Her arrest became the **catalyst** for the Montgomery Bus Boycott — a protest in which Black residents of Montgomery refused to ride the city buses for 381 days. The boycott, led in part by a young minister named Dr. Martin Luther King Jr., caused the bus company to lose a large portion of its income.
+
+In 1956, the U.S. Supreme Court ruled that segregation on public buses was **unconstitutional** — a violation of the Constitution's guarantee of equal rights.
+
+Rosa Parks showed that one ordinary person, making a courageous choice, could ignite extraordinary change. She later received the Presidential Medal of Freedom, the highest civilian honor in the United States.`,
+    vocabulary: [
+      { word: 'segregation', definition: 'The forced separation of people by race in public places, schools, and other settings.', example: 'Segregation laws required Black and white students to attend separate schools.' },
+      { word: 'NAACP', definition: 'The National Association for the Advancement of Colored People — an organization that works to end racial discrimination and protect civil rights.', example: 'The NAACP helped organize legal challenges to unfair laws.' },
+      { word: 'catalyst', definition: 'A person or event that causes an important change or series of events to begin.', example: 'The unfair tax law became a catalyst for the colonists\' rebellion against Britain.' },
+      { word: 'boycott', definition: 'When people refuse to buy, use, or participate in something as a form of protest.', example: 'The community organized a boycott of the store that had treated its workers unfairly.' },
+      { word: 'unconstitutional', definition: 'Not allowed by or in conflict with the rules of a country\'s constitution.', example: 'The court ruled the new law was unconstitutional and could not be enforced.' }
+    ],
+    questions: [
+      {
+        question: 'What caused Rosa Parks to be arrested in December 1955?',
+        options: [
+          'She organized a large protest march in front of the Montgomery city hall',
+          'She refused to give up her bus seat to a white passenger as segregation laws required',
+          'She spoke out at a public meeting against the city\'s unfair bus rules',
+          'She refused to pay the bus fare in protest of segregation laws'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that a bus driver ordered Parks to give up her seat, and when she refused, she was arrested for violating segregation laws.'
+      },
+      {
+        question: 'What was the effect of the Montgomery Bus Boycott?',
+        options: [
+          'The city of Montgomery immediately changed all its segregation laws',
+          'Rosa Parks was released from jail and all charges were dropped',
+          'The bus company lost a large portion of its income and the Supreme Court later ruled bus segregation unconstitutional',
+          'Dr. Martin Luther King Jr. was elected to lead the city\'s transportation department'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states the boycott caused the bus company to lose income, and in 1956 the Supreme Court ruled bus segregation unconstitutional.'
+      },
+      {
+        question: 'Based on context, what does "catalyst" mean in this passage?',
+        options: [
+          'A person who is unfairly treated by authorities',
+          'A person or event that causes an important change to begin',
+          'A protest in which people refuse to use a service',
+          'A law that keeps different groups of people separated'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage calls Rosa\'s arrest "the catalyst for the Montgomery Bus Boycott" — the event that triggered or started a major change.'
+      },
+      {
+        question: 'What does the author want readers to take away from Rosa Parks\'s story?',
+        options: [
+          'Only people with important jobs can make a difference in history',
+          'Protests and boycotts are the most effective ways to change unfair laws',
+          'One courageous choice by an ordinary person can spark extraordinary change',
+          'The American legal system always protects the rights of ordinary citizens'
+        ],
+        correctIndex: 2,
+        explanation: 'The second-to-last paragraph directly states: "Rosa Parks showed that one ordinary person, making a courageous choice, could ignite extraordinary change."'
+      }
+    ]
+  },
+
+  {
+    id: 'florida-cracker-cowboy',
+    title: 'The Florida Cracker Cowboy',
+    topic: 'florida-history',
+    coverEmoji: '🤠',
+    coverColor: '#b45309',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3, 4, 5],
+    wordCount: 319,
+    readTimeMin: 2,
+    text: `When most people think of cowboys, they imagine the dusty trails of Texas or the rugged mountains of the American West. But Florida has its own cowboy tradition that stretches back nearly five hundred years — longer than anywhere else in what is now the United States.
+
+Spanish explorers brought cattle to Florida in the 1500s. As the herds grew and spread across the open grasslands and palmetto prairies of the Florida peninsula, someone had to manage them. The men who did this work became known as **Cracker cowboys**, named after the sharp, cracking sound their long leather whips made as they herded cattle through the brush.
+
+Unlike the cowboys of Texas films, Florida Cracker cowboys did not primarily use lassos. The dense Florida vegetation — saw palmetto, scrub oak, and cypress swamps — made it nearly impossible to throw a rope. Instead, they relied on their whips and specially trained cattle dogs called **Blackmouth Curs** to drive the herds. A skilled cracker cowboy could pop his whip so precisely that he could cut the hide off an orange without damaging the fruit inside.
+
+The cattle industry became enormously important to Florida's **economy** before and after the Civil War. Florida cattle were driven in large herds — called **drives** — south to ports near Punta Gorda and Fort Myers, where they were loaded onto ships and sold in Cuba and other Caribbean islands. These Florida cattle drives existed decades before the famous Texas cattle drives of the 1860s.
+
+Life was hard for Cracker cowboys. They worked in blistering heat, waded through **snake-infested** swamps, and battled mosquitoes and disease. But they also developed an intimate knowledge of Florida's wilderness that few others possessed.
+
+Today, Florida is still one of the top cattle-producing states in the nation. The Cracker cowboy tradition is celebrated at festivals and museums across the state, keeping alive the story of Florida's original American cowboy.`,
+    vocabulary: [
+      { word: 'Cracker cowboy', definition: 'A Florida cattle herder known for using a long leather whip to drive cattle through dense vegetation.', example: 'The Cracker cowboy drove the herd across the palmetto prairie with a crack of his whip.' },
+      { word: 'vegetation', definition: 'Plant life; the collection of plants growing in a particular area.', example: 'The dense vegetation along the trail made it difficult to ride a horse through.' },
+      { word: 'economy', definition: 'The system of producing, trading, and using money and goods in a region.', example: 'Cattle ranching contributed greatly to Florida\'s economy in the 1800s.' },
+      { word: 'cattle drive', definition: 'The process of moving a large herd of cattle across land to a market or shipping point.', example: 'The cowboys spent three weeks on the cattle drive before reaching the port.' },
+      { word: 'intimate', definition: 'Having a very close and detailed knowledge of something through direct experience.', example: 'Years of living in the forest gave her an intimate knowledge of every trail and creek.' }
+    ],
+    questions: [
+      {
+        question: 'Why were Florida Cracker cowboys called "Crackers"?',
+        options: [
+          'They were named after a type of dry biscuit they ate on cattle drives',
+          'They were named after the cracking sound made by their long leather whips',
+          'They were given the name because they cracked open coconuts for food and water',
+          'The name came from the cracking sounds of the dry palmetto scrub when cattle walked through it'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states they were called Cracker cowboys "named after the sharp, cracking sound their long leather whips made as they herded cattle through the brush."'
+      },
+      {
+        question: 'Why did Florida Cracker cowboys use whips instead of lassos?',
+        options: [
+          'Lassos were not invented until after the Florida cattle tradition was already established',
+          'Whips were faster than lassos and could control larger herds at once',
+          'The dense Florida vegetation made it nearly impossible to throw a rope accurately',
+          'Spanish rules forbade the use of lassos in Florida cattle herding'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that dense Florida vegetation — saw palmetto, scrub oak, and swamps — made it nearly impossible to throw a rope, so cowboys relied on whips instead.'
+      },
+      {
+        question: 'What was an important destination for Florida cattle drives before and after the Civil War?',
+        options: [
+          'Cattle were driven north to sell in Georgia and South Carolina markets',
+          'Cattle were driven west along the same trails as the famous Texas drives',
+          'Cattle were driven to ports near Punta Gorda and Fort Myers, then shipped to Cuba and the Caribbean',
+          'Cattle were driven to St. Augustine and sold to Spanish settlers along the coast'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says Florida cattle were driven south to ports near Punta Gorda and Fort Myers, where they were loaded onto ships and sold in Cuba and other Caribbean islands.'
+      },
+      {
+        question: 'Based on the passage, what can the reader conclude about Florida\'s cowboy history compared to Texas\'s?',
+        options: [
+          'Texas had a longer cattle ranching tradition than Florida because its grasslands were larger',
+          'Florida\'s Cracker cowboy tradition is older, beginning about three centuries before the famous Texas cattle drives',
+          'Florida and Texas had identical cattle traditions since both were settled by Spanish explorers',
+          'The Texas cattle industry was much larger and more important to the nation than Florida\'s'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that Spanish explorers brought cattle to Florida in the 1500s and that Florida cattle drives existed decades before the famous Texas cattle drives of the 1860s — making Florida\'s tradition much older.'
+      }
+    ]
+  },
+
+// ── Grade 5 ──
+  {
+    id: 'us-constitution-bill-of-rights',
+    title: 'The Constitution and the Bill of Rights',
+    topic: 'us-history',
+    coverEmoji: '📜',
+    coverColor: '#1e3a8a',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 2,
+    text: `In the summer of 1787, delegates from twelve of the thirteen new American states gathered in Philadelphia. Their task was enormous: replace the failing Articles of Confederation with a new framework for governing the nation. After months of heated debate, they produced the United States Constitution — a document that has guided American government for more than two centuries.
+
+**A Delicate Balance**
+
+The Constitution's designers faced a central challenge: how do you create a government powerful enough to hold a nation together, yet limited enough to protect individual freedom? Their solution was a system of **separation of powers**. The federal government was divided into three branches — the legislative branch (Congress), the executive branch (the President), and the judicial branch (the Supreme Court). Each branch holds distinct responsibilities, and a system of **checks and balances** prevents any single branch from becoming too powerful. Congress makes laws, but the President can veto them. The Supreme Court can declare laws unconstitutional. The President nominates judges, but Congress must confirm them.
+
+**The Fight for a Bill of Rights**
+
+Many states refused to ratify the Constitution without stronger protections for individual liberties. Critics argued the document protected government power but said too little about protecting citizens from government overreach. To win enough support for **ratification**, James Madison drafted a series of amendments. Ten were approved in 1791 and became known as the Bill of Rights.
+
+These ten amendments guaranteed freedoms that many colonists had fought for during the Revolution. The First Amendment protected freedom of speech, religion, the press, and the right to peaceful assembly. The Fourth Amendment guarded against unreasonable searches of homes and property. The Sixth Amendment guaranteed the right to a fair and speedy trial. Together, these protections set boundaries on what the government could do to its own citizens.
+
+**An Evolving Document**
+
+The founders knew no document could anticipate every future challenge. They built in an **amendment** process — a way to add changes when enough of the nation agreed they were necessary. Since 1791, seventeen more amendments have been added, abolishing slavery, guaranteeing voting rights regardless of race or gender, and establishing other fundamental protections.
+
+The Constitution's durability comes from this balance: a clear structure of government combined with the flexibility to grow. It remains the oldest written national constitution still in active use — a testament to the careful thinking of those Philadelphia delegates and the generations who have interpreted and expanded it since.`,
+    vocabulary: [
+      { word: 'separation of powers', definition: 'The division of government authority among different branches so that no single branch holds all power.', example: 'The separation of powers ensures that Congress, the President, and the courts each limit the others.' },
+      { word: 'checks and balances', definition: 'A system in which each branch of government can limit or review the actions of the other branches.', example: 'Checks and balances prevented the president from passing laws without congressional approval.' },
+      { word: 'ratification', definition: 'The official approval of a document, treaty, or law by a vote or formal process.', example: 'Ratification of the treaty required approval from two-thirds of the Senate.' },
+      { word: 'amendment', definition: 'A formal change or addition made to a law or governing document.', example: 'The amendment to the school constitution added a new rule about student elections.' },
+      { word: 'unconstitutional', definition: 'Conflicting with or violating the rules set out in the Constitution.', example: 'The Supreme Court ruled that the new law was unconstitutional because it restricted free speech.' }
+    ],
+    questions: [
+      {
+        question: 'Why did many states refuse to ratify the Constitution at first?',
+        options: [
+          'They believed the Constitution gave too much power to individual citizens and not enough to the states.',
+          'They wanted stronger protections for individual liberties, arguing the document said too little about limiting government power over citizens.',
+          'They disagreed with the three-branch system and wanted a single powerful leader instead.',
+          'They felt the document was too long and complicated for ordinary citizens to understand or follow.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that critics argued the Constitution "protected government power but said too little about protecting citizens from government overreach," which is why many states refused to ratify without a Bill of Rights.'
+      },
+      {
+        question: 'How does the system of checks and balances work, according to the passage?',
+        options: [
+          'All three branches vote together on every major decision so that the majority always wins.',
+          'Each branch of government can limit or review the actions of the others, preventing any one branch from becoming too powerful.',
+          'The President has final authority over both Congress and the Supreme Court on all matters.',
+          'The Supreme Court writes all laws and Congress votes to approve or reject them.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that checks and balances means Congress makes laws but the President can veto them, the Supreme Court can declare laws unconstitutional, and Congress must confirm Presidential nominees.'
+      },
+      {
+        question: 'What does the word "ratification" mean as used in this passage?',
+        options: [
+          'The process of debating a document in a public meeting before it is written down officially.',
+          'The formal, official approval of a document by enough states or representatives to make it law.',
+          'The act of rewriting a document to make it shorter and easier for citizens to understand.',
+          'A rejection of a proposed law by the Supreme Court because it violates the Constitution.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses "ratification" when describing states refusing to approve the Constitution without a Bill of Rights — ratification means official approval of a governing document.'
+      },
+      {
+        question: 'What is the author\'s PURPOSE in the final paragraph?',
+        options: [
+          'To argue that the Constitution should be completely rewritten to match modern needs.',
+          'To explain that the amendment process has been used so many times that the original document no longer matters.',
+          'To show that the Constitution\'s lasting strength comes from combining clear structure with the flexibility to change over time.',
+          'To prove that the founders were more intelligent than any political leaders who came after them.'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph explains that the Constitution\'s "durability comes from this balance: a clear structure of government combined with the flexibility to grow," pointing to the amendment process as the key to its longevity.'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'The Bill of Rights is more important than the original Constitution because it protects individual freedoms.',
+          'The Constitution created a balanced system of government with built-in protections for freedom, and its flexibility has allowed it to endure for over two centuries.',
+          'The founders disagreed so strongly about government that the Constitution almost failed before it was approved.',
+          'Philadelphia was chosen as the location for the Constitutional Convention because it was the largest city in America at the time.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces the Constitution from its creation through the Bill of Rights to its amendment process, building to the central point: its balanced design and flexibility have made it enduring.'
+      }
+    ]
+  },
+  {
+    id: 'florida-civil-war',
+    title: 'Florida and the Civil War',
+    topic: 'florida-history',
+    coverEmoji: '⚔️',
+    coverColor: '#7f1d1d',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 415,
+    readTimeMin: 2,
+    text: `When the Civil War began in 1861, Florida was one of the first states to **secede** — formally leave the Union — to join the Confederacy. Though small in population compared to other Southern states, Florida played a surprisingly important role in the conflict, supplying food, salt, and soldiers to the Confederate cause.
+
+**Florida's Contributions to the Confederacy**
+
+Florida's most critical contribution was beef. The state's cattle ranches, concentrated in the central and southern regions, provided enormous quantities of meat to Confederate armies. Cattlemen drove herds north to Georgia and the Carolinas to feed hungry troops. Salt — essential for preserving food before refrigeration — was also produced along Florida's Gulf Coast. Union forces understood Florida's strategic value and repeatedly attacked salt-making operations to cut off Confederate supplies.
+
+Florida also contributed thousands of soldiers. Approximately 15,000 Floridians served in Confederate forces, fighting in major battles far from home, including Gettysburg. At the same time, roughly 2,000 Floridians — including many enslaved African Americans who escaped to Union lines — served in the **Union Army**.
+
+**The Battle of Olustee**
+
+The largest Civil War battle fought on Florida soil took place near Olustee in February 1864. Union forces had captured Jacksonville and marched inland, intending to cut off Confederate supply lines and encourage Floridians to rejoin the Union. Confederate forces met them at Olustee and won a decisive victory, forcing the Union troops to retreat. The battle was one of the bloodiest in the Eastern Theater relative to the number of troops involved, with over 2,000 casualties on both sides.
+
+**A Divided State**
+
+Florida was not uniformly Confederate in its loyalties. North Florida, with its plantations and enslaved population, was strongly secessionist. But Middle and South Florida had far fewer plantations, and many residents — particularly in the Keys and along the Gulf Coast — remained **Unionist**, continuing to support the federal government. Desertion rates from the Confederate army were high in Florida, reflecting this internal division.
+
+When the war ended in 1865, Florida's plantations were destroyed, its economy was in ruins, and the approximately 62,000 enslaved people in the state were free. Reconstruction would bring enormous challenges — and changes — to a state that had gambled on the wrong side of history.`,
+    vocabulary: [
+      { word: 'secede', definition: 'To formally withdraw from a political union or organization.', example: 'Several members threatened to secede from the club and form their own group.' },
+      { word: 'Confederacy', definition: 'The Confederate States of America — the eleven Southern states that left the Union before and during the Civil War.', example: 'The Confederacy relied on cotton exports to fund its war effort.' },
+      { word: 'Union Army', definition: 'The military forces of the United States (the North) during the Civil War.', example: 'Thousands of formerly enslaved men joined the Union Army to fight for their freedom.' },
+      { word: 'Unionist', definition: 'A person who supported keeping the United States together as one nation during the Civil War era.', example: 'The Unionist families in the mountains refused to send their sons to fight for the Confederacy.' },
+      { word: 'casualty', definition: 'A person killed or wounded in a battle or military conflict.', example: 'The battle produced over a thousand casualties in a single afternoon of fighting.' }
+    ],
+    questions: [
+      {
+        question: 'Why did Union forces attack Florida\'s salt-making operations?',
+        options: [
+          'Salt was used to make gunpowder, and destroying salt works weakened Confederate weapons production.',
+          'Union generals wanted to capture Florida\'s coastline for use as a naval base.',
+          'Salt was essential for preserving food, so destroying salt works helped cut off Confederate food supplies.',
+          'Union soldiers needed salt for their own army and planned to ship it back north after capturing the facilities.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that salt was "essential for preserving food before refrigeration" and that Union forces attacked salt-making operations specifically "to cut off Confederate supplies."'
+      },
+      {
+        question: 'What does the word "secede" mean as used in the first paragraph?',
+        options: [
+          'To succeed or win an important vote in the state legislature.',
+          'To formally withdraw from a political union.',
+          'To sign a peace agreement with an opposing government.',
+          'To request permission from the federal government to change state laws.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses "secede" with the explanation "formally leave the Union" — to secede means to formally withdraw from a political organization.'
+      },
+      {
+        question: 'How does the section "A Divided State" support the passage\'s overall argument?',
+        options: [
+          'It shows that all Floridians were loyal to the Confederacy, which explains why they fought so hard at Olustee.',
+          'It proves that Florida\'s geography made it impossible for the Union Army to ever defeat Confederate forces there.',
+          'It reveals that Florida was not uniformly Confederate — many residents remained loyal to the Union, showing the war\'s complexity within the state.',
+          'It explains that Florida\'s division was caused entirely by disagreements about cattle and salt production, not about slavery.'
+        ],
+        correctIndex: 2,
+        explanation: 'The "A Divided State" section directly shows Florida\'s internal conflict — North Florida was secessionist while other areas remained Unionist, complicating the simple picture of Florida as a unified Confederate state.'
+      },
+      {
+        question: 'Based on the passage, what was the MOST IMPORTANT contribution Florida made to the Confederacy?',
+        options: [
+          'Providing thousands of experienced military officers who led Confederate armies in major battles.',
+          'Supplying beef cattle and salt, which fed and helped preserve food for Confederate armies.',
+          'Winning the Battle of Olustee, which permanently stopped Union forces from ever entering Florida again.',
+          'Producing cotton and tobacco that the Confederacy sold to European nations for weapons and supplies.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies cattle beef as "Florida\'s most critical contribution" and also highlights salt production — both related to feeding Confederate forces.'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Florida\'s small population meant it had little real impact on the outcome of the Civil War.',
+          'The Battle of Olustee was the most important Civil War battle fought in the South.',
+          'Florida played a significant and complex role in the Civil War — supplying the Confederacy while remaining internally divided — and suffered greatly when the war ended.',
+          'Florida joined the Confederacy only because its leaders were forced to by larger Southern states like Georgia and South Carolina.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage covers Florida\'s Confederate contributions, its internal divisions, its major battle, and its post-war devastation — all building to a picture of a state with a significant, complicated Civil War experience.'
+      }
+    ]
+  },
+  {
+    id: 'reconstruction-florida',
+    title: 'Reconstruction in Florida',
+    topic: 'florida-history',
+    coverEmoji: '🏛️',
+    coverColor: '#14532d',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 425,
+    readTimeMin: 2,
+    text: `When the Civil War ended in 1865, the United States faced an enormous question: how do you rebuild a nation torn apart by war, and what rights would be granted to nearly four million formerly enslaved people? The period that followed — known as **Reconstruction** — lasted from 1865 to 1877 and transformed Florida in ways both hopeful and painful.
+
+**New Rights and New Challenges**
+
+The federal government passed three major amendments to the Constitution during Reconstruction. The Thirteenth Amendment abolished slavery. The Fourteenth Amendment granted citizenship and equal protection under the law to all people born in the United States — including formerly enslaved African Americans. The Fifteenth Amendment guaranteed that the right to vote could not be denied based on race.
+
+For a brief period, these amendments created remarkable change in Florida. African American men voted in large numbers. Black Floridians were elected to the state legislature and to local offices. Schools — including the first public schools many Black children had ever attended — were established across the state with support from the **Freedmen's Bureau**, a federal agency created to help formerly enslaved people transition to freedom.
+
+**Resistance and Backlash**
+
+Not everyone welcomed these changes. Many white Floridians who had supported the Confederacy resisted the new order. **Disenfranchisement** — stripping citizens of their voting rights — was pursued through threats, violence, and eventually legal tricks like literacy tests and poll taxes designed to prevent Black Floridians from voting. Groups like the Ku Klux Klan used terror to intimidate Black voters and political leaders.
+
+When federal troops withdrew from the South in 1877, marking the end of Reconstruction, the protections African Americans had briefly enjoyed were systematically dismantled. **Segregation** laws — known as Jim Crow laws — enforced the separation of Black and white citizens in schools, transportation, and public places throughout Florida and the rest of the South.
+
+**A Complex Legacy**
+
+Reconstruction's legacy in Florida is deeply complicated. It demonstrated that formerly enslaved people were fully capable of participating in government and civic life when given the opportunity. At the same time, its collapse showed how quickly rights can be reversed when political will and federal enforcement disappear. The freedoms promised during Reconstruction would not be fully recovered until the Civil Rights Movement nearly a century later — a reminder that progress is never guaranteed to last.`,
+    vocabulary: [
+      { word: 'Reconstruction', definition: 'The period from 1865–1877 when the federal government worked to rebuild the South and integrate formerly enslaved people into society after the Civil War.', example: 'During Reconstruction, new schools and hospitals were built across the South with federal support.' },
+      { word: 'Freedmen\'s Bureau', definition: 'A federal agency established in 1865 to help formerly enslaved people and poor white Southerners transition to freedom through education, employment, and legal support.', example: 'The Freedmen\'s Bureau helped thousands of formerly enslaved people find work and register for school.' },
+      { word: 'disenfranchisement', definition: 'The act of taking away a person\'s or group\'s right to vote.', example: 'Literacy tests were used as a tool of disenfranchisement, blocking many Black voters from the polls.' },
+      { word: 'segregation', definition: 'The enforced separation of people based on race in public places, schools, and institutions.', example: 'Segregation laws required Black and white passengers to sit in separate train cars.' },
+      { word: 'dismantled', definition: 'Taken apart or systematically destroyed piece by piece.', example: 'After the new owners took over, the old factory was dismantled and the land was cleared.' }
+    ],
+    questions: [
+      {
+        question: 'What was the PURPOSE of the Freedmen\'s Bureau?',
+        options: [
+          'To punish former Confederate soldiers and prevent them from participating in government.',
+          'To help formerly enslaved people transition to freedom through education, employment, and legal support.',
+          'To collect taxes from Southern states to pay for the costs of the Civil War.',
+          'To return formerly enslaved people to Africa if they chose to leave the United States.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the Freedmen\'s Bureau as "a federal agency created to help formerly enslaved people transition to freedom," including helping establish schools.'
+      },
+      {
+        question: 'How did opponents of Reconstruction try to limit African American political power?',
+        options: [
+          'They appealed to the Supreme Court to overturn the Fourteenth and Fifteenth Amendments.',
+          'They used threats, violence, literacy tests, poll taxes, and terror to prevent Black Floridians from voting and holding office.',
+          'They convinced Congress to end Reconstruction early by threatening to leave the Union again.',
+          'They passed laws making it illegal for African Americans to run for elected office in Florida.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes disenfranchisement through "threats, violence, and eventually legal tricks like literacy tests and poll taxes" and mentions the Ku Klux Klan using "terror to intimidate Black voters."'
+      },
+      {
+        question: 'What does the word "disenfranchisement" mean as used in this passage?',
+        options: [
+          'The process of granting citizenship rights to formerly enslaved people after the Civil War.',
+          'Stripping citizens of their right to vote, often through legal tricks or threats.',
+          'The removal of a business\'s license to operate in a particular state or region.',
+          'A form of protest in which citizens refuse to participate in elections to show their opposition.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines disenfranchisement directly as "stripping citizens of their voting rights" and gives examples of how it was pursued.'
+      },
+      {
+        question: 'What INFERENCE can be made from the final paragraph about the relationship between Reconstruction and the Civil Rights Movement?',
+        options: [
+          'The Civil Rights Movement was necessary because Reconstruction had completely failed to achieve any progress for African Americans.',
+          'The Civil Rights Movement succeeded where Reconstruction failed because it had more support from Southern white leaders.',
+          'The Civil Rights Movement had to recover the rights promised during Reconstruction because those rights were reversed when federal enforcement ended.',
+          'Reconstruction was so successful that the Civil Rights Movement was mostly about issues unrelated to voting and equality.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states "The freedoms promised during Reconstruction would not be fully recovered until the Civil Rights Movement nearly a century later," implying the Movement picked up what Reconstruction had lost.'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Reconstruction was a complete failure that accomplished nothing for formerly enslaved people in Florida.',
+          'The three Reconstruction amendments permanently solved the problem of racial inequality in the United States.',
+          'Reconstruction brought meaningful progress to Florida\'s formerly enslaved population, but that progress was systematically reversed when federal protection ended, leaving a complicated legacy.',
+          'Florida was unique among Southern states in that it fully supported Reconstruction and protected the rights of African Americans.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage traces both the hopeful achievements of Reconstruction — new rights, schools, political participation — and the painful collapse of those gains, concluding with the "deeply complicated" legacy this created.'
+      }
+    ]
+  },
+  {
+    id: 'circulatory-system',
+    title: 'The Circulatory System: Your Body\'s Highway',
+    topic: 'human-body',
+    coverEmoji: '❤️',
+    coverColor: '#991b1b',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 410,
+    readTimeMin: 2,
+    text: `Every cell in your body needs oxygen and nutrients to survive. The system responsible for delivering these essentials — and for carrying away waste — is the **circulatory system**, sometimes called the cardiovascular system. It is one of the most complex and vital networks in the human body.
+
+**The Heart: The Engine**
+
+At the center of the circulatory system is the heart, a muscular organ about the size of a fist. The heart is divided into four chambers: two **atria** (upper chambers) and two **ventricles** (lower chambers). Blood flows into the atria, then is pumped by the ventricles into the body's network of blood vessels. The heart beats approximately 100,000 times per day — pumping about five liters of blood every minute.
+
+**Two Circuits in One**
+
+The circulatory system actually operates as two connected loops. In **pulmonary circulation**, blood travels from the heart to the lungs, where it picks up oxygen and releases carbon dioxide. The oxygen-rich blood then returns to the heart. In **systemic circulation**, the heart pumps this oxygen-rich blood out through the **aorta** — the body's largest artery — and through an extensive network of arteries, capillaries, and veins to deliver oxygen and nutrients to every organ and tissue. Once oxygen is used, the blood returns to the heart through veins to start the cycle again.
+
+**The Blood Vessels**
+
+Three types of blood vessels carry blood throughout the body. **Arteries** carry oxygenated blood away from the heart under high pressure. **Capillaries** are microscopic vessels where the actual exchange of oxygen, nutrients, and waste products happens between blood and individual cells. **Veins** carry oxygen-depleted blood back toward the heart at lower pressure. Together, the body's blood vessels stretch over 60,000 miles — enough to circle the Earth more than twice.
+
+**Why It Matters**
+
+When the circulatory system malfunctions, the consequences are serious. A blocked artery can deprive the heart muscle of blood, causing a heart attack. High blood pressure — sometimes called the "silent killer" — damages blood vessel walls over time. Exercise strengthens the heart muscle, lowers blood pressure, and keeps vessels flexible. Understanding how the circulatory system works is the first step toward making choices that protect it.`,
+    vocabulary: [
+      { word: 'circulatory system', definition: 'The organ system that circulates blood through the body, consisting of the heart, blood vessels, and blood.', example: 'The circulatory system delivers oxygen from the lungs to muscles throughout the body.' },
+      { word: 'atria', definition: 'The two upper chambers of the heart that receive blood flowing into the heart (singular: atrium).', example: 'Blood from the lungs enters the left atrium before being pumped to the rest of the body.' },
+      { word: 'pulmonary circulation', definition: 'The loop of blood flow between the heart and the lungs, where blood picks up oxygen and releases carbon dioxide.', example: 'Pulmonary circulation ensures that blood is refreshed with oxygen every time it passes through the lungs.' },
+      { word: 'aorta', definition: 'The largest artery in the human body, carrying oxygen-rich blood from the heart to the rest of the body.', example: 'Damage to the aorta is life-threatening because it carries so much blood at high pressure.' },
+      { word: 'capillaries', definition: 'Tiny, microscopic blood vessels where the exchange of oxygen, nutrients, and waste occurs between blood and body cells.', example: 'Capillaries are so small that red blood cells must pass through them in single file.' }
+    ],
+    questions: [
+      {
+        question: 'What is the difference between pulmonary circulation and systemic circulation?',
+        options: [
+          'Pulmonary circulation carries blood to the lungs to pick up oxygen; systemic circulation carries oxygen-rich blood to the rest of the body.',
+          'Pulmonary circulation only occurs during exercise; systemic circulation happens when the body is at rest.',
+          'Pulmonary circulation moves blood through arteries; systemic circulation moves blood only through veins.',
+          'Pulmonary circulation is controlled by the brain; systemic circulation is controlled automatically by the heart.'
+        ],
+        correctIndex: 0,
+        explanation: 'The passage defines pulmonary circulation as blood traveling to the lungs to exchange gases, while systemic circulation pumps oxygen-rich blood out through the aorta to the rest of the body.'
+      },
+      {
+        question: 'What is the role of capillaries in the circulatory system?',
+        options: [
+          'Carrying blood away from the heart at high pressure to reach distant organs quickly.',
+          'Storing extra blood so the heart can pump faster during exercise without running out.',
+          'Connecting the heart directly to the lungs so blood can be refreshed with oxygen.',
+          'Allowing the actual exchange of oxygen, nutrients, and waste between blood and individual body cells.'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage states that capillaries are where "the actual exchange of oxygen, nutrients, and waste products happens between blood and individual cells."'
+      },
+      {
+        question: 'Why does the author mention that blood vessels stretch over 60,000 miles?',
+        options: [
+          'To warn readers that the circulatory system is too complex for scientists to fully understand.',
+          'To emphasize the extraordinary scale of the body\'s blood vessel network.',
+          'To explain why it takes blood a long time to travel from the heart to the feet.',
+          'To prove that arteries are much longer than veins in the human body.'
+        ],
+        correctIndex: 1,
+        explanation: 'Comparing the length of blood vessels to circling the Earth twice is a vivid way to emphasize how extensive and impressive the network is — an authorial choice to show the system\'s remarkable scale.'
+      },
+      {
+        question: 'Based on the passage, what does regular exercise do for the circulatory system?',
+        options: [
+          'It increases the number of blood cells the heart produces each day.',
+          'It causes the heart to beat more slowly so it never wears out over time.',
+          'It strengthens the heart muscle, lowers blood pressure, and keeps vessels flexible.',
+          'It reroutes blood away from less important organs so muscles get more oxygen.'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph states directly: "Exercise strengthens the heart muscle, lowers blood pressure, and keeps vessels flexible."'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'The heart is the most important organ in the human body and must be protected above all others.',
+          'Blood pressure is the leading cause of heart attacks and should be monitored carefully by all people.',
+          'The circulatory system is a complex network of the heart and blood vessels that delivers oxygen and nutrients to every cell while removing waste, and understanding it helps people make healthy choices.',
+          'Arteries are more important than veins because they carry oxygenated blood, while veins only carry waste back to the heart.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes the full circulatory system — its structure, two circuits, vessel types, and health implications — building to the conclusion that understanding it supports healthy decision-making.'
+      }
+    ]
+  },
+  {
+    id: 'water-cycle-indepth',
+    title: 'The Water Cycle: Earth\'s Great Recycling System',
+    topic: 'earth-science',
+    coverEmoji: '💧',
+    coverColor: '#1d4ed8',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 430,
+    readTimeMin: 2,
+    text: `Every drop of water on Earth has been recycled billions of times. The same water that fell as rain in ancient Florida may have filled a dinosaur's watering hole, frozen into a glacier, or flowed through the Nile River before returning as morning dew on your lawn. This constant movement of water is called the **water cycle**, and it is one of the most essential processes sustaining life on Earth.
+
+**Evaporation: Water Becomes Vapor**
+
+The cycle begins — or rather, continues — with **evaporation**. When the sun heats water in oceans, lakes, rivers, and even puddles, liquid water molecules gain enough energy to escape into the atmosphere as water vapor. Plants also release water vapor through their leaves in a process called **transpiration**. Together, evaporation and transpiration move enormous quantities of water into the air each day. Over the oceans, where about 86% of all evaporation occurs, this invisible transfer is constant and vast.
+
+**Condensation: Clouds Are Born**
+
+As water vapor rises into the atmosphere, it encounters cooler temperatures. Cool air holds less moisture than warm air, so the vapor **condenses** — transforms back into tiny liquid droplets or ice crystals — around microscopic particles of dust and sea salt. Billions of these droplets cluster together to form clouds. The type and altitude of a cloud depend on temperature and the amount of moisture in the air. High cirrus clouds are made entirely of ice crystals, while the low, dark nimbostratus clouds are thick with water droplets ready to fall.
+
+**Precipitation: The Return Journey**
+
+When water droplets in clouds combine and grow heavy enough, gravity pulls them back to Earth as **precipitation** — rain, snow, sleet, or hail depending on atmospheric temperature. In Florida, most precipitation falls as rain. Some of this water flows across the land as **runoff**, eventually reaching rivers and returning to the ocean. Some soaks into the soil and becomes **groundwater**, replenishing the underground **aquifers** that supply much of Florida's drinking water.
+
+**Why the Cycle Matters**
+
+The water cycle does more than move water. It distributes heat energy around the planet, shapes weather patterns, and makes fresh water available on every continent. Climate change is disrupting the cycle: warmer temperatures increase evaporation rates, intensifying storms, droughts, and flooding. Understanding the water cycle means understanding why the climate is changing — and what is at stake.`,
+    vocabulary: [
+      { word: 'evaporation', definition: 'The process by which liquid water absorbs heat energy and transforms into water vapor that rises into the atmosphere.', example: 'Evaporation from the ocean surface forms the moisture that eventually falls as rain over land.' },
+      { word: 'condensation', definition: 'The process by which water vapor cools and transforms back into liquid water droplets or ice crystals, forming clouds.', example: 'Condensation on a cold glass of water forms when warm, moist air touches the cool surface.' },
+      { word: 'precipitation', definition: 'Water that falls from clouds to Earth\'s surface in any form — rain, snow, sleet, or hail.', example: 'The weather forecast predicted heavy precipitation, so schools prepared for possible flooding.' },
+      { word: 'runoff', definition: 'Water from precipitation that flows across land surfaces and into rivers, streams, or the ocean rather than soaking into the ground.', example: 'Runoff from the parking lot carried oil and chemicals into the nearby stream.' },
+      { word: 'aquifer', definition: 'An underground layer of rock or sediment that holds and transmits groundwater, often used as a source of drinking water.', example: 'Florida\'s Floridan Aquifer is one of the most productive aquifers in the world.' }
+    ],
+    questions: [
+      {
+        question: 'What causes water vapor to condense into clouds?',
+        options: [
+          'Water vapor rises until it reaches outer space, where the lack of gravity pulls the droplets back together.',
+          'Rising water vapor encounters cooler temperatures in the upper atmosphere, causing it to transform into tiny liquid droplets or ice crystals.',
+          'Winds push water vapor from the ocean over land, where the pressure forces it to turn back into liquid water.',
+          'The sun stops heating water vapor once it rises high enough, causing it to immediately fall back as rain.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that as water vapor rises, "it encounters cooler temperatures" and "cool air holds less moisture than warm air, so the vapor condenses."'
+      },
+      {
+        question: 'How does the author use the opening paragraph to engage the reader?',
+        options: [
+          'By presenting scientific data about how many gallons of water cycle through the atmosphere each year.',
+          'By describing the water cycle using a dramatic, relatable example — the same water molecules connecting ancient history to your lawn today.',
+          'By asking the reader a direct question about whether they have ever watched rain fall into a pond.',
+          'By warning the reader that the water cycle is in danger of breaking down completely due to pollution.'
+        ],
+        correctIndex: 1,
+        explanation: 'The opening follows one water molecule through dinosaur watering holes, glaciers, and the Nile to morning dew — a vivid, personalized hook that makes an abstract scientific process feel immediate and real.'
+      },
+      {
+        question: 'What is the role of groundwater and aquifers in the water cycle, according to the passage?',
+        options: [
+          'Groundwater stays underground permanently and never returns to the surface or the ocean.',
+          'Aquifers are fed by runoff from rivers and eventually empty into the ocean during storms.',
+          'Some precipitation soaks into the soil to become groundwater that replenishes aquifers — an important source of drinking water in Florida.',
+          'Groundwater is formed when clouds release water vapor directly into underground rock formations.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that some precipitation "soaks into the soil and becomes groundwater, replenishing the underground aquifers that supply much of Florida\'s drinking water."'
+      },
+      {
+        question: 'What does the word "transpiration" refer to in this passage?',
+        options: [
+          'The process by which rivers carry water from mountains down to the sea.',
+          'The release of water vapor through plant leaves, contributing to evaporation.',
+          'The transformation of water vapor into ice crystals at high altitudes.',
+          'The movement of groundwater upward through soil toward the surface.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines transpiration as when "plants release water vapor through their leaves," contributing alongside evaporation to the water entering the atmosphere.'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Florida\'s aquifers are in danger of running dry because too much precipitation falls as runoff instead of soaking into the ground.',
+          'Clouds are the most important part of the water cycle because without condensation, no precipitation could ever occur.',
+          'The water cycle is a continuous, interconnected process that moves water through Earth\'s systems, distributes heat, shapes weather, and sustains life — but is being disrupted by climate change.',
+          'Evaporation is the most important step in the water cycle because without it, no other steps could take place.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage covers all major steps of the water cycle and concludes by explaining its broader importance for heat distribution, weather, and fresh water — while noting that climate change threatens the cycle.'
+      }
+    ]
+  },
+  {
+    id: 'photosynthesis-respiration',
+    title: 'Photosynthesis and Cellular Respiration',
+    topic: 'life-science',
+    coverEmoji: '🌿',
+    coverColor: '#166534',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 2,
+    text: `Two of the most important chemical processes on Earth happen inside living cells — and remarkably, they are mirror images of each other. **Photosynthesis** captures energy from sunlight to make food. **Cellular respiration** breaks that food apart to release energy. Together, they form the foundation of nearly all life on our planet.
+
+**Photosynthesis: Making Food from Light**
+
+Photosynthesis occurs in the **chloroplasts** of plant cells — and in algae and some bacteria. Chloroplasts contain a green pigment called **chlorophyll**, which absorbs sunlight. The plant uses this light energy to combine carbon dioxide (CO₂) from the air with water (H₂O) absorbed through its roots. The result is glucose — a sugar that stores chemical energy — and oxygen, which is released as a byproduct. In simple terms: sunlight + carbon dioxide + water → glucose + oxygen. Without photosynthesis, there would be almost no oxygen in Earth's atmosphere and no food at the base of the food chain.
+
+**Cellular Respiration: Releasing Stored Energy**
+
+Every living thing — plants, animals, fungi, and bacteria — performs cellular respiration. It happens primarily in the **mitochondria**, organelles found in nearly every cell. During cellular respiration, cells break down glucose using oxygen. This releases the chemical energy stored in glucose as a usable form of energy called **ATP** (adenosine triphosphate), along with carbon dioxide and water as waste products. In simple terms: glucose + oxygen → ATP energy + carbon dioxide + water.
+
+**The Perfect Partnership**
+
+The relationship between photosynthesis and cellular respiration creates a remarkable cycle. Photosynthesis produces glucose and oxygen; cellular respiration consumes them. Cellular respiration produces carbon dioxide and water; photosynthesis consumes them. This exchange keeps the **carbon cycle** and the oxygen cycle in balance. Plants absorb the CO₂ that animals exhale; animals breathe the oxygen that plants produce.
+
+**Why It Matters**
+
+Understanding these two processes helps explain much of what scientists observe in nature. Forests absorb enormous quantities of carbon dioxide, making them critical for moderating climate. When forests are destroyed, that stored carbon is released, accelerating climate change. Every breath you take, every meal you eat, traces back to photosynthesis — the original capture of energy from a star 93 million miles away.`,
+    vocabulary: [
+      { word: 'photosynthesis', definition: 'The process by which plants and other organisms use sunlight, water, and carbon dioxide to produce glucose and oxygen.', example: 'Without photosynthesis, plants could not produce the food that supports nearly all life on Earth.' },
+      { word: 'chlorophyll', definition: 'The green pigment in plant cells that absorbs sunlight and is essential for photosynthesis.', example: 'Leaves appear green because chlorophyll reflects green light while absorbing red and blue wavelengths.' },
+      { word: 'cellular respiration', definition: 'The process by which cells break down glucose using oxygen to release energy, producing carbon dioxide and water as byproducts.', example: 'Your muscles use cellular respiration to release the energy stored in food during exercise.' },
+      { word: 'mitochondria', definition: 'Organelles found in cells that are the primary site of cellular respiration, often called the "powerhouses" of the cell.', example: 'Muscle cells have many mitochondria because they need large amounts of energy to contract.' },
+      { word: 'ATP', definition: 'Adenosine triphosphate — the molecule that cells use as their direct source of energy for biological processes.', example: 'Every time your heart beats, it uses ATP produced by cellular respiration in heart muscle cells.' }
+    ],
+    questions: [
+      {
+        question: 'Why does the author describe photosynthesis and cellular respiration as "mirror images of each other"?',
+        options: [
+          'Both processes occur in the same organelle at the same time inside plant cells.',
+          'The products of one process are the raw materials of the other — they consume and produce each other\'s outputs in a balanced cycle.',
+          'Both processes require exactly the same amount of energy from sunlight to work properly.',
+          'They are called mirror images because one happens during the day and one only happens at night.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that photosynthesis produces glucose and oxygen that respiration consumes, while respiration produces CO₂ and water that photosynthesis consumes — perfect mirror-image chemistry.'
+      },
+      {
+        question: 'Where does cellular respiration primarily take place within a cell?',
+        options: [
+          'In the chloroplasts, where sunlight is converted into chemical energy.',
+          'In the cell membrane, which controls what enters and leaves the cell.',
+          'In the mitochondria, which break down glucose to release energy as ATP.',
+          'In the nucleus, which contains the DNA instructions for all cell processes.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that cellular respiration happens "primarily in the mitochondria, organelles found in nearly every cell."'
+      },
+      {
+        question: 'What does the word "chlorophyll" help explain about the color of plants?',
+        options: [
+          'Chlorophyll makes plants appear blue-green because it reflects ultraviolet light that human eyes cannot normally see.',
+          'Chlorophyll is green and absorbs sunlight, which is why most plants appear green — the chlorophyll reflects green light back to our eyes.',
+          'Chlorophyll absorbs green light and releases it as heat, which is why plants feel warm when touched in sunlight.',
+          'Chlorophyll has no connection to plant color — plants appear green because of the glucose they produce.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states chlorophyll is "a green pigment" that absorbs sunlight — and the vocabulary note explains it reflects green light. This is why plants appear green.'
+      },
+      {
+        question: 'Why does the author say "Every breath you take, every meal you eat, traces back to photosynthesis"?',
+        options: [
+          'Because humans evolved from plants and still carry chlorophyll genes in their DNA.',
+          'Because the oxygen we breathe and the food energy we eat both originate from photosynthesis converting sunlight into glucose and oxygen.',
+          'Because without breathing, humans cannot eat food, so breathing must come before eating.',
+          'Because photosynthesis creates all the carbon dioxide that humans need to breathe properly.'
+        ],
+        correctIndex: 1,
+        explanation: 'Photosynthesis produces the oxygen in Earth\'s atmosphere (which we breathe) and the glucose that forms the base of all food chains (what we ultimately eat) — so all animal life depends on it.'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Plants are more important than animals because photosynthesis produces the oxygen and food that all life depends on.',
+          'Cellular respiration is a more complex process than photosynthesis and requires more scientific study to fully understand.',
+          'Photosynthesis and cellular respiration are complementary, mirror-image processes that cycle energy and matter through living systems and sustain nearly all life on Earth.',
+          'The carbon cycle is being disrupted by deforestation, which is the single most important cause of climate change.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes both processes in detail, explains their mirror-image relationship, and concludes by connecting them to the carbon cycle and all life on Earth — a unified central idea.'
+      }
+    ]
+  },
+  {
+    id: 'food-web-energy-pyramids',
+    title: 'Food Webs and Energy Pyramids',
+    topic: 'life-science',
+    coverEmoji: '🦁',
+    coverColor: '#92400e',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 415,
+    readTimeMin: 2,
+    text: `Every time a lion eats a zebra, or a frog catches a fly, energy is being transferred from one living thing to another. Scientists use two tools — **food webs** and **energy pyramids** — to map and measure these transfers. Together, they reveal how energy flows through an **ecosystem** and why it limits the size of animal populations.
+
+**Food Chains and Food Webs**
+
+A **food chain** shows a simple, linear sequence: grass → grasshopper → frog → snake → hawk. Each organism is either a **producer** (a plant that makes its own food through photosynthesis) or a **consumer** (an animal that eats other organisms). Consumers are classified by what they eat: **herbivores** eat only plants, **carnivores** eat only animals, and **omnivores** eat both.
+
+Real ecosystems are far more complex than a single chain. Most animals eat more than one type of food, and most organisms are eaten by more than one predator. A food web maps all of these connections, showing the overlapping relationships between dozens — or hundreds — of species. In Florida's Everglades, for example, the food web connects sawgrass, small fish, herons, alligators, snook, and panthers in an intricate, interdependent network.
+
+**Energy Pyramids**
+
+Not all of the energy stored in one organism is transferred to the next. When a grasshopper eats grass, it uses most of that energy for its own growth, movement, and body heat. Only about **10 percent** of the energy is stored in the grasshopper's body — available to be passed on to the next organism in the chain. This rule — called the **10% rule** — means that energy is lost at every step.
+
+An energy pyramid illustrates this loss. The wide base represents producers, which hold the most energy. Each level above — primary consumers, secondary consumers, tertiary consumers — is smaller, because less and less energy is available as you move up. This is why it takes thousands of pounds of grass to support a herd of zebras, and many zebras to support a single pride of lions.
+
+**Ecological Consequences**
+
+The 10% rule has profound implications for ecosystems. It explains why large predators are rare compared to their prey. It also explains why removing a species — through hunting, habitat loss, or disease — can cascade through the entire food web, disrupting populations far removed from the original loss. **Biodiversity** — the variety of species in an ecosystem — protects food webs by providing multiple pathways for energy to flow.`,
+    vocabulary: [
+      { word: 'ecosystem', definition: 'A community of living organisms interacting with each other and with their physical environment in a specific area.', example: 'A coral reef ecosystem includes fish, coral, algae, and the surrounding ocean water.' },
+      { word: 'producer', definition: 'An organism, usually a plant, that makes its own food through photosynthesis and forms the base of a food chain.', example: 'Sawgrass is a primary producer in the Everglades ecosystem.' },
+      { word: 'consumer', definition: 'An organism that cannot make its own food and must eat other organisms to obtain energy.', example: 'A manatee is a consumer that feeds on aquatic plants in Florida\'s rivers.' },
+      { word: '10% rule', definition: 'The ecological principle that only about 10% of the energy stored in one level of a food chain is transferred to the next level.', example: 'Because of the 10% rule, a pond needs far more algae than fish to keep the ecosystem balanced.' },
+      { word: 'biodiversity', definition: 'The variety of different species of plants, animals, and other organisms living in a particular area.', example: 'Scientists work to protect biodiversity in the rainforest because many species are still unknown to science.' }
+    ],
+    questions: [
+      {
+        question: 'Why are large predators rare compared to their prey, according to the passage?',
+        options: [
+          'Large predators are harder to spot in the wild, so scientists believe there are fewer of them than there really are.',
+          'Large predators spend so much energy hunting that they cannot reproduce as quickly as smaller animals.',
+          'Because of the 10% rule, very little energy remains at the top of the food chain, which can only support a small number of top predators.',
+          'Large predators are rare because humans hunt them more than smaller animals, reducing their populations over time.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly explains: "it takes thousands of pounds of grass to support a herd of zebras, and many zebras to support a single pride of lions" — the 10% rule leaves little energy at the top.'
+      },
+      {
+        question: 'What is the difference between a food chain and a food web?',
+        options: [
+          'A food chain shows all connections between species; a food web shows only the most important single connection.',
+          'A food chain shows a simple, linear sequence of who eats whom; a food web maps the complex, overlapping feeding relationships among many species.',
+          'A food chain applies only to ocean ecosystems; a food web is used for land ecosystems.',
+          'A food chain tracks energy loss at each level; a food web shows only which animals are producers.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines a food chain as "a simple, linear sequence" while a food web "maps all of these connections, showing the overlapping relationships between dozens — or hundreds — of species."'
+      },
+      {
+        question: 'What does the word "biodiversity" suggest about the health of an ecosystem?',
+        options: [
+          'An ecosystem with high biodiversity has more predators than prey, which keeps the food web stable.',
+          'Biodiversity refers only to the number of plant species, since producers form the base of all food chains.',
+          'Higher biodiversity protects food webs by providing multiple energy pathways, making the ecosystem more resilient to the loss of any one species.',
+          'Biodiversity means that all species in an ecosystem compete for the exact same food, preventing any single species from becoming too dominant.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that "biodiversity protects food webs by providing multiple pathways for energy to flow" — meaning more species means more alternative routes if one is disrupted.'
+      },
+      {
+        question: 'How does the energy pyramid\'s shape reflect the 10% rule?',
+        options: [
+          'The pyramid is tall and narrow at the base to show that producers hold the least energy of all organisms.',
+          'The pyramid is wide at the base and narrow at the top, showing that producers hold the most energy and each level above has progressively less.',
+          'The pyramid has equal-sized levels to show that energy is shared equally among all organisms in an ecosystem.',
+          'The top of the pyramid is the widest because top predators require the most energy to survive.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains: "The wide base represents producers, which hold the most energy. Each level above... is smaller, because less and less energy is available as you move up."'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Florida\'s Everglades is the most complex food web on Earth and serves as the best example for studying energy pyramids.',
+          'Carnivores are more important to ecosystems than herbivores because they control population sizes at every level.',
+          'Food webs and energy pyramids illustrate how energy flows through ecosystems, explaining why populations are limited in size and why biodiversity matters.',
+          'The 10% rule proves that it is more energy-efficient for humans to eat plants than animals, which is why plant-based diets are better for the environment.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage introduces both models, explains the 10% rule that underlies them, and concludes by showing their implications for population sizes and ecosystem health — these are its central ideas.'
+      }
+    ]
+  },
+  {
+    id: 'florida-phosphate-mining',
+    title: 'Florida\'s Phosphate Mining Industry',
+    topic: 'florida-economics',
+    coverEmoji: '⛏️',
+    coverColor: '#78350f',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 418,
+    readTimeMin: 2,
+    text: `Beneath the surface of central Florida lies a hidden treasure — not gold or silver, but **phosphate**, a mineral that helps feed the world. Florida is the largest producer of phosphate in the United States and one of the top producers globally, mining nearly 75 percent of the nation's phosphate supply each year.
+
+**What Is Phosphate and Why Does It Matter?**
+
+Phosphate is a chemical compound containing phosphorus, an element essential for plant growth. It is a primary ingredient in **fertilizer** — the substance farmers spread on fields to help crops grow faster and produce more food. Without phosphate-based fertilizers, modern agriculture could not produce enough food to support the world's eight billion people. This makes phosphate one of the most strategically important minerals on Earth.
+
+Florida's phosphate deposits formed tens of millions of years ago, when the state was covered by a shallow sea. The bones and shells of countless marine animals accumulated on the seafloor, compressed over time into layers of **phosphate rock** up to 35 feet thick in some areas, primarily in Polk, Hillsborough, and Hardee counties.
+
+**How Is Phosphate Mined?**
+
+The most common method is **strip mining**, also called open-pit mining. Workers use massive draglines — machines as tall as a 20-story building — to remove the layer of soil above the phosphate deposit (called the **overburden**), then scoop out the phosphate-rich ore. The ore is then mixed with water to form a slurry, which is pumped through pipelines to processing plants where the phosphate is separated, dried, and processed into fertilizer.
+
+**Environmental Concerns**
+
+Phosphate mining has significant environmental costs. Strip mining permanently removes the topsoil and vegetation from large areas of land. The process also generates enormous quantities of **gypsum stack** — a radioactive waste product containing low levels of radium that must be stored in large impoundments. Contamination of waterways and the disruption of natural ecosystems have made phosphate mining one of Florida's most controversial industries.
+
+Mining companies are required to **reclaim** mined land after operations are complete — replanting vegetation and reshaping the land — but critics argue that reclaimed land rarely matches the biodiversity of the original ecosystem. Balancing Florida's economic reliance on phosphate with the environmental price of extracting it remains an ongoing challenge for the state.`,
+    vocabulary: [
+      { word: 'phosphate', definition: 'A mineral compound containing phosphorus, used primarily as a key ingredient in fertilizers that support plant growth.', example: 'Florida\'s phosphate deposits have been mined since the 1880s to supply fertilizers for farms worldwide.' },
+      { word: 'fertilizer', definition: 'A substance added to soil to provide nutrients — especially nitrogen, phosphorus, and potassium — that help plants grow.', example: 'The farmer applied fertilizer to the cornfield to increase the crop yield that season.' },
+      { word: 'strip mining', definition: 'A method of mining in which the surface layers of soil and rock are removed to reach mineral deposits below.', example: 'Strip mining left large open pits across the hillside where a forest had once stood.' },
+      { word: 'overburden', definition: 'The layer of soil, rock, and vegetation that lies above a mineral deposit and must be removed during strip mining.', example: 'Workers moved millions of tons of overburden before the mining equipment could reach the coal.' },
+      { word: 'reclaim', definition: 'To restore land that has been disturbed by mining or other industrial activities by replanting vegetation and reshaping the terrain.', example: 'The mining company was required by law to reclaim the site within five years of ending operations.' }
+    ],
+    questions: [
+      {
+        question: 'Why is phosphate described as "strategically important" in this passage?',
+        options: [
+          'Because phosphate is used to make weapons and military equipment that countries need for national defense.',
+          'Because phosphate-based fertilizers are essential for modern agriculture to produce enough food for the world\'s population.',
+          'Because Florida\'s phosphate deposits are so deep underground that they are nearly impossible for other countries to access or copy.',
+          'Because phosphate is the most valuable mineral in the world, worth more per pound than gold or diamonds.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states: "Without phosphate-based fertilizers, modern agriculture could not produce enough food to support the world\'s eight billion people. This makes phosphate one of the most strategically important minerals on Earth."'
+      },
+      {
+        question: 'How did Florida\'s phosphate deposits form, according to the passage?',
+        options: [
+          'Volcanic eruptions millions of years ago deposited layers of phosphate minerals across central Florida.',
+          'Ancient rivers carried phosphorus from the Appalachian Mountains and deposited it in central Florida\'s soil.',
+          'The bones and shells of marine animals accumulated on the seafloor of a shallow ancient sea and compressed into rock over millions of years.',
+          'Glaciers from the Ice Age ground up phosphate-rich mountains in Canada and carried the deposits south to Florida.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states: "Florida was covered by a shallow sea. The bones and shells of countless marine animals accumulated on the seafloor, compressed over time into layers of phosphate rock."'
+      },
+      {
+        question: 'What does the word "reclaim" suggest about the mining company\'s responsibility after operations end?',
+        options: [
+          'Mining companies must claim ownership of the land they mined so it cannot be used for any other purpose.',
+          'Companies must restore the mined land by replanting vegetation and reshaping the terrain, though critics say it rarely matches the original ecosystem.',
+          'Reclaiming land means the company must return it to the original property owners at no cost.',
+          'Mining companies must reclaim the phosphate waste products stored in gypsum stacks before leaving the site.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines reclamation as "replanting vegetation and reshaping the land" and notes critics argue reclaimed land "rarely matches the biodiversity of the original ecosystem."'
+      },
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in including the section on environmental concerns?',
+        options: [
+          'To argue that phosphate mining should be completely banned in Florida because the environmental damage is too severe.',
+          'To present a balanced view of phosphate mining by showing both its economic importance and its significant environmental costs.',
+          'To prove that mining companies are dishonest about their reclamation efforts and cannot be trusted.',
+          'To explain why Florida\'s water is unsafe to drink because of contamination from gypsum stacks.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage presents both sides — Florida\'s economic reliance on phosphate AND the environmental costs — and ends by calling it "an ongoing challenge for the state," showing the author\'s purpose is balanced analysis.'
+      },
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Florida should stop phosphate mining immediately to protect its environment and water supply.',
+          'Phosphate mining is an important but environmentally costly industry in Florida that presents an ongoing challenge between economic need and environmental protection.',
+          'Florida\'s phosphate industry is the most important industry in the state and is responsible for most of its economic growth.',
+          'Strip mining is the most efficient method of mineral extraction and should be used more widely around the world.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes phosphate\'s importance, explains how it is mined, and then examines the environmental costs, concluding that "balancing Florida\'s economic reliance on phosphate with the environmental price... remains an ongoing challenge."'
+      }
+    ]
+  },
+
+{
+    id: 'underground-railroad-tubman',
+    title: 'The Secret Road to Freedom',
+    topic: 'biography',
+    coverEmoji: '🌟',
+    coverColor: '#1e3a8a',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 435,
+    readTimeMin: 2,
+    text: `**A Life Shaped by Slavery**
+
+Harriet Tubman was born into slavery around 1822 on a plantation in Dorchester County, Maryland. From childhood, she endured brutal conditions — forced labor, beatings, and the constant threat of being sold away from her family. Yet even in these circumstances, Tubman developed extraordinary courage and a deep determination to be free.
+
+In 1849, after hearing rumors that she would be sold, Tubman made a bold decision: she would escape. Traveling mostly at night, guided by the North Star and the help of **abolitionists**, she covered nearly 90 miles on foot to reach Philadelphia, Pennsylvania — a free state. She later wrote that when she crossed into freedom, she felt as if "heaven and earth" were rejoicing.
+
+**The Underground Railroad**
+
+The Underground Railroad was not an actual railroad with tracks or trains. It was a secret **network** of people, routes, and safe houses that helped enslaved people escape to freedom in the Northern United States and Canada. "Conductors" guided escapees while "stationmasters" provided shelter and food. **Coded language** kept the system hidden — "passengers" meant freedom seekers, and "stations" were safe resting places.
+
+Tubman became one of the most famous conductors in the Underground Railroad's history. Between 1850 and 1860, she returned to the South at least 13 times, leading approximately 70 enslaved people to freedom. She was so effective that slave owners offered rewards of up to $40,000 — equivalent to over a million dollars today — for her capture. Yet she was never caught, and she never lost a single person she guided to freedom.
+
+**A Legacy of Courage**
+
+Tubman's bravery did not end with the Underground Railroad. During the Civil War, she served as a spy and scout for the Union Army, leading a river raid in South Carolina that freed more than 700 enslaved people in a single night. After the war, she became an active advocate for women's right to vote.
+
+Tubman's story is not simply about one person's escape from bondage. It illustrates how **resistance** against injustice requires both individual courage and community cooperation. The Underground Railroad succeeded because hundreds of ordinary people risked their own safety to challenge a deeply unjust system. Harriet Tubman's life reminds us that freedom, once gained, demands that we help others achieve it as well.`,
+    vocabulary: [
+      { word: 'abolitionists', definition: 'People who worked to end the practice of slavery.', example: 'Abolitionists published newspapers, gave speeches, and hid freedom seekers to fight against slavery.' },
+      { word: 'network', definition: 'A connected system of people or things working together toward a common goal.', example: 'The Underground Railroad was a network of volunteers who helped enslaved people escape.' },
+      { word: 'coded language', definition: 'Words or phrases that carry hidden meanings understood only by certain people.', example: 'Conductors used coded language so that strangers could not understand their secret plans.' },
+      { word: 'resistance', definition: 'The act of opposing or fighting against something unjust or harmful.', example: 'Harriet Tubman\'s repeated journeys south were a powerful form of resistance against slavery.' },
+      { word: 'advocate', definition: 'A person who publicly supports or champions a cause or group.', example: 'After the Civil War, Tubman became an advocate for women\'s voting rights.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Harriet Tubman\'s bravery and the cooperative effort of the Underground Railroad challenged slavery and inspired others to fight for justice.',
+          'The Underground Railroad used trains and tunnels to transport enslaved people to the North.',
+          'Harriet Tubman was the only person responsible for freeing enslaved people before the Civil War.',
+          'Slavery in Maryland was far worse than in other Southern states.'
+        ],
+        correctIndex: 0,
+        explanation: 'The passage emphasizes both Tubman\'s individual courage and the collective network of the Underground Railroad working together against injustice.'
+      },
+      {
+        question: 'According to the passage, how did the Underground Railroad keep its operations secret?',
+        options: [
+          'Conductors traveled only in large groups to avoid detection.',
+          'All communications were sent by letter through the postal service.',
+          'It used coded language so outsiders could not understand plans or conversations.',
+          'Members memorized maps and destroyed all written records immediately.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that "coded language kept the system hidden" and explains terms like "passengers" and "stations."'
+      },
+      {
+        question: 'Why does the author include the detail about the $40,000 reward for Tubman\'s capture?',
+        options: [
+          'To show how wealthy slaveholders were during the 1850s.',
+          'To emphasize how significant a threat Tubman was to the slavery system and how remarkable it was that she was never caught.',
+          'To argue that the Underground Railroad was primarily motivated by financial gain.',
+          'To explain why Tubman eventually stopped making trips to the South.'
+        ],
+        correctIndex: 1,
+        explanation: 'The large reward highlights how effective and dangerous Tubman was to slaveholders, making her success even more remarkable.'
+      },
+      {
+        question: 'Based on context, what does the word "bondage" most likely mean as used in the final paragraph?',
+        options: [
+          'A type of legal contract signed by workers',
+          'A community formed by people with shared beliefs',
+          'The state of being enslaved or held captive against one\'s will',
+          'A journey taken in secret through dangerous territory'
+        ],
+        correctIndex: 2,
+        explanation: 'The paragraph discusses Tubman\'s "escape from bondage," connecting it to slavery and the fight for freedom, indicating captivity.'
+      },
+      {
+        question: 'How does the passage organize its information about Harriet Tubman?',
+        options: [
+          'It compares Tubman\'s life to other famous abolitionists of the same era.',
+          'It presents a problem and then explains multiple failed solutions.',
+          'It uses chronological order, moving from her early life through her later activism.',
+          'It organizes information by cause and effect, focusing on the outcomes of slavery.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage moves from Tubman\'s birth and childhood, to her escape in 1849, through the 1850s–1860s, and then to her post-war advocacy — a chronological structure.'
+      }
+    ]
+  },
+  {
+    id: 'florida-citrus-cattle',
+    title: 'Florida\'s Fields and Herds',
+    topic: 'florida-history',
+    coverEmoji: '🍊',
+    coverColor: '#ea580c',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 428,
+    readTimeMin: 2,
+    text: `**Sunshine and Pastures**
+
+When most people think of Florida, they picture theme parks and beaches. But for centuries, two industries have defined the state's economic identity: citrus farming and cattle ranching. Together, these agricultural powerhouses helped transform Florida from a wild frontier into one of the most productive farming regions in the United States.
+
+**The Citrus Story**
+
+Spanish explorers brought orange seeds to Florida in the 1500s, planting the first groves near St. Augustine. By the 1800s, citrus farming had spread across central Florida, where the **subtropical** climate — warm winters, abundant rain, and rich sandy soil — proved ideal for growing oranges, grapefruits, and tangerines. At its peak in the late 20th century, Florida produced about 75 percent of all orange juice consumed in the United States.
+
+However, the industry has faced severe challenges. A series of devastating freezes in the 1980s and 1990s wiped out thousands of acres of groves, pushing farming southward toward warmer regions. More recently, a bacterial disease called **citrus greening** has devastated the industry. Spread by a tiny insect, the disease causes trees to produce bitter, misshapen fruit and eventually kills them. Florida citrus production has dropped by more than 90 percent since the early 2000s, and scientists race to find a cure.
+
+**The Cattle Industry**
+
+Florida's cattle story is equally remarkable. Spanish settlers brought longhorn cattle to Florida in the 1500s, and herds multiplied quickly in the state's open grasslands. **Crackers** — the name given to Florida's early cattle ranchers — used long whips whose cracking sound was used to drive cattle across the range. Some historians believe the term gave Florida's native-born residents their nickname.
+
+By the Civil War, Florida was one of the leading cattle-producing states in the South, supplying beef to Confederate forces. Today, Florida remains among the top ten cattle-producing states in the nation. Ranchers in areas like Okeechobee and Kissimmee manage massive herds on **range land** that stretches for miles.
+
+**A Shared Importance**
+
+Both industries reflect a deeper truth about Florida's relationship with its natural environment. Citrus and cattle thrived because of the state's unique climate and landscape, but both also put pressure on water supplies, soil quality, and native ecosystems. As Florida grows, farmers and **conservationists** must find ways to maintain these traditions while protecting the land that makes them possible.`,
+    vocabulary: [
+      { word: 'subtropical', definition: 'Describing a climate that is warm and humid year-round, just outside the tropical zone.', example: 'Florida\'s subtropical climate allows farmers to grow citrus trees that would die in colder states.' },
+      { word: 'citrus greening', definition: 'A bacterial disease that infects citrus trees, causing poor fruit quality and tree death.', example: 'Citrus greening has caused Florida\'s orange production to fall dramatically since 2000.' },
+      { word: 'Crackers', definition: 'The historical name for early Florida cattle ranchers who used long whips to drive their herds.', example: 'Florida Crackers developed a unique ranching culture adapted to the state\'s hot, wet climate.' },
+      { word: 'range land', definition: 'Large open areas of grassland used for grazing livestock.', example: 'Cattle ranchers in Okeechobee manage herds across vast stretches of Florida range land.' },
+      { word: 'conservationists', definition: 'People who work to protect and preserve natural environments and resources.', example: 'Conservationists worry that expanding farmland reduces habitat for Florida\'s native wildlife.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Florida\'s beaches and theme parks are more economically important than its farms.',
+          'Citrus greening is the most serious environmental problem Florida has ever faced.',
+          'Citrus farming and cattle ranching have long shaped Florida\'s economy and reflect its relationship with its natural environment.',
+          'Spanish explorers introduced more agricultural crops to Florida than to any other state.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage traces both industries from their origins to the present, ending with the shared idea that Florida\'s agriculture reflects its relationship with the environment.'
+      },
+      {
+        question: 'According to the passage, what caused Florida\'s citrus production to decline most severely in recent years?',
+        options: [
+          'A series of devastating freezes that destroyed thousands of acres of groves',
+          'A bacterial disease called citrus greening spread by a tiny insect',
+          'Competition from orange groves in California and Texas',
+          'New laws that limited the amount of land available for farming'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that citrus greening "has devastated the industry" and production has dropped over 90 percent since the early 2000s — more recent and severe than the freezes.'
+      },
+      {
+        question: 'Based on context clues, what does the word "subtropical" most likely mean?',
+        options: [
+          'Located underground, below the tropical zone',
+          'Unusually cold and dry, similar to a desert climate',
+          'Warm and humid year-round, near but not in the tropics',
+          'Subject to frequent flooding and tropical storms'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes subtropical as "warm winters, abundant rain" — a consistently warm, moist climate suitable for growing citrus.'
+      },
+      {
+        question: 'Why does the author include the origin of the word "Crackers" in the cattle section?',
+        options: [
+          'To entertain readers with an unusual piece of trivia about Florida history.',
+          'To explain how Florida ranchers developed their own culture and identity connected to their ranching practices.',
+          'To argue that Florida ranchers were more skilled than ranchers in other states.',
+          'To show that the cattle industry was more important than the citrus industry.'
+        ],
+        correctIndex: 1,
+        explanation: 'The "Crackers" detail illustrates how ranching shaped Florida\'s cultural identity — the nickname came from the tools and practices of their work.'
+      },
+      {
+        question: 'What text structure does the final paragraph ("A Shared Importance") primarily use?',
+        options: [
+          'Sequence, listing events in the order they occurred over time',
+          'Compare and contrast, showing differences between citrus and cattle ranching',
+          'Problem and solution, identifying challenges and how farmers solve them',
+          'Cause and effect, connecting the state\'s environment to both industries and to current pressures'
+        ],
+        correctIndex: 3,
+        explanation: 'The final paragraph explains that both industries thrived because of Florida\'s environment (cause) but also created pressure on the land (effect), linking environment to outcomes.'
+      }
+    ]
+  },
+  {
+    id: 'electricity-magnetism-basics',
+    title: 'The Invisible Force: Electricity and Magnetism',
+    topic: 'science',
+    coverEmoji: '⚡',
+    coverColor: '#7c3aed',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 441,
+    readTimeMin: 2,
+    text: `**Forces You Can\'t See**
+
+Every time you flip a light switch or use a compass, you are relying on two of nature's most powerful invisible forces: electricity and magnetism. Scientists in the 19th century made a stunning discovery — these two forces are not separate. They are deeply connected, forming a single unified force called **electromagnetism**.
+
+**Understanding Electricity**
+
+Electricity is the flow of **electrons** — tiny particles found in atoms — through a material. Materials that allow electrons to move easily are called **conductors**; metals like copper and aluminum are excellent conductors, which is why electrical wires are made of them. Materials that block electron flow are called insulators; rubber and plastic are common insulators, which is why wires are coated in them.
+
+Electricity can be generated in several ways. Power plants burn fuel or use moving water and wind to spin large machines called generators. Inside a generator, a coil of wire spins inside a magnetic field. This motion causes electrons to flow, producing electricity. This process demonstrates the core link between electricity and magnetism: moving magnets create electric current, and moving electric current creates magnetic fields.
+
+**The Power of Magnets**
+
+All magnets have two poles — a north pole and a south pole. Opposite poles attract each other, while like poles repel. This behavior is caused by the alignment of tiny magnetic regions inside the material called **magnetic domains**. In most materials, these domains point in random directions, canceling each other out. In a magnet, the domains are aligned, creating a net magnetic force.
+
+**Electromagnets** take the relationship further. When electric current flows through a coiled wire, it creates a magnetic field around the wire — in effect, the wire becomes a temporary magnet. The strength of the electromagnet can be increased by adding more coils, using more current, or wrapping the coil around an iron core. Electromagnets are found in electric motors, MRI machines, and even junkyards, where giant electromagnets lift heavy scrap metal.
+
+**Everyday Applications**
+
+The connection between electricity and magnetism powers modern civilization. Electric motors use magnetic forces to convert electrical energy into motion, running everything from fans to electric cars. Generators do the reverse, converting motion into electrical energy. Every time you charge a phone or turn on a lamp, a chain of electromagnetic processes makes it possible.
+
+Understanding electromagnetism helps explain not just how our machines work, but also fundamental aspects of nature — including how the Earth's magnetic field protects us from harmful radiation from the sun.`,
+    vocabulary: [
+      { word: 'electromagnetism', definition: 'The unified force combining electricity and magnetism, showing they are two aspects of the same phenomenon.', example: 'Electromagnetism explains why a moving magnet can generate electric current inside a wire.' },
+      { word: 'electrons', definition: 'Tiny negatively charged particles found in atoms that carry electrical current when they move.', example: 'When electrons flow through a copper wire, they carry electrical energy to power a light bulb.' },
+      { word: 'conductors', definition: 'Materials that allow electricity to flow through them easily.', example: 'Copper is one of the best conductors, which is why most electrical wiring is made from it.' },
+      { word: 'magnetic domains', definition: 'Tiny regions within a material where atoms are aligned in the same magnetic direction.', example: 'When magnetic domains in iron all point the same way, the iron becomes a strong magnet.' },
+      { word: 'electromagnets', definition: 'Temporary magnets created by running electric current through a coiled wire.', example: 'Electromagnets in junkyards can be switched on to lift heavy metal and switched off to release it.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main idea of this passage?',
+        options: [
+          'Copper is the best material for making electrical wires because it conducts well.',
+          'Electricity and magnetism are connected forces that together power much of modern technology.',
+          'Generators are the most important invention in the history of science.',
+          'Magnetic domains explain why some rocks are naturally magnetic while others are not.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage covers both electricity and magnetism, showing how they are linked (electromagnetism) and how that link powers technology.'
+      },
+      {
+        question: 'According to the passage, what happens inside a generator to produce electricity?',
+        options: [
+          'Electrons from batteries are released into copper wires at high speed.',
+          'Chemical reactions inside fuel cells push electrons through wires.',
+          'A coil of wire spinning inside a magnetic field causes electrons to flow.',
+          'Steam heated by nuclear reactions passes through copper pipes and creates current.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that "a coil of wire spins inside a magnetic field" causing electrons to flow and producing electricity.'
+      },
+      {
+        question: 'Based on context, what does the word "repel" most likely mean as used in the magnets section?',
+        options: [
+          'To attract strongly toward another object',
+          'To push away from each other',
+          'To align in the same direction as nearby objects',
+          'To lose magnetic properties over time'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage contrasts "attract" with "repel" when describing opposite and like poles — repel means to push away.'
+      },
+      {
+        question: 'How does the author organize the information in this passage?',
+        options: [
+          'By comparing electricity and magnetism to show they are completely different forces.',
+          'By telling the history of how scientists discovered each force in chronological order.',
+          'By explaining each concept separately and then connecting them through their shared applications.',
+          'By presenting a problem with electricity and then describing how magnetism solves it.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage has sections on electricity, magnets, and electromagnets, then connects them in the "Everyday Applications" section to show how they work together.'
+      },
+      {
+        question: 'Which detail best supports the idea that electricity and magnetism are deeply connected?',
+        options: [
+          'Rubber and plastic are used as insulators to coat electrical wires.',
+          'Power plants use moving water and wind to spin generators.',
+          'Moving magnets create electric current, and moving electric current creates magnetic fields.',
+          'Electromagnets can be found in MRI machines and electric motors.'
+        ],
+        correctIndex: 2,
+        explanation: 'This detail directly states the reciprocal relationship — each force can produce the other — which is the core evidence of their connection.'
+      }
+    ]
+  },
+  {
+    id: 'exploration-columbus-ponce',
+    title: 'Explorers and Empires: Columbus and Ponce de León',
+    topic: 'florida-history',
+    coverEmoji: '⚓',
+    coverColor: '#0369a1',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 432,
+    readTimeMin: 2,
+    text: `**A New World Discovered**
+
+In 1492, Christopher Columbus sailed west from Spain hoping to find a faster route to Asia. Instead, he arrived at islands in the Caribbean Sea, claiming them for Spain. His voyages launched an age of exploration that would reshape the entire world. Columbus did not set foot in what is now Florida, but his expeditions opened the door for those who would.
+
+**Ponce de León\'s Claim**
+
+Juan Ponce de León was a Spanish explorer who had served as governor of Puerto Rico. In April 1513, he led a fleet of three ships northward from the Caribbean and became the first European to officially document a landing on the North American mainland. He arrived near present-day St. Augustine and named the land **La Florida** — meaning "land of flowers" in Spanish — possibly because of the lush vegetation he observed, or because the Easter season in Spanish is called *Pascua Florida*.
+
+A popular legend claims that Ponce de León was searching for the **Fountain of Youth**, a mythical spring said to restore health and reverse aging. However, historians find little evidence for this story in records from his time. The legend appears to have been spread by his rivals and later writers. In reality, Ponce de León was most likely seeking new lands, gold, and **indigenous** peoples to be forced into labor — goals typical of Spanish exploration at the time.
+
+**The Impact on Florida\'s Native People**
+
+When European explorers arrived, Florida was home to thousands of Native Americans, including the Timucua, Calusa, and Apalachee peoples. These communities had complex social structures, traded goods across long distances, and managed the land through careful farming and hunting practices.
+
+The arrival of Europeans brought devastating consequences. Spanish explorers and later settlers introduced diseases like smallpox and measles to which Native Floridians had no immunity. These **epidemics** wiped out entire communities within decades. At the same time, the Spanish **encomienda** system forced Native people into brutal labor on farms and in mines. By 1700, Florida's original Native population had been reduced by an estimated 90 percent.
+
+**Legacy of Exploration**
+
+The Age of Exploration changed Florida permanently. Spanish missions, military forts, and eventually cities rose on land that had been home to Native peoples for thousands of years. Understanding this history requires acknowledging both the ambition that drove exploration and the enormous human cost it imposed on those who were already here.`,
+    vocabulary: [
+      { word: 'La Florida', definition: 'The name given by Juan Ponce de León to the land now known as Florida, meaning "land of flowers" in Spanish.', example: 'Ponce de León named the territory La Florida during his 1513 expedition to the North American mainland.' },
+      { word: 'Fountain of Youth', definition: 'A legendary spring said to restore youth and health, incorrectly linked to Ponce de León\'s expedition in later stories.', example: 'Although the Fountain of Youth legend is popular, historians say there is little evidence Ponce de León was actually searching for it.' },
+      { word: 'indigenous', definition: 'Naturally originating from and living in a particular region; native to a place.', example: 'The Timucua were an indigenous people who lived in northeastern Florida long before European contact.' },
+      { word: 'epidemics', definition: 'Widespread outbreaks of disease affecting large numbers of people in a community or region at the same time.', example: 'European diseases caused deadly epidemics among Native Florida peoples who had no immunity to them.' },
+      { word: 'encomienda', definition: 'A Spanish colonial system that gave settlers authority over Native people, forcing them into labor.', example: 'The encomienda system exploited indigenous people by compelling them to work for Spanish colonists.' }
+    ],
+    questions: [
+      {
+        question: 'What is the author\'s primary purpose in the final paragraph?',
+        options: [
+          'To praise Spanish explorers for their bravery in navigating unknown oceans.',
+          'To argue that Ponce de León deserves more credit than Columbus for discovering America.',
+          'To encourage readers to acknowledge both the goals of exploration and the human cost it had for Native peoples.',
+          'To explain why Florida became a Spanish colony rather than an English one.'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph calls for acknowledging "both the ambition that drove exploration and the enormous human cost it imposed" — a balanced, reflective conclusion.'
+      },
+      {
+        question: 'According to the passage, why do historians doubt the Fountain of Youth story?',
+        options: [
+          'Ponce de León\'s journals describe only military battles, not any search for water sources.',
+          'The legend appears in records written long after his time, spread by rivals, not in historical accounts from his era.',
+          'Ponce de León died before completing his second voyage, so his true goals are impossible to determine.',
+          'Spanish kings had banned their explorers from searching for mythical landmarks like the Fountain of Youth.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states: "The legend appears to have been spread by his rivals and later writers" — meaning it lacks contemporary evidence.'
+      },
+      {
+        question: 'What does the word "immunity" suggest about why European diseases were so deadly to Native Floridians?',
+        options: [
+          'Native people chose not to use Spanish medicines that could have helped them.',
+          'Their bodies had never been exposed to those diseases and could not fight them off.',
+          'European explorers deliberately spread disease as a military strategy.',
+          'Native communities lacked organized healers who could treat illnesses effectively.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says Native Floridians "had no immunity" — meaning their immune systems had no prior experience with these diseases and could not resist them.'
+      },
+      {
+        question: 'Which statement is best supported by evidence in the passage?',
+        options: [
+          'Columbus\'s voyages had no lasting effect on the Native peoples of Florida.',
+          'Ponce de León treated the Native people he encountered with respect and fairness.',
+          'European exploration led to catastrophic population loss among Florida\'s Native peoples.',
+          'The Timucua and Calusa people quickly adapted to Spanish colonial rule.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage provides specific evidence: epidemics, the encomienda system, and an estimated 90 percent population loss by 1700.'
+      },
+      {
+        question: 'How does this passage primarily organize its information?',
+        options: [
+          'By comparing Columbus and Ponce de León to determine who was the greater explorer.',
+          'In chronological order, tracing the sequence of exploration and its consequences.',
+          'By presenting opposing viewpoints about whether exploration was beneficial or harmful.',
+          'By describing the geography of Florida and how it influenced Spanish exploration.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage moves from 1492 (Columbus) to 1513 (Ponce de León) to the long-term consequences — a clear chronological structure.'
+      }
+    ]
+  },
+  {
+    id: 'florida-world-war-ii',
+    title: 'Florida\'s Hidden War: The Home Front in World War II',
+    topic: 'florida-history',
+    coverEmoji: '🎖️',
+    coverColor: '#065f46',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 447,
+    readTimeMin: 2,
+    text: `**A State Transformed by War**
+
+When the United States entered World War II after the attack on Pearl Harbor on December 7, 1941, Americans everywhere mobilized for the effort. Florida, often thought of as a quiet agricultural state, was transformed almost overnight. Its warm climate, open land, and long coastlines made it ideal for military training, and its industries pivoted to support the war in ways most people have long forgotten.
+
+**Camp Blanding: The City That Rose from the Forest**
+
+In 1940, the U.S. Army began construction on a massive training facility in Clay County, Florida, about 50 miles southwest of Jacksonville. Named Camp Blanding after a Florida general, the base grew with remarkable speed. At its peak, Camp Blanding housed more than 55,000 soldiers — making it temporarily the fourth-largest city in Florida. Hundreds of barracks, hospitals, training ranges, and support buildings were built in just months.
+
+Soldiers trained at Camp Blanding endured grueling physical conditioning and learned combat skills in Florida's dense forests and swampy terrain. The base trained over 800,000 men during the war. Soldiers from all over the country arrived, and small towns near the base boomed as local businesses served the military population. When the war ended, the base shrank dramatically, but it remains active today as Florida's National Guard headquarters.
+
+**War Production and the Home Front**
+
+Florida's economy shifted sharply to support the war effort. Shipyards in Tampa, Jacksonville, and Miami built and repaired vessels for the Navy. Factories converted from peacetime production to manufacturing military **munitions**, vehicles, and equipment. Farmers grew extra crops to feed troops overseas.
+
+One lesser-known contribution was Florida's aviation industry. Miami's Pan American Airways facility, along with dozens of other airfields, became centers for training pilots and **overhauling** aircraft. The U.S. Army Air Forces operated over 40 air bases in Florida by 1945. The state's nearly year-round sunshine made flying conditions nearly ideal.
+
+**The Threat at Sea**
+
+Florida also faced the war directly. German submarines called **U-boats** prowled the Gulf of Mexico and Atlantic coast, sinking Allied ships carrying oil, food, and supplies. Floridians living near the coast practiced blackouts, covering their windows at night so that lights would not silhouette ships offshore and make them easy targets for submarines lurking in the dark water.
+
+**A Legacy Often Overlooked**
+
+World War II reshaped Florida fundamentally. The military investments brought infrastructure, jobs, and new residents who stayed after the war. Florida's postwar population boom — which eventually made it one of the most populous states — had its roots in the men and women who first arrived in uniform.`,
+    vocabulary: [
+      { word: 'mobilized', definition: 'Organized and prepared people, resources, and industries for a large-scale effort, especially for war.', example: 'After Pearl Harbor, the United States mobilized its factories, military, and citizens for the war effort.' },
+      { word: 'munitions', definition: 'Military weapons, ammunition, and related equipment used in warfare.', example: 'Florida factories that once made consumer goods switched to producing munitions for the Army.' },
+      { word: 'overhauling', definition: 'Thoroughly inspecting, repairing, and restoring equipment to working condition.', example: 'Aircraft facilities in Miami were responsible for overhauling military planes damaged in combat.' },
+      { word: 'U-boats', definition: 'German military submarines (from the German word Unterseeboot) used during World War II to attack Allied ships.', example: 'U-boats sank dozens of ships off Florida\'s coast during the early years of World War II.' },
+      { word: 'blackouts', definition: 'Wartime precautions requiring lights to be covered or turned off at night to prevent enemies from using them as navigation aids.', example: 'Coastal residents practiced blackouts to keep city lights from making ships visible to German submarines.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Camp Blanding was the most important military base in the entire United States during World War II.',
+          'Florida played a surprisingly significant role in World War II through military training, war production, and coastal defense.',
+          'German submarines were the greatest military threat the United States faced during the war.',
+          'Florida\'s tourism industry collapsed completely during World War II due to military restrictions.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage covers training (Camp Blanding), production (shipyards, aviation), and coastal threats (U-boats), all showing Florida\'s broad wartime role.'
+      },
+      {
+        question: 'According to the passage, why was Florida especially well-suited for military training during World War II?',
+        options: [
+          'It already had the largest concentration of military factories in the South.',
+          'Its large population provided more recruits than any other Southern state.',
+          'Its warm climate, open land, and long coastlines made it ideal for training.',
+          'Florida had more military bases than any other state before the war began.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states: "Its warm climate, open land, and long coastlines made it ideal for military training."'
+      },
+      {
+        question: 'Why did coastal Floridians practice blackouts during the war?',
+        options: [
+          'To conserve electricity for factories producing military equipment',
+          'To prevent German aircraft from using lit roads as navigation guides',
+          'To avoid lights that could silhouette ships and make them visible to German submarines',
+          'To signal Allied ships that the coast was safe to approach'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that blackouts prevented lights from "silhouetting ships offshore" and making them easy targets for U-boats.'
+      },
+      {
+        question: 'What does the word "pivoted" suggest about Florida\'s industries during the war?',
+        options: [
+          'They shut down completely and waited for the war to end before reopening.',
+          'They quickly changed direction, shifting from peacetime products to war-related production.',
+          'They expanded slowly over several years to meet military demand.',
+          'They moved their operations to other states to be closer to military bases.'
+        ],
+        correctIndex: 1,
+        explanation: '"Pivoted" implies a sharp turn or change in direction — here, industries rapidly switched from civilian to military production.'
+      },
+      {
+        question: 'Which statement from the passage best supports the idea that World War II had a lasting effect on Florida?',
+        options: [
+          '"Soldiers trained at Camp Blanding endured grueling physical conditioning."',
+          '"German submarines called U-boats prowled the Gulf of Mexico and Atlantic coast."',
+          '"Florida\'s postwar population boom had its roots in the men and women who first arrived in uniform."',
+          '"At its peak, Camp Blanding housed more than 55,000 soldiers."'
+        ],
+        correctIndex: 2,
+        explanation: 'This statement directly connects the wartime military presence to Florida\'s long-term population growth — a lasting legacy.'
+      }
+    ]
+  },
+  {
+    id: 'civil-rights-act-1964',
+    title: 'The Law That Changed America: The Civil Rights Act of 1964',
+    topic: 'civics',
+    coverEmoji: '⚖️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 443,
+    readTimeMin: 2,
+    text: `**A Nation Divided**
+
+For decades after the Civil War, African Americans in the South lived under a system of laws and practices called **Jim Crow**. These laws enforced racial **segregation** — the forced separation of Black and white Americans in schools, restaurants, buses, and nearly every public space. Black citizens were also prevented from voting through tactics like literacy tests, poll taxes, and threats of violence. By the 1950s and early 1960s, the Civil Rights Movement was pushing hard for change, and the nation was watching.
+
+**The Road to the Law**
+
+President John F. Kennedy introduced civil rights legislation in 1963, but it faced fierce opposition in Congress. When Kennedy was assassinated in November 1963, President Lyndon B. Johnson took up the cause. Johnson used his considerable political skills and the weight of the national mood following Kennedy's death to push the bill forward. After the longest Senate debate in American history — 60 days — the Civil Rights Act was signed into law on July 2, 1964.
+
+**What the Law Did**
+
+The Civil Rights Act of 1964 was one of the most sweeping pieces of legislation in American history. Its most important provisions:
+
+**Title II** banned racial discrimination in hotels, restaurants, theaters, and other places of public **accommodation**. No longer could a business legally refuse service to someone because of their race.
+
+**Title VI** prohibited discrimination by any program receiving federal funds. This meant that schools or hospitals that received government money could not treat people unequally based on race.
+
+**Title VII** made it illegal for employers to discriminate in hiring, firing, or promotions based on race, religion, sex, or national origin. This provision also established the Equal Employment Opportunity Commission (EEOC) to investigate complaints.
+
+**Resistance and Progress**
+
+The law did not immediately end discrimination. Many businesses and institutions resisted, and **enforcement** was uneven. Violence against civil rights activists continued, and deep inequalities persisted. Further legislation — including the Voting Rights Act of 1965 — was needed to address areas the 1964 Act did not fully cover.
+
+Yet the law's impact was undeniable. Within months of its passage, thousands of formerly segregated public places quietly integrated. The EEOC received thousands of employment discrimination complaints in its first year, signaling that workers were ready to claim their rights. Over decades, the Act helped reshape workplaces, schools, and public life across the country.
+
+The Civil Rights Act of 1964 stands as a landmark in American democracy — proof that sustained, organized pressure for justice can change the law of the land.`,
+    vocabulary: [
+      { word: 'Jim Crow', definition: 'Laws and social practices enforced in the American South that legally separated Black and white people in public life.', example: 'Under Jim Crow laws, Black students attended separate, often underfunded schools away from white students.' },
+      { word: 'segregation', definition: 'The enforced separation of people based on race or other characteristics.', example: 'Segregation meant that Black Americans had to use separate drinking fountains, waiting rooms, and entrances.' },
+      { word: 'accommodation', definition: 'A public facility or service, such as a hotel, restaurant, or theater, that serves paying customers.', example: 'Title II of the Civil Rights Act prohibited discrimination in places of public accommodation like restaurants and hotels.' },
+      { word: 'enforcement', definition: 'The act of making sure people follow a law or rule, and punishing those who do not.', example: 'Without strong enforcement, the new civil rights laws had limited effect in some areas of the South.' },
+      { word: 'legislation', definition: 'Laws written and passed by a lawmaking body such as Congress.', example: 'President Johnson pushed the civil rights legislation through Congress after Kennedy\'s assassination.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'President Kennedy was the key leader who made the Civil Rights Act of 1964 possible.',
+          'The Civil Rights Act of 1964 was a landmark law that banned racial discrimination in public life, employment, and federally funded programs, though full equality required continued effort.',
+          'The Civil Rights Movement ended racial discrimination in America as soon as the Civil Rights Act was signed.',
+          'Title VII was the most important part of the Civil Rights Act because it affected more people than Titles II or VI.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes what the law accomplished across multiple areas while also noting that full equality required more work — matching this comprehensive central idea.'
+      },
+      {
+        question: 'According to the passage, what made passing the Civil Rights Act especially difficult?',
+        options: [
+          'President Johnson was personally opposed to civil rights legislation.',
+          'Most Americans did not support the law at the time it was proposed.',
+          'The bill faced fierce opposition in Congress and triggered the longest Senate debate in American history.',
+          'Courts repeatedly ruled that earlier versions of the bill were unconstitutional.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states the bill "faced fierce opposition in Congress" and sparked a 60-day Senate debate — the longest in American history.'
+      },
+      {
+        question: 'Based on context, what does the word "provisions" mean as used in the passage?',
+        options: [
+          'Arguments made by senators against passing a bill',
+          'Specific sections or requirements within a law',
+          'Food and supplies distributed during a national emergency',
+          'Historical events that led to the creation of a new law'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses "provisions" when listing the specific sections (Titles II, VI, VII) of the law — each "provision" is a specific requirement.'
+      },
+      {
+        question: 'Which detail best supports the claim that the Civil Rights Act had an immediate positive impact?',
+        options: [
+          '"The law did not immediately end discrimination."',
+          '"Violence against civil rights activists continued."',
+          '"Within months, thousands of formerly segregated public places quietly integrated."',
+          '"Further legislation — including the Voting Rights Act of 1965 — was needed."'
+        ],
+        correctIndex: 2,
+        explanation: 'This detail shows a direct, measurable positive change — thousands of places integrating quickly after the law passed.'
+      },
+      {
+        question: 'What is the author\'s purpose in the final paragraph?',
+        options: [
+          'To warn that laws alone cannot solve problems of inequality in society.',
+          'To celebrate the Civil Rights Act as a perfect law that solved all racial inequalities.',
+          'To conclude that civil rights legislation was less important than the activism that preceded it.',
+          'To affirm the Act\'s historical significance as evidence that organized advocacy can produce meaningful legal change.'
+        ],
+        correctIndex: 3,
+        explanation: 'The final sentence calls the Act "proof that sustained, organized pressure for justice can change the law of the land" — a concluding affirmation of its significance.'
+      }
+    ]
+  },
+  {
+    id: 'florida-biomes-ecosystems',
+    title: 'A World of Habitats: Florida\'s Biomes and Ecosystems',
+    topic: 'environment',
+    coverEmoji: '🌿',
+    coverColor: '#16a34a',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 438,
+    readTimeMin: 2,
+    text: `**More Than Sun and Sand**
+
+Florida is famous for its beaches and theme parks, but beneath that popular image lies one of the most biologically diverse states in the nation. Florida sits at the crossroads of temperate North America and the subtropical Caribbean, which means it supports an extraordinary variety of **biomes** — large geographic areas defined by their climate, plant life, and animal communities.
+
+**The Everglades: A River of Grass**
+
+Perhaps Florida's most iconic ecosystem, the Everglades is technically a slow-moving, shallow river that flows southward across limestone bedrock. Stretching nearly 100 miles, this **wetland** ecosystem supports an astonishing array of life: American alligators, Florida panthers, roseate spoonbills, and hundreds of other species. The Everglades is also a critical freshwater filter for South Florida, cleaning water as it flows through sawgrass prairies and cypress swamps.
+
+However, human activity has severely disrupted the Everglades. Drainage canals built in the 20th century reduced the system to about half its original size. Runoff from farms introduces excess nutrients that fuel invasive plant growth, choking out native species. Restoration efforts are ongoing, but the challenges are enormous.
+
+**Longleaf Pine Sandhills**
+
+In northern and central Florida, the **longleaf pine** ecosystem once covered millions of acres. These open, fire-maintained forests are home to the gopher tortoise — a "keystone species" whose burrows shelter more than 350 other animal species, including the burrowing owl, indigo snake, and Florida mouse. Without regular, low-intensity fires, hardwood trees crowd out the longleaf pines, destroying the ecosystem's character. Controlled burns are now used to maintain this habitat.
+
+**Coastal and Marine Ecosystems**
+
+Florida has more coastline than any state except Alaska. Its coastal **ecosystems** — including mangrove forests, seagrass beds, and coral reefs — are among the most **productive** ecosystems on Earth. Mangroves buffer coastlines from storms and serve as nurseries for juvenile fish. Seagrass beds are critical feeding grounds for manatees and sea turtles. Florida's coral reefs, part of the third-largest reef system in the world, support an enormous diversity of marine life but face serious threats from warming ocean temperatures and water pollution.
+
+**Why Biodiversity Matters**
+
+Each of Florida's ecosystems provides **ecosystem services** — benefits that humans rely on, including clean water, storm protection, fisheries, and climate regulation. When ecosystems are degraded, these services are lost. Protecting Florida's biodiversity is not just about saving beautiful places; it is about maintaining the systems that make Florida livable for humans and wildlife alike.`,
+    vocabulary: [
+      { word: 'biomes', definition: 'Large regions of the Earth defined by similar climate, plants, and animals.', example: 'Florida contains several biomes, from subtropical wetlands in the south to temperate pine forests in the north.' },
+      { word: 'wetland', definition: 'An area where the land is covered by water for much or all of the year, supporting specialized plants and animals.', example: 'The Everglades wetland filters water and provides habitat for hundreds of species including alligators.' },
+      { word: 'longleaf pine', definition: 'A native pine tree species that once dominated millions of acres in the southeastern United States, requiring fire to maintain its ecosystem.', example: 'Longleaf pine forests depend on regular fires to prevent hardwood trees from taking over the habitat.' },
+      { word: 'ecosystems', definition: 'Communities of living things (plants, animals, microbes) interacting with each other and their physical environment.', example: 'Mangrove ecosystems protect coastlines from storms while providing shelter for young fish.' },
+      { word: 'ecosystem services', definition: 'The direct and indirect benefits that functioning ecosystems provide to humans, such as clean water and storm protection.', example: 'Healthy wetlands provide ecosystem services like water filtration and flood control that save communities money.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Florida\'s Everglades is the most important and endangered ecosystem in the United States.',
+          'Florida contains a remarkable variety of ecosystems that provide essential benefits to both wildlife and humans.',
+          'Human activity has destroyed most of Florida\'s natural habitats and biodiversity.',
+          'Coastal ecosystems in Florida are more important than inland ecosystems like the Everglades.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes multiple ecosystems and ends by explaining why protecting them matters for both wildlife and humans — supporting this central idea.'
+      },
+      {
+        question: 'According to the passage, why are gopher tortoises considered a "keystone species"?',
+        options: [
+          'They are the largest reptile found in the longleaf pine ecosystem.',
+          'They were the first species scientists discovered in Florida\'s sandhill habitat.',
+          'Their burrows provide shelter for over 350 other animal species, making the ecosystem depend on them.',
+          'They are the primary food source for Florida panthers and raptors in the sandhill ecosystem.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states the gopher tortoise\'s burrows "shelter more than 350 other animal species" — making the whole ecosystem depend on this one species.'
+      },
+      {
+        question: 'What does the word "productive" most likely mean as used to describe coastal ecosystems?',
+        options: [
+          'Difficult to access or navigate because of dense vegetation',
+          'Capable of generating large amounts of life, food, and biological activity',
+          'Used by humans to produce commercial goods like fish or lumber',
+          'Recently restored after years of damage from pollution'
+        ],
+        correctIndex: 1,
+        explanation: 'In ecology, "productive" ecosystems support high levels of biological activity and life — fitting the context describing mangroves, seagrass, and reefs as supports for abundant marine life.'
+      },
+      {
+        question: 'Which detail best supports the claim that human activity has harmed Florida\'s natural ecosystems?',
+        options: [
+          '"Florida has more coastline than any state except Alaska."',
+          '"Drainage canals built in the 20th century reduced the Everglades to about half its original size."',
+          '"The Everglades is technically a slow-moving, shallow river that flows southward across limestone bedrock."',
+          '"Florida sits at the crossroads of temperate North America and the subtropical Caribbean."'
+        ],
+        correctIndex: 1,
+        explanation: 'This specific, measurable detail (drainage canals cutting the Everglades in half) directly shows the impact of human activity on a major ecosystem.'
+      },
+      {
+        question: 'How does the final section ("Why Biodiversity Matters") relate to the rest of the passage?',
+        options: [
+          'It introduces a completely new topic unrelated to the ecosystems described earlier.',
+          'It contradicts earlier sections by arguing that some ecosystems are more important than others.',
+          'It provides a conclusion by explaining the practical importance of the ecosystems described in each section.',
+          'It describes the history of Florida\'s conservation laws and their effectiveness.'
+        ],
+        correctIndex: 2,
+        explanation: 'After describing each ecosystem, the final section explains "why" all of them matter — providing a unifying conclusion tied to the ecosystems discussed throughout.'
+      }
+    ]
+  },
+  {
+    id: 'sound-waves-music',
+    title: 'The Science of Sound: How Music Reaches Your Ears',
+    topic: 'science',
+    coverEmoji: '🎵',
+    coverColor: '#7c3aed',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 429,
+    readTimeMin: 2,
+    text: `**Invisible Messengers**
+
+Every sound you hear — from a whispered secret to a thunderclap — travels to your ears as a **sound wave**. Sound waves are not objects you can see or touch. They are waves of pressure moving through a medium such as air, water, or solid material. Understanding how these invisible messengers work reveals the science behind every instrument, every voice, and every noise in our world.
+
+**How Sound Waves Form**
+
+Sound begins with **vibration** — back-and-forth movement of an object. When you pluck a guitar string, the string vibrates rapidly. This vibration pushes against nearby air molecules, compressing them together. Those compressed molecules then push against the molecules next to them, creating a chain reaction of compressions and **rarefactions** (areas where molecules spread apart) that travels outward as a wave.
+
+Sound waves need a medium to travel through — they cannot move through a vacuum because there are no molecules to push. This is why space is completely silent. Sound travels faster through denser mediums: it moves through water about four times faster than through air, and through solid steel even faster still.
+
+**Frequency, Pitch, and Amplitude**
+
+Two important properties of sound waves are **frequency** and **amplitude**. Frequency refers to how many times a wave's pattern repeats each second, measured in hertz (Hz). High-frequency waves create high-pitched sounds, like a flute or a piccolo. Low-frequency waves create low-pitched sounds, like a bass drum or a tuba. Humans can typically hear frequencies between 20 Hz and 20,000 Hz.
+
+Amplitude describes the size or height of a wave, which we experience as volume. A loud sound has large amplitude — its waves involve more energy and larger pressure changes. A soft sound has small amplitude. When a conductor raises a hand to quiet the orchestra, the musicians reduce the amplitude of their sound waves.
+
+**How Instruments Produce Music**
+
+Different instruments create sound waves in different ways. String instruments like violins and guitars produce vibration by bowing or plucking taut strings. **Wind instruments** like trumpets and flutes use vibrating columns of air. Percussion instruments like drums and xylophones create vibrations by being struck. The specific **resonant** frequencies of an instrument — shaped by its size, material, and construction — determine the unique tone, or timbre, of its sound.
+
+Musicians have mastered the physics of sound waves without always knowing the science. But engineers who design concert halls, headphones, and recording studios depend on a deep understanding of how sound waves travel, reflect, and interact — turning science into something beautiful.`,
+    vocabulary: [
+      { word: 'sound wave', definition: 'A disturbance that travels through a medium (like air) as a series of pressure compressions and rarefactions.', example: 'When a drum is struck, it creates a sound wave that travels through the air to the ears of listeners.' },
+      { word: 'vibration', definition: 'Rapid back-and-forth movement that produces sound when it disturbs the surrounding medium.', example: 'The vibration of a guitar string creates the compressions and rarefactions that form sound waves.' },
+      { word: 'rarefactions', definition: 'Areas in a sound wave where molecules are spread farther apart than normal, alternating with compressions.', example: 'Sound waves are made of alternating compressions and rarefactions moving outward from a vibrating object.' },
+      { word: 'frequency', definition: 'The number of times a wave cycle repeats per second, measured in hertz (Hz), determining pitch.', example: 'A flute produces high-frequency sound waves, which is why it has a higher pitch than a tuba.' },
+      { word: 'resonant', definition: 'Describing the natural frequencies at which an object vibrates most strongly, producing its characteristic tone.', example: 'The resonant frequencies of a violin are shaped by the wood\'s thickness and the size of its body.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main idea of this passage?',
+        options: [
+          'Musical instruments are designed using engineering principles that musicians do not understand.',
+          'Sound waves are pressure disturbances that travel through mediums, and their properties — frequency and amplitude — explain pitch, volume, and the way music works.',
+          'Frequency is more important than amplitude in determining how pleasant a sound is to hear.',
+          'Space is silent because sound waves travel faster through dense materials than through gases.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains what sound waves are, how they form, their key properties (frequency, amplitude), and how instruments use them — a comprehensive main idea.'
+      },
+      {
+        question: 'According to the passage, why can sound not travel through space?',
+        options: [
+          'Space is too cold for sound waves to maintain their energy.',
+          'Gravity in space pulls sound waves downward before they can travel far.',
+          'There are no molecules in a vacuum for sound waves to push through.',
+          'Sound waves break apart when they encounter the extreme pressure of deep space.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that "sound waves need a medium to travel through" and "cannot move through a vacuum because there are no molecules to push."'
+      },
+      {
+        question: 'What does the word "amplitude" describe about a sound wave?',
+        options: [
+          'The speed at which the wave travels through different materials',
+          'The number of times the wave pattern repeats each second',
+          'The size or height of the wave, experienced as loudness',
+          'The distance the wave travels before it loses all its energy'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states: "Amplitude describes the size or height of a wave, which we experience as volume."'
+      },
+      {
+        question: 'Based on the passage, how are a flute and a bass drum different in terms of sound wave properties?',
+        options: [
+          'A flute produces larger amplitude waves, while a bass drum produces smaller amplitude waves.',
+          'A flute produces high-frequency waves (high pitch), while a bass drum produces low-frequency waves (low pitch).',
+          'A flute creates sound through striking, while a bass drum uses a vibrating air column.',
+          'A flute produces sound waves that travel faster than the waves produced by a bass drum.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states high-frequency waves create high pitch (like a flute) and low-frequency waves create low pitch (like a bass drum).'
+      },
+      {
+        question: 'What is the author\'s purpose in the final paragraph?',
+        options: [
+          'To argue that scientists understand music better than musicians do.',
+          'To show that sound wave science has practical applications beyond music, such as in engineering.',
+          'To explain why recording studios produce better sound quality than live concert halls.',
+          'To encourage students to study physics so they can become better musicians.'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph notes that engineers use sound wave science for concert halls, headphones, and studios — connecting the science to practical applications beyond performance.'
+      }
+    ]
+  },
+  {
+    id: 'emancipation-proclamation',
+    title: 'Four Words That Shook the Nation: The Emancipation Proclamation',
+    topic: 'biography',
+    coverEmoji: '📜',
+    coverColor: '#92400e',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 440,
+    readTimeMin: 2,
+    text: `**A War Transformed**
+
+When the Civil War began in April 1861, President Abraham Lincoln declared that its purpose was to preserve the Union, not to abolish slavery. He worried that declaring the war an antislavery crusade would drive the **border states** — slave states that had stayed in the Union — to join the Confederacy. But as the war stretched into its second year with staggering casualties on both sides, Lincoln came to a different conclusion.
+
+**Crafting the Proclamation**
+
+By mid-1862, Lincoln had made up his mind: he would issue an **executive order** declaring enslaved people in Confederate states to be free. Secretary of State William Seward advised Lincoln to wait for a significant Union military victory before announcing it, so it would appear as a position of strength rather than desperation.
+
+That opportunity came after the Battle of Antietam on September 17, 1862 — the bloodiest single day in American military history. Five days later, Lincoln issued the Preliminary Emancipation Proclamation, warning the Confederate states that if they did not return to the Union by January 1, 1863, he would declare enslaved people in their territory to be free.
+
+When the Confederate states refused, Lincoln signed the final **Emancipation Proclamation** on January 1, 1863. The document declared that all enslaved people in the rebellious Confederate states "shall be then, thenceforward, and forever free."
+
+**What It Did — and Did Not — Do**
+
+It is important to understand the proclamation's limitations. It applied only to enslaved people in Confederate-held territory — areas that were, at that moment, under Confederate control and outside Lincoln's direct authority. It did not free enslaved people in the border states or in Union-controlled areas of the South. Critics pointed out, with some accuracy, that Lincoln was freeing people he could not yet reach while leaving enslaved people in areas he could.
+
+Despite these limits, the proclamation's impact was enormous. It transformed the **moral character** of the war, making it explicitly a fight against slavery. It encouraged thousands of enslaved people to flee behind Union lines and eventually serve in the Union Army — over 180,000 Black soldiers served before the war's end. It also made it nearly impossible for Britain and France to support the Confederacy, since both countries had already abolished slavery and could not be seen aligning with a nation fighting to preserve it.
+
+**A Step, Not the End**
+
+The Emancipation Proclamation was not the final word. Full legal freedom for enslaved people came only with the **Thirteenth Amendment** to the Constitution, ratified in December 1865. But the proclamation was the turning point — the moment the nation committed itself to a future without slavery.`,
+    vocabulary: [
+      { word: 'border states', definition: 'Slave states that did not secede from the Union during the Civil War, such as Kentucky, Missouri, and Maryland.', example: 'Lincoln was careful not to alienate the border states, so the Emancipation Proclamation did not apply to them.' },
+      { word: 'executive order', definition: 'A directive issued by the president that carries the force of law without requiring a vote in Congress.', example: 'Lincoln issued the Emancipation Proclamation as an executive order under his wartime powers as Commander-in-Chief.' },
+      { word: 'Emancipation Proclamation', definition: 'The executive order issued by President Lincoln on January 1, 1863, declaring enslaved people in Confederate states to be free.', example: 'The Emancipation Proclamation changed the Civil War from a fight to save the Union to a war to end slavery.' },
+      { word: 'moral character', definition: 'The ethical or values-based nature of something; what a cause or action stands for morally.', example: 'The proclamation changed the moral character of the war, making clear that it was a fight against slavery.' },
+      { word: 'Thirteenth Amendment', definition: 'The amendment to the U.S. Constitution ratified in 1865 that officially abolished slavery throughout the United States.', example: 'The Thirteenth Amendment completed what the Emancipation Proclamation began by ending slavery everywhere in the nation.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'The Emancipation Proclamation was a flawed document that failed to free most enslaved people.',
+          'President Lincoln issued the Emancipation Proclamation purely as a military strategy with no moral motivation.',
+          'The Emancipation Proclamation was a pivotal act that transformed the Civil War\'s purpose and moved the nation toward ending slavery, despite its limitations.',
+          'The Battle of Antietam was the most important event of the Civil War because it led to the Emancipation Proclamation.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage acknowledges the proclamation\'s limits but emphasizes its transformative impact on the war\'s purpose and the path toward abolition.'
+      },
+      {
+        question: 'Why did Secretary Seward advise Lincoln to delay the announcement?',
+        options: [
+          'Seward believed the proclamation would cause the border states to leave the Union.',
+          'He wanted Lincoln to issue it after a military victory so it would appear as a position of strength.',
+          'Seward thought Congress needed to approve the proclamation before Lincoln could announce it.',
+          'He feared that the proclamation would make it harder to recruit soldiers for the Union Army.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states Seward advised waiting for "a significant Union military victory...so it would appear as a position of strength rather than desperation."'
+      },
+      {
+        question: 'According to the passage, what was a significant limitation of the Emancipation Proclamation?',
+        options: [
+          'It could only be enforced in states that had voted to abolish slavery before the war.',
+          'It required approval from the Confederate Congress before taking effect.',
+          'It applied only to Confederate-held territory, not to enslaved people in border states or Union-controlled areas.',
+          'It promised freedom but did not grant citizenship to formerly enslaved people.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage clearly states it "applied only to enslaved people in Confederate-held territory" and did not free people in the border states or Union-controlled Southern areas.'
+      },
+      {
+        question: 'What does the word "ratified" suggest about how the Thirteenth Amendment became law?',
+        options: [
+          'It was signed by the president as an executive order, like the Emancipation Proclamation.',
+          'It was approved through the formal constitutional process, requiring agreement by states.',
+          'It was declared law by the Supreme Court after a major legal challenge.',
+          'It was passed quickly during wartime without the usual legislative debate.'
+        ],
+        correctIndex: 1,
+        explanation: '"Ratified" refers to the formal process of state-by-state approval required to amend the Constitution — a deliberate, multi-step legal process.'
+      },
+      {
+        question: 'How did the Emancipation Proclamation affect the war\'s relationship with Britain and France?',
+        options: [
+          'It caused both nations to immediately send military supplies to the Union Army.',
+          'It had no effect, since neither country had any interest in the American Civil War.',
+          'It made it nearly impossible for them to support the Confederacy, since both had already abolished slavery.',
+          'It convinced them to stay neutral rather than entering the war on either side.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states the proclamation "made it nearly impossible for Britain and France to support the Confederacy, since both countries had already abolished slavery."'
+      }
+    ]
+  },
+  {
+    id: 'florida-water-management',
+    title: 'Taming the Water: Florida\'s Canals and Conservation',
+    topic: 'environment',
+    coverEmoji: '💧',
+    coverColor: '#0369a1',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 436,
+    readTimeMin: 2,
+    text: `**A State Built on Water**
+
+Water defines Florida. The state sits atop a massive underground rock formation called the **Floridan Aquifer**, which holds hundreds of billions of gallons of freshwater. Rivers, lakes, springs, and wetlands cover much of the surface. Rainfall is abundant — southern Florida receives more than 60 inches per year. Yet despite all this water, Florida faces a serious water management challenge: too much in one place and too little in another, often at the same time.
+
+**The Canal Era**
+
+For much of the 20th century, Florida's approach to water was to control it. Engineers built hundreds of miles of drainage canals, dikes, and levees to drain the wetlands of South Florida. This allowed farmers to plant crops on rich, dark muck soils that had once been underwater for months at a time. Cities like Miami grew rapidly on land that was formerly marshland. The Army Corps of Engineers completely reshaped the natural water flow of South Florida.
+
+The consequences were severe. The Everglades — the vast river of grass that had once stretched from Lake Okeechobee to Florida Bay — was cut off from its natural water source. The system that had sustained wildlife for thousands of years was starved of water. Wading bird populations dropped by 90 percent. Freshwater that once filtered slowly through the Everglades was now channeled directly to the ocean, wasting billions of gallons and causing saltwater to intrude into coastal freshwater supplies.
+
+**Modern Conservation Efforts**
+
+By the late 20th century, scientists and policymakers recognized that the canal system was causing irreversible damage. In 2000, Congress authorized the **Comprehensive Everglades Restoration Plan (CERP)** — the largest environmental restoration project in history. CERP aims to store, clean, and redistribute water across South Florida to mimic the natural flow that existed before canalization.
+
+Meanwhile, **water management districts** across Florida regulate how much water can be drawn from the aquifer for farms, cities, and industry. They set **consumptive use permits** that limit withdrawals and require large users to demonstrate that their pumping will not harm springs, rivers, or neighboring wells. As Florida's population continues to grow — it now exceeds 22 million people — the demand for water increases, making careful management more critical than ever.
+
+**A Shared Resource**
+
+Water connects every part of Florida's environment and economy. The decisions made about canals, pumping, and restoration affect farmers, city residents, wildlife, and the tourists who come to enjoy Florida's natural beauty. Managing this shared resource wisely requires balancing competing needs with scientific understanding — a challenge Florida will face for generations.`,
+    vocabulary: [
+      { word: 'Floridan Aquifer', definition: 'A vast underground limestone formation beneath Florida and parts of neighboring states that stores enormous amounts of freshwater.', example: 'Many Florida springs are fed by the Floridan Aquifer, which holds water that fell as rain thousands of years ago.' },
+      { word: 'drainage canals', definition: 'Artificial waterways built to carry excess water away from land, draining wetlands or flood-prone areas.', example: 'Drainage canals in South Florida allowed farmers to plant crops on formerly flooded land.' },
+      { word: 'Comprehensive Everglades Restoration Plan (CERP)', definition: 'A large-scale government project authorized in 2000 to restore natural water flow to the Everglades ecosystem.', example: 'CERP involves building new reservoirs and modifying canals to return more water to the Everglades.' },
+      { word: 'water management districts', definition: 'Regional government agencies in Florida responsible for regulating water use, quality, and supply.', example: 'Water management districts issue permits that limit how much water farms and cities can pump from the aquifer.' },
+      { word: 'consumptive use permits', definition: 'Legal authorizations that regulate how much water an individual or organization may withdraw from a water source.', example: 'Before a new farm can drill a well, it must obtain a consumptive use permit from the local water management district.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Florida has always had too little water to support its growing population.',
+          'Florida\'s canal system was a necessary development that created more benefits than problems.',
+          'Florida\'s efforts to control water in the 20th century caused serious environmental damage, leading to modern restoration and conservation efforts.',
+          'The Floridan Aquifer is the most important aquifer in the United States and must be protected above all other resources.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage traces the canal era\'s damage, then describes modern responses (CERP, water management districts), showing a cause-and-effect arc at its center.'
+      },
+      {
+        question: 'According to the passage, what happened to wading bird populations as a result of the canal system?',
+        options: [
+          'They migrated permanently to coastal areas where water was still available.',
+          'Their numbers dropped by 90 percent due to the disruption of the Everglades.',
+          'They thrived in the new canal system because it provided more open water habitat.',
+          'Bird populations remained stable because conservation organizations created refuges.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage directly states: "Wading bird populations dropped by 90 percent" as a consequence of the Everglades being cut off from its natural water source.'
+      },
+      {
+        question: 'What does the word "intrude" suggest about the effect of saltwater moving into freshwater supplies?',
+        options: [
+          'Saltwater naturally mixes with freshwater to create healthier drinking water supplies.',
+          'Saltwater is moving into places where it does not belong, causing harm to freshwater resources.',
+          'Saltwater intrusion is a temporary problem that reverses itself when rainfall returns.',
+          'The movement of saltwater has no effect on the usability of Florida\'s water supply.'
+        ],
+        correctIndex: 1,
+        explanation: '"Intrude" implies entering where not wanted or where harm results — here, saltwater contaminating freshwater aquifers and coastal supplies.'
+      },
+      {
+        question: 'What is the author\'s purpose in including the detail that Florida\'s population exceeds 22 million?',
+        options: [
+          'To argue that Florida has too many people and should limit population growth.',
+          'To show that Florida is the largest state in the United States by population.',
+          'To emphasize that growing water demand makes careful conservation management increasingly urgent.',
+          'To explain why the federal government funded the Comprehensive Everglades Restoration Plan.'
+        ],
+        correctIndex: 2,
+        explanation: 'The detail about 22 million people directly follows the claim about increasing demand — illustrating why careful water management is "more critical than ever."'
+      },
+      {
+        question: 'How does the structure of this passage help the reader understand Florida\'s water challenges?',
+        options: [
+          'By comparing Florida\'s water problems to those of other Southern states.',
+          'By presenting the problem (canal damage), its consequences, and current solutions in sequence.',
+          'By arguing both sides of whether the canal system was a good idea.',
+          'By focusing on individual people affected by water shortages rather than systemic policies.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage moves from explaining canals → their environmental damage → modern restoration efforts, a problem-consequence-solution structure that helps readers follow the issue\'s development.'
+      }
+    ]
+  },
+  {
+    id: 'industrial-revolution-america',
+    title: 'Machines, Mills, and a New America: The Industrial Revolution',
+    topic: 'civics',
+    coverEmoji: '⚙️',
+    coverColor: '#374151',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 445,
+    readTimeMin: 2,
+    text: `**A World Turned Upside Down**
+
+In 1800, most Americans lived on farms and made most of what they needed by hand. A hundred years later, the United States had become one of the most powerful industrial nations in the world, with vast factories, a continent-spanning railroad network, and cities teeming with millions of workers. This transformation — the **Industrial Revolution** — changed not just how Americans worked, but how they lived, where they lived, and what they expected from life.
+
+**From Farm to Factory**
+
+The Industrial Revolution in America began in New England in the early 1800s, when textile mills powered by water-driven machines began producing cloth far faster than any hand-loom weaver could. The invention of the steam engine gave factories even greater power, no longer dependent on rivers. By the mid-1800s, factories were producing iron, steel, shoes, and dozens of other goods.
+
+The railroads were the Industrial Revolution's most visible achievement. By 1870, over 50,000 miles of railroad track crisscrossed the country. Railroads connected farms to cities, raw materials to factories, and finished goods to consumers. They created a truly national market for the first time and made fortunes for investors like Cornelius Vanderbilt and Jay Gould.
+
+**The Human Cost**
+
+The Industrial Revolution created enormous wealth — but distributed it unevenly. Factory workers, including large numbers of women and children, often labored 12 to 16 hours a day in dangerous, poorly ventilated conditions for wages that barely covered food and rent. Child labor was widespread; children as young as six worked in textile mills and coal mines. Workers who were injured on the job typically received no compensation.
+
+**Urbanization** — the rapid growth of cities — accompanied industrialization. Between 1870 and 1900, millions of immigrants arrived from Europe seeking work, and millions of Americans left farms for cities. Overcrowded **tenements** in cities like New York and Chicago became home to thousands of families living in cramped, unsanitary conditions.
+
+**Response and Reform**
+
+The brutal conditions of industrial life eventually sparked a powerful response. **Labor unions** organized workers to demand shorter hours, safer conditions, and fair wages. Journalists called **muckrakers** exposed child labor, unsafe food production, and corporate corruption in newspapers and magazines. Progressive reformers pushed for laws limiting child labor, regulating workplace safety, and breaking up monopolies. By the early 20th century, the nation had begun — haltingly — to address the Industrial Revolution's human costs.
+
+The Industrial Revolution reshaped the United States fundamentally. Its legacy is both the prosperity of modern American life and the ongoing struggle for workers' rights and economic fairness that began in those crowded, smoky factories.`,
+    vocabulary: [
+      { word: 'Industrial Revolution', definition: 'The period of rapid shift from handmade goods and farm-based economies to machine manufacturing and factory-based production, beginning in the late 1700s.', example: 'The Industrial Revolution transformed the United States from a rural farming society to an urban industrial nation.' },
+      { word: 'urbanization', definition: 'The process by which populations move from rural areas to cities, and cities grow larger.', example: 'Urbanization accelerated during the Industrial Revolution as factory jobs drew millions of people to American cities.' },
+      { word: 'tenements', definition: 'Overcrowded, poorly maintained apartment buildings in urban areas, typically housing low-income factory workers and immigrants.', example: 'In New York City tenements, entire families often shared a single small room with limited light and ventilation.' },
+      { word: 'labor unions', definition: 'Organizations formed by workers to collectively bargain for better wages, hours, and working conditions.', example: 'Labor unions organized strikes to pressure factory owners into reducing the 16-hour workday.' },
+      { word: 'muckrakers', definition: 'Journalists and writers of the early 1900s who investigated and publicly exposed corruption, unsafe conditions, and social injustice.', example: 'Muckrakers like Upton Sinclair wrote books revealing the dangerous and unsanitary conditions inside meatpacking plants.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'The railroad industry was the single most important cause of the Industrial Revolution in America.',
+          'The Industrial Revolution created enormous wealth but also caused serious harm to workers, leading to a reform movement.',
+          'Child labor was the most serious problem created by the Industrial Revolution and required the most urgent reform.',
+          'Factory owners and investors were solely responsible for the poor conditions that workers experienced.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces the revolution\'s economic gains, its human costs, and the reform response — a balanced central idea about both wealth creation and harm.'
+      },
+      {
+        question: 'According to the passage, how did railroads change American society?',
+        options: [
+          'They replaced factories as the main source of industrial jobs by the late 1800s.',
+          'They allowed factory owners to move their operations from cities back to rural areas.',
+          'They created a national market by connecting farms, cities, raw materials, and consumers.',
+          'They provided safe, well-paying jobs for millions of immigrant workers arriving from Europe.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states railroads "connected farms to cities, raw materials to factories, and finished goods to consumers" and "created a truly national market."'
+      },
+      {
+        question: 'What does the word "haltingly" suggest about the reform efforts described in the final section?',
+        options: [
+          'Reforms happened quickly and effectively across the entire country.',
+          'Reforms were blocked completely by factory owners and politicians.',
+          'Progress toward reform was slow, uneven, and faced significant resistance.',
+          'Reform movements were successful only in the largest industrial cities.'
+        ],
+        correctIndex: 2,
+        explanation: '"Haltingly" means moving forward with stops and starts, suggesting reform was slow and incomplete rather than swift or fully effective.'
+      },
+      {
+        question: 'Which detail best supports the claim that the Industrial Revolution\'s wealth was "distributed unevenly"?',
+        options: [
+          '"By 1870, over 50,000 miles of railroad track crisscrossed the country."',
+          '"Workers who were injured on the job typically received no compensation."',
+          '"The Industrial Revolution in America began in New England in the early 1800s."',
+          '"Millions of immigrants arrived from Europe seeking work."'
+        ],
+        correctIndex: 1,
+        explanation: 'Workers receiving no compensation for injuries, while investors made fortunes, is a direct example of wealth being distributed unequally — risk to workers, reward to owners.'
+      },
+      {
+        question: 'How does the final paragraph function in relation to the rest of the passage?',
+        options: [
+          'It introduces new evidence about the Industrial Revolution that contradicts earlier sections.',
+          'It argues that the negative effects of the Industrial Revolution outweigh its positive contributions.',
+          'It provides a conclusion connecting the Industrial Revolution\'s legacy to both modern prosperity and ongoing struggles for fairness.',
+          'It summarizes only the negative aspects of the Industrial Revolution to persuade readers to support labor unions.'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph names both the "prosperity of modern American life" and the "ongoing struggle for workers\' rights" — a balanced conclusion tying past to present.'
+      }
+    ]
+  },
+  {
+    id: 'media-literacy-bias',
+    title: 'Reading the News: How to Spot Bias in Media',
+    topic: 'civics',
+    coverEmoji: '📰',
+    coverColor: '#0369a1',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 423,
+    readTimeMin: 2,
+    text: `**More News Than Ever — But Is It True?**
+
+Today's media landscape is unlike anything in history. A smartphone puts millions of articles, videos, and posts within reach at any moment. News arrives not just from professional journalists, but from social media, websites, podcasts, and individuals with no editorial training. This flood of information makes **media literacy** — the ability to evaluate sources, recognize bias, and think critically about what we read — more important than ever.
+
+**What Is Bias?**
+
+**Bias** in media occurs when reporting consistently favors one perspective, group, or viewpoint over others — often without acknowledging it. Bias is not always intentional. Journalists, like all people, have values and experiences that can shape their framing of a story. Editors decide what stories to cover and how prominently to display them. Advertisers may influence what a news organization chooses to report.
+
+It is important to distinguish between **opinion** and reporting. Opinion pieces — editorials, columns, and commentary — are explicitly meant to express a point of view. News reporting, in contrast, is supposed to present facts without taking sides. However, the line between the two is sometimes blurry, especially online.
+
+**Signs of Bias to Watch For**
+
+Savvy readers look for specific signals that bias may be present:
+
+**Loaded language** uses emotionally charged words that nudge readers toward a particular reaction. Describing a protest as a "mob" versus a "demonstration" conveys very different impressions of the same event.
+
+**Omission** occurs when a story leaves out important facts, context, or perspectives. A story might be factually accurate but deeply misleading if it ignores key information.
+
+**Source selection** matters. If a story only quotes people who agree with one point of view, readers may be getting a one-sided picture. Balanced reporting includes a range of relevant voices.
+
+**Headlines and images** can create impressions that the article itself may not support. A headline designed to provoke anger or fear — called **clickbait** — often exaggerates or distorts the content inside.
+
+**How to Be a Critical Consumer**
+
+Media experts recommend several strategies for evaluating news. First, check the **source** — is the outlet known for accuracy? Does it correct mistakes? Second, look for **corroboration** — does more than one credible source report the same facts? Third, separate facts from opinions and consider what viewpoints might be missing. Finally, be especially cautious about information that makes you feel very angry or very certain — those emotions can make us less careful about checking whether something is true.
+
+A well-informed citizen is not one who reads the most news, but one who reads news most thoughtfully.`,
+    vocabulary: [
+      { word: 'media literacy', definition: 'The ability to access, analyze, evaluate, and create media in a thoughtful, critical way.', example: 'Media literacy skills help readers identify when a news headline is designed to mislead rather than inform.' },
+      { word: 'bias', definition: 'A tendency to favor one perspective or group over others, often without full acknowledgment.', example: 'A news site that covers only negative stories about one political party shows clear bias in its reporting.' },
+      { word: 'omission', definition: 'The act of leaving something out, especially important facts or perspectives, from a report or story.', example: 'The article was technically accurate, but its omission of the other side\'s argument made it misleading.' },
+      { word: 'clickbait', definition: 'A sensational or misleading headline or image designed to attract clicks rather than accurately represent the content.', example: 'The clickbait headline promised a shocking secret but the article contained only ordinary information.' },
+      { word: 'corroboration', definition: 'Confirmation or support for a claim by finding additional evidence or independent sources that agree.', example: 'Before sharing the story, she looked for corroboration from at least two other trusted news organizations.' }
+    ],
+    questions: [
+      {
+        question: 'What is the author\'s main purpose in this passage?',
+        options: [
+          'To persuade readers to stop using social media as a source of news.',
+          'To explain what media bias is and teach readers strategies for critically evaluating news.',
+          'To argue that professional journalists are more trustworthy than bloggers or social media users.',
+          'To describe how the internet has made traditional newspapers less relevant.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines bias, describes how to spot it, and offers strategies for critical reading — all aimed at helping readers evaluate news more carefully.'
+      },
+      {
+        question: 'According to the passage, how do "loaded language" and "omission" both contribute to bias?',
+        options: [
+          'Both techniques involve making up facts that never actually happened.',
+          'Loaded language uses emotional words to shape readers\' reactions, while omission misleads by leaving out key information.',
+          'Both techniques are used only by opinion writers, not by news reporters.',
+          'Loaded language omits facts, while omission uses emotional words to distract readers.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage distinguishes them: loaded language uses emotional framing, while omission withholds important information — different tools that both create biased impressions.'
+      },
+      {
+        question: 'What does the word "corroboration" suggest about how we should evaluate news?',
+        options: [
+          'We should trust only sources that have been approved by the government.',
+          'A single source is usually enough if it comes from a well-known news organization.',
+          'Claims are more credible when confirmed by multiple independent sources.',
+          'Readers should create their own content to test the accuracy of what they read.'
+        ],
+        correctIndex: 2,
+        explanation: '"Corroboration" means finding additional evidence from other sources — implying that one source alone may be insufficient, and multiple independent confirmations increase reliability.'
+      },
+      {
+        question: 'Why does the author say that feeling "very angry or very certain" after reading news should make us more cautious?',
+        options: [
+          'Strong emotions are a sign that a news story contains factual errors.',
+          'Emotional reactions to news mean the story was written by an opinion columnist.',
+          'Intense emotions can reduce our critical thinking and make us less careful about verifying information.',
+          'Stories that cause strong emotions are almost always examples of clickbait.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage warns that these emotions "can make us less careful about checking whether something is true" — emotions interfere with critical evaluation.'
+      },
+      {
+        question: 'What is the most accurate summary of the passage\'s advice for news consumers?',
+        options: [
+          'Avoid online news sources and rely only on established print newspapers.',
+          'Read as many news sources as possible to get the most complete picture of events.',
+          'Check sources for accuracy, seek corroboration, separate facts from opinions, and be thoughtful about emotional reactions.',
+          'Trust news that makes you feel calm, since alarming headlines are almost always exaggerated.'
+        ],
+        correctIndex: 2,
+        explanation: 'The final section lists exactly these steps: check sources, look for corroboration, separate facts from opinions, and be cautious about emotional reactions.'
+      }
+    ]
+  },
+  {
+    id: 'supply-demand-economics',
+    title: 'Prices, Buyers, and Sellers: Supply and Demand',
+    topic: 'civics',
+    coverEmoji: '📊',
+    coverColor: '#065f46',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 431,
+    readTimeMin: 2,
+    text: `**Why Does a Bottle of Water Cost More at a Concert?**
+
+If you have ever noticed that a bottle of water costs five times more at a theme park than at a grocery store, you have experienced one of the most fundamental principles of economics: **supply and demand**. This principle explains why prices rise and fall, why some products are scarce, and how markets decide what gets produced and how much of it to make.
+
+**Understanding Demand**
+
+**Demand** refers to how much of a product consumers want to buy at various prices. Generally, when the price of a product goes up, fewer people want to buy it. When the price drops, more people are willing to purchase it. This relationship — lower price, higher demand — is called the **law of demand**.
+
+Many factors affect demand besides price. When a new video game is released and everyone wants it, demand rises sharply, often pushing prices up. When a food trend fades, demand drops, and prices fall. Seasonal changes also affect demand: ice cream sells more in summer; hot cocoa sells more in winter.
+
+**Understanding Supply**
+
+**Supply** refers to how much of a product sellers are able and willing to make available. Generally, when prices are high, producers want to supply more of a product because they earn greater profits. When prices fall, producers may cut back. This is the **law of supply**: higher prices encourage more production.
+
+Supply can be affected by production costs, technology, and resource availability. A drought that kills wheat crops reduces the supply of wheat, pushing bread prices higher. New technology that makes manufacturing cheaper allows sellers to produce more at a lower cost, increasing supply and often lowering prices.
+
+**Where Supply and Demand Meet**
+
+In a **market economy**, prices are determined by the interaction of supply and demand. When the quantity of a product that sellers want to supply equals the quantity buyers want to purchase, the market is in **equilibrium**. At this point, the price is said to "clear" the market — there is neither a shortage nor a surplus.
+
+When demand increases faster than supply, prices rise. When supply increases faster than demand, prices fall. This is why concert tickets for popular artists sell out within minutes and then appear on resale websites for hundreds of dollars more — demand is enormous and supply is strictly limited.
+
+**A Tool for Understanding the World**
+
+Supply and demand is not just a classroom concept. It explains gasoline prices, housing costs, job market trends, and even the price of your favorite snack. Understanding this principle gives citizens the tools to make sense of economic news and make smarter decisions as consumers and voters.`,
+    vocabulary: [
+      { word: 'supply and demand', definition: 'The economic principle that prices are determined by the relationship between how much of a product is available (supply) and how much consumers want (demand).', example: 'Supply and demand explains why prices for popular toys spike just before the holiday season.' },
+      { word: 'law of demand', definition: 'The principle that as the price of a good increases, the quantity consumers want to buy decreases, and vice versa.', example: 'The law of demand explains why grocery stores sell more produce when it goes on sale.' },
+      { word: 'law of supply', definition: 'The principle that as the price of a good increases, producers are willing to supply more of it to earn higher profits.', example: 'Following the law of supply, farmers planted more soybeans when prices rose the previous year.' },
+      { word: 'market economy', definition: 'An economic system where prices and production are determined mainly by supply and demand rather than by government control.', example: 'In a market economy, businesses decide what to produce based on what consumers are willing to pay.' },
+      { word: 'equilibrium', definition: 'The state in a market where the quantity supplied equals the quantity demanded, resulting in a stable price.', example: 'When concert ticket prices reach equilibrium, every ticket is sold without either a shortage or unsold seats.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Concert tickets and bottled water are the best examples of how prices work in a market economy.',
+          'Supply and demand is a fundamental economic principle that explains how prices are set and why they change.',
+          'Producers always have more power than consumers in determining the prices of goods.',
+          'Prices in a market economy are mainly controlled by technology and production costs.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage introduces supply and demand, explains each concept separately, shows how they interact to set prices, and connects this to real-world applications.'
+      },
+      {
+        question: 'According to the passage, what happens to prices when demand increases faster than supply?',
+        options: [
+          'Prices fall as producers try to attract more buyers to the product.',
+          'The market reaches equilibrium, and prices remain stable.',
+          'Prices rise because buyers are competing for a limited number of goods.',
+          'Producers reduce supply further to prevent the market from becoming oversaturated.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states: "When demand increases faster than supply, prices rise" — buyers compete for limited goods, driving prices up.'
+      },
+      {
+        question: 'How does the drought example in the supply section support the passage\'s main idea?',
+        options: [
+          'It shows that weather is the most important factor in determining food prices.',
+          'It provides a concrete example of how a decrease in supply pushes prices higher.',
+          'It demonstrates that farmers have more economic power than consumers or retailers.',
+          'It argues that governments should control food prices to protect citizens from shortages.'
+        ],
+        correctIndex: 1,
+        explanation: 'The drought reduces wheat supply → prices rise. This is a concrete, real-world illustration of the law of supply in action, supporting the broader explanation of how supply affects prices.'
+      },
+      {
+        question: 'What does the word "scarce" most likely mean as used in the introduction?',
+        options: [
+          'Available in very large quantities at low prices',
+          'Only available through government-regulated programs',
+          'Limited in availability compared to how much people want',
+          'Poorly made and of low quality compared to competing products'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage uses "scarce" alongside the concept of supply and demand, where prices rise and products become hard to find — meaning limited availability relative to demand.'
+      },
+      {
+        question: 'Why does the author end the passage by connecting supply and demand to "gasoline prices, housing costs, job market trends"?',
+        options: [
+          'To suggest that the economy is too complicated for most people to understand.',
+          'To demonstrate that supply and demand applies broadly to real-life decisions and economic news, not just simple examples.',
+          'To argue that consumers should avoid buying products whose prices are set by supply and demand.',
+          'To provide additional examples of markets where government controls pricing more effectively.'
+        ],
+        correctIndex: 1,
+        explanation: 'This list extends the concept from theme park water to major economic areas, showing the principle\'s broad real-world relevance — the author\'s purpose in the concluding section.'
+      }
+    ]
+  },
+  {
+    id: 'manifest-destiny-american-west',
+    title: 'Westward and at What Cost: Manifest Destiny',
+    topic: 'civics',
+    coverEmoji: '🌄',
+    coverColor: '#92400e',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 448,
+    readTimeMin: 2,
+    text: `**A Nation That Believed It Was Destined to Expand**
+
+In the early 19th century, many Americans believed their country had a special right — even a duty — to expand across the entire North American continent, from the Atlantic to the Pacific Ocean. This belief was called **Manifest Destiny**. The term was coined by journalist John O'Sullivan in 1845, but the idea had been driving American expansion for decades before a name was attached to it.
+
+**How Expansion Happened**
+
+Westward expansion took several forms. Some land was purchased: the **Louisiana Purchase** of 1803 doubled the country's size when President Jefferson bought a vast territory from France for approximately $15 million. The Gadsden Purchase of 1853 added land in present-day Arizona and New Mexico to complete the southern border.
+
+Other land was taken by force or through war. The Mexican-American War (1846–1848) resulted in Mexico ceding nearly half its territory — including California, Nevada, Utah, and parts of several other states — to the United States under the Treaty of Guadalupe Hidalgo. Many American historians have described this acquisition as an act of **imperial aggression**, since the war was launched under disputed pretexts.
+
+**The Impact on Native Peoples**
+
+Manifest Destiny had catastrophic consequences for the Native nations who had lived across North America for thousands of years. As settlers pushed westward, the U.S. government pursued a policy of **forced removal**, relocating Native peoples from their ancestral homelands to designated **reservations** — often land that was far less productive and in unfamiliar territory.
+
+The most infamous removal was the Trail of Tears (1838–1839), when the Cherokee Nation was forced to march over 1,000 miles westward from their homelands in the Southeast. Approximately 4,000 Cherokee people died during this journey from cold, hunger, and disease.
+
+Conflicts between settlers and Native peoples continued throughout the 19th century. The U.S. Army fought hundreds of military campaigns to subdue Native resistance. By 1890, the U.S. Census Bureau declared that the frontier had closed — the West had been fully incorporated into the nation, and Native peoples had been largely confined to reservations.
+
+**A Complicated Legacy**
+
+Manifest Destiny is a deeply contested part of American history. Its supporters argued it brought democracy, economic development, and civilization to the continent. Its critics point out that expansion was achieved through broken treaties, violent displacement of Native peoples, and the seizure of Mexican territory under questionable circumstances. Understanding Manifest Destiny requires grappling with both the ambitions it fulfilled and the profound injustices it caused.`,
+    vocabulary: [
+      { word: 'Manifest Destiny', definition: 'The 19th-century belief that the United States was destined and justified in expanding its territory across North America to the Pacific Ocean.', example: 'Belief in Manifest Destiny motivated many settlers to move west despite the hardships of the journey.' },
+      { word: 'Louisiana Purchase', definition: 'The 1803 purchase of a vast territory in central North America from France, which doubled the size of the United States.', example: 'The Louisiana Purchase gave the United States control of the Mississippi River and opened a vast new territory for settlement.' },
+      { word: 'imperial aggression', definition: 'The use of military force or political pressure by a powerful nation to seize land or control from weaker nations or peoples.', example: 'Critics of the Mexican-American War argue that it was an act of imperial aggression to take territory from Mexico.' },
+      { word: 'forced removal', definition: 'The government policy of compelling Native peoples to leave their ancestral homelands and relocate to designated reservations.', example: 'Forced removal uprooted thousands of Native families from land their ancestors had occupied for generations.' },
+      { word: 'reservations', definition: 'Areas of land set aside by the U.S. government for Native American nations, often far from their original homelands.', example: 'Many Native peoples were confined to reservations that lacked the fertile land and resources of their original territories.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'The Louisiana Purchase was the most important event of westward expansion because it doubled the nation\'s size.',
+          'Manifest Destiny drove U.S. expansion across North America, bringing economic development but also serious injustices to Native peoples and Mexico.',
+          'The Mexican-American War was unjustified and should be considered one of the worst events in American history.',
+          'Native peoples were ultimately unable to resist westward expansion because they lacked military technology.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces Manifest Destiny\'s role in expansion (purchases, war) and its devastating consequences for Native peoples, concluding with a balanced assessment of its legacy.'
+      },
+      {
+        question: 'According to the passage, how did the Mexican-American War result in U.S. land acquisition?',
+        options: [
+          'The United States purchased land from Mexico at a fair price after the war ended.',
+          'Mexico voluntarily gave up land in exchange for protection from European powers.',
+          'Mexico was required to cede nearly half its territory to the United States under the Treaty of Guadalupe Hidalgo.',
+          'The U.S. Congress voted to annex Mexican territory after a majority of Mexican citizens requested American rule.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states "Mexico ceding nearly half its territory... to the United States under the Treaty of Guadalupe Hidalgo" as the outcome of the war.'
+      },
+      {
+        question: 'What does the phrase "deeply contested" suggest about Manifest Destiny\'s legacy?',
+        options: [
+          'Most historians now agree that Manifest Destiny was entirely wrong and should be condemned.',
+          'Historians and citizens continue to debate and disagree about whether Manifest Destiny was justified.',
+          'The events of Manifest Destiny are so far in the past that they no longer affect modern Americans.',
+          'Only people who oppose American values disagree with the policies of Manifest Destiny.'
+        ],
+        correctIndex: 1,
+        explanation: '"Deeply contested" means widely debated with strong disagreement — the passage presents both supporters\' and critics\' perspectives as evidence of ongoing debate.'
+      },
+      {
+        question: 'Which detail from the passage most strongly supports the claim that forced removal caused great human suffering?',
+        options: [
+          '"The term was coined by journalist John O\'Sullivan in 1845."',
+          '"The U.S. Census Bureau declared that the frontier had closed by 1890."',
+          '"The U.S. Army fought hundreds of military campaigns to subdue Native resistance."',
+          '"Approximately 4,000 Cherokee people died during the Trail of Tears from cold, hunger, and disease."'
+        ],
+        correctIndex: 3,
+        explanation: 'The specific death toll of 4,000 Cherokee people on the Trail of Tears is a concrete, quantifiable measure of the human suffering caused by forced removal.'
+      },
+      {
+        question: 'How does the author present Manifest Destiny in the final paragraph?',
+        options: [
+          'By arguing that the benefits of expansion clearly outweighed its costs for all Americans.',
+          'By presenting both the arguments supporters made and the serious injustices critics identify, without fully endorsing either side.',
+          'By concluding that Manifest Destiny was primarily a success for American democracy and freedom.',
+          'By suggesting that Native peoples and Mexicans were ultimately responsible for the conflicts that resulted from expansion.'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph presents both perspectives: supporters\' arguments about democracy and development, and critics\' points about broken treaties, displacement, and seizure — a balanced, nuanced conclusion.'
+      }
+    ]
+  },
+
+// ── Grade 6 ──
+  {
+    id: 'ancient-greece-city-states',
+    title: 'Ancient Greece: Democracy and City-States',
+    topic: 'history',
+    coverEmoji: '🏛️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 450,
+    readTimeMin: 2,
+    text: `**The Birth of Democratic Ideals**
+
+Few civilizations have shaped the modern world as profoundly as ancient Greece. Between roughly 800 and 300 BCE, the Greeks developed ideas about government, science, philosophy, and art that continue to influence societies today. Central to this legacy was their invention of **democracy**—a system of government in which citizens participate in making political decisions.
+
+**City-States: Independent Powers**
+
+Ancient Greece was not a single unified nation but rather a collection of independent **city-states**, known in Greek as *poleis* (singular: *polis*). Each city-state had its own government, laws, military, and culture. The two most famous were Athens and Sparta, which held very different values. Sparta was a **militaristic** society that valued discipline, strength, and obedience above all else. Boys left home at age seven to begin years of military training. Athens, by contrast, prized education, the arts, and civic participation.
+
+**Athens and the Experiment in Self-Governance**
+
+Around 508 BCE, an Athenian statesman named Cleisthenes introduced sweeping reforms that granted citizens a direct voice in government. Under this system, free male citizens gathered in an **assembly** called the Ekklesia to debate and vote on laws, military matters, and public spending. The concept was radical: rather than being ruled by a king or small group of elites, citizens governed themselves.
+
+However, Athenian democracy had important limitations. Women, enslaved people, and foreign residents—who together made up the majority of the population—were excluded from participation. Only free-born adult males with Athenian parents could vote. By modern standards, this was a deeply **exclusionary** system.
+
+**Legacy and Influence**
+
+Despite its flaws, Athenian democracy planted seeds that would flower centuries later. The idea that government should derive its authority from the people—not from divine right or inherited power—was revolutionary. Roman lawmakers studied Greek models when designing their own republic. Centuries later, the framers of the United States Constitution drew on both Greek and Roman political thought, incorporating concepts such as representative government, separation of powers, and civic responsibility.
+
+Greek thinkers also contributed enormously to fields beyond politics. **Philosophers** such as Socrates, Plato, and Aristotle asked fundamental questions about ethics, knowledge, and justice. Their methods of logical reasoning—asking questions, examining evidence, and drawing conclusions—laid the groundwork for modern scientific inquiry.
+
+The ancient Greek city-states remind us that big ideas often begin in small places. A peninsula barely the size of Louisiana gave the world concepts that still shape how nations are governed and how people think about justice and freedom.`,
+    vocabulary: [
+      { word: 'democracy', definition: 'A system of government in which citizens vote to make decisions or elect representatives.', example: 'Athens is often called the birthplace of democracy because its citizens voted directly on important laws.' },
+      { word: 'city-states', definition: 'Independent self-governing communities, each with its own laws and government, common in ancient Greece.', example: 'Athens and Sparta were rival city-states that competed for power across ancient Greece.' },
+      { word: 'militaristic', definition: 'Having a strong focus on military power, training, and conquest.', example: 'Sparta\'s militaristic culture meant that even young children trained as soldiers.' },
+      { word: 'assembly', definition: 'A group of citizens gathered together to discuss and vote on public matters.', example: 'The assembly met on a hillside in Athens, where thousands of citizens could speak and vote.' },
+      { word: 'exclusionary', definition: 'Deliberately keeping certain groups of people from participating or belonging.', example: 'The exclusionary rules of Athenian democracy prevented women and enslaved people from voting.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Ancient Greece invented democracy, which influenced later governments despite having significant limitations.',
+          'Sparta was more powerful than Athens and deserves more historical credit.',
+          'Greek philosophers were more important than Greek politicians.',
+          'The United States Constitution was copied directly from Athenian law.'
+        ],
+        correctIndex: 0,
+        explanation: 'The passage explains that Greece created democracy, notes its flaws (exclusion of women and enslaved people), and traces its lasting influence on modern governments.'
+      },
+      {
+        question: 'According to the passage, how was Sparta different from Athens?',
+        options: [
+          'Sparta had a larger population than Athens.',
+          'Sparta focused on military discipline, while Athens valued education and civic participation.',
+          'Sparta allowed women to vote, but Athens did not.',
+          'Sparta invented democracy before Athens did, but lost credit in history books.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that Sparta valued "discipline, strength, and obedience," while Athens "prized education, the arts, and civic participation."'
+      },
+      {
+        question: 'What does the word "exclusionary" mean as used in the passage?',
+        options: [
+          'Related to expensive or rare privileges',
+          'Keeping certain groups from participating',
+          'Promoting equality among all citizens',
+          'Describing a system that is secretive and hard to understand'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses "exclusionary" to describe how Athenian democracy kept women, enslaved people, and foreigners from voting.'
+      },
+      {
+        question: 'Which piece of evidence best supports the claim that Greek democracy influenced the United States?',
+        options: [
+          'Greek boys left home at age seven to begin military training.',
+          'Athenian citizens gathered in the Ekklesia to vote on laws.',
+          'The framers of the U.S. Constitution drew on Greek and Roman political thought.',
+          'Socrates, Plato, and Aristotle asked questions about ethics and justice.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states that U.S. framers "drew on both Greek and Roman political thought, incorporating concepts such as representative government."'
+      },
+      {
+        question: 'Why does the author compare Greece to the size of Louisiana?',
+        options: [
+          'To argue that Greece should have been a more powerful empire',
+          'To show that even a small place can produce ideas that change the world',
+          'To explain why Greek city-states were forced to cooperate with each other',
+          'To demonstrate that ancient civilizations were smaller than modern nations'
+        ],
+        correctIndex: 1,
+        explanation: 'The author ends by noting that "big ideas often begin in small places," using the Louisiana comparison to emphasize how a geographically small region had enormous global influence.'
+      }
+    ]
+  },
+  {
+    id: 'roman-empire-rise-fall',
+    title: 'The Roman Empire: Rise and Fall',
+    topic: 'history',
+    coverEmoji: '🏟️',
+    coverColor: '#7c3aed',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 455,
+    readTimeMin: 2,
+    text: `**From Republic to Empire**
+
+At its height, the Roman Empire stretched from the deserts of North Africa to the forests of northern Britain, encompassing over 40 modern countries. For more than five centuries, Rome dominated the Western world, spreading its language, laws, engineering, and culture across three continents. Understanding how Rome rose to such power—and why it eventually collapsed—remains one of history's most important lessons.
+
+Rome began not as an empire but as a **republic**, a system in which elected representatives governed on behalf of citizens. The Roman Republic (509–27 BCE) developed sophisticated institutions: a Senate that debated policy, elected consuls who served as co-executives, and a legal system that guaranteed certain rights. This structure influenced nearly every democratic government that followed.
+
+**Engineering an Empire**
+
+Rome's expansion rested on two pillars: a powerful army and an extraordinary gift for **infrastructure**. Roman engineers built over 250,000 miles of roads, allowing armies to move quickly and merchants to trade efficiently. Aqueducts carried fresh water into cities; sewage systems removed waste. Roman concrete, made with volcanic ash, was so durable that many structures still stand 2,000 years later. The Pantheon's dome, completed around 125 CE, was the world's largest for over 1,300 years.
+
+As Rome conquered new territories, it absorbed their cultures, religions, and technologies—a process called **assimilation**. Conquered peoples often gained Roman citizenship over time, and many rose to high positions in government and the military. This flexibility strengthened the empire but also created complexity as it grew.
+
+**Seeds of Decline**
+
+By the 3rd century CE, the empire faced mounting pressures. Corrupt politicians and power-hungry generals fought **incessantly** for control, destabilizing the government. Devastating plagues killed millions. The empire's borders were so vast that defending them required enormous resources. In 286 CE, Emperor Diocletian split the empire in two to manage it more effectively, but the division weakened Rome's unity.
+
+External threats intensified as Germanic tribes pressed on the northern borders. The Visigoths sacked Rome itself in 410 CE—an event that shocked the ancient world. Finally, in 476 CE, the last Western Roman emperor was deposed, marking the traditional end of the Western Empire.
+
+**An Enduring Legacy**
+
+Rome's fall did not erase its influence. Roman law forms the foundation of legal systems across Europe and Latin America. Latin evolved into French, Spanish, Italian, Portuguese, and Romanian. Roman architectural styles appear in government buildings worldwide, including the United States Capitol. The Catholic Church, centered in Rome, preserved much of Roman culture through the Middle Ages.
+
+Rome teaches us that even the mightiest empires are vulnerable to corruption, overextension, and failure to adapt. Its story is both a blueprint and a warning.`,
+    vocabulary: [
+      { word: 'republic', definition: 'A form of government in which citizens elect representatives to govern on their behalf.', example: 'The Roman Republic allowed citizens to vote for senators who made laws.' },
+      { word: 'infrastructure', definition: 'The basic systems and structures a society needs to function, such as roads, bridges, and water supplies.', example: 'Rome\'s infrastructure of roads and aqueducts helped hold the empire together.' },
+      { word: 'assimilation', definition: 'The process by which a person or group adopts the culture, language, and customs of another group.', example: 'Through assimilation, many conquered peoples eventually became full Roman citizens.' },
+      { word: 'incessantly', definition: 'Without stopping; continuously and often in an annoying way.', example: 'Roman generals fought incessantly for power, making it impossible to maintain a stable government.' },
+      { word: 'deposed', definition: 'Removed from a position of power, especially from a throne or high office.', example: 'The last Western Roman emperor was deposed in 476 CE, ending centuries of Roman rule.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main idea of this passage?',
+        options: [
+          'Rome was the greatest civilization ever and should be studied more in schools.',
+          'Rome rose through strong institutions and engineering but fell due to internal and external pressures, leaving a lasting legacy.',
+          'Roman roads and aqueducts were more important than any political achievement.',
+          'The split of the Roman Empire in 286 CE was the single cause of Rome\'s collapse.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces Rome\'s rise (institutions, engineering, expansion), its decline (corruption, invasions, overextension), and its enduring influence on law, language, and architecture.'
+      },
+      {
+        question: 'According to the passage, what were the two main reasons for Rome\'s expansion?',
+        options: [
+          'A powerful army and remarkable infrastructure',
+          'A democratic government and religious unity',
+          'Trade networks and diplomatic alliances with neighboring kingdoms',
+          'Its central location in the Mediterranean and its large population'
+        ],
+        correctIndex: 0,
+        explanation: 'The passage states that "Rome\'s expansion rested on two pillars: a powerful army and an extraordinary gift for infrastructure."'
+      },
+      {
+        question: 'How does the author organize the information in this passage?',
+        options: [
+          'By comparing Rome favorably to Greece and other ancient civilizations',
+          'By presenting one historian\'s argument and then refuting it with evidence',
+          'Chronologically, moving from Rome\'s early republic through its height and eventual fall',
+          'By listing problems with Rome in order from least to most important'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage uses subheadings and moves forward in time: from the republic, to expansion, to decline, to legacy—a clear chronological structure.'
+      },
+      {
+        question: 'What does "assimilation" mean as used in the passage?',
+        options: [
+          'Defeating enemies in battle and taking their land by force',
+          'Adopting the culture and customs of another group',
+          'Building roads and aqueducts in newly conquered territories',
+          'Splitting a large territory into smaller, easier-to-manage regions'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes assimilation as conquered peoples adopting Roman culture—and sometimes gaining citizenship and high positions.'
+      },
+      {
+        question: 'Which detail from the passage best supports the idea that Rome\'s influence continues today?',
+        options: [
+          'The Pantheon\'s dome was the world\'s largest for over 1,300 years.',
+          'Roman law forms the foundation of legal systems across Europe and Latin America.',
+          'The Visigoths sacked Rome in 410 CE, shocking the ancient world.',
+          'Roman engineers built over 250,000 miles of roads across the empire.'
+        ],
+        correctIndex: 1,
+        explanation: 'The question asks about Rome\'s influence *today*. The statement about Roman law forming foundations of current legal systems directly addresses ongoing influence, unlike historical achievements.'
+      }
+    ]
+  },
+  {
+    id: 'renaissance-art-science',
+    title: 'The Renaissance: A Rebirth of Art and Science',
+    topic: 'history',
+    coverEmoji: '🎨',
+    coverColor: '#b45309',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 448,
+    readTimeMin: 2,
+    text: `**What Was the Renaissance?**
+
+Imagine a world waking up after a long sleep. That is how many historians describe the Renaissance, a cultural and intellectual movement that swept through Europe from roughly the 14th to the 17th century. The word *renaissance* is French for "rebirth," and it refers to a renewed passion for the art, literature, and philosophy of ancient Greece and Rome. More than a return to the past, however, the Renaissance launched genuinely new ways of thinking about human beings, nature, and the universe.
+
+**Italian Origins**
+
+The Renaissance began in the prosperous city-states of northern Italy—Florence, Venice, and Milan—where wealthy merchant families such as the Medici became powerful **patrons** of the arts. These patrons funded painters, sculptors, architects, and scholars, allowing artists to produce work without financial worry. Florence in particular became a center of creativity, attracting geniuses from across Europe.
+
+Leonardo da Vinci embodied the Renaissance ideal of the **polymath**—a person of wide knowledge and skill. He filled thousands of notebook pages with detailed drawings of human anatomy, flying machines, water flow, and botany. His paintings, including the *Mona Lisa* and *The Last Supper*, combined mathematical precision with emotional depth. Contemporaries recognized Leonardo as extraordinary; we now regard him as one of history's most curious minds.
+
+**A New View of Humanity**
+
+A central idea of the Renaissance was **humanism**, a philosophy that placed human beings, their achievements, and their potential at the center of intellectual life. Medieval scholarship had focused primarily on religious questions and the afterlife. Humanists shifted attention to the present world: human experience, individual achievement, and the natural environment.
+
+This shift transformed art. Medieval paintings often depicted flat, symbolic figures. Renaissance artists such as Michelangelo, Raphael, and Botticelli studied human anatomy and used geometric techniques like **perspective** to create scenes of startling realism. Figures seemed to breathe; landscapes receded convincingly into the distance.
+
+**The Spread of Ideas**
+
+The Renaissance might have remained an Italian phenomenon had it not been for the invention of the printing press around 1440. Johannes Gutenberg's press allowed ideas, books, and illustrations to spread rapidly across Europe. Scholars, merchants, and eventually ordinary citizens gained access to texts that had previously been available only in expensive handwritten manuscripts.
+
+By the 16th century, the Renaissance had transformed Northern Europe as well. Writers like William Shakespeare explored the full range of human emotion in plays that remain performed today. Scientists began questioning ancient authorities, laying groundwork for the Scientific Revolution that would follow.
+
+The Renaissance reminds us that history does not move in a straight line. Periods of decline can be followed by explosions of creativity—and a renewed commitment to asking the deepest questions about what it means to be human.`,
+    vocabulary: [
+      { word: 'patrons', definition: 'Wealthy individuals who financially support artists, musicians, writers, or scholars.', example: 'Without the Medici family acting as patrons, many Renaissance masterpieces might never have been created.' },
+      { word: 'polymath', definition: 'A person with deep knowledge and expertise in many different subjects.', example: 'Leonardo da Vinci was a true polymath, excelling in painting, science, engineering, and anatomy.' },
+      { word: 'humanism', definition: 'A philosophy that emphasizes human reason, dignity, and achievement rather than religious doctrine.', example: 'Renaissance humanism encouraged scholars to study history, art, and science as well as theology.' },
+      { word: 'perspective', definition: 'An artistic technique that creates the illusion of depth and three-dimensional space on a flat surface.', example: 'By using perspective, Renaissance painters made flat canvases look like windows into three-dimensional worlds.' },
+      { word: 'manuscripts', definition: 'Books or documents written by hand before the invention of printing.', example: 'Before the printing press, monks spent years copying manuscripts one letter at a time.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'The Renaissance was a period of cultural and intellectual rebirth in Europe, driven by humanism, artistic innovation, and the spread of ideas.',
+          'Leonardo da Vinci was the most talented person who ever lived, and his notebooks contain inventions still used today.',
+          'The printing press was the single most important invention in human history.',
+          'Italy was the most powerful region in Europe from the 14th through the 17th century.'
+        ],
+        correctIndex: 0,
+        explanation: 'The passage covers multiple aspects of the Renaissance—its origins, philosophy, art, and spread—all supporting the central idea of a broad cultural and intellectual rebirth.'
+      },
+      {
+        question: 'According to the passage, how did Renaissance art differ from medieval art?',
+        options: [
+          'Renaissance art was primarily religious, while medieval art focused on everyday life.',
+          'Renaissance artists used perspective and anatomy to create realistic figures, while medieval art was flat and symbolic.',
+          'Medieval artists worked for wealthy patrons, while Renaissance artists worked for the Church.',
+          'Renaissance artists avoided painting religious subjects, preferring landscapes and portraits instead.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "Medieval paintings often depicted flat, symbolic figures," while Renaissance artists studied anatomy and used perspective to create "startling realism."'
+      },
+      {
+        question: 'What does the word "patrons" mean as used in the passage?',
+        options: [
+          'Political leaders who governed Italian city-states',
+          'Religious authorities who approved artwork for churches',
+          'Wealthy individuals who financially supported artists and scholars',
+          'Traveling merchants who sold artworks across Europe'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage defines patrons as wealthy families like the Medici who "funded painters, sculptors, architects, and scholars."'
+      },
+      {
+        question: 'Why does the author mention the printing press in this passage about the Renaissance?',
+        options: [
+          'To argue that the printing press was more important than any artwork or philosophy of the period',
+          'To explain how Renaissance ideas spread beyond Italy to the rest of Europe',
+          'To show that Johannes Gutenberg was himself a Renaissance polymath',
+          'To describe a technology that replaced the need for Renaissance artists and scribes'
+        ],
+        correctIndex: 1,
+        explanation: 'The author discusses the printing press to explain how Renaissance ideas "spread rapidly across Europe," preventing them from remaining only an Italian phenomenon.'
+      },
+      {
+        question: 'Which statement from the passage reflects the author\'s perspective about what the Renaissance means for us today?',
+        options: [
+          '"The word renaissance is French for rebirth."',
+          '"His paintings, including the Mona Lisa and The Last Supper, combined mathematical precision with emotional depth."',
+          '"Periods of decline can be followed by explosions of creativity—and a renewed commitment to asking the deepest questions about what it means to be human."',
+          '"Medieval scholarship had focused primarily on religious questions and the afterlife."'
+        ],
+        correctIndex: 2,
+        explanation: 'This closing statement moves beyond historical facts to offer the author\'s interpretation and lesson, reflecting the author\'s perspective on the Renaissance\'s meaning.'
+      }
+    ]
+  },
+  {
+    id: 'age-of-exploration',
+    title: 'The Age of Exploration and Colonization',
+    topic: 'history',
+    coverEmoji: '⛵',
+    coverColor: '#0369a1',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 452,
+    readTimeMin: 2,
+    text: `**Setting Sail into the Unknown**
+
+Between 1400 and 1700, European nations sent sailors on voyages that would permanently transform the world. This period, known as the Age of Exploration, was driven by a combination of curiosity, commerce, and competition. Technological improvements in ship design and navigation made long ocean voyages possible for the first time, opening new trade routes and connecting continents that had previously had little contact with one another.
+
+**Why Europeans Explored**
+
+Several forces pushed European nations toward the sea. First, trade with Asia had become expensive and dangerous. Overland routes to China and India passed through the powerful Ottoman Empire, which charged high tolls and sometimes blocked European merchants entirely. Reaching Asia by sea—sailing around Africa or across the Atlantic—promised enormous profits.
+
+Second, improvements in technology made distant voyages practical. The **caravel**, a new type of ship developed by the Portuguese, could sail closer to the wind and carry more cargo than earlier vessels. The magnetic compass, astrolabe, and better maps allowed sailors to **navigate** with greater confidence far from familiar coastlines.
+
+Third, European monarchs competed fiercely for wealth and power. Sponsoring successful voyages could enrich a kingdom and expand its **sovereignty** over new territories.
+
+**Exploration and Conquest**
+
+Portugal led the early era, establishing trading posts along the African coast and, by 1498, reaching India. Spain followed a different course. In 1492, Christopher Columbus sailed west seeking Asia and instead reached the Caribbean, opening what Europeans called the "New World" to further exploration. Hernán Cortés conquered the Aztec Empire in Mexico; Francisco Pizarro destroyed the Inca Empire in Peru. These conquests brought Spain tremendous wealth—and tremendous destruction to Indigenous peoples.
+
+**The Human Cost**
+
+The Age of Exploration had devastating consequences. **Colonization** meant that European nations claimed ownership of lands already inhabited by millions of people. Indigenous populations were subjected to forced labor, displacement, and violence. Perhaps most destructive were the diseases Europeans carried—smallpox, measles, and typhus—to which Native Americans had no **immunity**. Some historians estimate that up to 90 percent of the Indigenous population of the Americas died within a century of contact.
+
+The Atlantic slave trade, which grew directly from colonial labor demands, forcibly transported millions of Africans to the Americas, creating one of history's greatest human tragedies.
+
+**A Connected but Unequal World**
+
+The Age of Exploration created the interconnected global economy we inhabit today. Foods, animals, plants, and technologies moved between continents as never before. But this connection was built on conquest, exploitation, and suffering. Fully understanding this period means holding both realities at once: the astonishing human achievement of oceanic navigation and the moral catastrophe of colonization.`,
+    vocabulary: [
+      { word: 'caravel', definition: 'A small, fast sailing ship developed by the Portuguese, designed for long ocean voyages.', example: 'The caravel\'s triangular sails allowed it to sail into the wind, making ocean exploration much more practical.' },
+      { word: 'navigate', definition: 'To plan and direct the route of a ship, aircraft, or other vehicle on a journey.', example: 'Sailors used the stars and a magnetic compass to navigate across the open ocean.' },
+      { word: 'sovereignty', definition: 'Supreme authority or control over a territory or people.', example: 'Spain claimed sovereignty over vast territories in the Americas after Columbus\'s voyages.' },
+      { word: 'colonization', definition: 'The process of a country sending settlers to establish political control over a foreign territory.', example: 'European colonization of the Americas displaced and killed millions of Indigenous people.' },
+      { word: 'immunity', definition: 'The ability of an organism to resist a particular disease or infection.', example: 'Native Americans had no immunity to European diseases, causing catastrophic population collapse.' }
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what were the main reasons Europeans began exploring by sea?',
+        options: [
+          'They wanted to spread Christianity and defeat the Ottoman Empire.',
+          'Overland trade was blocked or costly, new ships made voyages practical, and monarchs competed for wealth and territory.',
+          'European scientists wanted to prove that the Earth was round, not flat.',
+          'Native American traders invited Europeans to sail west and establish new markets.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage lists three forces: expensive overland trade routes, new technology (caravels, compasses), and competition among European monarchs for wealth and territory.'
+      },
+      {
+        question: 'What does the passage suggest was the most destructive consequence of European exploration for Indigenous peoples?',
+        options: [
+          'The theft of gold and silver from Aztec and Inca civilizations',
+          'European missionaries who forced Native Americans to change their religion',
+          'Disease, to which Native Americans had no immunity, potentially killing up to 90 percent of the population',
+          'The introduction of European farming methods that destroyed traditional crops'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that disease "may have killed up to 90 percent of the Indigenous population of the Americas," framing this as "perhaps most destructive."'
+      },
+      {
+        question: 'What does "sovereignty" mean as used in the passage?',
+        options: [
+          'Military strength used to defeat rivals in battle',
+          'Supreme authority or control over a territory',
+          'A formal agreement between two nations to share resources',
+          'The process of building settlements in a new location'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses "sovereignty" when describing European monarchs competing to "expand its sovereignty over new territories," meaning claiming authority and control.'
+      },
+      {
+        question: 'How does the author balance the discussion of the Age of Exploration?',
+        options: [
+          'By focusing mainly on the courage of individual explorers like Columbus and Cortés',
+          'By acknowledging both the navigational achievement and the moral catastrophe of colonization',
+          'By arguing that European exploration was mostly harmful and should be condemned',
+          'By presenting only positive developments, such as connecting continents through trade'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph explicitly states that "fully understanding this period means holding both realities at once"—the achievement of ocean navigation and the moral catastrophe of colonization.'
+      },
+      {
+        question: 'Which text structure does the author primarily use in this passage?',
+        options: [
+          'Problem and solution',
+          'Compare and contrast between Portugal and Spain',
+          'Cause and effect, explaining why exploration happened and what resulted from it',
+          'A personal narrative written from an explorer\'s point of view'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains causes (why Europeans explored) and then traces effects (conquest, disease, slavery, global trade), making cause-and-effect the dominant text structure.'
+      }
+    ]
+  },
+  {
+    id: 'columbian-exchange',
+    title: 'The Columbian Exchange: How Trade Changed the World',
+    topic: 'history',
+    coverEmoji: '🌽',
+    coverColor: '#15803d',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 446,
+    readTimeMin: 2,
+    text: `**A Global Transfer of Life**
+
+In 1972, historian Alfred Crosby coined the term "Columbian Exchange" to describe the massive movement of plants, animals, diseases, and people between the Eastern and Western Hemispheres following Columbus's 1492 voyage. This exchange was not merely a historical curiosity—it fundamentally reshaped agriculture, population patterns, ecosystems, and economies worldwide, and its effects continue to shape daily life today.
+
+**From the Americas to the World**
+
+Before 1492, Europeans, Africans, and Asians had never encountered many crops that are now **staples** of global cuisine. Potatoes, tomatoes, corn (maize), cacao, peppers, sweet potatoes, and peanuts all originated in the Americas and were unknown outside it until contact. The introduction of American crops to Europe and Africa had dramatic consequences.
+
+The potato, for example, thrived in the cool, wet soil of northern Europe and provided more calories per acre than wheat or rye. By the 18th century, potatoes had become so important in Ireland that when a fungal disease destroyed the crop in the 1840s, over one million people starved and another million emigrated. Similarly, corn transformed West African agriculture, enabling population growth that ironically helped fuel the expanding Atlantic slave trade.
+
+**From the Old World to the Americas**
+
+Europeans brought horses, cattle, pigs, sheep, wheat, rice, and sugarcane to the Americas. Horses **revolutionized** life for many Native American nations. Plains tribes like the Lakota and Comanche adopted horses around the 17th century, transforming their societies from farming settlements into powerful, mobile hunting cultures.
+
+Sugar, however, carried a darker legacy. European demand for sugar drove the establishment of vast plantations in Brazil and the Caribbean. Because sugarcane cultivation required enormous labor and was brutally demanding, plantation owners turned to enslaved Africans, deepening the Atlantic slave trade.
+
+**The Exchange of Disease**
+
+The most catastrophic element of the Columbian Exchange was **pathogenic**, involving disease. Europeans carried smallpox, measles, influenza, and typhus to the Americas. Since Indigenous populations had no prior exposure, they lacked **antibodies** to fight these illnesses. The resulting epidemics killed between 50 and 90 percent of the Indigenous population in many regions—a demographic collapse unprecedented in human history.
+
+**Lasting Significance**
+
+The Columbian Exchange illustrates how interconnected our world truly is. A crop failure in Ireland, a population boom in West Africa, the destruction of Indigenous civilizations, and the foundations of modern cuisine all trace back to ships crossing the Atlantic five centuries ago. Understanding these connections helps us see that no historical event is isolated—every exchange, whether of plants, animals, or diseases, sets off waves of consequences that ripple across generations.`,
+    vocabulary: [
+      { word: 'staples', definition: 'Foods or goods that are basic, essential, and widely used in a particular place.', example: 'Rice and wheat are dietary staples for billions of people around the world.' },
+      { word: 'revolutionized', definition: 'Changed something completely and dramatically, usually for the better.', example: 'The introduction of horses revolutionized transportation and warfare for Plains tribes.' },
+      { word: 'pathogenic', definition: 'Capable of causing disease; relating to disease-producing organisms.', example: 'The pathogenic diseases brought by Europeans were devastating to Native American communities.' },
+      { word: 'antibodies', definition: 'Proteins produced by the immune system to recognize and fight specific diseases or infections.', example: 'Without antibodies to smallpox, Indigenous peoples had no way to fight the disease.' },
+      { word: 'demographic', definition: 'Relating to the structure and statistics of a population, such as size, age, or distribution.', example: 'The demographic collapse of Indigenous peoples changed the population balance of the entire Western Hemisphere.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Columbus\'s voyage in 1492 was the greatest achievement of the Age of Exploration.',
+          'The Columbian Exchange was a massive transfer of plants, animals, and diseases that permanently reshaped global populations and economies.',
+          'European agriculture was greatly improved by crops from the Americas, making it the most productive in the world.',
+          'The Atlantic slave trade was the most significant result of Columbus\'s voyages to the Americas.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage covers multiple effects of the Columbian Exchange—agriculture, disease, slavery—all supporting the central idea that it fundamentally reshaped the world.'
+      },
+      {
+        question: 'According to the passage, how did the potato affect European history?',
+        options: [
+          'It replaced wheat entirely and became the only crop grown in northern Europe.',
+          'It provided so many calories per acre that it fueled rapid industrialization across Europe.',
+          'It thrived in northern Europe but caused mass starvation and emigration in Ireland when a fungal disease struck.',
+          'It was traded to Asia in exchange for spices, making Europe very wealthy.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that the potato "thrive[d] in the cool, wet soil of northern Europe" but when a fungal disease destroyed the crop in Ireland, over a million people starved.'
+      },
+      {
+        question: 'What does "staples" mean as used in the passage?',
+        options: [
+          'Metal fasteners used to hold documents together',
+          'Basic, essential foods widely used in a region',
+          'Exotic or rare foods enjoyed only by wealthy people',
+          'Foods that have been preserved for long journeys at sea'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses "staples" to describe basic crops—potatoes, tomatoes, corn—that are now essential parts of global cuisine.'
+      },
+      {
+        question: 'Why does the author describe sugar as having "a darker legacy" compared to horses?',
+        options: [
+          'Sugar crops depleted the soil and made farming impossible in much of the Caribbean.',
+          'Unlike horses, which transformed Native American cultures positively, sugar production depended on enslaved African labor.',
+          'Sugar was less nutritious than American crops and caused widespread health problems in Europe.',
+          'European governments taxed sugar heavily, preventing most people from benefiting from the trade.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage contrasts horses (which "revolutionized life" for Native American tribes) with sugar, which "drove the establishment of vast plantations" dependent on enslaved labor.'
+      },
+      {
+        question: 'What is the author\'s main purpose in writing the final paragraph?',
+        options: [
+          'To summarize only the agricultural effects of the Columbian Exchange',
+          'To argue that Columbus should be celebrated as a hero of global trade',
+          'To show that the Columbian Exchange\'s consequences were all interconnected and still affect us today',
+          'To warn readers that modern trade could cause another epidemic like the one that killed Indigenous peoples'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph connects events across continents (Ireland, West Africa, Indigenous civilizations, modern food) to emphasize interconnection and lasting consequences—the passage\'s overarching theme.'
+      }
+    ]
+  },
+  {
+    id: 'scientific-revolution',
+    title: 'The Scientific Revolution: Galileo, Newton, and a New World View',
+    topic: 'science',
+    coverEmoji: '🔭',
+    coverColor: '#1e3a8a',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 453,
+    readTimeMin: 2,
+    text: `**Challenging 1,500 Years of Accepted Wisdom**
+
+For most of human history, people believed that Earth sat motionless at the center of the universe, with the sun, moon, planets, and stars revolving around it. This **geocentric** model, championed by the ancient Greek astronomer Ptolemy and endorsed by the Catholic Church, seemed to match everyday experience—the sun clearly rises and sets, after all. But during the 16th and 17th centuries, a series of bold thinkers began to question this view, launching what historians call the Scientific Revolution.
+
+**Copernicus and a Moving Earth**
+
+The revolution began quietly in 1543 when Polish astronomer Nicolaus Copernicus published a book proposing a **heliocentric** model—the idea that Earth and the other planets revolve around the sun. Copernicus was so fearful of Church condemnation that he waited until the year of his death to publish his theory. His ideas did not gain wide acceptance immediately, but they planted a seed.
+
+**Galileo: Observation Over Authority**
+
+The Italian scientist Galileo Galilei advanced the revolution through careful **empirical** observation. Pointing his improved telescope at the sky in 1609, Galileo discovered four moons orbiting Jupiter—proof that not everything revolved around Earth. He observed that Venus went through phases like the moon, consistent with a heliocentric model. His findings challenged centuries of accepted wisdom.
+
+The Church condemned Galileo and placed his books on a list of forbidden works. He was forced to recant his findings and spent the last years of his life under house arrest. Yet his central insight was correct, and his insistence on observation as the basis for knowledge became a cornerstone of modern science.
+
+**Newton Unifies the Picture**
+
+Isaac Newton, born in England in 1643 (the same year Galileo died), synthesized earlier discoveries into a comprehensive theory of **gravity** and motion. Newton's laws of motion described how objects move and how forces affect them. His law of universal gravitation explained why planets orbit the sun, why moons orbit planets, and why an apple falls from a tree—all governed by the same invisible force.
+
+Newton's *Principia Mathematica* (1687) was one of the most important scientific works ever written. It demonstrated that the universe operates according to predictable mathematical laws that humans can discover through reason and observation—a radical idea that would **underpin** the Enlightenment and the industrial and technological revolutions that followed.
+
+**A New Way of Knowing**
+
+The Scientific Revolution did more than update astronomy. It established the **scientific method**—observing, hypothesizing, testing, and revising—as the proper way to investigate the natural world. This approach has proven so powerful that it remains the foundation of all modern science, from medicine to climate research to space exploration. The courage of thinkers like Galileo and Newton to challenge authority with evidence changed the world permanently.`,
+    vocabulary: [
+      { word: 'geocentric', definition: 'Describing a model of the universe with Earth at the center, around which everything else revolves.', example: 'The geocentric model was accepted for over 1,500 years before Copernicus proposed a different idea.' },
+      { word: 'heliocentric', definition: 'Describing a model of the solar system with the sun at the center, around which the planets revolve.', example: 'Galileo\'s telescope observations supported the heliocentric model proposed by Copernicus.' },
+      { word: 'empirical', definition: 'Based on observation, experiment, and evidence rather than theory or tradition.', example: 'Galileo believed that empirical observation—not ancient texts—should guide scientific conclusions.' },
+      { word: 'gravity', definition: 'The force of attraction between objects with mass; the force that pulls objects toward Earth and keeps planets in orbit.', example: 'Newton\'s theory of gravity explained both falling apples and orbiting planets with a single mathematical law.' },
+      { word: 'underpin', definition: 'To support, strengthen, or provide the foundation for something.', example: 'Newton\'s mathematical laws would underpin scientific thinking for the next two centuries.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'Galileo was the greatest scientist who ever lived and should be remembered as a hero.',
+          'The Scientific Revolution challenged centuries of accepted thinking by establishing observation and evidence as the basis for understanding nature.',
+          'The Catholic Church was an obstacle to all scientific progress and should have allowed free inquiry.',
+          'Isaac Newton\'s discoveries were more important than those of Copernicus and Galileo combined.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces how multiple thinkers challenged accepted wisdom through observation, culminating in the scientific method—the passage\'s unifying central idea.'
+      },
+      {
+        question: 'Why did Copernicus wait until the year of his death to publish his heliocentric theory?',
+        options: [
+          'He wanted more time to collect observations with his telescope before making his findings public.',
+          'He was fearful of condemnation by the Catholic Church, which supported the geocentric model.',
+          'His publisher refused to release the book until Copernicus could provide more mathematical proof.',
+          'He believed his ideas were not yet complete and needed another decade of research.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states directly that "Copernicus was so fearful of Church condemnation that he waited until the year of his death to publish his theory."'
+      },
+      {
+        question: 'What does "empirical" mean as used in the passage?',
+        options: [
+          'Related to an empire or the authority of powerful rulers',
+          'Based on logic and mathematical proof alone, without experiments',
+          'Based on observation, experiment, and evidence',
+          'Accepted by everyone as obviously true without needing proof'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage uses "empirical" to contrast Galileo\'s approach—careful telescope observations—with relying on ancient texts or authority.'
+      },
+      {
+        question: 'According to the passage, what made Newton\'s contribution to the Scientific Revolution especially significant?',
+        options: [
+          'He was the first to use a telescope and discover new celestial objects.',
+          'He convinced the Church to stop opposing scientific research.',
+          'His mathematical laws unified earlier discoveries and showed that the universe follows predictable rules discoverable by reason.',
+          'He proved that Galileo\'s forced recantation was unjust and had it reversed by Church authorities.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that Newton "synthesized earlier discoveries" into mathematical laws showing the universe "operates according to predictable mathematical laws that humans can discover through reason and observation."'
+      },
+      {
+        question: 'How does the author structure the evidence in this passage to build the argument about the Scientific Revolution?',
+        options: [
+          'By presenting each scientist\'s discoveries in random order to show science is unpredictable',
+          'By chronologically showing how each scientist built on earlier work, creating an increasingly complete picture of the universe',
+          'By comparing the mistakes of one scientist with the successes of another',
+          'By focusing on the personal suffering of scientists who were punished for their beliefs'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage moves from Copernicus (1543) to Galileo (1609) to Newton (1687), with each scientist building on the last—a clear chronological, cumulative structure.'
+      }
+    ]
+  },
+
+{
+    id: 'plate-tectonics-earthquakes',
+    title: 'When the Ground Moves: Plate Tectonics and Earthquakes',
+    topic: 'science',
+    coverEmoji: '🌍',
+    coverColor: '#7c3aed',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 458,
+    readTimeMin: 2,
+    text: `**Shifting Ground Beneath Our Feet**
+
+Earth may feel solid and still, but the ground beneath us is constantly in motion. Scientists have discovered that Earth's outer shell is broken into massive slabs called **tectonic plates**. These plates float on a layer of hot, partially melted rock called the **mantle**, and they move — slowly but powerfully — a few centimeters each year. Over millions of years, that movement has cracked open ocean basins, pushed up mountain ranges, and rearranged the continents themselves.
+
+**How Plates Move**
+
+There are roughly fifteen major tectonic plates, and they interact in three main ways. At **convergent boundaries**, two plates collide. One plate may slide beneath the other in a process called **subduction**, which can create deep ocean trenches and towering mountain ranges. The Himalayas, for example, formed when the Indian Plate crashed into the Eurasian Plate millions of years ago. At **divergent boundaries**, plates pull apart, allowing magma to rise and form new crust. The Mid-Atlantic Ridge is a chain of underwater mountains created this way. At **transform boundaries**, plates grind sideways past each other, building up enormous stress along the contact zone. California's San Andreas Fault is a well-known example.
+
+**Earthquakes: Energy Released**
+
+That stored stress is the cause of earthquakes. When friction along a fault — a crack in Earth's crust — finally gives way, energy is released in waves that shake the ground. The point underground where the break occurs is called the **focus**, or hypocenter. Directly above it on the surface is the **epicenter**, where shaking is usually strongest.
+
+Scientists measure earthquake strength using the **moment magnitude scale**. Each whole number step represents about thirty times more energy than the previous one. A magnitude 6.0 earthquake releases thirty times more energy than a 5.0, and a magnitude 7.0 releases nine hundred times more than a 5.0. Earthquakes above magnitude 8.0 are rare but capable of catastrophic destruction.
+
+**Predicting and Preparing**
+
+Unlike hurricanes, earthquakes cannot yet be reliably predicted. Seismologists — scientists who study earthquakes — monitor fault lines with sensitive instruments called **seismographs**, but predicting exactly when a quake will strike remains beyond current science. What communities can do is prepare. Building codes in earthquake-prone regions require structures to withstand shaking. Emergency drills and early-warning systems can save lives when tremors begin.
+
+The 2011 earthquake and tsunami off Japan's coast measured a staggering 9.0 magnitude, demonstrating just how violent plate movement can be. Yet those same forces built the continents we live on. Understanding tectonic plates helps us appreciate that Earth is a dynamic, living planet — and that knowledge helps keep people safe.`,
+    vocabulary: [
+      { word: 'tectonic plates', definition: 'Large slabs of Earth\'s crust and upper mantle that move slowly over the surface.', example: 'The collision of tectonic plates built the Rocky Mountains.' },
+      { word: 'subduction', definition: 'The process by which one tectonic plate slides beneath another into the mantle.', example: 'Subduction along the Pacific coast creates deep ocean trenches.' },
+      { word: 'fault', definition: 'A crack or fracture in Earth\'s crust along which rocks can move.', example: 'The San Andreas Fault runs nearly 800 miles through California.' },
+      { word: 'epicenter', definition: 'The point on Earth\'s surface directly above the underground focus of an earthquake.', example: 'Buildings near the epicenter suffered the most damage.' },
+      { word: 'seismograph', definition: 'An instrument that detects and records ground motion caused by earthquakes.', example: 'Seismographs around the world recorded the powerful tremors.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'Earthquakes are impossible to survive without modern buildings.',
+          'Tectonic plate movement shapes Earth\'s surface and causes earthquakes.',
+          'The Himalayas are the tallest mountains on Earth.',
+          'Japan experiences more earthquakes than any other country.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains how tectonic plates move and how that movement produces earthquakes, mountain ranges, and other features — this is the central idea throughout.'
+      },
+      {
+        question: 'According to the article, what happens at a convergent boundary?',
+        options: [
+          'Plates pull apart and magma fills the gap.',
+          'Plates grind sideways, building stress.',
+          'Two plates collide, sometimes causing one to slide under the other.',
+          'New ocean crust is created continuously.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that at convergent boundaries two plates collide, and one may slide beneath the other through subduction.'
+      },
+      {
+        question: 'How does the author organize the section "Earthquakes: Energy Released"?',
+        options: [
+          'Chronological order from oldest to most recent earthquakes',
+          'Cause and effect: stress builds up, then releases as shaking',
+          'Compare and contrast between large and small earthquakes',
+          'Problem and solution for earthquake damage'
+        ],
+        correctIndex: 1,
+        explanation: 'The section describes how stress builds along a fault (cause) and is then released as earthquake waves (effect), following a cause-and-effect structure.'
+      },
+      {
+        question: 'Which piece of evidence best supports the idea that tectonic forces are powerful?',
+        options: [
+          'Plates move a few centimeters each year.',
+          'The focus is underground while the epicenter is at the surface.',
+          'The 2011 Japan earthquake measured 9.0 magnitude and triggered a tsunami.',
+          'Seismologists use instruments called seismographs.'
+        ],
+        correctIndex: 2,
+        explanation: 'The 2011 Japan earthquake example — 9.0 magnitude and a resulting tsunami — provides the strongest evidence of how powerful tectonic forces can be.'
+      },
+      {
+        question: 'What does the word "dynamic" most likely mean as used in the final paragraph?',
+        options: [
+          'Dangerous and unpredictable',
+          'Constantly changing and active',
+          'Ancient and unchanging',
+          'Covered in water'
+        ],
+        correctIndex: 1,
+        explanation: 'The author calls Earth a "dynamic, living planet" after describing ongoing movement and change, so "dynamic" means constantly changing and active.'
+      }
+    ]
+  },
+  {
+    id: 'earths-layers-interior',
+    title: 'Journey to the Center: Earth\'s Layers and Interior Structure',
+    topic: 'science',
+    coverEmoji: '🔬',
+    coverColor: '#b45309',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 447,
+    readTimeMin: 2,
+    text: `**A Planet in Layers**
+
+If you could slice Earth in half like an apple, you would find a world of dramatic contrasts — from thin, fragile crust to a solid metal core under unimaginable pressure. Scientists have mapped four distinct layers inside our planet, each with different temperatures, pressures, and compositions. None of these layers has ever been directly observed; our knowledge comes from studying how **seismic waves** — vibrations from earthquakes — travel through Earth's interior. This indirect approach has allowed scientists to build a surprisingly detailed picture of a place no human will ever visit.
+
+**The Crust**
+
+The outermost layer is the **crust**, the solid rock we walk on. It comes in two types: continental crust, which makes up landmasses and averages about thirty-five kilometers thick, and oceanic crust, which lies beneath the ocean floor and is only five to ten kilometers thick but much denser. Even at its thickest, the crust is a tiny fraction of Earth's total radius of about 6,371 kilometers — thinner, proportionally, than the skin of an apple.
+
+**The Mantle**
+
+Below the crust lies the **mantle**, a thick layer of rock that makes up about 84 percent of Earth's volume. The upper mantle contains a zone called the **asthenosphere**, where rock is hot enough to flow very slowly — like extremely thick tar. This is the layer on which tectonic plates drift. The lower mantle is more rigid due to increasing pressure, even though temperatures there exceed 3,000 degrees Celsius. The boundary between the crust and mantle is called the Mohorovičić discontinuity, or Moho.
+
+**The Outer Core**
+
+Beneath the mantle, Earth's outer core is composed mostly of liquid iron and nickel. Temperatures here range from 4,000 to 5,000 degrees Celsius. The swirling motion of this liquid metal generates Earth's magnetic field through a process known as the **geodynamo**. That magnetic field acts as a shield, deflecting harmful solar radiation and making life on the surface possible. Without it, Earth's atmosphere would slowly be stripped away by solar winds.
+
+**The Inner Core**
+
+At Earth's very center sits the **inner core** — a solid ball of iron and nickel roughly the size of the Moon. Although temperatures there may reach 5,400 degrees Celsius — as hot as the surface of the Sun — the immense pressure keeps the metal solid. Scientists believe the inner core rotates slightly faster than the rest of the planet.
+
+**How We Know**
+
+All of this knowledge rests on seismic wave analysis. P-waves (primary waves) travel through solids and liquids; S-waves (secondary waves) travel only through solids. When S-waves failed to pass through a certain region, scientists inferred that Earth's outer core must be liquid. This indirect evidence is a remarkable example of how observation and inference reveal truths beyond direct reach.`,
+    vocabulary: [
+      { word: 'seismic waves', definition: 'Vibrations that travel through Earth, produced by earthquakes or other disturbances.', example: 'By tracking seismic waves, scientists mapped Earth\'s hidden layers.' },
+      { word: 'crust', definition: 'The thin, solid outermost layer of Earth.', example: 'The crust beneath the ocean is thinner than the continental crust.' },
+      { word: 'asthenosphere', definition: 'A zone in the upper mantle where rock flows slowly due to intense heat.', example: 'Tectonic plates slide over the asthenosphere.' },
+      { word: 'geodynamo', definition: 'The process by which motion in Earth\'s liquid outer core generates its magnetic field.', example: 'Without the geodynamo, Earth\'s protective magnetic field would not exist.' },
+      { word: 'inference', definition: 'A conclusion reached using evidence and reasoning rather than direct observation.', example: 'Scientists used an inference about S-waves to determine the outer core is liquid.' },
+    ],
+    questions: [
+      {
+        question: 'What is the main purpose of this article?',
+        options: [
+          'To argue that humans should drill to Earth\'s core',
+          'To describe Earth\'s internal layers and explain how we know about them',
+          'To compare Earth\'s interior to other planets in the solar system',
+          'To persuade readers that seismic waves are dangerous'
+        ],
+        correctIndex: 1,
+        explanation: 'The article describes each layer of Earth\'s interior and concludes by explaining that seismic wave analysis is how scientists learned this information.'
+      },
+      {
+        question: 'Why is the outer core important for life on Earth\'s surface?',
+        options: [
+          'It keeps the inner core solid through pressure.',
+          'It provides the heat that warms the mantle.',
+          'Its swirling liquid metal generates Earth\'s magnetic field, shielding life from solar radiation.',
+          'It is made of iron, which enriches surface soils.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that the geodynamo in the outer core creates Earth\'s magnetic field, which deflects harmful solar radiation and makes surface life possible.'
+      },
+      {
+        question: 'How did scientists determine that Earth\'s outer core is liquid?',
+        options: [
+          'They drilled a hole and collected samples from the core.',
+          'S-waves, which only travel through solids, could not pass through the outer core.',
+          'Telescopes detected the magnetic field shifting over time.',
+          'Volcanic eruptions brought liquid iron to the surface.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains that when S-waves — which travel only through solids — failed to pass through the outer core region, scientists inferred it must be liquid.'
+      },
+      {
+        question: 'Which text structure does the author primarily use in this article?',
+        options: [
+          'Chronological order',
+          'Problem and solution',
+          'Description organized by category (each layer)',
+          'Compare and contrast between two planets'
+        ],
+        correctIndex: 2,
+        explanation: 'The article is organized by describing each distinct layer of Earth in turn — crust, mantle, outer core, inner core — making description by category the primary structure.'
+      },
+      {
+        question: 'Based on context, what does the word "immense" mean in the final body section?',
+        options: [
+          'Gradually increasing',
+          'Extremely great in size or degree',
+          'Difficult to measure accurately',
+          'Sudden and unexpected'
+        ],
+        correctIndex: 1,
+        explanation: 'The author uses "immense" to describe pressure strong enough to keep iron solid despite temperatures matching the Sun\'s surface, indicating extremely great force.'
+      }
+    ]
+  },
+  {
+    id: 'global-weather-climate-zones',
+    title: 'Earth\'s Climate Belt: Global Weather Patterns and Climate Zones',
+    topic: 'science',
+    coverEmoji: '🌤️',
+    coverColor: '#0369a1',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 453,
+    readTimeMin: 2,
+    text: `**Why Does the Sahara Exist Next to the Sea?**
+
+It seems strange that Earth hosts sweltering deserts, ice-covered tundra, and lush rainforests all at the same time. The reason lies in global patterns of sunlight, wind, and ocean currents that together create distinct **climate zones** — regions with predictable long-term weather conditions. Understanding these patterns helps scientists predict droughts, design agriculture, and study how **climate change** may reshape the planet.
+
+**Sunlight and Latitude**
+
+The single most important factor in climate is a region's **latitude** — its distance from the equator. Near the equator, sunlight strikes Earth almost directly, delivering intense energy to a small area. Near the poles, the same sunlight spreads across a much larger surface at an angle, delivering far less warmth. This explains why equatorial regions are hot and polar regions are cold.
+
+**Atmospheric Circulation**
+
+Uneven heating drives wind. As air at the equator is heated, it rises, cools, and releases moisture as rain — creating the tropical rainforests of the Amazon and Congo basins. That dry air then sinks at about 30 degrees north and south latitude, creating bands of high pressure where little rain falls. This sinking dry air produces the world's great desert belts, including the Sahara, Arabian Desert, and Australia's Outback.
+
+These circulation patterns are organized into three **circulation cells** per hemisphere: the Hadley cell (equator to 30°), the Ferrel cell (30° to 60°), and the Polar cell (60° to 90°). Together, they drive Earth's prevailing winds — the trade winds, westerlies, and polar easterlies.
+
+**Ocean Currents and Climate**
+
+Oceans carry heat across the globe through large current systems. The **Gulf Stream**, for example, transports warm tropical water northward along North America's eastern coast and across the Atlantic, keeping Western Europe far warmer than its latitude would otherwise allow. London sits at about the same latitude as Calgary, Canada, yet London rarely experiences Calgary's harsh winters.
+
+**The Köppen Climate Classification**
+
+Scientists organize the world's climates into groups using the **Köppen classification system**, which assigns letter codes based on temperature and precipitation patterns. Tropical (A), Dry (B), Temperate (C), Continental (D), and Polar (E) zones cover the globe, each supporting distinctive ecosystems and human activities.
+
+Climate zones are not random — they are the predictable result of physical forces operating on a planetary scale. As global temperatures rise due to human activity, these zones are shifting. Deserts are expanding, polar ice is shrinking, and weather patterns that civilizations have relied on for centuries are becoming less predictable. Understanding why climate zones form is the first step toward understanding what we stand to lose.`,
+    vocabulary: [
+      { word: 'climate zones', definition: 'Large regions of Earth that share similar long-term weather patterns, temperature, and precipitation.', example: 'Florida sits within a humid subtropical climate zone.' },
+      { word: 'latitude', definition: 'A measurement of distance north or south of the equator, expressed in degrees.', example: 'Cities at high latitudes receive less direct sunlight and are generally colder.' },
+      { word: 'circulation cells', definition: 'Large loops of rising and sinking air that drive global wind patterns.', example: 'The Hadley cell moves warm, moist air from the equator toward the tropics.' },
+      { word: 'Gulf Stream', definition: 'A powerful warm ocean current that flows from the Gulf of Mexico northward along the U.S. East Coast and across the Atlantic.', example: 'The Gulf Stream moderates the climate of Western Europe.' },
+      { word: 'Köppen classification', definition: 'A widely used system for categorizing Earth\'s climates by temperature and precipitation.', example: 'Using the Köppen classification, scientists labeled the Amazon region as tropical rainforest.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'The Sahara Desert was formed by ancient sea levels.',
+          'Global climate zones result from predictable patterns of sunlight, wind, and ocean currents.',
+          'Ocean currents are more important than latitude in determining climate.',
+          'The Köppen system is the only accurate way to classify climates.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains throughout that climate zones are created by the predictable interaction of sunlight, atmospheric circulation, and ocean currents.'
+      },
+      {
+        question: 'Why are deserts concentrated at about 30 degrees north and south latitude?',
+        options: [
+          'Those regions are farthest from ocean currents.',
+          'Dry air that rose at the equator sinks at 30 degrees, creating high pressure and little rainfall.',
+          'Sunlight strikes those latitudes at the most direct angle.',
+          'Polar easterly winds blow all moisture away from those regions.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains that air rises and loses moisture at the equator, then sinks dry at 30 degrees, producing high pressure and the world\'s desert belts.'
+      },
+      {
+        question: 'What evidence does the author use to show the Gulf Stream\'s effect on climate?',
+        options: [
+          'A chart showing average ocean temperatures',
+          'A comparison of London and Calgary, which share a latitude but have very different winters',
+          'Historical records of Gulf Stream speed changes',
+          'Data showing Western Europe\'s annual rainfall totals'
+        ],
+        correctIndex: 1,
+        explanation: 'The author compares London and Calgary — cities at similar latitudes with dramatically different winters — as evidence that the Gulf Stream significantly warms Western Europe.'
+      },
+      {
+        question: 'What is the author\'s perspective on climate change at the end of the article?',
+        options: [
+          'Climate change is exaggerated and climate zones will remain stable.',
+          'Climate change is a natural cycle that has always shifted zones.',
+          'Human-caused warming is disrupting climate zones that civilizations depend on, which is concerning.',
+          'Only polar regions will be affected by shifting climate zones.'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph states that human activity is causing zones to shift in troubling ways — deserts expanding, ice shrinking — and frames this as a significant loss.'
+      },
+      {
+        question: 'As used in the article, what does "prevailing" mean in "prevailing winds"?',
+        options: [
+          'Winds that blow only during storms',
+          'Dominant winds that blow consistently in a particular direction',
+          'Winds found only near the ocean',
+          'Temporary winds caused by local geography'
+        ],
+        correctIndex: 1,
+        explanation: 'In context, prevailing winds are described as the consistent global wind patterns — trade winds, westerlies, and polar easterlies — driven by circulation cells, indicating they are dominant and consistent.'
+      }
+    ]
+  },
+  {
+    id: 'biodiversity-hotspots',
+    title: 'Centers of Life: Biodiversity Hotspots Around the World',
+    topic: 'science',
+    coverEmoji: '🦜',
+    coverColor: '#15803d',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 449,
+    readTimeMin: 2,
+    text: `**Where Life Is Most Concentrated**
+
+Not all places on Earth teem with the same variety of life. Some regions pack thousands of plant and animal species into relatively small areas, while others support only a handful. Scientists have identified areas they call **biodiversity hotspots** — regions with extraordinary concentrations of species found nowhere else on Earth, and where habitat loss poses a serious threat. These places represent both the richest storehouses of life and some of the most endangered ecosystems on the planet.
+
+**What Makes a Hotspot?**
+
+Conservation biologist Norman Myers first proposed the hotspot concept in 1988. To qualify as a hotspot, a region must meet two strict criteria: it must contain at least 1,500 species of **endemic** vascular plants — meaning species that exist only in that place — and it must have already lost at least 70 percent of its original native habitat. As of recent surveys, scientists have identified 36 hotspots worldwide, which together cover less than 3 percent of Earth's land surface yet are home to more than half of all plant species and about 43 percent of vertebrate species.
+
+**Notable Hotspots**
+
+The **Amazon Basin** in South America holds more species of birds, mammals, amphibians, and plants than any other land region. Although portions remain relatively intact, deforestation threatens its biodiversity daily.
+
+Madagascar, an island nation off Africa's eastern coast, is one of the most remarkable hotspots. Because it separated from mainland Africa roughly 88 million years ago, its wildlife evolved in isolation. About 90 percent of Madagascar's land species — including all of its lemur species — are endemic. Yet more than 90 percent of its original forest has been cleared.
+
+The **Western Ghats** of India, a mountain range running parallel to the southwestern coast, hosts thousands of flowering plant species and hundreds of bird and reptile species found nowhere else. Its forests also provide freshwater to millions of people, demonstrating that biodiversity and human welfare are closely linked.
+
+**Why Hotspots Matter**
+
+Biodiversity supports **ecosystem services** — the benefits that healthy ecosystems provide to humans, including clean water, pollination, climate regulation, and medicines. About 25 percent of pharmaceutical drugs were originally derived from plants found in tropical forests. Losing these ecosystems could mean losing cures for diseases not yet discovered.
+
+Critics argue that focusing conservation funds on hotspots ignores threatened species in less biodiverse regions. Defenders counter that concentrating resources where the most species face extinction is the most efficient strategy. Both perspectives deserve consideration. What all scientists agree on is this: once a species is gone, it is gone forever, and the ecosystems that support human life depend on maintaining the web of life around them.`,
+    vocabulary: [
+      { word: 'biodiversity hotspots', definition: 'Regions with high numbers of unique species that have lost most of their original habitat.', example: 'Madagascar is one of the world\'s most important biodiversity hotspots.' },
+      { word: 'endemic', definition: 'Found naturally only in a specific geographic area and nowhere else on Earth.', example: 'The lemur is endemic to Madagascar and cannot be found wild on any other island.' },
+      { word: 'deforestation', definition: 'The large-scale clearing or removal of forests, often for agriculture or development.', example: 'Deforestation in the Amazon destroys habitat for thousands of species.' },
+      { word: 'ecosystem services', definition: 'Benefits that natural ecosystems provide to humans, such as clean water, pollination, and climate regulation.', example: 'Pollination by bees is an ecosystem service essential to food production.' },
+      { word: 'pharmaceutical', definition: 'Relating to medicinal drugs and their preparation.', example: 'Many pharmaceutical compounds used today were first discovered in rainforest plants.' },
+    ],
+    questions: [
+      {
+        question: 'According to the article, what two conditions must a region meet to be classified as a biodiversity hotspot?',
+        options: [
+          'It must be in a tropical climate and contain large mammals.',
+          'It must have at least 1,500 endemic vascular plant species and have lost 70% or more of its original habitat.',
+          'It must be an island and have at least 500 endemic animal species.',
+          'It must be protected by international law and have active conservation programs.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article states clearly that hotspots must contain at least 1,500 endemic vascular plant species and have lost at least 70 percent of their original native habitat.'
+      },
+      {
+        question: 'What makes Madagascar\'s biodiversity especially remarkable?',
+        options: [
+          'It has the most plant species of any hotspot.',
+          'It contains large predators found nowhere else.',
+          'Its long isolation after separating from Africa caused species to evolve uniquely, making about 90 percent of its land species endemic.',
+          'It has received more conservation funding than any other hotspot.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article explains that Madagascar\'s isolation since separating from Africa 88 million years ago caused its wildlife to evolve separately, resulting in about 90 percent endemic species.'
+      },
+      {
+        question: 'The author mentions the Western Ghats providing freshwater to millions of people. What is the purpose of including this detail?',
+        options: [
+          'To argue that water is more important than wildlife',
+          'To show that biodiversity and human welfare are closely connected',
+          'To prove that India has more hotspots than other countries',
+          'To explain why the Western Ghats lost less habitat than Madagascar'
+        ],
+        correctIndex: 1,
+        explanation: 'The author uses the freshwater example immediately after noting it "demonstrates that biodiversity and human welfare are closely linked," which is the stated purpose.'
+      },
+      {
+        question: 'How does the author present the debate about hotspot conservation strategy?',
+        options: [
+          'The author dismisses critics and fully supports the hotspot approach.',
+          'The author presents both the criticism and the defense, then notes both deserve consideration.',
+          'The author argues that hotspots are a flawed concept needing replacement.',
+          'The author avoids taking any position on conservation strategy.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article fairly presents the criticism (hotspots ignore other threatened species) and the defense (concentrating resources is most efficient), then states "both perspectives deserve consideration."'
+      },
+      {
+        question: 'Based on context, what does "intact" most likely mean as used in the Amazon paragraph?',
+        options: [
+          'Protected by government laws',
+          'Undisturbed and in its original condition',
+          'Accessible to scientists and researchers',
+          'Completely free of invasive species'
+        ],
+        correctIndex: 1,
+        explanation: 'The author contrasts "portions remain relatively intact" with "deforestation threatens" the region, indicating that intact means undisturbed and in its original condition.'
+      }
+    ]
+  },
+  {
+    id: 'universal-declaration-human-rights',
+    title: 'Rights for All: The Universal Declaration of Human Rights',
+    topic: 'social studies',
+    coverEmoji: '⚖️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 456,
+    readTimeMin: 2,
+    text: `**A World After War**
+
+In 1945, World War II came to an end, leaving behind a world shattered by genocide, forced labor, and mass atrocities committed by governments against their own people and others. Global leaders recognized that the absence of recognized rights had made such horrors possible. In response, the newly formed **United Nations** tasked an international committee with drafting a document that would articulate the basic rights belonging to every human being, regardless of nationality, race, gender, or religion.
+
+**Drafting the Declaration**
+
+The eight-member drafting committee was chaired by Eleanor Roosevelt, the former First Lady of the United States, who became one of the document's most passionate advocates. Committee members came from diverse nations, including China, France, Lebanon, and the Soviet Union — countries with very different political systems and philosophical traditions. Despite those differences, they reached agreement on a foundational text after two years of negotiation.
+
+On December 10, 1948, the United Nations General Assembly adopted the **Universal Declaration of Human Rights (UDHR)** in Paris. Forty-eight nations voted in favor; eight abstained; none voted against.
+
+**What the UDHR Declares**
+
+The UDHR contains a preamble and thirty articles. Its opening articles establish that all people are born free and equal in dignity and rights, and that every person possesses these rights without discrimination. Subsequent articles address **civil and political rights** — such as the right to life, freedom from torture, freedom of speech, and the right to a fair trial — as well as **economic and social rights**, including the right to education, the right to work, and the right to an adequate standard of living.
+
+Article 19 declares: "Everyone has the right to freedom of opinion and expression." Article 26 guarantees the right to education and states that education "shall be directed to the full development of the human personality."
+
+**Significance and Limitations**
+
+The UDHR is widely regarded as one of the most important documents in history. It has inspired more than eighty international treaties and helped shape the constitutions of newly independent nations. It has given activists a powerful tool: language they can use to hold governments accountable.
+
+However, the UDHR is a **declaration**, not a treaty. This means it carries moral and political weight but is not legally binding on member nations. Critics argue this limits its effectiveness, since nations that violate its principles face no automatic legal consequences. Supporters counter that its moral authority and influence on binding international law have been transformative nonetheless. Whether a document can change the world through ideas alone remains one of the central debates in international relations.`,
+    vocabulary: [
+      { word: 'United Nations', definition: 'An international organization founded in 1945 to promote peace, security, and cooperation among countries.', example: 'The United Nations holds annual meetings where member nations address global problems.' },
+      { word: 'declaration', definition: 'A formal statement or announcement, especially one that does not carry legal enforcement power.', example: 'Because the UDHR is a declaration, countries cannot be legally punished for ignoring it.' },
+      { word: 'civil and political rights', definition: 'Rights that protect individuals from abuse by governments, including freedom of speech, fair trials, and voting.', example: 'Freedom of the press is a civil and political right protected in many democracies.' },
+      { word: 'preamble', definition: 'An introductory statement that explains the purpose and goals of a document.', example: 'The preamble of the UDHR explains why protecting human rights is essential for world peace.' },
+      { word: 'accountable', definition: 'Required to explain and take responsibility for one\'s actions.', example: 'Human rights organizations use the UDHR to hold governments accountable for abuses.' },
+    ],
+    questions: [
+      {
+        question: 'Why was the Universal Declaration of Human Rights created?',
+        options: [
+          'To establish a world government after World War II',
+          'To respond to the atrocities of World War II by defining rights all people possess',
+          'To replace existing national constitutions with international law',
+          'To give the United Nations military authority over member states'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains that the horrors of World War II showed the need for a document articulating basic rights for all people, which motivated the creation of the UDHR.'
+      },
+      {
+        question: 'What detail best demonstrates that the drafting process required compromise?',
+        options: [
+          'Eleanor Roosevelt chaired the committee.',
+          'The declaration contains thirty articles.',
+          'Committee members came from nations with very different political systems, yet they reached agreement after two years.',
+          'The vote was 48 in favor with no nations voting against.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article highlights that the diverse political backgrounds of committee members made agreement challenging, and that two years of negotiation were needed — showing significant compromise.'
+      },
+      {
+        question: 'According to the article, what is the main limitation of the UDHR?',
+        options: [
+          'It was only adopted by 48 nations and does not cover most of the world.',
+          'It focuses only on civil rights and ignores economic and social rights.',
+          'As a declaration rather than a treaty, it is not legally binding on nations.',
+          'It was written only in English and French, limiting its reach.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article explicitly states that because the UDHR is a declaration, not a treaty, it "is not legally binding on member nations" — this is identified as its main limitation.'
+      },
+      {
+        question: 'How does the author conclude the article?',
+        options: [
+          'By arguing that the UDHR has fully succeeded in protecting human rights worldwide',
+          'By presenting an open question about whether ideas alone can change the world',
+          'By recommending that the United Nations convert the UDHR into a binding treaty',
+          'By praising Eleanor Roosevelt as the most important human rights leader in history'
+        ],
+        correctIndex: 1,
+        explanation: 'The final sentence frames the debate about the UDHR\'s effectiveness as "one of the central debates in international relations," ending with an open, unresolved question.'
+      },
+      {
+        question: 'What does "articulate" most likely mean as used in the first paragraph?',
+        options: [
+          'To protect through military force',
+          'To vote on or approve',
+          'To clearly express or put into words',
+          'To translate into multiple languages'
+        ],
+        correctIndex: 2,
+        explanation: 'The article says leaders wanted a document that would "articulate the basic rights" of all people, meaning to clearly state or express those rights in words.'
+      }
+    ]
+  },
+  {
+    id: 'florida-spanish-colonial-era',
+    title: 'La Florida: The Spanish Colonial Era',
+    topic: 'history',
+    coverEmoji: '🏰',
+    coverColor: '#b45309',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 451,
+    readTimeMin: 2,
+    text: `**A Land of Flowers and Conflict**
+
+In the spring of 1513, Spanish explorer Juan Ponce de León landed on a peninsula he named **La Florida** — "land of flowers" — in honor of the Easter season known as *Pascua Florida*. This landing marked the beginning of over two hundred years of Spanish colonial presence in what would become the southeastern United States. Spanish Florida was never simply a peaceful garden; it was a site of violent conquest, cultural collision, and complex diplomacy between European powers and Indigenous peoples.
+
+**Early Colonization and Indigenous Resistance**
+
+The Spanish immediately encountered Florida's Native peoples, including the **Timucua**, **Calusa**, and **Apalachee** nations. These groups had lived in Florida for thousands of years, building complex societies with their own governments, trade networks, and spiritual traditions. Spanish attempts to establish permanent settlements were met with fierce resistance. Ponce de León himself was fatally wounded during a second Florida expedition in 1521 when Calusa warriors attacked his party.
+
+Despite these setbacks, Spain established **St. Augustine** in 1565, making it the oldest continuously occupied European settlement in what is now the United States. Founded by Pedro Menéndez de Avilés, the town served as a military base to protect Spanish shipping lanes from French and English rivals.
+
+**The Mission System**
+
+Spain's most enduring colonial strategy was the **mission system** — a network of Catholic churches and communities established among Indigenous populations. Franciscan friars built dozens of missions across northern Florida and into Georgia, aiming to convert Native peoples to Christianity and integrate them into Spanish colonial society. Many Timucua and Apalachee people entered missions either voluntarily or under pressure. Mission life disrupted traditional ways of living, and European diseases spread through close-contact communities, devastating Native populations.
+
+**Competing European Powers**
+
+Spain's hold on Florida was never secure. England, operating from its colonies in South Carolina and Georgia, repeatedly raided Spanish missions. During Queen Anne's War (1702–1713), English forces and their Creek allies destroyed most of Florida's mission network, killing or enslaving thousands of Native people. Spain ceded Florida to Britain in 1763 following the Seven Years' War, received it back in 1783, and finally sold it to the United States in 1821.
+
+**A Complex Legacy**
+
+Spanish Florida left a layered legacy. St. Augustine's Castillo de San Marcos, a massive stone fort completed in 1695, still stands today as a National Monument. Spanish legal traditions influenced early Florida governance. Yet the colonial period also brought devastating consequences for Indigenous Floridians, whose populations collapsed and whose societies were permanently transformed. Understanding this era requires holding both the achievements and the human costs together in view.`,
+    vocabulary: [
+      { word: 'La Florida', definition: 'The Spanish name meaning "land of flowers," given to the Florida peninsula by Juan Ponce de León in 1513.', example: 'Ponce de León named the territory La Florida during the Easter season of 1513.' },
+      { word: 'mission system', definition: 'A network of Catholic churches and communities built to convert Indigenous people to Christianity and integrate them into colonial society.', example: 'The mission system spread across northern Florida under Spanish Franciscan friars.' },
+      { word: 'ceded', definition: 'Formally transferred or surrendered territory to another nation, typically through a treaty.', example: 'Spain ceded Florida to Britain in 1763 at the end of the Seven Years\' War.' },
+      { word: 'friars', definition: 'Members of a Catholic religious order who typically traveled to preach and serve communities.', example: 'Franciscan friars built missions in Florida to convert Native Americans to Christianity.' },
+      { word: 'legacy', definition: 'Something handed down from the past, including both achievements and negative consequences.', example: 'The Spanish colonial legacy in Florida includes both historic landmarks and the destruction of Native societies.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'Spain\'s colonization of Florida was peaceful and beneficial to all who lived there.',
+          'Spanish Florida was a site of complex interactions involving conquest, colonization, and lasting consequences for Indigenous peoples.',
+          'St. Augustine is the most important city in Florida\'s modern history.',
+          'English forces were solely responsible for the decline of Native populations in Florida.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article traces Spanish colonization through conflict, the mission system, and competing European powers, emphasizing the complex and often devastating consequences for Indigenous Floridians.'
+      },
+      {
+        question: 'According to the article, why was St. Augustine founded?',
+        options: [
+          'To serve as a base for exploring the interior of North America',
+          'To create a trade center for exchanging goods with Native peoples',
+          'To serve as a military base protecting Spanish shipping lanes from French and English rivals',
+          'To house Franciscan missionaries before they traveled inland'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that St. Augustine "served as a military base to protect Spanish shipping lanes from French and English rivals."'
+      },
+      {
+        question: 'What effect did mission life have on Indigenous people in Florida?',
+        options: [
+          'It provided economic prosperity and political power to Native communities.',
+          'It disrupted traditional lifestyles and allowed European diseases to devastate Native populations.',
+          'It had little impact because most Indigenous peoples refused to enter the missions.',
+          'It strengthened Native resistance against both Spanish and English colonizers.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article states that "Mission life disrupted traditional ways of living, and European diseases spread through close-contact communities, devastating Native populations."'
+      },
+      {
+        question: 'What is the author\'s purpose in the final paragraph?',
+        options: [
+          'To argue that Spain\'s colonization was ultimately positive for Florida',
+          'To encourage readers to visit the Castillo de San Marcos',
+          'To present a balanced view acknowledging both Spanish achievements and the harm done to Indigenous Floridians',
+          'To explain why the United States purchased Florida from Spain'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph explicitly calls for "holding both the achievements and the human costs together in view," showing the author\'s intent to present a balanced, complex assessment.'
+      },
+      {
+        question: 'What does "disrupted" most likely mean as used in the mission system section?',
+        options: [
+          'Completely destroyed without any survivors',
+          'Improved through the introduction of new technologies',
+          'Interrupted and thrown into disorder',
+          'Officially prohibited by colonial law'
+        ],
+        correctIndex: 2,
+        explanation: 'The article uses "disrupted traditional ways of living" alongside details about the loss of Native practices, suggesting the missions interrupted and disordered established ways of life.'
+      }
+    ]
+  },
+  {
+    id: 'transatlantic-slave-trade',
+    title: 'Forced Crossings: The Transatlantic Slave Trade',
+    topic: 'history',
+    coverEmoji: '⛓️',
+    coverColor: '#1c1917',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 462,
+    readTimeMin: 2,
+    text: `**A System of Forced Labor**
+
+Between approximately 1500 and 1900, an estimated 12.5 million Africans were forcibly transported across the Atlantic Ocean and enslaved in the Americas. This **Transatlantic Slave Trade** was one of the largest forced migrations in human history and one of the most profitable and destructive economic systems ever created. Understanding it is essential to understanding the modern world.
+
+**How the Trade Operated**
+
+The slave trade operated within what historians call the **Triangular Trade** — a three-stage commercial network linking Europe, Africa, and the Americas. European ships departed with manufactured goods — textiles, weapons, and alcohol — and traded these items with African kingdoms and merchants for enslaved people. The enslaved Africans were then transported across the Atlantic in a nightmarish voyage called the **Middle Passage**. Ships were overcrowded beyond imagination; people were chained in spaces too small to sit upright, and approximately 1.8 million people died during the crossing from disease, starvation, and violence. Survivors arrived in the Caribbean and the Americas, where they were sold and forced to labor on **plantations** growing sugar, tobacco, rice, and cotton. The ships then returned to Europe loaded with these raw materials, completing the triangle.
+
+**African Involvement and Resistance**
+
+The slave trade involved African rulers and merchants who sold captives — often war prisoners or political enemies — to European traders. This fact is part of the historical record, but historians emphasize that African participation does not diminish the moral responsibility of the European nations and American colonists who built their economies on enslaved labor. Enslaved people themselves were not passive victims. They resisted continuously: through everyday acts of refusal and slowdown, through religious and cultural preservation, and through large-scale revolts. The **Haitian Revolution** (1791–1804) resulted in Haiti becoming the first nation born from an enslaved people's successful uprising against their enslavers.
+
+**Abolition and Its Limits**
+
+By the late 1700s, growing moral opposition — driven partly by Enlightenment ideas about human rights and partly by the activism of both free Black individuals and white abolitionists — began to shift public opinion. Britain abolished the slave trade in 1807 and slavery in its colonies in 1833. The United States abolished slavery with the Thirteenth Amendment in 1865. Brazil, the last major slaveholding nation in the Americas, abolished slavery in 1888.
+
+**The Lasting Impact**
+
+The Transatlantic Slave Trade reshaped three continents. Africa lost millions of its people and experienced centuries of destabilization. The Americas were built on enslaved labor, creating enormous wealth that funded industrial revolutions in Europe and North America. The economic and social inequalities created during this era have not disappeared. Historians argue that understanding slavery honestly — without minimizing its scale or violence — is necessary for understanding persistent inequalities today.`,
+    vocabulary: [
+      { word: 'Transatlantic Slave Trade', definition: 'The forced transportation and sale of millions of Africans to the Americas between approximately 1500 and 1900.', example: 'The Transatlantic Slave Trade forcibly displaced 12.5 million Africans over four centuries.' },
+      { word: 'Triangular Trade', definition: 'A three-stage trade route connecting Europe, Africa, and the Americas, central to the slave trade economy.', example: 'The Triangular Trade carried goods to Africa, enslaved people to the Americas, and raw materials back to Europe.' },
+      { word: 'Middle Passage', definition: 'The deadly sea voyage across the Atlantic Ocean that enslaved Africans were forced to endure.', example: 'Approximately 1.8 million people died during the horrific conditions of the Middle Passage.' },
+      { word: 'plantations', definition: 'Large agricultural estates in the Americas that relied on enslaved labor to grow crops such as sugar, cotton, and tobacco.', example: 'Sugar plantations in the Caribbean generated enormous profits for European colonial powers.' },
+      { word: 'abolitionists', definition: 'People who campaigned to end the practice of slavery.', example: 'Abolitionists such as Frederick Douglass and Harriet Tubman fought tirelessly against slavery in the United States.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'Europe\'s industrial revolution caused the slave trade to expand.',
+          'The Transatlantic Slave Trade was a massive, devastating system whose economic and social consequences still shape the modern world.',
+          'African rulers bear most of the responsibility for the slave trade.',
+          'The Haitian Revolution ended slavery throughout the Americas.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article traces the scale, operation, and lasting impact of the slave trade, concluding that its consequences for inequality persist today — this is the central idea.'
+      },
+      {
+        question: 'According to the article, what was the Middle Passage?',
+        options: [
+          'The trade route from Europe to Africa carrying manufactured goods',
+          'The legal process by which enslaved people could earn freedom',
+          'The deadly sea voyage across the Atlantic that enslaved Africans were forced to endure',
+          'The section of a plantation where enslaved people were held before being sold'
+        ],
+        correctIndex: 2,
+        explanation: 'The article explicitly defines the Middle Passage as the nightmarish transatlantic voyage enslaved Africans were forced to make, during which 1.8 million died.'
+      },
+      {
+        question: 'Why does the author mention African rulers\' role in the slave trade?',
+        options: [
+          'To argue that African nations are equally responsible for modern inequalities',
+          'To prove that the Triangular Trade was a fair exchange among willing partners',
+          'To provide a complete historical account while emphasizing that it does not remove European and American moral responsibility',
+          'To show that African resistance to slavery was minimal'
+        ],
+        correctIndex: 2,
+        explanation: 'The author acknowledges African involvement as part of the historical record but immediately clarifies that "this fact does not diminish the moral responsibility of European nations and American colonists."'
+      },
+      {
+        question: 'What text structure does the author use in "Abolition and Its Limits"?',
+        options: [
+          'Cause and effect: moral opposition led to abolition',
+          'Compare and contrast: British and American abolitionist movements',
+          'Problem and solution: slavery as the problem, revolution as the solution',
+          'Chronological order of scientific discoveries about slavery'
+        ],
+        correctIndex: 0,
+        explanation: 'The section explains that moral opposition (cause) led to abolition in Britain, the U.S., and Brazil (effects), following a cause-and-effect structure.'
+      },
+      {
+        question: 'What does the word "persistent" mean as used in the final paragraph?',
+        options: [
+          'Rapidly growing and spreading',
+          'Continuing to exist despite time or efforts to address it',
+          'Directly caused by a single historical event',
+          'Limited to a specific geographic region'
+        ],
+        correctIndex: 1,
+        explanation: 'The article uses "persistent inequalities" to describe conditions that have not disappeared since the era of slavery, meaning inequalities that continue to exist over time.'
+      }
+    ]
+  },
+  {
+    id: 'digital-citizenship-online-safety',
+    title: 'Navigating the Digital World: Citizenship and Online Safety',
+    topic: 'technology',
+    coverEmoji: '💻',
+    coverColor: '#0e7490',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 448,
+    readTimeMin: 2,
+    text: `**Life Online**
+
+By the time most American students reach middle school, they have already spent thousands of hours online — browsing, gaming, communicating, and learning. The internet offers extraordinary opportunities for creativity and connection, but it also presents real risks. Being a **digital citizen** means understanding your rights and responsibilities online and making thoughtful decisions about how you use technology.
+
+**Protecting Your Digital Footprint**
+
+Every action you take online — a post, a search, a "like" — contributes to your **digital footprint**, a trail of data that can be stored, analyzed, and shared. Some of this data is collected by websites and apps to personalize advertisements. Some may be accessed by schools, employers, or even strangers years in the future. Privacy settings help manage what others can see, but experts warn that "deleting" something online does not guarantee it is gone. Before posting anything, a useful question is: "Would I be comfortable if my teacher, parents, or a future employer saw this?"
+
+**Cyberbullying and Online Conflict**
+
+One of the most serious digital citizenship issues is **cyberbullying** — using digital technology to harass, threaten, or humiliate others. Unlike physical bullying, cyberbullying can follow a person home, happen at any hour, and reach an audience of thousands instantly. Studies indicate that about one in five middle school students experiences cyberbullying. Schools, parents, and platforms share responsibility for addressing it, but individuals also play a role: refusing to share hurtful content, documenting harassment, and reporting it to trusted adults.
+
+**Evaluating Online Information**
+
+The internet is full of both reliable information and **misinformation** — false or misleading content. Misinformation spreads rapidly because people tend to share emotionally compelling content without verifying it. Fact-checking skills are essential tools of digital citizenship. Reliable strategies include checking whether multiple credible sources report the same information, examining the date and author of an article, and using dedicated fact-checking websites such as Snopes or PolitiFact.
+
+**Screen Time and Well-Being**
+
+Research on the effects of excessive screen time is ongoing and sometimes contradictory. Some studies link heavy social media use among teenagers to increased anxiety and decreased sleep. Others suggest that the type of use matters more than the amount: active, creative engagement tends to be less harmful than passive scrolling. Experts generally recommend setting intentional limits, taking regular breaks, and prioritizing in-person relationships.
+
+**A Shared Responsibility**
+
+Digital citizenship is not just about individual behavior. Technology companies, governments, and schools all have roles in creating safer and more equitable online spaces. But individuals — including young people — have more power than they often realize. The choices you make online shape your reputation, your relationships, and the kind of digital community you help create.`,
+    vocabulary: [
+      { word: 'digital citizen', definition: 'A person who uses technology responsibly, ethically, and safely, understanding both rights and responsibilities online.', example: 'A digital citizen checks sources before sharing news online.' },
+      { word: 'digital footprint', definition: 'The trail of data left behind by a person\'s online activity, which can be stored and accessed later.', example: 'Her digital footprint included years of social media posts that future employers could find.' },
+      { word: 'cyberbullying', definition: 'Using digital devices or platforms to harass, threaten, or humiliate another person.', example: 'Cyberbullying through anonymous accounts can be difficult for schools to address.' },
+      { word: 'misinformation', definition: 'False or inaccurate information, especially when spread widely through media.', example: 'The misinformation about the storm spread quickly on social media before being corrected.' },
+      { word: 'equitable', definition: 'Fair and impartial, giving everyone a just opportunity regardless of background.', example: 'An equitable internet would give all students equal access to educational resources.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'Young people spend too much time online and should reduce screen use.',
+          'Digital citizenship involves understanding rights and responsibilities to navigate the internet safely and thoughtfully.',
+          'Social media companies are solely responsible for online safety.',
+          'Cyberbullying is the most serious problem on the internet today.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article covers multiple aspects of responsible internet use — privacy, cyberbullying, misinformation, and screen time — all under the theme of digital citizenship and its responsibilities.'
+      },
+      {
+        question: 'According to the article, why is cyberbullying especially serious compared to physical bullying?',
+        options: [
+          'Cyberbullying is more common in rural areas with fewer school resources.',
+          'Online platforms are too small to track cyberbullying effectively.',
+          'Cyberbullying can follow someone home, happen at any time, and instantly reach a huge audience.',
+          'Schools have no authority to address cyberbullying that occurs outside school buildings.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that unlike physical bullying, cyberbullying "can follow a person home, happen at any hour, and reach an audience of thousands instantly."'
+      },
+      {
+        question: 'What does the author suggest is the best approach for evaluating online information?',
+        options: [
+          'Only trust websites run by the government.',
+          'Avoid all news shared on social media.',
+          'Check multiple credible sources, verify the author and date, and use fact-checking sites.',
+          'Share only information from accounts with a large number of followers.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article lists three reliable strategies: checking multiple credible sources, examining the date and author, and using dedicated fact-checking websites.'
+      },
+      {
+        question: 'How does the author present the research on screen time and well-being?',
+        options: [
+          'As settled science with clear conclusions about all screen use',
+          'As ongoing and sometimes contradictory, with nuance about the type of use',
+          'As entirely negative, recommending all screens be avoided',
+          'As irrelevant compared to cyberbullying and misinformation'
+        ],
+        correctIndex: 1,
+        explanation: 'The author describes screen time research as "ongoing and sometimes contradictory" and distinguishes between active creative use and passive scrolling, showing nuance.'
+      },
+      {
+        question: 'What does "intentional" most likely mean in the phrase "setting intentional limits"?',
+        options: [
+          'Limits set by an outside authority like a parent or school',
+          'Limits that are strict and impossible to break',
+          'Deliberate and thought-out, done with a clear purpose',
+          'Limits that change automatically based on usage'
+        ],
+        correctIndex: 2,
+        explanation: 'In context, "intentional" is paired with personal decision-making about screen time, suggesting limits that are deliberate and purposeful rather than accidental or externally imposed.'
+      }
+    ]
+  },
+  {
+    id: 'statistics-data-interpretation',
+    title: 'Numbers That Tell Stories: Statistics and Data Interpretation',
+    topic: 'math',
+    coverEmoji: '📊',
+    coverColor: '#065f46',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 443,
+    readTimeMin: 2,
+    text: `**What Data Can and Cannot Tell You**
+
+Every day, you encounter statistics: the percentage of students who passed a test, the average temperature for the month, the number of cases of a disease reported last week. Statistics are tools for making sense of large amounts of information, but they can also be misused — intentionally or accidentally — to mislead. Learning to read data critically is one of the most practical skills a person can develop.
+
+**Measures of Center**
+
+When analyzing a data set, one of the first questions to ask is: what is a typical value? Three common measures help answer this. The **mean** (average) is calculated by adding all values and dividing by the number of values. The **median** is the middle value when data is arranged in order. The **mode** is the most frequently occurring value.
+
+These measures can tell very different stories. Imagine a company where five employees earn $30,000 per year and one executive earns $300,000. The mean salary is $75,000 — but five of the six workers earn far less than that. The median salary is $30,000, which better represents what a typical employee earns. Choosing which measure to report can shape — and sometimes distort — the impression a data set creates.
+
+**Variability and Spread**
+
+Knowing the center of data isn't enough. Two classrooms might both have a mean test score of 75, but in one class every student scored between 70 and 80, while in the other scores ranged from 40 to 100. The **range** (highest value minus lowest value) and **mean absolute deviation (MAD)** describe how spread out data is. Greater variability means the mean is less representative of any individual value.
+
+**Misleading Statistics**
+
+Statistics can mislead in many ways. A **biased sample** occurs when the people surveyed don't represent the larger group — for example, surveying only students who enjoy reading to determine average reading habits. **Cherry-picking data** means selecting only the statistics that support a particular conclusion while ignoring contradictory evidence. Graphs can also mislead: a bar graph with a y-axis that starts at 90 rather than 0 can make a small difference look enormous.
+
+**Why It Matters**
+
+Politicians, advertisers, and news organizations all use statistics to persuade. A headline reading "Crime up 50 percent!" sounds alarming — but if that means the number of incidents rose from two to three in a small town, the statistic carries very different weight. Similarly, a medication that reduces risk "by 50 percent" may have reduced it from 2 percent to 1 percent — a smaller real-world impact than the headline implies.
+
+Statistical literacy — the ability to read, interpret, and question data — is not just a math skill. It is a citizenship skill.`,
+    vocabulary: [
+      { word: 'mean', definition: 'The average of a data set, calculated by dividing the sum of all values by the number of values.', example: 'The mean of 4, 6, and 8 is 6, because 4+6+8=18, divided by 3 equals 6.' },
+      { word: 'median', definition: 'The middle value in a data set when all values are arranged in order.', example: 'In the data set 10, 20, 30, 40, 50, the median is 30.' },
+      { word: 'mean absolute deviation', definition: 'A measure of how spread out the values in a data set are from the mean.', example: 'A high mean absolute deviation shows that the data points vary widely from the average.' },
+      { word: 'biased sample', definition: 'A sample that does not accurately represent the population being studied, leading to skewed conclusions.', example: 'Surveying only athletes about exercise habits would produce a biased sample.' },
+      { word: 'cherry-picking', definition: 'The practice of selecting only data that supports a specific conclusion while ignoring contradictory evidence.', example: 'Cherry-picking one good year of results while hiding bad years is misleading.' },
+    ],
+    questions: [
+      {
+        question: 'What is the main purpose of this article?',
+        options: [
+          'To teach readers how to calculate the mean, median, and mode',
+          'To explain how to read and critically evaluate statistics to avoid being misled',
+          'To argue that statistics are always used dishonestly by politicians',
+          'To demonstrate that the median is always more accurate than the mean'
+        ],
+        correctIndex: 1,
+        explanation: 'The article covers how statistics work, how they can mislead, and why statistical literacy matters — its purpose is to help readers interpret data critically.'
+      },
+      {
+        question: 'Why does the author use the company salary example?',
+        options: [
+          'To show that the mean is always the best measure of center',
+          'To demonstrate how choosing between mean and median can create very different — and sometimes misleading — impressions',
+          'To argue that executives are overpaid compared to other workers',
+          'To prove that the mode is the least useful of the three measures'
+        ],
+        correctIndex: 1,
+        explanation: 'The salary example illustrates that the mean ($75,000) misrepresents most workers\' pay, while the median ($30,000) is more accurate — showing how measure choice shapes the story data tells.'
+      },
+      {
+        question: 'According to the article, what does a high mean absolute deviation indicate?',
+        options: [
+          'The mean is very close to the median.',
+          'Data values vary widely from the average.',
+          'The sample used was biased.',
+          'The data set has many repeated values.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article states that greater variability means the mean is less representative of individual values, and high MAD indicates the data is widely spread.'
+      },
+      {
+        question: 'What technique does the author use to explain how graphs can mislead readers?',
+        options: [
+          'A historical example from a political campaign',
+          'A specific example of a bar graph with a y-axis starting at 90 instead of 0',
+          'A comparison of two different types of charts',
+          'A statistical formula for calculating misleading percentages'
+        ],
+        correctIndex: 1,
+        explanation: 'The author gives a specific example: a bar graph with a y-axis starting at 90 instead of 0 can make a small difference appear enormous.'
+      },
+      {
+        question: 'Why does the author call statistical literacy "a citizenship skill" in the final line?',
+        options: [
+          'Because statistics are required knowledge to vote in elections',
+          'Because government agencies are the main publishers of statistics',
+          'Because the ability to critically evaluate data helps people make informed decisions about public life and resist manipulation',
+          'Because math is required in all careers involving public service'
+        ],
+        correctIndex: 2,
+        explanation: 'Throughout the article, the author shows how politicians, advertisers, and media use statistics to persuade people — making the ability to question data essential for informed participation in public life.'
+      }
+    ]
+  },
+  {
+    id: 'ancient-egypt-pyramids-pharaohs',
+    title: 'Monuments of Power: Ancient Egypt\'s Pyramids and Pharaohs',
+    topic: 'history',
+    coverEmoji: '🏛️',
+    coverColor: '#b45309',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 455,
+    readTimeMin: 2,
+    text: `**A Civilization Built on the Nile**
+
+For more than three thousand years, ancient Egypt was one of the most powerful and enduring civilizations on Earth. Its culture — centered on the Nile River, agricultural prosperity, and a complex religious worldview — produced remarkable achievements in art, architecture, medicine, and governance. At the heart of this civilization stood the **pharaoh**, a ruler believed to be both a king and a living god. And at the height of ancient Egypt's power, pharaohs expressed their divine authority through the construction of enormous stone monuments we call **pyramids**.
+
+**The Purpose of Pyramids**
+
+Egyptians believed strongly in an afterlife. They held that after death, a person's soul — called the **ka** — needed the body to be preserved and housed in order to continue into the next world. For pharaohs, this meant elaborate tombs that could protect their bodies and possessions for eternity. The pyramid shape was likely chosen because it represented the rays of the sun descending to Earth — a symbol of the pharaoh's connection to Ra, the sun god.
+
+**The Great Pyramid of Giza**
+
+The most famous pyramid is the **Great Pyramid of Giza**, built around 2560 BCE for Pharaoh Khufu. It stood 146.5 meters tall, making it the tallest human-made structure in the world for nearly four thousand years. It contains approximately 2.3 million stone blocks, each weighing an average of 2.5 to 15 tons. For over a century, scholars debated how ancient Egyptians moved these massive stones without modern machinery. Recent evidence suggests workers used sledges, water-lubricated ramps, and a highly organized labor force — not, as mythology sometimes suggests, enslaved people forced to work against their will. Archaeological evidence points to a paid, well-fed workforce organized in teams.
+
+**The Pharaoh's Role**
+
+The pharaoh was far more than a political ruler. As a representative of the gods on Earth, the pharaoh was responsible for maintaining **ma'at** — a concept representing order, balance, truth, and justice. When the Nile flooded at the right time and crops grew abundantly, this was seen as evidence that the pharaoh was fulfilling this cosmic duty. When disasters struck, it could be interpreted as divine displeasure.
+
+**A Legacy in Stone**
+
+The pyramids outlasted the civilization that built them. Egypt fell to Persian, Greek, and Roman conquerors, but the pyramids endured. Today they are the only one of the **Seven Wonders of the Ancient World** still standing. They remain a testament to what organized human effort, engineering ingenuity, and deeply held beliefs can produce. Understanding the pyramids requires understanding the entire Egyptian worldview that made them both necessary and possible.`,
+    vocabulary: [
+      { word: 'pharaoh', definition: 'The ruler of ancient Egypt, considered both a king and a living deity.', example: 'Pharaoh Khufu ordered the construction of the Great Pyramid at Giza.' },
+      { word: 'ka', definition: 'In ancient Egyptian belief, the spiritual double or life force of a person that continued after death.', example: 'Egyptians preserved the body so the ka could return to it in the afterlife.' },
+      { word: 'ma\'at', definition: 'The ancient Egyptian concept of order, truth, balance, and justice that the pharaoh was responsible for maintaining.', example: 'A good flood season was seen as the pharaoh maintaining ma\'at.' },
+      { word: 'archaeological', definition: 'Relating to the scientific study of human history through physical evidence such as artifacts and structures.', example: 'Archaeological evidence from workers\' villages showed they were paid and well-fed.' },
+      { word: 'testament', definition: 'Clear proof or evidence of something.', example: 'The pyramids are a testament to the engineering skill of ancient Egyptians.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'The Great Pyramid of Giza is the largest building ever constructed by humans.',
+          'The pyramids were built by enslaved people under brutal conditions.',
+          'Ancient Egypt\'s pyramids and pharaohs reflected a complex civilization built on religion, power, and remarkable ingenuity.',
+          'Ancient Egypt collapsed because its pharaohs spent too many resources on tomb construction.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article connects the pyramids to Egyptian religion, the pharaoh\'s divine role, and engineering achievement, presenting them as reflections of a complex civilization.'
+      },
+      {
+        question: 'According to the article, why did ancient Egyptians build pyramids?',
+        options: [
+          'To demonstrate military power and intimidate neighboring kingdoms',
+          'To store grain and supplies for use during famine',
+          'To house and protect the bodies and possessions of pharaohs for their afterlife',
+          'To create monuments celebrating Egypt\'s agricultural achievements'
+        ],
+        correctIndex: 2,
+        explanation: 'The article explains that Egyptians believed the ka needed the preserved body to continue in the afterlife, so pharaohs built elaborate tombs — pyramids — for this purpose.'
+      },
+      {
+        question: 'How does the author address the common belief that enslaved people built the pyramids?',
+        options: [
+          'The author confirms that enslaved labor was used but says it was humane.',
+          'The author ignores this question entirely.',
+          'The author says this is unknowable because no records survive.',
+          'The author presents archaeological evidence suggesting a paid, well-fed, organized workforce.'
+        ],
+        correctIndex: 3,
+        explanation: 'The article states that "archaeological evidence points to a paid, well-fed workforce organized in teams," directly countering the enslaved-builder mythology.'
+      },
+      {
+        question: 'What does the concept of ma\'at suggest about the Egyptian pharaoh\'s responsibilities?',
+        options: [
+          'The pharaoh was responsible only for military leadership.',
+          'The pharaoh was responsible for maintaining cosmic order and balance, including natural events like the Nile flood.',
+          'Ma\'at was a personal spiritual practice unrelated to governance.',
+          'The pharaoh was elected by priests to maintain religious order.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains that the pharaoh was responsible for maintaining ma\'at — order, balance, and truth — and that the Nile\'s flooding on schedule was seen as proof of this cosmic duty being fulfilled.'
+      },
+      {
+        question: 'What does "ingenuity" mean as used in the final paragraph?',
+        options: [
+          'Political authority and military strength',
+          'Devotion to religious beliefs',
+          'The quality of being clever and inventive',
+          'The use of enslaved labor to accomplish large tasks'
+        ],
+        correctIndex: 2,
+        explanation: 'The article uses "engineering ingenuity" alongside descriptions of innovative construction methods, indicating cleverness and inventive problem-solving.'
+      }
+    ]
+  },
+  {
+    id: 'black-death-european-impact',
+    title: 'The Great Mortality: The Black Death and Its European Impact',
+    topic: 'history',
+    coverEmoji: '⚕️',
+    coverColor: '#4c1d95',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 459,
+    readTimeMin: 2,
+    text: `**The Worst Pandemic in Human History**
+
+Between 1347 and 1351, a catastrophic disease swept across Europe, Asia, and North Africa with devastating speed. Called the **Black Death** — or more accurately, **bubonic plague** — it killed an estimated 30 to 60 percent of Europe's population, somewhere between 25 and 50 million people. No event before or since has killed a comparable proportion of a continent's population in such a short time. The Black Death did not merely cause death; it transformed European society in ways that shaped the modern world.
+
+**How It Spread**
+
+The plague was caused by the bacterium *Yersinia pestis*, which primarily spread through the bites of **fleas** living on black rats. As infected rats traveled on merchant ships along trade routes from Asia, the disease reached Europe through ports in Sicily in October 1347. Within months, it had spread throughout the Mediterranean, and within a few years it had reached Scandinavia and Russia.
+
+Three forms of plague existed: bubonic, which caused swollen lymph nodes called **buboes**; pneumonic, which spread through the air via coughing and affected the lungs; and septicemic, which infected the bloodstream. The pneumonic form could kill within days. Fourteenth-century physicians had no understanding of bacteria and no effective treatments. People tried everything from burning herbs and fleeing to the countryside to blaming minority communities — particularly Jewish people — who were falsely accused of causing the disease and faced violent persecution.
+
+**Social and Economic Consequences**
+
+The death toll reshaped European society from the ground up. With so many people dead, **labor shortages** transformed the economic relationship between peasants and landowners. Surviving peasants could demand higher wages and better conditions, contributing to the decline of **feudalism** — the medieval economic system in which peasants worked noble lords' land in exchange for protection. The Black Death accelerated social mobility and weakened the rigid class structure of medieval Europe.
+
+The Catholic Church's authority also suffered. When prayers and religious rituals failed to stop the dying, many people lost faith in the Church's ability to protect them or explain their suffering. This spiritual crisis contributed to later religious reform movements.
+
+**A Changed World**
+
+Historians debate whether the Black Death ultimately sped up or hindered European development. On one hand, it devastated populations and disrupted economies for generations. On the other, the social upheaval it created broke down old hierarchies and created conditions for the Renaissance — Europe's great cultural rebirth — to take root. Survivors who had witnessed death on an almost incomprehensible scale developed new attitudes toward life, art, and human potential. The Black Death reminds us that even the most catastrophic events carry within them the seeds of transformation.`,
+    vocabulary: [
+      { word: 'bubonic plague', definition: 'A deadly bacterial disease spread primarily by fleas on rodents, responsible for the Black Death pandemic.', example: 'Bubonic plague caused swollen lymph nodes called buboes in its victims.' },
+      { word: 'buboes', definition: 'Swollen, painful lymph nodes that are a characteristic symptom of bubonic plague.', example: 'Physicians in the 1300s had no treatment for the buboes that marked plague victims.' },
+      { word: 'labor shortages', definition: 'A situation in which there are not enough workers to meet economic demand.', example: 'Labor shortages after the Black Death gave surviving peasants more bargaining power.' },
+      { word: 'feudalism', definition: 'The medieval European system in which peasants worked land owned by nobles in exchange for protection and housing.', example: 'The Black Death weakened feudalism by reducing the number of available peasant laborers.' },
+      { word: 'persecution', definition: 'Hostility and mistreatment directed at a person or group, especially based on religion or ethnicity.', example: 'Jewish communities in Europe faced violent persecution during the Black Death, falsely blamed for the outbreak.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'The Black Death was caused by poor hygiene in medieval European cities.',
+          'The Black Death was a devastating pandemic that killed millions and transformed European society economically, spiritually, and culturally.',
+          'Medieval physicians were responsible for spreading the plague by using ineffective treatments.',
+          'The Black Death primarily affected poor peasants but left the nobility largely unharmed.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article covers the plague\'s death toll, spread, social and economic consequences, and long-term effects on European society, making transformation through catastrophe its central idea.'
+      },
+      {
+        question: 'How did the Black Death contribute to the decline of feudalism?',
+        options: [
+          'Nobles died in higher numbers than peasants, leaving estates without leadership.',
+          'The Church used plague deaths to redistribute land from nobles to peasants.',
+          'Labor shortages gave surviving peasants power to demand higher wages and better conditions.',
+          'Trade disruptions made it impossible for nobles to sell crops and maintain their estates.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article explains that with so many dead, labor shortages gave surviving peasants leverage to demand better wages and conditions, undermining the feudal system.'
+      },
+      {
+        question: 'What was one cause of the Catholic Church losing authority during the Black Death?',
+        options: [
+          'Church leaders fled cities and were seen as cowardly by the population.',
+          'The Church secretly caused the plague by burning infected herbs in public.',
+          'When religious rituals failed to stop the dying, people lost faith in the Church\'s ability to protect or explain their suffering.',
+          'A rival religion gained followers by correctly predicting when the plague would end.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that "when prayers and religious rituals failed to stop the dying, many people lost faith in the Church\'s ability to protect them," which hurt its authority.'
+      },
+      {
+        question: 'How does the author present the debate about the Black Death\'s long-term effects?',
+        options: [
+          'The author argues the Black Death was ultimately beneficial for Europe.',
+          'The author presents both the devastation and the conditions for cultural rebirth, showing complexity.',
+          'The author dismisses the idea that the plague had positive consequences.',
+          'The author focuses only on economic effects and ignores cultural changes.'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph presents both perspectives — devastation on one hand, and conditions for the Renaissance on the other — showing the author acknowledges complexity rather than a simple verdict.'
+      },
+      {
+        question: 'What does "catastrophic" most likely mean as used in the opening paragraph?',
+        options: [
+          'Slow-moving and difficult to detect',
+          'Extremely harmful and destructive on a massive scale',
+          'Caused by human conflict rather than natural forces',
+          'Resulting in political change but limited loss of life'
+        ],
+        correctIndex: 1,
+        explanation: 'The author uses "catastrophic" to describe a disease that killed 30–60% of Europe\'s population in just a few years, indicating something extremely harmful and destructive.'
+      }
+    ]
+  },
+  {
+    id: 'propaganda-techniques-media',
+    title: 'Seeing Through the Message: Propaganda Techniques in Media and Advertising',
+    topic: 'media literacy',
+    coverEmoji: '📢',
+    coverColor: '#9f1239',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 447,
+    readTimeMin: 2,
+    text: `**Messages With a Mission**
+
+Every message you encounter — from a political campaign ad to a cereal commercial — is designed to influence your beliefs or behavior. When that influence relies on emotional manipulation, misleading information, or logical fallacies rather than honest reasoning, it becomes **propaganda**. The term often carries negative connotations, but understanding how propaganda techniques work is not about becoming cynical — it is about becoming a thoughtful, independent consumer of information.
+
+**Common Techniques**
+
+Propagandists and advertisers use several well-documented techniques. Recognizing them is the first line of defense.
+
+**Bandwagon** appeals urge audiences to adopt a belief or product because "everyone else" is doing it. The message is: don't be left out. "Nine out of ten dentists recommend this toothpaste!" is a classic example. The implication is that you should conform to avoid being different.
+
+**Glittering generalities** attach vague, emotionally positive words to a person, product, or idea without providing evidence. Words like "freedom," "purity," "family values," and "innovation" trigger positive feelings but carry no specific meaning. They are designed to make audiences feel good without actually thinking.
+
+**Fear appeals** work in the opposite direction, using anxiety to motivate action. "If we don't act now, our children will inherit a ruined world" is an example that combines urgency with emotional threat. Fear can motivate genuine action, but it can also be exploited to override rational thinking.
+
+**Transfer** involves linking a product or idea to something the audience already admires or respects — a celebrity, a flag, a beloved tradition. A soft drink company hiring a famous athlete doesn't claim the drink improves athletic performance; it simply associates the two in your mind.
+
+**Plain folks** is a technique where political leaders or advertisers present themselves as ordinary people with the same concerns and values as their audience. A billionaire candidate being photographed eating pizza at a local restaurant uses this strategy.
+
+**Why It Works**
+
+These techniques are effective because they bypass critical reasoning and target emotions. Human brains evolved to respond quickly to social signals (bandwagon), threats (fear), and admiration (transfer). Advertising companies invest billions of dollars studying which emotional triggers are most effective for specific audiences.
+
+**Defending Yourself**
+
+Media literacy educators suggest a simple approach: before accepting or sharing any message, ask three questions. Who created this message? What techniques are being used to gain my attention? What information is being left out? This habit of questioning does not make every message suspicious — honest, evidence-based persuasion is legitimate and necessary in a democratic society. But it does help ensure that when you change your mind, it is because of good reasons, not clever manipulation.`,
+    vocabulary: [
+      { word: 'propaganda', definition: 'Information designed to promote a particular cause or point of view, often using emotional manipulation rather than honest evidence.', example: 'Wartime propaganda posters used fear and patriotism to influence public opinion.' },
+      { word: 'bandwagon', definition: 'A persuasion technique urging people to adopt an idea because everyone else supposedly agrees with it.', example: 'The ad used a bandwagon appeal by claiming the product was "America\'s favorite."' },
+      { word: 'glittering generalities', definition: 'Vague but emotionally appealing words used to create positive associations without providing real evidence.', example: 'The speech was full of glittering generalities like "strength" and "freedom" with no specific policy details.' },
+      { word: 'transfer', definition: 'A persuasion technique that creates positive or negative associations by linking a product or idea to something the audience already feels strongly about.', example: 'Showing a presidential candidate with military veterans uses the transfer technique.' },
+      { word: 'media literacy', definition: 'The ability to access, analyze, evaluate, and create media in a thoughtful and critical way.', example: 'Media literacy skills help students identify propaganda techniques in news and advertising.' },
+    ],
+    questions: [
+      {
+        question: 'What is the main purpose of this article?',
+        options: [
+          'To warn readers that all advertising is dishonest',
+          'To help readers recognize and critically evaluate propaganda techniques',
+          'To argue that social media is more dangerous than television advertising',
+          'To explain the history of propaganda in political campaigns'
+        ],
+        correctIndex: 1,
+        explanation: 'The article describes specific propaganda techniques and concludes with a media literacy strategy for evaluating messages — its purpose is to help readers think critically about persuasion.'
+      },
+      {
+        question: 'What is the difference between "bandwagon" and "transfer" as described in the article?',
+        options: [
+          'Bandwagon uses celebrities, while transfer uses ordinary people.',
+          'Bandwagon urges conformity by claiming everyone agrees, while transfer links a product to something already admired.',
+          'Bandwagon is used in advertising, while transfer is only used in politics.',
+          'Bandwagon creates fear, while transfer creates a sense of belonging.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article defines bandwagon as urging people to follow the crowd, while transfer links a product or idea to something admired (a celebrity, flag, or tradition) to create positive association.'
+      },
+      {
+        question: 'Why does the author explain that human brains evolved to respond to social signals and threats?',
+        options: [
+          'To suggest that humans are incapable of rational thinking',
+          'To explain why propaganda techniques are effective, since they target instinctive responses',
+          'To argue that evolution is the main cause of political division',
+          'To prove that emotional responses are always incorrect'
+        ],
+        correctIndex: 1,
+        explanation: 'The author explains the brain\'s evolved responses to show why techniques like bandwagon (social signals) and fear (threats) are so effective — they bypass rational thinking.'
+      },
+      {
+        question: 'According to the article, what does the "plain folks" technique involve?',
+        options: [
+          'Using simple language so everyone can understand a political message',
+          'Presenting leaders or advertisers as ordinary people with the same values as their audience',
+          'Avoiding celebrity endorsements to seem more authentic',
+          'Using photographs of real customers rather than professional models'
+        ],
+        correctIndex: 1,
+        explanation: 'The article defines plain folks as leaders or advertisers presenting themselves as ordinary people — like a billionaire candidate eating pizza at a local restaurant.'
+      },
+      {
+        question: 'What does "connotations" most likely mean as used in the second paragraph?',
+        options: [
+          'Historical origins of a word or phrase',
+          'Emotional associations or ideas that a word carries beyond its literal meaning',
+          'Official definitions found in dictionaries',
+          'Synonyms used in different dialects'
+        ],
+        correctIndex: 1,
+        explanation: 'The author says propaganda "often carries negative connotations" — meaning the word triggers negative feelings and associations beyond its neutral definition of "persuasive message."'
+      }
+    ]
+  },
+  {
+    id: 'silk-road-ancient-trade',
+    title: 'Roads of Silk and Spice: The Silk Road',
+    topic: 'history',
+    coverEmoji: '🐪',
+    coverColor: '#92400e',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 454,
+    readTimeMin: 2,
+    text: `**An Ancient Highway**
+
+Long before the internet or container ships, goods, ideas, and people traveled across thousands of miles along a network of overland and maritime routes historians call the **Silk Road**. Despite its name, this was not a single road — it was a web of interconnected routes stretching from China in the east to the Mediterranean world in the west, passing through Central Asia, Persia, and India. For roughly fifteen hundred years, from about 100 BCE to 1450 CE, the Silk Road was the world's most important commercial and cultural connector.
+
+**What Was Traded?**
+
+Silk was so prized in the Roman Empire that Roman writers complained it was draining the treasury — Roman citizens were paying enormous sums for Chinese fabric. But silk was just one of hundreds of commodities that flowed along these routes. China exported silk, porcelain, and tea. Central Asia contributed horses, cotton, and precious stones. India sent spices, textiles, and ivory. The Middle East traded glass, bronze, and incense. These goods didn't typically travel the entire route with a single merchant; they passed through a chain of intermediaries — traders who bought goods in one city and sold them at the next, each adding to the price.
+
+**More Than Goods: The Exchange of Ideas**
+
+The Silk Road's greatest impact may not have been commercial at all. Religions, technologies, languages, and diseases traveled the same routes as silk and spice. **Buddhism** spread from India into Central Asia and China largely along Silk Road corridors. **Islam** later traveled westward and eastward from the Arabian Peninsula through the same networks. **Paper**, invented in China, was transmitted to the Islamic world and eventually Europe. **Gunpowder**, also Chinese in origin, transformed warfare across Eurasia. The bubonic plague that caused the Black Death in Europe also traveled westward along Silk Road trade routes.
+
+**Key Cities**
+
+Great cities grew along the Silk Road as centers of trade and culture. **Samarkand** (in modern Uzbekistan) and **Dunhuang** (in western China) became famous meeting points where merchants, monks, scholars, and diplomats gathered. These cities were extraordinarily diverse — travelers from dozens of cultures and languages lived and worked side by side.
+
+**The Decline of the Silk Road**
+
+The Silk Road's importance faded as European maritime explorers found sea routes to Asia in the late 1400s. Ocean travel was cheaper and could carry far larger quantities of goods than overland caravans. The Ottoman Empire's control of key land routes also made trade more expensive for Europeans. Yet the Silk Road's legacy endures: many of the world's major religions, technologies, and cultural traditions were spread or shaped by the exchanges it facilitated.`,
+    vocabulary: [
+      { word: 'Silk Road', definition: 'A network of ancient trade routes connecting East Asia, Central Asia, the Middle East, and Europe, active from roughly 100 BCE to 1450 CE.', example: 'Merchants on the Silk Road traded silk, spices, and ideas across continents.' },
+      { word: 'intermediaries', definition: 'People or businesses that act as links between producers and consumers, buying and reselling goods.', example: 'Silk passed through dozens of intermediaries before reaching Roman consumers.' },
+      { word: 'commodities', definition: 'Raw materials or products that can be bought and sold, especially in large quantities.', example: 'Spices, silk, and glass were all valuable commodities on the ancient trade routes.' },
+      { word: 'maritime', definition: 'Relating to the sea or ocean travel and trade.', example: 'Portuguese maritime explorers found a sea route to Asia that bypassed the Silk Road.' },
+      { word: 'facilitated', definition: 'Made something easier or helped it happen more effectively.', example: 'The Silk Road facilitated the spread of Buddhism from India into China.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'Silk was the most valuable trade item in the ancient world.',
+          'The Silk Road was a network of routes that connected civilizations and exchanged goods, ideas, and diseases.',
+          'China was the most powerful nation in the ancient world because of Silk Road trade.',
+          'The Silk Road declined because of war between the Ottoman Empire and European nations.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article covers the Silk Road\'s commercial exchanges, cultural and religious spread, and long-term legacy — making the exchange and connection of civilizations the central idea.'
+      },
+      {
+        question: 'According to the article, what was one of the most significant non-commercial exchanges on the Silk Road?',
+        options: [
+          'The spread of the Latin language throughout Asia',
+          'The transfer of rice cultivation from China to Europe',
+          'The transmission of religions, technologies, and diseases across Eurasia',
+          'The movement of horses from Arabia to China'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that "the Silk Road\'s greatest impact may not have been commercial at all," then describes how religions, technologies like paper and gunpowder, and the plague traveled its routes.'
+      },
+      {
+        question: 'What does the author mean by saying silk passed through a "chain of intermediaries"?',
+        options: [
+          'Silk was inspected by government officials at each city along the route.',
+          'Each merchant bought and resold goods at the next stop, so no single trader traveled the full route.',
+          'Silk was secretly transported to avoid government taxes.',
+          'Ancient roads required silk to be transferred from camels to horses at certain points.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains that goods "passed through a chain of intermediaries — traders who bought goods in one city and sold them at the next," meaning no one merchant traveled the entire distance.'
+      },
+      {
+        question: 'Why did the Silk Road decline in the late 1400s?',
+        options: [
+          'China banned foreign trade and closed its borders.',
+          'A major earthquake destroyed most of the key trading cities along the route.',
+          'European maritime routes to Asia were cheaper and could carry more goods than overland caravans.',
+          'The spread of the Black Death made Silk Road cities too dangerous for merchants.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that European sea routes were "cheaper and could carry far larger quantities of goods than overland caravans," replacing the overland Silk Road.'
+      },
+      {
+        question: 'What does "diverse" most likely mean as used in the description of Silk Road cities?',
+        options: [
+          'Wealthy and well-defended against attack',
+          'Made up of people from many different cultures and backgrounds',
+          'Located far from other major cities',
+          'Known for producing a wide variety of local goods'
+        ],
+        correctIndex: 1,
+        explanation: 'The article describes Silk Road cities as "extraordinarily diverse" immediately before noting that "travelers from dozens of cultures and languages lived and worked side by side," confirming the meaning.'
+      }
+    ]
+  },
+  {
+    id: 'florida-spanish-american-war',
+    title: 'Florida\'s Staging Ground: The Spanish-American War',
+    topic: 'history',
+    coverEmoji: '⚓',
+    coverColor: '#1e3a8a',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 448,
+    readTimeMin: 2,
+    text: `**A War Fought from Florida's Shores**
+
+In 1898, the United States went to war with Spain over the fate of Cuba, Puerto Rico, and the Philippines — Spanish colonies whose residents were fighting for independence. Though the battles were fought in the Caribbean and the Pacific, Florida played a surprisingly central role in the conflict. Tampa and Key West became critical military staging grounds, and the war transformed Florida's economy, infrastructure, and national profile in ways that lasted long after the fighting ended.
+
+**Why Cuba Mattered**
+
+Cuba sits just 90 miles south of Key West, making Florida the natural gateway to the conflict. By the 1890s, Cuban rebels had been fighting Spanish colonial rule for decades. American newspapers — particularly those owned by William Randolph Hearst and Joseph Pulitzer — ran dramatic, often exaggerated stories of Spanish brutality toward Cuban civilians. This **yellow journalism** inflamed American public opinion and increased pressure on President William McKinley to take action.
+
+The immediate trigger came in February 1898, when the U.S. battleship **USS Maine** exploded in Havana Harbor, killing 266 sailors. The cause remains disputed — the explosion may have been accidental — but American newspapers declared Spain responsible. "Remember the Maine!" became a rallying cry that pushed the country toward war.
+
+**Tampa as Military Hub**
+
+When war was declared in April 1898, the U.S. Army needed a port with rail access close to Cuba. Tampa, served by Henry Flagler's railroad network, was selected as the primary embarkation point. Within weeks, the sleepy city of 26,000 people was overwhelmed by approximately 30,000 troops. Hotels, including the **Tampa Bay Hotel** — now the University of Tampa — became officer headquarters. Among the officers who passed through Tampa was Theodore Roosevelt, commanding his famous **Rough Riders** cavalry regiment.
+
+The embarkation was chaotic. Logistics were poorly organized, supplies were mismanaged, and soldiers waited in brutal summer heat. Despite these difficulties, the expeditionary force departed for Cuba in June 1898.
+
+**Consequences for Florida**
+
+The war lasted only about ten weeks, ending with a decisive American victory and the signing of the **Treaty of Paris** in December 1898. Spain surrendered Cuba, Puerto Rico, and the Philippines. For Florida, the war brought lasting benefits. Tampa's port facilities were expanded and improved. National attention focused on the state. The experience demonstrated Florida's strategic value to military and political leaders, helping attract future federal investment.
+
+The war also marked a turning point in American foreign policy — the United States emerged as a global power with overseas territories for the first time. Florida, which had served as the nation's launching pad for this imperial leap, was never quite the same again.`,
+    vocabulary: [
+      { word: 'yellow journalism', definition: 'Sensationalized or exaggerated news reporting designed to attract readers and provoke strong emotions.', example: 'Yellow journalism about Spanish atrocities in Cuba helped build public support for the war.' },
+      { word: 'USS Maine', definition: 'An American battleship that exploded in Havana Harbor in 1898, helping spark the Spanish-American War.', example: '"Remember the Maine!" became a battle cry after the USS Maine explosion killed 266 sailors.' },
+      { word: 'embarkation', definition: 'The process of boarding ships or aircraft for a journey, especially a military expedition.', example: 'Tampa served as the main embarkation point for American troops headed to Cuba.' },
+      { word: 'expeditionary force', definition: 'A military group sent on a mission to a foreign territory.', example: 'The expeditionary force departed Tampa for Cuba in June 1898.' },
+      { word: 'Treaty of Paris', definition: 'The 1898 agreement ending the Spanish-American War, in which Spain surrendered Cuba, Puerto Rico, and the Philippines.', example: 'Under the Treaty of Paris, the United States gained its first overseas territories.' },
+    ],
+    questions: [
+      {
+        question: 'What was Florida\'s primary role in the Spanish-American War?',
+        options: [
+          'Florida provided most of the soldiers who fought in Cuba.',
+          'Florida\'s governor negotiated the peace treaty with Spain.',
+          'Florida, especially Tampa, served as the main military staging and embarkation point for the Cuba campaign.',
+          'Florida\'s naval fleet led the attack on the Spanish ships in Havana Harbor.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article focuses on Tampa and Key West as staging grounds, with Tampa serving as the primary departure point for troops heading to Cuba.'
+      },
+      {
+        question: 'According to the article, what was yellow journalism\'s role in the war?',
+        options: [
+          'It provided accurate battlefield reporting that helped the military plan strategy.',
+          'It exaggerated Spanish brutality, inflaming American public opinion and increasing pressure for war.',
+          'It revealed secret Spanish military plans that helped the U.S. win quickly.',
+          'It reported fairly on both sides of the conflict, helping negotiate peace.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article describes yellow journalism as "dramatic, often exaggerated stories" that "inflamed American public opinion and increased pressure on President McKinley to take action."'
+      },
+      {
+        question: 'What does the author suggest about the cause of the USS Maine explosion?',
+        options: [
+          'Spain deliberately ordered the explosion to start a war with the United States.',
+          'The explosion was clearly the result of a crew accident.',
+          'The cause remains disputed, and the explosion may have been accidental.',
+          'Theodore Roosevelt ordered the explosion to force Congress to declare war.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states the explosion\'s cause "remains disputed" and notes it "may have been accidental," while acknowledging that newspapers blamed Spain regardless.'
+      },
+      {
+        question: 'How did the Spanish-American War affect Florida in the long term?',
+        options: [
+          'Florida lost economic investment because of the chaos during troop embarkation.',
+          'Florida\'s port facilities were expanded, national attention increased, and federal investment grew.',
+          'Florida became a territory of Spain after the Treaty of Paris was signed.',
+          'Tampa\'s population declined after the military departed and left the city in debt.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article lists lasting benefits: Tampa\'s port was expanded, national attention focused on Florida, and the state\'s demonstrated strategic value attracted future federal investment.'
+      },
+      {
+        question: 'What does "imperial" most likely mean in the phrase "imperial leap" in the final paragraph?',
+        options: [
+          'Relating to military defeat and national loss',
+          'Relating to scientific exploration and discovery',
+          'Relating to the expansion of power over foreign territories',
+          'Relating to trade agreements with European nations'
+        ],
+        correctIndex: 2,
+        explanation: 'The article uses "imperial leap" to describe the U.S. gaining overseas territories for the first time, making "imperial" refer to expanding power and control over foreign lands.'
+      }
+    ]
+  },
+  {
+    id: 'printing-press-spread-of-ideas',
+    title: 'Ink and Revolution: The Printing Press and the Spread of Ideas',
+    topic: 'history',
+    coverEmoji: '📰',
+    coverColor: '#1e3a8a',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 452,
+    readTimeMin: 2,
+    text: `**Before the Press**
+
+Imagine a world without printed books. In medieval Europe, books were copied entirely by hand — a process so slow and expensive that a single Bible could take a monk a year to produce. As a result, books were extraordinarily rare, typically owned only by churches, monasteries, and wealthy nobles. Most people lived and died without ever reading or owning a book. Literacy was limited largely to clergy and the elite. Information — and therefore power — was controlled by a small minority.
+
+**Gutenberg's Revolution**
+
+Around 1440, a German goldsmith named **Johannes Gutenberg** developed the first practical **movable type** printing press in Europe. His system used individual metal letters that could be rearranged to print any text, inked, and pressed onto paper. By 1455, Gutenberg's workshop had produced approximately 180 copies of the Bible — a stunning achievement given that each copy had previously required years of hand labor. His press could produce hundreds of pages per day.
+
+The technology spread with remarkable speed. Within fifty years of Gutenberg's innovation, printing presses had been established in more than 270 European cities, and an estimated twenty million books were in circulation. Within a century, that number grew to 150 to 200 million.
+
+**Ideas Unleashed**
+
+The printing press did not merely make books cheaper — it fundamentally changed what information could do. Before print, official interpretations of religious texts, legal codes, and scientific knowledge were controlled by authorities who could limit access to originals. The press broke this monopoly. **Martin Luther's** Ninety-Five Theses — his challenge to Catholic Church corruption — were printed and distributed across Germany within weeks in 1517, helping spark the **Protestant Reformation** and permanently dividing Western Christianity.
+
+Scientific knowledge also spread more rapidly. The works of **Copernicus**, who argued that Earth revolves around the Sun, circulated among scholars across Europe despite Church opposition. **Galileo's** observations spread despite efforts to suppress them. The printing press created the conditions for the Scientific Revolution by making it impossible to contain new ideas within local boundaries.
+
+**Limits and Dangers**
+
+Not all ideas spread by the printing press were accurate or beneficial. Misinformation and propaganda could be printed and distributed just as easily as scientific breakthroughs. Antisemitic pamphlets, false accusations, and incendiary political tracts spread through print. Governments and churches quickly recognized the threat and established **censorship** systems — lists of forbidden books, licensing requirements, and penalties for printing unauthorized materials.
+
+**A Permanent Shift**
+
+Historians often call Gutenberg's press one of the most consequential inventions in human history. It democratized knowledge, empowered ordinary citizens with access to ideas, and accelerated virtually every major intellectual movement of the following centuries — the Reformation, the Scientific Revolution, the Enlightenment, and eventually democracy itself. The printing press teaches us that changing how information flows can change everything else.`,
+    vocabulary: [
+      { word: 'movable type', definition: 'A printing system using individual, reusable letters or characters that can be rearranged to compose any text.', example: 'Gutenberg\'s movable type system allowed the same metal letters to be reused for different books.' },
+      { word: 'Protestant Reformation', definition: 'A sixteenth-century religious movement that challenged Catholic Church authority and created new Christian denominations.', example: 'The printing press helped spread Martin Luther\'s ideas and fuel the Protestant Reformation.' },
+      { word: 'monopoly', definition: 'Exclusive control over something, leaving others with no access or alternatives.', example: 'Before printing, the Church had a monopoly on access to religious texts.' },
+      { word: 'censorship', definition: 'The suppression or restriction of information, speech, or media by an authority.', example: 'Governments responded to the printing press with censorship, banning books that challenged their power.' },
+      { word: 'democratized', definition: 'Made accessible to a wider population rather than limited to a privileged few.', example: 'The printing press democratized knowledge by making books affordable to ordinary people.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'Johannes Gutenberg was the most important inventor of the medieval period.',
+          'The printing press made books cheaper and more widely available.',
+          'The printing press transformed how information spread and fundamentally changed European society, religion, and science.',
+          'Censorship prevented the printing press from having its full historical impact.'
+        ],
+        correctIndex: 2,
+        explanation: 'The article argues that the press did far more than make books available — it broke monopolies on knowledge, sparked the Reformation and Scientific Revolution, and empowered ordinary people.'
+      },
+      {
+        question: 'According to the article, how did the printing press contribute to the Protestant Reformation?',
+        options: [
+          'Gutenberg printed the Bible in German so peasants could read it for the first time.',
+          'Luther\'s Ninety-Five Theses were rapidly printed and distributed across Germany, amplifying his challenge to the Church.',
+          'The press allowed Church officials to distribute reform proposals before critics could respond.',
+          'Printed books replaced Church sermons as the main way people learned about Christianity.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article states that Luther\'s Ninety-Five Theses "were printed and distributed across Germany within weeks in 1517, helping spark the Protestant Reformation."'
+      },
+      {
+        question: 'What does the author mean by saying the press broke the Church\'s "monopoly" on information?',
+        options: [
+          'The press allowed people to print their own religious texts without Church approval.',
+          'The Church could no longer control who had access to religious and scientific ideas because print spread them widely.',
+          'The Church lost all of its political power after the press was invented.',
+          'Books replaced churches as the main gathering place for communities.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains that before print, authorities controlled access to original texts; the press broke this by making ideas available to anyone who could read, removing that control.'
+      },
+      {
+        question: 'Why does the author include the section "Limits and Dangers"?',
+        options: [
+          'To argue that censorship was justified because printing caused too many problems',
+          'To provide a balanced view by acknowledging that printing also spread misinformation and propaganda',
+          'To show that Gutenberg regretted inventing the printing press',
+          'To explain why the Scientific Revolution failed to spread to some parts of Europe'
+        ],
+        correctIndex: 1,
+        explanation: 'The section presents the negative consequences of printing — misinformation and propaganda — providing balance to the overwhelmingly positive portrayal in earlier sections.'
+      },
+      {
+        question: 'What does "incendiary" most likely mean as used in the "Limits and Dangers" section?',
+        options: [
+          'Relating to fire and physical destruction',
+          'Written in a foreign language',
+          'Designed to provoke anger or violence',
+          'Produced without the author\'s knowledge'
+        ],
+        correctIndex: 2,
+        explanation: 'The article lists "incendiary political tracts" alongside "antisemitic pamphlets" and "false accusations" — all things that provoke dangerous responses, indicating "incendiary" means intended to inflame or provoke anger.'
+      }
+    ]
+  },
+  {
+    id: 'ocean-acidification-coral-bleaching',
+    title: 'The Ocean\'s Silent Crisis: Acidification and Coral Bleaching',
+    topic: 'science',
+    coverEmoji: '🪸',
+    coverColor: '#0c4a6e',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 456,
+    readTimeMin: 2,
+    text: `**A Double Threat Beneath the Waves**
+
+The world's oceans are changing in ways that many people never see. Two closely related crises — **ocean acidification** and **coral bleaching** — are threatening marine ecosystems that support roughly 25 percent of all ocean species and provide food and income to billions of people worldwide. Both crises have the same root cause: the burning of fossil fuels and the resulting increase in atmospheric carbon dioxide.
+
+**How Ocean Acidification Works**
+
+The ocean absorbs about 30 percent of the carbon dioxide humans release into the atmosphere. When CO₂ dissolves in seawater, it forms **carbonic acid**, which releases hydrogen ions and increases the ocean's acidity. Since the Industrial Revolution, the pH of ocean surface water has dropped from approximately 8.2 to 8.1. This may seem like a small change, but because the pH scale is logarithmic, this represents a 26 percent increase in acidity.
+
+This increase matters enormously for marine organisms that build shells or skeletons from **calcium carbonate** — including oysters, clams, sea urchins, and corals. As the ocean becomes more acidic, calcium carbonate dissolves more easily, making it harder for these organisms to build and maintain their structures. In young shellfish, acidification can cause deformed shells or prevent shells from forming at all.
+
+**Coral Bleaching: The Reef's Alarm Signal**
+
+Coral reefs are often called "the rainforests of the sea" for their extraordinary biodiversity. Corals are tiny animals that live in a **symbiotic relationship** with microscopic algae called **zooxanthellae**. The algae provide up to 90 percent of the coral's energy through photosynthesis, and in return the coral provides shelter. This relationship is fragile. When ocean temperatures rise even 1 to 2 degrees Celsius above normal, corals become stressed and expel their zooxanthellae. Without the algae, the coral turns white — a phenomenon called **bleaching**. A bleached coral is not dead, but it is severely weakened and vulnerable to disease. If temperatures remain elevated for more than eight to twelve weeks, the coral typically dies.
+
+The Great Barrier Reef off Australia's coast has experienced five mass bleaching events since 1998, with the most recent and severe occurring in 2022, when 91 percent of surveyed reefs showed bleaching.
+
+**Why It Matters Beyond the Ocean**
+
+Coral reefs protect coastlines from storm surges by absorbing wave energy. They support fisheries that feed hundreds of millions of people. They have provided compounds used in pharmaceutical treatments for cancer, arthritis, and pain. Losing them is not simply an ecological tragedy — it is an economic and human one.
+
+Reducing carbon emissions is the only long-term solution. Some scientists are experimenting with assisted evolution — breeding heat-resistant coral strains — but most experts agree that without significant emissions reductions, these interventions will not be enough to save the world's reefs.`,
+    vocabulary: [
+      { word: 'ocean acidification', definition: 'The ongoing decrease in the pH of Earth\'s oceans, caused by absorption of excess carbon dioxide from the atmosphere.', example: 'Ocean acidification makes it harder for shellfish to build calcium carbonate shells.' },
+      { word: 'carbonic acid', definition: 'A weak acid formed when carbon dioxide dissolves in water, responsible for lowering ocean pH.', example: 'When CO₂ enters the ocean, it forms carbonic acid, increasing the water\'s acidity.' },
+      { word: 'calcium carbonate', definition: 'A chemical compound that forms the shells of mollusks and the skeletons of corals.', example: 'As acidification increases, calcium carbonate dissolves more easily, weakening coral structures.' },
+      { word: 'symbiotic relationship', definition: 'A relationship between two different species in which both benefit from living closely together.', example: 'Corals and zooxanthellae algae share a symbiotic relationship: the algae get shelter, the coral gets energy.' },
+      { word: 'bleaching', definition: 'The process by which stressed corals expel their symbiotic algae, causing them to turn white and become vulnerable.', example: 'Mass bleaching events have damaged large portions of the Great Barrier Reef in recent years.' },
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this article?',
+        options: [
+          'The Great Barrier Reef is the most important coral ecosystem in the world.',
+          'Ocean acidification and coral bleaching, both caused by carbon emissions, threaten marine ecosystems with serious consequences for humans.',
+          'Scientists have found ways to reverse coral bleaching through assisted evolution.',
+          'Acidification is a greater threat to oceans than warming temperatures.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article connects both ocean acidification and coral bleaching to carbon emissions, explains their ecological mechanisms, and argues their consequences extend to human food and coastal protection.'
+      },
+      {
+        question: 'According to the article, what happens to corals during a bleaching event?',
+        options: [
+          'Corals are killed instantly by the rise in ocean temperature.',
+          'Corals expel their zooxanthellae algae under heat stress, turning white and becoming vulnerable to disease.',
+          'Corals release chemicals that bleach the surrounding water, harming other species.',
+          'Acidic water dissolves the coral skeleton, causing it to appear white.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explains that when temperatures rise 1–2°C, stressed corals expel their zooxanthellae, turning white — which is bleaching. The coral is weakened but not immediately dead.'
+      },
+      {
+        question: 'Why does the author include information about medicines derived from coral reefs?',
+        options: [
+          'To suggest that pharmaceutical companies are responsible for protecting reefs',
+          'To argue that coral reefs are worth more economically than they are ecologically',
+          'To reinforce the point that losing reefs is not just an ecological loss but also a human one',
+          'To show that scientists already have all the compounds they need from corals'
+        ],
+        correctIndex: 2,
+        explanation: 'The author mentions pharmaceutical compounds from corals immediately before stating "losing them is not simply an ecological tragedy — it is an economic and human one," connecting the detail to this argument.'
+      },
+      {
+        question: 'What does the author say is the only long-term solution to ocean acidification and coral bleaching?',
+        options: [
+          'Building artificial reefs to replace damaged natural ones',
+          'Breeding heat-resistant coral strains through assisted evolution',
+          'Reducing carbon emissions',
+          'Adding chemicals to the ocean to neutralize acidity'
+        ],
+        correctIndex: 2,
+        explanation: 'The article states that "reducing carbon emissions is the only long-term solution" and notes that assisted evolution alone will not be sufficient without significant emissions reductions.'
+      },
+      {
+        question: 'What does "logarithmic" suggest about the change in ocean pH described in the article?',
+        options: [
+          'The change is gradual and barely measurable.',
+          'A small numerical change represents a much larger actual change in acidity.',
+          'The pH scale was invented by mathematicians studying ocean chemistry.',
+          'Ocean acidity varies constantly from season to season.'
+        ],
+        correctIndex: 1,
+        explanation: 'The article explicitly explains that because the pH scale is logarithmic, a drop of 0.1 represents a 26 percent increase in acidity — showing that a small numerical change equals a much larger real change.'
+      }
+    ]
+  },
+
+// ── Grade 7 ──
+  {
+    id: 'civil-war-causes-g7',
+    title: 'The Road to Civil War: Causes and Consequences',
+    topic: 'history',
+    coverEmoji: '⚔️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 492,
+    readTimeMin: 3,
+    text: `## A Nation Divided
+
+By the mid-nineteenth century, the United States contained two distinct economic and social worlds. The industrializing North relied on **free labor**, wage workers, and manufacturing, while the agrarian South depended overwhelmingly on **enslaved labor** to cultivate cotton, tobacco, and rice. These diverging systems produced not merely economic disagreement but fundamentally incompatible visions of what America should become.
+
+## The Slavery Question
+
+At the core of sectional conflict lay the institution of slavery. Abolitionists in the North condemned it as a moral atrocity, while Southern **planters** defended it as an economic necessity and, increasingly, as a "positive good." Congress struggled to contain the debate through a series of compromises—the Missouri Compromise of 1820, the Compromise of 1850—but each agreement only postponed the reckoning. The publication of **Harriet Beecher Stowe's** *Uncle Tom's Cabin* in 1852 galvanized Northern public opinion against slavery in ways that political speeches never had.
+
+## States' Rights and Federal Power
+
+Southern politicians framed their position not merely as a defense of slavery but as a constitutional argument about **states' rights**—the principle that individual states possessed the authority to nullify federal laws or withdraw from the Union entirely. When Abraham Lincoln won the 1860 presidential election without carrying a single Southern state, seven states **seceded** before he even took office, arguing that a Republican president threatened their sovereignty. Lincoln firmly rejected this reasoning, insisting the Union was perpetual and indivisible.
+
+## The Spark at Fort Sumter
+
+Confederate forces fired on the federal garrison at **Fort Sumter**, South Carolina, in April 1861, transforming political crisis into open warfare. Four additional states joined the Confederacy, and the bloodiest conflict in American history began. Over four years, approximately 620,000 soldiers died—more than in any other American war before or since. The war's causes were multiple and intertwined, yet historians broadly agree that slavery was the **central, animating cause**, with states' rights serving as the constitutional language through which slaveholders defended the institution.
+
+## Consequences That Reshaped America
+
+The Union's victory abolished slavery through the **Thirteenth Amendment** (1865) and produced two additional amendments guaranteeing citizenship and voting rights. However, the **Reconstruction era** that followed was short-lived; by 1877, federal troops withdrew from the South, and a system of racial oppression under Jim Crow laws replaced legal slavery. The Civil War resolved the question of secession permanently but left the deeper struggle for racial equality unfinished—a struggle that continued to define American life for generations.`,
+    vocabulary: [
+      { word: 'secession', definition: 'The formal withdrawal of a state or group from a political union.', example: 'Southern leaders cited states\' rights as justification for secession from the Union.' },
+      { word: 'agrarian', definition: 'Relating to cultivated land, farming, or rural society.', example: 'The agrarian South depended on large plantations rather than factories.' },
+      { word: 'abolitionist', definition: 'A person who campaigned to end the practice of slavery.', example: 'Abolitionists published pamphlets and organized rallies to turn public opinion against slavery.' },
+      { word: 'nullify', definition: 'To make legally invalid; to cancel the effect of a law or decision.', example: 'Some Southern states claimed the right to nullify federal tariffs they considered unjust.' },
+      { word: 'Reconstruction', definition: 'The period after the Civil War during which the federal government worked to reintegrate the former Confederate states and establish rights for formerly enslaved people.', example: 'During Reconstruction, African Americans briefly held elected office across the South.' }
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what was the central cause of the Civil War?',
+        options: [
+          'Disagreements over federal tariffs on manufactured goods',
+          'Slavery, with states\' rights serving as the constitutional language used to defend it',
+          'The election of a president who wanted to expand federal power over trade',
+          'Competition between Northern industrialists and Southern planters for western land'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "historians broadly agree that slavery was the central, animating cause, with states\' rights serving as the constitutional language through which slaveholders defended the institution."'
+      },
+      {
+        question: 'What can be inferred about the Missouri Compromise and similar agreements?',
+        options: [
+          'They permanently resolved tensions between the North and South.',
+          'They were unconstitutional and immediately struck down by the Supreme Court.',
+          'They delayed but did not eliminate the fundamental conflict over slavery.',
+          'They were rejected by Southern states from the beginning.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says each compromise "only postponed the reckoning," implying they delayed rather than resolved the underlying conflict.'
+      },
+      {
+        question: 'How did the author organize the passage?',
+        options: [
+          'By presenting a single argument and then providing counterarguments',
+          'By moving chronologically through causes and then examining consequences',
+          'By comparing Northern and Southern economies without taking a position',
+          'By focusing entirely on the military events of the war itself'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses subheadings to move from background (divided nation, slavery, states\' rights) through the triggering event (Fort Sumter) to consequences (amendments, Reconstruction), following a chronological cause-and-effect structure.'
+      },
+      {
+        question: 'Which piece of textual evidence best supports the idea that Lincoln\'s election intensified the secession crisis?',
+        options: [
+          '"Confederate forces fired on the federal garrison at Fort Sumter, South Carolina, in April 1861."',
+          '"Seven states seceded before he even took office, arguing that a Republican president threatened their sovereignty."',
+          '"The war\'s causes were multiple and intertwined."',
+          '"Over four years, approximately 620,000 soldiers died."'
+        ],
+        correctIndex: 1,
+        explanation: 'This quote directly shows that Lincoln\'s election—before he had taken any action as president—immediately triggered secession, demonstrating how his election intensified the crisis.'
+      },
+      {
+        question: 'Based on the final paragraph, what conclusion can be drawn about the Civil War\'s legacy?',
+        options: [
+          'The war fully achieved racial equality by 1870.',
+          'Reconstruction successfully transformed Southern society for decades.',
+          'The war ended legal slavery but left racial inequality unresolved for generations.',
+          'The Thirteenth Amendment alone was sufficient to guarantee equal rights.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage notes that Jim Crow laws replaced legal slavery after Reconstruction ended, and "the deeper struggle for racial equality unfinished—a struggle that continued to define American life for generations."'
+      }
+    ]
+  },
+  {
+    id: 'industrial-revolution-workers',
+    title: 'The Industrial Revolution: Progress and Its Human Cost',
+    topic: 'history',
+    coverEmoji: '🏭',
+    coverColor: '#374151',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 498,
+    readTimeMin: 3,
+    text: `## A World Transformed
+
+Between roughly 1760 and 1850, a series of technological innovations fundamentally altered how goods were produced, where people lived, and how they organized their working lives. Beginning in Britain and spreading rapidly to Western Europe and North America, the **Industrial Revolution** replaced cottage industries—small-scale production in homes or workshops—with factory systems powered first by water and then by **steam engines**. The consequences were unprecedented in their speed and scale.
+
+## Life in the Factories
+
+For the millions of workers who flooded into industrial cities, the transition was often brutal. Factory labor demanded strict **punctuality** and submission to machine rhythms entirely unlike the seasonal pace of agricultural work. Shifts commonly lasted twelve to sixteen hours; safety regulations were virtually nonexistent. Children as young as five worked in textile mills and coal mines, their small bodies useful for tasks adults could not perform. **Child labor** was not new, but industrialization concentrated it in dangerous, enclosed environments far removed from family supervision.
+
+Wages, while sometimes higher than rural incomes, were consumed by rents in overcrowded **tenements**—dense urban housing with little ventilation, clean water, or sanitation. Cholera epidemics swept through industrial cities with devastating regularity. Life expectancy in Manchester, England, dropped to roughly twenty-eight years for the laboring class by the 1840s, a figure that shocked contemporary observers.
+
+## Responses to Industrialization
+
+Workers did not accept these conditions passively. **Trade unions**—organizations of workers united to negotiate better wages and hours—began forming despite laws that initially declared them illegal. The Luddite movement of the 1810s saw textile workers smashing machinery they believed threatened their livelihoods, an act of protest that has since given rise to the word *Luddite* as a label for anyone who resists technological change.
+
+Reformers and writers amplified working-class grievances. Charles Dickens depicted factory conditions in vivid, empathetic prose; government investigators published shocking reports on child labor. By the mid-nineteenth century, Britain had passed the **Factory Acts**, limiting working hours for children and women and mandating basic safety inspections—the first significant steps toward government regulation of industry.
+
+## A Double Legacy
+
+Historians continue to debate the Industrial Revolution's ultimate meaning. Defenders point to rising **GDP**, falling commodity prices that made goods accessible to ordinary people, and the technological foundations for modern medicine and communication. Critics emphasize the environmental degradation, persistent inequality, and the exploitation of vulnerable workers that accompanied these gains. Both perspectives contain truth. What remains undeniable is that industrialization remade the world more thoroughly than any previous era of change, establishing patterns of urban life, wage labor, and global trade that persist to the present day.`,
+    vocabulary: [
+      { word: 'cottage industry', definition: 'A system of small-scale production carried out in people\'s homes rather than in factories.', example: 'Before industrialization, weaving was typically a cottage industry done by families at home.' },
+      { word: 'tenement', definition: 'A large, subdivided building renting cheap apartments, often in poor condition and overcrowded.', example: 'Immigrant workers crowded into tenements with no running water or proper ventilation.' },
+      { word: 'trade union', definition: 'An organized association of workers formed to protect and advance their rights and interests.', example: 'The trade union negotiated with factory owners for a ten-hour workday.' },
+      { word: 'GDP', definition: 'Gross Domestic Product; the total monetary value of all goods and services produced in a country in a given period.', example: 'Industrial nations saw their GDP expand rapidly as factory output increased.' },
+      { word: 'punctuality', definition: 'The practice of being on time; adherence to scheduled times.', example: 'Factory managers fined workers for lack of punctuality, unlike farm work which followed seasons.' }
+    ],
+    questions: [
+      {
+        question: 'What is the central idea of this passage?',
+        options: [
+          'The Industrial Revolution was entirely negative and should be viewed as a failure.',
+          'The Industrial Revolution brought technological progress alongside severe hardship for workers.',
+          'Workers successfully resisted industrialization through unions and protests.',
+          'Britain\'s Factory Acts solved the problems created by industrialization.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage presents both the gains (rising GDP, falling prices) and the costs (dangerous conditions, child labor, disease) of industrialization, framing it as having a "double legacy."'
+      },
+      {
+        question: 'According to the passage, what does the word "Luddite" mean today?',
+        options: [
+          'A factory worker who supports machine-based production',
+          'Someone who resists or opposes technological change',
+          'A government official who enforces safety regulations in factories',
+          'A historian who defends the benefits of the Industrial Revolution'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that the Luddite movement "has since given rise to the word Luddite as a label for anyone who resists technological change."'
+      },
+      {
+        question: 'Why does the author mention the life expectancy figure of twenty-eight years in Manchester?',
+        options: [
+          'To prove that industrialization was more harmful than helpful in every respect',
+          'To illustrate how dramatically urban industrial conditions reduced workers\' health',
+          'To compare British cities favorably with rural areas during the same period',
+          'To show that government reforms quickly improved living conditions'
+        ],
+        correctIndex: 1,
+        explanation: 'The statistic follows a description of poor housing, lack of sanitation, and cholera epidemics, serving as concrete evidence of how dangerous urban industrial life was for working-class people.'
+      },
+      {
+        question: 'What inference can be drawn about the relationship between industrialization and government regulation?',
+        options: [
+          'Governments immediately intervened to protect workers when factories first opened.',
+          'Regulation only came after sustained suffering, worker resistance, and public pressure.',
+          'Trade unions were more effective than governments at improving conditions.',
+          'Factory owners voluntarily adopted safety standards before laws required them.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes years of brutal conditions, worker protests, and reform campaigns before the Factory Acts were passed "by the mid-nineteenth century," implying regulation lagged far behind the problems.'
+      },
+      {
+        question: 'How does the author\'s perspective on the Industrial Revolution differ from a purely celebratory account?',
+        options: [
+          'The author ignores economic gains entirely and focuses only on worker suffering.',
+          'The author acknowledges both benefits and costs, refusing to present industrialization as simple progress.',
+          'The author argues that the Industrial Revolution was less important than agricultural change.',
+          'The author criticizes Dickens for exaggerating factory conditions in his novels.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage\'s "double legacy" section explicitly presents both defenders\' and critics\' views, and the author writes "Both perspectives contain truth," signaling a balanced rather than celebratory stance.'
+      }
+    ]
+  },
+  {
+    id: 'progressive-era-muckrakers',
+    title: 'The Progressive Era: Muckrakers and the Fight for Reform',
+    topic: 'history',
+    coverEmoji: '📰',
+    coverColor: '#065f46',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 501,
+    readTimeMin: 3,
+    text: `## An Era of Exposure
+
+In the opening decades of the twentieth century, a new breed of journalist emerged in the United States, armed with investigative methods, mass-circulation magazines, and an appetite for exposing the corruption and exploitation hidden within American prosperity. President Theodore Roosevelt famously called these writers **muckrakers**, borrowing an image from John Bunyan's *Pilgrim's Progress* to describe journalists who stirred up dirt rather than looking upward. Though Roosevelt meant the term as mild criticism, reformers adopted it as a badge of honor.
+
+## The Power of the Printed Word
+
+The muckrakers' impact depended on a convergence of new technologies and social conditions. **Photojournalism** brought previously invisible suffering directly to middle-class readers. Ida Tarbell's meticulous, nineteen-part investigation of the Standard Oil Company exposed how John D. Rockefeller used **predatory pricing** and secret railroad rebates to crush competitors—a series that eventually contributed to the Supreme Court's 1911 decision to break up Standard Oil. Upton Sinclair's novel *The Jungle* (1906) described the horrifying conditions inside Chicago meatpacking plants in such vivid detail that President Roosevelt himself was reportedly sickened while reading it over breakfast.
+
+Jacob Riis used photography and stark prose in *How the Other Half Lives* (1890) to document the squalor of New York City **tenements**, forcing middle-class readers to confront poverty they had preferred to ignore. Lincoln Steffens exposed municipal **graft**—the corrupt exchange of government favors for money—in cities from St. Louis to Minneapolis.
+
+## Legislative Outcomes
+
+Muckraking journalism translated into concrete policy change with remarkable speed. The public outrage generated by *The Jungle* directly prompted Congress to pass the **Pure Food and Drug Act** and the **Meat Inspection Act** in 1906. Tarbell's work on Standard Oil energized **antitrust** enforcement. Progressive-era reforms also produced the direct election of U.S. senators (Seventeenth Amendment), the graduated income tax (Sixteenth Amendment), and regulations governing child labor and working hours.
+
+## Limits and Legacy
+
+The Progressive Era did not extend its reforms equally. African Americans were largely excluded from its benefits; indeed, the Wilson administration actively **segregated** the federal bureaucracy. Reforms focused primarily on conditions faced by white immigrant workers, and the movement's faith in scientific management and expert administration sometimes reflected condescension toward the very communities it claimed to help.
+
+Nevertheless, the muckraking tradition established a model for **investigative journalism** that continues today: the belief that citizens in a democracy require accurate, fearless reporting to hold powerful institutions accountable. The challenges muckrakers faced—pressure from advertisers, legal threats, accusations of sensationalism—remain familiar to journalists in the twenty-first century, a testament to the enduring tension between the press and power.`,
+    vocabulary: [
+      { word: 'muckraker', definition: 'A journalist or writer who investigates and exposes corruption, wrongdoing, or social problems in public life.', example: 'Ida Tarbell was among the most effective muckrakers of the Progressive Era.' },
+      { word: 'predatory pricing', definition: 'A business practice of setting prices so low as to drive competitors out of the market, then raising prices once competition is eliminated.', example: 'Standard Oil used predatory pricing to force smaller oil companies out of business.' },
+      { word: 'graft', definition: 'The acquisition of money or power through illegal or dishonest means, especially by a public official.', example: 'Lincoln Steffens documented widespread graft in city governments across the country.' },
+      { word: 'antitrust', definition: 'Relating to legislation that prevents or limits monopolies and promotes business competition.', example: 'Antitrust laws were used to break up Standard Oil into smaller competing companies.' },
+      { word: 'investigative journalism', definition: 'In-depth reporting that uncovers hidden facts about issues of public importance, often involving significant research and original source work.', example: 'Modern investigative journalism continues the tradition that muckrakers began.' }
+    ],
+    questions: [
+      {
+        question: 'What does the passage suggest about President Roosevelt\'s use of the term "muckraker"?',
+        options: [
+          'He intended it as a compliment to reward journalists for their patriotism.',
+          'He used it as a mild criticism, but reformers reclaimed it positively.',
+          'He used it to describe politicians who accepted bribes from corporations.',
+          'He coined the term to distinguish honest reporters from sensationalist writers.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states Roosevelt "meant the term as mild criticism" but that "reformers adopted it as a badge of honor," showing the word\'s meaning was contested and ultimately reclaimed.'
+      },
+      {
+        question: 'Based on the passage, what was the most direct legislative result of Upton Sinclair\'s *The Jungle*?',
+        options: [
+          'The Supreme Court\'s 1911 decision to break up Standard Oil',
+          'The Seventeenth Amendment mandating direct election of senators',
+          'The Pure Food and Drug Act and the Meat Inspection Act of 1906',
+          'The elimination of child labor in all American industries'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explicitly states: "The public outrage generated by The Jungle directly prompted Congress to pass the Pure Food and Drug Act and the Meat Inspection Act in 1906."'
+      },
+      {
+        question: 'What is the author\'s purpose in including the section titled "Limits and Legacy"?',
+        options: [
+          'To argue that the Progressive Era accomplished nothing meaningful for ordinary Americans',
+          'To provide a more complete, critical view by acknowledging who was left out of reform',
+          'To praise Woodrow Wilson for his efficient management of the federal government',
+          'To show that muckrakers focused too much on foreign affairs'
+        ],
+        correctIndex: 1,
+        explanation: 'The section acknowledges that African Americans were excluded and that the movement had condescending elements, showing the author\'s intent to offer a balanced, critical analysis rather than pure celebration.'
+      },
+      {
+        question: 'Which statement best describes the relationship between muckraking journalism and political change in this period?',
+        options: [
+          'Journalism had little effect because most Americans did not read magazines.',
+          'Investigative reporting consistently translated into new laws and regulations.',
+          'Corporations successfully blocked most reform legislation through lobbying.',
+          'Reform required journalists to work secretly without publishing their findings.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage gives multiple examples of journalism leading directly to legislation: The Jungle led to food safety laws, Tarbell\'s work energized antitrust enforcement, demonstrating a consistent pattern.'
+      },
+      {
+        question: 'What inference about modern journalism can be drawn from the final paragraph?',
+        options: [
+          'Today\'s journalists face entirely different challenges than those of the Progressive Era.',
+          'The challenges muckrakers faced—advertising pressure, legal threats, accusations of sensationalism—persist in modern journalism.',
+          'Investigative reporting has become less important as citizens gain access to information online.',
+          'Twenty-first century journalists are more willing to challenge power than their predecessors were.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states these challenges "remain familiar to journalists in the twenty-first century," directly drawing a parallel between Progressive Era and modern journalistic obstacles.'
+      }
+    ]
+  },
+  {
+    id: 'world-war-one-causes',
+    title: 'World War I: The War That Reshaped the Modern World',
+    topic: 'history',
+    coverEmoji: '🌍',
+    coverColor: '#7f1d1d',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 505,
+    readTimeMin: 3,
+    text: `## The Powder Keg of Europe
+
+Historians often describe early twentieth-century Europe as a "powder keg"—a continent so saturated with rivalries, alliances, and **militarism** that almost any spark could ignite catastrophe. Four interlocking forces created this volatile situation: the competition among great powers for colonies and prestige, a rigid system of military **alliances** that transformed local conflicts into continental ones, a wave of nationalist sentiment that challenged multinational empires, and an arms race that made war seem both likely and glorious to many leaders.
+
+## The Assassination That Triggered a World War
+
+On June 28, 1914, **Archduke Franz Ferdinand**, heir to the Austro-Hungarian throne, was assassinated in Sarajevo by Gavrilo Princip, a Bosnian Serb nationalist. The murder itself was the product of simmering tensions in the Balkans—a region where the decaying Ottoman and Austro-Hungarian empires competed with newly independent Slavic nations. What made this local assassination catastrophic was the alliance system. Austria-Hungary blamed Serbia and issued a harsh ultimatum; Serbia's partial compliance satisfied no one; Austria-Hungary declared war; Russia mobilized in support of Serbia; Germany declared war on Russia; France entered under its alliance with Russia; Germany invaded Belgium, bringing in Britain. Within six weeks, a regional assassination had become a world war.
+
+## The Reality of Industrial Warfare
+
+Those who marched off in August 1914 expected a quick, glorious conflict. Instead, they encountered **trench warfare**—a grinding, static confrontation across hundreds of miles of fortified ditches. Industrial technology had decisively favored defense: machine guns, artillery, and barbed wire made offensive advances suicidal. The Battle of the Somme in 1916 produced approximately one million casualties in five months of fighting that moved the front line barely ten miles.
+
+New weapons horrified even battle-hardened soldiers: **poison gas** blinded and suffocated thousands; aircraft evolved from reconnaissance tools into fighters and bombers; **U-boats** (German submarines) blockaded Britain and sank civilian ships, eventually drawing the United States into the war in 1917.
+
+## The Peace That Planted New Seeds of War
+
+Germany's defeat in November 1918 did not produce a durable peace. The **Treaty of Versailles** (1919) imposed massive **reparations** on Germany, stripped it of territory, and assigned it sole responsibility for the war—the notorious "war guilt clause." These punitive terms humiliated Germany, devastated its economy, and generated the resentment that radical nationalist movements, including Adolf Hitler's Nazi Party, would exploit to devastating effect two decades later.
+
+The war also dissolved four empires—Ottoman, Austro-Hungarian, Russian, and German—and redrew the map of Europe and the Middle East in ways that created new ethnic and political conflicts. Many historians argue that World War I and World War II are best understood not as separate conflicts but as a single thirty-year European civil war with a troubled armistice in between.`,
+    vocabulary: [
+      { word: 'militarism', definition: 'The belief that a country should maintain strong armed forces and be prepared to use them aggressively to defend or promote national interests.', example: 'European militarism led nations to build up massive armies before any war had begun.' },
+      { word: 'alliance', definition: 'A formal agreement between nations to support each other, especially in case of war.', example: 'The alliance system meant that a conflict between two nations quickly pulled in many others.' },
+      { word: 'trench warfare', definition: 'A type of combat in which opposing armies face each other from long, dug-in defensive positions called trenches.', example: 'Trench warfare turned World War I into a prolonged stalemate with enormous casualties.' },
+      { word: 'reparations', definition: 'Compensation that a defeated nation is required to pay to the victors for damage caused by war.', example: 'The enormous reparations Germany owed under the Treaty of Versailles crippled its economy.' },
+      { word: 'armistice', definition: 'A formal agreement to stop fighting; a ceasefire that ends a war or conflict.', example: 'The armistice of November 11, 1918 ended the fighting but left many issues unresolved.' }
+    ],
+    questions: [
+      {
+        question: 'According to the passage, why did the assassination of Franz Ferdinand lead to a world war rather than a limited regional conflict?',
+        options: [
+          'Because Germany had been planning to start a war and used it as an excuse',
+          'Because Austria-Hungary\'s military was the strongest in Europe',
+          'Because the alliance system automatically drew multiple great powers into the conflict',
+          'Because the United States immediately intervened to prevent European instability'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains step-by-step how the alliance system transformed a local dispute into a world war: Austria-Hungary → Serbia → Russia → Germany → France → Britain, all within six weeks.'
+      },
+      {
+        question: 'What does the author mean by calling Europe a "powder keg"?',
+        options: [
+          'Europe had large military arsenals stored in underground bunkers.',
+          'Tensions had built to the point where any triggering event could cause catastrophic war.',
+          'European leaders were secretly planning to start a war in 1914.',
+          'The continent\'s economies were on the verge of collapse before the war began.'
+        ],
+        correctIndex: 1,
+        explanation: 'A powder keg is a barrel of explosive powder that ignites from a spark. The author uses the metaphor to show that underlying tensions—not just the assassination—caused the war, since conditions were already explosive.'
+      },
+      {
+        question: 'Which detail best supports the claim that World War I soldiers did not expect the kind of war they actually experienced?',
+        options: [
+          '"The war also dissolved four empires—Ottoman, Austro-Hungarian, Russian, and German."',
+          '"Those who marched off in August 1914 expected a quick, glorious conflict. Instead, they encountered trench warfare."',
+          '"The Battle of the Somme in 1916 produced approximately one million casualties."',
+          '"Germany\'s defeat in November 1918 did not produce a durable peace."'
+        ],
+        correctIndex: 1,
+        explanation: 'This sentence directly contrasts soldiers\' expectations ("quick, glorious conflict") with the reality they faced (grinding trench warfare), providing the clearest textual support for the claim.'
+      },
+      {
+        question: 'What can be inferred about the Treaty of Versailles based on the final two paragraphs?',
+        options: [
+          'It successfully prevented future conflicts by addressing the root causes of the war.',
+          'It was the fairest possible outcome given the damage Germany had caused.',
+          'Its punitive terms created conditions that contributed to the rise of World War II.',
+          'Most Germans accepted its terms because they knew Germany had started the war.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states the treaty\'s terms "generated the resentment that radical nationalist movements, including Adolf Hitler\'s Nazi Party, would exploit...two decades later," directly linking Versailles to the conditions that produced World War II.'
+      },
+      {
+        question: 'How does the author\'s final argument—that WWI and WWII are "a single thirty-year European civil war"—affect the passage\'s meaning?',
+        options: [
+          'It suggests the causes of WWI were insignificant compared to those of WWII.',
+          'It frames the two wars as deeply connected, with WWI\'s unresolved issues making WWII nearly inevitable.',
+          'It argues that historians who study the wars separately are fundamentally wrong.',
+          'It implies that European nations deserve no sympathy for the suffering they experienced.'
+        ],
+        correctIndex: 1,
+        explanation: 'Calling the two wars a single conflict with "a troubled armistice" suggests the peace of 1918 never truly resolved the underlying tensions, making the outbreak of WWII an extension rather than a separate event.'
+      }
+    ]
+  },
+  {
+    id: 'genetics-heredity-mendel',
+    title: 'Genetics and Heredity: From Mendel\'s Peas to DNA',
+    topic: 'science',
+    coverEmoji: '🧬',
+    coverColor: '#134e4a',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 496,
+    readTimeMin: 3,
+    text: `## The Mystery of Inheritance
+
+For most of human history, the mechanism by which parents passed traits to offspring remained mysterious. Farmers observed that certain qualities—coat color in horses, seed texture in crops—ran in families, but no one could explain the underlying rules. That changed when an Austrian monk named **Gregor Mendel** conducted a series of painstaking experiments with pea plants in the 1850s and 1860s, laying the foundation for the modern science of genetics.
+
+## Mendel's Experiments
+
+Mendel chose garden peas because they reproduced quickly, could be controlled through careful pollination, and displayed clear, **discrete traits**—characteristics that appeared in one form or another with no blending in between. He tracked seven traits across tens of thousands of plants and multiple generations. When he crossed plants that bred true for a trait (say, tall height) with plants that bred true for the opposite trait (short height), the first generation (**F1**) showed only one version—tall. The "short" trait seemed to vanish.
+
+But when Mendel crossed the F1 plants with each other, the second generation (**F2**) showed both traits in a consistent ratio of approximately 3:1—three tall plants for every one short plant. This result revealed something profound: the short trait had not disappeared but had been masked by the **dominant** tall trait. The "hidden" trait—what Mendel called the **recessive** trait—reappeared predictably in a quarter of the offspring.
+
+## Genes, Alleles, and Probability
+
+Mendel concluded that each organism inherits two "factors" (what we now call **alleles**) for each trait, one from each parent, and that these factors segregate independently during reproduction. His **Law of Segregation** states that allele pairs separate during the formation of reproductive cells (**gametes**), so each gamete carries only one allele for each trait. His **Law of Independent Assortment** states that the inheritance of one trait does not influence the inheritance of another—a finding confirmed, with some exceptions, by modern genetics.
+
+## From Mendel to Molecular Biology
+
+Mendel's work, published in 1866, was largely ignored during his lifetime. It was rediscovered in 1900 and eventually reconciled with **chromosomal theory**, which established that genes are carried on chromosomes within cell nuclei. The discovery of **DNA's double helix structure** by Watson, Crick, Franklin, and Wilkins in 1953 explained the physical mechanism underlying Mendel's abstract rules: genes are sequences of **nucleotides** along the DNA molecule that code for specific proteins.
+
+Today, genetic science enables medicine to predict heritable diseases, agriculture to develop disease-resistant crops, and forensic science to identify individuals from trace biological evidence. The foundation of all these applications rests on Mendel's careful counting of pea plants—a reminder that systematic observation and quantitative thinking can unlock nature's deepest secrets.`,
+    vocabulary: [
+      { word: 'discrete traits', definition: 'Characteristics that occur in distinct, separate forms rather than along a continuous spectrum.', example: 'Seed color in peas is a discrete trait—seeds are either yellow or green, not a mix.' },
+      { word: 'dominant', definition: 'Describing an allele whose effect is visible even when paired with a different allele.', example: 'The dominant allele for tall pea plants masked the recessive allele for short plants.' },
+      { word: 'recessive', definition: 'Describing an allele whose effect is hidden when paired with a dominant allele; it only appears when two recessive alleles are present.', example: 'Blue eye color in humans is generally recessive, appearing only when both alleles are for blue.' },
+      { word: 'allele', definition: 'One of two or more versions of a gene that an organism can carry.', example: 'A pea plant inherits one allele for seed shape from each parent.' },
+      { word: 'nucleotide', definition: 'The basic structural unit of DNA or RNA, consisting of a sugar, a phosphate group, and one of four nitrogen bases.', example: 'The sequence of nucleotides along a DNA strand determines which protein is produced.' }
+    ],
+    questions: [
+      {
+        question: 'What conclusion did Mendel draw from the 3:1 ratio that appeared in the F2 generation?',
+        options: [
+          'One parent\'s traits always completely replaced the other\'s in offspring.',
+          'Traits could blend together, producing intermediate forms in later generations.',
+          'A recessive trait was not destroyed by a dominant one but was hidden and could reappear.',
+          'The environment determined which traits plants displayed in different generations.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states the 3:1 ratio "revealed something profound: the short trait had not disappeared but had been masked by the dominant tall trait" and "reappeared predictably in a quarter of the offspring."'
+      },
+      {
+        question: 'Why did Mendel choose pea plants for his experiments rather than more complex organisms?',
+        options: [
+          'Pea plants were the only organisms available for study in his monastery.',
+          'They reproduced quickly, could be controlled, and displayed clear, discrete traits.',
+          'Their genetics were already well understood by other scientists of the era.',
+          'They produced offspring in very large numbers with no variation whatsoever.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage lists exactly these reasons: pea plants "reproduced quickly, could be controlled through careful pollination, and displayed clear, discrete traits."'
+      },
+      {
+        question: 'Based on the passage, what is the relationship between Mendel\'s "factors" and modern genetic terminology?',
+        options: [
+          'Mendel\'s factors correspond to what scientists now call chromosomes.',
+          'Mendel\'s factors were renamed "alleles" once scientists understood their molecular basis.',
+          'Mendel\'s factors have no equivalent in modern genetics because his theory was disproven.',
+          'Mendel\'s factors are the same as nucleotides in DNA.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states "Mendel concluded that each organism inherits two \'factors\' (what we now call alleles)," directly equating his term with the modern term.'
+      },
+      {
+        question: 'What does the passage imply about the reception of Mendel\'s work during his lifetime?',
+        options: [
+          'Scientists immediately recognized its importance and built on it within a decade.',
+          'His findings were celebrated in Austria but unknown outside Europe.',
+          'His work was published but largely ignored until it was rediscovered decades later.',
+          'He refused to publish because he feared criticism from religious authorities.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explicitly states: "Mendel\'s work, published in 1866, was largely ignored during his lifetime. It was rediscovered in 1900."'
+      },
+      {
+        question: 'What is the author\'s purpose in ending the passage with the phrase "systematic observation and quantitative thinking can unlock nature\'s deepest secrets"?',
+        options: [
+          'To suggest that modern genetics has made Mendel\'s methods obsolete',
+          'To argue that only monks and religious scholars can make scientific discoveries',
+          'To emphasize that careful, methodical science—even with simple materials—can produce profound discoveries',
+          'To warn that genetic science has outpaced society\'s ability to use it responsibly'
+        ],
+        correctIndex: 2,
+        explanation: 'The closing sentence connects Mendel\'s humble pea plant experiments to the vast modern science of genetics, making the point that rigorous observation and mathematics, not just advanced technology, drive scientific breakthroughs.'
+      }
+    ]
+  },
+  {
+    id: 'evolution-natural-selection',
+    title: 'Evolution and Natural Selection: Darwin\'s Transformative Idea',
+    topic: 'science',
+    coverEmoji: '🦎',
+    coverColor: '#14532d',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 497,
+    readTimeMin: 3,
+    text: `## A Voyage That Changed Science
+
+In 1831, a twenty-two-year-old naturalist named **Charles Darwin** boarded the HMS Beagle for a five-year scientific voyage around the world. What he observed—particularly during five weeks in the **Galápagos Islands** off South America—would eventually produce one of the most consequential ideas in the history of science: the theory of evolution by **natural selection**. Published in *On the Origin of Species* (1859), Darwin's theory fundamentally challenged how humans understood life on Earth.
+
+## The Core Argument
+
+Darwin's reasoning rested on several interlocking observations. First, organisms produce more offspring than can possibly survive, given limited food, space, and other resources. Second, individuals within any population show **heritable variation**—differences in traits that can be passed to offspring. Third, some of these variations confer advantages in a particular environment, making those individuals more likely to survive and reproduce. Over generations, advantageous traits become more common in a population while disadvantageous ones become rarer. Darwin called this process **natural selection**: nature, acting through environmental pressures, "selects" which traits persist.
+
+The Galápagos finches provided a vivid illustration. Darwin observed fourteen distinct finch species with dramatically different beak shapes—some thick and powerful for cracking seeds, others slender and probing for insects. He concluded these finches shared a common ancestor but had **adapted** to the specific food sources available on each island, diversifying over countless generations.
+
+## Common Misconceptions
+
+Several misunderstandings persistently distort public understanding of evolution. The phrase "survival of the fittest," coined by Herbert Spencer rather than Darwin, is frequently misread as meaning the physically strongest individuals survive. In evolutionary terms, "fitness" means **reproductive success**—the ability to survive long enough to pass on genes, regardless of physical strength. Evolution is also not directional progress toward some ideal form; it is adaptation to current environmental conditions, which change constantly.
+
+Crucially, evolution operates over vast timescales through **incremental change**, not sudden transformation. The **fossil record** provides powerful evidence: it shows not only the existence of ancient species but also transitional forms demonstrating how major groups of animals gradually changed over millions of years.
+
+## Modern Synthesis and Applications
+
+Darwin lacked knowledge of genetics, but twentieth-century science united his theory with Mendel's genetics to produce the **modern evolutionary synthesis**—a comprehensive framework explaining how genetic mutations, natural selection, genetic drift, and migration interact to produce evolutionary change.
+
+Evolution is not merely historical theory; it has immediate practical applications. Understanding how bacteria and viruses evolve resistance to drugs informs the development of new antibiotics and antivirals. Agricultural scientists use evolutionary principles to breed disease-resistant crops. Evolutionary medicine helps explain why human bodies are vulnerable to certain diseases. Darwin's insight, refined through 165 years of scientific investigation, remains the unifying principle of modern biology.`,
+    vocabulary: [
+      { word: 'natural selection', definition: 'The process by which organisms with traits better suited to their environment tend to survive and reproduce more successfully than those with less suited traits.', example: 'Natural selection favored finches with thicker beaks on islands where hard seeds were the main food source.' },
+      { word: 'heritable variation', definition: 'Differences between individuals that can be genetically passed from parents to offspring.', example: 'Heritable variation in fur thickness allowed some arctic foxes to survive colder winters better than others.' },
+      { word: 'adaptation', definition: 'A trait that improves an organism\'s ability to survive and reproduce in its specific environment.', example: 'The long neck of a giraffe is an adaptation for reaching leaves high in trees.' },
+      { word: 'reproductive success', definition: 'The ability of an organism to survive and produce offspring that themselves survive to reproduce.', example: 'In evolutionary terms, a small but highly fertile organism may have greater reproductive success than a large but rarely breeding one.' },
+      { word: 'incremental change', definition: 'Change that occurs gradually through many small steps rather than all at once.', example: 'The fossil record shows that complex eyes evolved through incremental change over millions of years.' }
+    ],
+    questions: [
+      {
+        question: 'What was Darwin\'s central argument about how new species develop?',
+        options: [
+          'Species change suddenly in response to dramatic environmental disasters.',
+          'Over generations, natural selection causes advantageous heritable traits to become more common in a population.',
+          'Individual organisms consciously adapt their bodies to suit their environments.',
+          'All modern species were created simultaneously and have not changed since.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes Darwin\'s argument: heritable variation + environmental pressure → some traits improve survival → those traits become more common over generations through natural selection.'
+      },
+      {
+        question: 'According to the passage, how does the passage correct the misuse of the phrase "survival of the fittest"?',
+        options: [
+          'The phrase was actually coined by Darwin and accurately describes his theory.',
+          'In evolutionary terms, "fitness" means reproductive success, not physical strength.',
+          'Darwin rejected the phrase because he believed cooperation mattered more than competition.',
+          'The phrase applies only to predatory animals, not to plants or microorganisms.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states: "In evolutionary terms, \'fitness\' means reproductive success—the ability to survive long enough to pass on genes, regardless of physical strength."'
+      },
+      {
+        question: 'What is the significance of the Galápagos finches as evidence for Darwin\'s theory?',
+        options: [
+          'They proved that all birds descended from a single pair of ancestors.',
+          'They showed that species could exist on islands without ever migrating.',
+          'Their varied beak shapes suggested a common ancestor that diversified through adaptation to local conditions.',
+          'Their identical DNA confirmed that natural selection does not produce new species.'
+        ],
+        correctIndex: 2,
+        explanation: 'Darwin concluded the finches "shared a common ancestor but had adapted to the specific food sources available on each island, diversifying over countless generations"—supporting natural selection as a mechanism for species formation.'
+      },
+      {
+        question: 'Why does the author mention antibiotic resistance in the final paragraph?',
+        options: [
+          'To warn that evolution makes medicine increasingly ineffective.',
+          'To show that evolutionary principles have concrete, modern applications beyond historical theory.',
+          'To argue that bacteria evolve faster than any other organism on Earth.',
+          'To suggest that Darwin anticipated the development of modern antibiotics.'
+        ],
+        correctIndex: 1,
+        explanation: 'The author writes "Evolution is not merely historical theory; it has immediate practical applications," then gives antibiotic resistance as an example—demonstrating that the theory has real-world relevance today.'
+      },
+      {
+        question: 'What does the passage imply about the relationship between Darwin\'s original theory and modern evolutionary science?',
+        options: [
+          'Darwin\'s theory was essentially complete and needed no further development.',
+          'Modern genetics disproved Darwin\'s core argument about natural selection.',
+          'Darwin\'s theory was combined with genetics in the twentieth century, producing a more complete framework.',
+          'The modern evolutionary synthesis replaced Darwin\'s ideas entirely with new concepts.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes the "modern evolutionary synthesis" as uniting Darwin\'s theory with Mendel\'s genetics, indicating that Darwin\'s core ideas were extended and strengthened rather than replaced or disproved.'
+      }
+    ]
+  },
+  {
+    id: 'human-impact-ecosystems',
+    title: 'The Human Footprint: How People Are Reshaping Earth\'s Ecosystems',
+    topic: 'science',
+    coverEmoji: '🌿',
+    coverColor: '#166534',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 503,
+    readTimeMin: 3,
+    text: `## A Planet Transformed
+
+Geologists have proposed naming the current epoch the **Anthropocene**—the "age of humans"—because human activity has now become the dominant force shaping Earth's physical and biological systems. The evidence is everywhere: forests cleared for agriculture cover an area the size of South America; rivers dammed, diverted, or polluted beyond recognition; species disappearing at rates 100 to 1,000 times the natural **background extinction rate**. Understanding the scope and mechanisms of human environmental impact is essential for anyone who will live through the twenty-first century.
+
+## Habitat Loss and Fragmentation
+
+The single greatest driver of biodiversity loss is **habitat destruction**—the conversion of natural ecosystems to agricultural land, urban development, or resource extraction. When large, continuous habitats are reduced to isolated patches, the consequences cascade through entire communities of organisms. Species that require large territories—wolves, panthers, certain migratory birds—cannot survive in small fragments. **Edge effects** alter the microclimate and species composition even in the surviving patches. The result is a process of **ecological fragmentation** that can eliminate species from an area long after the last forest has apparently been "preserved."
+
+## Climate Change and Ecosystem Disruption
+
+Human emissions of **greenhouse gases**—primarily carbon dioxide from fossil fuel combustion and methane from agriculture and landfills—are altering Earth's climate at unprecedented speed. Ecosystems adapted to stable temperature and precipitation patterns are being disrupted: coral reefs bleach and die as ocean temperatures rise; Arctic tundra thaws, releasing stored carbon and accelerating warming in a dangerous feedback loop; **phenological mismatches** occur when flowering plants and the insects that pollinate them adjust to warming at different rates, disrupting long-evolved relationships.
+
+## Invasive Species and Overharvesting
+
+Human transportation networks have carried species to ecosystems where they have no natural predators or competitors, allowing them to expand explosively. **Invasive species** like the Burmese python in Florida or the zebra mussel in the Great Lakes have restructured native ecosystems by eliminating native prey species or outcompeting native organisms for resources.
+
+**Overharvesting** of fish, timber, and wildlife has depleted populations faster than they can reproduce. Atlantic cod, once so abundant that early European explorers described catching them in baskets lowered from ships, collapsed in the 1990s due to industrial-scale fishing—a population crash from which recovery has been painfully slow.
+
+## The Case for Solutions
+
+Human impact on ecosystems is severe, but it is not irreversible. **Ecological restoration** projects have demonstrated that degraded habitats can recover when pressure is removed and active intervention applied. Marine protected areas have allowed fish populations to rebound. Reintroduction programs for wolves in Yellowstone triggered a **trophic cascade** that restored stream banks and increased biodiversity. The key variable is not whether recovery is possible but whether human societies choose to prioritize it.`,
+    vocabulary: [
+      { word: 'Anthropocene', definition: 'A proposed geological epoch characterized by significant human impact on Earth\'s geology and ecosystems.', example: 'Scientists argue we are now in the Anthropocene because human activity affects global systems more than natural processes.' },
+      { word: 'habitat fragmentation', definition: 'The process by which a large, continuous habitat is broken into smaller, isolated patches, often by human development.', example: 'Highway construction causes habitat fragmentation that prevents animals from migrating between populations.' },
+      { word: 'invasive species', definition: 'A non-native species introduced to an ecosystem where it spreads aggressively and harms native species or the ecosystem.', example: 'The Burmese python is an invasive species in Florida that has drastically reduced native bird and mammal populations.' },
+      { word: 'phenological mismatch', definition: 'A disruption in the timing of interacting biological events—such as plant flowering and insect emergence—caused by climate change.', example: 'A phenological mismatch between wildflower blooms and bee activity can reduce pollination success.' },
+      { word: 'trophic cascade', definition: 'A chain of effects in an ecosystem triggered by the addition or removal of a top predator that ripples down through multiple levels of the food web.', example: 'The reintroduction of wolves caused a trophic cascade that changed river patterns by reducing elk overgrazing.' }
+    ],
+    questions: [
+      {
+        question: 'What is the author\'s central argument about human impact on ecosystems?',
+        options: [
+          'Human impact is so severe that ecosystem recovery is essentially impossible.',
+          'Human activity is the dominant force reshaping Earth, but targeted action can enable recovery.',
+          'Climate change is a natural process that scientists have overestimated.',
+          'Protecting large national parks is sufficient to prevent biodiversity loss.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage documents serious impacts throughout but concludes that "human impact on ecosystems is severe, but it is not irreversible," and cites examples of successful recovery—showing a balanced position that acknowledges problems while supporting solutions.'
+      },
+      {
+        question: 'According to the passage, why does habitat fragmentation cause species loss even in "preserved" patches?',
+        options: [
+          'Preserved patches are too small for plants to grow successfully.',
+          'Edge effects and the inability of wide-ranging species to survive in isolated fragments cause ongoing extinction.',
+          'Human visitors to preserved areas introduce pollution that kills wildlife.',
+          'Fragmented habitats experience more frequent wildfires than continuous ones.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that species needing large territories cannot survive in small fragments and that "edge effects alter the microclimate and species composition even in the surviving patches."'
+      },
+      {
+        question: 'What does the Atlantic cod example illustrate about overharvesting?',
+        options: [
+          'Technological improvements in fishing can always prevent species collapse.',
+          'Populations can collapse rapidly and recover very slowly when harvested beyond their reproductive capacity.',
+          'International cooperation has successfully protected most commercial fish species.',
+          'Early European explorers exaggerated how abundant Atlantic cod once were.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes cod going from near-limitless abundance to a collapse in the 1990s, "from which recovery has been painfully slow," demonstrating that overharvesting can cause rapid, long-lasting damage.'
+      },
+      {
+        question: 'Based on the passage, what is a "feedback loop" in the context of Arctic tundra thawing?',
+        options: [
+          'A government program that funds Arctic research and reports results back to policymakers',
+          'A cycle where warming causes carbon release, which causes more warming, which causes more carbon release',
+          'The seasonal freezing and thawing that naturally regulates Arctic temperatures',
+          'A mechanism by which Arctic animals migrate south and then return each spring'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states thawing tundra releases "stored carbon and accelerating warming in a dangerous feedback loop"—where warming causes thawing, thawing releases carbon, and carbon causes more warming, creating a self-reinforcing cycle.'
+      },
+      {
+        question: 'What evidence does the author use to argue that ecosystem damage is not permanent?',
+        options: [
+          'Satellite data showing global forest cover has increased since 1990',
+          'The Yellowstone wolf reintroduction and marine protected area success stories',
+          'Government legislation requiring companies to offset their carbon emissions',
+          'Studies showing that invasive species eventually integrate into native ecosystems'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph cites marine protected areas allowing fish populations to rebound and wolf reintroduction in Yellowstone triggering a trophic cascade that restored biodiversity as concrete evidence of successful recovery.'
+      }
+    ]
+  },
+  {
+    id: 'totalitarianism-fascism-communism',
+    title: 'Totalitarianism: Comparing Fascism and Communism',
+    topic: 'history',
+    coverEmoji: '🏛️',
+    coverColor: '#1c1917',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 502,
+    readTimeMin: 3,
+    text: `## Control Without Limits
+
+The twentieth century produced a new and terrifying form of political organization: **totalitarianism**—a system in which the state seeks to control not just the government and military, but every aspect of citizens' lives, including their work, their art, their family relationships, and ultimately their thoughts. Two distinct variants—**fascism** and **communism**—dominated this era, and while they were bitter enemies, their methods of total control bore disturbing similarities.
+
+## Fascism: Nation, Race, and the Strong Leader
+
+Fascism arose in the aftermath of World War I in Italy, Germany, and Spain, feeding on humiliation, economic anxiety, and fear of socialist revolution. Fascist ideology placed the **nation or race** at the center of all value. Italian dictator **Benito Mussolini** and German dictator **Adolf Hitler** rejected individual rights as weakness and celebrated the collective power of the state under an all-powerful leader, the *Führer* or *Duce*. Private property and business were permitted but subordinated to state direction. **Ultranationalism**—an extreme, often violent form of national loyalty—was combined with racism, scapegoating ethnic and religious minorities for national problems. The result, in Hitler's Germany, was the Holocaust: the systematic murder of six million Jews and millions of others.
+
+## Communism: Class, Revolution, and the Party
+
+**Communism** as practiced by the Soviet Union and later China emerged from the ideology of Karl Marx, who argued that history was driven by class struggle and that capitalism inevitably exploited workers. The **Bolshevik Revolution** of 1917 brought Vladimir Lenin's Communist Party to power in Russia. Under Lenin and especially under **Joseph Stalin**, the state nationalized all property, collectivized agriculture, and directed the entire economy through central planning. The Communist Party claimed to represent the interests of the working class but in practice exercised a monopoly on power, eliminating rival parties, suppressing dissent, and operating an extensive secret police network. Stalin's purges and forced collectivization caused an estimated 6 to 20 million deaths in the Soviet Union alone.
+
+## Comparing the Two Systems
+
+Fascism and communism differed profoundly in their stated ideologies: fascism celebrated national and racial identity while communism embraced international working-class solidarity. Fascism permitted private property; communism abolished it. Yet in their actual operation, the two systems converged in disturbing ways: both relied on a single-party state with an all-powerful leader, both used terror and **propaganda** to manipulate their populations, both suppressed free speech and eliminated political opponents, and both produced catastrophic death tolls.
+
+Political scientists use the term **authoritarian** to describe any government that concentrates power and limits freedoms, but totalitarianism represents an extreme form that goes further—attempting to reshape human consciousness itself. The comparison between fascism and communism does not minimize the suffering each caused; rather, it illuminates how different paths to total power produce strikingly similar systems of oppression.`,
+    vocabulary: [
+      { word: 'totalitarianism', definition: 'A political system in which a single party or leader holds absolute power and controls all aspects of public and private life.', example: 'Under totalitarianism, citizens could be imprisoned for expressing opinions that contradicted government propaganda.' },
+      { word: 'ultranationalism', definition: 'An extreme form of nationalism that promotes the superiority of one nation or ethnic group over others, often with hostility toward minority groups.', example: 'Ultranationalism in Nazi Germany led to the scapegoating of Jewish people for the country\'s economic problems.' },
+      { word: 'collectivization', definition: 'The forced consolidation of privately owned farms or businesses into government-controlled collective units.', example: 'Soviet collectivization of farms caused widespread famine when peasants resisted giving up their land.' },
+      { word: 'propaganda', definition: 'Biased or misleading information spread by a government or group to promote its political agenda and manipulate public opinion.', example: 'Both fascist and communist governments used propaganda posters, films, and radio to shape citizens\' beliefs.' },
+      { word: 'authoritarian', definition: 'Relating to a political system in which power is concentrated in a single authority and individual freedoms are limited or suppressed.', example: 'Authoritarian governments typically eliminate opposition parties and restrict the free press.' }
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what is the key difference between authoritarianism and totalitarianism?',
+        options: [
+          'Authoritarianism is always based on racial ideology, while totalitarianism is based on class.',
+          'Totalitarianism goes further than authoritarianism, attempting to control even citizens\' thoughts and consciousness.',
+          'Authoritarianism requires the support of the military, while totalitarianism relies on civilian police.',
+          'Totalitarianism only existed in Europe, while authoritarianism appears globally.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states totalitarianism "represents an extreme form that goes further—attempting to reshape human consciousness itself," distinguishing it from ordinary authoritarianism which "concentrates power and limits freedoms."'
+      },
+      {
+        question: 'What is the author\'s purpose in comparing fascism and communism despite their ideological differences?',
+        options: [
+          'To argue that fascism was more dangerous than communism because it combined nationalism with racism',
+          'To show that different stated ideologies can produce similarly oppressive systems in practice',
+          'To prove that all European governments in the 1930s were equivalent in their cruelty',
+          'To suggest that economic systems are more important than political structures in determining outcomes'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the comparison "illuminates how different paths to total power produce strikingly similar systems of oppression"—the author\'s purpose is to show convergence despite ideological divergence.'
+      },
+      {
+        question: 'Which characteristic did fascism and communism share despite their ideological differences?',
+        options: [
+          'Both abolished private property and nationalized all industry.',
+          'Both celebrated international working-class solidarity over national identity.',
+          'Both relied on single-party states, terror, and propaganda to maintain power.',
+          'Both emerged directly from the ideology of Karl Marx.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage lists shared features: "both relied on a single-party state with an all-powerful leader, both used terror and propaganda...both suppressed free speech and eliminated political opponents."'
+      },
+      {
+        question: 'Based on the passage, what social conditions made fascism appealing to many people after World War I?',
+        options: [
+          'Widespread prosperity that made people want to preserve the existing system',
+          'Humiliation, economic anxiety, and fear of socialist revolution',
+          'Strong democratic traditions that fascists promised to protect',
+          'A desire for international cooperation following the devastation of the war'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states fascism "arose in the aftermath of World War I in Italy, Germany, and Spain, feeding on humiliation, economic anxiety, and fear of socialist revolution."'
+      },
+      {
+        question: 'What inference can be drawn from the phrase "bitter enemies" used to describe the relationship between fascism and communism?',
+        options: [
+          'The two systems never actually came into direct conflict during the twentieth century.',
+          'Despite their shared methods of control, the two systems violently opposed each other.',
+          'Fascists and communists disagreed only about economic policy, not political methods.',
+          'The two ideologies merged by the end of World War II into a single system.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage notes they were "bitter enemies" but then shows their methods converged. This implies they fought each other (as in WWII) while paradoxically using the same tools of oppression—a deliberate irony the author highlights.'
+      }
+    ]
+  },
+  {
+    id: 'great-depression-new-deal',
+    title: 'The Great Depression: Causes, Suffering, and the New Deal',
+    topic: 'history',
+    coverEmoji: '📉',
+    coverColor: '#292524',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 499,
+    readTimeMin: 3,
+    text: `## The Crash and Its Causes
+
+On October 29, 1929—**Black Tuesday**—the New York Stock Exchange collapsed in a catastrophic sell-off, wiping out the paper fortunes of investors and triggering a decade of economic devastation. The stock market crash did not by itself cause the Great Depression; it exposed and accelerated underlying weaknesses that had accumulated throughout the 1920s. Agricultural prices had already been depressed for years. **Overproduction** in factories had outpaced consumer demand. Easy credit had encouraged excessive **speculation**—purchasing stocks on borrowed money in hopes of quick profits, a strategy that collapsed disastrously when prices fell.
+
+The response of the Herbert Hoover administration deepened the crisis. When banks began failing, the Federal Reserve contracted the **money supply**, making credit scarce at precisely the moment when businesses desperately needed it. Congress passed the **Smoot-Hawley Tariff** in 1930, triggering retaliatory tariffs from trading partners and collapsing international trade. By 1933, approximately 25 percent of American workers were unemployed, industrial production had fallen by nearly half, and thousands of banks had failed.
+
+## Living Through the Depression
+
+For ordinary Americans, the Depression meant hunger, displacement, and profound humiliation. Families who had considered themselves solidly middle-class found themselves standing in **breadlines**. Farmers across the southern Great Plains faced the additional catastrophe of the **Dust Bowl**—years of severe drought combined with poor farming practices that had stripped the soil of its protective grass cover, producing massive dust storms that blackened the sky and buried farms under drifts of powdery earth. Hundreds of thousands of "Okies" fled west toward California in search of work, only to find exploitation and contempt.
+
+## Roosevelt's New Deal
+
+Franklin D. Roosevelt won the 1932 presidential election promising a "**New Deal**" for Americans. His administration enacted an unprecedented array of programs in its first hundred days: the **FDIC** insured bank deposits, restoring confidence in the banking system; the **CCC** (Civilian Conservation Corps) employed young men in national parks and forests; the **PWA** (Public Works Administration) funded construction of schools, dams, and bridges; the **Social Security Act** of 1935 created a federal retirement and unemployment insurance system.
+
+Historians debate whether the New Deal actually ended the Depression—unemployment remained above 14 percent in 1940—or whether full recovery required the industrial mobilization of World War II. What is less debated is the New Deal's long-term structural impact: it established the principle that the federal government bears responsibility for citizens' economic welfare, a transformation in the relationship between government and society that fundamentally altered American political life for decades.`,
+    vocabulary: [
+      { word: 'speculation', definition: 'Buying assets in hopes of profiting from price increases, accepting high risk for potentially high reward.', example: 'Reckless speculation in the 1920s led many investors to buy stocks with borrowed money they could not repay.' },
+      { word: 'money supply', definition: 'The total amount of money available in an economy at a given time, including cash and bank deposits.', example: 'When the Federal Reserve reduced the money supply, banks had less credit to lend to struggling businesses.' },
+      { word: 'Dust Bowl', definition: 'A region of the southern Great Plains severely affected in the 1930s by drought and dust storms caused by poor farming practices and overplowing.', example: 'Dust Bowl storms buried farmhouses and forced thousands of families to abandon their land.' },
+      { word: 'breadline', definition: 'A line of people waiting to receive free food distributed by a charity or government agency during a period of severe economic hardship.', example: 'Photographs of breadlines stretching around city blocks became iconic images of the Depression era.' },
+      { word: 'FDIC', definition: 'The Federal Deposit Insurance Corporation; a U.S. government agency created in 1933 to insure bank deposits and prevent bank runs.', example: 'After the FDIC was established, most Americans felt safe keeping their savings in banks again.' }
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what was the relationship between the stock market crash and the Great Depression?',
+        options: [
+          'The stock market crash directly caused the Depression by eliminating all investment capital.',
+          'The crash was unrelated to the Depression, which had begun years earlier.',
+          'The crash exposed and accelerated already-existing economic weaknesses rather than being the sole cause.',
+          'The crash was minor in itself; the Depression was caused entirely by the Smoot-Hawley Tariff.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states the crash "did not by itself cause the Great Depression; it exposed and accelerated underlying weaknesses that had accumulated throughout the 1920s," then lists several pre-existing problems.'
+      },
+      {
+        question: 'What does the passage imply about the Hoover administration\'s response to the crisis?',
+        options: [
+          'Hoover responded aggressively with large-scale government programs that partially mitigated the Depression.',
+          'Hoover\'s policies worsened the Depression rather than alleviating it.',
+          'Hoover correctly identified the causes but lacked congressional support for solutions.',
+          'Hoover\'s response was appropriate, and the Depression would have been far worse without it.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states "the response of the Herbert Hoover administration deepened the crisis" and then describes how the Fed contracted the money supply and the Smoot-Hawley Tariff collapsed trade—both making things worse.'
+      },
+      {
+        question: 'What two catastrophes did Great Plains farmers face simultaneously during the Depression?',
+        options: [
+          'Bank failures and collapse of international grain markets',
+          'Economic depression and the Dust Bowl drought and dust storms',
+          'Flooding from broken irrigation systems and collapsing commodity prices',
+          'Union strikes and federal seizure of farmland for public works projects'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes how farmers already suffering from the Depression also faced the Dust Bowl—drought combined with poor farming practices that created massive dust storms and destroyed their land.'
+      },
+      {
+        question: 'Based on the passage, what is the most significant long-term legacy of the New Deal?',
+        options: [
+          'It immediately ended the Great Depression and restored full employment.',
+          'It created the principle that the federal government is responsible for citizens\' economic welfare.',
+          'It proved that government spending programs are always more effective than free markets.',
+          'It established the stock market regulations that have prevented all major crashes since 1933.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the New Deal\'s "long-term structural impact" was establishing "the principle that the federal government bears responsibility for citizens\' economic welfare, a transformation...that fundamentally altered American political life for decades."'
+      },
+      {
+        question: 'Why does the author acknowledge that historians debate whether the New Deal ended the Depression?',
+        options: [
+          'To undermine the New Deal\'s accomplishments and suggest it was a failure',
+          'To show that the author is uncertain about the facts',
+          'To present a historically honest account that acknowledges complexity and ongoing scholarly debate',
+          'To argue that World War II was more important to American history than the New Deal'
+        ],
+        correctIndex: 2,
+        explanation: 'By noting that "historians debate" the New Deal\'s effectiveness and that unemployment remained high in 1940, the author demonstrates intellectual honesty and shows awareness that historical questions are often more complex than simple narratives suggest.'
+      }
+    ]
+  },
+  {
+    id: 'florida-great-depression',
+    title: 'Florida During the Great Depression and New Deal',
+    topic: 'history',
+    coverEmoji: '🌴',
+    coverColor: '#164e63',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 494,
+    readTimeMin: 3,
+    text: `## Florida's Boom and Its Collapse
+
+While the Great Depression officially dates from the stock market crash of 1929, Florida experienced its own economic catastrophe several years earlier. The **Florida land boom** of the early 1920s had attracted speculators from across the country, all convinced that subtropical land would appreciate indefinitely. Real estate prices in Miami, Tampa, and along the coasts soared to implausible levels. Then, in 1926 and 1928, two devastating **hurricanes** struck south Florida, exposing just how overbuilt and financially fragile the region had become. The land boom collapsed before the national economy did, leaving Florida uniquely vulnerable when the broader Depression arrived.
+
+## The Depression's Impact on Florida
+
+By the early 1930s, Florida's economy was in dire condition. The state's agricultural workers—many of them African Americans and migrant laborers—faced severe hardship as prices for citrus, sugar, and winter vegetables collapsed. Florida's **citrus industry**, a backbone of the state's rural economy, saw prices fall below the cost of production. Turpentine and lumber camps that had long exploited the state's piney woods contracted sharply. Tourism, which had emerged as a significant industry during the boom years, nearly vanished as Americans across the country had neither the money nor the inclination to travel.
+
+Bank failures were catastrophic in Florida: at one point, not a single state-chartered bank in Florida was operating. Many towns reverted to a near-barter economy, with local merchants extending credit and communities organizing mutual aid to keep neighbors fed.
+
+## New Deal Programs in Florida
+
+Federal **New Deal** programs transformed Florida's physical and social landscape in ways still visible today. The **Civilian Conservation Corps (CCC)** employed thousands of young Floridians in constructing trails, facilities, and infrastructure in state and national parks—including much of what visitors now see at Myakka River State Park and Florida Caverns State Park. The **Works Progress Administration (WPA)** funded construction of schools, courthouses, post offices, and bridges across the state, employing artists who created murals still displayed in Florida public buildings.
+
+The **Federal Emergency Relief Administration** provided direct aid to destitute families. In a state with a large African American population subject to **Jim Crow** laws, New Deal programs were imperfectly available: local administrators often discriminated in distributing aid, and agricultural workers were deliberately excluded from Social Security and labor protections due to pressure from Southern congressmen who feared disrupting the region's racial labor hierarchy.
+
+## A Changed State
+
+By the late 1930s, New Deal investment had helped stabilize Florida's economy, but full recovery came only with **World War II**, when Florida's climate and geography made it an ideal location for military training bases. The federal spending associated with the war permanently transformed the state's relationship with the federal government—a dependency on military installations and federal programs that continues to shape Florida's economy today.`,
+    vocabulary: [
+      { word: 'land boom', definition: 'A period of rapid, speculative increases in land prices, typically followed by a sharp crash.', example: 'The Florida land boom of the 1920s attracted investors who drove up real estate prices far beyond their true value.' },
+      { word: 'citrus industry', definition: 'The agricultural sector that grows and processes citrus fruits such as oranges, grapefruits, and lemons for sale.', example: 'Florida\'s citrus industry suffered when Depression-era prices fell below what it cost to grow and harvest the fruit.' },
+      { word: 'barter economy', definition: 'A system of exchange in which goods or services are traded directly for other goods or services without using money.', example: 'When banks failed, some communities relied on a barter economy, trading food or labor instead of cash.' },
+      { word: 'Jim Crow', definition: 'State and local laws enforcing racial segregation and discrimination against African Americans in the South from the 1870s through the 1960s.', example: 'Jim Crow laws meant that even New Deal relief programs were often distributed unequally in Southern states.' },
+      { word: 'Works Progress Administration', definition: 'A New Deal agency that employed millions of unemployed workers in public works projects including construction, arts, and education programs.', example: 'The Works Progress Administration funded the construction of many Florida schools and post offices that still stand today.' }
+    ],
+    questions: [
+      {
+        question: 'Why was Florida especially vulnerable when the national Great Depression began in 1929?',
+        options: [
+          'Florida had no significant agriculture or industry to provide economic stability.',
+          'Florida had already experienced its own economic collapse due to the land boom bust and hurricanes.',
+          'Florida refused to accept federal aid programs and had to recover entirely on its own.',
+          'Florida\'s population was too small to benefit from national economic recovery programs.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains Florida\'s land boom collapsed years before 1929, compounded by two major hurricanes, "leaving Florida uniquely vulnerable when the broader Depression arrived."'
+      },
+      {
+        question: 'According to the passage, how did New Deal programs leave a lasting physical legacy in Florida?',
+        options: [
+          'They funded the construction of major highways connecting Florida cities to the rest of the country.',
+          'They created state parks, schools, courthouses, and bridges—many of which still exist today.',
+          'They established the citrus industry as Florida\'s dominant economic sector.',
+          'They built military bases that protected Florida from attack during World War II.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the CCC built park infrastructure "still visible today" and the WPA funded "schools, courthouses, post offices, and bridges," with murals "still displayed in Florida public buildings."'
+      },
+      {
+        question: 'What does the passage imply about the fairness of New Deal programs as applied in Florida?',
+        options: [
+          'New Deal programs were administered fairly and equally to all Florida residents regardless of race.',
+          'New Deal programs disproportionately benefited African Americans who faced the worst poverty.',
+          'Racial discrimination and political pressure meant New Deal benefits were often denied to African American workers.',
+          'Florida\'s local administrators expanded New Deal programs beyond what the federal government intended.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states local administrators "often discriminated in distributing aid, and agricultural workers were deliberately excluded from Social Security and labor protections due to pressure from Southern congressmen."'
+      },
+      {
+        question: 'Based on the passage, what ultimately ended Florida\'s Depression-era economic troubles?',
+        options: [
+          'The success of New Deal programs in restoring Florida\'s citrus industry',
+          'The revival of Florida\'s tourism industry after 1935',
+          'Federal military spending associated with World War II',
+          'The discovery of large oil reserves in the Gulf of Mexico'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states "full recovery came only with World War II, when Florida\'s climate and geography made it an ideal location for military training bases"—the military spending associated with the war drove recovery.'
+      },
+      {
+        question: 'How does the author use the Florida land boom to support a larger argument about economic cycles?',
+        options: [
+          'To argue that real estate speculation is always more dangerous than stock market investment',
+          'To show that Florida\'s 1920s experience paralleled the national pattern of speculation followed by collapse',
+          'To prove that natural disasters are the primary cause of economic downturns',
+          'To suggest Florida\'s economy was always weaker than that of other states'
+        ],
+        correctIndex: 1,
+        explanation: 'The Florida land boom mirrors the national pattern described in the broader Depression story: speculative excess, inflated values, then catastrophic collapse. The author uses Florida as a regional case study of the same economic forces.'
+      }
+    ]
+  },
+
+{
+    id: 'womens-suffrage-movement',
+    title: 'The Long March to the Ballot Box',
+    topic: 'history',
+    coverEmoji: '🗳️',
+    coverColor: '#7c3aed',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 500,
+    readTimeMin: 3,
+    text: `## A Movement Decades in the Making
+
+When Elizabeth Cady Stanton and Lucretia Mott organized the **Seneca Falls Convention** in 1848, few people believed women would ever earn the right to vote. Yet seventy-two years later, the **Nineteenth Amendment** to the U.S. Constitution declared that no citizen could be denied the vote on account of sex. The journey between those two moments was neither straight nor easy.
+
+## Early Organizing
+
+The Seneca Falls Declaration of Sentiments — modeled deliberately on the Declaration of Independence — demanded equal rights for women, including the vote. Many attendees, even sympathetic ones, thought the suffrage demand was too radical. Frederick Douglass was among the few prominent men who supported it openly. Critics argued that women's proper sphere was the home, and that mixing in political life would corrupt domestic life and weaken society.
+
+Suffragists responded by organizing tirelessly — holding conventions, publishing newspapers, and petitioning Congress year after year. **Susan B. Anthony** was arrested in 1872 simply for attempting to vote. Her trial became a platform for the cause, even as the judge refused to let the jury deliberate and fined her $100, which she never paid.
+
+## Divisions Within the Movement
+
+The suffrage movement was not a unified front. After the Civil War, the movement split bitterly over the **Fifteenth Amendment**, which granted Black men the right to vote but excluded women entirely. Some leaders, including Stanton, opposed the amendment in explicitly racist terms, arguing that educated white women deserved the vote more than formerly enslaved men. This division exposed the deep tensions between racial equality and gender equality that would persist for generations.
+
+Meanwhile, suffragists in western territories achieved early victories. Wyoming granted women the vote in 1869, and several states followed. These successes gave the national movement momentum and evidence that the republic would not collapse if women voted.
+
+## The Final Push
+
+By the early twentieth century, the movement had shifted strategy. Mass parades, hunger strikes by imprisoned activists, and coordinated lobbying campaigns created pressure that could not be ignored. **Alice Paul** and the National Woman's Party picketed the White House during World War I, carrying signs that embarrassed President Woodrow Wilson by contrasting American war aims abroad with the denial of democracy at home.
+
+In August 1920, Tennessee became the thirty-sixth state to ratify the Nineteenth Amendment — the minimum needed — by a margin of one vote, cast by a twenty-four-year-old legislator who changed his mind after receiving a note from his mother urging him to vote for suffrage.
+
+## A Victory with Limits
+
+The amendment's passage was a landmark achievement, but millions of women — particularly Black, Native American, Latina, and Asian American women — were still effectively barred from voting by **poll taxes**, literacy tests, and outright violence for decades to come. The suffrage movement's story is therefore both a triumph of democracy and a reminder that formal rights and real equality are never the same thing.`,
+    vocabulary: [
+      { word: 'suffrage', definition: 'The right to vote in political elections.', example: 'The campaign for suffrage lasted more than seven decades before the Nineteenth Amendment was ratified.' },
+      { word: 'ratify', definition: 'To formally approve or confirm a law or agreement, making it official.', example: 'Three-fourths of the states had to ratify the amendment before it became part of the Constitution.' },
+      { word: 'amendment', definition: 'A formal change or addition to a legal document, especially the U.S. Constitution.', example: 'The Nineteenth Amendment prohibited denying the vote based on sex.' },
+      { word: 'suffragist', definition: 'A person who advocates for extending voting rights, especially to women.', example: 'Suffragists organized parades and hunger strikes to draw attention to their cause.' },
+      { word: 'momentum', definition: 'The strength or force that something gains as it develops, making it harder to stop.', example: 'Early victories in western states gave the national suffrage movement significant momentum.' },
+    ],
+    questions: [
+      {
+        question: 'What inference can be made about why suffragists modeled the Declaration of Sentiments on the Declaration of Independence?',
+        options: [
+          'They wanted to appeal to American ideals of equality that their opponents claimed to share',
+          'They believed the original Declaration had already granted women the right to vote',
+          'They hoped to embarrass Thomas Jefferson by pointing out errors in his writing',
+          'The Declaration of Independence was the only political document women were permitted to read at the time'
+        ],
+        correctIndex: 0,
+        explanation: 'By echoing the Declaration of Independence — a document Americans revered — suffragists made it harder for opponents to reject women\'s rights without appearing to contradict the nation\'s founding ideals. This was a deliberate rhetorical strategy.'
+      },
+      {
+        question: 'According to the passage, what was one significant division within the suffrage movement?',
+        options: [
+          'Some suffragists wanted to abandon the cause after Susan B. Anthony\'s arrest',
+          'Leaders disagreed about whether to support the Fifteenth Amendment, which granted Black men the vote but excluded women',
+          'Western suffragists refused to work with eastern organizations because they had already won the vote',
+          'Alice Paul and Elizabeth Cady Stanton publicly disagreed about whether to hold the Seneca Falls Convention'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly describes the bitter split over the Fifteenth Amendment. Some suffragists, including Stanton, opposed it using racist arguments, revealing deep tensions between gender and racial equality within the movement.'
+      },
+      {
+        question: 'What does the author most likely want readers to understand by including the final paragraph about poll taxes and literacy tests?',
+        options: [
+          'The Nineteenth Amendment was poorly written and needed to be revised immediately',
+          'Women in the West were more committed to voting rights than women in the East',
+          'A legal right on paper does not automatically produce genuine equality in practice',
+          'The suffrage movement should have waited until racial equality was fully achieved first'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph points out that despite the amendment\'s passage, millions of women remained effectively excluded from voting. This supports the author\'s central idea that formal rights and real equality are not the same thing.'
+      },
+      {
+        question: 'Which piece of textual evidence BEST supports the idea that the suffrage movement used creative strategies to apply pressure on political leaders?',
+        options: [
+          'Susan B. Anthony was arrested in 1872 for attempting to vote',
+          'Alice Paul and the National Woman\'s Party picketed the White House, using signs that contrasted American war aims with the denial of democracy at home',
+          'Wyoming granted women the vote in 1869',
+          'The Seneca Falls Convention was organized by Elizabeth Cady Stanton and Lucretia Mott'
+        ],
+        correctIndex: 1,
+        explanation: 'Picketing the White House during wartime with signs specifically designed to embarrass Wilson demonstrates strategic, calculated pressure. The other options show persistence or early victories but are less directly about creative political strategy.'
+      },
+      {
+        question: 'The author describes the suffrage movement\'s story as "both a triumph of democracy and a reminder that formal rights and real equality are never the same thing." This statement is best described as:',
+        options: [
+          'A piece of evidence that proves the movement ultimately failed',
+          'The author\'s central claim that the passage has been building toward',
+          'An exaggeration meant to criticize early suffragists unfairly',
+          'A transition that introduces a new argument about modern voting laws'
+        ],
+        correctIndex: 1,
+        explanation: 'Throughout the passage, the author traces both the achievements and the limitations of the suffrage movement. The final statement crystallizes the central idea the entire passage has been developing: legal progress and genuine equality are related but distinct goals.'
+      },
+    ]
+  },
+  {
+    id: 'manifest-destiny-westward',
+    title: 'Westward Expansion: Promise and Cost',
+    topic: 'history',
+    coverEmoji: '🌄',
+    coverColor: '#92400e',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 510,
+    readTimeMin: 3,
+    text: `## A Nation Convinced of Its Destiny
+
+In the 1840s, an American journalist named John O'Sullivan coined a phrase that would define an era: **Manifest Destiny**. He argued that the United States was destined — by God and by nature — to stretch from the Atlantic to the Pacific Ocean. This idea wasn't simply a geographic ambition; it was wrapped in the belief that American civilization was superior and had a mission to spread across the continent.
+
+Politicians, settlers, and newspaper editors embraced the concept eagerly. By 1850, the United States had acquired Texas, the Oregon Territory, California, and the vast Southwest through a combination of treaties, purchases, and war. The nation had nearly doubled in size within a decade.
+
+## The Oregon Trail and the Reality of Migration
+
+Hundreds of thousands of settlers made the grueling 2,000-mile journey west along the **Oregon Trail** between 1840 and 1869. They traveled in wagon trains, facing disease, harsh weather, and treacherous terrain. Cholera killed more migrants than any other cause, often striking entire families within days. Those who survived arrived to claim land under the **Homestead Act of 1862**, which offered 160 acres of public land to any head of household willing to farm it for five years.
+
+For many white settlers, westward expansion represented opportunity — cheap land, fresh starts, and economic independence. Newspapers ran glowing accounts of fertile soil and mild climates. What they rarely mentioned was that the land being offered was not empty.
+
+## The Cost to Indigenous Nations
+
+The land through which settlers traveled and eventually settled belonged to dozens of Indigenous nations, including the **Sioux**, **Comanche**, **Nez Perce**, and **Apache**. These nations had complex civilizations, trade networks, and deep relationships with the land spanning thousands of years.
+
+The U.S. government made and broke treaty after treaty, pushing Indigenous peoples onto smaller and less fertile reservations whenever settlers wanted more land. The **Indian Removal Act of 1830** had already forced nations from the Southeast along the **Trail of Tears**. After the Civil War, the U.S. Army waged a systematic campaign of warfare against Plains nations. The near-total destruction of the **buffalo herds** — reduced from an estimated 30 million animals to fewer than 1,000 by the 1880s — was both a consequence of mass hunting and a deliberate strategy to starve nations that depended on the buffalo for survival.
+
+## Legacy and Interpretation
+
+Today, historians debate how to interpret westward expansion. Some emphasize the genuine opportunity it provided to millions of immigrants and struggling families. Others argue that Manifest Destiny was an ideology that justified conquest, dispossession, and cultural destruction on a massive scale. **Primary sources** from both settlers and Indigenous leaders reveal sharply different experiences of the same events.
+
+Understanding westward expansion requires holding both realities at once: the hope it embodied for some and the devastation it imposed on others. History rarely offers a single story, and the stories we choose to tell — or ignore — reveal what we value.`,
+    vocabulary: [
+      { word: 'Manifest Destiny', definition: 'The 19th-century belief that the United States was destined to expand across the North American continent.', example: 'Supporters of Manifest Destiny used it to justify the annexation of Texas and the war with Mexico.' },
+      { word: 'dispossession', definition: 'The act of taking land, property, or rights away from someone, especially through force or legal manipulation.', example: 'Indigenous nations experienced dispossession as the U.S. government repeatedly broke treaties and seized their lands.' },
+      { word: 'treaty', definition: 'A formal agreement between nations or groups, typically about peace, trade, or land.', example: 'The government signed dozens of treaties with Native nations, but few were honored for long.' },
+      { word: 'ideology', definition: 'A system of ideas and beliefs that guides the actions of a group or society.', example: 'Manifest Destiny was an ideology that combined religious belief, nationalism, and racial assumptions.' },
+      { word: 'primary source', definition: 'A document, artifact, or account created by someone who witnessed or participated in the events being studied.', example: 'Journals written by settlers on the Oregon Trail are primary sources that reveal the hardships of migration.' },
+    ],
+    questions: [
+      {
+        question: 'What can be inferred about the phrase "Manifest Destiny" from the way O\'Sullivan used it?',
+        options: [
+          'He believed expansion was inevitable and divinely ordained, which made it difficult to argue against',
+          'He wanted to encourage European immigrants to settle in the eastern United States',
+          'He thought the U.S. government should purchase all western land from Indigenous nations fairly',
+          'He was uncertain whether westward expansion was a good idea and was asking readers to debate it'
+        ],
+        correctIndex: 0,
+        explanation: 'Framing expansion as "destiny" — something fated by God and nature — meant that opposing it could seem like opposing divine will. This made the concept a powerful rhetorical tool that was hard to challenge directly.'
+      },
+      {
+        question: 'The author writes that newspapers "rarely mentioned" that the land being offered was not empty. What does this suggest about the author\'s perspective?',
+        options: [
+          'The author believes newspapers had no knowledge of Indigenous people living on the land',
+          'The author suggests that the media deliberately shaped a misleading narrative that ignored Indigenous peoples\' presence',
+          'The author thinks settlers were entirely responsible for the destruction of Indigenous nations',
+          'The author implies that newspapers were legally prohibited from writing about Native Americans'
+        ],
+        correctIndex: 1,
+        explanation: 'The phrase "rarely mentioned" implies that the omission was a choice, not ignorance. The author is pointing to how the media shaped public understanding by leaving out inconvenient facts — a form of bias through selective reporting.'
+      },
+      {
+        question: 'According to the passage, how was the destruction of the buffalo herds connected to U.S. policy toward Indigenous nations?',
+        options: [
+          'It was purely an accidental result of settlers needing food during their migrations westward',
+          'It was both a result of mass commercial hunting and a deliberate strategy to destroy the food supply of Plains nations',
+          'The government paid hunters to kill buffalo specifically so the hides could be sold to fund the Homestead Act',
+          'Buffalo were destroyed only by disease, not by hunting, which the passage implies was exaggerated by historians'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states explicitly that the buffalo\'s destruction "was both a consequence of mass hunting and a deliberate strategy to starve nations that depended on the buffalo for survival," showing it served as both an economic activity and a military tactic.'
+      },
+      {
+        question: 'Which statement BEST captures the central idea of this passage?',
+        options: [
+          'Westward expansion was an unqualified success that transformed the United States into a modern nation',
+          'Manifest Destiny was a fraudulent idea invented by journalists to sell newspapers',
+          'Westward expansion brought real opportunities to some while causing devastating harm to others, and both truths must be recognized',
+          'Indigenous nations would have been displaced eventually whether or not the U.S. pursued Manifest Destiny'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explicitly states that "understanding westward expansion requires holding both realities at once." The author presents genuine opportunity for settlers alongside genuine devastation for Indigenous peoples, making a nuanced central claim.'
+      },
+      {
+        question: 'What is the most likely reason the author ends with "the stories we choose to tell — or ignore — reveal what we value"?',
+        options: [
+          'To suggest that readers should distrust all historical accounts equally',
+          'To encourage readers to think critically about whose experiences are included in or excluded from historical narratives',
+          'To argue that oral histories from Indigenous peoples are more reliable than written accounts from settlers',
+          'To conclude that the history of westward expansion is too complicated to understand'
+        ],
+        correctIndex: 1,
+        explanation: 'The closing line invites readers to consider that history involves choices about what to include and exclude. This pushes readers toward critical thinking about perspective, bias, and whose voices shape our understanding of the past.'
+      },
+    ]
+  },
+  {
+    id: 'cuban-missile-crisis-g7',
+    title: 'Thirteen Days on the Brink',
+    topic: 'history',
+    coverEmoji: '☢️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 495,
+    readTimeMin: 3,
+    text: `## The World Holds Its Breath
+
+For thirteen days in October 1962, the United States and the Soviet Union came closer to nuclear war than at any other moment in history. The **Cuban Missile Crisis** began when an American U-2 spy plane photographed Soviet nuclear missile installations under construction in Cuba — just ninety miles from the Florida coast. What followed was a tense standoff that tested the judgment of two superpowers and revealed just how fragile the peace could be.
+
+## Why Cuba?
+
+To understand the crisis, it helps to understand its context. Cuba had undergone a communist revolution in 1959 under **Fidel Castro**, alarming the United States. In 1961, the U.S. government sponsored a disastrous invasion attempt at the **Bay of Pigs**, which failed and humiliated the Kennedy administration. The Soviet Union saw an opportunity: by placing nuclear missiles in Cuba, it could both protect Castro's government and counter American missiles the U.S. had placed in Turkey, near Soviet borders.
+
+From the Soviet perspective, this was a reasonable balance of power. From the American perspective, missiles ninety miles away from U.S. soil were an existential threat that could not be tolerated.
+
+## Kennedy's Choices
+
+President John F. Kennedy convened a secret advisory group called **ExComm** (Executive Committee of the National Security Council) to evaluate his options. Military advisors pushed for an immediate air strike on the missile sites, possibly followed by an invasion of Cuba. Kennedy worried that a strike would kill Soviet military personnel and trigger a wider war.
+
+Instead, he chose a **naval blockade** — which he called a "quarantine" to avoid the legal complications of declaring war — around Cuba. Any Soviet ship carrying military equipment would be stopped and turned back. Kennedy then delivered a televised address to the American public, revealing the crisis and demanding the Soviets remove the missiles.
+
+The world watched as Soviet cargo ships steamed toward the U.S. naval line. At the last moment, several ships turned back. But nuclear-armed submarines were also in the area, and at least one Soviet submarine commander nearly launched a nuclear torpedo before being talked out of it by a fellow officer.
+
+## Resolution
+
+After days of back-channel negotiations, Soviet Premier **Nikita Khrushchev** agreed to remove the missiles from Cuba. In return, Kennedy secretly promised to remove American missiles from Turkey and pledged not to invade Cuba. The secret nature of the U.S. concessions was important: Kennedy needed to appear to have won, while Khrushchev needed to save face at home.
+
+## Lessons
+
+The crisis led directly to the installation of a **"hotline"** — a direct communication link between Washington and Moscow — to prevent future misunderstandings from escalating. It also showed that nuclear deterrence was not a stable guarantee of peace. Both sides had come far closer to catastrophe than their leaders had intended, largely because of incomplete information, miscommunication, and the fog of fear.`,
+    vocabulary: [
+      { word: 'blockade', definition: 'The use of military force to prevent goods or people from entering or leaving a place.', example: 'Kennedy\'s naval blockade was intended to stop Soviet ships from delivering more military equipment to Cuba.' },
+      { word: 'deterrence', definition: 'The strategy of preventing an enemy from taking action by threatening severe consequences.', example: 'Both superpowers relied on nuclear deterrence, believing neither side would risk a war it could not survive.' },
+      { word: 'escalate', definition: 'To increase in intensity, scope, or seriousness, often rapidly.', example: 'Leaders on both sides feared that a single miscalculation could escalate into full nuclear war.' },
+      { word: 'concession', definition: 'Something given up or agreed to in a negotiation in order to reach a compromise.', example: 'Kennedy\'s secret concession to remove missiles from Turkey helped resolve the standoff without public embarrassment.' },
+      { word: 'back-channel', definition: 'A private or unofficial line of communication used alongside formal diplomatic channels.', example: 'Back-channel negotiations allowed both sides to explore compromises without making public commitments.' },
+    ],
+    questions: [
+      {
+        question: 'Based on the passage, why did the Soviet Union decide to place missiles in Cuba?',
+        options: [
+          'To punish Cuba for the failed Bay of Pigs invasion by making it a target for American attacks',
+          'To protect Castro\'s government and counter American missiles already positioned near Soviet borders in Turkey',
+          'Because the Soviet Union had no other location where it could build missile launch facilities',
+          'Khrushchev wanted to test whether Kennedy would respond militarily before attempting to invade Western Europe'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that the Soviet Union placed missiles in Cuba both to protect Castro and to balance U.S. missiles in Turkey. From the Soviet perspective, this was a strategic counter-move, not an act of pure aggression.'
+      },
+      {
+        question: 'What inference can be drawn about why Kennedy called the blockade a "quarantine" rather than a blockade?',
+        options: [
+          'He wanted to signal to the American public that the ships posed a health risk',
+          'He was avoiding the legal classification of blockade, which could have been interpreted as an act of war',
+          'He was following advice from ExComm, which believed "quarantine" would anger the Soviets less',
+          'International law at the time required all military actions to be given medical names'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly notes Kennedy chose "quarantine" to "avoid the legal complications of declaring war." A formal blockade is an act of war under international law; the word change was a deliberate legal and diplomatic maneuver.'
+      },
+      {
+        question: 'The passage mentions a Soviet submarine commander who nearly launched a nuclear torpedo. What is the most likely reason the author included this detail?',
+        options: [
+          'To show that Soviet military personnel were poorly trained and made dangerous mistakes',
+          'To demonstrate that the crisis extended beyond the decisions of top leaders and that individuals lower in the chain of command also held nuclear power',
+          'To prove that the Soviet Union was more willing to use nuclear weapons than the United States',
+          'To explain why Kennedy ultimately decided to accept Khrushchev\'s terms and end the standoff'
+        ],
+        correctIndex: 1,
+        explanation: 'This detail reinforces the passage\'s closing point about "incomplete information, miscommunication, and the fog of fear." It shows that nuclear war could have started not from a leader\'s decision but from a single person\'s judgment in a stressful, isolated situation.'
+      },
+      {
+        question: 'According to the passage, why was it important that Kennedy\'s concession to remove missiles from Turkey remained secret?',
+        options: [
+          'The missiles in Turkey were illegal under international law, so admitting their existence would have caused legal problems',
+          'Kennedy needed to appear victorious to his public while allowing Khrushchev to claim he had also achieved something at home',
+          'ExComm had advised Kennedy never to reveal any information about American military positions in Europe',
+          'Soviet intelligence had not discovered the missiles in Turkey, so revealing them would have created new tensions'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states directly that "Kennedy needed to appear to have won, while Khrushchev needed to save face at home." The secrecy of the deal was a diplomatic necessity that allowed both leaders to claim success before their own populations.'
+      },
+      {
+        question: 'Which statement BEST reflects the author\'s perspective on the outcome of the Cuban Missile Crisis?',
+        options: [
+          'Kennedy\'s firm leadership was the sole reason nuclear war was avoided',
+          'The crisis was resolved successfully because both sides trusted each other enough to negotiate openly',
+          'Though resolved peacefully, the crisis revealed that nuclear deterrence is fragile and that chance and miscommunication nearly caused catastrophe',
+          'The Soviet Union\'s decision to back down proved that communism was strategically weaker than American democracy'
+        ],
+        correctIndex: 2,
+        explanation: 'The final paragraph emphasizes that both sides "had come far closer to catastrophe than their leaders had intended" due to incomplete information and miscommunication. The author\'s perspective is that the peaceful resolution owed as much to luck as to leadership.'
+      },
+    ]
+  },
+  {
+    id: 'rhetorical-devices-mlk-lincoln',
+    title: 'The Power of Words: Lincoln and King',
+    topic: 'language arts',
+    coverEmoji: '🎙️',
+    coverColor: '#065f46',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 505,
+    readTimeMin: 3,
+    text: `## Words as Tools
+
+Great speeches do not simply inform — they move people. They inspire action, shift beliefs, and sometimes change the course of history. Two of the most studied speeches in American history — Abraham Lincoln's **Gettysburg Address** (1863) and Martin Luther King Jr.'s **"I Have a Dream"** speech (1963) — were delivered exactly a century apart, both at turning-point moments, and both relied on precise **rhetorical devices** to achieve their power.
+
+## Anaphora: The Rhythm of Repetition
+
+One of the most recognizable tools in both speeches is **anaphora** — the deliberate repetition of a word or phrase at the beginning of successive sentences or clauses. King's speech is famous for it: "I have a dream that one day..." repeated eight times in succession. Each repetition builds on the last, creating a cumulative emotional force. By the eighth repetition, the audience is not simply hearing a sentence — they are inside a vision.
+
+Lincoln used a subtler version. His opening — "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal" — does not repeat phrases, but its rhythm and cadence carry the weight of biblical language, evoking authority and gravity.
+
+## Allusion: Connecting to Shared Memory
+
+Both speakers relied heavily on **allusion** — referencing well-known texts, events, or figures to connect with the audience's existing beliefs. Lincoln alluded to the Declaration of Independence with "all men are created equal," reminding his audience that the Civil War was not merely a conflict over territory but a test of the nation's founding promise.
+
+King alluded to both the Declaration and the Constitution, calling them "a promissory note to which every American was to fall heir." He also drew on biblical language and imagery throughout, invoking shared religious traditions to make his cause feel both just and divinely supported.
+
+## Metaphor: Making the Abstract Visible
+
+A **metaphor** compares two unlike things without using "like" or "as," making abstract ideas concrete. King's use of the "promissory note" metaphor transformed the abstract concept of constitutional rights into something everyone understood: a check, a debt, a promise that had not been honored. He described America as having given Black citizens a check that "has come back marked 'insufficient funds.'" This image was instantly comprehensible to any audience.
+
+Lincoln's speech is built around the metaphor of birth, death, and resurrection — the nation was "brought forth," soldiers "gave their lives," and the nation would have "a new birth of freedom." This framing transformed military sacrifice into something sacred.
+
+## Why Rhetorical Devices Matter
+
+Understanding rhetorical devices is not just an academic exercise. It is a tool for both appreciating great communication and protecting yourself from manipulation. The same techniques used by Lincoln and King to inspire justice can be — and have been — used by demagogues to incite fear and hatred. Recognizing **anaphora**, **allusion**, and **metaphor** in what you read and hear gives you the ability to ask: what is this speaker trying to make me feel, and why?`,
+    vocabulary: [
+      { word: 'rhetorical device', definition: 'A technique used in writing or speech to persuade, emphasize, or create an emotional effect.', example: 'King\'s repeated use of "I have a dream" is one of the most famous rhetorical devices in American history.' },
+      { word: 'anaphora', definition: 'The repetition of a word or phrase at the beginning of successive clauses or sentences.', example: 'The speaker used anaphora, beginning five consecutive sentences with the phrase "We believe."' },
+      { word: 'allusion', definition: 'An indirect reference to a well-known person, event, text, or idea.', example: 'By alluding to the Declaration of Independence, King connected the civil rights cause to the nation\'s founding promises.' },
+      { word: 'metaphor', definition: 'A figure of speech that describes something by saying it is something else, implying a comparison without using "like" or "as."', example: 'King\'s "promissory note" metaphor made the abstract idea of constitutional rights feel immediate and concrete.' },
+      { word: 'demagogue', definition: 'A political leader who gains power by appealing to emotions and prejudices rather than reason and truth.', example: 'History shows that the same rhetorical techniques used by great leaders can also be used by demagogues to manipulate people.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what is the effect of anaphora when King repeats "I have a dream" eight times?',
+        options: [
+          'It confuses the audience by making each sentence seem like a new speech',
+          'It creates a cumulative emotional force, drawing listeners into the vision being described',
+          'It demonstrates that King ran out of new ideas and had to repeat himself to fill time',
+          'It signals to the audience that the speech is about to end'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that each repetition "builds on the last, creating a cumulative emotional force," so that "the audience is not simply hearing a sentence — they are inside a vision." Anaphora\'s power comes from its accumulating effect.'
+      },
+      {
+        question: 'How does the "promissory note" metaphor function in King\'s speech, according to the passage?',
+        options: [
+          'It reminds the audience that the federal government owed Black Americans money as reparations for slavery',
+          'It transforms an abstract concept — constitutional rights — into a concrete, universally understood image of a broken financial promise',
+          'It suggests that King believed the U.S. economy was the primary cause of racial inequality',
+          'It alludes to a specific passage in the Constitution that discusses financial obligations to citizens'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that the metaphor "transformed the abstract concept of constitutional rights into something everyone understood: a check, a debt, a promise that had not been honored." Metaphors make abstract ideas concrete and emotionally immediate.'
+      },
+      {
+        question: 'The author ends the passage by warning that rhetorical devices "can be — and have been — used by demagogues." What is the author\'s PURPOSE in including this warning?',
+        options: [
+          'To argue that Lincoln\'s and King\'s speeches were actually manipulative and should not be admired',
+          'To suggest that studying rhetorical devices will make students into better public speakers',
+          'To encourage readers to think critically about persuasive language rather than simply admiring it',
+          'To explain why politicians in the twenty-first century rarely use metaphor or anaphora'
+        ],
+        correctIndex: 2,
+        explanation: 'The author explicitly frames understanding rhetoric as a protective tool: "Recognizing anaphora, allusion, and metaphor...gives you the ability to ask: what is this speaker trying to make me feel, and why?" The warning encourages critical thinking about persuasion.'
+      },
+      {
+        question: 'Both Lincoln and King alluded to the Declaration of Independence. What can be inferred about why both speakers chose this particular text?',
+        options: [
+          'The Declaration of Independence was the only American document their audiences would have recognized',
+          'Both speakers wanted to suggest that the Declaration had been written specifically to apply to their situations',
+          'Alluding to the Declaration connected their causes to a shared national ideal, making those causes harder to dismiss as un-American',
+          'Both speeches were legally required to reference the Declaration because they were given on federal property'
+        ],
+        correctIndex: 2,
+        explanation: 'By connecting their causes to the Declaration — a document most Americans revered — both speakers made it rhetorically difficult for opponents to reject their arguments without appearing to contradict the nation\'s founding values. The allusion served a persuasive purpose.'
+      },
+      {
+        question: 'According to the passage, what does Lincoln\'s use of birth, death, and resurrection language suggest about how he framed the Civil War?',
+        options: [
+          'Lincoln believed the Civil War was a punishment sent by God for the sin of slavery',
+          'He framed soldiers\' deaths as sacred sacrifice that would give birth to a renewed national purpose, not merely military casualties',
+          'Lincoln was comparing the Civil War to the story of Lazarus in order to comfort grieving families',
+          'He used religious language because he wanted to become a church leader after the war'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage notes that Lincoln\'s birth/death/resurrection metaphor "transformed military sacrifice into something sacred." The framing elevated soldiers from casualties of war into participants in a national renewal — a powerful rhetorical move.'
+      },
+    ]
+  },
+  {
+    id: 'economic-inequality-causes',
+    title: 'The Widening Gap: Understanding Economic Inequality',
+    topic: 'social studies',
+    coverEmoji: '⚖️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 515,
+    readTimeMin: 3,
+    text: `## A Growing Divide
+
+In the United States today, the wealthiest 1% of households own more wealth than the bottom 90% combined. This level of **economic inequality** — the unequal distribution of income and wealth across a population — is not inevitable. It is the result of specific historical, political, and economic choices. Understanding those choices is essential to understanding what the gap means and what could be done about it.
+
+## What Causes Inequality?
+
+Economists identify several interlocking causes. **Globalization** shifted manufacturing jobs from high-wage countries like the U.S. to lower-wage countries, hollowing out the economic middle. **Automation** has accelerated this trend, replacing factory workers, cashiers, and even some professional tasks with machines and software. Workers whose skills were valued in the old economy often find themselves stranded.
+
+At the same time, workers at the top of the skill and education ladder have seen enormous gains. Demand for software engineers, financial analysts, and medical specialists has driven their wages upward even as wages for low-education workers have stagnated. This creates what economists call a **skills premium** — a growing gap in earnings tied to educational attainment.
+
+Tax policy has also played a role. Since the 1980s, the United States significantly reduced the top marginal income tax rate and cut taxes on investment income. Since wealthy households earn a larger proportion of their income from investments than from wages, these changes disproportionately benefited those at the top.
+
+## The Consequences
+
+Economic inequality is not just a statistic. Research consistently shows that highly unequal societies have lower **social mobility** — the ability to move up or down the economic ladder across generations. Children born into poverty in the United States are less likely to reach the middle class than children in many Western European countries. The "American Dream" — the idea that hard work leads to success regardless of background — appears, by the data, to be more alive in some other countries than in the U.S. itself.
+
+Inequality also affects health, education, and civic life. Wealthy areas can fund excellent public schools through property taxes, while low-income areas struggle to maintain adequate facilities. Studies show that economic stress is associated with poorer health outcomes, and that communities with high inequality tend to have lower levels of **civic trust** — the sense that others and institutions can be relied upon.
+
+## Competing Perspectives
+
+People disagree about what, if anything, should be done. Some argue that inequality is a natural result of different levels of talent, effort, and risk-taking, and that attempts to redistribute wealth harm economic growth. Others contend that extreme inequality undermines democracy itself, because wealth translates into political influence, giving the wealthy disproportionate power to shape laws in their favor.
+
+Both perspectives involve **value judgments** — assumptions about what a fair society looks like — not just factual disagreements. That is precisely why economic inequality remains one of the most contested political issues of our time.`,
+    vocabulary: [
+      { word: 'economic inequality', definition: 'The unequal distribution of income, wealth, or economic opportunities across individuals or groups in a society.', example: 'Economic inequality has increased in many countries since the 1980s as manufacturing jobs have declined.' },
+      { word: 'social mobility', definition: 'The ability of individuals or families to move up or down the economic ladder across time or generations.', example: 'Low social mobility means that a child\'s economic future is largely determined by the family they are born into.' },
+      { word: 'globalization', definition: 'The process by which economies, cultures, and societies around the world become interconnected through trade, communication, and movement of people.', example: 'Globalization allowed companies to move manufacturing to countries with lower labor costs, eliminating jobs in higher-wage countries.' },
+      { word: 'skills premium', definition: 'The extra income that workers with higher education or specialized skills earn compared to those without such qualifications.', example: 'The growing skills premium means that college graduates earn significantly more over their lifetimes than workers without degrees.' },
+      { word: 'civic trust', definition: 'The general belief that other people and public institutions are reliable, honest, and working for the common good.', example: 'Researchers found that communities with high inequality tended to have lower civic trust and less participation in local government.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what is the "skills premium" and why has it grown?',
+        options: [
+          'A government bonus paid to workers who complete job training programs',
+          'The growing earnings gap between workers with high education or specialized skills and those without, driven by rising demand for skilled work',
+          'The extra wages earned by workers who are willing to perform dangerous or physically demanding jobs',
+          'A tax benefit available to employers who hire workers with college degrees'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines the skills premium as "a growing gap in earnings tied to educational attainment," driven by increased demand for software engineers, financial analysts, and medical specialists while wages for lower-education workers have stagnated.'
+      },
+      {
+        question: 'What inference does the passage support about the relationship between property taxes and educational opportunity?',
+        options: [
+          'Property taxes are the most important cause of economic inequality in the United States',
+          'Communities with higher property values can fund better schools, meaning a child\'s educational quality is partly determined by where they live',
+          'Wealthy families always choose to send their children to private schools, regardless of local property tax funding',
+          'Property tax rates are set by the federal government and are the same in all communities'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "wealthy areas can fund excellent public schools through property taxes, while low-income areas struggle." This implies that school quality — and therefore opportunity — is tied to local wealth, creating inequality in education that mirrors economic inequality.'
+      },
+      {
+        question: 'The author states that the "American Dream" appears "more alive in some other countries than in the U.S. itself." What is the author\'s purpose in including this claim?',
+        options: [
+          'To argue that Americans should move to European countries if they want to improve their economic situation',
+          'To challenge a widely held belief about American opportunity by presenting contradictory evidence about social mobility',
+          'To prove that European economies are superior to the American economy in every measurable way',
+          'To suggest that the American Dream is a myth that was always false and never reflected reality'
+        ],
+        correctIndex: 1,
+        explanation: 'The author uses data about social mobility to challenge the ideological claim of the American Dream. This is a specific rhetorical move: presenting evidence that complicates a cherished belief, pushing readers to examine the gap between the myth and the reality.'
+      },
+      {
+        question: 'According to the passage, why does the author say that debates about inequality involve "value judgments" rather than just factual disagreements?',
+        options: [
+          'Because economists have not yet collected enough data to determine what causes inequality',
+          'Because people\'s different beliefs about what fairness and a just society look like shape how they interpret the same facts',
+          'Because most Americans do not understand basic economic concepts well enough to evaluate the data',
+          'Because the government has classified the most important economic statistics, preventing public debate'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that both perspectives on inequality "involve value judgments — assumptions about what a fair society looks like." This means that even people who agree on the facts may reach different policy conclusions based on their underlying beliefs about fairness and the role of government.'
+      },
+      {
+        question: 'Which of the following BEST represents the central idea of this passage?',
+        options: [
+          'Economic inequality is inevitable in capitalist societies and cannot be changed through policy',
+          'The only solution to economic inequality is a major redistribution of wealth from the rich to the poor',
+          'Economic inequality has specific, identifiable causes, significant social consequences, and is the subject of genuine political disagreement about solutions',
+          'Tax cuts for the wealthy are the primary cause of economic inequality in the United States'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage traces causes (globalization, automation, tax policy), consequences (lower social mobility, health effects, civic erosion), and the political debate about solutions. The central idea is that inequality is a complex, consequential phenomenon with multiple causes and contested remedies.'
+      },
+    ]
+  },
+  {
+    id: 'technology-changing-work',
+    title: 'The Robot in the Room: Technology and the Future of Work',
+    topic: 'science',
+    coverEmoji: '🤖',
+    coverColor: '#374151',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 500,
+    readTimeMin: 3,
+    text: `## A Familiar Fear
+
+Every major wave of technology has prompted the same fear: machines are coming for our jobs. When the printing press replaced scriptoria full of monks copying manuscripts by hand, scribes lost work. When the steam engine transformed factories, traditional craftspeople who had spent years mastering their trades were undercut by machines operated by semi-skilled laborers. When ATMs spread across America in the 1980s, economists predicted the end of bank tellers. Instead, the number of bank tellers actually grew — cheaper ATMs allowed banks to open more branches, requiring more human staff for customer service.
+
+This history suggests that technological change both destroys jobs and creates them, often in ways that are difficult to predict.
+
+## What Is Different This Time?
+
+Many economists and technologists argue that **artificial intelligence (AI)** and advanced **automation** represent a qualitatively different challenge. Earlier waves of automation replaced physical labor — muscle power. AI is beginning to replace **cognitive labor** — tasks that require judgment, pattern recognition, and communication. These were previously considered safe from automation.
+
+Radiologists reading X-rays, paralegals researching case law, journalists writing routine financial reports, and customer service representatives answering phone calls are all already being partially replaced by AI systems. Unlike the factory automation of the twentieth century, which affected primarily workers without college degrees, AI threatens many white-collar professions — including some that require advanced education.
+
+## Winners and Losers
+
+Technological change does not affect everyone equally. Workers with highly specialized creative, interpersonal, or technical skills are more likely to find their abilities complemented by AI tools rather than replaced. Surgeons may use AI to improve diagnoses without losing their jobs. Artists, therapists, and engineers may find AI accelerates their work rather than eliminating it.
+
+Workers performing routine tasks — whether cognitive or physical — face greater risk. The pattern is consistent with what economists call **labor market polarization**: growth at the high end (highly skilled, highly paid) and the low end (service work requiring human presence, like home health aides), and erosion in the middle (routine clerical, administrative, and production jobs).
+
+## The Policy Question
+
+The most important question is not whether technology will change work — it always has — but whether society will manage that change equitably. **Job displacement** can mean temporary hardship or permanent poverty depending on whether retraining programs, education systems, and safety nets keep pace with economic disruption.
+
+Some countries have invested heavily in worker retraining and portable benefits that follow workers between jobs. Others have left displaced workers largely on their own. The difference in outcomes is striking and suggests that while technology determines what is possible, policy determines who benefits and who is left behind.
+
+The future of work will be shaped not just by engineers and entrepreneurs, but by teachers, lawmakers, and citizens deciding together what kind of economy they want to live in.`,
+    vocabulary: [
+      { word: 'automation', definition: 'The use of machines or technology to perform tasks that were previously done by people.', example: 'Automation in automobile factories replaced thousands of assembly-line workers with robotic arms.' },
+      { word: 'cognitive labor', definition: 'Work that involves thinking, reasoning, judgment, and mental processing rather than physical effort.', example: 'AI is beginning to perform cognitive labor like reviewing legal documents and interpreting medical images.' },
+      { word: 'labor market polarization', definition: 'A pattern in which job growth concentrates at the high-skill and low-skill ends of the economy while middle-skill jobs decline.', example: 'Economists observed labor market polarization as automation eliminated routine office and factory jobs while demand grew for both surgeons and home health aides.' },
+      { word: 'job displacement', definition: 'The loss of employment due to factors outside a worker\'s control, such as technological change, outsourcing, or economic downturns.', example: 'Without effective retraining programs, job displacement from automation can push workers into long-term poverty.' },
+      { word: 'equitably', definition: 'In a fair and just manner, ensuring that benefits and burdens are distributed reasonably across a population.', example: 'Policymakers debated how to manage technological change equitably so that displaced workers were not left behind.' },
+    ],
+    questions: [
+      {
+        question: 'Why does the author include the example of bank tellers and ATMs in the opening?',
+        options: [
+          'To prove that automation never actually eliminates any jobs',
+          'To show that technological predictions can be wrong, and that new technology sometimes creates more jobs than it destroys',
+          'To argue that the banking industry is the best model for how other industries should respond to automation',
+          'To establish that ATMs were a failed technology that did not significantly change the banking industry'
+        ],
+        correctIndex: 1,
+        explanation: 'The ATM example demonstrates that predictions about job loss from technology can be wrong — ATMs led to more bank branches and more tellers. The author uses this to establish historical context before arguing that AI may be different.'
+      },
+      {
+        question: 'According to the passage, what makes AI automation potentially different from earlier waves of automation?',
+        options: [
+          'AI is more expensive to deploy, so it will only affect the wealthiest companies',
+          'Earlier automation replaced physical labor, while AI is beginning to replace cognitive labor — tasks involving judgment and reasoning — which were previously considered safe',
+          'AI automation is faster than mechanical automation and will therefore eliminate more jobs in a shorter time',
+          'Unlike earlier machines, AI can work in any country in the world simultaneously'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly distinguishes earlier automation (replacing physical labor) from AI (replacing cognitive labor like pattern recognition and judgment). The significance is that white-collar, educated workers now face displacement in a way they didn\'t during the industrial revolution.'
+      },
+      {
+        question: 'What does the author mean by the statement "technology determines what is possible, policy determines who benefits and who is left behind"?',
+        options: [
+          'Governments should control the development of new technologies to prevent job loss',
+          'Technological advancement is inevitable, but social and political choices determine whether its benefits and costs are distributed fairly',
+          'Technology companies have a legal responsibility to retrain the workers their products displace',
+          'The future of work is entirely unpredictable because technology changes faster than policy can respond'
+        ],
+        correctIndex: 1,
+        explanation: 'This closing line encapsulates the passage\'s central argument: technological change is a given, but human decisions about education, safety nets, and retraining programs determine how widely its benefits are shared. The author frames this as a policy and civic challenge, not just a technological one.'
+      },
+      {
+        question: 'Based on the passage, which type of worker is MOST protected from AI displacement?',
+        options: [
+          'Workers who perform routine cognitive tasks, such as reviewing standard legal contracts',
+          'Workers whose skills involve highly specialized creativity, complex interpersonal relationships, or technical expertise that AI augments rather than replaces',
+          'All workers with college degrees, because higher education makes people more adaptable to change',
+          'Workers in manufacturing, because physical jobs are harder for AI to perform than mental tasks'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that workers with "highly specialized creative, interpersonal, or technical skills are more likely to find their abilities complemented by AI tools rather than replaced." Routine tasks — even cognitive ones — face greater risk, while uniquely human skills are more resilient.'
+      },
+      {
+        question: 'The author concludes that "the future of work will be shaped not just by engineers and entrepreneurs, but by teachers, lawmakers, and citizens." What is the most likely purpose of ending with this statement?',
+        options: [
+          'To criticize engineers and entrepreneurs for causing job displacement without taking responsibility',
+          'To argue that citizens should vote for specific political candidates who support worker retraining',
+          'To emphasize that shaping the future of work is a collective, democratic responsibility, not just a technical matter',
+          'To suggest that teachers and lawmakers are more important than technology workers in the modern economy'
+        ],
+        correctIndex: 2,
+        explanation: 'The closing broadens the scope of responsibility. By including teachers, lawmakers, and citizens, the author frames the future of work as a civic and democratic question, not merely a technological one. This is a call for active engagement rather than passive acceptance of technological change.'
+      },
+    ]
+  },
+  {
+    id: 'florida-environment-development',
+    title: 'Paradise Under Pressure: Florida\'s Development Dilemma',
+    topic: 'science',
+    coverEmoji: '🌿',
+    coverColor: '#065f46',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 510,
+    readTimeMin: 3,
+    text: `## The Most Developed Wild Place
+
+Florida is a paradox. It is home to some of North America's most extraordinary ecosystems — the **Everglades**, the only subtropical wilderness in the United States; the **Florida Reef**, the third-largest barrier reef in the world; vast **springs** that pump crystal-clear water at a constant 68 degrees; and **coastal wetlands** that shelter hundreds of species. It is also one of the fastest-growing states in the nation, adding hundreds of new residents every day and spreading roads, rooftops, and pavement across what was once wilderness.
+
+The collision between development and conservation is not abstract in Florida — it is happening in real time, and the consequences are measurable.
+
+## Water: The Central Conflict
+
+Florida's ecological identity is defined by water. The Everglades is not a swamp but a slow-moving, wide, shallow river — a "river of grass," as author **Marjory Stoneman Douglas** famously called it in 1947. For decades, agricultural and urban development drained, diverted, and polluted this water system. Half of the original Everglades has been lost. The remaining system struggles with excess **phosphorus** from agricultural runoff, which fuels **algal blooms** that choke the life out of the water.
+
+Florida's springs are facing similar pressures. **Aquifer** over-pumping for residential and agricultural use has reduced spring flow significantly in many locations. Nutrient pollution from septic systems and fertilizers feeds algae that blankets the spring runs, cutting off sunlight from **seagrass** and disrupting the entire ecosystem.
+
+## Wildlife Under Threat
+
+Development has direct consequences for Florida's wildlife. The Florida panther, with fewer than 300 individuals remaining, faces habitat loss and fragmentation — roads divide its territory and expose animals to vehicle strikes. Sea turtles nesting on Florida's Atlantic coast are disoriented by coastal lighting, which draws hatchlings away from the ocean.
+
+The **Florida scrub-jay**, found nowhere else in the world, depends entirely on a specific habitat type — Florida scrub — that has been reduced by over 90% due to development and fire suppression. When scrub is developed, the scrub-jay disappears.
+
+## Conservation Efforts and Their Limits
+
+Florida has made significant investments in conservation. The state's **Florida Forever** land acquisition program has protected millions of acres since 2001. **Everglades restoration** is the largest environmental restoration project in U.S. history, though it proceeds slowly and faces constant political and funding challenges. Wildlife corridors designed to connect fragmented habitats give species like the Florida panther pathways to move between protected areas.
+
+These efforts demonstrate that conservation and development can coexist — but only with deliberate, sustained commitment. Critics point out that funding for conservation programs is often the first thing cut in budget shortfalls, and that the same legislature that funds restoration also approves permits for developments that undo it.
+
+The central tension in Florida's environmental story is not between people who love nature and people who do not. It is between **short-term economic incentives** and the long-term costs of environmental degradation that are harder to see, harder to measure, and harder to stop once they begin.`,
+    vocabulary: [
+      { word: 'aquifer', definition: 'An underground layer of permeable rock or sediment that holds water, which can be accessed through wells or springs.', example: 'Florida\'s springs are fed by the Floridan aquifer, one of the most productive underground water systems in the world.' },
+      { word: 'algal bloom', definition: 'A rapid increase in algae in water, often caused by nutrient pollution, which can reduce oxygen levels and harm aquatic life.', example: 'Phosphorus runoff from farms triggered algal blooms in the Caloosahatchee River, killing fish and turning the water green.' },
+      { word: 'habitat fragmentation', definition: 'The process by which a large, continuous area of habitat is broken into smaller, isolated patches, often by roads, development, or agriculture.', example: 'Habitat fragmentation threatens the Florida panther by dividing its territory and increasing the risk of vehicle collisions.' },
+      { word: 'restoration', definition: 'The process of returning a damaged or degraded ecosystem to a healthier, more natural state.', example: 'Everglades restoration involves removing old canals and levees to restore the natural flow of water across the landscape.' },
+      { word: 'phosphorus', definition: 'A chemical element found in fertilizers and animal waste that, when it enters waterways, feeds algae and disrupts aquatic ecosystems.', example: 'Excess phosphorus from sugarcane farming has transformed parts of the Everglades, allowing cattails to replace native sawgrass.' },
+    ],
+    questions: [
+      {
+        question: 'What is the author\'s main point in describing Florida as "a paradox" in the opening paragraph?',
+        options: [
+          'Florida\'s ecology is too complex for scientists to fully understand',
+          'Florida contains extraordinary natural ecosystems while also being one of the fastest-growing and most developed states, creating a direct and ongoing conflict',
+          'Florida is unique because it is the only state that has successfully balanced development and conservation',
+          'Florida\'s paradox is that its natural beauty attracts tourists who end up causing environmental damage'
+        ],
+        correctIndex: 1,
+        explanation: 'The author introduces the paradox to frame the central tension of the passage: Florida\'s exceptional natural heritage exists alongside intense development pressure. This sets up the argument that the collision between the two is not theoretical but measurable and ongoing.'
+      },
+      {
+        question: 'According to the passage, what is the primary ecological threat facing Florida\'s springs?',
+        options: [
+          'Rising sea levels caused by climate change are flooding the springs with salt water',
+          'Over-pumping of the aquifer and nutrient pollution from septic systems and fertilizers are reducing flow and fueling algae growth',
+          'Invasive species introduced by the tourist industry are eating the plants in the spring runs',
+          'The springs are drying up because Florida receives less rainfall than it did in previous centuries'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies two specific threats to the springs: aquifer over-pumping, which reduces flow, and nutrient pollution (from septic systems and fertilizers), which fuels algae that blocks sunlight from seagrass.'
+      },
+      {
+        question: 'The passage mentions that the Florida scrub-jay is "found nowhere else in the world." Why is this detail significant in the context of the author\'s argument?',
+        options: [
+          'It proves that Florida has the most diverse wildlife of any state in the continental United States',
+          'It raises the stakes of habitat loss — if scrub habitat is destroyed, the scrub-jay cannot simply move elsewhere; it would be lost entirely',
+          'It suggests that the Florida scrub-jay evolved in isolation and is therefore less adaptable than other bird species',
+          'It supports the argument that Florida\'s endemic species should be transplanted to other states for their protection'
+        ],
+        correctIndex: 1,
+        explanation: 'An endemic species — one found nowhere else — faces unique extinction risk from local habitat destruction. By noting this fact, the author elevates the consequence of scrub loss from local habitat degradation to the potential permanent extinction of a species that exists nowhere else on Earth.'
+      },
+      {
+        question: 'What can be inferred from the statement that "the same legislature that funds restoration also approves permits for developments that undo it"?',
+        options: [
+          'Florida\'s legislature is corrupt and should be replaced with an appointed environmental commission',
+          'Conservation in Florida is undermined by a political system that simultaneously promotes environmental protection and allows development that negates that protection',
+          'Restoration projects in Florida are poorly designed and therefore fail regardless of political support',
+          'Florida voters consistently support development over conservation in every election'
+        ],
+        correctIndex: 1,
+        explanation: 'This statement highlights an inherent contradiction: the same government body both funds restoration and approves development. The author uses this to show that conservation efforts are structurally limited by the same political system that enables the damage they are trying to reverse.'
+      },
+      {
+        question: 'The author argues the central tension is between "short-term economic incentives" and "long-term costs of environmental degradation." Which of the following BEST restates this argument?',
+        options: [
+          'Economic development always costs more in the long run than environmental protection, so development should be banned in Florida',
+          'The problem is that the benefits of development (profit, jobs, housing) are immediate and visible, while the costs (ecosystem damage, species loss) accumulate slowly and are easier to ignore until they become catastrophic',
+          'Florida\'s environmental problems are primarily caused by tourists rather than permanent residents and businesses',
+          'Short-term thinking is a personal failing of individual developers, not a structural problem that requires policy solutions'
+        ],
+        correctIndex: 1,
+        explanation: 'The author\'s argument is about timing and visibility: development benefits are immediate and concentrated, while environmental costs are diffuse and delayed. This structural mismatch helps explain why harmful development continues even when its long-term costs are known.'
+      },
+    ]
+  },
+  {
+    id: 'vietnam-war-legacy',
+    title: 'America in Vietnam: War, Doubt, and Memory',
+    topic: 'history',
+    coverEmoji: '🪖',
+    coverColor: '#374151',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 510,
+    readTimeMin: 3,
+    text: `## A War That Divided a Nation
+
+Between 1965 and 1973, more than 2.7 million American soldiers served in Vietnam. Over 58,000 died. The United States spent billions of dollars and enormous political capital on a war that ended not in victory, but in the fall of Saigon in 1975 as North Vietnamese forces captured the South Vietnamese capital. The **Vietnam War** left a deep scar on American society — not only in the losses suffered, but in the fundamental questions it raised about the country's values, its government's honesty, and the meaning of patriotism.
+
+## The Cold War Context
+
+The war grew from **Cold War** logic. The United States, committed to containing the spread of communism, supported the government of South Vietnam against a communist insurgency backed by North Vietnam and its ally, the Soviet Union. Policymakers feared that if South Vietnam fell to communism, neighboring countries would follow — a theory known as the **domino theory**.
+
+But Vietnam was not a simple story of democracy versus communism. The South Vietnamese government was authoritarian and widely unpopular among its own people. Many Vietnamese who supported the North were motivated less by communist ideology than by nationalism — a desire to unify their country and expel foreign influence. American policymakers often failed to grasp this distinction.
+
+## Escalation and Deception
+
+U.S. involvement escalated dramatically after the **Gulf of Tonkin Resolution** (1964), which gave President Lyndon Johnson broad authority to expand the war without a formal declaration from Congress. Years later, it was revealed that the incident that triggered the resolution — a reported attack on U.S. ships — had been exaggerated or possibly fabricated. This discovery, along with the leaked **Pentagon Papers** in 1971 — classified documents that revealed the government had consistently misled the public about the war's progress — shattered trust in the government.
+
+The **credibility gap** — the widening distance between what the government said and what was actually happening — fueled a massive antiwar movement. College campuses, streets, and even military units became sites of protest. The image of the war was also shaped by television: for the first time, Americans watched combat footage at home in their living rooms, and what they saw contradicted official optimism.
+
+## The Legacy
+
+The war's legacy shaped American politics for decades. Congress passed the **War Powers Act** (1973), limiting the president's ability to commit forces without congressional approval. Military leaders, determined never to fight another war without public support, adopted what became known as the **Powell Doctrine** — using overwhelming force only when clear political objectives and an exit strategy existed.
+
+For Vietnamese people, the war's legacy is equally complex: an estimated 2 million Vietnamese civilians died, and the country bore the devastation of years of bombing, defoliation (the use of chemical agents to destroy forests), and social disruption.
+
+The Vietnam War remains a contested memory — a reminder that military power, however great, cannot substitute for political wisdom, and that a democracy's most important obligation is honesty with its citizens.`,
+    vocabulary: [
+      { word: 'domino theory', definition: 'The Cold War belief that if one country fell to communism, neighboring countries would follow in a chain reaction, like falling dominoes.', example: 'The domino theory was used to justify U.S. military involvement in Vietnam and other conflicts across Southeast Asia.' },
+      { word: 'escalation', definition: 'A rapid increase in the intensity, scope, or scale of a conflict or action.', example: 'After the Gulf of Tonkin Resolution, U.S. military escalation in Vietnam brought hundreds of thousands of troops into the conflict.' },
+      { word: 'credibility gap', definition: 'The perceived difference between what a government claims and what the public believes to be true, based on evidence and experience.', example: 'The Pentagon Papers widened the credibility gap by revealing that officials had knowingly misled the public about the war\'s progress.' },
+      { word: 'insurgency', definition: 'An armed uprising or rebellion by a group seeking to overthrow or challenge an established government or occupying force.', example: 'The South Vietnamese government struggled against a communist insurgency supported by North Vietnam and the Soviet Union.' },
+      { word: 'defoliation', definition: 'The deliberate destruction of plant life, especially forests, using chemical agents — used as a military tactic in Vietnam to remove cover for enemy forces.', example: 'The use of defoliation chemicals in Vietnam destroyed millions of acres of forest and had long-term health effects on both Vietnamese civilians and American veterans.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, why did the domino theory fail to accurately predict the situation in Vietnam?',
+        options: [
+          'The Soviet Union did not actually support North Vietnam, making the Cold War framing inaccurate',
+          'American policymakers underestimated the Vietnamese military\'s ability to fight conventional warfare',
+          'Many Vietnamese supported the North for nationalist reasons rather than communist ideology, a motivation U.S. policymakers largely missed',
+          'The domino theory was based on events in Europe, not Asia, and therefore did not apply to Vietnam'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that "American policymakers often failed to grasp" the distinction between communism and nationalism. Many Vietnamese who supported the North were motivated by the desire to unify their country and remove foreign influence — not purely by communist ideology.'
+      },
+      {
+        question: 'What was the significance of the Pentagon Papers for American public trust?',
+        options: [
+          'They revealed that the Soviet Union had helped plan the Gulf of Tonkin incident',
+          'They showed that the U.S. military had won several major battles that were falsely reported as defeats',
+          'They confirmed that the government had repeatedly misled the public about the war\'s progress, deepening the credibility gap',
+          'They exposed corruption within the South Vietnamese government that had kept the war from ending sooner'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage directly states that the Pentagon Papers "revealed the government had consistently misled the public about the war\'s progress," contributing to a loss of trust in government institutions that fueled the antiwar movement and shaped American politics for years.'
+      },
+      {
+        question: 'What can be inferred about why television coverage affected public opinion about the Vietnam War more than previous wars?',
+        options: [
+          'Television stations were more politically biased than newspapers and deliberately chose footage that made the war look bad',
+          'Television brought the reality of combat into American homes for the first time, allowing citizens to compare what they saw with the government\'s optimistic reports',
+          'American soldiers in Vietnam were more willing to be filmed because they opposed the war themselves',
+          'The government had complete control over newspaper and radio coverage but could not censor television effectively'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage notes that television gave Americans access to "combat footage at home" that "contradicted official optimism." The implication is that the visual, immediate nature of television made the gap between government claims and reality impossible to ignore in a way that earlier media could not achieve.'
+      },
+      {
+        question: 'The passage describes the war\'s legacy for Vietnamese people as "equally complex." Which detail BEST supports this characterization?',
+        options: [
+          'Vietnamese people continue to dispute whether the North or South had a stronger military',
+          'An estimated 2 million Vietnamese civilians died, and the country suffered years of bombing, chemical defoliation, and social disruption',
+          'Vietnam became a communist country after the war, which is what many Vietnamese had hoped for',
+          'The Vietnamese government has refused to allow foreign scholars to study the war\'s impact'
+        ],
+        correctIndex: 1,
+        explanation: 'The statistics on civilian deaths and the description of bombing, defoliation, and social disruption provide concrete evidence that the war\'s impact on Vietnam — far beyond politics or ideology — was devastating and multidimensional, justifying the word "complex."'
+      },
+      {
+        question: 'The author ends by saying military power "cannot substitute for political wisdom." What does this suggest about the author\'s assessment of why the U.S. lost the war?',
+        options: [
+          'The U.S. military was not powerful enough to defeat North Vietnam and should have deployed more troops',
+          'The failure was ultimately political — rooted in misunderstanding the conflict, deceiving the public, and pursuing unclear goals — not a failure of military capability',
+          'American soldiers were unwilling to fight the war because they disagreed with the government\'s foreign policy',
+          'The U.S. would have won the war if Congress had not passed the War Powers Act'
+        ],
+        correctIndex: 1,
+        explanation: 'The author\'s closing statement frames the war\'s failure as political, not military. The U.S. had overwhelming military force but lacked clear objectives, public trust, and an accurate understanding of the conflict — suggesting that political and strategic failures, not military weakness, determined the outcome.'
+      },
+    ]
+  },
+  {
+    id: 'immigration-american-identity',
+    title: 'Who Is an American? Immigration and National Identity',
+    topic: 'social studies',
+    coverEmoji: '🗽',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 505,
+    readTimeMin: 3,
+    text: `## A Nation of Arrivals
+
+The United States has been shaped — and continuously reshaped — by immigration. From the first waves of European colonists displacing Indigenous nations, to the forced migration of enslaved Africans, to the mass immigration of the nineteenth and twentieth centuries, to the global diversity of arrivals today, the story of America is inseparable from the story of movement, belonging, and identity.
+
+Yet this history has rarely been without tension. Each new wave of immigration has been met with both opportunity and resistance, and the question of who counts as a "real" American has been contested in every generation.
+
+## Defining Waves
+
+The period between 1880 and 1920 saw one of the largest waves of immigration in U.S. history, with more than 20 million people arriving — primarily from Southern and Eastern Europe. Italian, Jewish, Polish, and Greek immigrants crowded into industrial cities, working in mines, factories, and slaughterhouses. They were often treated with suspicion and hostility. Newspapers and politicians warned that these newcomers were too different, too foreign, too dangerous to assimilate.
+
+The **Immigration Act of 1924** reflected these fears, imposing strict quotas that severely limited immigration from Southern and Eastern Europe and effectively banned most Asian immigration. It remained in effect for decades.
+
+After the **Immigration and Nationality Act of 1965** removed the quota system, the composition of immigration changed dramatically. Immigrants now arrived primarily from Latin America, Asia, and Africa, transforming the demographics of cities across the country.
+
+## Assimilation and Pluralism
+
+There are two competing visions of how immigration should work in America. The **assimilation model** holds that immigrants should adopt American language, customs, and values, leaving behind their distinct identities in exchange for full belonging. This was captured in the metaphor of the **"melting pot"** — diverse ingredients fusing into a unified American identity.
+
+The **pluralism model** argues that American identity is itself defined by diversity — that immigrants can maintain their cultural heritage while participating fully in civic life. This vision is sometimes called the **"salad bowl"** — distinct ingredients coexisting without losing their individual characters.
+
+In practice, neither model fully describes reality. Immigrants and their children have always navigated between heritage and belonging, often creating something new that is neither purely their country of origin nor the dominant American culture.
+
+## Contested and Ongoing
+
+Today, debates about immigration — over undocumented immigration, refugee admissions, and the pathway to citizenship — reflect the same tensions that have existed since the nation's founding. Opponents of immigration often invoke concerns about economic competition, cultural change, or public safety. Supporters point to immigrants' documented contributions to innovation, entrepreneurship, and social vitality.
+
+What is clear from history is that the groups once considered most alien — the Irish, the Italians, the Eastern European Jews — are today considered fully and unquestionably American. The boundaries of American identity have always shifted. The question each generation must answer is whether it will expand those boundaries generously or contract them out of fear.`,
+    vocabulary: [
+      { word: 'assimilation', definition: 'The process by which an immigrant or minority group adopts the language, customs, and values of the dominant culture.', example: 'Critics of strict assimilation argued that requiring immigrants to abandon their culture was a form of cultural erasure.' },
+      { word: 'pluralism', definition: 'A condition in which multiple ethnic, cultural, or religious groups coexist and maintain their distinct identities within a shared society.', example: 'Advocates of pluralism argued that cultural diversity was a source of national strength rather than a threat to unity.' },
+      { word: 'quota', definition: 'A fixed limit on the number of people allowed to enter a country, belong to a group, or hold a position.', example: 'The immigration quotas of 1924 were designed to favor immigrants from Northern and Western Europe over those from other regions.' },
+      { word: 'demographics', definition: 'Statistical data about a population, including characteristics such as age, race, ethnicity, income, and education.', example: 'Immigration from Latin America and Asia after 1965 transformed the demographics of many American cities.' },
+      { word: 'civic', definition: 'Relating to citizenship, public life, or the duties and rights of citizens in a community or country.', example: 'Voting, paying taxes, and participating in local government are all civic activities.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what was the primary motivation behind the Immigration Act of 1924?',
+        options: [
+          'To encourage immigration from Asia and Latin America to fill labor shortages in western states',
+          'To reflect fears that immigrants from Southern and Eastern Europe were too different to assimilate, and to severely limit their entry',
+          'To establish a universal application process for immigrants from all countries',
+          'To allow the United States to admit more refugees from countries experiencing political instability'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage directly states that the Immigration Act of 1924 "reflected these fears" about Southern and Eastern European immigrants being too different, imposing strict quotas to limit their entry while effectively banning most Asian immigration.'
+      },
+      {
+        question: 'What is the key difference between the "melting pot" and "salad bowl" metaphors as described in the passage?',
+        options: [
+          'The melting pot describes cities, while the salad bowl describes rural immigrant communities',
+          'The melting pot suggests immigrants fuse into a unified American identity, while the salad bowl suggests they maintain distinct cultural identities while participating in civic life',
+          'The melting pot is a positive metaphor used by immigrants, while the salad bowl is a negative metaphor used by critics of immigration',
+          'The melting pot refers to European immigration, while the salad bowl refers to immigration from Latin America and Asia'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines the melting pot as "diverse ingredients fusing into a unified American identity" (assimilation) and the salad bowl as "distinct ingredients coexisting without losing their individual characters" (pluralism). These represent fundamentally different visions of how American identity works.'
+      },
+      {
+        question: 'The author notes that groups "once considered most alien — the Irish, the Italians, the Eastern European Jews — are today considered fully and unquestionably American." What conclusion does this support?',
+        options: [
+          'These groups succeeded because they were more willing to assimilate than contemporary immigrant groups',
+          'American identity is not fixed but expands over time, suggesting that current anxieties about immigrants may reflect temporary resistance rather than permanent incompatibility',
+          'Immigration is only successful when immigrants come from European countries',
+          'The United States should return to the immigration policies of the early twentieth century'
+        ],
+        correctIndex: 1,
+        explanation: 'The historical pattern — groups once seen as fundamentally foreign becoming fully accepted Americans — supports the author\'s argument that "the boundaries of American identity have always shifted." This historical evidence challenges the idea that current immigrant groups are permanently incompatible with American identity.'
+      },
+      {
+        question: 'The author writes that "neither model fully describes reality" when discussing assimilation and pluralism. What evidence supports this claim?',
+        options: [
+          'Immigration statistics show that most immigrants choose neither assimilation nor pluralism and instead return to their home countries',
+          'Immigrants and their children "navigate between heritage and belonging, often creating something new" — a reality more complex than either model captures',
+          'Surveys consistently show that Americans cannot agree on which model they prefer',
+          'Legal scholars have concluded that the Constitution requires neither assimilation nor pluralism as a condition of citizenship'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that immigrants create "something new that is neither purely their country of origin nor the dominant American culture." This lived experience — a blend rather than a choice between assimilation or preservation — is the evidence that neither theoretical model fully applies.'
+      },
+      {
+        question: 'Based on the passage, what is the author\'s perspective on the current immigration debate?',
+        options: [
+          'The author believes immigration should be more strictly limited to protect American workers and culture',
+          'The author views immigration as purely an economic issue that should be decided by labor market needs',
+          'The author suggests that historical patterns show the fears driving anti-immigration sentiment have repeatedly proved unfounded, implying that expanding the boundaries of American identity is the appropriate response',
+          'The author argues that the government should take no position on immigration and leave all decisions to individual states'
+        ],
+        correctIndex: 2,
+        explanation: 'The author\'s closing question — whether each generation will "expand those boundaries generously or contract them out of fear" — combined with the historical evidence about previously rejected groups becoming accepted Americans, signals that the author favors an expansive view of American identity grounded in historical perspective rather than fear.'
+      },
+    ]
+  },
+  {
+    id: 'ethics-scientific-experimentation',
+    title: 'Science Without Conscience: Ethics in the Laboratory',
+    topic: 'science',
+    coverEmoji: '🔬',
+    coverColor: '#7c3aed',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 520,
+    readTimeMin: 3,
+    text: `## When Science Goes Wrong
+
+Scientific progress has saved billions of lives. Vaccines, antibiotics, surgical techniques, and cancer treatments — all emerged from rigorous experimentation. But the history of science also includes episodes of profound ethical failure, in which researchers caused immense harm to human subjects in the name of knowledge. Understanding these episodes is not meant to discredit science, but to explain why we have the ethical frameworks we do today.
+
+## The Tuskegee Syphilis Study
+
+Between 1932 and 1972, the U.S. Public Health Service conducted a study on **syphilis** — a serious bacterial infection — using 399 Black men in Macon County, Alabama as subjects. The men were told they were being treated for "bad blood," a local term for various illnesses. In fact, they were not treated. Researchers wanted to observe the natural progression of untreated syphilis.
+
+When penicillin became widely available in the 1940s as an effective treatment, researchers did not offer it to the participants. They were deliberately left to suffer and die so the study could continue. The study was only ended in 1972 after a whistleblower leaked the details to the press. By that time, at least 28 men had died directly from syphilis, and many more had died from related complications.
+
+The Tuskegee study is not simply a story about one bad experiment. It is a story about how **institutional racism** enabled researchers to treat Black men as less deserving of care and informed consent than white patients. The study's legacy is felt today in higher rates of medical distrust among Black Americans — distrust that is historically rational.
+
+## The Nuremberg Code and Informed Consent
+
+The most systematic violations of research ethics occurred during World War II, when Nazi physicians conducted horrific experiments on concentration camp prisoners — including freezing experiments, surgical experiments without anesthesia, and deliberate infection with fatal diseases. The prisoners had no choice; they could not refuse.
+
+Following the war, the **Nuremberg Trials** prosecuted Nazi doctors, and the resulting **Nuremberg Code** (1947) established foundational principles for ethical research: subjects must give **voluntary informed consent**; experiments must have scientific merit; and the welfare of subjects must outweigh the interests of science.
+
+These principles were later expanded in the **Belmont Report** (1979), which established the framework used in American research today, requiring **Institutional Review Boards** (IRBs) to evaluate any study involving human subjects before it begins.
+
+## The Tension Between Progress and Protection
+
+Ethical frameworks do not eliminate difficult choices. Researchers studying diseases in populations that cannot give informed consent — children, people with severe cognitive disabilities, individuals in medical crises — still face genuine dilemmas. Clinical trials must balance the risks to current participants against potential benefits for millions of future patients.
+
+The history of unethical experimentation teaches that scientific progress and human dignity are not automatically aligned. Science can be put in service of cruelty as easily as compassion. The rules we have built around research exist because, without them, the pursuit of knowledge has repeatedly harmed the people science is supposed to serve.`,
+    vocabulary: [
+      { word: 'informed consent', definition: 'The process by which a research subject or patient is given complete and understandable information about a procedure or study before agreeing to participate.', example: 'Modern research ethics require that participants give informed consent before any experiment begins.' },
+      { word: 'institutional racism', definition: 'Policies, practices, and cultural norms within institutions that disadvantage racial minorities, even when individuals within the institution may not be personally racist.', example: 'Historians argue that institutional racism in the U.S. healthcare system made the Tuskegee study possible by treating Black patients as expendable.' },
+      { word: 'whistleblower', definition: 'A person who exposes illegal or unethical activity within an organization, often at personal risk.', example: 'A whistleblower\'s decision to leak information about the Tuskegee study finally brought it to public attention after four decades.' },
+      { word: 'Institutional Review Board (IRB)', definition: 'A committee established to review and approve research involving human subjects, ensuring that ethical standards are met.', example: 'Before any experiment involving people can begin in the U.S., it must be reviewed and approved by an Institutional Review Board.' },
+      { word: 'voluntary', definition: 'Done freely, by choice, without force, pressure, or deception.', example: 'The Nuremberg Code established that participation in medical experiments must always be truly voluntary.' },
+    ],
+    questions: [
+      {
+        question: 'What is the most important inference a reader can draw from the fact that penicillin was available in the 1940s but was not given to Tuskegee participants?',
+        options: [
+          'Penicillin was expensive in the 1940s and the Public Health Service did not have enough funding to provide it',
+          'Researchers deliberately chose to withhold an available treatment, meaning the ongoing harm to participants was not accidental but intentional',
+          'Penicillin was not yet approved for use in the United States during the 1940s',
+          'The Tuskegee participants chose not to accept penicillin because they distrusted new medicines'
+        ],
+        correctIndex: 1,
+        explanation: 'The availability of a cure that was withheld transforms the study from a passive observation to an active choice to allow participants to suffer. This detail demonstrates that the harm was not an unavoidable product of the era but a deliberate decision, making the ethical violation far more serious.'
+      },
+      {
+        question: 'According to the passage, why does the Tuskegee study\'s legacy include higher rates of medical distrust among Black Americans today?',
+        options: [
+          'Most Black Americans today are directly descended from the Tuskegee participants and have personal memories of the study',
+          'Black Americans are generally more skeptical of science than other groups because of cultural differences',
+          'The Tuskegee study is evidence of a historical pattern of institutional racism in medicine, making distrust a rational response to documented harm, not irrational fear',
+          'Medical schools do not teach Black students about the Tuskegee study, leaving them without a scientific framework to evaluate healthcare'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage calls the distrust "historically rational," meaning it is grounded in documented evidence of harm rather than unfounded fear. This is an important distinction: the author is contextualizing contemporary medical distrust as a reasonable response to a specific historical pattern, not a cognitive failing.'
+      },
+      {
+        question: 'What was the primary ethical violation committed by Nazi physicians that the Nuremberg Code was designed to prevent in the future?',
+        options: [
+          'Conducting experiments that were not scientifically valid or carefully designed',
+          'Using non-physician researchers to conduct experiments that required medical training',
+          'Performing harmful and potentially fatal experiments on people who had no ability to refuse participation',
+          'Failing to document their experimental results according to accepted scientific standards'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes Nazi experiments on prisoners who "could not refuse," emphasizing the absence of voluntary consent. The Nuremberg Code\'s first and most fundamental principle directly responded to this: subjects must give voluntary informed consent.'
+      },
+      {
+        question: 'The author states that "scientific progress and human dignity are not automatically aligned." What does this claim suggest about science?',
+        options: [
+          'Science itself is a morally corrupt activity that should be regulated by religious authorities',
+          'Scientific methods are inherently neutral but can be directed toward harmful ends, requiring external ethical frameworks to guide them',
+          'All scientific research inevitably harms some people and therefore cannot be truly ethical',
+          'Scientists are less trustworthy than other professionals because they are willing to sacrifice individuals for abstract goals'
+        ],
+        correctIndex: 1,
+        explanation: 'The author\'s point is that science is a powerful tool that can serve either human flourishing or human harm depending on the values and constraints surrounding it. This is why ethical frameworks like the Nuremberg Code and IRBs exist — not because science is bad, but because it is powerful and must be guided.'
+      },
+      {
+        question: 'The passage describes the Belmont Report as expanding on the Nuremberg Code. What does this progression suggest about the development of research ethics?',
+        options: [
+          'Ethical standards in research were created once and have not changed since 1947',
+          'Research ethics has developed incrementally, responding to new cases and recognizing that initial standards were incomplete and needed refinement',
+          'The Belmont Report rejected the Nuremberg Code because it was too strict and prevented beneficial research',
+          'Ethical frameworks were developed only in the United States; other countries have no research ethics standards'
+        ],
+        correctIndex: 1,
+        explanation: 'The historical progression from the Nuremberg Code (1947) to the Belmont Report (1979) shows that ethical standards evolve. New cases, new technologies, and new ethical insights lead to more comprehensive frameworks, demonstrating that research ethics is an ongoing process rather than a fixed set of rules.'
+      },
+    ]
+  },
+
+{
+    id: 'constitution-separation-powers',
+    title: 'Divided to Protect: The Architecture of American Government',
+    topic: 'history',
+    coverEmoji: '⚖️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 540,
+    readTimeMin: 3,
+    text: `## Designing Against Tyranny
+
+The men who drafted the U.S. Constitution in 1787 were not starting from scratch. They had read deeply in history and political philosophy, and they were acutely aware of how governments had failed throughout history: they concentrated power, and concentrated power became tyranny. Their solution was deliberate fragmentation — building a government that was intentionally difficult to control from any single point.
+
+## Three Branches, Three Functions
+
+The Constitution established three distinct branches of the federal government. The **legislative branch** — Congress, divided into the Senate and House of Representatives — holds the power to make laws, levy taxes, and declare war. The **executive branch** — headed by the President — enforces laws, commands the military, and conducts foreign policy. The **judicial branch** — the Supreme Court and lower federal courts — interprets laws and determines their constitutionality.
+
+Each branch was assigned different functions, different constituencies, and different terms in office. Members of the House serve two-year terms and represent specific districts; senators serve six years and represent entire states; the president serves four-year terms and is chosen through the Electoral College; Supreme Court justices serve for life, appointed by the president and confirmed by the Senate.
+
+## Checks and Balances: Power Against Power
+
+The framers understood that defining separate functions was not enough — each branch also needed the ability to limit the others. This system of **checks and balances** is the mechanism that prevents any single branch from accumulating unchecked power.
+
+The president can **veto** legislation passed by Congress; Congress can **override** a veto with a two-thirds majority. The president nominates federal judges; the Senate must confirm them. The Supreme Court can declare laws passed by Congress **unconstitutional** — a power called **judicial review**, established not in the text of the Constitution itself but by the Court's own ruling in *Marbury v. Madison* (1803). Congress can impeach and remove the president and federal judges.
+
+**James Madison**, the Constitution's primary architect, explained the logic in Federalist No. 51: "Ambition must be made to counteract ambition." Rather than relying on the virtue of leaders, the system was designed so that leaders' self-interest would prevent them from dominating their rivals.
+
+## Federalism: The Vertical Dimension
+
+The separation of powers operates horizontally across the three federal branches. But the Constitution also built in a vertical dimension: **federalism**, the division of power between the federal government and the states. The **Tenth Amendment** reserves to the states all powers not explicitly granted to the federal government. This means states retain authority over areas like education, local law enforcement, and family law, creating another layer of distributed power.
+
+## Tensions and Tests
+
+The system has faced genuine tests. Presidents have expanded executive power during wartime, sometimes beyond what the Constitution seems to permit. The Supreme Court has at times deferred to Congress and the executive, and at other times asserted its authority boldly. Partisan alignment between branches can weaken checks and balances in practice, as branches governed by the same party may be less inclined to challenge each other.
+
+The Constitution's design does not guarantee good government — it makes it harder for any individual or faction to seize permanent control. Whether that architecture holds depends not just on the document, but on the people and institutions that choose to honor it.`,
+    vocabulary: [
+      { word: 'separation of powers', definition: 'The constitutional division of government authority among distinct legislative, executive, and judicial branches to prevent concentration of power.', example: 'The separation of powers means that Congress writes the laws, the president enforces them, and the courts interpret them.' },
+      { word: 'checks and balances', definition: 'A system in which each branch of government has the ability to limit or review the actions of the other branches.', example: 'The president\'s veto power is one check on the legislative branch, while Congress\'s ability to override vetoes is a balance on executive power.' },
+      { word: 'judicial review', definition: 'The power of federal courts to examine laws and government actions to determine whether they are consistent with the Constitution.', example: 'Through judicial review, the Supreme Court has struck down laws that it found to violate constitutional rights.' },
+      { word: 'veto', definition: 'The power of the president to reject legislation passed by Congress, preventing it from becoming law unless overridden.', example: 'The president used the veto to block the bill, forcing Congress to reconsider its approach.' },
+      { word: 'federalism', definition: 'A system of government in which power is divided between a central national government and regional (state) governments.', example: 'Federalism gives states the authority to set their own education standards and criminal laws within constitutional limits.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what was the framers\' PRIMARY reason for creating a government with separated powers?',
+        options: [
+          'To make the government more efficient by assigning specific tasks to specialized branches',
+          'To prevent the concentration of power that history showed inevitably led to tyranny',
+          'To ensure that representatives from different regions of the country all had a voice in governing',
+          'To mirror the governmental structure of Britain, which the framers admired despite the Revolution'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that the framers were "acutely aware of how governments had failed throughout history: they concentrated power, and concentrated power became tyranny." Preventing this concentration was the foundational motivation behind separation of powers.'
+      },
+      {
+        question: 'What is significant about the fact that judicial review was established by the Supreme Court\'s own ruling in Marbury v. Madison rather than by the Constitution itself?',
+        options: [
+          'It proves that the Supreme Court overstepped its authority and should not have this power',
+          'It demonstrates that the Court itself interpreted the Constitution to define and expand its own authority — a form of the very judicial power it was exercising',
+          'It shows that the framers intended the Court to be the weakest branch and did not want it to have review power',
+          'It means that judicial review can be removed by a simple Act of Congress without amending the Constitution'
+        ],
+        correctIndex: 1,
+        explanation: 'The fact that judicial review was self-declared — the Court ruled that it had this power — is itself a demonstration of judicial power. The Court used its interpretive authority to define the scope of its own authority, which is a notable exercise in institutional self-definition.'
+      },
+      {
+        question: 'Madison wrote that "ambition must be made to counteract ambition." What does this reveal about the framers\' assumptions about human nature?',
+        options: [
+          'The framers believed that most political leaders would be virtuous and could be trusted with great power',
+          'The framers assumed that leaders would be self-interested and designed the system so that competing self-interests, rather than virtue, would maintain balance',
+          'The framers wanted ambitious leaders because ambition leads to strong, effective governance',
+          'Madison was criticizing the other framers for being too ambitious in the scope of the Constitution they were writing'
+        ],
+        correctIndex: 1,
+        explanation: 'Madison\'s quote reveals a realistic — even cynical — view of human nature. Rather than building a system that required virtuous leaders, the framers built one where leaders\' ambition would be naturally checked by other ambitious leaders. The system was designed to function despite human self-interest, not because of virtue.'
+      },
+      {
+        question: 'The passage says the Constitution makes it "harder for any individual or faction to seize permanent control" but does not "guarantee good government." What evidence from the passage supports this distinction?',
+        options: [
+          'The Electoral College has always produced presidents who received the most popular votes',
+          'Presidents have expanded executive power during wartime, and branches governed by the same party may not effectively check each other, showing the system can be strained',
+          'The Tenth Amendment has been repeatedly struck down by the Supreme Court as unconstitutional',
+          'Congress has never successfully overridden a presidential veto, showing that checks and balances do not work in practice'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly notes that executive power has been expanded beyond constitutional limits during wartime and that partisan alignment can weaken checks between branches. These examples show the system is a structural safeguard, not an infallible guarantee.'
+      },
+      {
+        question: 'How does federalism function as an additional safeguard against tyranny, according to the passage?',
+        options: [
+          'Federalism allows states to ignore federal laws they disagree with, creating a final check on congressional power',
+          'By dividing power vertically between the federal government and the states, federalism creates another layer of distributed authority that prevents any single government from controlling everything',
+          'Federalism ensures that the federal government can step in whenever a state government fails to protect its citizens',
+          'The Tenth Amendment gives states the power to appoint their own Supreme Court justices, reducing federal judicial dominance'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes federalism as a "vertical dimension" of distributed power, adding a second layer of fragmentation alongside the horizontal separation among the three federal branches. This dual structure means power must be contested at multiple levels simultaneously.'
+      },
+    ]
+  },
+  {
+    id: 'reconstruction-14th-amendment',
+    title: 'Rebuilding and Betraying: Reconstruction and the 14th Amendment',
+    topic: 'history',
+    coverEmoji: '📜',
+    coverColor: '#92400e',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## After the War
+
+The Civil War ended in April 1865 with the Union preserved and slavery abolished. But the question of what came next — how the South would be rebuilt, what rights formerly enslaved people would have, and how the nation would define citizenship — was immediately and bitterly contested. The period known as **Reconstruction** (1865–1877) was one of the most consequential and ultimately most tragic eras in American history.
+
+## The Promise: Radical Reconstruction
+
+In the immediate aftermath of the war, Congress — led by **Radical Republicans** who believed the South needed fundamental transformation — passed the **Reconstruction Amendments**. The **Thirteenth Amendment** (1865) abolished slavery. The **Fourteenth Amendment** (1868) was perhaps the most sweeping transformation of American constitutional law ever enacted in a single document.
+
+The Fourteenth Amendment did three revolutionary things. It established **birthright citizenship** — anyone born on American soil was a citizen, directly overturning the *Dred Scott* decision that had declared Black people could never be citizens. It guaranteed **equal protection under the law** to all citizens, prohibiting states from discriminating against people on the basis of race. And it guaranteed **due process** — states could not deprive citizens of life, liberty, or property without fair legal procedures.
+
+During the height of Reconstruction, formerly enslaved Black men voted, held political office, served in Congress, and began building institutions — schools, churches, businesses. The **Freedmen's Bureau** provided education, food, and legal services to millions. It was, briefly, an experiment in multiracial democracy.
+
+## The Betrayal: Redemption
+
+The experiment was violently dismantled. White supremacist groups, most infamously the **Ku Klux Klan**, used terrorism — murder, arson, torture — to drive Black voters from the polls and Black officeholders from power. When federal troops enforced Reconstruction, the violence was restrained; when they withdrew, it surged.
+
+The political settlement that resolved the disputed 1876 presidential election — known as the **Compromise of 1877** — resulted in the withdrawal of the last federal troops from the South. Without federal enforcement, the Reconstruction governments collapsed. The period that followed — often called **"Redemption"** by its white supporters — saw systematic disenfranchisement of Black voters through poll taxes, literacy tests, grandfather clauses, and white primaries. The Fourteenth Amendment remained in the Constitution but was rendered nearly meaningless for Black Southerners by hostile state laws and federal indifference.
+
+## The Long Shadow
+
+The Fourteenth Amendment's promise was revived decades later. The Supreme Court's ruling in *Brown v. Board of Education* (1954) used the equal protection clause to declare school segregation unconstitutional. The Civil Rights Act of 1964 and the Voting Rights Act of 1965 finally began enforcing rights that had been written into the Constitution nearly a century earlier.
+
+Reconstruction's history forces a difficult question: what is the value of constitutional rights if they cannot be enforced? The Fourteenth Amendment demonstrates that formal legal rights and real-world protection are different things. Progress requires not just the passage of laws but sustained political will to enforce them — something that proved far too fragile during Reconstruction, with consequences that reverberated for generations.`,
+    vocabulary: [
+      { word: 'Reconstruction', definition: 'The period from 1865–1877 during which the federal government attempted to rebuild the South and integrate formerly enslaved people into American civic life.', example: 'During Reconstruction, Black men voted and held elected office across the South for the first time in American history.' },
+      { word: 'birthright citizenship', definition: 'The legal principle that anyone born on a country\'s soil is automatically a citizen of that country.', example: 'The Fourteenth Amendment established birthright citizenship, overturning the Dred Scott ruling that had denied Black people citizenship.' },
+      { word: 'due process', definition: 'The legal requirement that the government must follow fair procedures before depriving a person of life, liberty, or property.', example: 'The due process clause of the Fourteenth Amendment protects citizens from arbitrary government action.' },
+      { word: 'disenfranchisement', definition: 'The removal or denial of a person\'s right to vote, often through legal mechanisms or outright force.', example: 'Poll taxes and literacy tests were used to accomplish systematic disenfranchisement of Black voters in the post-Reconstruction South.' },
+      { word: 'equal protection', definition: 'The constitutional guarantee that the government must treat all similarly situated people the same way under the law.', example: 'The equal protection clause became the legal foundation for challenging school segregation in Brown v. Board of Education.' },
+    ],
+    questions: [
+      {
+        question: 'The passage describes the Fourteenth Amendment as "perhaps the most sweeping transformation of American constitutional law ever enacted in a single document." Which evidence from the passage BEST supports this claim?',
+        options: [
+          'The amendment was passed by Radical Republicans who controlled Congress during Reconstruction',
+          'The amendment established birthright citizenship, equal protection, and due process — simultaneously reversing the Dred Scott decision and fundamentally redefining the relationship between citizens and state governments',
+          'The amendment was later used in Brown v. Board of Education to desegregate schools',
+          'The amendment was ratified in 1868, just three years after the Civil War ended'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies three specific, revolutionary changes made by the amendment: birthright citizenship (overturning Dred Scott), equal protection (prohibiting racial discrimination by states), and due process (requiring fair legal procedures). The breadth and depth of these changes justify the claim about its sweeping significance.'
+      },
+      {
+        question: 'What can be inferred about the relationship between federal troops and the success of Reconstruction?',
+        options: [
+          'Federal troops were ineffective at protecting Black citizens because the military did not support Reconstruction goals',
+          'The presence of federal troops was essential to enforcing Reconstruction — when they were present, violence was restrained; when they left, Reconstruction collapsed',
+          'Federal troops were only stationed in cities, leaving rural Black communities unprotected throughout Reconstruction',
+          'The Compromise of 1877 required federal troops to remain in the South permanently to enforce the Fourteenth Amendment'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage directly states that "when federal troops enforced Reconstruction, the violence was restrained; when they withdrew, it surged," and that without federal enforcement after 1877, Reconstruction governments collapsed. This cause-and-effect relationship shows that enforcement — not just law — was critical.'
+      },
+      {
+        question: 'The author uses the term "Redemption" in quotation marks when describing what white Southerners called the post-Reconstruction period. What does this stylistic choice suggest?',
+        options: [
+          'The author is uncertain whether the term is historically accurate',
+          'The author is signaling irony — the term used by white Southerners to describe restoring their power actually represented the violent destruction of Black political and civil rights',
+          'The author wants readers to understand that Redemption was a widely popular movement supported by most Americans',
+          'The quotation marks indicate that the author is directly quoting a historical figure'
+        ],
+        correctIndex: 1,
+        explanation: 'By placing "Redemption" in quotation marks, the author signals critical distance from the term. The word implies salvation or moral recovery, but the author has just described the dismantling of multiracial democracy through terrorism and disenfranchisement. The quotation marks flag the gap between the term\'s positive connotations and its actual meaning.'
+      },
+      {
+        question: 'Based on the passage\'s account of Reconstruction\'s failure, what does the author suggest is necessary for constitutional rights to be meaningful?',
+        options: [
+          'Constitutional rights become meaningful only when the Supreme Court explicitly upholds them in landmark cases',
+          'Formal legal rights require sustained political will and enforcement mechanisms to translate into actual protection — law alone is insufficient',
+          'Rights are only meaningful in states that voluntarily choose to respect them without federal pressure',
+          'Constitutional amendments must include specific criminal penalties for violations in order to be enforceable'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage\'s central argument is captured in its final sentences: the Fourteenth Amendment "demonstrates that formal legal rights and real-world protection are different things" and that "progress requires not just the passage of laws but sustained political will to enforce them." The failure of Reconstruction illustrates what happens when enforcement collapses.'
+      },
+      {
+        question: 'The passage describes Reconstruction as "one of the most consequential and ultimately most tragic eras in American history." How does the passage support both characterizations?',
+        options: [
+          'Consequential because it ended slavery; tragic because the Union was permanently divided',
+          'Consequential because the Reconstruction Amendments fundamentally redefined citizenship and rights; tragic because those rights were systematically dismantled and their full implementation took nearly a century more',
+          'Consequential because it created the modern Democratic Party; tragic because thousands of soldiers died during the war that preceded it',
+          'Consequential because it established the Freedmen\'s Bureau; tragic because the Bureau was poorly funded and largely ineffective'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage supports "consequential" with the Reconstruction Amendments\' sweeping legal changes and the brief flourishing of multiracial democracy. It supports "tragic" with the violent dismantling of those gains, the near-century gap before they were enforced, and the suffering of millions of Black Americans in between.'
+      },
+    ]
+  },
+  {
+    id: 'jim-crow-equality-struggle',
+    title: 'Separate and Unequal: Jim Crow and the Long Fight for Equality',
+    topic: 'history',
+    coverEmoji: '✊',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 535,
+    readTimeMin: 3,
+    text: `## A Legal Architecture of Inequality
+
+Following the collapse of Reconstruction, Southern states built a comprehensive system of racial separation and subordination that would govern Black life for nearly a century. Known collectively as **Jim Crow laws** — named after a minstrel character that mocked Black people — these statutes mandated racial segregation in virtually every public space: schools, hospitals, transportation, parks, restaurants, and courtrooms. The laws were enforced not only by the state but by the constant threat of extrajudicial violence, particularly **lynching**, the murder of Black people by white mobs, often in public and with impunity.
+
+## Plessy v. Ferguson and "Separate but Equal"
+
+The legal foundation for Jim Crow was laid by the Supreme Court in **Plessy v. Ferguson** (1896). Homer Plessy, a man of mixed race, deliberately violated Louisiana's Separate Car Act to challenge its constitutionality. The Court ruled 7-1 that "separate but equal" facilities satisfied the Fourteenth Amendment's equal protection guarantee. Justice **John Marshall Harlan** wrote a famous lone dissent, arguing that the Constitution is "color-blind" and that enforced separation stamps Black citizens with a badge of inferiority.
+
+In practice, "separate but equal" was never equal. Black schools received dramatically less funding, Black hospitals had inferior equipment, and Black neighborhoods were excluded from New Deal programs, bank loans, and government benefits that helped build the white middle class.
+
+## Resistance: Multiple Strategies
+
+Black Americans never passively accepted Jim Crow. They organized, litigated, boycotted, and migrated. The **NAACP** (National Association for the Advancement of Colored People), founded in 1909, pursued a deliberate legal strategy, systematically challenging segregation in court. **Thurgood Marshall**, who would later become the first Black Supreme Court Justice, argued dozens of cases dismantling the infrastructure of separate-but-equal.
+
+The **Great Migration** (1910–1970) saw over six million Black Southerners move to northern cities to escape Jim Crow's violence and economic exploitation. While the North was not free from racism, it offered greater political freedom, union wages, and the ability to vote — resources that would fuel the civil rights movement.
+
+## Brown v. Board and the Crumbling of Jim Crow
+
+In 1954, the Supreme Court's unanimous ruling in **Brown v. Board of Education** overturned Plessy, declaring that segregated schools were inherently unequal. The ruling drew directly on psychological research showing that segregation caused lasting harm to Black children's self-image and development — the famous "doll studies" by Kenneth and Mamie Clark.
+
+White Southern resistance was fierce. Virginia closed its public schools rather than integrate. The **White Citizens' Council** used economic pressure against Black families who challenged segregation. President Eisenhower had to deploy the 101st Airborne Division to escort nine Black students into Little Rock Central High School in 1957.
+
+## A Long, Unfinished Story
+
+Jim Crow's formal legal structure was dismantled by the Civil Rights Act (1964) and the Voting Rights Act (1965). But the inequalities it produced — in wealth, education, housing, and health — were not erased by legislation. Understanding Jim Crow requires understanding not just its laws but its consequences: a century of deliberately engineered inequality whose effects persist in measurable form today.`,
+    vocabulary: [
+      { word: 'Jim Crow laws', definition: 'State and local laws enacted in the Southern United States that mandated racial segregation in public facilities from the late 1870s through the 1960s.', example: 'Jim Crow laws required Black and white people to use separate schools, water fountains, and railroad cars throughout the South.' },
+      { word: 'lynching', definition: 'The extrajudicial killing of a person, typically by a mob, often used as a tool of racial terror in the American South.', example: 'Between 1877 and 1950, thousands of Black Americans were lynched in the South, with perpetrators rarely prosecuted.' },
+      { word: 'segregation', definition: 'The enforced separation of groups, especially by race, in public or private spaces.', example: 'School segregation meant that Black children attended underfunded schools separate from white students, receiving unequal education.' },
+      { word: 'dissent', definition: 'In a legal context, a written opinion by a judge who disagrees with the majority ruling.', example: 'Justice Harlan\'s famous dissent in Plessy v. Ferguson argued that the Constitution does not permit racial classification.' },
+      { word: 'Great Migration', definition: 'The movement of over six million Black Americans from the rural South to northern and western cities between 1910 and 1970, driven partly by the desire to escape Jim Crow.', example: 'The Great Migration transformed cities like Chicago, Detroit, and New York as Black Southerners sought economic opportunity and political freedom.' },
+    ],
+    questions: [
+      {
+        question: 'The passage says Jim Crow laws were enforced by both the state and the threat of violence. What does this combination reveal about the system\'s design?',
+        options: [
+          'The state governments were unable to enforce segregation without help from private citizens',
+          'Jim Crow was a dual system of formal legal coercion and informal terrorist violence, making it far more comprehensive and difficult to challenge than law alone would have been',
+          'Violence against Black people was never officially sanctioned by state governments, which tried to prevent it',
+          'The legal and violent components of Jim Crow were created by different groups and operated independently'
+        ],
+        correctIndex: 1,
+        explanation: 'The combination of state law and extrajudicial violence (lynching) created a system where Black people faced punishment from both official government institutions and unofficial mob terror. This dual enforcement made resistance extraordinarily dangerous and the system nearly total in its reach.'
+      },
+      {
+        question: 'According to the passage, why was Justice Harlan\'s Plessy dissent historically significant?',
+        options: [
+          'His dissent immediately persuaded Congress to pass new civil rights legislation overturning the decision',
+          'He was the only justice who recognized that enforced separation was inherently unequal and stamped Black citizens with inferiority — a view that would be vindicated by Brown v. Board 58 years later',
+          'His dissent established the legal precedent for the NAACP\'s court strategy in the early twentieth century',
+          'He argued that the Separate Car Act violated the commerce clause, not the equal protection clause'
+        ],
+        correctIndex: 1,
+        explanation: 'Harlan\'s lone dissent argued the very principle that Brown would adopt 58 years later: that segregation itself creates inequality and inferiority. The passage implicitly shows that history validated his position, making his lone voice in 1896 a prescient legal and moral argument.'
+      },
+      {
+        question: 'What does the passage suggest about the Great Migration\'s relationship to the civil rights movement?',
+        options: [
+          'The Great Migration weakened the civil rights movement by removing politically active Black people from the South where change was most needed',
+          'Migration to northern cities gave Black Americans political rights, union wages, and organizational resources that helped fuel the eventual civil rights movement',
+          'The Great Migration primarily affected poor Black families, while middle-class Black Southerners stayed behind to challenge Jim Crow directly',
+          'Northern cities fully integrated after the Great Migration, creating a model that southern cities were eventually forced to adopt'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that the North offered "greater political freedom, union wages, and the ability to vote — resources that would fuel the civil rights movement." The Great Migration was not just an escape from Jim Crow but a strategic relocation that built the organizational capacity to challenge it.'
+      },
+      {
+        question: 'The passage notes that Brown v. Board drew on psychological research about the "doll studies." Why is this detail significant for the legal argument against segregation?',
+        options: [
+          'It proved that segregated schools had inferior physical facilities, which satisfied the constitutional standard established in Plessy',
+          'It provided empirical evidence that segregation caused measurable psychological harm, undermining the claim that "separate but equal" facilities were truly equal in any meaningful sense',
+          'It demonstrated that white children were also harmed by segregation, making the constitutional argument applicable to all races equally',
+          'It shifted the legal question from the Fourteenth Amendment to the psychological research literature, which was legally binding under federal law'
+        ],
+        correctIndex: 1,
+        explanation: 'The doll studies showed that Black children internalized a sense of inferiority from segregation — measurable psychological harm that made "separate but equal" factually false. This empirical evidence helped the Court conclude that segregation was inherently unequal regardless of the quality of physical facilities.'
+      },
+      {
+        question: 'The author ends by saying Jim Crow\'s inequalities "persist in measurable form today." What is the author\'s likely purpose in closing with this claim?',
+        options: [
+          'To argue that all racial inequality in the United States today is exclusively caused by Jim Crow laws',
+          'To encourage readers to view historical injustice as connected to present-day inequality, rather than treating the Civil Rights Act as a complete resolution',
+          'To suggest that new Jim Crow-style laws need to be repealed before racial equality can be achieved',
+          'To conclude that the civil rights movement ultimately failed because it did not eliminate inequality'
+        ],
+        correctIndex: 1,
+        explanation: 'The closing connects historical law to present-day outcomes, arguing that formal legal change did not erase the structural effects of a century of engineered inequality. The author wants readers to understand Jim Crow not as ancient history but as a system whose consequences are still measurable and relevant.'
+      },
+    ]
+  },
+  {
+    id: 'cold-war-ideology-proxy',
+    title: 'The Frozen War: Ideology and Proxy Conflicts in the Cold War',
+    topic: 'history',
+    coverEmoji: '🌐',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 530,
+    readTimeMin: 3,
+    text: `## A War That Was Never Declared
+
+The **Cold War** (1947–1991) was the defining geopolitical conflict of the twentieth century's second half — and it was never fought directly between the two superpowers involved. The United States and the Soviet Union both possessed nuclear arsenals capable of destroying civilization. This created a condition of **mutual assured destruction (MAD)**: neither side could attack the other without guaranteeing its own annihilation. So instead, they fought everywhere else.
+
+## Ideological Conflict
+
+At its core, the Cold War was a conflict between competing visions of how society should be organized. The United States championed **liberal capitalism**: free markets, democratic elections, individual rights, and private property. The Soviet Union championed **Marxist-Leninist communism**: state ownership of the economy, single-party governance, collective welfare, and the ultimate goal of global communist revolution.
+
+Both sides believed their system was not only better but historically inevitable — that history was on their side, and that the other system would eventually collapse or be defeated. This ideological certainty made compromise nearly impossible and every regional conflict potentially existential.
+
+## Proxy Wars
+
+Because direct confrontation was suicidal, the superpowers supported rival factions in conflicts around the world. These **proxy wars** allowed each side to advance its interests and test its rival without direct engagement. The Korean War (1950–1953) pitted a U.S.-backed South Korea against a Soviet- and Chinese-backed North Korea, ending in a stalemate at almost the same border where it began. The Vietnam War became a devastating proxy conflict as the U.S. supported South Vietnam and the Soviet Union and China backed the North.
+
+In **Angola**, **Mozambique**, **Nicaragua**, **Afghanistan**, and dozens of other nations, the superpowers funded armed factions, trained militias, and installed or toppled governments based on ideological alignment. The people of those countries bore the primary costs — civil wars, famine, displacement, and authoritarian governance backed by outside powers who cared more about strategic advantage than local welfare.
+
+## The Arms Race and Space Race
+
+Competition extended beyond the battlefield. Both superpowers invested massively in nuclear weapons, developing increasingly powerful and numerous warheads and the missiles to deliver them. At the Cold War's peak, the U.S. and Soviet Union together held more than 60,000 nuclear warheads. The **space race** was simultaneously a technological achievement and a propaganda competition: Soviet **Sputnik** (1957) demonstrated that its rockets could carry payloads — meaning warheads — anywhere on Earth; American moon landings demonstrated the superiority of free-market technology and democratic ambition.
+
+## Collapse and Legacy
+
+The Soviet Union collapsed in 1991, largely from internal economic failure, the cost of the arms race, and the incompatibility of its system with a globalizing information economy. The Cold War's end left the United States as the world's sole superpower — but it also left a legacy of destabilized nations, ongoing civil wars, and authoritarian regimes propped up during the Cold War that outlasted it.
+
+Understanding the Cold War requires recognizing that ideological conviction can lead powerful nations to cause enormous harm in distant places — treating populations as pieces on a strategic chessboard rather than as human beings with their own interests.`,
+    vocabulary: [
+      { word: 'mutual assured destruction', definition: 'The doctrine that a nuclear attack by one superpower would result in total retaliation, guaranteeing both sides\' destruction — making nuclear war irrational.', example: 'Mutual assured destruction kept the U.S. and Soviet Union from direct military conflict, but it also created the terrifying risk of accidental war.' },
+      { word: 'proxy war', definition: 'A conflict in which two major powers support opposing sides rather than fighting each other directly.', example: 'Korea and Vietnam were proxy wars in which the superpowers funded and equipped rival factions without directly engaging each other.' },
+      { word: 'ideology', definition: 'A system of political, economic, and social beliefs that shapes how a group or government thinks society should be organized.', example: 'The Cold War\'s ideological conflict between capitalism and communism shaped foreign policy decisions across the globe for four decades.' },
+      { word: 'propaganda', definition: 'Information, especially biased or misleading material, used to promote a political cause or point of view.', example: 'Both superpowers used propaganda to convince domestic and international audiences that their system was superior.' },
+      { word: 'destabilized', definition: 'Made politically or socially unstable, often by outside interference that undermines existing governments or institutions.', example: 'Cold War intervention left many countries destabilized, creating power vacuums that led to decades of civil conflict.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, how did mutual assured destruction (MAD) shape the nature of the Cold War conflict?',
+        options: [
+          'It prevented any military conflict anywhere in the world during the Cold War period',
+          'It made direct superpower conflict suicidal, redirecting competition into proxy wars, arms races, and ideological contests around the world',
+          'It forced both superpowers to reduce their nuclear arsenals through negotiated treaties',
+          'It convinced both sides that compromise was possible because neither could win a nuclear exchange'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly connects MAD to the Cold War\'s defining feature: "so instead, they fought everywhere else." The impossibility of direct confrontation channeled superpower competition into proxy wars and other indirect forms, shaping the entire structure of the conflict.'
+      },
+      {
+        question: 'The passage says both superpowers believed their system was "not only better but historically inevitable." How did this belief affect the conflict?',
+        options: [
+          'It made both sides willing to negotiate because they were confident they would eventually prevail without military action',
+          'It made compromise nearly impossible, since each side believed it was on the right side of history and that the other would ultimately fail',
+          'It encouraged both sides to focus on economic competition rather than military conflict',
+          'It led both sides to accept the other\'s sphere of influence to avoid unnecessary confrontation'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states directly that ideological certainty "made compromise nearly impossible and every regional conflict potentially existential." When each side believes it represents the inevitable direction of history, the stakes of every conflict are elevated to existential significance.'
+      },
+      {
+        question: 'The passage notes that "the people of those countries bore the primary costs" of proxy wars. What does this reveal about the moral dimension of Cold War strategy?',
+        options: [
+          'It suggests that the populations of proxy war countries were complicit in the superpower conflict and therefore responsible for its consequences',
+          'It reveals a moral failure: the superpowers treated foreign populations as instruments of their strategic competition rather than as people with their own rights and interests',
+          'It shows that proxy wars were more destructive than direct superpower conflict would have been',
+          'It implies that the United States was more responsible for proxy war suffering than the Soviet Union'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly states that outside powers "cared more about strategic advantage than local welfare," framing this as a moral problem. Treating populations as "pieces on a strategic chessboard" is the author\'s characterization of this failure, and the question about moral dimension points directly to this judgment.'
+      },
+      {
+        question: 'According to the passage, what was the Sputnik satellite\'s significance beyond its scientific achievement?',
+        options: [
+          'It demonstrated that the Soviet Union had a superior education system, which alarmed American policymakers',
+          'It showed that Soviet rockets could carry nuclear warheads anywhere on Earth, making it simultaneously a space achievement and a strategic military threat',
+          'It sparked the environmental movement by showing the fragility of Earth from space',
+          'It proved that communist economic planning was more efficient than capitalist markets for large technological projects'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states explicitly that "Sputnik demonstrated that its rockets could carry payloads — meaning warheads — anywhere on Earth." The satellite\'s military implication (delivery of nuclear weapons globally) was as significant as its scientific achievement, blurring the line between the space race and the arms race.'
+      },
+      {
+        question: 'The passage describes the Soviet Union\'s collapse as resulting from "internal economic failure, the cost of the arms race, and the incompatibility of its system with a globalizing information economy." What argument does this support?',
+        options: [
+          'The United States won the Cold War primarily through military pressure rather than economic or ideological competition',
+          'The Soviet system collapsed partly from internal contradictions — it could not sustain the economic burdens of superpower competition while suppressing the information flows that a modern economy requires',
+          'The Soviet Union would have survived if it had not invested so heavily in the space race instead of conventional military forces',
+          'Democratic systems are always more economically efficient than communist systems, regardless of other historical factors'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage points to multiple causes of Soviet collapse, including systemic incompatibility with the modern economy. This supports the argument that ideological rigidity and structural economic weaknesses — not solely American pressure — destroyed the Soviet system, suggesting a more complex causation than simple military victory.'
+      },
+    ]
+  },
+  {
+    id: 'civil-rights-strategy-nonviolence',
+    title: 'Strategy and Sacrifice: The Civil Rights Movement',
+    topic: 'history',
+    coverEmoji: '✊',
+    coverColor: '#065f46',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## More Than a March
+
+Popular memory often reduces the civil rights movement to a handful of speeches and marches. The actual movement was far more complex: a decades-long, strategically sophisticated campaign involving legal challenges, economic pressure, civil disobedience, community organizing, and deliberate media strategy. Understanding it requires looking beyond the inspiring moments to the calculated choices that made them effective.
+
+## The Philosophy of Nonviolence
+
+**Nonviolent direct action** was not simply a moral preference — it was a strategic choice. Drawing on the philosophy of **Mahatma Gandhi** and the theology of the Black church, **Martin Luther King Jr.** and other movement leaders understood that nonviolence served multiple purposes simultaneously. It maintained moral authority in the eyes of a watching nation and world. It trained participants to endure provocation without retaliation. And crucially, it forced opponents to reveal their violence openly.
+
+When Birmingham's Public Safety Commissioner **"Bull" Connor** turned fire hoses and police dogs on peaceful protestors in 1963 — including children — the images were broadcast nationally and internationally. Those images shocked the conscience of Americans who had been able to ignore segregation when it remained invisible. The brutality became the argument for change.
+
+## Strategic Targets and Escalating Pressure
+
+Movement leaders chose their targets carefully. The **Montgomery Bus Boycott** (1955–1956) hit the city's transit system where it was economically vulnerable — Black riders constituted roughly 70% of bus ridership. The boycott lasted 381 days and cost the transit company severely before the Supreme Court ruled bus segregation unconstitutional.
+
+The **sit-ins** at lunch counters across the South, beginning with the famous **Greensboro sit-in** (1960), targeted establishments that depended on Black customer spending while denying Black dignity. The **Freedom Rides** (1961) challenged the failure to enforce federal desegregation orders on interstate transportation. Each action was chosen to create a specific pressure point that required a response.
+
+The **SCLC** (Southern Christian Leadership Conference) and **SNCC** (Student Nonviolent Coordinating Committee) organized these campaigns but also created internal tensions. SNCC's younger, more confrontational members increasingly questioned the pace of change and King's centralized leadership style, foreshadowing the movement's later divisions.
+
+## Legislative Breakthroughs
+
+The movement's strategic pressure produced landmark legislation. The **Civil Rights Act of 1964** outlawed discrimination in employment and public accommodations. The **Voting Rights Act of 1965** targeted the mechanisms of Black voter disenfranchisement directly — prohibiting literacy tests and authorizing federal oversight of elections in states with histories of discrimination.
+
+President **Lyndon Johnson**, a Southern Democrat who had opposed civil rights legislation earlier in his career, drove both bills through Congress partly out of genuine moral conviction and partly because the political cost of inaction — both domestically and in terms of America's Cold War image — had become too high.
+
+## An Ongoing Struggle
+
+The movement's legislative victories were profound but incomplete. Economic inequality, housing segregation, and disparities in education and criminal justice proved more resistant to legislation than formal legal segregation. The civil rights movement demonstrated that sustained, strategic, nonviolent action could transform law — but that transforming law is only the beginning of transforming society.`,
+    vocabulary: [
+      { word: 'nonviolent direct action', definition: 'A strategy for social change that uses peaceful confrontation — boycotts, sit-ins, marches — to challenge unjust laws or practices without using violence.', example: 'The Montgomery Bus Boycott was a form of nonviolent direct action that used economic pressure to challenge segregation.' },
+      { word: 'civil disobedience', definition: 'The deliberate, nonviolent refusal to obey laws considered unjust, intended to draw attention to injustice and create pressure for change.', example: 'Students who sat at segregated lunch counters were practicing civil disobedience, knowingly breaking laws they considered unconstitutional.' },
+      { word: 'disenfranchisement', definition: 'The denial of voting rights, especially through legal mechanisms designed to exclude specific groups from political participation.', example: 'The Voting Rights Act directly targeted the mechanisms of Black voter disenfranchisement, including literacy tests and intimidation.' },
+      { word: 'moral authority', definition: 'The influence or credibility that comes from being perceived as acting on principled, ethical grounds rather than self-interest.', example: 'The movement\'s commitment to nonviolence gave it moral authority that made it harder for opponents to dismiss its demands.' },
+      { word: 'foreshadowing', definition: 'An indication of something that will happen in the future; a sign of coming events.', example: 'The tensions between SNCC and SCLC were foreshadowing the divisions that would fracture the movement in the late 1960s.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, why was nonviolent direct action a strategic choice rather than simply a moral one?',
+        options: [
+          'Movement leaders believed that violence would have resulted in their immediate arrest and imprisonment',
+          'Nonviolence maintained moral authority, trained participants to endure provocation, and forced opponents to reveal their own violence publicly, creating powerful images that moved public opinion',
+          'Federal law prohibited civil rights activists from using any form of violence or confrontation during their demonstrations',
+          'King and other leaders believed that the U.S. military would intervene on the movement\'s behalf if protesters remained peaceful'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies three strategic purposes of nonviolence: maintaining moral authority, training participants, and forcing opponents to show their violence openly. The Birmingham example shows this strategy in action — Connor\'s brutality became the argument for change.'
+      },
+      {
+        question: 'The passage describes movement leaders as choosing targets "carefully." What principle appears to guide these choices?',
+        options: [
+          'They targeted the largest and most visible institutions first to create maximum media coverage',
+          'They selected targets where economic or political pressure could force a specific response — transit systems dependent on Black riders, lunch counters dependent on Black customers, transportation networks required to follow federal law',
+          'They targeted institutions in Northern cities rather than the South to avoid violent confrontation with local law enforcement',
+          'They prioritized symbolic targets that would generate the most emotional response from supporters rather than practical economic pressure'
+        ],
+        correctIndex: 1,
+        explanation: 'Each example the passage provides — the bus boycott, the sit-ins, the freedom rides — involved identifying a specific vulnerability or pressure point that required a response. The strategy was not random or primarily symbolic; it was designed to create leverage.'
+      },
+      {
+        question: 'How does the passage characterize the image of Bull Connor\'s fire hoses and police dogs? What rhetorical function does this example serve in the author\'s argument?',
+        options: [
+          'It shows that the civil rights movement was willing to put children in dangerous situations, which the author criticizes',
+          'It illustrates how nonviolent strategy worked in practice — peaceful protesters absorbing brutal official violence created images that forced Americans who had ignored segregation to confront its reality',
+          'It demonstrates that Southern law enforcement officials were universally opposed to civil rights, making federal intervention inevitable',
+          'It serves as an example of how the media distorted events to create sympathy for the civil rights movement'
+        ],
+        correctIndex: 1,
+        explanation: 'The Birmingham example directly illustrates the passage\'s argument about nonviolent strategy. Peaceful protesters\' endurance of official violence — captured in images — "shocked the conscience of Americans who had been able to ignore segregation when it remained invisible." The example proves the strategic theory in practice.'
+      },
+      {
+        question: 'The passage mentions that Johnson had "opposed civil rights legislation earlier in his career." Why does the author include this detail?',
+        options: [
+          'To suggest that Johnson was hypocritical and his support for civil rights legislation was entirely cynical',
+          'To acknowledge historical complexity — a politician known for opposing civil rights became the president who signed landmark civil rights legislation, driven by both moral evolution and political calculation',
+          'To show that Southern Democrats were the primary opponents of civil rights legislation throughout the twentieth century',
+          'To prove that the civil rights movement succeeded despite, not because of, political leadership at the federal level'
+        ],
+        correctIndex: 1,
+        explanation: 'Including Johnson\'s history adds nuance to the account. Rather than presenting him as a simple hero or villain, the author acknowledges that his support combined "genuine moral conviction" with political calculation. This complexity serves the passage\'s analytical approach to the movement.'
+      },
+      {
+        question: 'The passage ends by stating that "transforming law is only the beginning of transforming society." What evidence from the passage supports this conclusion?',
+        options: [
+          'The Civil Rights Act was passed in 1964 but was not enforced by the federal government until the 1970s',
+          'Despite landmark legislation outlawing formal segregation and voter suppression, economic inequality, housing segregation, and disparities in education and criminal justice proved more resistant to legislative solutions',
+          'The movement\'s divisions after the 1960s meant that no further civil rights legislation was passed for decades',
+          'State governments in the South refused to comply with federal civil rights laws for more than twenty years after their passage'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "economic inequality, housing segregation, and disparities in education and criminal justice proved more resistant to legislation than formal legal segregation." This directly supports the conclusion that legal change, while essential, was insufficient to transform the deeper structural inequalities.'
+      },
+    ]
+  },
+  {
+    id: 'holocaust-causes-lessons',
+    title: 'How It Happened: The Holocaust and Its Lessons',
+    topic: 'history',
+    coverEmoji: '🕯️',
+    coverColor: '#374151',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 550,
+    readTimeMin: 3,
+    text: `## Not a Sudden Event
+
+The Holocaust — the systematic murder of six million Jewish people and millions of others by the Nazi regime between 1941 and 1945 — is often treated as if it were an incomprehensible aberration. But historians argue that understanding how it happened requires tracing a specific, observable process. It did not begin with gas chambers. It began with words.
+
+## Preconditions: Antisemitism and Scapegoating
+
+**Antisemitism** — prejudice, hostility, and discrimination against Jewish people — had deep roots in European history. For centuries, Jewish communities had been subject to legal restrictions, expulsions, and periodic massacres. When Germany was humiliated by the Treaty of Versailles after World War I, stripped of territory, and subjected to crushing war reparations, the Nazi Party under **Adolf Hitler** offered a convenient explanation: the war had been lost because of betrayal from within, particularly by Jewish people. This **scapegoating** — blaming a minority group for complex social problems — found a willing audience in a society devastated by economic collapse and national humiliation.
+
+## Escalating Persecution
+
+The Nazis came to power in 1933, and persecution escalated in deliberately incremental steps. The **Nuremberg Laws** (1935) stripped Jewish people of citizenship and prohibited marriage between Jews and non-Jews. **Kristallnacht** (1938) — the "Night of Broken Glass" — saw organized mob violence destroy Jewish businesses and synagogues while the state looked the other way. Each escalation normalized the next: people who had accepted legal discrimination found it harder to object to violence, and those who accepted violence found it harder to object to deportation.
+
+**Ordinary people** participated at every level. The historian **Christopher Browning** studied Reserve Police Battalion 101, a unit of ordinary German policemen who became mass killers in occupied Poland. Most were middle-aged men who were given the chance to opt out but did not. Obedience to authority, peer pressure, and the gradual normalization of brutality explain much of their behavior.
+
+## The Machinery of Murder
+
+The **Final Solution** — the Nazi program for the systematic murder of all Jews in Europe — required bureaucratic coordination across many institutions. Train schedules, government records, industrial-scale facilities, and thousands of officials who knew what they were doing and did it anyway. **Hannah Arendt**'s concept of the **"banality of evil"** — derived from observing the trial of Nazi official Adolf Eichmann — captured something essential: extraordinary evil can be carried out by ordinary people performing bureaucratic tasks without confronting the full moral weight of their actions.
+
+## Lessons and Responsibilities
+
+Several lessons are widely drawn from the Holocaust. **Dehumanization** — the rhetorical treatment of a group as subhuman — is consistently a precursor to mass violence. Bystander passivity enables perpetrators. Early resistance, when persecution begins rather than after it becomes murderous, is far more effective than late resistance. And democratic institutions can be dismantled from within, through legal processes, if citizens do not actively defend them.
+
+The Holocaust is studied not as a monument to evil but as evidence of specific processes that recur. Recognizing those processes — scapegoating, dehumanization, incremental normalization — while they are operating, rather than in retrospect, is the obligation of citizens in every generation.`,
+    vocabulary: [
+      { word: 'antisemitism', definition: 'Prejudice, hostility, or discrimination directed against Jewish people as a group.', example: 'Centuries of antisemitism in Europe created the cultural soil in which Nazi ideology was able to take root and spread.' },
+      { word: 'scapegoating', definition: 'Blaming a particular group for problems they did not cause in order to deflect responsibility or unite people against a common target.', example: 'The Nazis engaged in scapegoating by blaming Germany\'s post-WWI economic and political failures on Jewish people.' },
+      { word: 'dehumanization', definition: 'The process of portraying people as less than human, stripping them of their dignity and moral status — often used to justify violence against them.', example: 'Nazi propaganda used systematic dehumanization to make genocide psychologically possible for those who carried it out.' },
+      { word: 'banality of evil', definition: 'Hannah Arendt\'s concept that great evil can be carried out by ordinary people performing routine tasks without taking moral responsibility for the consequences.', example: 'Eichmann\'s trial suggested that the banality of evil was as dangerous as dramatic villainy — ordinary bureaucratic compliance could enable mass murder.' },
+      { word: 'incremental', definition: 'Happening gradually through a series of small steps rather than all at once.', example: 'The incremental escalation of anti-Jewish persecution made each step seem smaller than it was, normalizing what had previously been unthinkable.' },
+    ],
+    questions: [
+      {
+        question: 'The passage argues that understanding the Holocaust requires "tracing a specific, observable process." What is the significance of this framing?',
+        options: [
+          'It suggests that the Holocaust was predictable and that individuals could have stopped it at any point',
+          'It counters the idea that the Holocaust was incomprehensible or unique in kind, arguing instead that it resulted from identifiable patterns — scapegoating, dehumanization, incremental escalation — that can recur',
+          'It implies that the Holocaust was a planned event from the moment the Nazi Party took power in 1933',
+          'It frames the Holocaust as a scientific phenomenon that can be studied without moral judgment'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly challenges the "incomprehensible aberration" framing, instead arguing that the Holocaust resulted from "specific, observable" processes. This matters because patterns can be recognized and resisted; a unique aberration offers no lessons. The author\'s purpose is to identify those patterns.'
+      },
+      {
+        question: 'According to the passage, how did the incremental escalation of persecution make each step more difficult to resist?',
+        options: [
+          'Each escalation was accompanied by government censorship that prevented citizens from learning what was happening',
+          'People who accepted one level of persecution had already compromised their moral position, making it psychologically harder to object to the next escalation',
+          'The Nazi government deliberately moved so quickly that citizens did not have time to organize effective resistance',
+          'German citizens were systematically removed from their communities to prevent them from discussing what was happening'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains the psychology explicitly: "people who had accepted legal discrimination found it harder to object to violence, and those who accepted violence found it harder to object to deportation." Each concession raised the psychological cost of resistance and lowered the threshold for the next atrocity.'
+      },
+      {
+        question: 'What does the study of Reserve Police Battalion 101 contribute to the passage\'s argument about how the Holocaust happened?',
+        options: [
+          'It proves that all German citizens knew about the Final Solution and therefore bore collective responsibility',
+          'It provides evidence that ordinary people — not monsters or fanatics — carried out mass murder through obedience, peer pressure, and normalization, challenging the idea that perpetrators were uniquely evil',
+          'It shows that military discipline made resistance impossible for German soldiers who participated in killings',
+          'It demonstrates that the Holocaust was primarily carried out by a small group of ideologically committed Nazis, not by ordinary German citizens'
+        ],
+        correctIndex: 1,
+        explanation: 'Browning\'s study of ordinary policemen who could have opted out but didn\'t reinforces the passage\'s central argument: the Holocaust did not require monsters. Obedience, peer pressure, and normalization explain ordinary people\'s participation — a far more troubling and instructive finding.'
+      },
+      {
+        question: 'How does Arendt\'s concept of the "banality of evil" challenge conventional understandings of moral responsibility?',
+        options: [
+          'It argues that evil actions are only morally significant when the person performing them enjoys what they are doing',
+          'It suggests that bureaucratic distance and routine task performance can allow people to participate in atrocities without confronting their moral weight, making moral responsibility invisible rather than absent',
+          'It claims that evil people are ordinary in most respects and can be identified only by their actions, not their personalities',
+          'It contends that the Nazi officials at the top of the hierarchy were the only truly evil participants, while those below them were not morally responsible'
+        ],
+        correctIndex: 1,
+        explanation: 'Arendt\'s insight is that bureaucratic structure allows people to perform their "tasks" without engaging with the full moral meaning of what they are doing collectively. This challenges the assumption that perpetrators must experience dramatic evil impulses — routine compliance can be just as deadly.'
+      },
+      {
+        question: 'The author states that the Holocaust is studied "not as a monument to evil but as evidence of specific processes that recur." What is the author\'s purpose in drawing this distinction?',
+        options: [
+          'To argue that Holocaust memorials are less educational than academic history courses',
+          'To shift the purpose of Holocaust study from solemn commemoration to practical pattern recognition — so that citizens can identify and resist similar processes before they culminate in genocide',
+          'To suggest that the Holocaust was not uniquely significant and should be studied alongside all other historical atrocities without special emphasis',
+          'To criticize governments that use Holocaust memory primarily for political purposes rather than genuine education'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph frames the Holocaust\'s study as a tool for practical civic vigilance: "recognizing those processes — scapegoating, dehumanization, incremental normalization — while they are operating, rather than in retrospect." The author wants readers to treat historical study as preparation for present responsibilities, not merely as historical mourning.'
+      },
+    ]
+  },
+  {
+    id: 'space-race-technology-ideology',
+    title: 'Race to the Moon: Technology as Ideology',
+    topic: 'science',
+    coverEmoji: '🚀',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 530,
+    readTimeMin: 3,
+    text: `## Beyond Science
+
+When Neil Armstrong stepped onto the lunar surface on July 20, 1969, the moment was broadcast to an estimated 600 million people worldwide. It was a scientific achievement of the highest order — but it was also a political statement. The **Space Race** was never purely about science. It was a competition between two superpowers to demonstrate whose system — capitalism or communism — could produce the most extraordinary technological feats.
+
+## Sputnik and the Shock
+
+The race began with shock. On October 4, 1957, the Soviet Union launched **Sputnik**, the world's first artificial satellite, into orbit. Its beeping radio signal, audible to amateur operators worldwide, was a message: Soviet technology had surpassed American technology. In the United States, the reaction was close to panic. If Soviet rockets could place a satellite in orbit, they could place nuclear warheads anywhere on Earth within minutes.
+
+The U.S. government responded immediately. NASA was created in 1958. Science education was overhauled through the **National Defense Education Act**, pumping billions into math, science, and engineering curricula. The Space Race transformed American educational policy, research investment, and national identity — all driven by ideological competition rather than pure scientific curiosity.
+
+## Yuri Gagarin and the Propaganda War
+
+Soviet achievements continued to lead. In April 1961, **Yuri Gagarin** became the first human to orbit the Earth, a triumph celebrated across the communist world. The Soviet Union used these achievements expertly as propaganda — evidence that centrally planned economies could mobilize resources and talent to achieve what decentralized capitalist systems allegedly could not.
+
+Three weeks after Gagarin's flight, President Kennedy made his bold commitment: the United States would land a man on the Moon before the end of the decade. Kennedy's declaration was explicitly political. The U.S. needed a goal dramatic enough that winning it would decisively demonstrate American superiority — and landing on the Moon fit that requirement, even though the U.S. was behind in almost every metric at that moment.
+
+## The Apollo Program
+
+The **Apollo program** required the coordination of more than 400,000 engineers, scientists, and technicians. It was the largest peacetime mobilization of technical talent in history. Apollo 1's tragic fire in 1967, which killed three astronauts, tested American resolve. The successful **Apollo 8** mission orbited the Moon in December 1968, and **Apollo 11** landed in July 1969.
+
+The iconic photograph **"Earthrise"** — the Earth rising above the lunar horizon, photographed by astronaut William Anders on Apollo 8 — became one of the most reproduced images in history and helped fuel the environmental movement by showing the fragility of Earth from space.
+
+## Legacy
+
+The Space Race left a complex legacy. It produced genuine scientific advances in computing, materials science, and communications. But it also demonstrated that massive technological achievement is possible when political will — not just market incentives — drives investment. The question of which system actually produced better outcomes was never cleanly answered: the Soviet Union achieved its early milestones, the United States landed on the Moon, and both relied on enormous government investment in ways that complicated their competing ideological narratives.`,
+    vocabulary: [
+      { word: 'ideology', definition: 'A system of ideas and beliefs, especially political ones, that guides the actions of a group or government.', example: 'The Space Race was driven as much by ideology — proving which system was superior — as by scientific curiosity.' },
+      { word: 'propaganda', definition: 'Information, especially biased material, used to promote a political cause or point of view.', example: 'Soviet space achievements were used as propaganda to suggest that communism could outperform capitalism technologically.' },
+      { word: 'mobilization', definition: 'The organization and deployment of resources, people, or institutions for a major effort or purpose.', example: 'The Apollo program required the mobilization of more than 400,000 workers across government, universities, and private companies.' },
+      { word: 'centrally planned economy', definition: 'An economic system in which the government makes decisions about production, investment, and resource allocation rather than market forces.', example: 'The Soviet Union\'s centrally planned economy allowed it to direct enormous resources toward the space program without needing market demand.' },
+      { word: 'resolve', definition: 'Firm determination to do something, especially in the face of difficulty or setbacks.', example: 'The Apollo 1 fire tested American resolve, but the program continued and ultimately succeeded.' },
+    ],
+    questions: [
+      {
+        question: 'The author describes Armstrong\'s moon landing as both "a scientific achievement of the highest order" and "a political statement." How does the rest of the passage support this dual characterization?',
+        options: [
+          'By showing that Armstrong was a government official, not a scientist',
+          'By tracing how the Space Race was driven by ideological competition — Soviet propaganda victories prompted American political decisions more than scientific roadmaps',
+          'By explaining that NASA was technically a branch of the U.S. military, not a scientific agency',
+          'By arguing that scientific achievements and political goals are always identical in democratic societies'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces decisions like Kennedy\'s Moon commitment to political competition, not scientific planning. Kennedy\'s declaration was explicitly chosen because "winning it would decisively demonstrate American superiority." The passage consistently shows political motivations driving scientific decisions.'
+      },
+      {
+        question: 'According to the passage, what was the domestic U.S. response to Sputnik, and what does it reveal about the relationship between foreign policy and domestic policy?',
+        options: [
+          'The U.S. immediately launched its own satellite, showing that foreign policy had no effect on domestic education',
+          'The U.S. created NASA and overhauled science education through the National Defense Education Act, showing that Cold War competition directly reshaped American education and research investment',
+          'American citizens demanded military action against the Soviet Union, showing that foreign threats primarily produce military responses',
+          'The U.S. government classified the Sputnik launch to prevent public panic, revealing that Cold War competition was kept hidden from citizens'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes how Sputnik\'s launch produced immediate domestic changes: NASA\'s creation and educational reform. This shows that ideological competition abroad had direct consequences for domestic policy — including what American children were taught in school.'
+      },
+      {
+        question: 'The passage notes that the "Earthrise" photograph helped fuel the environmental movement. What does this detail suggest about the unintended consequences of the Space Race?',
+        options: [
+          'The Space Race was planned from the beginning to produce environmental benefits',
+          'Technological achievements pursued for ideological or military reasons can produce unexpected cultural and social effects',
+          'The environmental movement would not exist without the Space Race, making the two historically inseparable',
+          'Space exploration is more valuable for its cultural effects than for its scientific or technological contributions'
+        ],
+        correctIndex: 1,
+        explanation: 'The "Earthrise" photograph was not a planned outcome of the Space Race — it was an accidental byproduct that changed how humans perceived their planet and contributed to the environmental movement. This illustrates how large-scale technological projects pursued for one purpose can produce unforeseen cultural and social consequences.'
+      },
+      {
+        question: 'The author writes that the question of which system produced better outcomes "was never cleanly answered." What evidence from the passage supports this conclusion?',
+        options: [
+          'Both countries ultimately abandoned their space programs before reaching the Moon',
+          'The Soviet Union achieved significant early milestones while the U.S. landed on the Moon, and both relied on massive government investment that complicated their competing narratives about capitalism versus communism',
+          'Independent scientists concluded that both programs were equally inefficient',
+          'The U.S. and Soviet Union secretly cooperated on most Space Race achievements'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage shows Soviet early success (Sputnik, Gagarin) and American eventual victory (Apollo 11), while noting that both used enormous government investment. This complicates the ideological narrative: the U.S. could not claim capitalism alone drove the Moon landing when NASA was a massive government program.'
+      },
+      {
+        question: 'What is the author\'s central argument about the relationship between technology and ideology in the Space Race?',
+        options: [
+          'Ideology is irrelevant to scientific progress, and the Space Race succeeded despite political motivations',
+          'Ideological competition between superpowers drove decisions about which technologies to pursue, how to invest resources, and how to interpret achievements — making technology and ideology inseparable in this context',
+          'The Space Race proves that government investment in technology is always more effective than private market investment',
+          'Technological superiority is the most reliable indicator of which political system is most just or effective'
+        ],
+        correctIndex: 1,
+        explanation: 'Throughout the passage, the author traces how ideology shaped every major decision — from Sputnik\'s significance to Kennedy\'s Moon commitment to how both sides used achievements as propaganda. The central argument is that technology and ideology were inseparable in the Space Race.'
+      },
+    ]
+  },
+  {
+    id: 'climate-policy-conflict',
+    title: 'The Science Is Clear. The Politics Are Not.',
+    topic: 'science',
+    coverEmoji: '🌡️',
+    coverColor: '#065f46',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## Consensus and Controversy
+
+There is no meaningful scientific debate about whether climate change is happening or whether human activity is its primary cause. **The Intergovernmental Panel on Climate Change (IPCC)**, which synthesizes research from thousands of scientists worldwide, has stated with greater than 95% confidence that human emissions of greenhouse gases are warming the planet. Global average temperatures have risen approximately 1.1°C above pre-industrial levels, and the consequences — more frequent and intense heat waves, rising sea levels, disrupted precipitation patterns, and accelerating biodiversity loss — are already measurable.
+
+Yet climate policy remains one of the most contested political issues in the world. Understanding why requires moving beyond the science to the economics, politics, and values that shape how societies respond to evidence.
+
+## Why the Economics Are Complex
+
+Addressing climate change requires reducing **greenhouse gas emissions**, primarily from burning fossil fuels. This means transforming the energy systems that power the global economy — replacing coal, oil, and natural gas with solar, wind, nuclear, and other low-carbon sources. This transition involves enormous upfront costs and disrupts existing industries, workers, and communities built around fossil fuel production.
+
+The economic case for action rests on **externalities** — costs that fossil fuel consumption imposes on society (flooding, drought, health impacts) but that are not reflected in the market price of energy. When companies burn coal without paying for the damage it causes, they are effectively being subsidized by society. A **carbon price** — a fee on emissions — would correct this market failure by making the true cost visible. Most economists across the political spectrum agree on this basic logic.
+
+Where disagreement enters is in how quickly to transition, who bears the costs, and how to protect workers and communities dependent on fossil fuel industries. These are fundamentally questions of distribution and justice, not just efficiency.
+
+## Why the Politics Are Hard
+
+Fossil fuel industries are enormous and politically powerful. In the United States, oil and gas companies spend hundreds of millions of dollars annually on lobbying and political contributions. This influence shapes legislation, regulatory decisions, and even public discourse about climate science.
+
+But the political challenge is deeper than industry lobbying. Climate change is a classic **collective action problem**: the benefits of reducing emissions are global and diffuse, while the costs are local and concentrated. Countries that dramatically cut emissions bear immediate economic costs, while countries that do not still benefit from global emission reductions. This creates a structural incentive to delay action and let others bear the cost.
+
+International agreements like the **Paris Agreement** (2015) attempt to create binding commitments, but enforcement is weak and withdrawal is easy, as demonstrated by the U.S. withdrawal in 2017 and re-entry in 2021.
+
+## A Values Question
+
+Ultimately, climate policy is not just a technical question but a values question: **How much sacrifice by the present generation is owed to future generations?** How should costs be distributed between wealthy nations that produced most historical emissions and developing nations facing the worst impacts? These questions do not have purely scientific answers — they require moral and political choices that citizens in a democracy must make.
+
+Treating climate change as primarily a scientific problem to be solved by experts obscures the fact that it is also a question of justice, power, and what kind of future we are willing to build.`,
+    vocabulary: [
+      { word: 'greenhouse gas', definition: 'A gas, such as carbon dioxide or methane, that traps heat in the Earth\'s atmosphere, contributing to the warming of the planet.', example: 'Burning fossil fuels releases greenhouse gases that have increased atmospheric carbon dioxide to levels not seen in millions of years.' },
+      { word: 'externality', definition: 'A cost or benefit of an economic activity that is experienced by parties not directly involved in the transaction.', example: 'Air pollution from a factory is a negative externality — the factory profits while nearby residents bear the health costs.' },
+      { word: 'carbon price', definition: 'A fee charged for emitting carbon dioxide, designed to make the full social cost of fossil fuel use visible in market prices.', example: 'A carbon price would make renewable energy more competitive by ensuring that fossil fuels reflect their true environmental cost.' },
+      { word: 'collective action problem', definition: 'A situation in which individuals or groups would benefit from cooperation but have incentives to defect, making cooperation difficult to achieve without coordination mechanisms.', example: 'Climate change is a collective action problem because every country benefits from emission reductions but each has incentives to let others bear the costs.' },
+      { word: 'diffuse', definition: 'Spread out over a wide area or among many people; not concentrated in one place or entity.', example: 'The benefits of reducing greenhouse emissions are diffuse — spread across billions of people worldwide — making them politically harder to organize around than concentrated costs.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, the economic case for a carbon price is based on the concept of externalities. What does this mean in practical terms?',
+        options: [
+          'A carbon price would raise taxes on all energy consumers equally to fund renewable energy research',
+          'Fossil fuel consumption imposes costs — flooding, health impacts, drought — on society that are not included in market prices, and a carbon price would make those hidden costs visible',
+          'A carbon price would penalize developing countries for emitting greenhouse gases while exempting wealthy nations',
+          'Externalities in energy markets can only be corrected through government ownership of fossil fuel companies'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that externalities are costs "imposed on society but not reflected in market prices." A carbon price corrects this by adding those costs to the price of emissions, which the passage says is a form of making fossil fuels pay for the damage they cause — a market correction rather than a punishment.'
+      },
+      {
+        question: 'The passage describes climate change as a "collective action problem." How does this concept help explain why international climate agreements have been difficult to enforce?',
+        options: [
+          'Collective action problems only occur when countries disagree about whether climate change is real',
+          'Because each country benefits from global emission reductions but has incentives to let others bear the cost, there is a structural reason for countries to delay action or free-ride on others\' efforts',
+          'Collective action problems are primarily caused by the lobbying power of fossil fuel industries in democratic countries',
+          'Countries face collective action problems only when they lack the technology needed to transition to renewable energy'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that "countries that dramatically cut emissions bear immediate economic costs, while countries that do not still benefit." This structural incentive to free-ride undermines voluntary cooperation, explaining why enforcement mechanisms in international agreements are so difficult to design and maintain.'
+      },
+      {
+        question: 'The author states that climate policy is "not just a technical question but a values question." Which of the following BEST illustrates this distinction?',
+        options: [
+          'Scientists disagree about the rate at which temperatures will rise, making policy planning impossible',
+          'The distribution of costs between wealthy historical emitters and developing nations facing the worst impacts is a question of justice that science alone cannot answer',
+          'Carbon pricing is technically complicated to implement, requiring expertise that most governments lack',
+          'Values questions are less important than technical questions because they cannot be resolved through evidence'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies the question of how costs should be distributed between wealthy and developing nations as a values question. Science tells us what is happening and potentially what can be done — it cannot tell us who should bear the costs. That is a moral and political question requiring choices about fairness.'
+      },
+      {
+        question: 'What does the author suggest by noting the U.S. withdrew from the Paris Agreement in 2017 and re-entered in 2021?',
+        options: [
+          'International climate agreements are ineffective because they depend on the domestic politics of member nations rather than binding enforcement',
+          'The United States is the primary obstacle to effective international climate action',
+          'Climate agreements should be redesigned to require approval by all three branches of government to prevent future withdrawals',
+          'The Paris Agreement failed because it did not set ambitious enough emission reduction targets'
+        ],
+        correctIndex: 0,
+        explanation: 'The easy U.S. withdrawal and re-entry illustrates the passage\'s point about weak enforcement in the Paris Agreement. It demonstrates that international climate commitments depend on national political will, which can shift with elections — a fundamental structural weakness, not merely an American problem.'
+      },
+      {
+        question: 'The author argues that treating climate change "primarily as a scientific problem to be solved by experts obscures" its true nature. What does the author say its true nature is?',
+        options: [
+          'Climate change is primarily a military and national security problem that requires governmental rather than scientific responses',
+          'Climate change is fundamentally a question of justice, power, and values — who bears costs, who makes decisions, and what kind of future we are willing to build — not just a technical problem',
+          'Climate change is primarily an economic problem that can be fully resolved through carbon pricing without requiring broader political choices',
+          'Climate change is so complex that no single framework — scientific, political, or moral — can adequately address it'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage\'s final paragraph argues that climate change involves "justice, power, and what kind of future we are willing to build" — choices that "citizens in a democracy must make." The author explicitly rejects the framing that positions it as purely technical, arguing this obscures the political and moral dimensions.'
+      },
+    ]
+  },
+  {
+    id: 'rhetorical-analysis-language-persuasion',
+    title: 'The Architecture of Argument: Rhetoric and Persuasion',
+    topic: 'language arts',
+    coverEmoji: '🗣️',
+    coverColor: '#7c3aed',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 535,
+    readTimeMin: 3,
+    text: `## The Study of Persuasion
+
+**Rhetoric** — the study and practice of effective communication — is one of the oldest disciplines in human culture. Ancient Greek philosophers, particularly **Aristotle**, systematized it in the fourth century BCE, identifying principles that remain relevant to understanding every speech, advertisement, editorial, and social media post produced today. Understanding how rhetoric works is not simply an academic skill. It is one of the most practical forms of literacy available to citizens in a world saturated with persuasive messages.
+
+## Aristotle's Three Appeals
+
+Aristotle identified three fundamental modes of persuasion. **Logos** is the appeal to reason — the use of evidence, statistics, logical argument, and factual claims to convince an audience. **Ethos** is the appeal to credibility — the speaker's or author's claim to be trustworthy, knowledgeable, or morally reliable. **Pathos** is the appeal to emotion — the use of vivid language, personal stories, and evocative imagery to create feelings that motivate action.
+
+Effective persuasion typically combines all three. A climate scientist addressing Congress uses logos (data on temperature rise), ethos (credentials and institutional affiliation), and pathos (stories of communities already affected by flooding). Understanding which appeals are being used — and whether they are being used honestly — is the foundation of critical reading.
+
+## The Rhetorical Situation
+
+No text exists in isolation. Every act of communication involves a **rhetorical situation** — a specific speaker, audience, purpose, and context that shape what strategies are appropriate and effective. Lincoln's Gettysburg Address works partly because its elevated, solemn language matched the weight of a ceremony honoring the dead. A tweet works differently: brevity, immediacy, and emotional sharpness replace the rhetorical architecture of a formal speech.
+
+Analyzing rhetoric requires asking: Who is speaking? To whom? With what purpose? In what context? The answers reveal why specific techniques appear and whether they serve honest communication or manipulation.
+
+## Logical Fallacies: When Rhetoric Goes Wrong
+
+Persuasion becomes manipulation when it relies on **logical fallacies** — errors in reasoning that appear valid but are not. The **ad hominem** fallacy attacks the person making an argument rather than the argument itself. The **straw man** misrepresents an opponent's position to make it easier to attack. **False dilemma** presents two options as if they were the only possibilities when others exist. **Appeal to authority** treats a person's credibility as sufficient reason to accept a claim without examining the evidence.
+
+Recognizing fallacies does not make someone immune to persuasion — they can still be emotionally compelling even when logically flawed. But it provides the tools to interrogate whether a persuasive message deserves assent or scrutiny.
+
+## Rhetoric in the Age of Social Media
+
+Social media has transformed the rhetorical landscape. Algorithms reward content that generates strong emotional reactions — **outrage**, fear, and enthusiasm spread faster than nuanced argument. This creates structural pressure toward pathos at the expense of logos: the most emotionally provocative message wins, regardless of its factual accuracy.
+
+Understanding rhetoric in this environment requires recognizing that **virality** is not validity. The most widely shared claim is not necessarily the most accurate one. A citizen equipped with rhetorical literacy — who can identify appeals, recognize fallacies, and ask about context and purpose — is far better positioned to navigate this landscape than one who simply responds to emotional triggers.`,
+    vocabulary: [
+      { word: 'rhetoric', definition: 'The art of effective or persuasive speaking and writing, especially through the use of specific techniques and appeals.', example: 'Studying rhetoric helps students understand how speakers craft arguments to move audiences toward specific beliefs or actions.' },
+      { word: 'logos', definition: 'In Aristotle\'s framework, the appeal to reason — using evidence, logic, and factual claims to persuade.', example: 'The lawyer\'s use of DNA evidence and statistical analysis was an example of logos in her closing argument.' },
+      { word: 'ethos', definition: 'In Aristotle\'s framework, the appeal to credibility — establishing the speaker\'s trustworthiness, expertise, or moral character.', example: 'The doctor established ethos by citing her twenty years of clinical experience before presenting her medical recommendations.' },
+      { word: 'pathos', definition: 'In Aristotle\'s framework, the appeal to emotion — using vivid stories, imagery, or language to create feelings that motivate the audience.', example: 'The charity\'s advertisement used pathos by showing photographs of children affected by the crisis.' },
+      { word: 'logical fallacy', definition: 'An error in reasoning that makes an argument appear valid when it is not; a flaw in the logical structure of a claim.', example: 'Dismissing a scientist\'s climate findings because she drives a car is an ad hominem fallacy — it attacks the person rather than the evidence.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, why is understanding rhetoric described as "one of the most practical forms of literacy" rather than just an academic skill?',
+        options: [
+          'Because rhetoric is required for every job in the modern economy',
+          'Because citizens encounter persuasive messages constantly, and understanding how persuasion works enables critical evaluation rather than passive consumption',
+          'Because modern English classes require students to write persuasive essays in every grade level',
+          'Because ancient Greek philosophy is the foundation of all modern democratic governance'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the world as "saturated with persuasive messages" and frames rhetorical literacy as a tool for citizens navigating that environment. The practical value comes from the ability to analyze rather than simply react — a skill relevant far beyond academic settings.'
+      },
+      {
+        question: 'A speaker arguing against a proposed tax says: "My opponent wants to destroy the American family by taking money out of hardworking parents\' pockets." Which logical fallacy does this BEST illustrate?',
+        options: [
+          'Ad hominem, because it attacks the opponent\'s character rather than the policy',
+          'Straw man, because it exaggerates and misrepresents the opponent\'s actual position to make it easier to attack',
+          'False dilemma, because it implies there are only two possible outcomes of the tax policy',
+          'Appeal to authority, because it implies that the speaker alone understands the interests of American families'
+        ],
+        correctIndex: 1,
+        explanation: 'The speaker has replaced the actual policy (a tax proposal) with a distorted, extreme version ("destroying the American family") that is easier to reject. This is a classic straw man: misrepresenting the opponent\'s position to attack something they did not actually argue.'
+      },
+      {
+        question: 'The passage explains that social media algorithms "reward content that generates strong emotional reactions." What problem does this create for public discourse?',
+        options: [
+          'It makes social media platforms too expensive to operate, driving users toward traditional media',
+          'It creates structural pressure toward emotionally provocative content over accurate content, since virality and validity are not the same thing',
+          'It prevents scientists and other credible voices from using social media effectively',
+          'It means that all political speech on social media is automatically propaganda'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly states that algorithmic reward for emotional content creates "structural pressure toward pathos at the expense of logos." The most widely shared content wins visibility, regardless of accuracy — a systemic distortion that privileges emotional impact over factual reliability.'
+      },
+      {
+        question: 'How does the concept of the "rhetorical situation" help explain why the same type of language would not work equally well in all contexts?',
+        options: [
+          'It proves that some speakers are more talented than others, regardless of the situation',
+          'Different audiences, purposes, and contexts require different rhetorical strategies — what works as an elevated funeral address would be inappropriate and ineffective in a social media post',
+          'The rhetorical situation determines whether logos, ethos, or pathos is the most important appeal in all forms of communication',
+          'All communication works the same way regardless of context, as long as the speaker uses all three of Aristotle\'s appeals'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses Lincoln\'s Gettysburg Address (elevated, solemn, formal) vs. a tweet (brief, immediate, emotionally sharp) to illustrate that different contexts call for different rhetorical strategies. The rhetorical situation — speaker, audience, purpose, context — shapes what approaches are appropriate and effective.'
+      },
+      {
+        question: 'The author argues that recognizing logical fallacies does not make someone "immune to persuasion." What does this suggest about the limits of rhetorical literacy?',
+        options: [
+          'Rhetorical literacy is ultimately useless because emotion always overrides logic',
+          'Even people who can identify fallacies may still find them emotionally compelling, meaning critical literacy requires ongoing conscious effort rather than a one-time skill acquisition',
+          'The only true defense against manipulation is to avoid all persuasive content entirely',
+          'Logical fallacies are so common that they have become accepted forms of argument in democratic societies'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage acknowledges that fallacies "can still be emotionally compelling even when logically flawed." This honest qualification suggests that rhetorical literacy is a tool that requires active, ongoing application — not a vaccination that eliminates susceptibility to manipulation once administered.'
+      },
+    ]
+  },
+  {
+    id: 'economic-globalization-costs-benefits',
+    title: 'The Connected World: Globalization\'s Gains and Losses',
+    topic: 'social studies',
+    coverEmoji: '🌐',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 540,
+    readTimeMin: 3,
+    text: `## The World Gets Smaller
+
+In 1990, a T-shirt sold in an American mall might have been manufactured in a single country. Today, its cotton may have been grown in India, spun in Bangladesh, sewn in Vietnam, with dyes produced in China, shipped through a Singaporean port, and distributed from a warehouse in Ohio. This is **economic globalization** — the integration of national economies through trade, investment, finance, and the movement of people and ideas into a single interconnected global system.
+
+Globalization is among the most transformative economic forces of the past fifty years. Its consequences are real, significant, and genuinely mixed.
+
+## The Case for Globalization
+
+The standard economic case for globalization rests on the theory of **comparative advantage**: countries should produce what they produce most efficiently and trade for everything else. When countries specialize and trade, total global production increases, and in principle everyone can benefit.
+
+The evidence for some of globalization's benefits is strong. Between 1990 and 2015, the global extreme poverty rate fell from approximately 36% to under 10% — one of the most rapid reductions in human suffering in history. Much of this reduction occurred in countries like China, India, and other Asian economies that integrated deeply into global supply chains. **Access to global markets** allowed developing nations to grow their economies at rates that would have been impossible in isolation.
+
+For consumers in wealthy countries, globalization delivered lower prices on a vast range of goods — electronics, clothing, furniture — raising living standards for households that could now buy more with the same income.
+
+## The Costs
+
+The same forces that reduced poverty in developing countries contributed to economic disruption in wealthy ones. Manufacturing jobs in the United States, Western Europe, and other high-wage economies moved to lower-wage countries. This **deindustrialization** hollowed out communities that had been organized around factories for generations. Workers who lost manufacturing jobs often could not transition to the service or technology sectors that replaced them — they lacked the education, geographic mobility, or access to retraining needed to adapt.
+
+The gains from globalization in wealthy countries were real but unequally distributed. Consumers benefited broadly and modestly; workers in exposed industries bore concentrated and sometimes permanent losses. Shareholders and executives of globally integrated companies often captured enormous gains. This distributional asymmetry — broad modest gains, narrow catastrophic losses — is one reason globalization generated intense political backlash even in countries whose aggregate economies grew.
+
+**Global supply chains** also created dependencies and vulnerabilities that only became apparent during crises. The COVID-19 pandemic exposed what happened when global supply chains for medical equipment, semiconductors, and essential goods broke down simultaneously.
+
+## Governance Gaps
+
+Perhaps the deepest challenge of globalization is the mismatch between economic integration and political governance. Trade and capital move globally; democratic governance remains largely national. This means that decisions made by multinational corporations or financial markets — decisions that profoundly affect workers and communities — are largely beyond the reach of democratic accountability.
+
+Addressing this **governance gap** is one of the central challenges of the twenty-first century. Global economic integration without global democratic accountability concentrates gains at the top while leaving communities exposed to disruptions they had no voice in creating.`,
+    vocabulary: [
+      { word: 'comparative advantage', definition: 'The economic principle that countries benefit from specializing in producing goods they can produce most efficiently relative to other goods, and trading for the rest.', example: 'Comparative advantage explains why some countries focus on manufacturing while others specialize in agriculture or financial services.' },
+      { word: 'deindustrialization', definition: 'The decline of manufacturing industries in a region, often due to automation or the shift of production to lower-cost locations.', example: 'Deindustrialization transformed cities like Detroit and Pittsburgh, which had been centers of American manufacturing for generations.' },
+      { word: 'supply chain', definition: 'The network of companies, resources, and processes involved in producing and delivering a product from raw materials to the final consumer.', example: 'The COVID-19 pandemic disrupted global supply chains, causing shortages of products ranging from semiconductors to medical protective equipment.' },
+      { word: 'distributional asymmetry', definition: 'A situation in which the benefits and costs of a policy or economic change are spread unevenly across different groups in society.', example: 'The distributional asymmetry of globalization — broad modest gains for consumers, concentrated severe losses for manufacturing workers — fueled political resentment.' },
+      { word: 'governance gap', definition: 'The mismatch between the global scale of economic activity and the national or local scale of democratic accountability and regulation.', example: 'The governance gap means that multinational companies can make decisions affecting millions of workers without being accountable to any single democratic government.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what is the strongest evidence that globalization has produced genuine benefits?',
+        options: [
+          'American consumers can now purchase electronics and clothing at lower prices than ever before',
+          'The global extreme poverty rate fell from approximately 36% to under 10% between 1990 and 2015, largely driven by developing nations integrating into global markets',
+          'Shareholders of globally integrated companies have seen their investments grow significantly',
+          'Global supply chains have made economies more resilient by diversifying production across multiple countries'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the poverty reduction statistic as "one of the most rapid reductions in human suffering in history," making it the strongest evidence for globalization\'s benefits. Consumer price reductions are mentioned as benefits but are described more modestly.'
+      },
+      {
+        question: 'The passage describes the political backlash against globalization as resulting from "distributional asymmetry." How does this concept explain the backlash?',
+        options: [
+          'People in developing countries resented globalization because it transferred wealth to wealthy nations',
+          'Because gains (lower consumer prices) were spread broadly and modestly while losses (manufacturing job destruction) were concentrated intensely on specific workers and communities, those who lost had strong motivation to oppose it politically even if aggregate gains outweighed losses',
+          'Wealthy countries experienced more economic disruption from globalization than developing countries, reversing the expected pattern',
+          'Distributional asymmetry caused inflation in wealthy countries that offset the benefits of lower consumer prices'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that "consumers benefited broadly and modestly; workers in exposed industries bore concentrated and sometimes permanent losses." This pattern — diffuse gains, concentrated losses — generates asymmetric political energy: those who lose severely are more motivated to organize politically than those who gain modestly.'
+      },
+      {
+        question: 'What does the COVID-19 pandemic example reveal about global supply chains, according to the passage?',
+        options: [
+          'The pandemic proved that global supply chains are inherently more efficient than domestic production',
+          'It revealed that global supply chain integration created hidden vulnerabilities — dependencies that became catastrophic when disrupted simultaneously',
+          'The pandemic showed that globalization was primarily responsible for the spread of infectious diseases',
+          'It demonstrated that wealthy countries were better prepared for supply chain disruptions than developing nations'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that the pandemic "exposed what happened when global supply chains...broke down simultaneously." The word "exposed" suggests these vulnerabilities existed before but were hidden by normal conditions — globalization\'s efficiency came with fragility that only became visible in crisis.'
+      },
+      {
+        question: 'The author argues that the "governance gap" is a central challenge of the twenty-first century. What is this gap, and why does the author consider it important?',
+        options: [
+          'The gap between how much governments know about economic policy and how much economists know',
+          'The mismatch between globally mobile capital and trade that affects everyone and nationally bounded democratic systems that can only govern locally — leaving global economic decisions beyond democratic accountability',
+          'The gap in economic development between wealthy and poor nations that globalization has failed to close',
+          'The difference between what politicians promise about globalization and what actually happens to workers'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines the governance gap as the mismatch between global economic integration and national democratic governance. The author considers it important because it means consequential decisions by corporations and markets operate "largely beyond the reach of democratic accountability" — a problem of political power, not just economic efficiency.'
+      },
+      {
+        question: 'Based on the passage, which statement BEST captures the author\'s overall perspective on globalization?',
+        options: [
+          'Globalization has been an unambiguous failure and should be reversed through trade barriers and economic nationalism',
+          'Globalization\'s benefits — particularly poverty reduction — justify accepting its costs without significant policy changes',
+          'Globalization has produced real and significant benefits alongside real and significant costs, and its primary unsolved challenge is distributing those outcomes more equitably and accountably',
+          'Globalization is primarily a political project of multinational corporations and has provided no genuine economic benefits to ordinary people'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage acknowledges poverty reduction, consumer price benefits, and economic growth alongside deindustrialization, unequal distribution, and governance gaps. The author\'s framing — "genuinely mixed" consequences — and focus on the governance gap as a solvable challenge suggests this balanced, reform-oriented perspective.'
+      },
+    ]
+  },
+  {
+    id: 'opioid-crisis-pharma-responsibility',
+    title: 'Prescription for Disaster: The Opioid Crisis',
+    topic: 'science',
+    coverEmoji: '💊',
+    coverColor: '#7c3aed',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## A Manufactured Crisis
+
+Between 1999 and 2021, nearly 645,000 Americans died from opioid overdose. This public health catastrophe did not emerge randomly. It was shaped by deliberate corporate decisions, regulatory failures, physician behavior, and social conditions — making the opioid crisis a case study in what happens when profit incentives misalign with public health.
+
+## How It Began: OxyContin and the Marketing Campaign
+
+The modern opioid epidemic traces directly to the 1996 launch of **OxyContin**, an extended-release opioid painkiller produced by **Purdue Pharma**. The drug contained **oxycodone**, a powerful synthetic opioid, in concentrated doses. Purdue Pharma's sales strategy was aggressive and, as later investigations revealed, deliberately deceptive.
+
+The company instructed sales representatives to tell doctors that OxyContin was less addictive than older opioids because its extended-release formula prevented the spikes in drug levels that produced addiction. This claim was not supported by evidence. Purdue funded **continuing medical education** — the training doctors receive to maintain their licenses — that promoted opioid prescribing for chronic pain. Sales representatives gave doctors gifts, meals, and consulting fees. Between 1996 and 2001, OxyContin sales grew from $48 million to $1.1 billion annually.
+
+Prescriptions flooded into communities, particularly in rural areas with high rates of physical labor injuries. When patients became addicted and prescriptions were cut off, many turned to heroin and later **fentanyl** — synthetic opioids far more potent than heroin that now drive the majority of overdose deaths.
+
+## Who Was Harmed
+
+The opioid epidemic has not affected all communities equally. Rural and working-class communities — particularly in Appalachia, the Rust Belt, and Native American reservations — have experienced the highest overdose rates. Researchers link this pattern to economic precariousness, physical injury rates in manual labor industries, social despair, and deliberate pharmaceutical targeting of areas with high prescription rates and low regulatory oversight.
+
+**Communities of color** were affected differently at different stages. In the early epidemic, pharmaceutical companies disproportionately marketed to white, rural communities, where Black patients had historically been undertreated for pain due to racist medical assumptions. As the epidemic evolved and fentanyl spread through illicit drug markets, overdose rates increased sharply in Black and Latino communities as well.
+
+## Accountability and Its Limits
+
+Legal accountability has been partial and contested. Purdue Pharma pleaded guilty to federal criminal charges and agreed to pay more than $8 billion in settlements — but the **Sackler family**, which owned Purdue, initially sought bankruptcy protection that would have shielded them from individual liability. Courts and advocacy groups challenged this arrangement, with mixed results.
+
+Thousands of local governments — counties, cities, and Native American tribes — sued opioid manufacturers, distributors, and pharmacies. Settlement funds have begun flowing to communities, but critics argue that the amounts, spread across years, are insufficient to address the damage caused.
+
+## The Deeper Question
+
+The opioid crisis raises a question that extends beyond pharmaceutical industry misconduct: **When does the pursuit of profit cause harms serious enough to constitute criminal responsibility?** Existing law creates strong corporate incentives to conceal risks and externalize costs. The opioid crisis is evidence of what that incentive structure produces when it operates without adequate regulatory oversight or corporate accountability.`,
+    vocabulary: [
+      { word: 'opioid', definition: 'A class of drugs derived from or chemically similar to opium that act on the nervous system to relieve pain but carry high risk of addiction and overdose.', example: 'Prescription opioids like OxyContin were initially marketed as safe painkillers before their addictive properties became widely understood.' },
+      { word: 'fentanyl', definition: 'A synthetic opioid approximately 100 times more potent than morphine, now widely found in illicit drug supplies and responsible for the majority of opioid overdose deaths.', example: 'The spread of fentanyl through illicit drug markets dramatically increased overdose death rates because users often cannot know how much they are taking.' },
+      { word: 'liability', definition: 'Legal responsibility for causing harm or failing to meet an obligation, often resulting in a requirement to pay damages.', example: 'The Sackler family sought bankruptcy protection to shield their personal assets from liability in opioid lawsuits.' },
+      { word: 'externalize', definition: 'To transfer costs or negative consequences of an activity from the entity responsible to others — workers, communities, the government, or society at large.', example: 'By not disclosing addiction risks, Purdue Pharma externalized the costs of addiction onto patients, families, and healthcare systems.' },
+      { word: 'precariousness', definition: 'A state of instability, insecurity, or vulnerability, especially in economic or social conditions.', example: 'Economic precariousness in rural communities made residents more vulnerable to opioid addiction when prescriptions became widely available.' },
+    ],
+    questions: [
+      {
+        question: 'The passage states that the opioid crisis was "shaped by deliberate corporate decisions, regulatory failures, physician behavior, and social conditions." What does this multi-causal framing suggest?',
+        options: [
+          'That individual patients bear the most responsibility for the opioid epidemic because they chose to use opioids',
+          'That the crisis resulted from a system of interacting failures at multiple levels, making single-cause explanations inadequate and pointing to the need for multi-level solutions',
+          'That corporations are entirely responsible for the epidemic and no other factors contributed meaningfully',
+          'That the opioid crisis is unique and cannot be compared to other public health failures'
+        ],
+        correctIndex: 1,
+        explanation: 'By identifying corporate decisions, regulatory failures, physician behavior, and social conditions as converging causes, the author resists simple blame and points to a systemic failure. This framing has policy implications: solutions must address multiple levels simultaneously.'
+      },
+      {
+        question: 'According to the passage, what was deceptive about Purdue Pharma\'s marketing claim that OxyContin was "less addictive"?',
+        options: [
+          'OxyContin contained no real opioids and was entirely ineffective as a painkiller',
+          'The claim that extended-release formula prevented addiction was not supported by evidence, yet the company used it to reassure doctors and drive prescribing',
+          'The company claimed OxyContin was approved by the FDA when it had not yet received approval',
+          'Purdue Pharma misrepresented the price of OxyContin to make it appear more affordable than competing medications'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the addiction claim "was not supported by evidence." By using unsupported claims to convince doctors that their drug was safer than it was, Purdue Pharma engaged in deceptive marketing that directly contributed to overprescribing and the resulting epidemic.'
+      },
+      {
+        question: 'What does the unequal geographic and demographic distribution of opioid harm reveal about the epidemic\'s causes?',
+        options: [
+          'That opioid addiction is primarily a genetic condition that affects certain populations more than others',
+          'That the epidemic was shaped by social conditions — economic precariousness, manual labor injury rates, targeted marketing, and racial disparities in medical treatment — not just individual choices',
+          'That rural communities were simply less informed about the risks of opioids than urban communities',
+          'That pharmaceutical companies did not realize their products were reaching certain communities in disproportionate quantities'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage connects geographic and demographic patterns to specific social factors: economic precariousness, physical injury rates, deliberate pharmaceutical targeting, and racial disparities. These social determinants show that the epidemic was not randomly distributed but shaped by structural conditions.'
+      },
+      {
+        question: 'The passage says legal accountability has been "partial and contested." What does the Purdue Pharma case illustrate about the limits of corporate accountability?',
+        options: [
+          'American courts are incapable of prosecuting pharmaceutical companies for misconduct',
+          'Even when corporations plead guilty and pay billions in settlements, wealthy ownership families can use bankruptcy and legal mechanisms to shield personal assets from full accountability',
+          'The Sackler family was found individually guilty and ordered to pay personal damages exceeding the corporate settlement',
+          'Settlement funds have fully compensated all communities affected by the opioid epidemic'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage notes that despite Purdue\'s guilty plea and $8 billion settlement, the Sackler family "initially sought bankruptcy protection that would have shielded them from individual liability." This illustrates how corporate legal structures can protect wealthy individuals even when their company is held accountable.'
+      },
+      {
+        question: 'The author\'s closing question asks when profit pursuit creates harms "serious enough to constitute criminal responsibility." What does framing this as an open question suggest about current law?',
+        options: [
+          'Current law already fully addresses corporate misconduct in pharmaceutical marketing',
+          'Current law creates incentives to conceal risks and externalize costs, and the opioid crisis reveals that existing corporate accountability mechanisms are insufficient to prevent or adequately punish this behavior',
+          'The author believes pharmaceutical executives should always face criminal prosecution when their products cause harm',
+          'Criminal law is irrelevant to public health crises, which should be addressed only through civil courts'
+        ],
+        correctIndex: 1,
+        explanation: 'By framing corporate criminal responsibility as an open question and noting that "existing law creates strong corporate incentives to conceal risks and externalize costs," the author implies that current law is inadequate — that the opioid crisis is evidence of a structural legal gap, not just individual bad actors who were caught.'
+      },
+    ]
+  },
+  {
+    id: 'florida-constitutional-amendments',
+    title: 'Direct Democracy: Florida\'s Amendment Process',
+    topic: 'social studies',
+    coverEmoji: '🗳️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 530,
+    readTimeMin: 3,
+    text: `## Beyond the Legislature
+
+Most democracies channel lawmaking primarily through elected legislatures. Florida does something unusual: it gives citizens the power to write and pass constitutional amendments directly, bypassing the legislature entirely. This mechanism of **direct democracy** has made Florida's constitution one of the most frequently amended in the nation and has produced some of the most consequential policy changes in the state's history.
+
+## How the Citizen Initiative Process Works
+
+Florida's constitution allows citizens to place amendments on the ballot through an **initiative petition** process. Groups wishing to amend the constitution must first obtain approval from the state **Supreme Court** for the amendment's language — ensuring it addresses a single subject and that its ballot summary accurately represents the full text. Then they must gather signatures from 8% of voters in at least half of Florida's congressional districts, and from 8% of total registered voters statewide — a threshold that typically requires hundreds of thousands of valid signatures.
+
+If signatures are verified, the amendment appears on the ballot. Passage requires a **60% supermajority** — a high threshold that ensures a broad consensus, not just a narrow majority, supports any constitutional change.
+
+## Landmark Amendments
+
+The citizen initiative process has produced some of Florida's most significant policy outcomes. In 2018, **Amendment 4** restored voting rights to most people with felony convictions who had completed their sentences — approximately 1.4 million people, making it one of the largest expansions of voting rights in American history at a single moment. The amendment passed with 64% of the vote.
+
+In 2020, voters approved a **minimum wage increase** through Amendment 2, gradually raising the state minimum wage to $15 per hour by 2026 — a policy the Republican-controlled legislature had repeatedly blocked. Also in 2018, voters approved **Amendment 9**, which simultaneously banned offshore oil drilling in state waters and prohibited the use of workplace vaporizers, illustrating the sometimes eclectic bundling that can occur in the initiative process.
+
+The **Everglades** has been a recurring subject of constitutional amendments: voters approved measures requiring water quality standards and dedicating a share of real estate taxes to environmental land acquisition, creating constitutional protections for policies that might otherwise be undone by the legislature.
+
+## Criticisms and Concerns
+
+The process is not without critics. Some argue that constitutional amendments are an inappropriate vehicle for ordinary policy — that the constitution should establish structural principles, not specific policies like minimum wage rates. Because constitutional provisions are harder to change than statutes, a poorly designed amendment can lock in bad policy for years.
+
+The petition process has also been criticized for being vulnerable to **well-funded special interests**: wealthy organizations can hire professional signature-gathering firms, potentially distorting what appears to be grassroots democracy. Conversely, the legislature has at times made the process harder — increasing signature thresholds, requiring financial impact statements, and seeking to overturn passed amendments through subsequent legislation.
+
+## A Democratic Tension
+
+Florida's amendment process reflects a fundamental tension in democratic theory: should citizens have the power to make policy decisions directly, or should they delegate that authority to elected representatives who can deliberate, revise, and compromise? Both positions have genuine merit, and Florida's experience provides evidence for both the promise and the pitfalls of direct democracy.`,
+    vocabulary: [
+      { word: 'direct democracy', definition: 'A form of democracy in which citizens vote directly on laws and policies rather than delegating that authority exclusively to elected representatives.', example: 'Florida\'s citizen initiative process is an example of direct democracy, allowing voters to amend the state constitution without legislative involvement.' },
+      { word: 'initiative petition', definition: 'A process by which citizens can place proposed laws or constitutional amendments on the ballot by gathering a required number of signatures.', example: 'Supporters of the minimum wage increase used the initiative petition process to bypass the legislature and put the question directly to voters.' },
+      { word: 'supermajority', definition: 'A voting requirement greater than a simple majority — such as 60% or two-thirds — used for decisions considered especially significant.', example: 'The 60% supermajority requirement for Florida constitutional amendments ensures that changes reflect broad public consensus, not just narrow majority support.' },
+      { word: 'grassroots', definition: 'Originating from or representing the concerns of ordinary citizens rather than organized political or economic elites.', example: 'Amendment 4\'s passage was driven by a grassroots coalition of formerly incarcerated people and civil rights organizations.' },
+      { word: 'statute', definition: 'A law passed by a legislature, as distinguished from a constitutional provision or court ruling.', example: 'A statute can typically be changed by the legislature with a simple majority vote, while a constitutional amendment requires a higher threshold.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, why does Florida require a 60% supermajority for constitutional amendments to pass?',
+        options: [
+          'Because the Florida Supreme Court determined that simple majority votes were unconstitutional for amending the state constitution',
+          'To ensure that constitutional changes reflect broad consensus rather than narrow majority support — a higher threshold for the foundational law than for ordinary legislation',
+          'Because the federal government requires supermajority approval for all state constitutional changes',
+          'To make the process so difficult that citizens are discouraged from using initiatives for ordinary policy matters'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that the 60% requirement "ensures a broad consensus, not just a narrow majority, supports any constitutional change." This is a deliberate design choice reflecting the idea that constitutional provisions should be more durable and more broadly supported than ordinary laws.'
+      },
+      {
+        question: 'What does Amendment 4\'s passage in 2018 illustrate about the citizen initiative process?',
+        options: [
+          'That direct democracy always produces more progressive outcomes than representative legislatures',
+          'That voters can and will pass significant policy changes — in this case, the largest single-moment voting rights expansion in American history — that elected legislators had blocked',
+          'That formerly incarcerated people have more political influence in Florida than in other states',
+          'That constitutional amendments are a more reliable way to change policy than working through the legislative process'
+        ],
+        correctIndex: 1,
+        explanation: 'Amendment 4 illustrates the initiative process\'s core function: enabling voters to make decisions that their elected representatives would not. The passage notes the legislature had blocked similar policies, and voters acted directly — restoring rights to 1.4 million people with 64% approval.'
+      },
+      {
+        question: 'Critics argue that constitutional amendments are "an inappropriate vehicle for ordinary policy." What is the basis of this argument?',
+        options: [
+          'The Florida constitution prohibits including specific policy details like wage rates or environmental standards',
+          'Constitutional provisions are harder to change than statutes, so poorly designed policies embedded in the constitution can lock in bad outcomes and resist correction',
+          'The voter approval process takes too long, preventing timely policy responses to urgent problems',
+          'The legislature is more capable than voters of evaluating complex policy questions'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "constitutional provisions are harder to change than statutes," so embedding specific policies (like wage rates) in the constitution creates rigidity. If the policy proves flawed or circumstances change, correction is difficult. This is the core concern: constitutions should be stable structural frameworks, not easily outdated policy details.'
+      },
+      {
+        question: 'The passage mentions that wealthy organizations can hire professional signature gatherers, "potentially distorting what appears to be grassroots democracy." What concern does this raise about the initiative process?',
+        options: [
+          'Professional signature gathering is illegal in Florida and should be prosecuted',
+          'The process that appears to empower ordinary citizens can actually be captured by well-funded interests who can manufacture the appearance of popular support',
+          'Wealthy organizations should be prohibited from participating in the democratic process at any level',
+          'Florida\'s signature threshold is too low, allowing any organization to easily qualify an amendment for the ballot'
+        ],
+        correctIndex: 1,
+        explanation: 'The concern is about authentic democratic expression: if wealthy interests can pay to gather signatures, the initiative that appears to represent popular will may actually represent elite interests using democratic procedures. This does not make the process illegitimate, but it complicates the claim that initiatives are purely grassroots expressions.'
+      },
+      {
+        question: 'The author frames the citizen initiative process as reflecting "a fundamental tension in democratic theory." What is that tension?',
+        options: [
+          'The tension between federal authority and state authority in the American constitutional system',
+          'Whether citizens should make policy directly or delegate to elected representatives who can deliberate and revise — both of which have genuine merits',
+          'The tension between majority rule and minority rights in democratic systems',
+          'Whether constitutional amendments should require legislative approval or judicial review before taking effect'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly names the tension: "should citizens have the power to make policy decisions directly, or should they delegate that authority to elected representatives who can deliberate, revise, and compromise?" The author presents both sides as having genuine merit, framing it as a real dilemma rather than a question with an obvious answer.'
+      },
+    ]
+  },
+  {
+    id: 'internet-transformation-society',
+    title: 'The Network That Changed Everything: The Internet and Society',
+    topic: 'science',
+    coverEmoji: '💻',
+    coverColor: '#374151',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 535,
+    readTimeMin: 3,
+    text: `## A Technology That Remade the World
+
+In 1991, fewer than 3 million people used the internet. By 2023, more than 5 billion did — roughly two-thirds of humanity. No technology in history has achieved global penetration so quickly or reshaped so many aspects of human life simultaneously: commerce, communication, politics, journalism, education, friendship, healthcare, entertainment, and crime. Understanding the internet's social consequences — both its genuine benefits and its genuine harms — requires moving beyond enthusiasm and nostalgia to honest analysis.
+
+## What the Internet Enabled
+
+The internet's positive transformations are real and significant. Access to information has been democratized on a scale unimaginable before: a student in rural Nigeria can read research papers from MIT; a small business owner in Vietnam can sell products worldwide; a physician in rural Alaska can consult specialists at major hospitals in real time. The cost of communication has approached zero, enabling coordination across vast distances.
+
+**E-commerce** has created enormous value and consumer convenience, though often at the cost of local businesses and the workers they employed. **Social media** platforms have enabled political organizing by marginalized groups — including the Arab Spring uprisings of 2011 and Black Lives Matter organizing after 2014 — that might not have been possible through older media channels.
+
+The internet has also produced a **platform economy**: companies like Uber, Airbnb, and Amazon have created new economic models that give workers flexibility but often at the cost of employment protections, benefits, and stable income.
+
+## What the Internet Has Damaged
+
+The harms are equally real. The collapse of traditional journalism — advertising revenue that once funded local newspapers migrated to digital platforms — has created vast **news deserts** across the country: communities where no one is covering local government, school boards, or courts. Corruption and incompetence that would once have been exposed by local journalists now often goes unchecked.
+
+Social media's algorithmic amplification of emotionally provocative content has been extensively documented as a contributor to political polarization. Internal research at Facebook (now Meta), revealed through the **Frances Haugen** whistleblower disclosure in 2021, showed that the company understood its platform worsened divisiveness and chose not to implement fixes because doing so reduced engagement.
+
+**Privacy erosion** is another fundamental consequence. The business model of most major internet companies depends on surveillance — collecting detailed behavioral data about users and selling or using it to target advertising. This creates profound asymmetries of information between corporations and the citizens whose data they hold.
+
+## A Governance Challenge
+
+The internet has developed largely outside meaningful democratic regulation. Tech platforms that now function as essential public infrastructure — without which participation in economic and civic life is increasingly difficult — are privately owned and governed primarily for shareholder benefit.
+
+This raises questions that previous generations did not face: **Should essential digital infrastructure be treated as a public utility subject to democratic oversight?** How should societies balance free expression with the harms of misinformation and harassment? How should private platforms' algorithmic decisions be made accountable to the public whose lives they shape?
+
+These are not technical questions. They are political and moral ones, requiring democratic engagement from citizens who understand what is at stake.`,
+    vocabulary: [
+      { word: 'platform economy', definition: 'An economic model in which digital platforms connect buyers and sellers or workers and customers, often bypassing traditional employment relationships.', example: 'The platform economy created new opportunities for flexible work but also reduced access to benefits like health insurance and overtime pay.' },
+      { word: 'news desert', definition: 'A community or region with little or no access to local journalism, typically because newspapers and local media outlets have closed.', example: 'News deserts have expanded as digital advertising revenue shifted from local newspapers to large tech platforms.' },
+      { word: 'algorithmic amplification', definition: 'The process by which digital platforms\' automated systems preferentially distribute certain content — typically content that generates strong engagement — to wider audiences.', example: 'Algorithmic amplification rewards outrage because angry posts generate more clicks, shares, and comments than nuanced analysis.' },
+      { word: 'surveillance capitalism', definition: 'An economic system in which companies generate profit by collecting, analyzing, and selling users\' personal behavioral data without their meaningful consent.', example: 'Critics of surveillance capitalism argue that users are not the customers of free internet services — they are the product whose attention and data are sold to advertisers.' },
+      { word: 'public utility', definition: 'A service considered essential to the public that is regulated by the government to ensure universal access and fair pricing.', example: 'Electricity and water are public utilities; some argue the internet should be similarly regulated given its essential role in modern life.' },
+    ],
+    questions: [
+      {
+        question: 'The passage opens by listing multiple domains the internet has reshaped simultaneously. What is the purpose of this list?',
+        options: [
+          'To suggest that the internet has been uniformly beneficial across all areas of human life',
+          'To establish the scope of the internet\'s transformation and signal that analysis of its consequences requires looking across all these domains, not just one or two',
+          'To argue that the internet has disrupted too many areas too quickly for society to adapt',
+          'To demonstrate that the internet was invented as a tool for commercial purposes and later expanded to other uses'
+        ],
+        correctIndex: 1,
+        explanation: 'The comprehensive list establishes the internet\'s unprecedented breadth of impact. By naming commerce, communication, politics, journalism, education, and more, the author signals that honest analysis cannot focus narrowly — the consequences are too pervasive for single-domain evaluation.'
+      },
+      {
+        question: 'According to the passage, what does the Facebook/Meta internal research revealed by Frances Haugen show about the company\'s relationship to social harm?',
+        options: [
+          'Facebook\'s engineers were unaware that the platform was contributing to political polarization until Haugen disclosed the research',
+          'The company understood its platform worsened divisiveness and chose not to fix the problem because doing so would reduce engagement and therefore revenue',
+          'Facebook conducted the research to identify ways to improve platform health and was in the process of implementing changes when the disclosure occurred',
+          'The internal research was inconclusive about whether social media contributed to political polarization'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states explicitly that Facebook "understood its platform worsened divisiveness and chose not to implement fixes because doing so reduced engagement." This distinguishes ignorance from complicity — the company knew and prioritized profit over demonstrated social harm.'
+      },
+      {
+        question: 'What does the collapse of local journalism suggest about the relationship between internet economics and democratic governance?',
+        options: [
+          'Online journalism is always lower quality than print journalism',
+          'The migration of advertising revenue to digital platforms created news deserts where local government, schools, and courts operate without journalistic oversight — undermining democratic accountability at the local level',
+          'Local governments should fund their own journalism to replace what has been lost',
+          'The collapse of local journalism is primarily caused by declining public interest in news rather than economic factors'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage connects advertising revenue loss to news deserts to the absence of accountability for "corruption and incompetence that would once have been exposed by local journalists." This chain shows how economic changes in media have direct consequences for democratic governance.'
+      },
+      {
+        question: 'The passage describes privacy erosion as "a fundamental consequence" of internet business models. What makes this harm different from other internet harms discussed?',
+        options: [
+          'Privacy erosion only affects users of social media platforms, while other harms affect broader society',
+          'Privacy erosion is built into the core business model of major platforms — it is not a side effect but the central mechanism by which surveillance capitalism generates revenue',
+          'Privacy erosion is the only internet harm that governments have successfully addressed through legislation',
+          'Unlike other harms, privacy erosion primarily benefits consumers by enabling more targeted advertising'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes surveillance as "the business model" of major internet companies, not a flaw or side effect. This makes privacy erosion structurally different from other harms: it cannot be corrected without changing the fundamental economic logic of the platforms themselves.'
+      },
+      {
+        question: 'The author closes by asking whether essential digital infrastructure should be treated as a public utility subject to democratic oversight. What assumption underlies this question?',
+        options: [
+          'That internet companies are already functioning like public utilities and should be nationalized immediately',
+          'That the current arrangement — essential public infrastructure privately owned and governed for shareholder benefit — may be misaligned with democratic accountability and public interest',
+          'That government regulation of the internet would inevitably reduce innovation and harm consumers',
+          'That only technical experts can make meaningful decisions about how digital platforms should be governed'
+        ],
+        correctIndex: 1,
+        explanation: 'The public utility question assumes a gap between how the internet functions (as essential infrastructure people cannot easily opt out of) and how it is governed (as private property accountable primarily to shareholders). The question implies that this misalignment may be problematic for democracy and the public interest.'
+      },
+    ]
+  },
+  {
+    id: 'genetic-engineering-ethics',
+    title: 'Rewriting Life: Genetic Engineering and Its Dilemmas',
+    topic: 'science',
+    coverEmoji: '🧬',
+    coverColor: '#065f46',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 540,
+    readTimeMin: 3,
+    text: `## The Power to Edit Life
+
+In 2012, biochemists **Jennifer Doudna** and **Emmanuelle Charpentier** published research describing a molecular tool called **CRISPR-Cas9** that could precisely edit DNA sequences in living organisms. The discovery earned them the Nobel Prize in Chemistry in 2020 and opened a new era in biology. For the first time, scientists had an inexpensive, precise, and widely accessible tool for rewriting the genetic code — the biological instructions that govern the development and functioning of every living thing.
+
+The implications are both extraordinary and deeply troubling.
+
+## Medical Promises
+
+The medical applications of genetic engineering are potentially transformative. Researchers are developing **gene therapies** that correct genetic mutations causing diseases like **sickle cell anemia**, cystic fibrosis, and certain forms of inherited blindness. In 2023, the FDA approved the first CRISPR-based therapy for sickle cell disease — a condition that causes chronic pain, organ damage, and shortened life expectancy for millions of people globally.
+
+**Cancer treatment** is another frontier. Scientists are editing patients' own immune cells to make them more effective at targeting tumors — an approach called **CAR-T cell therapy** that has produced remissions in some patients with previously untreatable cancers.
+
+Beyond treatment, genetic engineering could eventually enable the **eradication of inherited diseases**: if embryos carrying disease-causing mutations can be identified and corrected before development, entire genetic disorders could be prevented across generations. The potential to eliminate suffering on this scale is morally compelling.
+
+## The Ethical Frontier
+
+But genetic editing of embryos introduces a dimension that somatic (body cell) editing does not: **heritable changes**. A change made to an embryo's genome is passed to all of that organism's descendants. Errors — or deliberate choices — become permanent features of the human lineage.
+
+In 2018, Chinese scientist **He Jiankui** announced that he had created the world's first genetically edited human babies — twins born with an edited gene intended to confer resistance to HIV. The announcement was condemned by the scientific community worldwide. He had violated protocols for embryo editing, had not obtained adequate informed consent, and had pursued a result (HIV resistance) achievable through other means while introducing unknown long-term risks. He was later sentenced to prison in China.
+
+The He Jiankui case raised the **"designer baby"** concern in concrete form: if embryo editing is permitted for disease prevention, what prevents its use for selecting traits like height, intelligence, or athletic ability? The line between therapy and enhancement is not always clear, and once crossed, enhancement editing raises profound questions of **equity** — available only to wealthy families who can afford it, genetic enhancement could entrench biological inequality across generations.
+
+## Governance Without Borders
+
+Genetic engineering research is global. A country with strong ethical regulations cannot prevent experiments conducted in countries with weaker oversight — as the He Jiankui case illustrated. This creates pressure to either lower standards to remain competitive or to attempt international governance frameworks that are notoriously difficult to enforce.
+
+Scientists, ethicists, and policymakers broadly agree on the need for **moratorium** on heritable human genome editing until safety, ethics, and governance frameworks are adequate. But agreement on the need for governance is not the same as having effective governance — and the technology continues to advance.`,
+    vocabulary: [
+      { word: 'CRISPR-Cas9', definition: 'A molecular tool that allows scientists to precisely edit DNA sequences by cutting the genetic code at specific locations and inserting, deleting, or modifying genetic material.', example: 'CRISPR-Cas9 has enabled researchers to correct disease-causing genetic mutations in laboratory settings with unprecedented precision.' },
+      { word: 'gene therapy', definition: 'A medical treatment that involves introducing, altering, or replacing genetic material in a person\'s cells to treat or prevent disease.', example: 'Gene therapy for sickle cell disease aims to correct the genetic mutation in patients\' blood stem cells so their bodies produce healthy red blood cells.' },
+      { word: 'heritable', definition: 'Capable of being passed from parents to offspring through genetic inheritance.', example: 'Editing embryo DNA would produce heritable changes that could affect all future descendants of that individual.' },
+      { word: 'moratorium', definition: 'A temporary prohibition on an activity, typically while a situation is being assessed or while policies are being developed.', example: 'Many scientists called for a moratorium on heritable human genome editing until international safety and ethical standards could be established.' },
+      { word: 'equity', definition: 'Fairness in the distribution of resources, opportunities, and outcomes across different groups in society.', example: 'Concerns about equity arose from the possibility that genetic enhancements would only be available to wealthy families, creating biological inequality.' },
+    ],
+    questions: [
+      {
+        question: 'The passage describes CRISPR-Cas9 as "inexpensive, precise, and widely accessible." Why are these three characteristics together significant for the ethics of genetic engineering?',
+        options: [
+          'They make it possible for patients to perform gene therapy on themselves without medical supervision',
+          'Wide accessibility at low cost means the technology is available to researchers in countries with weaker oversight, making international governance more urgent and more difficult',
+          'Precision means that genetic errors are impossible, eliminating safety concerns',
+          'Low cost ensures that gene therapies will be available to patients regardless of their ability to pay'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage connects wide accessibility to the governance problem: He Jiankui\'s experiment in China illustrated that technology available to researchers globally cannot be controlled by any single country\'s ethical standards. Accessibility amplifies both promise and risk simultaneously.'
+      },
+      {
+        question: 'What makes heritable genetic editing ethically different from editing somatic (body) cells?',
+        options: [
+          'Heritable editing is more technically difficult and therefore carries higher risk of errors',
+          'Changes to an embryo\'s genome are passed to all descendants, making errors or deliberate choices permanent features of the human lineage — irreversible in a way that somatic editing is not',
+          'Heritable editing does not require patient consent because it is performed on embryos rather than autonomous individuals',
+          'Somatic editing is prohibited by international law while heritable editing is currently permitted in most countries'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that heritable editing "is passed to all of that organism\'s descendants," meaning consequences are permanent and multigenerational. Somatic editing affects only the individual patient; heritable editing affects all future descendants — a fundamentally different ethical scale.'
+      },
+      {
+        question: 'The scientific community condemned He Jiankui\'s experiment for multiple reasons. Which reason does the passage present as MOST significant to the broader ethical debate about germline editing?',
+        options: [
+          'He pursued HIV resistance that could have been achieved through other means',
+          'He violated informed consent protocols, which is always the most serious research ethics violation',
+          'By creating edited human embryos without adequate safety or ethical frameworks, he crossed from research into heritable human modification before society had developed the governance to manage it',
+          'His sentence of imprisonment in China was too lenient given the severity of his violations'
+        ],
+        correctIndex: 2,
+        explanation: 'While all three criticisms appear in the passage, the broader significance lies in what He\'s action represented: demonstrating that heritable human editing was technically achievable before scientific and ethical consensus existed on how to govern it. This is the concern the passage emphasizes in its governance section.'
+      },
+      {
+        question: 'The passage raises the "designer baby" concern. What is the logical chain from disease prevention to designer babies?',
+        options: [
+          'Once embryo editing is permitted for any purpose, the technology can be diverted by companies to commercial applications involving appearance and intelligence',
+          'Permitting embryo editing for disease prevention establishes a precedent that is hard to limit to therapy alone; the line between preventing disease and selecting traits is blurry, and enhancement capabilities raise questions of access and equity',
+          'Designer babies are technically identical to disease prevention editing, making the distinction legally meaningless',
+          'Parents who edit embryos to prevent disease will inevitably want to make additional improvements, regardless of available technology'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage makes the logical chain explicit: if editing for disease is permitted, preventing enhancement editing requires a clear and maintainable line between therapy and enhancement — a line the passage suggests is "not always clear." Once heritable editing is normalized, equity concerns about access arise.'
+      },
+      {
+        question: 'The author notes that "agreement on the need for governance is not the same as having effective governance." What does this suggest about the current state of genetic engineering ethics?',
+        options: [
+          'Scientific consensus is sufficient to prevent harmful genetic engineering research without formal legal frameworks',
+          'Despite broad agreement that heritable editing needs international oversight, the mechanisms for effective governance do not yet exist — leaving a dangerous gap between the technology\'s capabilities and society\'s ability to manage them',
+          'Countries with strong ethical frameworks will develop effective global governance on their own',
+          'The technology is advancing too slowly for governance gaps to be an immediate concern'
+        ],
+        correctIndex: 1,
+        explanation: 'The author\'s distinction between agreeing governance is needed and having effective governance highlights a critical vulnerability: the technology continues to advance while governance frameworks lag behind. The He Jiankui case is the author\'s evidence that this gap has real consequences.'
+      },
+    ]
+  },
+  {
+    id: 'rise-of-authoritarianism-20c',
+    title: 'The Failure of Freedom: Authoritarianism in the 20th Century',
+    topic: 'history',
+    coverEmoji: '🏛️',
+    coverColor: '#374151',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## Democracy's Fragility
+
+The twentieth century began with cautious optimism about democracy's expansion. It ended having witnessed some of history's most destructive authoritarian regimes. Between the 1910s and the 1970s, democratic governments across Europe, Asia, and Latin America collapsed or were overthrown, replaced by **fascism**, **communism**, and various forms of military dictatorship. Understanding why democracy fails — and how authoritarian movements seize power — remains one of the most urgent lessons history offers.
+
+## Conditions for Authoritarianism
+
+Historians and political scientists have identified recurring conditions that enable authoritarian movements to rise. Economic collapse or severe inequality creates mass anxiety and desperation. Military defeat or national humiliation generates resentment that can be channeled into nationalist rage. Weak or discredited democratic institutions fail to solve pressing problems, undermining public trust. And political leaders willing to exploit fear and division — offering simple explanations and powerful enemies — find audiences ready to listen.
+
+Germany's **Weimar Republic** (1919–1933) illustrates these conditions almost perfectly. Established after WWI's humiliation, it faced hyperinflation so severe that people carried wheelbarrows of cash to buy bread. The **Great Depression** produced mass unemployment. Political parties on both the far left and far right deliberately destabilized the republic. When **Adolf Hitler** was legally appointed Chancellor in 1933, he had not seized power through a coup — he had exploited democratic procedures and institutional weakness to assume it legally.
+
+## Fascism and Communist Authoritarianism
+
+**Fascism** — which emerged in Italy under **Mussolini** before spreading to Germany, Spain, and elsewhere — combined extreme nationalism, violent suppression of dissent, and cult-of-personality leadership. It rejected liberal democracy as weak and decadent, arguing that a strong leader should embody national will without parliamentary limitations.
+
+**Soviet communism** operated through a different ideology but similar mechanisms of control: a single party monopolized power, dissent was punished, propaganda shaped public reality, and the state controlled both the economy and civil society. Under **Stalin**, the Soviet Union's Great Purge of the 1930s executed hundreds of thousands of people and sent millions to labor camps.
+
+Despite their ideological differences, both fascism and Soviet communism shared the strategy of eliminating **civil society** — the independent organizations (labor unions, churches, free press, political parties) that allow citizens to organize outside state control.
+
+## How Authoritarian Systems Persist
+
+Once established, authoritarian systems are difficult to dislodge. They control information, eliminating independent media. They co-opt economic elites, offering them benefits in exchange for loyalty. They use selective enforcement of law — applying legal punishment to opponents while protecting supporters. And they conduct regular **performative elections** that appear democratic while ensuring the existing power structure cannot be challenged at the ballot box.
+
+## The Lesson
+
+The twentieth century's authoritarian catastrophes were not imposed by alien forces. They rose from within democratic societies, exploiting real grievances, real institutions, and real people. The political theorist **Hannah Arendt** observed that totalitarianism requires not a majority of enthusiastic supporters, but the passivity of a majority who neither support nor actively resist it.
+
+Democracy requires active maintenance — not just the existence of elections, but vigilant citizens, independent institutions, and leaders who refuse to exchange democratic norms for short-term power.`,
+    vocabulary: [
+      { word: 'fascism', definition: 'An authoritarian ultranationalist political ideology characterized by dictatorial power, forcible suppression of opposition, and strong regimentation of society and the economy.', example: 'Fascism in Italy and Germany emphasized military strength, national unity, and the elimination of political opposition.' },
+      { word: 'civil society', definition: 'The network of organizations, institutions, and associations that exist between individuals and the state — including unions, religious groups, free press, and civic organizations.', example: 'Authoritarian regimes systematically dismantle civil society because independent organizations give citizens the capacity to resist.' },
+      { word: 'cult of personality', definition: 'The near-worshipful glorification of a leader, promoted through propaganda, that places the leader above criticism or accountability.', example: 'Stalin\'s cult of personality was so powerful that Soviet citizens who expressed doubts about him could be imprisoned for disloyalty.' },
+      { word: 'performative election', definition: 'An election that appears democratic but is designed to legitimize rather than genuinely challenge existing power, through rigged rules, voter suppression, or elimination of meaningful opposition.', example: 'Authoritarian regimes hold performative elections to claim democratic legitimacy while ensuring the existing leadership cannot be voted out.' },
+      { word: 'totalitarianism', definition: 'A system of government in which the state seeks to control every aspect of public and private life, eliminating all independent sources of power and authority.', example: 'Unlike ordinary authoritarianism, totalitarianism aims not just to rule but to reshape society and individual consciousness entirely.' },
+    ],
+    questions: [
+      {
+        question: 'The passage argues that Hitler\'s rise to power did not involve a coup. Why is this detail historically significant?',
+        options: [
+          'It suggests that Hitler was a legitimate democratic leader whose policies should be evaluated fairly',
+          'It shows that authoritarian takeover can occur through legal and democratic procedures when institutions are weak — making the threat harder to recognize and resist from within a democratic system',
+          'It proves that the Weimar Republic was not a genuine democracy and therefore was unable to protect itself',
+          'It implies that coups are the only real threat to democracy and that legal political processes are always safe'
+        ],
+        correctIndex: 1,
+        explanation: 'The detail that Hitler was "legally appointed" — exploiting democratic procedures — is crucial because it shows democracy can be dismantled from within its own mechanisms. A coup is visible; a legal takeover exploiting institutional weakness is far more insidious.'
+      },
+      {
+        question: 'According to the passage, what do fascism and Soviet communism share despite their ideological differences?',
+        options: [
+          'Both relied on military conquest to expand their power beyond their home countries',
+          'Both systems eliminated civil society — the independent organizations that allow citizens to organize outside state control',
+          'Both systems conducted free and fair elections but manipulated the results to maintain power',
+          'Both ideologies emerged from the same intellectual tradition and shared the same philosophical foundations'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly identifies the elimination of civil society as the shared strategy: "both fascism and Soviet communism shared the strategy of eliminating civil society — the independent organizations that allow citizens to organize outside state control." This structural similarity transcended their ideological differences.'
+      },
+      {
+        question: 'The passage identifies "selective enforcement of law" as a tool of authoritarian persistence. How does this tool undermine democracy?',
+        options: [
+          'Selective enforcement makes laws too complicated for citizens to understand and follow',
+          'By applying legal punishment to opponents while protecting supporters, selective enforcement weaponizes the legal system — turning what should be a neutral institution into a tool of political control',
+          'Selective enforcement causes economic instability that makes authoritarian regimes vulnerable to revolution',
+          'It prevents international organizations from intervening in countries with authoritarian governments'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage lists selective enforcement as a mechanism of authoritarian persistence. When law is applied based on political loyalty rather than neutral principles, the rule of law itself is corrupted — what appears to be legal process becomes a tool for eliminating political competition.'
+      },
+      {
+        question: 'Arendt observed that totalitarianism requires "the passivity of a majority who neither support nor actively resist it." What does this imply about citizens\' role in preventing authoritarianism?',
+        options: [
+          'Citizens can prevent authoritarianism simply by not voting for authoritarian parties in elections',
+          'Passive non-support is insufficient — authoritarianism can thrive without majority enthusiasm as long as most people do not actively resist it, placing a positive obligation on citizens to defend democratic norms',
+          'Most citizens naturally resist authoritarianism when it threatens their individual freedoms directly',
+          'Democratic governments should legally require citizens to actively oppose authoritarian movements'
+        ],
+        correctIndex: 1,
+        explanation: 'Arendt\'s observation suggests that indifference enables authoritarianism as effectively as support. This shifts the moral burden from simply avoiding complicity to actively maintaining democratic norms — a demanding standard that the author\'s closing paragraph reinforces.'
+      },
+      {
+        question: 'The author closes by arguing that "democracy requires active maintenance." How does the passage\'s historical evidence support this claim?',
+        options: [
+          'Countries that spent more on military defense were more successful at maintaining democracy',
+          'Every authoritarian rise described in the passage exploited passive institutions, distracted citizens, or weak civil society — suggesting that when active maintenance fails, democratic systems become vulnerable to takeover',
+          'The passage shows that democracy survived in countries with strong economies, suggesting economic growth is the primary maintenance requirement',
+          'Active maintenance is only necessary during periods of acute crisis, not during normal political circumstances'
+        ],
+        correctIndex: 1,
+        explanation: 'The Weimar Republic fell partly through institutional weakness and citizen disengagement; civil society was eliminated by both fascism and communism; performative elections replaced genuine accountability. Each example shows a specific form of democratic maintenance that failed. The historical evidence collectively supports the claim that democracy requires ongoing, active commitment.'
+      },
+    ]
+  },
+  {
+    id: 'immigration-policy-history-debate',
+    title: 'Who Gets In? Immigration Policy Through American History',
+    topic: 'social studies',
+    coverEmoji: '🗽',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## A Nation Defined by Arrival — and Exclusion
+
+The United States is often called a "nation of immigrants," and the description captures something real: nearly every American family traces its origins elsewhere. Yet this self-image coexists with a history of systematic, legally codified exclusion based on race, national origin, and class. Understanding American immigration requires holding both truths simultaneously: the genuine openness and the genuine exclusion.
+
+## Early Open Borders and Their Limits
+
+For most of the nineteenth century, there were no federal restrictions on immigration. Anyone who could make it to American shores could stay. This openness was not entirely benevolent: it served the economic interests of industries that needed cheap labor — mines, railroads, factories. Immigrants were welcomed as workers; they were not always welcomed as people.
+
+The first major federal restriction was the **Chinese Exclusion Act of 1882**, which prohibited Chinese laborers from entering the United States and barred Chinese immigrants from citizenship. It was the first and only law in American history to explicitly exclude a nationality. The law reflected both economic anxiety (Chinese workers competed with white workers for jobs) and explicit racial ideology (congressional debates openly described Chinese people as racially inferior and unassimilable).
+
+## Quotas and the National Origins System
+
+The **Immigration Act of 1924** established a quota system that dramatically limited immigration from Southern and Eastern Europe while effectively banning immigration from Asia. The quotas were calculated based on the national origins of the existing U.S. population in 1890 — a baseline chosen specifically because it predated the large waves of Italian, Polish, and Jewish immigration, thereby favoring Northern and Western European immigrants.
+
+This system remained in effect until the **Immigration and Nationality Act of 1965**, which abolished national origin quotas and instead prioritized family reunification and skills. The law's sponsors did not predict its demographic consequences: within decades, the composition of immigration had shifted dramatically toward Latin America, Asia, and Africa, transforming the demographic profile of American cities.
+
+## The Undocumented Population
+
+The 1965 Act's elimination of national origin quotas was accompanied by the first numerical caps on immigration from the Western Hemisphere. Combined with increasing economic incentives for migration from Latin America, this created conditions in which legal channels were insufficient to meet economic demand, and undocumented immigration grew significantly.
+
+Today approximately **11 million undocumented immigrants** live in the United States, many for decades, with deep family, community, and economic ties. The legal and political debate about their status involves genuine competing values: respect for law and legal immigration processes on one side; recognition of human dignity, economic contributions, and the practical impossibility of mass deportation on the other.
+
+## Recurring Patterns
+
+Each era's immigration debates have reflected the same recurring patterns: economic anxiety about labor competition, cultural anxiety about national identity, racial ideology presented as practical concern, and the tension between America's self-image as a welcoming nation and its repeated legal exclusions of specific groups.
+
+One consistent finding from research: the groups most feared as unassimilable in each era — Irish, Italians, Chinese, Eastern Europeans — have, over time, become part of the mainstream American fabric. This pattern does not resolve current debates, but it should inform how confidently we hold our anxieties about who can and cannot become American.`,
+    vocabulary: [
+      { word: 'exclusion', definition: 'The deliberate barring of a group from participation, membership, or entry — in immigration, the legal prohibition of specific groups from entering the country.', example: 'The Chinese Exclusion Act was the first federal law to exclude an entire nationality from immigration to the United States.' },
+      { word: 'quota', definition: 'In immigration, a fixed numerical limit on how many people from a particular country or region may enter the United States each year.', example: 'The 1924 immigration quotas were designed to reduce immigration from Southern and Eastern Europe while favoring immigrants from Northern and Western Europe.' },
+      { word: 'family reunification', definition: 'An immigration policy priority that allows citizens and legal residents to sponsor immediate family members for visas or legal residency.', example: 'The 1965 Immigration Act made family reunification the primary criterion for immigration preference, replacing the national origins quota system.' },
+      { word: 'unassimilable', definition: 'A term used historically to describe immigrant groups that were claimed to be incapable of becoming part of the mainstream culture — a claim that was consistently proven wrong over time.', example: 'Irish, Italian, and Chinese immigrants were all described as unassimilable at various points in American history, despite all eventually becoming part of mainstream American society.' },
+      { word: 'deportation', definition: 'The expulsion of a person from a country, typically someone who is present without legal authorization or who has violated immigration law.', example: 'Critics of mass deportation policies argued that removing long-established residents would cause enormous human and economic harm.' },
+    ],
+    questions: [
+      {
+        question: 'The author says America\'s self-image as a "nation of immigrants" coexists with "a history of systematic, legally codified exclusion." What is the author\'s purpose in presenting this tension?',
+        options: [
+          'To argue that the "nation of immigrants" self-image is entirely false and should be abandoned',
+          'To establish that honest understanding of American immigration requires acknowledging both the genuine openness and the deliberate exclusion — neither tells the complete story alone',
+          'To suggest that exclusionary immigration policies were always driven by racial ideology rather than legitimate economic concerns',
+          'To convince readers that the United States should return to the open-borders policy of the nineteenth century'
+        ],
+        correctIndex: 1,
+        explanation: 'The author explicitly states the need to hold "both truths simultaneously." The tension is introduced not to condemn or celebrate but to frame the passage\'s analytical approach: a complete understanding requires acknowledging the contradiction between national self-image and historical reality.'
+      },
+      {
+        question: 'According to the passage, what was unusual and significant about the Chinese Exclusion Act of 1882?',
+        options: [
+          'It was the only immigration law ever challenged before the Supreme Court',
+          'It was the first and only law in American history to explicitly exclude a specific nationality — combining economic anxiety with explicit racial ideology in congressional justifications',
+          'It was passed without congressional debate in response to an immediate national security emergency',
+          'It restricted all Asian immigration equally, treating all Asian nationalities the same under the law'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies the Act as "the first and only law in American history to explicitly exclude a nationality" and notes that "congressional debates openly described Chinese people as racially inferior." Both the legal novelty and the explicit racial ideology make it historically significant.'
+      },
+      {
+        question: 'The 1924 quota system used 1890 population data as its baseline. What does this deliberate choice reveal about the law\'s intent?',
+        options: [
+          'Census data from 1890 was more accurate than later data, making it the most reliable basis for quotas',
+          'Choosing 1890 as the baseline — before large-scale Southern and Eastern European immigration — was a deliberate mechanism to favor Northern and Western Europeans by building the preference into the quota formula itself',
+          'Congress chose 1890 data because that year represented the peak of American economic productivity',
+          'The 1890 census was the most recent available at the time the 1924 Act was passed'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the 1890 baseline was "chosen specifically because it predated the large waves of Italian, Polish, and Jewish immigration." This was not a neutral technical choice — it was a deliberate mechanism to limit specific groups by building ethnic preference into the law\'s mathematical formula.'
+      },
+      {
+        question: 'The passage says the 1965 Act\'s sponsors "did not predict its demographic consequences." What does this suggest about the relationship between immigration law and social outcomes?',
+        options: [
+          'Immigration laws should not be passed unless their consequences can be fully predicted',
+          'Major policy changes can produce large-scale social transformations that exceed their designers\' intentions — suggesting humility is warranted when predicting how complex systems will respond to legal changes',
+          'The 1965 Act was poorly designed because it failed to anticipate demographic changes',
+          'Demographics in the United States are primarily determined by immigration law rather than economic or social factors'
+        ],
+        correctIndex: 1,
+        explanation: 'The point is not that the law was bad but that complex social systems respond to legal changes in ways that are hard to predict. The shift in immigration composition toward Latin America, Asia, and Africa transformed American demographics in ways the Act\'s authors did not foresee — a lesson in policy humility.'
+      },
+      {
+        question: 'The author writes that the historical pattern of "unassimilable" groups becoming part of the mainstream "does not resolve current debates, but it should inform how confidently we hold our anxieties." What is the author\'s rhetorical purpose here?',
+        options: [
+          'To argue that current immigration restrictions are definitely wrong because past restrictions were wrong',
+          'To use historical evidence to moderate confidence in current anxieties about immigrant assimilation, without claiming the pattern definitively answers today\'s specific questions',
+          'To suggest that American culture is so adaptable that any level of immigration can be absorbed without social disruption',
+          'To conclude that all immigration restrictions are motivated by racial ideology and should be eliminated'
+        ],
+        correctIndex: 1,
+        explanation: 'The careful qualifier — "does not resolve current debates, but should inform how confidently we hold our anxieties" — shows the author using history to prompt calibration rather than to deliver a verdict. The historical pattern is relevant evidence but not a simple answer to contemporary questions.'
+      },
+    ]
+  },
+  {
+    id: 'mass-media-misinformation',
+    title: 'Truth in the Age of Everything: Media, Democracy, and Misinformation',
+    topic: 'language arts',
+    coverEmoji: '📰',
+    coverColor: '#374151',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 540,
+    readTimeMin: 3,
+    text: `## The Information Environment Has Changed
+
+Democratic self-governance depends on an informed citizenry — people who share enough common factual ground to make collective decisions. For most of the twentieth century, Americans consumed news through a small number of broadcast networks, major newspapers, and local TV stations. These outlets were imperfect, often biased, and reflected the perspectives of their owners. But they created a shared information environment in which most citizens were exposed to at least some common facts.
+
+That environment no longer exists. The fragmentation of media, the rise of social platforms, and the collapse of the economic model that funded local journalism have transformed the information landscape in ways we are still struggling to understand.
+
+## The Old Media's Flaws and Functions
+
+It is important not to romanticize the media of the mid-twentieth century. The mainstream press regularly ignored, minimized, or distorted news about civil rights, poverty, and the experiences of women and minorities. **Gatekeeping** — the power of editors to decide what was news — concentrated enormous influence in the hands of a small, largely white, male establishment. Perspectives outside that establishment were systematically excluded.
+
+But gatekeeping also had a filtering function: trained journalists checked facts, editors challenged claims, and the cost of reaching a mass audience was high enough to limit the volume of deliberate misinformation that could circulate.
+
+## The Algorithmic Information Environment
+
+Social media eliminated these gatekeeping functions while amplifying individual voices in unprecedented ways. This has real benefits: **citizen journalism** during political uprisings, natural disasters, and social movements has produced vital documentation that professional media missed. Marginalized voices have platforms they never previously had.
+
+But the same openness that empowers citizen journalism also enables **disinformation** — the deliberate creation and spreading of false information to deceive or manipulate. Unlike **misinformation** (false information spread without necessarily deceptive intent), disinformation is strategic: produced by coordinated actors, sometimes state-sponsored, to undermine trust in institutions, sow division, and paralyze collective decision-making.
+
+**Confirmation bias** — the tendency to seek out and believe information that confirms existing beliefs — makes individuals naturally vulnerable to disinformation. When social platforms serve content that maximizes engagement, and when emotionally resonant false claims spread faster than accurate corrections, the information ecosystem becomes systematically distorted.
+
+## Democracy's Dependence on Shared Facts
+
+Democratic decision-making requires at least some shared factual baseline — agreement about what problems exist, what tradeoffs are involved, and what evidence says about proposed solutions. When citizens inhabit entirely different information environments, this common ground erodes. Political opponents may disagree about values and priorities while sharing basic facts; when they disagree about basic facts themselves, compromise and collaboration become nearly impossible.
+
+This is not a problem of ignorance that more information will solve. Research consistently shows that **information correction** — presenting accurate information to people who have been exposed to misinformation — is more difficult the more the misinformation aligns with a person's identity and values.
+
+## A Civic Challenge
+
+The erosion of shared information environments is not inevitable or permanent. It reflects specific choices: algorithmic design, business models, regulation decisions, and individual media habits. Rebuilding shared epistemic ground — a common basis for factual claims — may be one of the defining civic challenges of the twenty-first century. It requires not just better technology but better citizens: people skilled at evaluating sources, tolerating uncertainty, and distinguishing evidence from assertion.`,
+    vocabulary: [
+      { word: 'gatekeeping', definition: 'In media, the process by which editors and journalists decide which stories are newsworthy and worth publishing, controlling the flow of information to the public.', example: 'Traditional media gatekeeping filtered out some misinformation but also excluded many important perspectives from public discourse.' },
+      { word: 'disinformation', definition: 'Deliberately false or misleading information spread with the intention to deceive or manipulate.', example: 'State-sponsored disinformation campaigns have been documented using social media to spread false narratives about elections and public health.' },
+      { word: 'misinformation', definition: 'False or inaccurate information, especially when spread without deliberately deceptive intent.', example: 'Misinformation about medical treatments spread rapidly during the pandemic as people shared unverified claims in good faith.' },
+      { word: 'confirmation bias', definition: 'The tendency to search for, interpret, and favor information that confirms one\'s existing beliefs while ignoring contradictory evidence.', example: 'Confirmation bias makes people more likely to share news stories that reinforce their political views without checking their accuracy.' },
+      { word: 'epistemic', definition: 'Relating to knowledge, the study of knowledge, or the conditions under which beliefs can be considered justified or true.', example: 'When citizens disagree about basic facts rather than just values, they inhabit different epistemic worlds that make democratic deliberation very difficult.' },
+    ],
+    questions: [
+      {
+        question: 'The author says it is "important not to romanticize the media of the mid-twentieth century." What rhetorical purpose does this acknowledgment serve?',
+        options: [
+          'It weakens the author\'s argument by admitting that the old media environment was also flawed',
+          'It strengthens the author\'s credibility by showing they are not simply nostalgic — they can acknowledge old media\'s real failures while still arguing that something valuable has been lost',
+          'It suggests the author believes misinformation was actually more prevalent in mid-twentieth century media',
+          'It is a concession to critics of the author\'s argument that has no effect on the overall claim'
+        ],
+        correctIndex: 1,
+        explanation: 'Acknowledging old media\'s genuine flaws (exclusion of marginalized perspectives, concentrated gatekeeping power) before arguing something valuable has been lost demonstrates intellectual honesty and strengthens the author\'s ethos. A purely nostalgic argument would be easier to dismiss; this one accounts for complexity.'
+      },
+      {
+        question: 'What is the key distinction between misinformation and disinformation as defined in the passage?',
+        options: [
+          'Misinformation is more dangerous because it spreads faster than disinformation',
+          'Disinformation is deliberately created and spread to deceive or manipulate, while misinformation may be false but is not necessarily spread with deceptive intent',
+          'Disinformation comes from state-sponsored sources while misinformation comes from individuals',
+          'Misinformation affects political elections while disinformation primarily affects public health decisions'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly defines the distinction: misinformation is false but "without necessarily deceptive intent," while disinformation is "deliberate" and "strategic." The difference matters for how we assign responsibility and for what kinds of interventions might be effective.'
+      },
+      {
+        question: 'The passage states that "information correction" is less effective when misinformation aligns with a person\'s identity and values. What does this finding imply for how we should understand the misinformation problem?',
+        options: [
+          'People who spread misinformation are acting in bad faith and cannot be persuaded by any evidence',
+          'The misinformation problem is not primarily one of ignorance solvable by providing more accurate information — it is deeply entangled with identity, meaning more information alone is insufficient',
+          'News organizations should avoid fact-checking because corrections only make misinformation more entrenched',
+          'The solution to misinformation is to create more emotionally compelling accurate content'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly states this is "not a problem of ignorance that more information will solve," and the research finding about correction difficulty when misinformation aligns with identity shows why. When false beliefs are tied to identity, factual challenges feel like personal attacks — a different kind of problem requiring different solutions.'
+      },
+      {
+        question: 'According to the passage, why does fragmentation of the information environment threaten democratic decision-making?',
+        options: [
+          'Fragmentation means citizens receive too much information and cannot process it all effectively',
+          'Democratic decision-making requires some shared factual baseline; when citizens inhabit entirely different information environments, they disagree not just about values but about basic facts, making compromise nearly impossible',
+          'Fragmentation gives too much power to individual journalists and reduces the influence of professional editors',
+          'When media is fragmented, political campaigns can target voters with personalized messages that bypass public scrutiny'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage makes a specific argument about the relationship between shared facts and democratic function: "when they disagree about basic facts themselves, compromise and collaboration become nearly impossible." The threat is not information overload but the loss of common factual ground required for shared decision-making.'
+      },
+      {
+        question: 'The author argues the erosion of shared information environments is "not inevitable or permanent" because it "reflects specific choices." What is the significance of framing this as a choice rather than a natural development?',
+        options: [
+          'It implies that technology companies alone are responsible for the current information environment',
+          'Framing it as a choice rather than an inevitable technological development preserves human agency — decisions about algorithms, business models, regulation, and individual habits can be made differently, meaning the problem is solvable rather than fixed',
+          'It suggests that citizens who consume misinformation are individually responsible for the fragmentation of the information environment',
+          'It argues that government regulation is the only solution to the media fragmentation problem'
+        ],
+        correctIndex: 1,
+        explanation: 'The author\'s insistence that specific choices — not inevitable technology — produced the current environment implies that different choices could produce a different result. This preserves agency and possibility, framing the problem as a civic challenge with potential solutions rather than a permanent technological condition.'
+      },
+    ]
+  },
+  {
+    id: 'french-revolution-legacy',
+    title: 'Liberty, Equality, Terror: The French Revolution',
+    topic: 'history',
+    coverEmoji: '🇫🇷',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## A Revolution That Shook the World
+
+The **French Revolution** (1789–1799) was one of the most consequential and contested events in modern history. It overthrew a monarchy, executed a king, proclaimed the rights of man, and then descended into mass political violence — the **Reign of Terror** — that killed tens of thousands. It ultimately produced the dictatorship of **Napoleon Bonaparte**. And yet its ideals — **liberty**, **equality**, **fraternity** — became the foundational vocabulary of democratic movements worldwide for the next two centuries.
+
+Understanding the Revolution requires grappling with its contradiction: how did a movement that proclaimed universal human rights produce mass executions and authoritarian rule?
+
+## Causes
+
+France in 1789 was a society under enormous pressure. Decades of expensive wars, including support for the American Revolution, had produced severe fiscal crisis. The monarchy was effectively bankrupt. A series of poor harvests left ordinary people hungry while the aristocracy and clergy maintained their privileges and tax exemptions. The **Third Estate** — everyone who was not a noble or clergy — constituted 97% of France's population but bore nearly all of its tax burden.
+
+The intellectual climate of the **Enlightenment** had spread ideas about natural rights, popular sovereignty, and the social contract. Writers like **Voltaire**, **Rousseau**, and **Montesquieu** had critiqued absolute monarchy and proposed alternative forms of governance. When the fiscal crisis forced King Louis XVI to convene the **Estates-General** in 1789 — a representative body that had not met in 175 years — the Third Estate arrived with extraordinary expectations for reform.
+
+## Revolution and Its Radicalization
+
+The Revolution's early phase produced the **Declaration of the Rights of Man and Citizen** (1789), which proclaimed that men were born free, equal in rights, and that sovereignty rested with the nation, not the king. It was a revolutionary document. But it also excluded women — **Olympe de Gouges** published the Declaration of the Rights of Woman in 1791 in protest, and was executed in 1793.
+
+As the Revolution progressed, it radicalized. Foreign powers invaded France to suppress the Revolution; internal counterrevolutionaries threatened the republic. In this climate of real and perceived threat, the **Committee of Public Safety**, led by **Maximilien Robespierre**, conducted the Reign of Terror (1793–1794), executing opponents real and imagined. An estimated 40,000 people died, including many who had been early revolutionary leaders.
+
+Robespierre himself was arrested and executed in 1794. The Terror's excesses discredited radical republicanism and opened the path to Napoleon's seizure of power in 1799.
+
+## Legacy
+
+The Revolution's legacy is fiercely debated. Conservatives argue it demonstrated that revolutionary destruction of tradition produces not liberty but chaos and tyranny. Progressives argue its ideals — however imperfectly realized — transformed the world: inspiring independence movements in Latin America, Haiti's revolution, and democratic movements globally. The abolition of feudalism, the codification of legal rights, and the principle of popular sovereignty spread from France across Europe through the Napoleonic conquests.
+
+The historian **R.R. Palmer** called the period between 1760 and 1800 the "Age of Democratic Revolution" — a transatlantic upheaval that transformed the meaning of politics. The French Revolution was its most dramatic, bloody, and ambiguous expression.`,
+    vocabulary: [
+      { word: 'Enlightenment', definition: 'An eighteenth-century intellectual movement that emphasized reason, individual rights, and the questioning of traditional authority, including monarchy and the church.', example: 'Enlightenment philosophers like Rousseau and Voltaire developed ideas about natural rights and popular sovereignty that directly influenced the French Revolution.' },
+      { word: 'popular sovereignty', definition: 'The principle that political authority derives from the consent and will of the people rather than from divine right or hereditary rule.', example: 'The Declaration of the Rights of Man proclaimed popular sovereignty, asserting that legitimate government required the consent of the governed.' },
+      { word: 'Reign of Terror', definition: 'A period during the French Revolution (1793–1794) characterized by mass executions of perceived enemies of the revolution, organized by the Committee of Public Safety.', example: 'During the Reign of Terror, revolutionary courts condemned thousands of people to the guillotine, including many who had been early supporters of the Revolution.' },
+      { word: 'Third Estate', definition: 'In pre-revolutionary France, the social class comprising everyone who was not a noble or clergy — roughly 97% of the population, including peasants, artisans, and the middle class.', example: 'The Third Estate bore most of France\'s tax burden while having little political representation, generating enormous resentment toward the privileged orders.' },
+      { word: 'feudalism', definition: 'A medieval social and economic system in which landowners (lords) held authority over peasants who worked their land in exchange for protection.', example: 'One of the Revolution\'s lasting achievements was the abolition of feudalism, freeing peasants from the obligations and restrictions of the old system.' },
+    ],
+    questions: [
+      {
+        question: 'The author asks how "a movement that proclaimed universal human rights produced mass executions and authoritarian rule." What is the purpose of posing this as the central question?',
+        options: [
+          'To suggest that the French Revolution\'s ideals were always hypocritical and never genuinely held',
+          'To frame the Revolution\'s central historical puzzle — the gap between its liberatory ideals and its violent, authoritarian outcomes — which the passage then attempts to explain through context and radicalization',
+          'To argue that universal human rights declarations are inherently unstable and always lead to violence',
+          'To criticize modern democracies that trace their heritage to the French Revolution'
+        ],
+        correctIndex: 1,
+        explanation: 'The opening question frames the analytical challenge the entire passage addresses. By posing the contradiction directly, the author signals that understanding the Revolution requires explaining how the same movement could produce both the Declaration of the Rights of Man and the Reign of Terror — a genuinely complex historical problem.'
+      },
+      {
+        question: 'According to the passage, what conditions made France susceptible to revolution in 1789?',
+        options: [
+          'A foreign invasion that weakened the monarchy\'s military power and ability to suppress dissent',
+          'Fiscal crisis from wars, aristocratic tax exemptions leaving the Third Estate to bear the burden, poor harvests causing hunger, and Enlightenment ideas that provided an intellectual framework for challenging monarchy',
+          'The publication of Rousseau\'s Social Contract, which turned most French citizens against the monarchy',
+          'The American Revolution\'s success proved that republics were more stable than monarchies, inspiring the French to attempt the same'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies multiple converging causes: fiscal bankruptcy from wars, aristocratic privilege and tax exemptions, food scarcity from harvest failures, and the Enlightenment\'s intellectual framework. The Revolution emerged from this convergence, not a single cause.'
+      },
+      {
+        question: 'The passage notes that Olympe de Gouges protested the Declaration\'s exclusion of women and was executed. What does this detail reveal about the Revolution\'s ideals?',
+        options: [
+          'Revolutionary leaders were fundamentally opposed to women\'s political participation and never considered including them',
+          'The Revolution\'s proclaimed universal ideals were selectively applied — "universal" rights in practice meant the rights of men, not all humans — a contradiction visible from the beginning',
+          'Olympe de Gouges was executed because she was a counterrevolutionary, not because she advocated for women\'s rights',
+          'The Terror primarily targeted women who challenged the revolutionary government'
+        ],
+        correctIndex: 1,
+        explanation: 'The juxtaposition of the Declaration\'s claim to universal rights with its explicit exclusion of women — and the execution of someone who challenged that exclusion — illustrates that the Revolution\'s ideals were never fully universal. This contradiction is central to understanding both the Revolution\'s genuine achievement and its limitations.'
+      },
+      {
+        question: 'The passage describes the Reign of Terror as emerging during "real and perceived threats" from foreign invasion and counterrevolution. What does this contextual explanation suggest about the relationship between security threats and political violence?',
+        options: [
+          'Revolutionary political violence is always justified when genuine external threats exist',
+          'Perceived threats — even when real — can be exploited to justify the elimination of political opponents, blurring the line between genuine security measures and the persecution of dissent',
+          'The Reign of Terror was an unavoidable consequence of the foreign invasion, and Robespierre had no other options',
+          'Security threats always radicalize political movements, meaning all revolutions inevitably produce periods of mass violence'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage notes both "real and perceived" threats, suggesting that while genuine dangers existed, the Terror extended far beyond genuine security needs to eliminate "opponents real and imagined." This pattern — security justifications expanding to encompass legitimate political opposition — is a recurring historical phenomenon the passage implicitly flags.'
+      },
+      {
+        question: 'The passage presents conservative and progressive interpretations of the Revolution\'s legacy without endorsing either. What does this authorial choice suggest about how the Revolution should be understood?',
+        options: [
+          'The historical debate about the Revolution has been resolved and both interpretations are equally valid',
+          'The Revolution\'s legacy is genuinely complex and contested — its destruction and its liberatory ideals are inseparable, requiring analytical nuance rather than simple celebration or condemnation',
+          'Historians cannot reach conclusions about events this complex and should present multiple interpretations without analysis',
+          'Both the conservative and progressive interpretations are wrong, and the Revolution should be evaluated purely on its immediate outcomes'
+        ],
+        correctIndex: 1,
+        explanation: 'By presenting both interpretations and calling the Revolution\'s expression "dramatic, bloody, and ambiguous" — without declaring a winner — the author signals that the Revolution genuinely contains both what conservatives and progressives emphasize. The analytical move is toward complexity rather than verdict.'
+      },
+    ]
+  },
+  {
+    id: 'atomic-bomb-necessity-morality',
+    title: 'The Decision to Destroy: The Atomic Bomb and Moral Reasoning',
+    topic: 'history',
+    coverEmoji: '☢️',
+    coverColor: '#374151',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 550,
+    readTimeMin: 3,
+    text: `## The Most Consequential Decision in Modern History
+
+On August 6, 1945, the United States dropped an atomic bomb on **Hiroshima**, Japan. Three days later, a second bomb destroyed **Nagasaki**. An estimated 70,000–80,000 people died instantly in Hiroshima, with tens of thousands more dying in subsequent weeks from radiation. Japan surrendered on August 15. The decision to use the bombs — made by President **Harry Truman** — remains one of the most morally debated acts in modern history.
+
+The question is not simply historical. It is a test case for how we reason about moral choices under conditions of profound uncertainty, enormous stakes, and competing values.
+
+## The Case for the Bombs
+
+The traditional justification rests on the projected cost of **Operation Downfall** — the planned Allied invasion of the Japanese home islands. American military planners estimated between 250,000 and one million American casualties. Japanese military and civilian deaths in an invasion could have numbered in the millions, including deaths from starvation and disease as the war continued. Japan's military leadership had demonstrated willingness to fight to near-total destruction: the Battle of Okinawa (1945) saw 110,000 Japanese combatants, roughly 7,000 Americans, and an estimated 100,000–150,000 civilians die in a battle for a single island.
+
+From this perspective, the atomic bombs, however horrific, ended the war and prevented a greater catastrophe. **Utilitarian ethics** — the moral framework that judges actions by their consequences — supports this argument if the estimates are correct: fewer total deaths with the bombs than without them.
+
+## The Case Against
+
+Critics challenge both the factual premises and the moral framework. **Japan was already near defeat**: historians have documented that Japanese leaders were discussing surrender, and that the Soviet Union's declaration of war against Japan on August 8 — between the two bombs — may have been as decisive as the bombs themselves in prompting surrender. If Japan was about to surrender anyway, the bombs were not necessary to end the war.
+
+The bombs' targets were primarily **civilian populations**, not military forces. The deliberate targeting of civilians — even in warfare — violates the ethical principle of **non-combatant immunity**: the idea that civilians cannot be legitimate military targets. From this perspective, the moral calculus changes regardless of consequentialist justifications.
+
+Critics also point to a geopolitical motive: the bombs were dropped after Germany's defeat, when the Soviet Union was entering the Pacific War. The atomic bombings may have served as a demonstration of American power aimed not at Japan but at the Soviet Union — a preview of the Cold War to come.
+
+## The Moral Framework Problem
+
+The Hiroshima debate is not just about specific facts — it is about which moral framework applies. **Consequentialism** evaluates actions by outcomes: if fewer people die, the action was right. **Deontological ethics** holds that some actions are wrong regardless of consequences: deliberately killing civilians is wrong even if it prevents a larger war.
+
+Most moral decisions in real life require both frameworks — calculating likely consequences while maintaining limits on permissible actions. The atomic bomb decision sits at the intersection of these frameworks in a way that cannot be cleanly resolved.
+
+What the debate ultimately teaches is that moral reasoning under conditions of uncertainty — when stakes are enormous and information is incomplete — is genuinely hard. The right answer is not always obvious, and the willingness to engage seriously with the difficulty is itself a moral requirement.`,
+    vocabulary: [
+      { word: 'utilitarian ethics', definition: 'A moral framework that evaluates actions based on their consequences — specifically, whether they produce the greatest good (or least harm) for the greatest number of people.', example: 'A utilitarian argument for the atomic bombings held that they prevented more deaths than they caused by ending the war quickly.' },
+      { word: 'non-combatant immunity', definition: 'The ethical and legal principle that civilians who are not participating in warfare cannot be deliberately targeted.', example: 'Critics of the atomic bombings argued that targeting Hiroshima and Nagasaki violated non-combatant immunity because both were primarily civilian cities.' },
+      { word: 'deontological ethics', definition: 'A moral framework that holds certain actions to be inherently right or wrong regardless of their consequences, based on duties, rules, or rights.', example: 'From a deontological perspective, deliberately killing civilians is wrong even if doing so might end a war more quickly.' },
+      { word: 'consequentialism', definition: 'The view that the morality of an action is determined by its outcomes rather than by the nature of the action itself.', example: 'Consequentialist reasoning dominated the wartime decision-making process, focusing on projected casualty figures rather than the ethics of targeting cities.' },
+      { word: 'geopolitical', definition: 'Relating to politics, especially international relations, as influenced by geographic factors and the strategic interests of nations.', example: 'Some historians argue the atomic bombings had geopolitical motives related to postwar competition with the Soviet Union, not just military necessity.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what is the utilitarian case for dropping the atomic bombs?',
+        options: [
+          'The bombs demonstrated American military power, which prevented future wars and saved more lives in the long run',
+          'Military planners projected that an Allied invasion of Japan would cause far greater casualties than the bombs did — making the bombs the lesser of two evils in terms of total lives lost',
+          'The Japanese military had committed war crimes that forfeited the non-combatant immunity of Japanese civilians',
+          'The bombs ended the war quickly, giving Japan\'s government time to rebuild before the Soviet Union could occupy the country'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage presents the utilitarian argument as projections of 250,000 to one million American casualties and potentially millions of Japanese deaths in an invasion scenario. If those projections were accurate, the bombs caused fewer total deaths — the utilitarian case for their use.'
+      },
+      {
+        question: 'Critics argue Japan was "already near defeat" at the time of the bombings. Why is this factual claim central to the moral debate?',
+        options: [
+          'If Japan was near defeat, the bombs violated international laws governing the treatment of surrendering nations',
+          'If Japan was about to surrender anyway, the bombs were not militarily necessary — which undermines the utilitarian argument that they prevented a larger catastrophe',
+          'Japan\'s near-defeat status means the casualty projections for Operation Downfall were accurate',
+          'The fact that Japan was near defeat shows that the Soviet Union\'s entry into the Pacific War was the real reason for Japanese surrender, not the bombs'
+        ],
+        correctIndex: 1,
+        explanation: 'The utilitarian justification depends on the claim that the bombs were necessary to end the war and prevent greater losses. If Japan was near surrender regardless, that necessity claim collapses — and with it, the primary justification for the civilian targeting. The factual question is inseparable from the moral one.'
+      },
+      {
+        question: 'The passage suggests the bombings may have had a geopolitical motive related to the Soviet Union. How does this possibility affect the moral assessment?',
+        options: [
+          'It strengthens the utilitarian argument because preventing Soviet expansion saved more lives in the long run',
+          'If the bombs served Cold War positioning rather than solely ending the Pacific War, civilians may have been killed partly to send a message to the Soviets — a motive that further undermines the military necessity justification',
+          'Geopolitical motives are always morally acceptable in wartime decision-making',
+          'The Soviet Union\'s entry into the war proves that the bombs were not the decisive factor in Japan\'s surrender'
+        ],
+        correctIndex: 1,
+        explanation: 'If the bombings were partly intended as a demonstration to the Soviets rather than purely to end the Pacific War, then civilians were being used as instruments of a geopolitical message — which further undermines the claim that their deaths were a tragic necessity justified by preventing invasion casualties.'
+      },
+      {
+        question: 'How does the passage present the relationship between consequentialist and deontological ethics in the Hiroshima debate?',
+        options: [
+          'Consequentialism provides the correct framework for this decision because stakes in wartime are too high for absolute moral rules',
+          'Deontological ethics provides the correct framework because non-combatant immunity is an absolute rule that cannot be overridden by calculations',
+          'Most real moral decisions require both frameworks — calculating consequences while maintaining limits on permissible actions — and the bomb decision sits at their contested intersection without a clean resolution',
+          'The passage argues that both frameworks produce the same moral conclusion about the atomic bombings'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explicitly states that "most moral decisions in real life require both frameworks" and that the bomb "sits at the intersection of these frameworks in a way that cannot be cleanly resolved." The author does not declare a winner but argues both approaches contribute to serious moral analysis.'
+      },
+      {
+        question: 'The author closes by arguing that "the willingness to engage seriously with the difficulty is itself a moral requirement." What does this imply about moral reasoning?',
+        options: [
+          'Since the right answer is unclear, any decision made sincerely is morally acceptable',
+          'Moral reasoning requires honest engagement with hard cases even when — especially when — the right answer is not obvious or comfortable',
+          'The Hiroshima decision was ultimately right because Truman engaged seriously with the moral complexity before deciding',
+          'Moral philosophy provides definitive answers to historical questions if we apply the right framework'
+        ],
+        correctIndex: 1,
+        explanation: 'The closing claim elevates the quality of moral reasoning itself — not just its conclusions — as morally significant. Avoiding hard questions, demanding simple answers, or refusing to engage with legitimate competing considerations are themselves moral failures. Serious engagement with difficulty is framed as an obligation, not just an intellectual exercise.'
+      },
+    ]
+  },
+  {
+    id: 'florida-growth-environment-g8',
+    title: 'The Price of Paradise: Florida\'s Growth and Its Costs',
+    topic: 'science',
+    coverEmoji: '🌊',
+    coverColor: '#065f46',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## The World's Most Vulnerable Major City
+
+Miami is widely considered one of the cities most threatened by climate change on Earth. Sitting on porous limestone bedrock, it cannot build seawalls deep enough to block rising seas — water comes up through the ground. The city is already experiencing **sunny-day flooding**: streets in Miami Beach flood during high tides even in clear weather, not from storms. The **Brickell** financial district floods regularly. By 2100, under moderate sea level rise scenarios, significant portions of Miami and the Florida Keys could be uninhabitable.
+
+Yet Florida continues to grow faster than almost any other state. Understanding the gap between Florida's environmental vulnerability and its explosive development requires analyzing the economic, political, and social forces that make growth hard to stop even when its costs are increasingly visible.
+
+## A Century of Engineering Nature
+
+Florida's development was made possible by engineering. The Everglades was once a vast water system covering much of South Florida — a "river of grass" that filtered water, buffered storms, and supported extraordinary biodiversity. Beginning in the early twentieth century, the U.S. Army Corps of Engineers and the state government built an elaborate system of canals, levees, and pumping stations to drain the Everglades for agriculture and development.
+
+The result was impressive by the standards of the time: millions of acres opened for farming and housing, a booming economy, and one of the fastest-growing states in the nation. The cost, not fully apparent until decades later, included the near-destruction of a world-class ecosystem, the contamination of South Florida's drinking water supply, chronic flooding from a system designed for agriculture rather than a metropolitan population of six million, and the loss of the natural storm buffering that wetlands provide.
+
+## The Development Machine
+
+Florida's political economy has long been organized around growth. The **real estate industry** is the state's most politically powerful sector — contributing heavily to campaigns, lobbying for permissive land use regulations, and producing legislators who view development approval as a public good. The state's property tax structure rewards growth: new development generates revenue that funds schools, roads, and services.
+
+This **growth machine** — as urban sociologists call the coalition of developers, landowners, businesses, and politicians who benefit from continuous development — has powerful incentives to continue even when the environmental costs are severe. Costs from flooding, water contamination, and ecosystem loss are diffuse and long-term; benefits from new development are concentrated and immediate.
+
+## Who Pays
+
+The costs of Florida's development decisions are not distributed equally. Low-income communities, often in areas with lower elevation or without resources to adapt, face the greatest flood risk. **Managed retreat** — the planned relocation of vulnerable communities away from coastal risk — is rarely discussed politically because it threatens property values and challenges the growth narrative.
+
+Meanwhile, the costs of adaptation — pumping stations, elevated roads, hardened infrastructure — are being borne by taxpayers, while the profits from development have already been captured by private interests.
+
+## A Reckoning Coming
+
+Florida's trajectory cannot continue indefinitely. The physical reality of sea level rise, worsening hurricanes, and aquifer depletion will eventually impose costs that exceed the political system's ability to defer. The question is whether Florida makes deliberate, forward-looking choices about land use, adaptation, and growth — or waits until the costs are catastrophic enough to be impossible to ignore.`,
+    vocabulary: [
+      { word: 'sunny-day flooding', definition: 'Flooding that occurs during high tides or sea level events even in the absence of storms or rain, increasingly common in low-lying coastal cities.', example: 'Miami Beach experiences sunny-day flooding with increasing frequency as sea levels rise, disrupting traffic and damaging infrastructure.' },
+      { word: 'growth machine', definition: 'In urban sociology, the coalition of real estate developers, landowners, politicians, and businesses who benefit from continuous development and work together to promote it.', example: 'Florida\'s growth machine has consistently prioritized development approvals over environmental protection when the two conflicted.' },
+      { word: 'managed retreat', definition: 'The planned, deliberate relocation of people and development away from high-risk coastal or flood-prone areas, as a climate adaptation strategy.', example: 'Managed retreat is considered the most effective long-term response to rising sea levels but is politically difficult because it challenges property values.' },
+      { word: 'permissive', definition: 'Allowing a wide range of behavior or action; in land use, regulations that place few restrictions on what can be built or where.', example: 'Permissive land use regulations made it easier for developers to build in environmentally sensitive areas but also created long-term flood risks.' },
+      { word: 'aquifer depletion', definition: 'The reduction of underground water reserves through excessive pumping, which can cause land subsidence, saltwater intrusion, and water shortages.', example: 'Aquifer depletion in South Florida increases the risk of saltwater intrusion into the drinking water supply as sea levels rise.' },
+    ],
+    questions: [
+      {
+        question: 'The passage explains that Miami cannot block sea level rise with seawalls "because water comes up through the ground." What does this detail reveal about the nature of Miami\'s climate vulnerability?',
+        options: [
+          'It shows that engineers have failed to design adequate flood protection for the city',
+          'Miami\'s vulnerability is geological — its porous limestone bedrock makes conventional seawall defenses physically ineffective, meaning standard adaptation approaches used elsewhere will not work',
+          'It demonstrates that climate change affects coastal cities differently based on their proximity to the ocean',
+          'Miami\'s flooding problem is caused by inadequate storm drainage systems rather than sea level rise'
+        ],
+        correctIndex: 1,
+        explanation: 'The limestone bedrock detail establishes that Miami faces a uniquely difficult adaptation challenge: the standard engineering response (seawalls) is physically ineffective when water rises through the ground. This makes Miami\'s situation qualitatively different from other coastal cities and underscores the severity of its vulnerability.'
+      },
+      {
+        question: 'According to the passage, how did the engineering of the Everglades create long-term costs that were not apparent when the decisions were made?',
+        options: [
+          'The canal system proved too expensive to maintain, creating fiscal problems for state and local governments',
+          'Draining the Everglades for agriculture and development destroyed the ecosystem\'s capacity to filter water, buffer storms, and sustain biodiversity — costs that accumulated over decades and only became fully apparent much later',
+          'Engineers made technical mistakes in the canal system that caused chronic flooding they had intended to prevent',
+          'The Everglades drainage displaced Indigenous communities whose legal claims later created obstacles to development'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the initial development as impressive "by the standards of the time" but identifies costs that accumulated over decades: ecosystem destruction, water contamination, chronic flooding, and loss of storm buffering. The temporal gap between decisions and consequences is central to understanding why harmful development continues.'
+      },
+      {
+        question: 'The passage describes Florida\'s "growth machine" and the "concentrated and immediate" benefits of development versus "diffuse and long-term" costs. How does this asymmetry explain the persistence of harmful development?',
+        options: [
+          'Developers are unaware of the long-term environmental costs of their projects',
+          'When benefits are immediate and concentrated for specific interests while costs are diffuse and delayed for the broader public, the political economy favors continued development even when overall harm exceeds overall benefit',
+          'Florida voters consistently prefer development over environmental protection in every election',
+          'Federal law prevents Florida from regulating development even when the state government recognizes environmental risks'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage makes this asymmetry explicit: growth machine members have strong, immediate incentives to continue development, while those who bear the long-term costs (taxpayers, future residents, ecosystems) are diffuse and politically less powerful. This structural imbalance explains persistent harmful development as a rational political outcome, not just ignorance or corruption.'
+      },
+      {
+        question: 'The passage says managed retreat "is rarely discussed politically because it threatens property values." What does this reveal about the limits of market-based climate adaptation?',
+        options: [
+          'Property values are a reliable indicator of flood risk and should guide climate adaptation decisions',
+          'When the most effective adaptation strategy threatens existing economic interests, the political system avoids discussing it — meaning markets and political systems can systematically underprovide necessary adaptation',
+          'Property owners in flood-prone areas should be responsible for their own adaptation costs without public assistance',
+          'Managed retreat is technically impossible in Florida because of its dense population and limited available land'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies a political economy failure: the most effective long-term adaptation (retreat) is avoided because it challenges property values — precisely the economic interest that drives the growth machine. This illustrates how market incentives and political economy can systematically block rational long-term responses to environmental risk.'
+      },
+      {
+        question: 'The author ends by asking whether Florida will make "deliberate, forward-looking choices" or "wait until the costs are catastrophic." What does this framing suggest about the author\'s perspective on Florida\'s trajectory?',
+        options: [
+          'The author believes Florida will inevitably wait for catastrophe because the political system is too corrupt to change',
+          'The author suggests the physical consequences are coming regardless — the question is whether collective decision-making can get ahead of the crisis or will only respond after catastrophic harm makes inaction impossible',
+          'The author believes individual Floridians rather than governments are responsible for making different choices',
+          'The author argues that technological innovation will solve Florida\'s environmental problems before they become catastrophic'
+        ],
+        correctIndex: 1,
+        explanation: 'The closing frames a choice between proactive and reactive governance — "deliberate, forward-looking choices" vs. waiting for catastrophe. The author doesn\'t predict which will happen but frames it as a decision point, implying urgency and the possibility of agency. The physical reality is given; the response is the variable.'
+      },
+    ]
+  },
+  {
+    id: 'ai-future-human-work-g8',
+    title: 'Minds and Machines: Artificial Intelligence and Human Work',
+    topic: 'science',
+    coverEmoji: '🤖',
+    coverColor: '#374151',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 545,
+    readTimeMin: 3,
+    text: `## Intelligence Without Understanding
+
+In 2022, **OpenAI** released **ChatGPT**, a large language model that could hold coherent conversations, write essays, generate code, and pass professional licensing exams. Within two months it had 100 million users — the fastest adoption of any technology in history. Suddenly, AI was not a distant promise but a present reality, and its implications for the future of human work became impossible to ignore.
+
+What AI systems actually are, and what they are not, matters enormously for thinking clearly about these implications.
+
+## What AI Does and Doesn't Do
+
+Modern AI systems — particularly **large language models (LLMs)** like ChatGPT, Claude, and Gemini — are trained on vast datasets of human-generated text. They identify statistical patterns in language and generate responses that are statistically likely to be coherent and relevant. They are remarkably powerful at producing text, code, and images that appear to reflect understanding.
+
+But they do not understand in the way humans do. They do not form intentions, have experiences, or possess consciousness. When an LLM makes a confident error — a phenomenon called **hallucination** — it is not lying. It is generating statistically plausible text that happens to be false. This distinction matters: systems that produce plausible-sounding incorrect information confidently are useful but also genuinely dangerous in high-stakes contexts.
+
+## Implications for Work
+
+The economic implications are real and significant. AI can now perform tasks that were recently considered safely human: writing, coding, legal research, financial analysis, customer service, and basic medical diagnosis. A 2023 study by economists at MIT found that AI tools increased the productivity of skilled knowledge workers by up to 40% — meaning the same number of workers could produce far more output.
+
+This productivity effect cuts two ways. It may increase demand for skilled workers by making them more valuable. Or it may reduce demand by allowing fewer workers to produce the same output. Which predominates will depend on whether AI creates new categories of work to replace what it displaces — a question that cannot be answered from current evidence.
+
+## Who Benefits, Who Doesn't
+
+AI's economic effects are likely to be highly unequal. Workers with the resources, education, and access to integrate AI tools into their work may see their productivity and earnings rise. Workers in roles that AI can fully replace — particularly in **routine knowledge work** like data entry, basic coding, and standard legal documents — face displacement. The pattern echoes economic globalization: diffuse benefits, concentrated costs.
+
+The geographic distribution matters too. Advanced AI capabilities are concentrated in a few technology companies, primarily in the United States and China. Countries and communities without access to AI tools and education risk being left further behind in global economic competition.
+
+## The Deeper Questions
+
+Beyond economics, AI raises questions that touch the foundations of human identity. If machines can produce competent writing, music, and art, what remains distinctively human about creativity? If AI can diagnose disease more accurately than physicians, what is the role of human judgment and care in medicine?
+
+These are not rhetorical questions. They point to real choices about what we value — whether we will design systems that augment and support human capability or ones that simply replace it. The answer depends not on the technology itself but on the social, economic, and political decisions we make about how to use it.`,
+    vocabulary: [
+      { word: 'large language model (LLM)', definition: 'An AI system trained on massive datasets of text that can generate human-like language, answer questions, write code, and perform a wide range of language tasks.', example: 'Large language models like ChatGPT can pass bar exams and medical licensing tests, but they sometimes generate confident incorrect answers.' },
+      { word: 'hallucination', definition: 'In AI, the generation of plausible-sounding but false or fabricated information by a language model.', example: 'An AI hallucination might include a confidently stated citation to a scientific paper that does not exist.' },
+      { word: 'productivity', definition: 'The efficiency with which resources (including workers\' time and effort) are converted into output.', example: 'Studies have found that AI tools can significantly increase the productivity of skilled knowledge workers by automating routine parts of their work.' },
+      { word: 'routine knowledge work', definition: 'Cognitive tasks that follow predictable patterns or rules, such as data entry, standard document generation, and basic research — which are more susceptible to AI automation than creative or judgment-intensive work.', example: 'Routine knowledge work is particularly vulnerable to AI displacement because it involves predictable, rule-based tasks that AI systems can learn to perform reliably.' },
+      { word: 'augment', definition: 'To make something greater by adding to it; in technology contexts, to enhance human capabilities rather than replace them.', example: 'Some researchers argue AI should be designed to augment human judgment and creativity rather than replace human workers entirely.' },
+    ],
+    questions: [
+      {
+        question: 'The passage explains that LLMs "do not understand in the way humans do." Why does the author emphasize this distinction?',
+        options: [
+          'To argue that AI systems are not truly intelligent and should not be considered competitive with human workers',
+          'Because understanding the nature of AI — pattern-matching without comprehension — is essential for assessing both its capabilities and its risks, particularly the danger of confident hallucination in high-stakes contexts',
+          'To reassure readers that AI will never be able to replace human workers in most fields',
+          'Because legal liability for AI errors depends on whether the system can be considered to have understood what it was doing'
+        ],
+        correctIndex: 1,
+        explanation: 'The author emphasizes this distinction because it has practical consequences: a system that generates "statistically plausible text that happens to be false" confidently is genuinely dangerous in medical, legal, or scientific contexts. Understanding what AI actually is — pattern matching, not comprehension — helps calibrate appropriate trust and skepticism.'
+      },
+      {
+        question: 'The passage says AI\'s productivity effect "cuts two ways." What are the two possible outcomes, and what determines which one predominates?',
+        options: [
+          'AI will either increase wages or decrease them, and this is determined by government regulation',
+          'Productivity gains may increase demand for skilled workers by making them more valuable, or may reduce demand by letting fewer workers produce the same output — which predominates depends on whether AI creates new work categories to replace displaced ones',
+          'AI will either benefit American workers or benefit workers in other countries, depending on who controls the technology',
+          'AI tools either increase individual worker productivity or decrease it, depending on the quality of the AI system used'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage presents this as a genuine uncertainty: if AI creates new work as it displaces old (as past technologies have), demand for workers may grow. If AI mostly replaces without creating new categories, total employment could shrink. The passage honestly acknowledges this cannot be resolved from current evidence.'
+      },
+      {
+        question: 'The passage compares AI\'s economic effects to those of globalization: "diffuse benefits, concentrated costs." Why does this comparison matter for policy?',
+        options: [
+          'It suggests that AI should be regulated in the same way that trade policy is regulated',
+          'The globalization comparison shows that the pattern of broad modest gains alongside severe concentrated losses for specific workers and communities is a recurring feature of major economic shifts, suggesting policymakers should proactively address displacement rather than assuming benefits will spread automatically',
+          'It implies that AI will cause more economic harm than globalization because it affects cognitive rather than physical work',
+          'The comparison proves that AI\'s economic effects are already fully understood and predictable based on the globalization precedent'
+        ],
+        correctIndex: 1,
+        explanation: 'The globalization comparison is a warning signal: that pattern (diffuse benefits, concentrated costs) produced significant political and social disruption when policymakers failed to address the concentrated losses proactively. The implicit argument is that AI policy should learn from globalization\'s distributional failures.'
+      },
+      {
+        question: 'The author asks whether we will "design systems that augment human capability or ones that simply replace it." What does framing this as a design question suggest?',
+        options: [
+          'That engineers and programmers alone will determine how AI affects human work',
+          'That the relationship between AI and human work is not determined by the technology itself but by conscious choices about how it is designed, deployed, and regulated — preserving human agency in shaping the outcome',
+          'That augmentation is always preferable to replacement, and AI systems should never fully automate any task',
+          'That current AI systems are already designed with augmentation in mind and the concern about replacement is overstated'
+        ],
+        correctIndex: 1,
+        explanation: 'Framing this as a design question — rather than a technological inevitability — asserts that human choices shape outcomes. The technology does not inherently augment or replace; how it is built, deployed, and regulated determines which path it takes. This preserves the possibility of collective decision-making about AI\'s social role.'
+      },
+      {
+        question: 'What does the passage suggest is the most important question AI raises for human beings, beyond its economic effects?',
+        options: [
+          'Whether AI systems can eventually become truly conscious and deserve legal rights',
+          'Whether the capabilities AI takes over will lead humans to lose skills and intellectual capacity over time',
+          'What we value about distinctively human activities — creativity, judgment, care — and whether we will build AI to support those values or simply replace the human labor involved',
+          'Whether governments can regulate AI development before it becomes too powerful to control'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage\'s final section explicitly moves beyond economics to ask about human identity and values: what remains distinctively human when machines can produce competent writing, art, and medical diagnosis? The author\'s framing of this as a question about "what we value" positions it as a social and moral choice, not just a technological or economic one.'
+      },
+    ]
+  },
+  {
+    id: 'philosophy-of-justice',
+    title: 'What Do We Owe Each Other? The Philosophy of Justice',
+    topic: 'social studies',
+    coverEmoji: '⚖️',
+    coverColor: '#7c3aed',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 550,
+    readTimeMin: 3,
+    text: `## The Oldest Question in Politics
+
+What makes a society just? This question — posed by ancient Greek philosophers, debated by Enlightenment theorists, and contested in democratic legislatures today — has no simple answer. But examining the major philosophical traditions that have attempted to answer it reveals something important: the disagreements we have about justice in the real world — about taxes, healthcare, criminal punishment, and opportunity — are not primarily disagreements about facts. They are disagreements about fundamental values, about what human beings owe each other.
+
+## Libertarianism: Freedom as Justice
+
+One influential tradition holds that a just society is one that maximizes individual freedom. **Libertarians** argue that each person owns themselves and the products of their labor. Taxation of income, from this perspective, is a form of forced labor — the state taking what you have rightfully earned. A just society, on this view, requires only that people not violate each other's rights; it does not require positive assistance to others.
+
+**Robert Nozick**, a Harvard philosopher, developed this view in his book *Anarchy, State, and Utopia* (1974). Nozick argued that as long as a distribution of wealth was arrived at through fair processes (voluntary exchange, not theft), the resulting inequality is just — regardless of how unequal it becomes.
+
+## Egalitarianism: Fairness as Justice
+
+A contrasting tradition holds that justice requires not just procedural fairness but substantive equality of condition or opportunity. **John Rawls**, another Harvard philosopher, proposed a famous thought experiment: imagine you were designing a society from behind a **"veil of ignorance"** — without knowing what position you would occupy in it. What principles would you choose?
+
+Rawls argued that rational, self-interested people behind the veil would choose two principles: equal basic liberties for all, and economic arrangements that maximize the welfare of the worst-off members of society (what he called the **difference principle**). Because you might be born into any position, you would want the lowest position to be as good as possible.
+
+This framework justifies redistributive policies — progressive taxation, public education, healthcare — as requirements of justice, not charity.
+
+## Communitarian and Care Ethics
+
+Both libertarianism and Rawlsian egalitarianism treat individuals as the primary unit of moral analysis. **Communitarians** challenge this starting point: they argue that individuals are constituted by their communities, relationships, and cultures, and that justice must account for the particular bonds and obligations we have to the specific people in our lives.
+
+**Care ethics**, associated with philosophers like **Carol Gilligan** and **Nel Noddings**, similarly argues that justice cannot be adequately captured by abstract principles of rights or fairness. Moral life is fundamentally about relationships — care, attentiveness, and responsiveness to specific others — not universal rules applied impartially to strangers.
+
+## Why This Matters
+
+These philosophical traditions are not merely academic. Every major policy debate — about what healthcare system a country should have, what the tax code should look like, how to respond to poverty and inequality — reflects one of these competing conceptions of justice. People argue past each other partly because they are applying different frameworks without realizing it.
+
+Understanding the philosophical foundations of these debates does not resolve them. But it makes it possible to argue more honestly — to identify what values are genuinely at stake, rather than pretending that disagreements are merely technical or that the other side simply hasn't thought hard enough.`,
+    vocabulary: [
+      { word: 'libertarianism', definition: 'A political philosophy that prioritizes individual freedom and limited government, arguing that people have the right to act as they choose as long as they do not harm others.', example: 'Libertarian philosophy holds that taxation beyond what is needed for minimal government functions is a violation of individual rights.' },
+      { word: 'veil of ignorance', definition: 'A thought experiment proposed by John Rawls in which principles of justice are chosen by people who do not know what position they will occupy in the society being designed.', example: 'Rawls argued that the veil of ignorance would lead rational people to design a society with strong protections for those at the bottom, since they might end up there.' },
+      { word: 'difference principle', definition: 'Rawls\'s principle that economic inequalities are just only if they benefit the least well-off members of society.', example: 'The difference principle could justify a surgeon earning more than a factory worker if the higher salary attracts talented people into medicine, benefiting everyone including the poorest patients.' },
+      { word: 'redistribution', definition: 'The transfer of income, wealth, or resources from some members of society to others through taxation and government spending.', example: 'Progressive taxation and public education funding are examples of redistribution — policies that Rawlsian theory would classify as requirements of justice.' },
+      { word: 'communitarian', definition: 'A philosophical and political perspective that emphasizes the importance of community, shared values, and social bonds in defining individual identity and moral obligations.', example: 'Communitarians argue that individuals cannot be understood apart from the communities and relationships that shaped them.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, why do political disagreements about justice often fail to reach resolution even when both sides argue in good faith?',
+        options: [
+          'Because politicians deliberately mislead the public about the true costs of their policy proposals',
+          'Because they are not primarily factual disagreements but value disagreements — people applying different philosophical frameworks about what human beings owe each other',
+          'Because most citizens lack the education to understand complex policy arguments',
+          'Because justice is subjective and has no objective basis that could resolve competing claims'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly frames major policy debates as reflecting "competing conceptions of justice" — different philosophical frameworks. When people argue past each other, it is often because they are applying different foundational values rather than disagreeing about empirical facts. Recognizing this clarifies why more evidence rarely resolves these disputes.'
+      },
+      {
+        question: 'How does the libertarian perspective on taxation differ from the Rawlsian perspective, according to the passage?',
+        options: [
+          'Libertarians support modest taxes for essential services while Rawlsians oppose all forms of taxation',
+          'Libertarians view taxation as a form of forced taking of rightfully earned income, while Rawlsians view redistributive taxation as a requirement of justice that benefits the least well-off',
+          'Libertarians believe taxation is justified when it funds public goods, while Rawlsians believe it is only justified when it directly benefits the person being taxed',
+          'Both agree that some taxation is necessary but disagree only about how progressive the tax structure should be'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage contrasts Nozick\'s libertarian view (taxation is forced taking of rightful earnings) with Rawls\'s egalitarian view (redistribution to benefit the worst-off is what justice requires). These are not different positions on a spectrum; they reflect fundamentally different conceptions of what justice means.'
+      },
+      {
+        question: 'The passage presents Rawls\'s "veil of ignorance" as a thought experiment. What makes it philosophically useful as a tool for thinking about justice?',
+        options: [
+          'It accurately predicts how societies will behave when given the opportunity to redesign their institutions',
+          'By removing knowledge of one\'s own position, it strips away self-interest and asks what a rational person would consider fair — producing principles that could justify themselves to anyone regardless of their situation',
+          'It proves that human beings naturally prefer equality over freedom when given a genuine choice',
+          'It allows philosophers to avoid discussing real-world inequalities by focusing on hypothetical societies'
+        ],
+        correctIndex: 1,
+        explanation: 'The veil of ignorance\'s utility is that it neutralizes self-interest as a confounding factor. If you don\'t know whether you\'ll be rich or poor, you can\'t design rules specifically to benefit your position — forcing a consideration of what would be fair to everyone, which is the philosophical point of the exercise.'
+      },
+      {
+        question: 'How do communitarian and care ethics challenge the foundations of both libertarianism and Rawlsian egalitarianism?',
+        options: [
+          'They argue that both frameworks arrive at the wrong policy conclusions about taxation and redistribution',
+          'They challenge the starting assumption that individuals are the primary unit of moral analysis, arguing instead that moral obligations emerge from specific relationships and communities, not from abstract universal principles',
+          'They reject the idea that philosophical reasoning can contribute to understanding justice, preferring empirical social science',
+          'They argue that libertarianism is correct about negative rights but that Rawls is correct about positive obligations'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explicitly states that communitarians and care ethicists challenge both frameworks at the foundational level: both libertarianism and Rawlsian theory treat individuals as independent moral units reasoning from universal principles. Communitarians and care ethicists argue that real moral life is constituted by particular relationships and communities, not abstract principles applied to strangers.'
+      },
+      {
+        question: 'The author argues that understanding philosophical traditions "makes it possible to argue more honestly." What does this mean in practice?',
+        options: [
+          'People who study philosophy are more likely to win political arguments because they can identify logical fallacies',
+          'Philosophical awareness allows people to identify the value frameworks underlying their own and others\' positions, so disagreements can be argued at the level of values rather than disguised as purely technical or empirical disputes',
+          'Political debates should be conducted entirely in philosophical terms rather than through reference to data or experience',
+          'Understanding philosophy proves that all political positions are equally valid since they rest on different but internally consistent value frameworks'
+        ],
+        correctIndex: 1,
+        explanation: 'The author\'s argument is that disguising value disagreements as technical ones is a form of intellectual dishonesty. When we pretend a policy disagreement is about facts, we avoid the harder conversation about underlying values. Philosophical awareness makes it possible to have that harder but more honest conversation.'
+      },
+    ]
+  },
+
 
 ];
