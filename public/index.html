@@ -624,13 +624,32 @@
         renderMathCard(true);
       }
 
+      // ── Streak from StudentStats ──────────────────────────────────────────────
+      const sd = statsSnap.exists ? statsSnap.data() : {};
+
       // ── Inactivity decay ────────────────────────────────────────────────────
+      // First, sync Firestore's lastReadDate into localStorage so decay is
+      // cross-device accurate (fixes false "missing days" when child read on
+      // a different device or browser).
+      const firestoreLastRead = sd.lastReadDate || null;
+      if (firestoreLastRead) {
+        const localLastRead = localStorage.getItem('lastActivityDate_' + profile.readerId) || '';
+        if (firestoreLastRead > localLastRead) {
+          // Firestore has a more recent read — update localStorage
+          localStorage.setItem('lastActivityDate_' + profile.readerId, firestoreLastRead);
+          // If Firestore shows the child read yesterday or today, clear any
+          // wrongly-accumulated decay so the false XP loss goes away
+          const ydStr = (() => { const d = new Date(); d.setDate(d.getDate()-1); return d.toISOString().slice(0,10); })();
+          if (firestoreLastRead >= ydStr) {
+            localStorage.setItem('inactivityDecay_' + profile.readerId, '0');
+            localStorage.setItem('decayCheckedDate_' + profile.readerId, firestoreLastRead);
+          }
+        }
+      }
+
       const { daysMissed, decay } = getActivityStatus(profile.readerId);
       // effectiveXp is what we show — decays when inactive, restored on activity
       const effectiveXp = Math.max(0, totalXp - decay);
-
-      // ── Streak from StudentStats ──────────────────────────────────────────────
-      const sd = statsSnap.exists ? statsSnap.data() : {};
       let currentStreak = sd.currentStreak || 0;
       const longestStreak = sd.longestStreak || 0;
       const freezeTokens  = sd.freezeTokens  || 0;
