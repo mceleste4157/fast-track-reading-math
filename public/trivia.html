@@ -454,27 +454,59 @@
     initCalled = true;
 
     const db = firebase.firestore();
+
+    // Determine unlock requirements from parent profile settings
+    const triviaMin = profile.triviaMinStories || '5';
+    const requireToday    = triviaMin === 'today' || triviaMin === 'today10';
+    const minCount        = triviaMin === 'today' ? 3 :
+                            triviaMin === 'today10' ? 10 :
+                            parseInt(triviaMin) || 5;
+    const todayStr = new Date().toISOString().slice(0, 10);
+
     db.collection('Progress')
       .where('readerId', '==', profile.readerId)
       .get()
       .then(snap => {
         const completedIds = new Set();
+        let readToday = false;
         snap.forEach(d => {
           const data = d.data();
           if (data.storyId && (data.quizScore || 0) >= 1) {
             completedIds.add(data.storyId);
+            // Check if they read a real story today (not bonus/placeholder entries)
+            const ts = data.completedAt || data.timestamp;
+            if (ts && ts.toDate) {
+              const dateStr = ts.toDate().toISOString().slice(0, 10);
+              if (dateStr === todayStr && data.storyId !== '__daily_bonus__') readToday = true;
+            }
           }
         });
+
         const actionEl = document.getElementById('intro-action');
-        if (completedIds.size < 3) {
+
+        // Gate 1: must have read today (if parent requires it)
+        if (requireToday && !readToday) {
           actionEl.innerHTML = `
             <div class="no-stories-msg">
-              You need to read at least <strong>3 stories</strong> before playing Trivia!<br><br>
-              You've completed <strong>${completedIds.size}</strong> so far — keep reading!<br><br>
+              📖 You need to <strong>read a story today</strong> before playing Trivia!<br><br>
+              Read at least one story and complete the quiz first — then come back to play.<br><br>
+              <a href="library.html" style="color:#a78bfa; font-weight:700; text-decoration:none;">📚 Go Read a Story →</a>
+            </div>`;
+          return;
+        }
+
+        // Gate 2: minimum total story count
+        if (completedIds.size < minCount) {
+          const needed = minCount - completedIds.size;
+          actionEl.innerHTML = `
+            <div class="no-stories-msg">
+              You need to read at least <strong>${minCount} stories</strong> before playing Trivia!<br><br>
+              You've completed <strong>${completedIds.size}</strong> so far — read <strong>${needed}</strong> more to unlock!<br><br>
               <a href="library.html" style="color:#a78bfa; font-weight:700; text-decoration:none;">📚 Go Read More Stories →</a>
             </div>`;
           return;
         }
+
         triviaPool = buildPool(completedIds);
         if (triviaPool.length < QS_PER_ROUND * ROUNDS) {
           // Not enough unique questions — allow repeats by expanding
