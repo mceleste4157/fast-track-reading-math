@@ -1,10 +1,24 @@
-// FAST Track — Service Worker v7
+// FAST Track — Service Worker v8
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
-// Auto-reload on update
-const CACHE = 'fast-track-v7';
+// Offline: core app pages + story/math data pre-cached so reading works offline
+const CACHE = 'fast-track-v8';
 const STATIC_ASSETS = [
-  '/stories.js', '/math-data.js'
+  // Core data — pre-cache so stories/math work offline
+  '/stories.js?v=20260603',
+  '/math-data.js',
+  // Key app pages
+  '/index.html',
+  '/library.html',
+  '/read.html',
+  '/quiz.html',
+  '/results.html',
+  '/progress.html',
+  '/math.html',
+  '/math-quiz.html',
+  '/math-results.html',
+  '/spelling.html',
+  '/vocab.html',
 ];
 
 self.addEventListener('install', e => {

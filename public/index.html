@@ -292,6 +292,9 @@
         </div>
       </div>
 
+      <!-- Math daily goal nudge (filled by JS) -->
+      <div id="math-daily-nudge" style="display:none;width:100%;max-width:480px;margin-bottom:8px;"></div>
+
       <a href="progress.html" class="progress-link" id="quest-link">🗺️ See Quest Board →</a>
     </div>
 
@@ -782,6 +785,48 @@
       document.getElementById('s-math').textContent    = uniqueMath.size + '/' + gradeMathSets.length;
       const mathSubEl = document.getElementById('math-topics-sub');
       if (mathSubEl) mathSubEl.textContent = gradeMathSets.length + ' topics • Grade ' + gradeForMath + ' math';
+
+      // ── Math daily goal nudge ──────────────────────────────────────────────────
+      (function() {
+        const nudgeEl = document.getElementById('math-daily-nudge');
+        if (!nudgeEl || !mathUnlocked) return;
+        const today = new Date().toISOString().slice(0,10);
+        // Check if any math was done today
+        const mathDoneToday = mathDocs.some(d => {
+          const ts = d.completedAt || d.timestamp;
+          if (!ts || !ts.toDate) return false;
+          return ts.toDate().toISOString().slice(0,10) === today;
+        });
+        const mathStreak = parseInt(localStorage.getItem('mathStreak_' + profile.readerId) || '0');
+        const mathStreakDate = localStorage.getItem('mathStreakDate_' + profile.readerId) || '';
+        const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
+        const yStr = yesterday.toISOString().slice(0,10);
+        let newStreak = mathStreak;
+        if (mathDoneToday) {
+          if (mathStreakDate !== today) {
+            newStreak = (mathStreakDate === yStr ? mathStreak : 0) + 1;
+            localStorage.setItem('mathStreak_' + profile.readerId, newStreak);
+            localStorage.setItem('mathStreakDate_' + profile.readerId, today);
+          }
+          const streakText = newStreak >= 2 ? ' · 🔥 ' + newStreak + '-day math streak!' : '';
+          nudgeEl.innerHTML = `<div style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);border:1px solid #93c5fd;border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:0.88rem;font-weight:700;color:#1d4ed8;">
+            <span style="font-size:1.2rem;">✅</span> Math done today!${streakText}
+          </div>`;
+        } else {
+          const gradeCount = gradeMathSets.length;
+          const doneCount  = uniqueMath.size;
+          const pct = gradeCount ? Math.round(doneCount / gradeCount * 100) : 0;
+          nudgeEl.innerHTML = `<a href="math.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;">
+            <span style="font-size:1.4rem;">📐</span>
+            <div style="flex:1;">
+              <div style="font-size:0.88rem;font-weight:700;color:var(--text);">Do math today!</div>
+              <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">${doneCount}/${gradeCount} topics · ${pct}% complete</div>
+            </div>
+            <span style="font-size:0.82rem;font-weight:700;color:var(--purple);">Go →</span>
+          </a>`;
+        }
+        nudgeEl.style.display = 'block';
+      })();
 
       if (freezeTokens > 0) {
         const streakEl = document.getElementById('streak-banner');

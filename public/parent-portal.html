@@ -306,7 +306,7 @@
     <div class="rn-modal">
       <div class="rn-header">
         <h2>🚀 What's New in FAST Track</h2>
-        <p>Last updated: June 4, 2026</p>
+        <p id="rn-last-updated">Last updated: June 4, 2026</p>
       </div>
       <div class="rn-body">
 
@@ -886,7 +886,15 @@
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
-    // Release notes modal
+    // Release notes modal — auto-date: reads the first rn-date element
+    (function() {
+      const firstDate = document.querySelector('.rn-date');
+      const el = document.getElementById('rn-last-updated');
+      if (firstDate && el) {
+        const text = firstDate.textContent.replace(/\s*—.*/, '').trim();
+        el.textContent = 'Last updated: ' + text;
+      }
+    })();
     document.getElementById('whats-new-btn').addEventListener('click', () => {
       document.getElementById('rn-overlay').classList.add('show');
     });
