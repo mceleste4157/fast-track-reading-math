@@ -566,7 +566,7 @@
             <div class="mod-icon">📐</div>
             <div class="mod-body">
               <div class="mod-title">Math Zone</div>
-              <div class="mod-sub">10 topics • FAST Math Grade 4</div>
+              <div class="mod-sub" id="math-topics-sub">Math topics • All grade levels</div>
             </div>
             <div class="mod-badge">Go! →</div>
            </a>`
@@ -776,7 +776,12 @@
       document.getElementById('s-stars').textContent   = '⭐ ' + readStars;
       document.getElementById('s-xp').textContent      = effectiveXp;
       document.getElementById('s-stories').textContent = uniqueStories.size;
-      document.getElementById('s-math').textContent    = uniqueMath.size + '/' + MATH_SETS.length;
+      // Grade-specific math sets
+      const gradeForMath = parseInt(profile.gradeLevel) || 4;
+      const gradeMathSets = MATH_SETS.filter(s => Array.isArray(s.grades) && s.grades.includes(gradeForMath));
+      document.getElementById('s-math').textContent    = uniqueMath.size + '/' + gradeMathSets.length;
+      const mathSubEl = document.getElementById('math-topics-sub');
+      if (mathSubEl) mathSubEl.textContent = gradeMathSets.length + ' topics • Grade ' + gradeForMath + ' math';
 
       if (freezeTokens > 0) {
         const streakEl = document.getElementById('streak-banner');
