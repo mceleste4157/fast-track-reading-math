@@ -2901,6 +2901,17 @@ These animals love the night. The dark is their home.`,
         correctIndex: 2,
         explanation: 'Fireflies use their glow to communicate with other fireflies.'
       }
+    ,
+      {
+        question: 'What does this passage MOSTLY teach us?',
+        options: ['Why animals sleep during the day', 'How nocturnal animals are specially adapted for life at night', 'Why owls are the most important Florida animal', 'How bats are related to birds'],
+        correctIndex: 1,
+      },
+      {
+        question: 'How are owls and bats ALIKE according to the passage?',
+        options: ['Both eat fish from rivers', 'Both use echolocation to find food', 'Both are nocturnal and come out at night', 'Both have feathers for silent flight'],
+        correctIndex: 2,
+      }
     ]
   },
 
@@ -2952,6 +2963,17 @@ Every pet is different, but they all need the same thing — a caring owner. Whe
         options: ['A swimming tank', 'A running wheel', 'Long walks', 'Climbing trees'],
         correctIndex: 1,
         explanation: 'Hamsters run on a wheel inside their cage to get exercise.'
+      }
+    ,
+      {
+        question: 'What is the MOST IMPORTANT idea in this passage?',
+        options: ['Pets are fun to play with after school', 'Pets need food, water, love, and exercise from their owners', 'Dogs are always better pets than cats', 'Fish are the easiest pets to care for'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What would MOST LIKELY happen if a pet did not get enough water?',
+        options: ['It would become friendlier and more playful', 'It would grow larger and stronger', 'It would become sick and unhealthy', 'It would learn new tricks faster'],
+        correctIndex: 2,
       }
     ]
   },
@@ -3187,6 +3209,16 @@ By the end of the month, Maya had tomatoes, sunflowers, and basil growing strong
       { question: 'What THREE things does Maya\'s dad say seeds need?', options: ['Love, water, soil', 'Sun, water, and time', 'Dirt, rain, and shade', 'Seeds, light, and bugs'], correctIndex: 1, explanation: 'Maya\'s dad says seeds need sun, water, and time to grow.' },
       { question: 'How did Maya water her garden each day?', options: ['With a hose', 'With a bucket', 'With her little watering can', 'With rainwater only'], correctIndex: 2, explanation: 'Each morning Maya used her little watering can to water the seeds.' },
       { question: 'What did Maya learn from her garden?', options: ['Tomatoes grow fast', 'Growing things takes patience', 'Seeds don\'t need sunlight', 'Dirt is not important'], correctIndex: 1, explanation: 'Maya learned that you can\'t rush a seed — growing things takes patience and daily care.' },
+      {
+        question: 'What is the LESSON Maya learns in this story?',
+        options: ['Gardening is only for adults with big yards', 'If you take care of something every day, it will grow', 'Tomatoes are the easiest plants to grow', 'Seeds only need water to grow — sun does not matter'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why did Maya come outside every morning with her watering can?',
+        options: ['To look for worms in the soil', 'To add more seeds to the garden', 'To give the seeds water they needed to grow', 'To show her dad she was old enough to garden'],
+        correctIndex: 2,
+      }
     ]
   },
 
@@ -3219,6 +3251,16 @@ The next time you see a bee, remember: it is not just buzzing around. It is doin
       { question: 'What do bees carry from flower to flower?', options: ['Honey', 'Water', 'Pollen', 'Seeds'], correctIndex: 2, explanation: 'As bees fly from flower to flower, pollen sticks to their fuzzy bodies and is carried along.' },
       { question: 'What is pollination?', options: ['Making honey', 'Moving pollen between flowers', 'Building a hive', 'Drinking water'], correctIndex: 1, explanation: 'Pollination happens when bees carry pollen from one flower to another, helping plants grow fruit and seeds.' },
       { question: 'Which food NEEDS bees to grow?', options: ['Rice', 'Carrots', 'Strawberries', 'Potatoes'], correctIndex: 2, explanation: 'Strawberries, apples, and many other fruits need bees to pollinate them in order to grow.' },
+      {
+        question: 'What would MOST LIKELY happen if there were no more bees?',
+        options: ['Flowers would grow much faster without bees bothering them', 'Many fruits and vegetables that need pollination would stop growing', 'Honey would become cheaper to buy at the store', 'More butterflies would take over the bees\' jobs'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN PURPOSE of this passage?',
+        options: ['To warn people that bee stings are dangerous', 'To explain why bees are important helpers for plants and people', 'To compare bees with other insects like butterflies', 'To teach people the steps for collecting honey'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -3252,6 +3294,16 @@ Maya looked at her jar and smiled. The stones were small. The kindness was not.`
       { question: 'Why did Maya put stones in her jar?', options: ['To count the days of the week', 'To remember her teacher\'s name', 'To track kind things she did', 'To give to her friends'], correctIndex: 2, explanation: 'Each stone represented a kind act Maya had done.' },
       { question: 'What kind thing did Maya do on Wednesday?', options: ['Held the door open', 'Shared her crayons', 'Invited a lonely girl to eat lunch', 'Helped her teacher'], correctIndex: 2, explanation: 'On Wednesday, Maya noticed Emma sitting alone and invited her to eat lunch together.' },
       { question: 'What did Ms. Rivera mean by "tiny moments"?', options: ['Small stones in a jar', 'Little chances to be kind every day', 'Short minutes of the school day', 'Small pieces of paper'], correctIndex: 1, explanation: 'Ms. Rivera meant that opportunities to be kind happen in everyday, ordinary moments — not just big events.' },
+      {
+        question: 'What is the THEME of this story?',
+        options: ['People should always keep their favorite belongings to themselves', 'Small acts of kindness add up and make a real difference', 'Jars are a clever way to track your good deeds', 'Teachers always notice when students are kind'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What did Ms. Rivera mean when she said kind chances are hiding in "tiny moments"?',
+        options: ['She meant kindness only happens during big school events', 'She was telling Maya to look harder for ways to help', 'She meant that everyday small opportunities to be kind are all around us', 'She wanted the class to search the room for hidden objects'],
+        correctIndex: 2,
+      }
     ]
   },
 
@@ -3362,6 +3414,16 @@ The same water has been cycling around Earth for billions of years. The rain tha
       { question: 'What happens during EVAPORATION?', options: ['Water vapor turns into rain', 'Water is heated and turns into vapor', 'Clouds form in the sky', 'Rain falls to the ground'], correctIndex: 1, explanation: 'Evaporation happens when the sun heats water and it turns into invisible water vapor that rises into the air.' },
       { question: 'What forms when water vapor cools high in the sky?', options: ['Snow', 'Fog', 'Clouds', 'Rainbows'], correctIndex: 2, explanation: 'When water vapor cools and condenses, tiny water droplets form and cluster together to make clouds.' },
       { question: 'Why is the water cycle called a "cycle"?', options: ['It only happens in a circle shape', 'It repeats over and over with no end', 'It only happens during the summer', 'Water only moves up, never down'], correctIndex: 1, explanation: 'It is called a cycle because the process repeats continuously — water evaporates, condenses, and falls again, over and over.' },
+      {
+        question: 'In which order does the water cycle happen?',
+        options: ['Rain falls → clouds form → water evaporates → water rises', 'Sun heats water → water evaporates → clouds form → rain falls', 'Clouds form → sun shines → water freezes → snow falls', 'Water evaporates → rain falls → sun heats water → clouds form'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN PURPOSE of this passage?',
+        options: ['To warn readers about dangerous thunderstorms', 'To explain how rain forms and falls as part of the water cycle', 'To compare different types of weather events', 'To explain why some places get more rain than others'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -3996,6 +4058,17 @@ Pelicans are very good fishers. Sometimes they sit on docks and wait for people 
         correctIndex: 2,
         explanation: 'The water drains out through the sides of the pelican\'s beak while the fish stays inside — then the pelican swallows the fish.'
       }
+    ,
+      {
+        question: 'How does a pelican\'s throat pouch help it catch fish?',
+        options: ['It makes the pelican heavier so it dives faster', 'It acts like a net to scoop and hold fish after the dive', 'It protects the pelican\'s neck when it hits the water', 'It helps the pelican float on the water surface'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MOST IMPORTANT thing a pelican uses to find fish?',
+        options: ['Its stretchy throat pouch', 'Its ability to spot fish from high up in the sky', 'Its long, sharp beak', 'Its webbed feet for swimming'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -4051,6 +4124,17 @@ The beach will be waiting for them.`,
         options: ['They will stay in the ocean forever', 'They will return to the same beach to lay their eggs', 'They will travel to a different beach each time', 'They will build nests in trees'],
         correctIndex: 1,
         explanation: 'The story says the females will swim all the way back to "this exact same beach" to lay their own eggs someday.'
+      }
+    ,
+      {
+        question: 'What CHALLENGE did the baby sea turtles face after hatching?',
+        options: ['They could not find water to swim in', 'They had to dig through sand, then cross the beach to reach the ocean under threat from predators', 'The sand was too hot to walk across', 'Their shells were too soft to protect them'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What does the passage teach us about baby sea turtles?',
+        options: ['They stay near the beach their whole lives', 'Even tiny and brand new, they show great determination', 'Their mothers guide them safely to the ocean', 'Very few of them ever reach the water'],
+        correctIndex: 1,
       }
     ]
   },
@@ -4114,6 +4198,17 @@ Moving to a new place is hard. But sometimes a **neighbor** is waiting just next
         correctIndex: 2,
         explanation: 'Rosa reaches out to Amara, who is nervous and new. By the end, they are already making plans together — the story shows that a small act of kindness can make a big difference.'
       }
+    ,
+      {
+        question: 'Why did Rosa decide to help the new girl?',
+        options: ['Her mother told her she had to go say hello', 'She wanted to have a new friend to play with every day', 'She remembered how lonely and scared she felt when she was new', 'The new girl asked Rosa directly for help'],
+        correctIndex: 2,
+      },
+      {
+        question: 'What is the THEME of this story?',
+        options: ['Moving to a new home is always an exciting adventure', 'A small act of welcome can make a big difference to someone who feels alone', 'It is hard to make friends when you move to a new neighborhood', 'Everyone should carry a stuffed animal to feel better'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -4170,6 +4265,17 @@ Gentle animals need gentle neighbors.`,
         correctIndex: 1,
         explanation: 'The story says manatees are gentle and do not hurt anyone — and that in Florida it is a law to drive boats slowly to keep them safe.'
       }
+    ,
+      {
+        question: 'What does the mother manatee teach her calf?',
+        options: ['She builds a nest in the river for safety', 'She stays close and teaches the calf everything it needs — including how to breathe', 'She pushes the calf through the water to teach it to swim', 'She makes loud sounds to keep other animals away'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What does this passage MOSTLY tell us about manatees?',
+        options: ['Manatees are the biggest animals in Florida rivers', 'Baby manatees are completely helpless without humans to help', 'Manatee mothers are devoted parents who teach their young to survive', 'Manatees only eat sea grass'],
+        correctIndex: 2,
+      }
     ]
   },
 
@@ -4221,6 +4327,17 @@ But if you hear thunder, go inside right away. Lightning can be dangerous.`,
         options: ['Keep playing outside', 'Swim in the pool quickly before it rains', 'Go inside right away', 'Stand under a tall tree'],
         correctIndex: 2,
         explanation: 'The story says "if you hear thunder, go inside right away" because lightning can be dangerous.'
+      }
+    ,
+      {
+        question: 'Why does Florida get more thunderstorms than almost anywhere else?',
+        options: ['Florida is very close to the equator', 'Florida is hot and wet in the summer, creating perfect conditions for afternoon storms', 'Florida has more trees and forests than other states', 'Florida\'s flat land makes storms move more quickly'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Florida thunderstorms are dangerous and people must always stay inside', 'Florida gets frequent summer thunderstorms because of its hot, wet climate', 'All Florida storms end quickly and the sun always returns', 'Thunder is louder in Florida than anywhere else'],
+        correctIndex: 1,
       }
     ]
   },
@@ -5032,6 +5149,17 @@ Flamingos are **graceful** birds. Watching a flock take flight is one of the mos
         correctIndex: 2,
         explanation: 'The passage says flamingos live in big groups called flocks.'
       }
+    ,
+      {
+        question: 'What would MOST LIKELY happen to a flamingo if it stopped eating pink shrimp?',
+        options: ['It would grow taller and stronger', 'Its feathers would slowly turn white instead of pink', 'It would fly south for the winter', 'It would start eating fish from the ocean instead'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why does the passage say flamingos stand on one leg?',
+        options: ['Because they are tired after long flights', 'Because one leg is longer than the other', 'Because it may help them stay warm by tucking one leg in', 'Because it helps them spot fish more easily'],
+        correctIndex: 2,
+      }
     ]
   },
 
@@ -5086,6 +5214,17 @@ Florida is home to many kinds of butterflies. Look for them in gardens and parks
         correctIndex: 1,
         explanation: 'The passage says butterflies drink a sweet liquid called nectar from flowers.'
       }
+    ,
+      {
+        question: 'What happens AFTER a caterpillar wraps itself in a chrysalis?',
+        options: ['It comes out as a bigger caterpillar', 'It transforms inside and eventually emerges as a butterfly', 'It waits there until spring arrives', 'It spins a web to catch food'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why is a butterfly\'s life REMARKABLE, according to the passage?',
+        options: ['Because butterflies can fly across oceans', 'Because the animal completely changes its body form during its life', 'Because butterflies can live for many decades', 'Because they produce the most eggs of any insect'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5137,6 +5276,17 @@ In Florida, the sun shines most of the year. So go outside, play, and soak up th
         options: ['Drink lots of juice', 'Wear sunscreen to protect your skin', 'Stay inside until noon', 'Eat a big meal'],
         correctIndex: 1,
         explanation: 'The passage says to wear sunscreen before you go outside so your skin does not get burned.'
+      }
+    ,
+      {
+        question: 'According to the passage, what does vitamin D do for your body?',
+        options: ['It makes you feel happy and energetic', 'It helps your eyes adjust to bright sunlight', 'It helps your bones grow strong', 'It protects your skin from sunburn'],
+        correctIndex: 2,
+      },
+      {
+        question: 'What is the MAIN PURPOSE of this passage?',
+        options: ['To warn readers about the dangers of spending too much time in the sun', 'To explain what Florida\'s nickname "Sunshine State" means', 'To describe why sunshine is important and beneficial for your health', 'To compare Florida\'s weather to other sunny states'],
+        correctIndex: 2,
       }
     ]
   },
@@ -5190,6 +5340,17 @@ Always be **gentle** with sand dollars. They break very easily!`,
         correctIndex: 1,
         explanation: 'The passage says a living sand dollar is covered in soft brown or purple fuzz. The white shell is what remains after it has died.'
       }
+    ,
+      {
+        question: 'How is a LIVE sand dollar different from one found on the beach?',
+        options: ['A live sand dollar is much larger and rounder', 'A live sand dollar has tiny spines and dark color; a found one is white and smooth', 'A live sand dollar has five holes; a found one has none', 'There is no real difference between them'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What can you CONCLUDE about sand dollars from this passage?',
+        options: ['They are a type of rock found on the ocean floor', 'They are living sea animals that look very different when alive versus when washed ashore', 'They use their five holes to breathe air at the surface', 'They are the most common animal on Florida beaches'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5241,6 +5402,17 @@ The next time you visit a Florida beach, look up! You might see a pelican **soar
         options: ['White pelican', 'Brown pelican', 'Gray pelican', 'Spotted pelican'],
         correctIndex: 1,
         explanation: 'The passage says brown pelicans are the kind most people see in Florida.'
+      }
+    ,
+      {
+        question: 'Why do pelicans fly HIGH before diving for fish?',
+        options: ['It helps them stay warm before hitting cold water', 'High flight gives them a wide, clear view to spot fish below', 'They need the speed from height to punch through the water', 'They look for other pelicans to share fishing spots'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What makes pelicans WELL SUITED for catching fish?',
+        options: ['Their long wings built for flying very long distances', 'Their keen eyesight from above and their stretchy throat pouch for scooping fish', 'Their ability to dive deeper than any other bird', 'Their ability to swim underwater like a duck or penguin'],
+        correctIndex: 1,
       }
     ]
   },
@@ -5294,6 +5466,17 @@ To see stars best, go to a dark place away from bright lights. Look up and enjoy
         correctIndex: 2,
         explanation: 'The passage says constellations are groups of stars that can make pictures in the sky.'
       }
+    ,
+      {
+        question: 'What does the passage tell us about our sun?',
+        options: ['The sun is much smaller than most other stars', 'The sun is the closest star to Earth and the one we see as daylight', 'The sun gives off a different kind of light than other stars', 'The sun will run out of light in about 100 years'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why do stars look like tiny dots even though many are bigger than our sun?',
+        options: ['Because stars are made of gas instead of solid matter', 'Because our eyes cannot focus properly on very bright lights', 'Because stars are extremely far away from Earth', 'Because they give off only very small amounts of light'],
+        correctIndex: 2,
+      }
     ]
   },
 
@@ -5345,6 +5528,17 @@ You can only see a rainbow if the sun is behind you and the rain is in front of 
         options: ['With the rain behind you and the sun in front', 'With the sun behind you and the rain in front', 'Facing north always', 'Under a tree away from rain'],
         correctIndex: 1,
         explanation: 'The passage says you can only see a rainbow if the sun is behind you and the rain is in front of you.'
+      }
+    ,
+      {
+        question: 'Why does it rain ALMOST EVERY AFTERNOON in Florida during summer?',
+        options: ['Because Florida is surrounded by cold ocean water that creates clouds', 'Because Florida\'s morning heat builds up and creates storm clouds by afternoon', 'Because the mountains in Florida trap rain clouds', 'Because Florida plants release large amounts of water vapor each morning'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MOST IMPORTANT reason rain matters, according to the passage?',
+        options: ['It cools the air so people can enjoy the outdoors', 'It creates beautiful rainbows that people love to see', 'It fills rivers and lakes and provides water for plants and animals', 'It washes sand and salt off the beaches and roads'],
+        correctIndex: 2,
       }
     ]
   },
@@ -5398,6 +5592,17 @@ In Florida, you can see dolphins from the beach or from a boat. Watch for their 
         correctIndex: 1,
         explanation: 'The passage says each dolphin has its own special whistle, like a name.'
       }
+    ,
+      {
+        question: 'How do we know dolphins are MAMMALS and not fish?',
+        options: ['They are about the same size as many land animals', 'They breathe air through a blowhole and care for their young', 'They have fins very similar to fish fins', 'They live together in organized groups called pods'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why do dolphins travel in groups called PODS?',
+        options: ['Because they are too small and weak to hunt alone', 'To protect each other and work together to find food', 'Because they cannot swim fast enough on their own', 'To take turns using each other\'s blowhole for breathing'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5449,6 +5654,17 @@ One day, the tree makes flowers or fruit. Inside the fruit are new seeds! Those 
         options: ['When the tree gets cut down', 'When new seeds fall from the tree\'s fruit', 'When a seedling is watered', 'When the roots grow deeper'],
         correctIndex: 1,
         explanation: 'The passage says the tree makes fruit with seeds inside, the seeds fall to the ground, and the cycle starts again.'
+      }
+    ,
+      {
+        question: 'What must happen FIRST before a seed can start to grow?',
+        options: ['It must be warmed by direct sunlight for many days', 'It must land in soil that has water and nutrients', 'It must be watered by rain for several weeks', 'Its outer shell must soften in water before it can sprout'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Seeds are very tiny and difficult to find in nature', 'A tiny seed contains everything it needs to become a large tree if given the right conditions', 'Tree roots are the most important part of any plant', 'Sunlight is more important than water for plant growth'],
+        correctIndex: 1,
       }
     ]
   },
@@ -5502,6 +5718,17 @@ If there is ever a fire, call 911 right away. Get out of the building and do not
         correctIndex: 2,
         explanation: 'The passage says to call 911 right away and get out of the building if there is a fire.'
       }
+    ,
+      {
+        question: 'Why do firefighters wear SPECIAL GEAR when fighting fires?',
+        options: ['To look official and respected in the community', 'To protect themselves from heat, smoke, and flames', 'To carry extra water without getting tired', 'To run faster when responding to an emergency'],
+        correctIndex: 1,
+      },
+      {
+        question: 'How are firefighters COMMUNITY HELPERS?',
+        options: ['They collect donations to buy new fire trucks', 'They keep the community safe by fighting fires and helping in emergencies', 'They teach children how to build safe campfires', 'They clean up streets and neighborhoods after big storms'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5553,6 +5780,17 @@ Have you ever told your teacher thank you? Teachers love to know that their hard
         options: ['Do all your homework perfectly', 'Say thank you', 'Bring them a gift every day', 'Be the loudest in class'],
         correctIndex: 1,
         explanation: 'The passage says a simple "thank you" can make a teacher\'s day and lets them know their work matters.'
+      }
+    ,
+      {
+        question: 'What does a teacher do BEFORE students arrive each day?',
+        options: ['Grades all the homework from the night before', 'Plans lessons and prepares what students will learn that day', 'Meets with parents to discuss student progress', 'Organizes the classroom library and bookshelves'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why does the passage say teachers "make a difference"?',
+        options: ['Because they get long summer vacations and can travel', 'Because they earn more than most other community workers', 'Because the knowledge and skills they teach stay with students for life', 'Because they are in charge of the entire school building'],
+        correctIndex: 2,
       }
     ]
   },
@@ -5610,6 +5848,17 @@ Sharing is not always easy. But it always makes things better for everyone!`,
         correctIndex: 1,
         explanation: 'The teacher used the word "teamwork" to describe Maya and Leo working together, meaning they cooperated to reach a goal.'
       }
+    ,
+      {
+        question: 'Why did Maya hesitate BEFORE deciding to share her crayons?',
+        options: ['She was worried Leo would break or lose them', 'She loved her crayons and did not want to part with them', 'Leo had not been kind to her in the past', 'Her teacher had a rule against sharing art supplies'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What does Maya LEARN by the end of this story?',
+        options: ['That it is smarter to keep your favorite things at home', 'That sharing with someone who needs help feels better than keeping things to yourself', 'That art class is more fun when everyone has more crayons', 'That Leo should remember to bring his own supplies next time'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5666,6 +5915,17 @@ By lunch, Carlos had made two new friends. And he wasn't scared anymore.
         correctIndex: 2,
         explanation: 'The passage says by lunch Carlos had made two new friends and was not scared anymore.'
       }
+    ,
+      {
+        question: 'What did Carlos\'s mom MEAN when she said "being brave means you try anyway"?',
+        options: ['She meant he should pretend he is not scared so others won\'t notice', 'She meant first grade is not as hard as it looks from outside', 'She meant that courage is acting despite feeling afraid, not the absence of fear', 'She meant he should ask his teacher for extra help right away'],
+        correctIndex: 2,
+      },
+      {
+        question: 'What happened to Carlos\'s fear by the END of the first day?',
+        options: ['It disappeared completely the moment he walked through the door', 'It slowly got smaller as things went well throughout the day', 'He stayed scared the entire first day and worried all night', 'His teacher immediately made all his worries go away'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5720,6 +5980,17 @@ The next time you drink a glass of orange juice, it just might be from a Florida
         correctIndex: 2,
         explanation: 'The passage says farmers grow oranges on big farms called groves, with rows and rows of orange trees.'
       }
+    ,
+      {
+        question: 'What is the CORRECT ORDER of how an orange grows on a tree?',
+        options: ['Orange fruit appears → flowers bloom → seeds are planted → fruit ripens', 'White flowers bloom → small green fruit grows → fruit slowly turns orange → ripe and sweet', 'Green fruit forms → tree grows → flowers bloom → orange color appears', 'Seeds are planted → tree grows → orange fruit falls → flowers bloom'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What makes Florida a GOOD PLACE to grow oranges?',
+        options: ['Florida has cold winters that give oranges their sweet flavor', 'Florida has warm, sunny weather that orange trees need to thrive', 'Florida\'s sandy beaches give orange trees perfect mineral-rich soil', 'Florida has frequent floods that water orange tree fields naturally'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5771,6 +6042,17 @@ In Florida, fire ants are very common. Fire ants bite, so be careful around thei
         options: ['Tap it gently to see what happens', 'Never step on it — fire ants bite', 'Dig it up with a stick', 'Pour water on it'],
         correctIndex: 1,
         explanation: 'The passage says fire ants bite and warns readers to be careful and never step on a fire ant hill.'
+      }
+    ,
+      {
+        question: 'How do ants BENEFIT from living in colonies?',
+        options: ['Each ant can eat more food when living in a large group', 'Each ant has a specific job so the whole colony works efficiently together', 'Ants live much longer when they share an underground home', 'Larger colonies are completely safe from all predators'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Ants are dangerous insects that children should avoid', 'Ants are tiny but powerful because they work together as an organized team', 'Queen ants are the most important animals in any ecosystem', 'Most ant colonies have millions of members in their underground home'],
+        correctIndex: 1,
       }
     ]
   },
@@ -5824,6 +6106,17 @@ Florida has many kinds of frogs. The green tree frog is one you might see stuck 
         correctIndex: 2,
         explanation: 'The passage says frogs eat flies, crickets, and mosquitoes using their long sticky tongues.'
       }
+    ,
+      {
+        question: 'How are TADPOLES different from ADULT FROGS?',
+        options: ['Tadpoles live on land while adult frogs live only in water', 'Tadpoles live in water and breathe through gills; adult frogs can live on land and breathe air', 'Tadpoles are larger than adult frogs', 'Tadpoles eat insects while adult frogs eat plants'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What does the word AMPHIBIAN mean in this passage?',
+        options: ['An animal that only lives in fresh water', 'An animal that lays its eggs only on land', 'An animal that can live both in water and on land', 'An animal that changes color to hide from its enemies'],
+        correctIndex: 2,
+      }
     ]
   },
 
@@ -5876,6 +6169,17 @@ In Florida, you can see all kinds of clouds. Learning their names is like learni
         correctIndex: 1,
         explanation: 'The passage says cirrus clouds are thin and wispy and usually mean the weather is fine.'
       }
+    ,
+      {
+        question: 'How do CLOUDS form, according to the passage?',
+        options: ['Cold air from mountains pushes water high into the sky', 'Water vapor rises into the sky, cools, and forms tiny water droplets that make clouds', 'Wind pushes water droplets from the ocean upward into the atmosphere', 'Ice crystals from the poles float into the upper atmosphere to become clouds'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why are dark gray clouds a sign that rain may be coming?',
+        options: ['Dark clouds mean the sun has set and no more water can evaporate', 'Dark clouds are thicker and hold more water — when they get heavy enough, rain falls', 'Dark clouds form only when temperatures drop below freezing', 'Dark clouds block sunlight which triggers water to fall as precipitation'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -5927,6 +6231,17 @@ Always stay safe at the beach. Never swim alone. Watch out for **riptides**, whi
         options: ['Very fast', 'Very cold and dark', 'Very large', 'Very shallow'],
         correctIndex: 2,
         explanation: 'The passage says the ocean is "vast," and then explains it means very, very large, covering more than half of Earth.'
+      }
+    ,
+      {
+        question: 'What CAUSES ocean waves, according to the passage?',
+        options: ['The gravitational pull of the moon on ocean water', 'Underwater earthquakes pushing the ocean floor up', 'Wind blowing across the surface of the ocean', 'Boats and ships traveling through the water'],
+        correctIndex: 2,
+      },
+      {
+        question: 'What do waves bring to the beach, according to the passage?',
+        options: ['Warm water from the deep ocean', 'Shells, sea creatures, and interesting things from the ocean', 'Fresh clean sand from the ocean floor', 'Food for fish and sea birds'],
+        correctIndex: 1,
       }
     ]
   },
@@ -5982,6 +6297,17 @@ In Florida, people protect nesting beaches so sea turtles can safely hatch each 
         correctIndex: 1,
         explanation: 'The passage says people protect nesting beaches so sea turtles can safely hatch each year.'
       }
+    ,
+      {
+        question: 'Why do mother sea turtles come ashore to lay eggs at NIGHT?',
+        options: ['The sand is much cooler and softer at night for digging', 'Darkness gives them more protection from predators on the beach', 'Only nighttime tides are strong enough to carry them to shore', 'They need moonlight to find the exact right spot on the beach'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What makes the baby sea turtles\' journey to the ocean DANGEROUS?',
+        options: ['The water is too cold for such small turtles to survive in', 'Birds and crabs hunt the tiny turtles during the crossing', 'The sand is so hot it burns their small flippers', 'Strong waves wash them back onto the beach repeatedly'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -6035,6 +6361,17 @@ Today, lighthouses still work. They are also a favorite place to visit!`,
         options: ['To sail ships past rocky shores', 'To make sure the light was always on at night', 'To paint the lighthouse stripes', 'To find dangerous rocks in the water'],
         correctIndex: 1,
         explanation: 'The passage says the lighthouse keeper took care of the lighthouse and made sure the light was always on at night.'
+      }
+    ,
+      {
+        question: 'Why did ships need lighthouses before GPS existed?',
+        options: ['To find the best fishing spots along Florida\'s coast', 'To warn them about rocks and shallow water and guide them to safety', 'To tell sailors how many miles they had traveled', 'To show ships where to stop and get food and supplies'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What does it mean when a lighthouse light FLASHES?',
+        options: ['It burns steadily without ever stopping or blinking', 'It gives off bright, repeated bursts of light at regular intervals', 'It rotates slowly in a full circle every few minutes', 'It moves up and down to signal ships from shore'],
+        correctIndex: 1,
       }
     ]
   },
@@ -6103,6 +6440,17 @@ Today, most lighthouses use electric lights and do not need keepers anymore. But
         correctIndex: 1,
         explanation: 'The passage states that today most lighthouses use electric lights and do not need keepers anymore.'
       }
+    ,
+      {
+        question: 'What does this passage MOST CLEARLY explain?',
+        options: ['The names and heights of every lighthouse ever built in Florida', 'How and why lighthouses were built along Florida\'s dangerous coast', 'Why modern ships no longer need lighthouses to stay safe', 'How much it cost to build a lighthouse in the 1800s'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What can you INFER about life for sailors before lighthouses were built?',
+        options: ['Sailing was safe because sailors knew the Florida coastline by memory', 'Sailing at night was very dangerous because rocks and shallow water were invisible', 'Sailors never traveled at night so lighthouses were not truly necessary', 'Ships were built sturdy enough to survive hitting rocks in shallow water'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -6168,6 +6516,17 @@ Next time you see a doctor or nurse, you can say thank you. Their work helps eve
         ],
         correctIndex: 1,
         explanation: 'The passage explains that patients are often scared or in pain, and doctors and nurses speak gently and explain things so patients feel less afraid.'
+      }
+    ,
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in writing this passage?',
+        options: ['To warn children about the dangers of getting sick', 'To persuade readers to become doctors or nurses', 'To inform readers about what doctors and nurses do and why they matter', 'To compare doctors to firefighters and other community helpers'],
+        correctIndex: 2,
+      },
+      {
+        question: 'Why must doctors spend MANY YEARS in school?',
+        options: ['Because they must learn many languages to speak with patients from different countries', 'Because the human body is complex and they must understand how every part works', 'Because hospitals require perfect grades before they will hire anyone', 'Because they study in different countries before earning their degree'],
+        correctIndex: 1,
       }
     ]
   },
@@ -6235,6 +6594,17 @@ In Florida, the water cycle is very active. Florida gets a lot of rain in summer
         correctIndex: 2,
         explanation: 'The passage states that Florida\'s warm sun quickly evaporates water, making the water cycle very active and causing big afternoon thunderstorms.'
       }
+    ,
+      {
+        question: 'What CAUSES water vapor to rise up into the sky?',
+        options: ['Strong winds push water droplets upward from the ocean', 'The sun\'s heat turns surface water into a gas that rises into the atmosphere', 'Cold temperatures at the surface push warm air upward', 'Plants release water vapor from their leaves into the air'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MOST IMPORTANT thing about the water cycle according to this passage?',
+        options: ['It only happens in places that receive a lot of rainfall each year', 'It is a continuous loop that keeps recycling Earth\'s water endlessly', 'It stops working completely during winter when temperatures drop', 'It only happens over oceans and very large lakes'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -6300,6 +6670,17 @@ Florida chose the mockingbird as its state bird in 1927. People loved it because
         ],
         correctIndex: 2,
         explanation: 'The passage states that Florida chose the mockingbird as its state bird in 1927.'
+      }
+    ,
+      {
+        question: 'What makes the mockingbird UNUSUAL compared to other birds?',
+        options: ['It is the only bird that can live in Florida year-round', 'It can imitate the songs of many other birds — sometimes more than 200 different songs', 'It has the loudest call of any bird in all of North America', 'It builds its nest in unusual human-made places like mailboxes'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Based on the passage, why is the mockingbird a FITTING symbol for Florida?',
+        options: ['It is the most colorful bird found anywhere in Florida', 'Its remarkable singing and year-round presence make it a recognizable part of Florida life', 'It is found in Florida and nowhere else in the entire world', 'The state chose it because mockingbirds are easy to tame and keep as pets'],
+        correctIndex: 1,
       }
     ]
   },
@@ -6367,6 +6748,17 @@ When the bread cools, it is ready to slice and eat. The next time you have a pie
         correctIndex: 1,
         explanation: 'The passage says long ago stones were used to grind grain by hand, but today steel rollers do it much faster.'
       }
+    ,
+      {
+        question: 'What happens to wheat AFTER it is harvested?',
+        options: ['It is shipped directly to grocery stores in large bags', 'It is ground into flour, which is then mixed and baked to make bread', 'It is soaked in water overnight to soften before baking', 'It is dried in the sun for several weeks before being eaten'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in writing this passage?',
+        options: ['To persuade people to eat more bread every day', 'To trace bread\'s journey from a wheat field all the way to the table', 'To compare different types of bread from countries around the world', 'To explain why Florida is a good place to grow wheat'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -6433,6 +6825,17 @@ Farm work is hard, but it is very important. Without farmers, grocery stores wou
         correctIndex: 2,
         explanation: 'The passage explains that irrigation systems pump water through pipes to reach crops even when it is not raining.'
       }
+    ,
+      {
+        question: 'Why do farmers start their work BEFORE sunrise?',
+        options: ['To avoid the hot Florida sun during the peak heat of the day', 'Because animals need to be fed and cows milked first thing each morning', 'Because farm markets always open very early in the morning', 'Because crops can only be safely picked in cool temperatures'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What might SURPRISE people about Florida, based on this passage?',
+        options: ['Florida has no farms because it is all beaches and theme parks', 'Florida has thousands of farms that grow food for people all across the country', 'Florida farmers only grow sugarcane and citrus fruit', 'Florida farms close down in summer because of the heat'],
+        correctIndex: 1,
+      }
     ]
   },
 
@@ -6498,6 +6901,17 @@ You do not have to wait until you are grown up to be a good neighbor. Small acts
         ],
         correctIndex: 2,
         explanation: 'The passage says neighbors can plant a community garden, clean up litter, or organize a block party to improve their neighborhood.'
+      }
+    ,
+      {
+        question: 'What does it mean to be a RESPECTFUL neighbor according to the passage?',
+        options: ['To always bring gifts when you visit a neighbor', 'To keep your voice down, not play loud music, and not block others\' driveways', 'To invite your neighbors to every gathering you host', 'To fix any problems on the street yourself without being asked'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN MESSAGE of this passage?',
+        options: ['Your neighbors are always your best and closest friends', 'Being a good neighbor takes effort but makes the whole community better for everyone', 'You should only help neighbors who have helped you first', 'In modern times, people do not really need to know their neighbors'],
+        correctIndex: 1,
       }
     ]
   },
@@ -6577,6 +6991,14 @@ All of these symbols were chosen through official laws passed by Florida's gover
         correctIndex: 2,
         explanation: 'The last paragraph states that all the symbols connect Floridians to their land and to one another, reminding them of what makes Florida special.'
       }
+    ,
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in writing about Florida\'s state symbols?',
+        options: ['To compare Florida\'s symbols with the symbols of other Southern states', 'To help readers understand what makes Florida unique through the history of its official symbols', 'To convince readers that Florida is the best state to visit or live in', 'To argue that Florida should update and change its outdated state symbols'],
+        correctIndex: 1,
+        explanation: 'The author describes each symbol and its connection to Florida\'s history, nature, and identity — the purpose is to inform readers about what makes Florida distinctive.'
+      
+      }
     ]
   },
 
@@ -6653,6 +7075,14 @@ Although volcanoes are dangerous, they also create new land, enrich soil with mi
         ],
         correctIndex: 1,
         explanation: 'The last paragraph states that volcanoes create new land, enrich soil with minerals, and shape Earth\'s surface.'
+      }
+    ,
+      {
+        question: 'Based on the passage, what MOST determines how explosive a volcanic eruption is?',
+        options: ['How old the volcano is and how many times it has erupted before', 'Whether the volcano is located near the ocean or inland on a continent', 'The type of magma — thick magma traps gas and causes explosive eruptions', 'Whether the volcano erupts during the day or at night'],
+        correctIndex: 2,
+        explanation: 'The passage explains that magma composition affects eruption style — thick, gas-rich magma creates explosive eruptions, while thin, runny magma allows gentle lava flows.'
+      
       }
     ]
   },
@@ -6731,6 +7161,14 @@ The water cycle is essential for all life on Earth. It distributes fresh water a
         correctIndex: 2,
         explanation: 'The final paragraph lists ways the water cycle is "essential for all life" and says understanding it helps scientists predict weather and manage water — the author\'s purpose is to show its importance.'
       }
+    ,
+      {
+        question: 'How does the author ORGANIZE the information in this passage?',
+        options: ['By comparing the water cycle on Earth to water cycles on other planets', 'By following each stage of the water cycle in order — evaporation, condensation, precipitation, and runoff', 'By describing problems with the water cycle and offering solutions to fix them', 'By telling the story of a single water droplet from beginning to end of its journey'],
+        correctIndex: 1,
+        explanation: 'The passage describes evaporation first, then condensation forming clouds, then precipitation as rain or snow, then collection and runoff — a clear sequential structure following the cycle.'
+      
+      }
     ]
   },
 
@@ -6807,6 +7245,14 @@ Birdwatchers from around the world come to Florida specifically to observe migra
         ],
         correctIndex: 2,
         explanation: 'The final sentence states that by protecting Florida\'s wetlands, forests, and coastlines, we help ensure migrating birds always have a safe place to stop and rest.'
+      }
+    ,
+      {
+        question: 'Why is Florida an ESPECIALLY IMPORTANT place for migrating birds, according to the passage?',
+        options: ['Florida has more species of birds than any other state in the country', 'Florida\'s southern location provides a warm layover point and winter habitat for billions of birds', 'Florida plants and trees produce the most berries and seeds of any state', 'Florida has no bird predators so migrating birds can rest there completely safely'],
+        correctIndex: 1,
+        explanation: 'The passage explains that Florida\'s warm climate and geographic position make it a critical stopover and destination for enormous numbers of migrating birds each year.'
+      
       }
     ]
   },
@@ -6885,6 +7331,14 @@ Florida is home to more than thirty frog species. Many are important to the ecos
         correctIndex: 1,
         explanation: 'The passage explains that tadpoles breathe through gills like fish, but as they develop, gills disappear and lungs form, allowing adult frogs to breathe air.'
       }
+    ,
+      {
+        question: 'What does the word METAMORPHOSIS mean as used in this passage?',
+        options: ['A special type of egg that frogs lay in clusters in still water', 'The dramatic transformation an animal undergoes as it changes body form completely during its life', 'The process by which tadpoles learn to hunt for food underwater', 'The period when a froglet grows its back legs before its front legs appear'],
+        correctIndex: 1,
+        explanation: 'The passage defines metamorphosis as a "dramatic change" in body form — frogs completely transform from egg to tadpole to froglet to adult, each stage looking very different.'
+      
+      }
     ]
   },
 
@@ -6961,6 +7415,14 @@ Florida is a surprisingly rich source of fossils. The state's ancient sea floors
         ],
         correctIndex: 2,
         explanation: 'The passage says the layer of rock where a fossil is found tells paleontologists approximately when the creature lived, with deeper layers being generally older.'
+      }
+    ,
+      {
+        question: 'Why does the author compare fossils to CLUES in the passage\'s title?',
+        options: ['Because fossils are hidden underground like clues in a mystery game', 'Because scientists must use fossils as evidence to piece together what ancient life was like', 'Because fossils can tell us which animals were the most dangerous predators', 'Because paleontologists are called "fossil detectives" by most scientists today'],
+        correctIndex: 1,
+        explanation: 'Fossils serve as evidence — like clues — that scientists examine to draw conclusions about ancient life, environments, and evolutionary history. Without them, we would have no direct evidence of prehistoric organisms.'
+      
       }
     ]
   },
@@ -7039,6 +7501,14 @@ Today, the Calusa legacy survives in the shell mounds they built along Florida's
         correctIndex: 1,
         explanation: 'The passage describes the Calusa as building shell mounds, controlling most of South Florida, and thriving for thousands of years — evidence of a sophisticated civilization adapted to the coast.'
       }
+    ,
+      {
+        question: 'What MOST caused the collapse of the Calusa civilization, according to the passage?',
+        options: ['Severe droughts that dried up the coastal waterways they depended on', 'Wars between the Calusa and other Florida Native American groups', 'European contact bringing diseases and conflicts that destroyed their population', 'Changes in ocean temperature that eliminated the fish they relied on'],
+        correctIndex: 2,
+        explanation: 'The passage states that European contact brought disease, conflict, and enslavement that ultimately destroyed the Calusa civilization, consistent with the broader pattern of Native American population collapse after European arrival.'
+      
+      }
     ]
   },
 
@@ -7116,6 +7586,14 @@ Their achievement opened the door to modern aviation. Within fifty years, aircra
         correctIndex: 2,
         explanation: 'The final line directly states: "The Wright Brothers proved that careful observation, creative thinking, and persistence could make the impossible possible."'
       }
+    ,
+      {
+        question: 'What MOST helped the Wright Brothers succeed where others had failed?',
+        options: ['They had access to more money and better equipment than earlier inventors', 'They studied bird flight, built wind tunnels to test designs, and solved problems systematically over years', 'They were the only inventors who had experience building bicycles and engines', 'They were lucky that the wind conditions at Kitty Hawk were perfect on December 17, 1903'],
+        correctIndex: 1,
+        explanation: 'The passage emphasizes that the Wright Brothers succeeded through careful scientific study and experimentation — observing birds, testing with kites and gliders, and building wind tunnels — rather than luck.'
+      
+      }
     ]
   },
 
@@ -7192,6 +7670,14 @@ Studying rocks is like reading Earth's autobiography — each layer records the 
         ],
         correctIndex: 1,
         explanation: 'The author uses autobiography as a metaphor — each rock layer records the conditions of a different time period, just as chapters of an autobiography tell different parts of a person\'s life.'
+      }
+    ,
+      {
+        question: 'How does the author ORGANIZE the information in this passage?',
+        options: ['By comparing rocks and minerals found in Florida to those found in other states', 'By defining minerals first, then explaining how rocks are made from minerals, then describing how rocks form', 'By following the life cycle of a single rock from its formation to its use by humans', 'By ranking rocks and minerals from most to least valuable for human use'],
+        correctIndex: 1,
+        explanation: 'The passage defines minerals first, then explains rocks as combinations of minerals, then describes the three types of rock formation — a clear logical progression from simple concept to complex.'
+      
       }
     ]
   },
@@ -7272,6 +7758,14 @@ If any link in a food chain is removed or weakened, the entire system can be thr
         correctIndex: 1,
         explanation: 'The passage states: "If any link in a food chain is removed or weakened, the entire system can be thrown off balance," and gives the example of the panther\'s decline causing deer overpopulation.'
       }
+    ,
+      {
+        question: 'What would MOST LIKELY happen if all the producers in a Florida ecosystem were removed?',
+        options: ['Consumers would quickly learn to eat other consumers instead of plants', 'Decomposers would take over the producer role and make food from sunlight', 'The entire food chain would collapse because all energy comes from producers originally', 'Top predators like alligators would temporarily take over as the base of the chain'],
+        correctIndex: 2,
+        explanation: 'All energy in a food chain originates with producers through photosynthesis. Removing them eliminates the energy source for every level above — consumers would starve, and the entire chain would collapse.'
+      
+      }
     ]
   },
 
@@ -7348,6 +7842,14 @@ Florida's role in the American Revolution reminds us that history is complex —
         ],
         correctIndex: 1,
         explanation: 'The final paragraph concludes that "history is complex — not every part of the future United States supported independence, and the war affected many different people in many different ways."'
+      }
+    ,
+      {
+        question: 'How was Florida\'s experience during the American Revolution DIFFERENT from the thirteen colonies?',
+        options: ['Florida fought alongside the thirteen colonies to win independence from Britain', 'Florida was controlled by Britain and remained loyal to the Crown, not joining the revolution', 'Florida was still controlled by Spain during the entire Revolutionary War period', 'Florida was an independent territory that stayed neutral throughout the conflict'],
+        correctIndex: 1,
+        explanation: 'The passage explains that Florida was a British colony at the time and remained loyal to Britain — it was not one of the thirteen colonies that sought independence.'
+      
       }
     ]
   },
@@ -7426,6 +7928,14 @@ Florida rarely experiences damaging earthquakes because it sits far from the edg
         correctIndex: 1,
         explanation: 'The passage says seismologists study patterns to identify fault locations and help city planners design buildings that can withstand shaking.'
       }
+    ,
+      {
+        question: 'Based on the passage, why does Florida almost never experience earthquakes?',
+        options: ['Florida\'s thick forests absorb the vibrations from tectonic plate movement', 'Florida is not located near the boundaries of tectonic plates where most earthquakes occur', 'Florida\'s flat land means seismic waves pass through without causing shaking', 'Florida is surrounded by water which absorbs most earthquake energy'],
+        correctIndex: 1,
+        explanation: 'Earthquakes occur where tectonic plates meet, grind, or shift. Florida sits in the middle of the North American plate far from plate boundaries, making significant earthquakes extremely rare.'
+      
+      }
     ]
   },
 
@@ -7503,6 +8013,14 @@ Exploring the ocean's deeper zones has revealed that life finds a way to exist i
         correctIndex: 3,
         explanation: 'The final paragraph notes that even in ocean trenches with extreme pressure and total darkness, extremophiles thrive — leading to the conclusion that life finds a way in nearly every environment.'
       }
+    ,
+      {
+        question: 'Why do the DEEPER zones of the ocean support fewer and more unusual forms of life?',
+        options: ['The water in the deeper zones is too warm for most animals to survive', 'No sunlight reaches the deep zones, temperatures are near freezing, and pressure is extreme', 'Deep zones have too much oxygen which is toxic to most marine life', 'Currents in the deep zones move too fast for animals to swim or feed normally'],
+        correctIndex: 1,
+        explanation: 'The passage explains that depth means no sunlight, near-freezing temperatures, and crushing pressure — extreme conditions that eliminate most life and require extraordinary adaptations from those that do survive there.'
+      
+      }
     ]
   },
 
@@ -7579,6 +8097,14 @@ Rainforests are being destroyed at an alarming rate by logging and agriculture. 
         ],
         correctIndex: 1,
         explanation: 'The final paragraph states that scientists warn that losing the rainforest means losing countless species that have never even been named or studied.'
+      }
+    ,
+      {
+        question: 'What MOST explains why rainforests contain more than half of Earth\'s species?',
+        options: ['Rainforests have the perfect temperature for all species to survive', 'Each of the four distinct layers provides unique habitats, food sources, and conditions that support different communities of life', 'Rainforests receive the most rainfall of any ecosystem which creates the most food', 'Most species evolved in rainforests and have not yet spread to other ecosystems'],
+        correctIndex: 1,
+        explanation: 'The layered structure — each with unique light levels, food sources, and microclimates — allows enormous biodiversity. Species that would compete on the ground live in separate layers, reducing competition and multiplying niches.'
+      
       }
     ]
   },
@@ -7659,6 +8185,14 @@ Simple machines are everywhere. Once you know what to look for, you will find th
         correctIndex: 2,
         explanation: 'The final paragraph says: "Once you know what to look for, you will find them in nearly every tool and device you use" — suggesting awareness leads to seeing simple machines everywhere.'
       }
+    ,
+      {
+        question: 'What do ALL six simple machines have in COMMON, according to the passage?',
+        options: ['They all use electricity to reduce the amount of physical effort needed', 'They all change the direction or amount of force needed to move or lift an object', 'They all involve a wheel or lever that spins to reduce friction', 'They are all made from two smaller simple machines combined together'],
+        correctIndex: 1,
+        explanation: 'The passage states all simple machines "make work easier by changing the direction or amount of force needed to move an object" — this is the shared definition of every simple machine.'
+      
+      }
     ]
   },
 
@@ -7738,6 +8272,14 @@ Rosa Parks showed that one ordinary person, making a courageous choice, could ig
         correctIndex: 2,
         explanation: 'The second-to-last paragraph directly states: "Rosa Parks showed that one ordinary person, making a courageous choice, could ignite extraordinary change."'
       }
+    ,
+      {
+        question: 'What MOST explains why Rosa Parks\' act on December 1, 1955 had such a large impact?',
+        options: ['She was already a very famous celebrity known across the entire country', 'Her arrest sparked an organized 381-day bus boycott that became a turning point in the Civil Rights Movement', 'She was the very first person ever to refuse to give up a seat on a segregated bus', 'The president immediately signed a new law after hearing about her arrest'],
+        correctIndex: 1,
+        explanation: 'The passage explains that her arrest sparked the Montgomery Bus Boycott — 381 days of organized, nonviolent economic pressure that brought national attention and legal victory, becoming a key moment in the Civil Rights Movement.'
+      
+      }
     ]
   },
 
@@ -7814,6 +8356,14 @@ Today, Florida is still one of the top cattle-producing states in the nation. Th
         ],
         correctIndex: 1,
         explanation: 'The passage states that Spanish explorers brought cattle to Florida in the 1500s and that Florida cattle drives existed decades before the famous Texas cattle drives of the 1860s — making Florida\'s tradition much older.'
+      }
+    ,
+      {
+        question: 'What made Florida\'s cowboy tradition DIFFERENT from the cowboys of Texas and the West?',
+        options: ['Florida cowboys rode horses imported from Spain rather than American-bred horses', 'Florida\'s cattle tradition is much older — starting nearly 500 years ago with Spanish explorers — and used unique cracking whips in wet, swampy terrain', 'Florida cowboys worked only in winter because summer heat made cattle drives impossible', 'Florida cowboys herded sheep and goats rather than the longhorn cattle of the West'],
+        correctIndex: 1,
+        explanation: 'The passage says Florida\'s cowboy tradition is older than anywhere else in the US, beginning with Spanish explorers, and adapted to Florida\'s wet, marshy environment with distinctive cracking whips — making it distinct from the popular Western image.'
+      
       }
     ]
   },
@@ -16296,5 +16846,2030 @@ Understanding the philosophical foundations of these debates does not resolve th
     ]
   },
 
+
+
+  // ── GRADE 1 ──────────────────────────────────────────────────────────────────
+
+  // ── GRADE 4 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'florida-space-program',
+    title: 'Florida and the Space Program',
+    topic: 'space',
+    coverEmoji: '🚀',
+    coverColor: '#1e3a8a',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 405,
+    readTimeMin: 2,
+    text: `On a clear morning in July 1969, the ground shook near Titusville, Florida. A column of fire roared from a launch pad at Kennedy Space Center, and Apollo 11 lifted off — carrying three astronauts on a journey to the Moon. It was one of the most important moments in human history, and it began on Florida's Space Coast.
+
+Florida became the launch capital of the United States for a simple reason: geography. The state juts far to the south, closer to the **equator** than most of the country. Launching from near the equator is more efficient because Earth's rotation gives rockets an extra boost of speed — like running onto a moving sidewalk. Additionally, rockets launched eastward over the Atlantic Ocean fall safely into the water if something goes wrong, instead of landing on populated areas.
+
+NASA chose Merritt Island, on Florida's east coast, to build the Kennedy Space Center in 1962. From that launch facility, nearly every American human spaceflight has departed. The Mercury and Gemini programs tested early spaceflight techniques. The Apollo program landed twelve Americans on the Moon between 1969 and 1972. The Space Shuttle program, which ran from 1981 to 2011, launched 135 missions from Florida, deploying satellites, building the International Space Station, and opening space to larger crews and scientific experiments.
+
+After the shuttle retired, a new era began. Private companies like SpaceX and Boeing partnered with NASA to develop new spacecraft. In 2020, SpaceX's Crew Dragon carried American astronauts to the International Space Station for the first time from American soil in nine years, launching — once again — from Kennedy Space Center.
+
+Today, the Artemis program aims to return humans to the Moon and eventually send astronauts to Mars. The launch pads at Kennedy Space Center are busier than ever. For generations of Floridians, the rumble of a rocket launch is more than noise — it is a reminder that exploration is in the state's DNA.`,
+    vocabulary: [
+      { word: 'equator', definition: 'An imaginary line around the middle of Earth, equally distant from the North and South Poles.', example: 'Countries near the equator receive direct sunlight year-round and have warm climates.' },
+      { word: 'geography', definition: 'The physical features of an area, such as its location, land, and water.', example: 'Florida\'s geography — close to the equator and surrounded by ocean — made it ideal for rocket launches.' },
+      { word: 'facility', definition: 'A building or place built for a specific purpose.', example: 'The launch facility included assembly buildings, launch pads, and control rooms.' },
+      { word: 'deploying', definition: 'Releasing or putting something into use or position.', example: 'The shuttle mission focused on deploying a new communications satellite.' },
+      { word: 'era', definition: 'A long period of time defined by a particular characteristic or event.', example: 'The Space Shuttle era lasted thirty years and included 135 missions.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Florida\'s weather makes it impossible to launch rockets safely during summer months.',
+          'Florida has been at the center of American space exploration because of its geography, and continues to lead in the new era of spaceflight.',
+          'The Apollo Moon landings were the most important achievement in human history.',
+          'Private companies have completely replaced NASA in running the United States space program.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces Florida\'s role in space exploration from the 1960s to today, explaining both why Florida was chosen and how it continues to be the launch capital of the US.'
+      },
+      {
+        question: 'According to the passage, WHY is launching from near the equator more efficient?',
+        options: [
+          'The air is thinner near the equator, so rockets use less fuel.',
+          'Earth\'s rotation gives rockets an extra boost of speed near the equator.',
+          'The equator is closer to the Moon than other locations on Earth.',
+          'Weather near the equator is always calm and clear.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that Earth\'s rotation gives rockets launched from near the equator an extra boost of speed — like stepping onto a moving sidewalk.'
+      },
+      {
+        question: 'What does the word "deploying" MOST LIKELY mean as used in the passage?',
+        options: [
+          'Destroying something that is no longer needed',
+          'Testing equipment in a controlled environment',
+          'Releasing or putting something into use or position',
+          'Repairing damaged equipment in orbit'
+        ],
+        correctIndex: 2,
+        explanation: 'In context, the shuttle was "deploying satellites" — putting them into orbit. Deploying means releasing or putting something into its intended position.'
+      },
+      {
+        question: 'How does the author ORGANIZE information in this passage?',
+        options: [
+          'By comparing Florida\'s space program to Russia\'s and China\'s programs.',
+          'By describing one rocket launch in detail from beginning to end.',
+          'Chronologically — following the history of Florida\'s space program from the 1960s to today.',
+          'By listing the problems NASA had to solve before launching from Florida.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage follows a timeline: from Apollo 11 in 1969 through Mercury, Gemini, Apollo, the Shuttle program, SpaceX, and finally the Artemis program — a chronological structure.'
+      },
+      {
+        question: 'Which detail BEST supports the claim that Florida\'s location makes it ideal for rocket launches?',
+        options: [
+          'Kennedy Space Center was built on Merritt Island in 1962.',
+          'The Apollo program landed twelve Americans on the Moon.',
+          'Rockets launched eastward over the Atlantic fall safely into the water if something goes wrong.',
+          'SpaceX\'s Crew Dragon launched from Kennedy Space Center in 2020.'
+        ],
+        correctIndex: 2,
+        explanation: 'The detail about rockets launching eastward over the Atlantic — so they fall safely into water rather than on populated areas — directly supports why Florida\'s location is ideal.'
+      },
+    ]
+  },
+
+  {
+    id: 'states-of-matter',
+    title: 'Solid, Liquid, Gas: The Three States of Matter',
+    topic: 'science',
+    coverEmoji: '🧊',
+    coverColor: '#0891b2',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 398,
+    readTimeMin: 2,
+    text: `Everything around you is made of **matter** — your desk, the air you breathe, the water in your bottle, and the ice in your freezer. Matter is anything that has mass and takes up space. All matter exists in one of three forms, called **states**: solid, liquid, or gas. The state matter is in depends on how much energy — usually heat — its particles have.
+
+In a **solid**, particles are packed tightly together and move very little. Because particles are locked in place, a solid has a definite shape and volume that does not change on its own. Ice, wood, and a rock are examples of solids. When you pick up a solid, it keeps its shape.
+
+In a **liquid**, particles are still close together but can slide past each other. This allows a liquid to flow and take the shape of whatever container holds it. Pour water into a round bowl and it becomes round; pour it into a tall glass and it becomes tall. A liquid has a definite volume but no fixed shape.
+
+In a **gas**, particles move rapidly and spread far apart. A gas has no definite shape or volume — it expands to fill whatever container it is in. The air around you is a mixture of gases. If you open a bottle of perfume, the gas particles spread quickly through the room.
+
+Matter changes state when energy is added or removed. When ice is heated, it melts into liquid water. Heat the liquid water further, and it **evaporates** into steam — a gas. Cool the steam, and it **condenses** back into liquid. Freeze the liquid, and it becomes solid again. This cycle repeats endlessly in nature, most famously in the water cycle.
+
+Understanding states of matter helps scientists design everything from medicine to rockets. The properties of each state — how particles behave — determine how a material can be used.`,
+    vocabulary: [
+      { word: 'matter', definition: 'Anything that has mass and takes up space.', example: 'Air, water, wood, and metal are all different forms of matter.' },
+      { word: 'states', definition: 'The different forms matter can take: solid, liquid, or gas.', example: 'Water can exist in all three states: ice, liquid water, and steam.' },
+      { word: 'evaporates', definition: 'Changes from a liquid into a gas, usually when heated.', example: 'Puddles evaporate on a hot day as the water turns to water vapor.' },
+      { word: 'condenses', definition: 'Changes from a gas into a liquid when cooled.', example: 'Water vapor condenses on a cold glass, forming drops on the outside.' },
+      { word: 'particles', definition: 'Extremely small pieces that make up all matter.', example: 'In a solid, particles are tightly packed and barely move.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Water is the only substance that can exist in all three states of matter.',
+          'All matter exists as a solid, liquid, or gas depending on how much energy its particles have, and matter can change between states.',
+          'Gases are the most important state of matter because they make up the air we breathe.',
+          'Scientists study states of matter only to help design spacecraft and rockets.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains all three states of matter, how particle behavior determines each state, and how matter changes between states when energy is added or removed.'
+      },
+      {
+        question: 'Why does liquid water take the shape of its container, but a solid ice cube does not?',
+        options: [
+          'Ice is much colder than liquid water.',
+          'Liquid particles can slide past each other, while solid particles are locked in place.',
+          'Water molecules are smaller than ice molecules.',
+          'Solids are always heavier than liquids.'
+        ],
+        correctIndex: 1,
+        explanation: 'In a solid, particles are locked in position and keep their shape. In a liquid, particles can slide past each other, allowing the liquid to flow and conform to its container.'
+      },
+      {
+        question: 'What does the word "evaporates" mean as used in the passage?',
+        options: [
+          'Changes from a solid into a liquid',
+          'Changes from a gas into a solid',
+          'Freezes at a low temperature',
+          'Changes from a liquid into a gas'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage uses "evaporates" when describing water turning into steam — changing from liquid to gas form.' },
+      {
+        question: 'Which property is TRUE of ALL THREE states of matter?',
+        options: [
+          'Each has a definite shape',
+          'Each has a definite volume',
+          'Each is made of particles',
+          'Each can flow and spread out'
+        ],
+        correctIndex: 2,
+        explanation: 'All three states of matter — solid, liquid, and gas — are made of particles. What differs is how those particles move and how much space they take up.'
+      },
+      {
+        question: 'According to the passage, what causes matter to change from one state to another?',
+        options: [
+          'Changes in the size of the container',
+          'Changes in color or texture of the material',
+          'Adding or removing energy, usually heat',
+          'Mixing two different types of matter together'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that matter changes state when energy is added or removed — heating ice melts it, further heat evaporates it, cooling brings it back.' },
+    ]
+  },
+
+  {
+    id: 'animal-adaptations-florida',
+    title: 'Built for Florida: Animal Adaptations',
+    topic: 'florida-nature',
+    coverEmoji: '🐢',
+    coverColor: '#059669',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 412,
+    readTimeMin: 2,
+    text: `Florida is one of the most **biodiverse** states in the country, home to thousands of animal species. Each one has developed special traits — called **adaptations** — that help it survive in Florida's unique mix of wetlands, forests, coastlines, and year-round heat.
+
+The **gopher tortoise** is one of Florida's most important land animals. Its powerful front legs are shaped like shovels — flat and sturdy, perfect for digging burrows that can reach ten feet deep and forty feet long. These burrows stay cool in summer and warm in winter. Over 360 other species, including rabbits, owls, snakes, and insects, share gopher tortoise burrows. This is why the gopher tortoise is called a **keystone species** — its behavior creates shelter for hundreds of other creatures.
+
+The **osprey**, Florida's most common fishing bird of prey, has adaptations perfectly matched to its diet. Its feet have tiny spines called **spicules** on the pads, which help grip slippery, wriggling fish. Osprey toes can rotate so that two toes point forward and two point backward — giving them a firmer grip. When diving, ospreys can close their nostrils to keep water out. They hit the water feet-first at up to 35 miles per hour.
+
+The **manatee** is adapted for a warm-water life. Its large, barrel-shaped body conserves heat, though manatees have so little body fat that they must seek warm water in winter — often gathering near power plant discharge pipes. Manatees have no teeth at the front of their mouth; instead, they use tough, horny pads to crush aquatic plants. Because manatees spend so much time near the surface breathing, their nostrils sit high on top of their snout.
+
+These three animals could not be more different — a burrowing tortoise, a diving bird, and a slow-moving sea cow. Yet each is exquisitely matched to the environment it calls home. Adaptation is not a plan; it is the result of millions of years of survival, with only the best-fitted individuals passing their traits to the next generation.`,
+    vocabulary: [
+      { word: 'adaptations', definition: 'Physical traits or behaviors that help an animal survive in its environment.', example: 'The polar bear\'s thick white fur is an adaptation for surviving in the Arctic.' },
+      { word: 'biodiverse', definition: 'Having a wide variety of different living things.', example: 'The rainforest is one of the most biodiverse ecosystems on Earth.' },
+      { word: 'keystone species', definition: 'An animal whose actions are so important that the entire ecosystem depends on it.', example: 'The gopher tortoise is a keystone species because its burrows shelter hundreds of other animals.' },
+      { word: 'spicules', definition: 'Tiny, spike-like structures on osprey feet that grip slippery fish.', example: 'Without spicules, the osprey would drop every fish it caught.' },
+      { word: 'conserves', definition: 'Keeps something from being wasted or lost.', example: 'The manatee\'s large body conserves heat in cool water.' },
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN PURPOSE of this passage?',
+        options: [
+          'To argue that Florida needs more protection for endangered animals.',
+          'To explain how three Florida animals have developed adaptations perfectly suited to their environments.',
+          'To compare Florida\'s wildlife to wildlife found in other states.',
+          'To describe the dangers that threaten Florida\'s most important animals.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage uses three examples — gopher tortoise, osprey, manatee — to illustrate the concept of adaptations and how they help animals survive in Florida.'
+      },
+      {
+        question: 'Why is the gopher tortoise called a "keystone species"?',
+        options: [
+          'It is the fastest reptile in Florida.',
+          'Its burrows provide shelter for over 360 other species.',
+          'It is the rarest animal in Florida\'s wetlands.',
+          'Scientists have studied it longer than any other Florida reptile.'
+        ],
+        correctIndex: 1,
+        explanation: 'A keystone species is one whose actions benefit an entire ecosystem. The gopher tortoise\'s burrows shelter hundreds of other species, making it essential to the community around it.'
+      },
+      {
+        question: 'What does the word "adaptations" mean as used in this passage?',
+        options: [
+          'Changes made by scientists to help animals survive in zoos',
+          'Physical traits or behaviors that help an animal survive in its environment',
+          'The habitats where Florida animals choose to live',
+          'The process by which one animal learns from another'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines adaptations as "special traits that help it survive in Florida\'s unique mix of wetlands, forests, coastlines, and year-round heat."'
+      },
+      {
+        question: 'Which osprey adaptation is MOST directly related to catching fish?',
+        options: [
+          'Its ability to fly at high altitudes',
+          'Its nostrils that can close underwater',
+          'Spicules on its foot pads that grip slippery fish',
+          'Its large wingspan for soaring over water'
+        ],
+        correctIndex: 2,
+        explanation: 'Spicules are tiny spines on the osprey\'s foot pads that grip slippery, wriggling fish — directly enabling the osprey to hold onto its catch.'
+      },
+      {
+        question: 'According to the last paragraph, what causes adaptations to develop?',
+        options: [
+          'Animals choosing to change their own behavior',
+          'Scientists breeding animals with useful traits',
+          'Millions of years of survival, with best-fitted individuals passing traits to offspring',
+          'Animals migrating to areas that match their existing traits'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states adaptation is "the result of millions of years of survival, with only the best-fitted individuals passing their traits to the next generation" — the process of natural selection.'
+      },
+    ]
+  },
+
+  {
+    id: 'florida-settlement-growth',
+    title: 'How Florida Became a State',
+    topic: 'history',
+    coverEmoji: '🗺️',
+    coverColor: '#b45309',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 400,
+    readTimeMin: 2,
+    text: `Florida's path to becoming the twenty-seventh state of the United States was long, complicated, and shaped by the ambitions of multiple nations.
+
+For nearly 300 years, Spain controlled Florida. Spanish explorer Juan Ponce de León landed on the peninsula in 1513 — the first European contact with Florida — and claimed it for Spain. The Spanish established the city of St. Augustine in 1565, making it the oldest continuously occupied European settlement in the United States. For centuries, Florida served mainly as a strategic military location, protecting Spain's ships loaded with gold and silver sailing back to Europe from the Americas.
+
+Florida changed hands in 1763, when Spain traded it to Britain in exchange for control of Havana, Cuba, which Britain had captured during war. The British divided Florida into two colonies — East Florida and West Florida — and encouraged settlement by offering land grants. But after the American Revolution, Britain returned Florida to Spain in 1783.
+
+By the early 1800s, Florida had become a problem for the young United States. Escaped enslaved people found refuge in Florida, and conflicts with Seminole Native Americans frequently spilled across the border. U.S. General Andrew Jackson led unauthorized military raids into Florida in 1817 and 1818 — events known as the First Seminole War.
+
+Recognizing it could not hold Florida much longer, Spain agreed to the **Adams-Onís Treaty** of 1819, transferring Florida to the United States in exchange for the U.S. giving up claims to Texas. The transfer became official in 1821.
+
+Florida was organized as a U.S. **territory** and grew slowly. Conflicts with the Seminole people continued in the Second and Third Seminole Wars. On March 3, 1845, Florida was admitted to the Union as the twenty-seventh state. Tallahassee, chosen partly because it sat midway between the older settlements of Pensacola and St. Augustine, became the state capital — a designation it holds to this day.`,
+    vocabulary: [
+      { word: 'peninsula', definition: 'A piece of land surrounded by water on three sides.', example: 'Florida is a peninsula, with the Atlantic Ocean to the east and the Gulf of Mexico to the west.' },
+      { word: 'Adams-Onís Treaty', definition: 'The 1819 agreement by which Spain transferred Florida to the United States.', example: 'The Adams-Onís Treaty resolved a long dispute between Spain and the United States over Florida.' },
+      { word: 'territory', definition: 'A region governed by a country but not yet granted full statehood.', example: 'Florida was a U.S. territory for 24 years before becoming a state in 1845.' },
+      { word: 'refuge', definition: 'A safe place of shelter and protection.', example: 'The forest provided refuge for animals fleeing the wildfire.' },
+      { word: 'strategic', definition: 'Carefully designed to achieve an important goal or military advantage.', example: 'The fort\'s strategic location on the river allowed soldiers to control all trade passing through.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Spain was a much more powerful nation than the United States during the 1800s.',
+          'Florida\'s history before statehood was shaped by control by multiple nations and ongoing conflicts.',
+          'Andrew Jackson was the most important figure in Florida\'s history.',
+          'St. Augustine is the most important city in Florida because it was settled first.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces Florida\'s complex path to statehood, showing how Spain, Britain, and the United States all controlled Florida and how conflicts shaped its history.'
+      },
+      {
+        question: 'Why did Spain originally value Florida?',
+        options: [
+          'It was a rich source of gold and silver.',
+          'It had the most fertile farmland in the Americas.',
+          'It was a strategic military location that protected Spain\'s treasure ships.',
+          'It provided a warm climate for Spanish settlers.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says Florida "served mainly as a strategic military location, protecting Spain\'s ships loaded with gold and silver sailing back to Europe."'
+      },
+      {
+        question: 'What does the word "territory" mean as used in the passage?',
+        options: [
+          'A region controlled by Native Americans',
+          'A region governed by a country but not yet a full state',
+          'Land purchased from another country',
+          'A military base used during wartime'
+        ],
+        correctIndex: 1,
+        explanation: 'Florida was organized as a U.S. territory — a region under U.S. government control but not yet admitted as a state, which happened 24 years later.'
+      },
+      {
+        question: 'According to the passage, what was ONE reason the U.S. wanted to acquire Florida?',
+        options: [
+          'Florida had valuable farmland the U.S. needed to feed its growing population.',
+          'Escaped enslaved people and Seminole conflicts made Florida a problem for the U.S.',
+          'Spain had agreed to sell Florida in exchange for military protection.',
+          'Florida was needed to give the U.S. access to the Pacific Ocean.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states Florida had become "a problem for the young United States" because escaped enslaved people found refuge there and Seminole conflicts spilled across the border.'
+      },
+      {
+        question: 'Why was Tallahassee chosen as Florida\'s state capital?',
+        options: [
+          'It was the largest and wealthiest city in Florida.',
+          'It was the oldest continuously occupied settlement in Florida.',
+          'It sat midway between the older settlements of Pensacola and St. Augustine.',
+          'Andrew Jackson chose it after leading military campaigns through the area.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states Tallahassee was chosen "partly because it sat midway between the older settlements of Pensacola and St. Augustine."'
+      },
+    ]
+  },
+
+  // ── GRADE 5 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'continental-drift-pangaea',
+    title: 'Pangaea: When the Continents Were One',
+    topic: 'science',
+    coverEmoji: '🌍',
+    coverColor: '#059669',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 462,
+    readTimeMin: 3,
+    text: `Look at a world map long enough and something peculiar becomes apparent: the eastern coast of South America looks like it could fit snugly against the western coast of Africa, like puzzle pieces. This observation was not lost on scientists. In 1912, a German meteorologist named Alfred Wegener proposed a revolutionary idea — that all of Earth's continents were once joined together in a single supercontinent he called **Pangaea**, meaning "all lands" in Greek.
+
+Wegener's evidence came from multiple sources. He noted that the coastlines of continents matched remarkably well. More compellingly, he found that identical fossils of the same plant and animal species appeared on continents now separated by thousands of miles of ocean. Mesosaurus, a small freshwater reptile, had fossils in both South America and Africa — yet it could not have swum across the Atlantic. The same tropical plant fossil, Glossopteris, was found on five separate continents, including Antarctica, suggesting they were once joined in a warm region.
+
+Geologists also discovered matching rock formations along the coasts of continents that are now far apart — as if a giant puzzle had been pulled apart and the torn edges still matched. Mountain ranges that end abruptly at ocean coasts in one continent continue on the opposite continent.
+
+Despite this evidence, most scientists rejected Wegener's theory. The problem was simple: Wegener could not explain the **mechanism** — the force powerful enough to move continents. He died in 1930 still widely dismissed.
+
+The answer came decades later. In the 1950s and 60s, oceanographers studying the ocean floor discovered **mid-ocean ridges** — enormous underwater mountain ranges where new ocean floor is constantly being created as molten rock pushes up from beneath Earth's crust. This process, called seafloor spreading, drives the movement of large sections of Earth's crust called **tectonic plates**. The continents ride on top of these plates like passengers on slow conveyor belts, moving a few centimeters per year.
+
+This unified theory — **plate tectonics** — finally explained Wegener's puzzle. Pangaea began breaking apart about 200 million years ago, slowly drifting into the configuration we see today. The process continues: the Atlantic Ocean grows about 2.5 centimeters wider each year. In roughly 250 million years, scientists predict the continents will reunite into a new supercontinent.
+
+Wegener's story is a reminder that in science, being right is not always enough — you also need evidence of how, not just what.`,
+    vocabulary: [
+      { word: 'Pangaea', definition: 'The ancient supercontinent made up of all of today\'s continents joined together, which began breaking apart about 200 million years ago.', example: 'Fossils of the same species found on different continents are evidence that Pangaea once existed.' },
+      { word: 'mechanism', definition: 'The process or system by which something happens or is brought about.', example: 'Scientists understood that glaciers shaped valleys, but took years to explain the mechanism behind their movement.' },
+      { word: 'mid-ocean ridges', definition: 'Enormous underwater mountain ranges where new ocean floor is created as molten rock rises from beneath the crust.', example: 'The Mid-Atlantic Ridge is one of the longest mountain ranges on Earth, though most of it lies beneath the ocean.' },
+      { word: 'tectonic plates', definition: 'Large sections of Earth\'s crust that move slowly, carrying continents and ocean floors with them.', example: 'Earthquakes often occur along the boundaries where two tectonic plates meet.' },
+      { word: 'plate tectonics', definition: 'The scientific theory that explains how the movement of tectonic plates shapes Earth\'s surface.', example: 'Plate tectonics explains why earthquakes, volcanoes, and mountain ranges occur where they do.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Alfred Wegener was the greatest scientist of the twentieth century.',
+          'The theory of plate tectonics proves that Earth\'s continents were once joined and continue to move today.',
+          'Most scientists reject new theories even when strong evidence supports them.',
+          'Fossils are the most reliable evidence that scientists use to understand Earth\'s history.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces the evidence for Pangaea, the rejection of Wegener\'s idea, and the eventual discovery of plate tectonics — all supporting the central idea that continents move and were once joined.'
+      },
+      {
+        question: 'Why did most scientists REJECT Wegener\'s theory at first?',
+        options: [
+          'His evidence about matching coastlines was proven incorrect.',
+          'He could not explain the mechanism — the force powerful enough to move continents.',
+          'No fossils had been found that matched on different continents.',
+          'Scientists at the time believed Earth was too young for continents to have moved.'
+        ],
+        correctIndex: 1,
+        explanation: 'Wegener had compelling evidence (matching coastlines, fossils, rock formations) but could not explain HOW continents moved. Without a mechanism, most scientists dismissed him.'
+      },
+      {
+        question: 'What discovery in the 1950s–60s finally EXPLAINED how continents move?',
+        options: [
+          'The discovery of Pangaea fossils in Antarctica',
+          'The mapping of identical rock formations on opposite sides of the Atlantic',
+          'The discovery of mid-ocean ridges and seafloor spreading',
+          'The measurement of earthquake activity along coastlines'
+        ],
+        correctIndex: 2,
+        explanation: 'Oceanographers discovered mid-ocean ridges where new ocean floor is constantly being created. This seafloor spreading provided the mechanism Wegener\'s theory lacked.'
+      },
+      {
+        question: 'What does the word "mechanism" mean as used in the passage?',
+        options: [
+          'A piece of machinery that controls movement',
+          'A scientific theory about Earth\'s crust',
+          'The process or system by which something happens',
+          'A fossil record that explains prehistoric life'
+        ],
+        correctIndex: 2,
+        explanation: 'In context, "mechanism" refers to the force or process that moves continents. Wegener lacked an explanation for how the movement actually happened.' },
+      {
+        question: 'Which piece of evidence does the passage describe as MOST compelling for Wegener\'s theory?',
+        options: [
+          'The matching shapes of the African and South American coastlines',
+          'Identical fossils of species found on continents now separated by thousands of miles of ocean',
+          'The discovery of mid-ocean ridges on the ocean floor',
+          'The fact that the Atlantic Ocean grows wider each year'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage introduces matching coastlines first but calls the fossil evidence "more compellingly" — fossils of freshwater species on opposite continents are powerful because those animals could not have crossed the ocean.'
+      },
+    ]
+  },
+
+  {
+    id: 'american-revolution-causes',
+    title: 'Why the Colonists Rebelled: Causes of the American Revolution',
+    topic: 'history',
+    coverEmoji: '🗽',
+    coverColor: '#1e3a8a',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 455,
+    readTimeMin: 3,
+    text: `The American Revolution did not happen overnight. It grew slowly from a decade of deepening frustration, broken promises, and a clash between two very different ideas about how governments should work and who should pay for them.
+
+After the costly French and Indian War ended in 1763, Britain was deeply in debt. The British government decided that the American colonies — who had benefited from British military protection — should help pay. Parliament began passing a series of taxes: the Stamp Act (1765), which taxed newspapers and legal documents; the Townshend Acts (1767), which taxed imported goods including glass, paint, and tea; and eventually the Tea Act (1773), which granted a British company a monopoly on tea sales in the colonies.
+
+Colonists objected furiously — not necessarily because the taxes were enormous, but because of a principle: **taxation without representation**. They had no elected representatives in the British Parliament. Being taxed by a government in which they had no voice felt like a fundamental violation of their rights as English citizens.
+
+Colonial protests escalated. In 1770, a confrontation between colonists and British soldiers in Boston left five colonists dead in what became known as the **Boston Massacre**. In 1773, protestors disguised as Mohawk Indians dumped 342 chests of British tea into Boston Harbor — the **Boston Tea Party**. Britain responded by passing the Coercive Acts (called the "Intolerable Acts" by colonists), which closed Boston's harbor and restricted colonial self-government.
+
+These events pushed colonial leaders — many of whom had hoped for compromise — toward independence. The First Continental Congress met in 1774. Open fighting broke out in April 1775 at Lexington and Concord in Massachusetts. On July 4, 1776, the Continental Congress formally adopted the Declaration of Independence, drafted primarily by Thomas Jefferson, announcing to the world that the thirteen colonies were now free and independent states.
+
+The revolution did not just produce a new country — it introduced a new idea about government itself: that governments derive their power from the **consent of the governed**, and that when a government fails to protect its citizens' rights, those citizens have the right to alter or abolish it. This idea would inspire revolutions around the world for the next two centuries.`,
+    vocabulary: [
+      { word: 'taxation without representation', definition: 'Being required to pay taxes to a government in which you have no elected voice or vote.', example: 'Colonists protested taxation without representation because they had no seats in the British Parliament.' },
+      { word: 'monopoly', definition: 'Exclusive control over a product or service, eliminating competition.', example: 'The Tea Act gave one British company a monopoly on tea sales, shutting out colonial merchants.' },
+      { word: 'Boston Massacre', definition: 'A 1770 confrontation in which British soldiers killed five colonists, intensifying anti-British sentiment.', example: 'Colonial newspapers used the Boston Massacre to turn public opinion against British soldiers.' },
+      { word: 'Intolerable Acts', definition: 'Harsh British laws passed in response to the Boston Tea Party, which the colonists refused to tolerate.', example: 'The Intolerable Acts closed Boston\'s harbor and were a turning point toward revolution.' },
+      { word: 'consent of the governed', definition: 'The idea that a government\'s authority comes from the agreement and approval of the people it governs.', example: 'The Declaration of Independence stated that government must rule by the consent of the governed.' },
+    ],
+    questions: [
+      {
+        question: 'What was the MAIN reason colonists objected to British taxes?',
+        options: [
+          'The taxes were so high that colonists could not afford basic necessities.',
+          'Britain was spending the tax money on wars in Europe rather than in the colonies.',
+          'Colonists were being taxed by a government where they had no representation.',
+          'The taxes applied only to wealthy colonists, causing class conflict.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states colonists objected "not necessarily because the taxes were enormous" but because of the principle of taxation without representation — being taxed by a government with no colonial voice.'
+      },
+      {
+        question: 'What does the word "monopoly" mean as used in the passage?',
+        options: [
+          'A government agreement that protects small businesses from competition',
+          'Exclusive control over a product or service, eliminating competition',
+          'A tax placed on imported goods from foreign countries',
+          'A trade route connecting Britain to its American colonies'
+        ],
+        correctIndex: 1,
+        explanation: 'A monopoly gives one company exclusive control. The Tea Act gave one British company monopoly control over tea sales, removing competition from colonial merchants.'
+      },
+      {
+        question: 'How did Britain RESPOND to the Boston Tea Party?',
+        options: [
+          'By repealing all colonial taxes and offering compromise',
+          'By sending more tea ships to Boston Harbor',
+          'By passing the Coercive Acts, closing Boston\'s harbor and limiting colonial self-government',
+          'By declaring war on France to distract the colonists'
+        ],
+        correctIndex: 2,
+        explanation: 'Britain passed the Coercive Acts (Intolerable Acts), which closed Boston\'s harbor and restricted colonial self-government — escalating the conflict rather than resolving it.'
+      },
+      {
+        question: 'According to the passage, what NEW IDEA about government did the Revolution introduce?',
+        options: [
+          'That elected kings should govern with the advice of a parliament',
+          'That governments get their power from the consent of the governed and can be altered when they fail citizens',
+          'That colonies should never be governed by a distant nation',
+          'That wars are the only effective way to change unfair governments'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the Revolution introduced "a new idea about government: that governments derive their power from the consent of the governed, and that when a government fails to protect its citizens\' rights, those citizens have the right to alter or abolish it."'
+      },
+      {
+        question: 'Which of these events happened LAST according to the passage?',
+        options: [
+          'The Boston Massacre',
+          'The Boston Tea Party',
+          'The First Continental Congress',
+          'The Declaration of Independence'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage presents events in order: Boston Massacre (1770), Boston Tea Party (1773), First Continental Congress (1774), fighting at Lexington and Concord (1775), Declaration of Independence (1776).' },
+    ]
+  },
+
+  {
+    id: 'energy-transfer-ecosystems',
+    title: 'How Energy Flows Through an Ecosystem',
+    topic: 'science',
+    coverEmoji: '☀️',
+    coverColor: '#d97706',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 448,
+    readTimeMin: 3,
+    text: `Every living thing needs energy to survive. But where does that energy come from, and how does it move from one organism to another? The answer lies in the structure of ecosystems — and it all starts with the sun.
+
+**Producers** are organisms that make their own food using sunlight. Plants, algae, and some bacteria capture solar energy through **photosynthesis**, converting sunlight, water, and carbon dioxide into sugar — stored chemical energy. In any ecosystem, producers form the foundation of the food web. They are the source of almost all biological energy on Earth.
+
+**Consumers** are organisms that cannot make their own food and must eat others to get energy. **Primary consumers** — such as grasshoppers, rabbits, and deer — eat plants directly. **Secondary consumers** eat primary consumers; a frog eating a grasshopper or a fox eating a rabbit are examples. **Tertiary consumers** are predators at the top of the food chain, like eagles and sharks, that eat secondary consumers.
+
+**Decomposers** — bacteria and fungi — break down dead organisms, returning nutrients to the soil where they can be used by producers again. They are essential to keeping the cycle running.
+
+Energy does not transfer efficiently between levels. At each step — called a **trophic level** — roughly 90% of the energy is lost as heat, used for movement, or expelled as waste. Only about 10% of the energy moves to the next level. This explains why ecosystems support many more producers than consumers, and more primary consumers than apex predators. It also explains why food chains rarely extend beyond four or five levels — there is simply not enough energy left.
+
+This 10% rule has practical implications. A person who eats grain directly receives far more of the original solar energy than a person who eats beef — because cattle have already used 90% of the grain's energy to grow and move before being eaten. Scientists use this understanding to study how much an ecosystem can support and how disruptions — like removing an apex predator or destroying plant cover — can cascade through all levels.
+
+Energy flows in one direction: from the sun through producers, up through consumers, and out through decomposers. Understanding this flow helps scientists protect ecosystems and predict how they will respond to change.`,
+    vocabulary: [
+      { word: 'producers', definition: 'Organisms that make their own food from sunlight through photosynthesis.', example: 'Grasses, trees, and algae are all producers that form the base of food webs.' },
+      { word: 'consumers', definition: 'Organisms that get energy by eating other organisms.', example: 'A deer is a primary consumer because it eats plants directly.' },
+      { word: 'decomposers', definition: 'Organisms (like bacteria and fungi) that break down dead matter, returning nutrients to the soil.', example: 'Without decomposers, dead organisms would pile up and nutrients would never return to the soil.' },
+      { word: 'trophic level', definition: 'A step in the food chain representing a level of energy transfer.', example: 'Plants occupy the first trophic level; plant-eaters the second.' },
+      { word: 'photosynthesis', definition: 'The process by which plants use sunlight, water, and CO₂ to produce sugar as food.', example: 'Photosynthesis in ocean algae produces much of Earth\'s oxygen.' },
+    ],
+    questions: [
+      {
+        question: 'Why do ecosystems support far MORE producers than apex predators?',
+        options: [
+          'Apex predators are larger and need more space to survive.',
+          'Only about 10% of energy transfers to each higher trophic level, leaving very little energy for top predators.',
+          'Producers reproduce faster than any other organism.',
+          'Apex predators are always threatened by human activity.'
+        ],
+        correctIndex: 1,
+        explanation: 'The 10% rule means energy is lost at each trophic level. By the time energy reaches apex predators, only a fraction of the original solar energy remains — not enough to support large populations.'
+      },
+      {
+        question: 'What is the ROLE of decomposers in an ecosystem?',
+        options: [
+          'They produce energy from sunlight at the base of the food chain.',
+          'They eat apex predators when those predators die.',
+          'They break down dead organisms and return nutrients to the soil for producers.',
+          'They regulate how much energy flows between trophic levels.'
+        ],
+        correctIndex: 2,
+        explanation: 'Decomposers like bacteria and fungi break down dead organisms and return their nutrients to the soil, where producers can use them again to make food.'
+      },
+      {
+        question: 'According to the passage, why does a person who eats grain directly get MORE energy than one who eats beef?',
+        options: [
+          'Grain has more calories per pound than beef does.',
+          'Beef animals waste the energy from grain through movement and heat before being eaten.',
+          'Human digestive systems are better adapted to plant foods.',
+          'Grain is always grown with more fertilizer than grass used by cattle.'
+        ],
+        correctIndex: 1,
+        explanation: 'Cattle use 90% of the grain\'s energy to live, move, and stay warm before being eaten. Eating grain directly gives a person access to 10 times more of the original solar energy.'
+      },
+      {
+        question: 'What does the word "trophic level" mean as used in the passage?',
+        options: [
+          'The total amount of energy in an ecosystem',
+          'A step in the food chain representing a level of energy transfer',
+          'The distance between predators and their prey',
+          'A type of decomposer found at the bottom of food chains'
+        ],
+        correctIndex: 1,
+        explanation: 'A trophic level is a position in the food chain. Producers are at level one; primary consumers at level two, and so on.' },
+      {
+        question: 'In which direction does energy flow through an ecosystem?',
+        options: [
+          'From consumers back to producers through photosynthesis',
+          'In a circle — continuously recycled with no loss',
+          'From the sun through producers, up through consumers, and out through decomposers',
+          'From decomposers upward to apex predators'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explicitly states energy flows "from the sun through producers, up through consumers, and out through decomposers." It flows in one direction, not in a circle.' },
+    ]
+  },
+
+  {
+    id: 'florida-reconstruction-era',
+    title: 'Rebuilding Florida: The Reconstruction Era',
+    topic: 'history',
+    coverEmoji: '⚖️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 458,
+    readTimeMin: 3,
+    text: `When the Civil War ended in April 1865, the United States faced a question more difficult than winning the war itself: how should it put itself back together? Reconstruction — the period from 1865 to 1877 — was the federal government's attempt to answer that question, and its story in Florida reveals both the promise and the failure of that effort.
+
+For the approximately 62,000 formerly enslaved people in Florida, emancipation brought legal freedom but little else. Most had no land, no money, and no access to education. The **Freedmen's Bureau**, established by Congress in 1865, was created to help. It provided food, medical care, and established schools for formerly enslaved people across the South. In Florida, Bureau agents helped freedpeople negotiate labor contracts, settle legal disputes, and access courts — rights they had never had before.
+
+Florida's new state constitution, written in 1868 under federal oversight, was remarkably progressive for its time. It granted Black men the right to vote and established the state's first public school system, open to children of all races. African Americans gained seats in Florida's state legislature — Jonathan Clarkson Gibbs, for example, became Florida's Secretary of State in 1868 and later Superintendent of Public Instruction, championing free public education.
+
+But resistance was fierce. White supremacist groups, including the Ku Klux Klan, used terrorism and violence to intimidate Black voters and prevent them from exercising their new rights. The state legislature quickly passed **Black Codes** — laws that severely restricted the freedom of movement, work, and contract rights of Black Floridians, attempting to recreate the conditions of slavery in all but name.
+
+When federal troops withdrew from the South in 1877 and Reconstruction officially ended, the gains of the era were systematically dismantled. Poll taxes and literacy tests — applied selectively to prevent Black men from voting — replaced outright denial of the vote. **Segregation** became law under the Jim Crow system. The public schools briefly integrated under Reconstruction were re-segregated.
+
+The Reconstruction era in Florida was a period of genuine progress violently interrupted. It introduced ideas — public education for all, equal protection under law, Black political participation — that would not be fully realized for another century. The Civil Rights Movement of the 1950s and 1960s can be understood, in part, as the struggle to fulfill the promises that Reconstruction made and failed to keep.`,
+    vocabulary: [
+      { word: 'Freedmen\'s Bureau', definition: 'A federal agency created in 1865 to help formerly enslaved people transition to freedom by providing food, education, and legal assistance.', example: 'The Freedmen\'s Bureau established hundreds of schools for Black children throughout the South.' },
+      { word: 'Black Codes', definition: 'Laws passed by Southern states after the Civil War to restrict the rights and freedoms of Black Americans.', example: 'Black Codes required Black workers to sign annual labor contracts, trapping them in conditions similar to slavery.' },
+      { word: 'segregation', definition: 'The forced separation of people by race in public spaces, schools, and services.', example: 'Under segregation, Black and white children attended separate schools with unequal resources.' },
+      { word: 'Reconstruction', definition: 'The period from 1865 to 1877 when the federal government worked to reunify the nation and rebuild the South after the Civil War.', example: 'Reconstruction ended when federal troops were withdrawn from Southern states in 1877.' },
+      { word: 'emancipation', definition: 'The act of being freed from slavery or oppression.', example: 'The Emancipation Proclamation of 1863 declared emancipation for enslaved people in Confederate states.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL ARGUMENT of this passage?',
+        options: [
+          'The Freedmen\'s Bureau was the most successful federal program in American history.',
+          'Reconstruction in Florida brought real progress for Black Floridians but was violently reversed when federal protection ended.',
+          'Florida was more successful at Reconstruction than other Southern states.',
+          'The Civil War should have continued longer to ensure permanent change in the South.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage presents a balanced account: genuine progress during Reconstruction (voting rights, schools, Black officials) followed by violent reversal when federal troops withdrew.' },
+      {
+        question: 'What was the PURPOSE of the Freedmen\'s Bureau?',
+        options: [
+          'To punish Confederate soldiers who had fought against the Union',
+          'To help formerly enslaved people access food, education, legal assistance, and rights',
+          'To return formerly enslaved people to the plantations under new contracts',
+          'To enforce Black Codes across the Southern states'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the Freedmen\'s Bureau was created to help by providing food, medical care, schools, help with labor contracts, and access to courts.' },
+      {
+        question: 'What does "segregation" mean as used in the passage?',
+        options: [
+          'The process of integrating schools and public spaces for all races',
+          'Laws that gave Black Americans special voting protections',
+          'The forced separation of people by race in public spaces, schools, and services',
+          'Federal oversight of Southern state governments after the Civil War'
+        ],
+        correctIndex: 2,
+        explanation: 'Segregation, as described in the passage, refers to the forced separation of races under the Jim Crow laws that followed Reconstruction.' },
+      {
+        question: 'Why did the gains of Reconstruction COLLAPSE after 1877?',
+        options: [
+          'Black Floridians chose to give up political participation',
+          'The federal government passed new laws restricting Black rights',
+          'Florida\'s state constitution was declared unconstitutional by the Supreme Court',
+          'Federal troops withdrew, removing protection and allowing states to dismantle Reconstruction-era reforms'
+        ],
+        correctIndex: 3,
+        explanation: 'The passage states that "when federal troops withdrew from the South in 1877 and Reconstruction officially ended, the gains of the era were systematically dismantled." Federal protection was key.' },
+      {
+        question: 'According to the passage, what is the CONNECTION between Reconstruction and the Civil Rights Movement?',
+        options: [
+          'Civil rights leaders used the same violent tactics that ended Reconstruction.',
+          'The Civil Rights Movement was a struggle to fulfill the promises Reconstruction made but failed to keep.',
+          'Reconstruction fully achieved its goals, inspiring later civil rights leaders.',
+          'The Civil Rights Movement was primarily focused on economic issues rather than voting rights.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage ends by saying the Civil Rights Movement "can be understood, in part, as the struggle to fulfill the promises that Reconstruction made and failed to keep" — connecting the two eras.' },
+    ]
+  },
+
+  // ── GRADE 6 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'ancient-maya-civilization',
+    title: 'The Maya: Architects of an Ancient World',
+    topic: 'history',
+    coverEmoji: '🏛️',
+    coverColor: '#92400e',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 505,
+    readTimeMin: 3,
+    text: `In the dense rainforests of Mexico, Guatemala, Belize, and Honduras, one of the ancient world's most remarkable civilizations rose, flourished, and mysteriously declined — the Maya. At their peak between 250 and 900 CE, Maya city-states were among the most sophisticated societies on the planet, with achievements in mathematics, astronomy, writing, and architecture that rivaled any civilization of their era.
+
+Maya cities were not a unified empire but a collection of independent **city-states**, each ruled by a king called a *k'uhul ajaw* (sacred lord). Cities like Tikal, Palenque, and Chichén Itzá featured massive stone pyramids — some over 60 meters tall — built without metal tools, wheels, or draft animals. The pyramid at Chichén Itzá (called El Castillo) was designed with such astronomical precision that twice a year, during the equinoxes, a shadow shaped like a descending serpent appears on its staircase.
+
+The Maya developed one of the world's only fully independent writing systems, using **hieroglyphics** — symbols combining sounds and meanings — carved into stone monuments called stelae or written in bark-paper books called **codices**. Though most codices were destroyed by Spanish missionaries in the 16th century, the surviving texts reveal detailed histories, mythology, and astronomical observations.
+
+Maya astronomers were extraordinarily precise. Without telescopes, they tracked the cycles of Venus to within two hours over a 500-year period. Their **Long Count calendar** — a complex system tracking time in cycles — included a date corresponding to December 21, 2012, which many people misinterpreted as a prediction of apocalypse. In reality, it simply marked the end of one great cycle and the beginning of the next, similar to a new year celebration.
+
+In mathematics, the Maya independently developed the concept of **zero** — a conceptual breakthrough that most other ancient civilizations lacked. Their number system was **vigesimal** (base-20) rather than decimal (base-10).
+
+Around 900 CE, the great southern lowland cities began to collapse. Populations plummeted, construction halted, and cities were abandoned. Scholars debate the causes: severe drought supported by lake sediment records, political instability, warfare between city-states, and environmental degradation from deforestation and overfarming have all been proposed. Most likely, a combination of these factors led to the collapse.
+
+But the Maya did not disappear. Approximately seven million Maya people still live today across Mexico and Central America, maintaining languages, traditions, and cultural identities that stretch back thousands of years. The "collapse" of 900 CE was the end of the Classic period, not the end of the Maya people.`,
+    vocabulary: [
+      { word: 'city-states', definition: 'Independent cities with their own governments, laws, and rulers.', example: 'Ancient Greece and the Maya civilization were both organized into city-states that sometimes competed with each other.' },
+      { word: 'hieroglyphics', definition: 'A writing system using symbols that represent sounds and meanings.', example: 'Archaeologists spent decades learning to read Maya hieroglyphics carved into stone monuments.' },
+      { word: 'codices', definition: 'Ancient Maya books made from bark paper that recorded history, astronomy, and ritual.', example: 'Spanish missionaries destroyed most Maya codices, leaving scholars with only a few surviving texts.' },
+      { word: 'Long Count calendar', definition: 'The Maya\'s complex calendar system for tracking time over thousands of years.', example: 'The Long Count calendar allowed Maya astronomers to record dates spanning centuries.' },
+      { word: 'vigesimal', definition: 'A number system based on the number twenty rather than ten.', example: 'The Maya vigesimal system counted in groups of 20, unlike our decimal system that counts in groups of 10.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'The Maya were destroyed by Spanish conquistadors in the sixteenth century.',
+          'Maya civilization reached extraordinary achievements in science, writing, and architecture before a mysterious decline, but the Maya people survive today.',
+          'The Maya were the most advanced civilization in all of human history.',
+          'Drought was the sole cause of the Maya\'s collapse around 900 CE.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage covers Maya achievements, their astronomical and mathematical innovations, the mystery of their decline, and the important clarification that Maya people and culture survive today.' },
+      {
+        question: 'What does the author MEAN when saying the pyramid at Chichén Itzá was built with "astronomical precision"?',
+        options: [
+          'It was the tallest building ever constructed without modern technology.',
+          'Its design aligns with celestial events — creating a serpent shadow during the equinoxes.',
+          'Maya astronomers used the pyramid to study the movement of Venus.',
+          'The pyramid\'s height equals exactly the distance to the moon in kilometers.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains that El Castillo produces a shadow shaped like a descending serpent during the equinoxes — a deliberate design that reflects the Maya\'s precise astronomical knowledge.'
+      },
+      {
+        question: 'Why does the author say Maya zero was a "conceptual breakthrough"?',
+        options: [
+          'Most ancient civilizations used Roman numerals, which were more complex.',
+          'Zero allowed the Maya to create a base-20 number system instead of base-10.',
+          'Zero as a concept was independently developed by the Maya when most other ancient civilizations lacked it.',
+          'The concept of zero made it possible to predict astronomical events centuries in advance.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage notes that most other ancient civilizations lacked the concept of zero. The Maya developing it independently was a significant mathematical achievement.' },
+      {
+        question: 'What does the word "codices" mean as used in the passage?',
+        options: [
+          'Stone carvings that decorated the walls of Maya pyramids',
+          'Ancient Maya books made from bark paper',
+          'Mathematical symbols used in the Maya number system',
+          'The sacred lords who ruled Maya city-states'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines codices as "bark-paper books" that recorded Maya writing. Most were destroyed by Spanish missionaries.' },
+      {
+        question: 'What is an IMPORTANT POINT the author makes in the final paragraph?',
+        options: [
+          'The Maya civilization was totally destroyed by the collapse of 900 CE.',
+          'The collapse of 900 CE was caused entirely by Spanish conquest.',
+          'The end of the Classic period was not the end of the Maya people, who number seven million today.',
+          'Maya descendants no longer practice traditional languages or cultural customs.'
+        ],
+        correctIndex: 2,
+        explanation: 'The author explicitly corrects the misconception that the Maya "disappeared" — approximately seven million Maya people live today, maintaining their languages and culture.' },
+    ]
+  },
+
+  {
+    id: 'weather-vs-climate-gr6',
+    title: 'Weather vs. Climate: What\'s the Difference?',
+    topic: 'science',
+    coverEmoji: '🌤️',
+    coverColor: '#0891b2',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 478,
+    readTimeMin: 3,
+    text: `"Climate is what you expect; weather is what you get." This saying — often attributed to climate scientists — captures a fundamental distinction that shapes how we understand Earth's atmosphere.
+
+**Weather** refers to short-term atmospheric conditions at a specific location: the temperature today, whether it is raining, how windy it is. Weather changes hour by hour and day by day. Meteorologists use instruments, satellites, radar, and atmospheric models to forecast weather — but even with advanced technology, predicting weather beyond about ten days becomes highly uncertain because the atmosphere is a chaotic system. Small changes in initial conditions can produce dramatically different outcomes.
+
+**Climate**, by contrast, is the long-term pattern of weather in an area over decades or centuries. Climate describes the expected range of conditions: Miami's climate is warm and humid year-round; Siberia's is bitterly cold most of the year. Climate is determined by several key factors, most importantly **latitude** — distance from the equator. Regions near the equator receive direct sunlight year-round and stay warm; polar regions receive sunlight at a low angle and have extreme cold.
+
+Other factors shaping climate include **altitude** (higher elevations are cooler, because air pressure decreases with height), proximity to large bodies of water (oceans moderate temperature extremes, keeping coastal areas cooler in summer and warmer in winter), and prevailing wind patterns.
+
+Earth has several distinct **climate zones**: tropical zones near the equator are hot and wet; subtropical zones (like Florida) are warm with distinct wet and dry seasons; temperate zones have four seasons; and polar zones are cold year-round. Within these broad zones, local geography creates **microclimates** — small areas with conditions different from the surrounding region. A valley sheltered from wind, for example, may be several degrees warmer than nearby hilltops.
+
+Understanding the difference between weather and climate is especially important today. A single cold winter does not disprove global warming — that is weather. Climate change refers to shifts in long-term averages and patterns measured over decades. Scientists use data collected over more than a century to track changes in global average temperature, precipitation patterns, sea levels, and ice coverage. Short-term fluctuations — daily, seasonal, even decade-long — are superimposed on these long-term trends.
+
+When someone says "it's so cold today — so much for global warming," they are confusing weather with climate. Understanding the difference is not just a scientific distinction; it is essential for interpreting the evidence behind one of the most important challenges of our time.`,
+    vocabulary: [
+      { word: 'latitude', definition: 'Distance from the equator, measured in degrees north or south.', example: 'Because of its low latitude, Hawaii stays warm year-round.' },
+      { word: 'altitude', definition: 'Height above sea level.', example: 'At high altitude, temperatures drop and the air becomes thinner.' },
+      { word: 'climate zones', definition: 'Large regions of Earth defined by consistent, long-term patterns of temperature and precipitation.', example: 'Florida\'s subtropical climate zone produces hot, wet summers and mild winters.' },
+      { word: 'microclimates', definition: 'Small areas where climate conditions differ from the surrounding region due to local geography.', example: 'A city\'s concrete and asphalt create a microclimate that is several degrees warmer than surrounding farmland.' },
+      { word: 'precipitation', definition: 'Water that falls from the atmosphere as rain, snow, sleet, or hail.', example: 'The Amazon rainforest receives more than 80 inches of precipitation per year.' },
+    ],
+    questions: [
+      {
+        question: 'What is the KEY DIFFERENCE between weather and climate?',
+        options: [
+          'Weather is measured by satellites; climate is measured by thermometers on the ground.',
+          'Weather describes short-term atmospheric conditions; climate describes long-term patterns over decades.',
+          'Climate changes quickly; weather changes slowly over years.',
+          'Weather only describes temperature; climate describes wind, rain, and temperature together.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines weather as short-term conditions that change hour by hour, while climate is the long-term pattern of weather over decades or centuries.' },
+      {
+        question: 'Why is latitude one of the most important factors in determining climate?',
+        options: [
+          'Regions with high latitude have more frequent hurricanes and storms.',
+          'Latitude determines how close a region is to the ocean.',
+          'Regions near the equator receive direct sunlight year-round and stay warm; polar regions receive sunlight at a low angle and stay cold.',
+          'Latitude controls the altitude of mountains, which affects temperature.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that latitude — distance from the equator — determines the angle at which sunlight hits the surface, which is the primary driver of temperature differences across climate zones.' },
+      {
+        question: 'What does the word "microclimates" mean as used in the passage?',
+        options: [
+          'The climate of very small countries',
+          'Short-term weather events like thunderstorms',
+          'Small areas where climate conditions differ from the surrounding region',
+          'Climate patterns that repeat every few years'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage defines microclimates as "small areas with conditions different from the surrounding region" — for example, a sheltered valley warmer than nearby hilltops.' },
+      {
+        question: 'Why does the author say a single cold winter does NOT disprove global warming?',
+        options: [
+          'Because temperature data from a single winter is never accurate.',
+          'Because global warming affects only the oceans, not air temperature.',
+          'Because climate change is measured in long-term trends over decades, not short-term weather events.',
+          'Because global warming causes colder winters in some regions.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that weather fluctuates short-term while climate change refers to shifts in long-term averages. One cold winter is a weather event that sits on top of the long-term warming trend.' },
+      {
+        question: 'How does proximity to the ocean affect a region\'s climate?',
+        options: [
+          'It makes the region warmer in summer and cooler in winter than inland areas.',
+          'It moderates temperature extremes, keeping coastal areas cooler in summer and warmer in winter.',
+          'It increases precipitation dramatically and causes frequent flooding.',
+          'It makes the region colder year-round due to ocean breezes.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that oceans "moderate temperature extremes, keeping coastal areas cooler in summer and warmer in winter" — smoothing out the temperature swings that inland areas experience.' },
+    ]
+  },
+
+  {
+    id: 'checks-balances-democracy',
+    title: 'Checks and Balances: How Government Limits Itself',
+    topic: 'history',
+    coverEmoji: '⚖️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 490,
+    readTimeMin: 3,
+    text: `When the Founders of the United States designed the new government in 1787, they had a deep fear rooted in experience: **tyranny** — the abuse of power by those in authority. They had lived under what they considered a tyrannical king, and they were determined to build a government that could never allow any one person or group to accumulate unchecked power.
+
+Their solution was a system of **separation of powers** and **checks and balances**. The Constitution divided the federal government into three branches, each with distinct powers, and gave each branch specific tools to limit the others.
+
+The **legislative branch** — Congress, consisting of the Senate and the House of Representatives — holds the power to make laws, collect taxes, declare war, and control the federal budget. But Congress cannot simply do as it pleases. The president can **veto** — reject — any bill Congress passes. Overriding a veto requires a two-thirds supermajority in both chambers, a high bar designed to prevent hasty legislation.
+
+The **executive branch**, led by the president, enforces the laws Congress passes and commands the military. But the president cannot make laws alone, nor spend money without Congressional authorization. The Senate must confirm the president's appointments to the Supreme Court, Cabinet, and federal agencies. Congress can also remove the president from office through **impeachment** — a process in which the House votes to charge the president with misconduct, followed by a Senate trial.
+
+The **judicial branch** — the Supreme Court and lower federal courts — interprets laws and the Constitution. It does not make or enforce laws; it decides whether laws and government actions are constitutional. Through the power of **judicial review**, established in the landmark 1803 case *Marbury v. Madison*, the Supreme Court can strike down laws passed by Congress or actions taken by the president if they violate the Constitution.
+
+These checks work in real life. In 1974, the Supreme Court ruled unanimously that President Nixon had to turn over White House recordings subpoenaed by Congress — a check on executive power that led directly to Nixon's resignation. In 2012, the Supreme Court upheld the Affordable Care Act; in 2015, it ruled same-sex marriage bans unconstitutional — both times interpreting the Constitution over Congress's statutes. The Senate has twice impeached presidents and once removed an officer from office.
+
+The system is imperfect. When one party controls all three branches, checks can weaken. Determined officials can push against constitutional boundaries. But the structure has survived for over 230 years, adapted to crises that the Founders could not have imagined. The genius of checks and balances is not that they make government efficient — they often do the opposite. Their genius is that they make tyranny difficult.`,
+    vocabulary: [
+      { word: 'tyranny', definition: 'Cruel and oppressive use of power by a ruler or government.', example: 'The Founders designed the Constitution specifically to prevent the tyranny they had experienced under British rule.' },
+      { word: 'separation of powers', definition: 'The division of government authority among separate branches so no single branch has total control.', example: 'The separation of powers means the president cannot make laws, and Congress cannot enforce them.' },
+      { word: 'veto', definition: 'The president\'s power to reject a bill passed by Congress.', example: 'The president vetoed the bill, forcing Congress to either revise it or attempt an override.' },
+      { word: 'impeachment', definition: 'The process by which Congress can charge and potentially remove a president or other official from office.', example: 'The House voted to impeach the president, but the Senate acquitted him after a trial.' },
+      { word: 'judicial review', definition: 'The power of courts to strike down laws or government actions that violate the Constitution.', example: 'Through judicial review, the Supreme Court has overturned hundreds of laws since 1803.' },
+    ],
+    questions: [
+      {
+        question: 'What was the PRIMARY reason the Founders designed a system of checks and balances?',
+        options: [
+          'To make the government more efficient by dividing labor between branches.',
+          'To prevent any one person or group from accumulating unchecked power and becoming tyrannical.',
+          'To ensure that the states retained more power than the federal government.',
+          'To give citizens a direct voice in every government decision.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage opens by explaining the Founders\' deep fear of tyranny based on their experience, and states they designed checks and balances to prevent anyone from accumulating unchecked power.' },
+      {
+        question: 'What is JUDICIAL REVIEW and how did it come about?',
+        options: [
+          'The process by which the Senate reviews presidential nominees, established by the Constitution in 1787.',
+          'The Supreme Court\'s power to strike down unconstitutional laws, established in the 1803 case Marbury v. Madison.',
+          'Congress\'s power to review executive orders issued by the president.',
+          'A system in which all three branches jointly review major legislation before it becomes law.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains judicial review as the Supreme Court\'s power to declare laws or government actions unconstitutional, established as precedent in the landmark 1803 case Marbury v. Madison.' },
+      {
+        question: 'What does the word "veto" mean as used in the passage?',
+        options: [
+          'The power of Congress to override a court decision',
+          'The president\'s power to reject a bill passed by Congress',
+          'A two-thirds vote required to change the Constitution',
+          'A judicial ruling that a law is unconstitutional'
+        ],
+        correctIndex: 1,
+        explanation: 'A veto is the president\'s constitutional power to reject legislation passed by Congress, forcing Congress to either revise the bill or achieve a two-thirds supermajority to override it.' },
+      {
+        question: 'How does the Nixon example in the passage ILLUSTRATE the system of checks and balances?',
+        options: [
+          'It shows how the president can use executive privilege to avoid Congressional oversight.',
+          'It demonstrates how the Supreme Court can limit presidential power — Nixon had to comply with a court order despite being president.',
+          'It proves that impeachment is the only effective check on presidential power.',
+          'It shows that Congress can override any Supreme Court ruling it disagrees with.'
+        ],
+        correctIndex: 1,
+        explanation: 'The Supreme Court unanimously ordered Nixon to turn over recordings — a judicial check on executive power. Nixon\'s compliance and subsequent resignation show the system working as intended.' },
+      {
+        question: 'The author says the "genius" of checks and balances is that they make tyranny difficult. What TRADE-OFF does the author acknowledge?',
+        options: [
+          'Checks and balances sometimes cause the military to act without Congressional approval.',
+          'Checks and balances make government less efficient, often slowing or blocking action.',
+          'Checks and balances give too much power to the judicial branch over elected officials.',
+          'Checks and balances prevent citizens from directly influencing government decisions.'
+        ],
+        correctIndex: 1,
+        explanation: 'The author explicitly states that checks and balances "often do the opposite" of making government efficient — they are intentionally designed to slow things down to prevent hasty or abusive use of power.' },
+    ]
+  },
+
+  // ── GRADE 7 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'causes-world-war-two',
+    title: 'The Road to World War II',
+    topic: 'history',
+    coverEmoji: '⚔️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 545,
+    readTimeMin: 4,
+    text: `World War II did not begin with a single spark. It grew from a decade of political miscalculation, economic desperation, and the deliberate choices of leaders who understood that the world would not, or could not, stop them — not yet.
+
+The roots of World War II lie partly in the aftermath of World War I. The Treaty of Versailles (1919) imposed enormous reparations on Germany, stripped it of territory, limited its military, and included the "war guilt clause" forcing Germany to accept full responsibility for the war. Many historians argue this settlement — designed to punish rather than reconcile — created fertile ground for **extremism** in a country suffering economic humiliation.
+
+Adolf Hitler joined the Nazi Party in 1919 and rose to leadership by exploiting German resentments. His movement combined virulent **nationalism** — the belief that Germany's greatness had been stolen — with antisemitism and a pseudoscientific racial ideology that blamed Jewish people, communists, and other groups for Germany's failures. When the global Great Depression hit in 1929, Germany's already fragile economy collapsed. Unemployment rose to over 30%. In desperation, German voters turned to extreme parties. The Nazis became the largest party in Parliament by 1932, and Hitler was appointed Chancellor in January 1933. Within months, using emergency powers granted after a fire at the Reichstag (Germany's parliament building), he dismantled democratic institutions and established a dictatorship.
+
+In Italy, Benito Mussolini had already established a **fascist** government by 1922, and in Japan, a militarist government expanded aggressively in Asia, invading Manchuria in 1931 and attacking China in 1937. These regimes shared a contempt for liberal democracy, a worship of national power and military strength, and a willingness to use force to expand their territories.
+
+The democratic nations of Europe — primarily Britain and France — repeatedly chose **appeasement**: giving into aggressors' demands to avoid war. At the Munich Conference in 1938, British Prime Minister Neville Chamberlain agreed to Hitler's annexation of the Sudetenland region of Czechoslovakia in exchange for a promise of no further territorial demands. Chamberlain returned home declaring "peace for our time." Within six months, Germany had seized all of Czechoslovakia.
+
+On September 1, 1939, Germany invaded Poland. Britain and France declared war two days later. The United States initially remained neutral, though President Roosevelt provided material support to the Allies. The attack on Pearl Harbor, Hawaii, by Japan on December 7, 1941 — what Roosevelt called "a date which will live in infamy" — brought the U.S. into the conflict.
+
+World War II would ultimately kill an estimated 70–85 million people, more than any war in human history. Its causes were multiple and interconnected: the unresolved grievances of World War I, the economic devastation of the Depression, the rise of fascist ideology, the failure of democracies to respond firmly to early aggression, and the deliberate decisions of individuals who chose conquest over cooperation. Understanding how these factors combined remains essential to recognizing similar patterns when they emerge in our own time.`,
+    vocabulary: [
+      { word: 'extremism', definition: 'Political or ideological views far outside the mainstream, often advocating radical or violent change.', example: 'Economic crisis often creates conditions where extremism can grow and attract desperate followers.' },
+      { word: 'nationalism', definition: 'Strong identification with one\'s own nation, often combined with the belief in its superiority over others.', example: 'Hitler\'s extreme nationalism convinced his followers that Germany deserved to dominate Europe.' },
+      { word: 'fascism', definition: 'An authoritarian political ideology that prioritizes national power, strong central leadership, and suppression of opposition.', example: 'Under fascism, Mussolini controlled all aspects of Italian government, media, and military.' },
+      { word: 'appeasement', definition: 'The policy of making concessions to an aggressive power to avoid conflict.', example: 'The Munich Agreement is considered a failed appeasement — it did not prevent Hitler from expanding further.' },
+      { word: 'reparations', definition: 'Payments made by a defeated nation to compensate the winning nations for damage caused by war.', example: 'The reparations Germany owed after World War I contributed to its economic collapse.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what is the AUTHOR\'S MAIN ARGUMENT about the causes of World War II?',
+        options: [
+          'Adolf Hitler was solely responsible for starting World War II.',
+          'World War II resulted from a combination of interconnected causes including unresolved WWI grievances, economic depression, fascist ideology, and failed appeasement.',
+          'The Great Depression was the only significant cause of World War II.',
+          'The United States could have prevented World War II by entering the conflict in 1939.'
+        ],
+        correctIndex: 1,
+        explanation: 'The final paragraph explicitly states: "Its causes were multiple and interconnected" — listing WWI grievances, economic devastation, fascism, failed appeasement, and individual decisions as joint causes.' },
+      {
+        question: 'How did the Treaty of Versailles CONTRIBUTE to conditions that led to World War II?',
+        options: [
+          'It gave Germany too much territory and made it too powerful.',
+          'It forced Germany to share its military technology with other nations.',
+          'Its punitive terms created economic humiliation and resentment that extremists like Hitler exploited.',
+          'It established the League of Nations, which was too powerful to allow Hitler to rise.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage argues the Treaty was "designed to punish rather than reconcile" and that economic humiliation created fertile ground for extremism — which Hitler exploited.' },
+      {
+        question: 'What does "appeasement" mean as used in the passage, and why did it FAIL?',
+        options: [
+          'Military alliances; they failed because allies attacked each other instead of Germany.',
+          'Making concessions to aggressors to avoid war; it failed because Hitler interpreted concessions as weakness and continued expanding.',
+          'Economic sanctions; they failed because Germany found alternative trading partners.',
+          'Diplomatic negotiations; they failed because the League of Nations blocked all agreements.'
+        ],
+        correctIndex: 1,
+        explanation: 'Appeasement meant giving in to Hitler\'s demands to avoid war. It failed because — as Munich demonstrated — Hitler simply made more demands. Within six months of the Munich Agreement, he seized all of Czechoslovakia.' },
+      {
+        question: 'What was the SIGNIFICANCE of the attack on Pearl Harbor?',
+        options: [
+          'It was the event that started World War II in Europe.',
+          'It caused Germany to surrender to the Allied forces.',
+          'It brought the United States into the war after a period of neutrality.',
+          'It led Britain and France to declare war on Germany.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that the U.S. had remained neutral until the Japanese attack on Pearl Harbor on December 7, 1941, which directly led to the U.S. entering the conflict.' },
+      {
+        question: 'Why does the author say understanding World War II\'s causes "remains essential" today?',
+        options: [
+          'Because World War II was the most recent global conflict and its participants are still living.',
+          'Because recognizing how these factors combined helps us identify similar patterns when they emerge in our own time.',
+          'Because the peace treaties from World War II still govern modern international relations.',
+          'Because similar fascist governments still control most of the world today.'
+        ],
+        correctIndex: 1,
+        explanation: 'The final sentence states understanding these causes helps us recognize "similar patterns when they emerge in our own time" — a warning that history can repeat itself.' },
+    ]
+  },
+
+  {
+    id: 'brain-neuroscience-basics',
+    title: 'Inside the Brain: How Your Mind Works',
+    topic: 'science',
+    coverEmoji: '🧠',
+    coverColor: '#7c3aed',
+    gradeLevel: '7',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 530,
+    readTimeMin: 4,
+    text: `The human brain is the most complex object we have ever discovered. Weighing roughly three pounds and containing about 86 billion neurons, it generates every thought, memory, emotion, and movement you experience. Yet for most of human history, it was a mystery. The modern science of **neuroscience** — the study of the brain and nervous system — has only begun to unlock its secrets in the past century.
+
+The brain is divided into distinct regions, each specializing in different functions. The **cerebrum** is the largest part — its wrinkled outer layer, the **cerebral cortex**, handles conscious thought, language, memory, and sensory processing. It is divided into four lobes: the frontal lobe (decision-making and personality), the parietal lobe (touch and spatial awareness), the temporal lobe (language and hearing), and the occipital lobe (vision).
+
+Beneath the cerebrum sits the **cerebellum**, which coordinates movement and balance. You could not walk a straight line, catch a ball, or play a musical instrument without a functioning cerebellum. At the base of the brain, the **brainstem** controls the automatic functions essential for survival: heart rate, breathing, blood pressure, and sleep cycles. The brainstem connects the brain to the spinal cord and operates without conscious thought — it keeps you alive while you sleep.
+
+At the cellular level, the brain works through **neurons** — specialized cells that transmit electrical signals. Each neuron has branching extensions called **dendrites** that receive signals, and a long fiber called an **axon** that sends signals to the next neuron. Neurons do not actually touch; they communicate across tiny gaps called **synapses**, releasing chemical messengers called **neurotransmitters** — including serotonin (which regulates mood), dopamine (which regulates reward and motivation), and norepinephrine (which regulates alertness).
+
+One of the most important discoveries in modern neuroscience is **neuroplasticity** — the brain's ability to reorganize and form new connections throughout life. Earlier scientists believed the brain was essentially fixed after childhood. We now know that learning a new skill, recovering from an injury, or repeatedly practicing a behavior physically changes the structure of the brain. When you practice guitar, study a new language, or develop a habit — good or bad — you are literally reshaping your neural architecture.
+
+Neuroplasticity also explains why adolescence is both an opportunity and a risk. The teenage brain undergoes massive reorganization, particularly in the **prefrontal cortex** — the region responsible for judgment, impulse control, and long-term planning. This region is not fully mature until the mid-twenties. During this period, the brain is highly sensitive to experiences, substances, and learning — making it especially receptive to education and especially vulnerable to negative influences.
+
+Understanding the brain has transformed medicine, psychology, and education. But it also raises profound questions: What is consciousness? Where does memory live? Can we trust our own reasoning? Neuroscience has answered some of these questions — and made others more complex. The three-pound organ inside your skull remains the greatest frontier in science.`,
+    vocabulary: [
+      { word: 'neuroscience', definition: 'The scientific study of the brain, nervous system, and how they produce behavior and mental processes.', example: 'Advances in neuroscience have helped doctors understand how strokes damage specific brain functions.' },
+      { word: 'cerebral cortex', definition: 'The wrinkled outer layer of the cerebrum that handles conscious thought, language, memory, and sensory processing.', example: 'Damage to the cerebral cortex can affect speech, memory, and the ability to process sensory information.' },
+      { word: 'neurotransmitters', definition: 'Chemical messengers that neurons release to communicate across synapses.', example: 'Antidepressant medications work by adjusting levels of neurotransmitters like serotonin in the brain.' },
+      { word: 'neuroplasticity', definition: 'The brain\'s ability to reorganize and form new connections in response to experience and learning throughout life.', example: 'Neuroplasticity means that practicing a skill repeatedly actually changes the structure of the brain.' },
+      { word: 'prefrontal cortex', definition: 'The region of the brain at the front of the frontal lobe, responsible for judgment, impulse control, and long-term planning.', example: 'Because the prefrontal cortex isn\'t fully developed until the mid-twenties, teenagers often struggle with impulse control.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'The brain is too complex for science to ever fully understand.',
+          'The human brain is an extraordinary organ whose structure, functions, and capacity for change have been revealed through modern neuroscience.',
+          'Teenagers are more intelligent than adults because their brains are still developing.',
+          'Neurotransmitters like dopamine and serotonin are the most important parts of how the brain functions.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage covers brain structure, function, cellular mechanisms, neuroplasticity, and adolescent development — all united by the central idea of revealing how the remarkable human brain works.' },
+      {
+        question: 'Why is the discovery of NEUROPLASTICITY considered important?',
+        options: [
+          'It proved that the brain stops developing once a person reaches adulthood.',
+          'It explained why neurotransmitters control mood and behavior.',
+          'It overturned the earlier belief that the brain is fixed after childhood, showing it can change through experience.',
+          'It allowed doctors to use surgery to directly rewire damaged brains.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that earlier scientists believed the brain was essentially fixed after childhood. Neuroplasticity reveals the brain continuously reorganizes itself in response to learning and experience.' },
+      {
+        question: 'What does the word "neurotransmitters" mean as used in the passage?',
+        options: [
+          'Electrical signals that travel through the spinal cord to the brain',
+          'Chemical messengers that neurons release to communicate across synapses',
+          'The branching extensions of neurons that receive incoming signals',
+          'Specialized brain cells that coordinate movement and balance'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes neurotransmitters as "chemical messengers" released across synapses to allow neurons to communicate — including serotonin, dopamine, and norepinephrine.' },
+      {
+        question: 'According to the passage, why is adolescence described as both "an opportunity and a risk"?',
+        options: [
+          'Teenagers are more intelligent than adults but lack physical strength.',
+          'The prefrontal cortex is highly active in teenagers, making them better at impulse control.',
+          'The brain undergoes massive reorganization during adolescence, making it highly receptive to learning but also vulnerable to negative influences.',
+          'Teenagers have more neurons than adults, but fewer synaptic connections.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage states that the teenage brain undergoes massive reorganization and is "especially receptive to education and especially vulnerable to negative influences" — making it simultaneously an opportunity and a risk.' },
+      {
+        question: 'Based on the passage, what makes the cerebellum DIFFERENT from the cerebrum?',
+        options: [
+          'The cerebellum controls conscious thought; the cerebrum controls automatic functions.',
+          'The cerebellum coordinates movement and balance; the cerebrum handles conscious thought, language, and memory.',
+          'The cerebellum is the largest part of the brain; the cerebrum is the smallest.',
+          'The cerebellum is located at the top of the brain; the cerebrum is at the base.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the cerebrum as handling conscious thought, language, and memory, while the cerebellum "coordinates movement and balance" — different, complementary roles.' },
+    ]
+  },
+
+  {
+    id: 'florida-civil-rights-history',
+    title: 'Florida\'s Civil Rights Struggle',
+    topic: 'history',
+    coverEmoji: '✊',
+    coverColor: '#dc2626',
+    gradeLevel: '7',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 518,
+    readTimeMin: 4,
+    text: `When most Americans think of the Civil Rights Movement, they think of Montgomery, Selma, or Birmingham, Alabama. But Florida had its own civil rights story — one marked by extraordinary courage, brutal violence, and victories that changed the state and the nation.
+
+Florida in the early twentieth century was deeply segregated and often violently hostile to Black residents who challenged the system. The most extreme episodes of racial violence — known as **lynching** — occurred with alarming frequency. Between 1877 and 1950, Florida had one of the highest per-capita lynching rates in the South. The 1923 Rosewood Massacre saw an entire Black community in Levy County burned to the ground by a white mob over the course of several days; survivors fled into the swamps and never returned.
+
+Against this backdrop of violence, a new kind of civil rights leader emerged. **Harry T. Moore**, an NAACP leader and schoolteacher, spent decades organizing Black voter registration drives and investigating lynchings across Florida. By the late 1940s, Moore had built the Florida NAACP into one of the strongest chapters in the South. He campaigned relentlessly for the prosecution of the **Groveland Four** — four young Black men falsely accused of rape in Lake County in 1949, two of whom were murdered by a mob and one shot by the sheriff during a retrial. On Christmas night, 1951, a bomb exploded beneath Moore's home in Mims, Florida, killing him and, shortly after, his wife. The FBI later concluded the Ku Klux Klan was responsible. Moore is often called Florida's first civil rights martyr.
+
+A generation later, Tallahassee became the site of a remarkable act of collective **civil disobedience**. In 1956 — just months after the Montgomery Bus Boycott began in Alabama — two Florida A&M University students, Wilhelmina Jakes and Carrie Patterson, refused to move to the back of a city bus. They were arrested. In response, the Tallahassee community launched a bus boycott that lasted over a year. The boycott was organized largely through Black churches and resulted in the desegregation of Tallahassee's bus system.
+
+St. Augustine, Florida became the center of a national spotlight in 1963–64. Civil rights leaders, including Dr. Martin Luther King Jr., led demonstrations at segregated beaches and lunch counters. Night marches through the city were met with violent attacks from white supremacist groups. National media coverage of the violence in St. Augustine — including images of demonstrators being beaten in "Slave Market Square" — helped build public support for the Civil Rights Act of 1964.
+
+Florida's civil rights story is a reminder that change required both organized strategy and extraordinary personal sacrifice at the local level. Harry T. Moore, the Tallahassee bus boycotters, and the St. Augustine demonstrators were not waiting for history to happen — they were making it, at enormous personal risk, often without national attention.`,
+    vocabulary: [
+      { word: 'lynching', definition: 'Extrajudicial killing, usually by a mob, often used as a tool of racial terror.', example: 'The threat of lynching was used to suppress Black political and economic activity throughout the South.' },
+      { word: 'Groveland Four', definition: 'Four young Black men in Lake County, Florida falsely accused of rape in 1949 whose case drew national attention to racial injustice.', example: 'The Groveland Four case exposed the corruption of Florida\'s legal system when it came to Black defendants.' },
+      { word: 'civil disobedience', definition: 'The deliberate, nonviolent refusal to obey unjust laws as a form of protest.', example: 'Rosa Parks\' refusal to give up her seat was an act of civil disobedience that sparked the Montgomery Bus Boycott.' },
+      { word: 'boycott', definition: 'An organized refusal to use a service or buy from a business as a form of protest.', example: 'The Tallahassee bus boycott showed that economic pressure could be a powerful tool for change.' },
+      { word: 'desegregation', definition: 'The process of ending the forced separation of people by race in public spaces or institutions.', example: 'The desegregation of Florida\'s bus systems was a hard-won victory for civil rights activists.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Florida was the most racially violent state in the American South.',
+          'Florida had its own significant civil rights story, marked by violence, courageous leadership, and local movements that influenced national change.',
+          'Harry T. Moore was the most important civil rights leader in American history.',
+          'The Civil Rights Act of 1964 was passed primarily because of events in St. Augustine, Florida.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage surveys Florida\'s civil rights history — from racial violence and Harry T. Moore\'s organizing to the Tallahassee boycott and St. Augustine demonstrations — showing a rich, locally-driven story.' },
+      {
+        question: 'How did Harry T. Moore CONTRIBUTE to the civil rights movement in Florida?',
+        options: [
+          'He led sit-in demonstrations at segregated lunch counters across the state.',
+          'He organized the Tallahassee bus boycott following his release from prison.',
+          'He built the Florida NAACP into one of the strongest chapters in the South and organized voter registration drives.',
+          'He represented the Groveland Four as their defense attorney in court.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes Moore spending decades "organizing Black voter registration drives and investigating lynchings across Florida" and building the Florida NAACP into a major force.' },
+      {
+        question: 'What does "civil disobedience" mean as used in the passage?',
+        options: [
+          'Violent protests against unjust laws',
+          'Deliberately breaking unjust laws nonviolently as a form of protest',
+          'Legal challenges to segregation through the court system',
+          'Organized boycotts of businesses that supported segregation'
+        ],
+        correctIndex: 1,
+        explanation: 'Civil disobedience is the deliberate, nonviolent refusal to obey unjust laws — as demonstrated by Jakes and Patterson refusing to move to the back of the bus, accepting arrest as a consequence.' },
+      {
+        question: 'How did events in St. Augustine INFLUENCE the national civil rights movement?',
+        options: [
+          'They led directly to President Eisenhower sending federal troops to enforce desegregation.',
+          'Media coverage of violence against demonstrators built public support for the Civil Rights Act of 1964.',
+          'They inspired the Montgomery Bus Boycott, which began shortly after.',
+          'They resulted in Florida becoming the first Southern state to fully desegregate its schools.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "national media coverage of the violence in St. Augustine...helped build public support for the Civil Rights Act of 1964."' },
+      {
+        question: 'What does the author mean in the final paragraph by saying civil rights leaders "were making history, not waiting for it"?',
+        options: [
+          'They took direct, organized, courageous local action rather than waiting for change to come from elsewhere.',
+          'They predicted historical events before they happened by reading historical patterns.',
+          'They broke from the national civil rights movement by acting independently.',
+          'They used violence when other methods failed to bring about change.'
+        ],
+        correctIndex: 0,
+        explanation: 'The author argues these individuals were not passive — they organized voter drives, boycotts, and demonstrations at great personal risk, actively creating the change rather than waiting for it to arrive.' },
+    ]
+  },
+
+  // ── GRADE 8 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'technology-privacy-rights',
+    title: 'Digital Privacy: Who Owns Your Data?',
+    topic: 'perspective',
+    coverEmoji: '🔐',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'advanced',
+    grades: [7, 8],
+    wordCount: 578,
+    readTimeMin: 4,
+    text: `Every time you use a search engine, scroll through social media, or install an app, data is being collected about you. What you search for, how long you spend looking at a post, where you are when you browse, what you buy — all of it is being recorded, analyzed, and often sold. The question of who owns this data, who may access it, and how it may be used has become one of the defining legal, ethical, and political questions of the twenty-first century.
+
+The scale of data collection is staggering. Google processes roughly 8.5 billion searches per day. Facebook holds detailed profiles on over 2 billion users. Data brokers — companies that exist solely to collect, aggregate, and sell personal information — maintain files on virtually every American adult, including estimated income, health conditions, political affiliation, and consumer habits. Much of this data collection is technically legal because users have consented to it, usually through lengthy **Terms of Service** agreements that virtually no one reads.
+
+This system raises profound questions about what **informed consent** actually means. Can consent be meaningful when it is buried in thousands of words of legal language, when refusing means losing access to services that have become practically necessary in modern life, and when users have no realistic ability to understand how their data will be used? Legal scholars increasingly argue that current consent frameworks do not meet the standard of genuinely informed agreement.
+
+The Fourth Amendment to the U.S. Constitution protects Americans against "unreasonable searches and seizures" by the government. But this protection was designed for a world of physical searches — when police needed a warrant to search your home or seize your papers. Digital reality has complicated this enormously. Courts have struggled with how to apply constitutional principles to GPS tracking, email contents, cell tower location data, and information held by third parties (like Google or your phone carrier).
+
+In the landmark 2018 case *Carpenter v. United States*, the Supreme Court ruled 5–4 that the government generally needs a warrant to access cell phone location data covering a long period of time. Writing for the majority, Chief Justice John Roberts acknowledged that "seismic shifts in digital technology...call for careful consideration of its scope." Dissenting justices argued that Americans had voluntarily shared this data with their carriers, and thus had no **expectation of privacy** under prior legal doctrine.
+
+The tension between security and privacy adds another layer. Government surveillance agencies argue that access to digital communications data is essential for preventing terrorism and serious crime. Privacy advocates counter that **mass surveillance** — collecting data on entire populations regardless of suspicion — constitutes a threat to civil liberties more dangerous than most of the threats it is supposed to prevent. Both positions contain genuine concerns that democratic societies must weigh.
+
+Europe has taken a different approach. The General Data Protection Regulation (GDPR), which took effect in 2018, gives European citizens the right to know what data is held about them, to request its deletion, and to withhold consent for data collection without losing access to services. American regulatory frameworks have been more fragmented, though several states — including California — have passed their own privacy laws.
+
+The data economy creates real benefits: personalized recommendations, targeted medical research, more efficient services. But these benefits come at the price of constant surveillance. Who should set the terms of that trade-off — corporations, governments, or individuals — remains unresolved. The answer will shape the nature of freedom in the digital age.`,
+    vocabulary: [
+      { word: 'Terms of Service', definition: 'Legal agreements users must accept to use a digital service, often containing extensive data collection permissions.', example: 'Few users actually read Terms of Service agreements before clicking "agree."' },
+      { word: 'informed consent', definition: 'Genuine agreement to something based on a full and clear understanding of what one is agreeing to.', example: 'Critics argue that clicking "agree" on a complex privacy policy does not constitute informed consent.' },
+      { word: 'expectation of privacy', definition: 'A legal standard for determining whether government collection of certain information requires a warrant.', example: 'Courts have debated whether cell phone users have an expectation of privacy in their location data.' },
+      { word: 'mass surveillance', definition: 'The systematic monitoring of an entire population\'s communications and activities, typically by a government.', example: 'Revelations about mass surveillance programs sparked an international debate about the limits of government spying.' },
+      { word: 'GDPR', definition: 'The General Data Protection Regulation — a European law giving citizens rights over how their personal data is collected and used.', example: 'Under the GDPR, companies must clearly explain how they use data and allow users to request its deletion.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL ARGUMENT of this passage?',
+        options: [
+          'Digital technology has made privacy impossible, and citizens should accept this reality.',
+          'Digital data collection raises unresolved legal, ethical, and political questions about privacy, consent, and the balance between security and freedom.',
+          'European privacy laws are superior to American laws in every measurable way.',
+          'Social media companies are the primary threat to digital privacy and should be regulated more heavily than data brokers.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage presents multiple perspectives — data collection\'s scale, flawed consent models, constitutional challenges, security arguments, and European vs. American approaches — to argue these are unresolved questions societies must answer.' },
+      {
+        question: 'Why does the author question whether digital consent is TRULY "informed"?',
+        options: [
+          'Because most people are not old enough to understand privacy law.',
+          'Because consent is buried in unreadable legal language, refusing risks losing necessary services, and users cannot understand how data will be used.',
+          'Because companies lie about how they collect data in their Terms of Service.',
+          'Because the GDPR has proven that no consent framework can be truly informed.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage identifies three problems: consent is buried in legal language no one reads, refusing means losing practically necessary services, and users cannot realistically understand data use — all undermining genuine informed consent.' },
+      {
+        question: 'What does the Supreme Court\'s ruling in CARPENTER v. UNITED STATES reveal about digital privacy law?',
+        options: [
+          'The Court ruled that the government never needs a warrant to access digital data.',
+          'The Court unanimously agreed that all cell phone data is protected by the Fourth Amendment.',
+          'Courts are actively wrestling with how to apply constitutional principles designed for a physical world to digital reality.',
+          'The ruling ended all debate about government access to cell phone data.'
+        ],
+        correctIndex: 2,
+        explanation: 'The 5-4 ruling — with Chief Justice Roberts acknowledging "seismic shifts in digital technology" — illustrates that courts are actively, and not always unanimously, working to apply the Fourth Amendment to digital contexts it was never designed for.' },
+      {
+        question: 'What does "mass surveillance" mean, and why do PRIVACY ADVOCATES oppose it?',
+        options: [
+          'Targeted monitoring of specific suspects; advocates oppose it because warrants take too long.',
+          'Collecting data on entire populations regardless of suspicion; advocates argue it threatens civil liberties more than it prevents crime.',
+          'Corporate data collection; advocates oppose it because it is more extensive than government surveillance.',
+          'International surveillance of foreign governments; advocates oppose it because it undermines diplomacy.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines mass surveillance as "collecting data on entire populations regardless of suspicion" and states that privacy advocates argue it "constitutes a threat to civil liberties more dangerous than most of the threats it is supposed to prevent."' },
+      {
+        question: 'The author concludes that "who should set the terms of the trade-off — corporations, governments, or individuals — remains unresolved." What does this SUGGEST about the passage\'s PURPOSE?',
+        options: [
+          'The author believes corporations should be trusted to set fair data policies without regulation.',
+          'The author is arguing that individuals alone should control all data decisions.',
+          'The passage is a persuasive argument for the GDPR\'s approach over the American approach.',
+          'The passage aims to inform readers about a complex, unresolved issue rather than advocate a single answer.'
+        ],
+        correctIndex: 3,
+        explanation: 'By presenting multiple stakeholders\' perspectives without declaring a single answer, and explicitly stating the question "remains unresolved," the author signals the passage\'s purpose is to inform and prompt thinking, not to advocate a specific position.' },
+    ]
+  },
+
+  {
+    id: 'economics-market-systems',
+    title: 'How Economies Are Organized: Markets, Commands, and Mixed Systems',
+    topic: 'history',
+    coverEmoji: '📊',
+    coverColor: '#0891b2',
+    gradeLevel: '7',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 512,
+    readTimeMin: 4,
+    text: `Every society must answer the same fundamental economic questions: What should be produced? How should it be produced? Who gets to consume what is produced? Different societies have answered these questions in dramatically different ways — and the systems they have developed reveal deep assumptions about human nature, freedom, and the proper role of government.
+
+In a **market economy** (also called capitalism or a free market), these decisions are made primarily through the interaction of supply and demand. When consumers want a product, they bid up its price; higher prices signal to producers that making more of that product will be profitable, drawing more production. When supply outpaces demand, prices fall, producers cut back, and resources shift to more valued uses. This system, described by economist Adam Smith as guided by an "invisible hand," requires no central coordinator — millions of individual decisions aggregate into efficient allocation of resources.
+
+Market economies generate powerful incentives for innovation and efficiency. Businesses that find cheaper ways to produce better products earn profits; those that fail to adapt go out of business. This creative destruction — a term coined by economist Joseph Schumpeter — drives rapid economic growth. But markets also produce **inequality**: those who own productive assets (factories, patents, financial capital) accumulate wealth faster than those who sell only their labor. Markets also fail to provide certain goods efficiently — national defense, clean air, and basic scientific research produce **externalities** and **public goods** that private markets tend to undersupply.
+
+In a **command economy**, the government makes production and distribution decisions centrally. The Soviet Union operated the most extensive command economy in history, with central planners setting production targets for everything from steel mills to shoe factories. Proponents argued this allowed rapid industrialization and could direct resources toward social priorities. The results were mixed: the USSR achieved rapid industrial growth in the 1930s–50s but produced persistent shortages of consumer goods, inefficiency born of disconnection from actual demand, and innovation stagnation. The Soviet economy collapsed in 1991.
+
+Most economies today are **mixed economies** — blending market mechanisms with government intervention. Governments set rules (safety regulations, antitrust law), provide public goods (roads, courts, defense), redistribute income (through taxation and welfare programs), and sometimes directly operate industries (health care in many countries). The question is not whether to have some mix, but how much government intervention is appropriate — and this is one of the central debates in modern democratic politics.
+
+**Price signals** are the language of markets. When gasoline prices rise, consumers drive less and buy more fuel-efficient cars; energy companies invest in more production. When a city's rents rise dramatically, developers build more housing. These adjustments happen without anyone directing them, driven purely by self-interest responding to price information. When governments set prices artificially — below market rates to help consumers or above market rates to help producers — shortages or surpluses typically result.
+
+Understanding economic systems is not merely an academic exercise. The choice of economic organization shapes standards of living, distribution of power, individual liberty, and social cohesion. The ongoing debates between more market-oriented and more government-directed approaches reflect genuine uncertainties about how best to answer the fundamental questions that every society must face.`,
+    vocabulary: [
+      { word: 'market economy', definition: 'An economic system in which production and prices are determined by supply and demand rather than government control.', example: 'In a market economy, a shortage of a popular product typically causes its price to rise, attracting more producers.' },
+      { word: 'command economy', definition: 'An economic system in which the government makes central decisions about what to produce and how to distribute goods.', example: 'The Soviet Union\'s command economy set production targets from Moscow for every major industry.' },
+      { word: 'mixed economy', definition: 'An economic system combining market mechanisms with government intervention and regulation.', example: 'The United States has a mixed economy: markets drive most production, but the government provides schools, defense, and safety regulations.' },
+      { word: 'externalities', definition: 'Costs or benefits of economic activity that fall on people who did not choose them.', example: 'Air pollution from a factory is a negative externality — the factory\'s neighbors bear a cost they didn\'t agree to.' },
+      { word: 'price signals', definition: 'The information conveyed by rising or falling prices that guides production and consumption decisions in a market.', example: 'When coffee prices spike due to crop failures, price signals tell producers worldwide to grow more coffee.' },
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: [
+          'Market economies always outperform command economies in producing wealth and innovation.',
+          'Different economic systems answer fundamental questions about production and distribution in different ways, each with strengths and weaknesses.',
+          'Mixed economies are the only economic systems that function effectively in the modern world.',
+          'The collapse of the Soviet Union proved that government intervention in the economy is always harmful.'
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes market economies, command economies, and mixed economies objectively — presenting advantages and disadvantages of each, rather than advocating for one system.' },
+      {
+        question: 'According to the passage, what is Adam Smith\'s "invisible hand"?',
+        options: [
+          'Government regulations that guide markets to produce socially beneficial outcomes.',
+          'The hidden influence of monopolies that manipulate prices in free markets.',
+          'The way individual self-interested decisions in markets aggregate into efficient resource allocation without central coordination.',
+          'The role of price controls in preventing runaway inflation in market economies.'
+        ],
+        correctIndex: 2,
+        explanation: 'Smith\'s "invisible hand" describes how millions of self-interested individual decisions — each responding to prices — collectively produce efficient economic outcomes without any coordinator directing them.' },
+      {
+        question: 'What does "price signals" mean as used in the passage?',
+        options: [
+          'Government announcements setting the official prices of key goods',
+          'The information conveyed by rising or falling prices that guides production and consumption decisions',
+          'Advertising that tells consumers when prices will change',
+          'The difference between what producers charge and what consumers pay'
+        ],
+        correctIndex: 1,
+        explanation: 'Price signals are the information embedded in market prices — when prices rise, producers know demand is high and expand; when prices fall, they know demand is low and cut back. No central authority is needed.' },
+      {
+        question: 'Why did the Soviet command economy FAIL, according to the passage?',
+        options: [
+          'The Soviet government did not invest enough in military production.',
+          'Foreign countries imposed trade sanctions that cut off Soviet access to resources.',
+          'Persistent shortages, inefficiency from disconnection from actual demand, and innovation stagnation caused its collapse.',
+          'Soviet workers refused to follow government production orders.'
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes the Soviet results as "persistent shortages of consumer goods, inefficiency born of disconnection from actual demand, and innovation stagnation" — leading to the 1991 collapse.' },
+      {
+        question: 'The author says the debate between market and government-directed approaches reflects "genuine uncertainties." What does this SUGGEST about the author\'s perspective?',
+        options: [
+          'The author believes market economies are superior but acknowledges some role for government.',
+          'The author treats the debate as ongoing and unresolved, presenting both sides fairly rather than advocating a position.',
+          'The author believes command economies would succeed if better managed.',
+          'The author thinks economics is too uncertain for meaningful policy decisions.'
+        ],
+        correctIndex: 1,
+        explanation: 'By calling the debate a reflection of "genuine uncertainties" rather than declaring a winner, the author maintains an objective, analytical tone — informing readers about real complexity rather than promoting a particular answer.' },
+    ]
+  },
+
+  // ── GRADE 1 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'our-five-senses',
+    title: 'Our Five Senses',
+    topic: 'science',
+    coverEmoji: '👁️',
+    coverColor: '#0891b2',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 128,
+    readTimeMin: 1,
+    text: `Your body has five senses. Each sense helps you learn about the world around you.
+
+Your eyes let you **see**. You can see colors, shapes, and faces. Your ears let you **hear**. You can hear music, voices, and rain.
+
+Your nose lets you **smell**. You know when cookies are baking or when flowers are near. Your tongue lets you **taste**. Food can be sweet, salty, sour, or bitter.
+
+Your skin lets you **touch** and **feel**. You can feel if something is hot, cold, rough, or smooth.
+
+All five senses work together. When you eat an apple, you see its red color, feel its smooth skin, smell its sweetness, hear the crunch, and taste its flavor.
+
+Without our senses, we would not know very much about the world at all!`,
+    vocabulary: [
+      { word: 'senses', definition: 'The ways your body learns about the world: sight, hearing, smell, taste, and touch.', example: 'We use our senses every single day.' },
+    ],
+    questions: [
+      { question: 'Which sense do you use to hear music?', options: ['Sight', 'Smell', 'Hearing', 'Touch'], correctIndex: 2, explanation: 'Your ears give you the sense of hearing, which lets you hear music, voices, and other sounds.' },
+      { question: 'How many senses does your body have?', options: ['Three', 'Four', 'Six', 'Five'], correctIndex: 3, explanation: 'Your body has five senses: sight, hearing, smell, taste, and touch.' },
+      { question: 'What sense do you use when you feel if something is hot or cold?', options: ['Taste', 'Smell', 'Touch', 'Sight'], correctIndex: 2, explanation: 'Your skin gives you the sense of touch, which lets you feel temperature, texture, and pressure.' },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Eyes are the most important sense because they let you see colors', 'Your five senses work together to help you understand the world around you', 'Taste is the most useful sense at mealtime', 'Hearing is the most important sense for staying safe outdoors'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Which example from the passage BEST shows that the senses work TOGETHER?',
+        options: ['Seeing colors and shapes with your eyes alone', 'Eating an apple — seeing it, feeling it, hearing it crunch, smelling it, and tasting it at once', 'Hearing music clearly with both ears', 'Feeling whether something is hot or cold with your fingertips'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  {
+    id: 'the-night-sky',
+    title: 'Looking at the Night Sky',
+    topic: 'space',
+    coverEmoji: '🌙',
+    coverColor: '#1e3a8a',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 122,
+    readTimeMin: 1,
+    text: `When the sun goes down, the sky turns dark. That is when the stars come out.
+
+**Stars** are giant balls of hot, glowing gas. They look tiny because they are very, very far away. On a clear night, you can see hundreds of stars without a telescope.
+
+The brightest thing in the night sky is usually the **moon**. The moon does not make its own light. It reflects light from the sun, like a mirror. The moon changes shape in the sky over the course of a month.
+
+Some stars form patterns called **constellations**. One famous constellation is the Big Dipper, which looks like a giant spoon in the sky.
+
+The best time to stargaze is far from city lights, on a clear, dark night.`,
+    vocabulary: [
+      { word: 'stars', definition: 'Huge, glowing balls of hot gas very far out in space.', example: 'The stars twinkled brightly on the clear night.' },
+      { word: 'constellations', definition: 'Groups of stars that form a pattern or picture in the sky.', example: 'The Big Dipper is one of the easiest constellations to spot.' },
+    ],
+    questions: [
+      { question: 'Why do stars look so small in the sky?', options: ['They are very cold', 'They are very far away', 'They only come out in winter', 'They are smaller than the moon'], correctIndex: 1, explanation: 'Stars look tiny because they are extremely far away from Earth, not because they are actually small.' },
+      { question: 'Where does the moon\'s light come from?', options: ['The moon makes its own light', 'It reflects light from the sun', 'It reflects light from the stars', 'It glows because it is hot'], correctIndex: 1, explanation: 'The moon does not create its own light. It reflects sunlight, acting like a giant mirror in the sky.' },
+      { question: 'What is a constellation?', options: ['A type of moon', 'A very bright star', 'A pattern of stars in the sky', 'A planet near Earth'], correctIndex: 2, explanation: 'Constellations are groups of stars that form recognizable patterns, like the Big Dipper.' },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['The moon is the single most important thing in the night sky', 'Stars, the moon, and constellations fill the night sky with wonder', 'Telescopes are the only way to see stars and constellations clearly', 'Constellations were invented by modern scientists in the last century'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What can you INFER about the best place to see stars at night?',
+        options: ['A rainy night with lots of clouds makes stars shine more brightly', 'A clear night far away from bright city lights gives the best view', 'The best time is just before sunrise when the sky is at its darkest', 'You can see the most stars by looking through a window from inside'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  {
+    id: 'baby-animals',
+    title: 'Baby Animals and Their Names',
+    topic: 'science',
+    coverEmoji: '🐣',
+    coverColor: '#f59e0b',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 115,
+    readTimeMin: 1,
+    text: `Every animal has a special name for its baby. Learning these names is a lot of fun!
+
+A baby dog is called a **puppy**. A baby cat is called a **kitten**. Baby dogs and cats are born with their eyes closed. Their mothers keep them warm and feed them milk.
+
+A baby bird is called a **chick**. Chicks hatch from eggs. Their parents bring them worms and insects to eat.
+
+A baby cow is called a **calf**. A baby horse is called a **foal**. Calves and foals can stand up and walk within hours of being born!
+
+A baby frog starts as a **tadpole**. Tadpoles live in water and look like little fish. As they grow, they slowly change into frogs.
+
+Baby animals grow and change just like you do!`,
+    vocabulary: [
+      { word: 'hatch', definition: 'To break out of an egg.', example: 'The chick began to hatch from its shell.' },
+    ],
+    questions: [
+      { question: 'What is a baby cat called?', options: ['Calf', 'Foal', 'Kitten', 'Chick'], correctIndex: 2, explanation: 'A baby cat is called a kitten.' },
+      { question: 'How do baby birds get their food?', options: ['They find it themselves', 'Their parents bring it to them', 'They drink milk', 'They eat grass'], correctIndex: 1, explanation: 'Parent birds bring worms and insects to feed their chicks in the nest.' },
+      { question: 'What is a baby frog called before it becomes a frog?', options: ['A calf', 'A puppy', 'A chick', 'A tadpole'], correctIndex: 3, explanation: 'A baby frog starts life as a tadpole, living in water before slowly changing into a frog.' },
+      {
+        question: 'What do baby dogs and baby cats have IN COMMON when they are born?',
+        options: ['They are both able to walk and run immediately after birth', 'They are both born with their eyes closed and depend on their mothers', 'They both hatch from eggs laid in warm nests', 'They both eat solid food from the first day of life'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Baby animals are very small and adorable', 'Many animals have special names for their young, and baby animals grow and change', 'Dogs and cats always make the best pets for children', 'Baby frogs called tadpoles look completely different from adult frogs'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  {
+    id: 'helping-at-home',
+    title: 'Helping at Home',
+    topic: 'character',
+    coverEmoji: '🏠',
+    coverColor: '#ec4899',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 119,
+    readTimeMin: 1,
+    text: `Every family works together. When everyone helps at home, things go more smoothly for everyone.
+
+There are many ways kids can help. You can make your bed in the morning. You can put your toys away after playing. You can help set the table before dinner.
+
+Some kids help with laundry by sorting socks. Others help water plants or feed pets. Even small jobs matter.
+
+When you help at home, you show your family that you care. You are also learning **responsibility** — taking care of things that are yours to handle.
+
+Helping is not always easy. Some chores feel boring. But when the whole family pitches in, the work is done faster, and there is more time for fun.
+
+A family that works together stays strong together.`,
+    vocabulary: [
+      { word: 'responsibility', definition: 'Taking care of something that is yours to handle, even when it is hard.', example: 'Feeding the dog every morning is her responsibility.' },
+    ],
+    questions: [
+      { question: 'What is one way kids can help at home?', options: ['Going to school', 'Making their bed', 'Watching television', 'Playing outside'], correctIndex: 1, explanation: 'The passage lists making your bed as one of the ways kids can help at home.' },
+      { question: 'What does the word "responsibility" mean in this passage?', options: ['Playing games with your family', 'Resting when you are tired', 'Taking care of things that are yours to handle', 'Asking for help with hard work'], correctIndex: 2, explanation: 'The passage defines responsibility as taking care of things that are yours to handle.' },
+      { question: 'Why does the author say helping at home is important?', options: ['Because kids get paid for chores', 'Because it shows you care and helps the family work together', 'Because parents cannot do any work alone', 'Because it is required by law'], correctIndex: 1, explanation: 'The author says helping shows your family you care and makes work go faster for everyone.' },
+      {
+        question: 'What does the word RESPONSIBILITY mean in this passage?',
+        options: ['Asking for help when a chore becomes too difficult to finish', 'Taking care of things that are yours to handle, even when it is hard', 'Getting paid money for completing jobs around the house', 'Helping a family member only when they specifically ask you to'],
+        correctIndex: 1,
+      },
+      {
+        question: 'According to the passage, what BENEFIT comes from the whole family helping together?',
+        options: ['Parents have more time to go to work and earn money', 'The work gets done faster so there is more time left for fun', 'Kids earn more screen time as a reward when they complete their chores', 'The house stays perfectly clean at all times without extra effort'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  {
+    id: 'the-old-oak-tree',
+    title: 'The Old Oak Tree',
+    topic: 'science',
+    coverEmoji: '🌳',
+    coverColor: '#059669',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 126,
+    readTimeMin: 1,
+    text: `There is a big oak tree at the edge of the park. It has been there for over one hundred years.
+
+In **spring**, the oak tree grows tiny green leaves. Squirrels run up and down its thick trunk. Birds build nests in its branches.
+
+In **summer**, the tree is full of wide, dark-green leaves. Its shade keeps the ground cool. Children play under it on hot days.
+
+In **fall**, the leaves turn brown and orange. They drift slowly to the ground. The tree drops small seeds called **acorns**. Squirrels gather the acorns and hide them for winter.
+
+In **winter**, the leaves are all gone. The tree looks bare. But it is not dead — it is resting, saving energy for spring.
+
+The oak tree gives food and shelter to many animals all year long.`,
+    vocabulary: [
+      { word: 'acorns', definition: 'Small seeds that grow on oak trees and are eaten by squirrels and other animals.', example: 'The squirrel buried acorns to eat later in the winter.' },
+    ],
+    questions: [
+      { question: 'What happens to the oak tree in winter?', options: ['It grows new leaves', 'It drops its acorns', 'Its leaves fall off and it rests', 'Birds build nests in it'], correctIndex: 2, explanation: 'In winter, the oak tree loses all its leaves and rests, saving energy for spring.' },
+      { question: 'What are acorns?', options: ['A type of bird', 'Seeds from an oak tree', 'Leaves that fall in autumn', 'Insects that live in bark'], correctIndex: 1, explanation: 'Acorns are the seeds of oak trees. Squirrels collect them to eat during winter.' },
+      { question: 'What does the oak tree provide for animals?', options: ['Water and sunlight', 'Food and shelter', 'Warmth and rain', 'Light and wind'], correctIndex: 1, explanation: 'The passage says the oak tree gives food (acorns) and shelter (nests, shade) to many animals throughout the year.' },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Oak trees are the very tallest trees found growing in any Florida park', 'An oak tree changes through the four seasons and provides food and shelter for animals all year', 'Squirrels need to collect acorns to avoid starving during winter months', 'Oak trees drop all their leaves in fall and wait for warm spring weather to return'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What can you INFER about why the oak tree "rests" in winter?',
+        options: ['The tree has died and will never grow new leaves again', 'The tree saves its energy through cold months to prepare for new spring growth', 'Trees only rest and go dormant when there is heavy snowfall', 'The squirrels somehow protect the tree while it is resting through winter'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  // ── GRADE 2 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'how-rainbows-form',
+    title: 'How Rainbows Form',
+    topic: 'science',
+    coverEmoji: '🌈',
+    coverColor: '#7c3aed',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 158,
+    readTimeMin: 1,
+    text: `Have you ever seen a rainbow after a rainstorm? Rainbows are one of nature's most beautiful surprises — and there is science behind every color.
+
+Sunlight looks white or yellow to our eyes, but it is actually made of many colors mixed together. When sunlight passes through a water droplet in the air, the droplet acts like a tiny prism. It **bends** the light and splits it into all the separate colors: red, orange, yellow, green, blue, and violet.
+
+This bending of light is called **refraction**. Every raindrop in the sky refracts the sunlight at a slightly different angle. Together, millions of drops create a giant arc of color across the sky.
+
+You always see a rainbow on the opposite side of the sky from the sun. That is why you never see a rainbow at noon, when the sun is directly overhead.
+
+The next time it rains while the sun is shining, look away from the sun — your rainbow might be waiting!`,
+    vocabulary: [
+      { word: 'refraction', definition: 'The bending of light as it passes through something like water or glass.', example: 'Refraction through a prism splits white light into a rainbow of colors.' },
+      { word: 'prism', definition: 'A piece of glass or water that bends light and separates it into colors.', example: 'A raindrop acts like a tiny prism, splitting sunlight into color.' },
+    ],
+    questions: [
+      { question: 'What causes a rainbow to form?', options: ['Lightning heating the air', 'Sunlight bending through water droplets', 'Clouds mixing different colors of light', 'Reflections off of puddles'], correctIndex: 1, explanation: 'Rainbows form when sunlight passes through water droplets in the air, which bend and split the light into separate colors.' },
+      { question: 'What does "refraction" mean?', options: ['Light disappearing in clouds', 'Colors mixing together', 'The bending of light as it passes through water', 'Rain falling in a pattern'], correctIndex: 2, explanation: 'Refraction is the bending of light when it passes through a different material, like water.' },
+      { question: 'Why do you never see a rainbow at noon on a sunny day?', options: ['It is too hot for rainbows', 'The sun is directly overhead, so there is no opposite side to look at', 'Rainbows only happen at night', 'The sun\'s light is too strong at noon'], correctIndex: 1, explanation: 'You always see a rainbow on the opposite side of the sky from the sun. When the sun is directly overhead at noon, there is no opposite horizon to show the rainbow.' },
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in writing this passage?',
+        options: ['To persuade readers to go outside immediately after every rainstorm', 'To explain the science of how sunlight and water droplets create rainbows', 'To describe the most spectacular rainbows ever seen over Florida skies', 'To compare rainbows to other weather events like lightning and tornadoes'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Based on the passage, why can you NEVER see a rainbow at noon on a sunny day?',
+        options: ['There is never any rain falling at noon in most places', 'The sun is too bright and powerful at noon for rainbows to form correctly', 'The sun is directly overhead at noon so there is no opposite horizon to display a rainbow', 'Rainbows can only form in early morning before the air heats up significantly'],
+        correctIndex: 2,
+      }
+    ]
+  },
+
+  {
+    id: 'florida-herons',
+    title: 'The Great Blue Heron',
+    topic: 'florida-nature',
+    coverEmoji: '🦢',
+    coverColor: '#0891b2',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 162,
+    readTimeMin: 1,
+    text: `If you stand quietly near a Florida lake or river, you might see a very tall bird standing perfectly still at the water's edge. That bird is likely a **great blue heron** — one of Florida's most graceful hunters.
+
+Great blue herons are the largest herons in North America. They stand almost four feet tall and have a wingspan of nearly six feet. Their feathers are blue-gray, and they have a white face with a bold black stripe over each eye.
+
+Herons are expert fishers. They wade slowly into shallow water and stand without moving, waiting for a fish to swim close. Then, in a flash, they spear the fish with their long, pointed bill. Their **patience** is remarkable — a heron may stand still for many minutes before striking.
+
+After catching a fish, a heron tilts its head back and swallows the fish whole.
+
+Great blue herons are found near most of Florida's lakes, rivers, and coastlines. They are a common — and beautiful — part of Florida's natural world.`,
+    vocabulary: [
+      { word: 'wingspan', definition: 'The distance from the tip of one wing to the tip of the other when fully spread.', example: 'The heron\'s wingspan stretched nearly six feet wide.' },
+      { word: 'patience', definition: 'The ability to wait calmly for something.', example: 'Catching fish takes patience — you have to wait very still.' },
+    ],
+    questions: [
+      { question: 'How does a great blue heron catch fish?', options: ['It dives from high in the air', 'It stands still and spears fish with its bill', 'It scoops fish with its wings', 'It chases fish through the water'], correctIndex: 1, explanation: 'Herons wade into shallow water, stand motionless, and spear fish with their sharp, pointed bills.' },
+      { question: 'What does "wingspan" mean?', options: ['The weight of a bird', 'The color pattern on a bird\'s feathers', 'The distance from one wingtip to the other', 'How fast a bird can fly'], correctIndex: 2, explanation: 'Wingspan is the measurement from the tip of one wing to the tip of the other when the wings are fully spread.' },
+      { question: 'Where in Florida would you MOST LIKELY find a great blue heron?', options: ['In the middle of a parking lot', 'Near a lake, river, or coastline', 'Deep in a pine forest', 'On top of a tall building'], correctIndex: 1, explanation: 'The passage says great blue herons are found near most of Florida\'s lakes, rivers, and coastlines.' },
+      {
+        question: 'What is the MAIN PURPOSE of this passage?',
+        options: ['To warn readers that great blue herons can be aggressive and dangerous', 'To explain what great blue herons are and why they are remarkable Florida birds', 'To compare the great blue heron to every other wading bird in Florida', 'To persuade readers to donate to heron protection programs'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What CONCLUSION can you draw about great blue herons from this passage?',
+        options: ['They are rare and almost impossible to spot in the wild in Florida', 'They are perfectly adapted for hunting fish with stillness, sharp eyes, and a pointed bill', 'They are social birds that always hunt and live in large groups', 'They compete directly with pelicans for exactly the same fish'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  {
+    id: 'the-new-student',
+    title: 'The New Student',
+    topic: 'character',
+    coverEmoji: '🎒',
+    coverColor: '#ec4899',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 175,
+    readTimeMin: 1,
+    text: `On Monday morning, a new student walked into Room 12. Her name was Priya. She stood at the front of the class with her backpack on, looking at the floor.
+
+Marcus noticed. He remembered his first day at this school, two years ago. His stomach had felt like it was full of jumping frogs.
+
+At lunch, Marcus saw Priya sitting alone. He picked up his tray and walked over.
+
+"Is it okay if I sit here?" he asked.
+
+Priya looked up, surprised. "Sure," she said quietly.
+
+Marcus told her about the best things in the school — the art room with the big windows, the library with the beanbag chairs, and the Friday afternoon games in the gym.
+
+Priya smiled for the first time all day.
+
+By the end of the week, Priya had learned her way around, and Marcus had a new friend.
+
+Being **welcoming** does not take long. Sometimes it just takes one person choosing to walk across the lunchroom.`,
+    vocabulary: [
+      { word: 'welcoming', definition: 'Being friendly and kind to someone new or to a guest.', example: 'She was welcoming to the new student by showing her around the school.' },
+    ],
+    questions: [
+      { question: 'Why did Marcus decide to sit with Priya?', options: ['His teacher told him to', 'He remembered how he felt on his first day', 'Priya asked him to sit with her', 'He wanted to eat his lunch quickly'], correctIndex: 1, explanation: 'Marcus remembered his own first day when he felt nervous, which made him understand how Priya felt.' },
+      { question: 'What did Marcus tell Priya about?', options: ['His old school', 'The best things about their school', 'How to do the homework', 'His favorite sports team'], correctIndex: 1, explanation: 'Marcus told Priya about the art room, the library, and the Friday gym games — the best things about their school.' },
+      { question: 'What is the MAIN lesson of this story?', options: ['New students should ask for help', 'Lunch is the best part of the school day', 'One small act of kindness can make a big difference', 'Friends should always go to the same school'], correctIndex: 2, explanation: 'The story shows that Marcus\'s simple choice to sit with Priya changed her whole week and gave him a new friend.' },
+      {
+        question: 'What is the THEME of this story?',
+        options: ['New students should always introduce themselves to classmates on the first day', 'One person\'s simple choice to be kind can make an enormous difference in someone\'s life', 'School lunches are the most important social time of the school day', 'Being new is always scary and the fear never completely goes away'],
+        correctIndex: 1,
+      },
+      {
+        question: 'Why was Marcus\'s act of kindness ESPECIALLY meaningful to Priya on that day?',
+        options: ['Because Marcus was the most popular student in the entire class', 'Because she had been nervous and sitting alone all day and no one had spoken to her yet', 'Because he helped her find her classroom when she was completely lost', 'Because he shared half of his lunch food with her when she forgot hers'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  {
+    id: 'why-we-recycle',
+    title: 'Why We Recycle',
+    topic: 'science',
+    coverEmoji: '♻️',
+    coverColor: '#059669',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 170,
+    readTimeMin: 1,
+    text: `Every day, people throw away millions of bags of trash. Most of that trash goes to a **landfill** — a giant hole in the ground where garbage is buried. Landfills fill up fast, and they can pollute the soil and water nearby.
+
+**Recycling** is one way to make less trash. When you recycle, you take materials like paper, plastic, glass, and metal and turn them into something new instead of throwing them away.
+
+A recycled aluminum can becomes a new can in as little as 60 days. Recycled paper saves trees from being cut down. Recycled plastic bottles can be turned into fabric for clothing and fleece jackets!
+
+You can reduce trash in other ways too. **Reusing** means using something again instead of throwing it away. Bringing a water bottle instead of buying a plastic one is a good example.
+
+The three R's — Reduce, Reuse, Recycle — are three simple steps anyone can take to help protect the Earth.`,
+    vocabulary: [
+      { word: 'landfill', definition: 'A large area of land where garbage is buried underground.', example: 'When landfills get too full, communities must find other ways to handle trash.' },
+      { word: 'recycling', definition: 'Turning used materials into something new instead of throwing them away.', example: 'Recycling a plastic bottle keeps it out of the landfill.' },
+    ],
+    questions: [
+      { question: 'What is a landfill?', options: ['A recycling center', 'A place where garbage is buried', 'A factory that makes new products', 'A place to donate old items'], correctIndex: 1, explanation: 'A landfill is a large area where garbage is buried underground.' },
+      { question: 'Which of these is an example of RECYCLING?', options: ['Throwing a bottle in the trash', 'Using a reusable lunch bag', 'Turning old cans into new cans', 'Buying new paper every week'], correctIndex: 2, explanation: 'Recycling means turning used materials into something new — like an aluminum can becoming a new can.' },
+      { question: 'What do the three R\'s stand for?', options: ['Read, Rest, Run', 'Reduce, Reuse, Recycle', 'Remove, Replace, Repair', 'Rinse, Refill, Return'], correctIndex: 1, explanation: 'The three R\'s are Reduce, Reuse, and Recycle — three ways to create less trash and protect Earth.' },
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in writing this passage?',
+        options: ['To frighten readers about what will happen when all landfills overflow', 'To inform readers about recycling and encourage them to reduce waste', 'To explain the complete history of garbage collection in America', 'To compare exactly how different countries around the world handle their trash'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the key DIFFERENCE between recycling and reusing?',
+        options: ['Recycling is only for paper products; reusing is for plastic and metal only', 'Recycling turns old materials into brand new products; reusing means using the same item again', 'Reusing is always more expensive than recycling used materials', 'There is no meaningful practical difference between recycling and reusing'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  {
+    id: 'magnets-push-pull',
+    title: 'Magnets Push and Pull',
+    topic: 'science',
+    coverEmoji: '🧲',
+    coverColor: '#7c3aed',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 165,
+    readTimeMin: 1,
+    text: `Magnets are amazing objects. They can push and pull other things without even touching them!
+
+Every magnet has two ends called **poles** — a north pole and a south pole. This is where the magnet's pulling force is the strongest.
+
+When you put two magnets together, something interesting happens. If you put the north pole of one magnet near the south pole of another, they **attract** — they pull toward each other. But if you put two north poles together, or two south poles together, they **repel** — they push each other away.
+
+Magnets only attract certain metals. Iron, steel, and nickel are magnetic. Gold, silver, plastic, and wood are NOT attracted to magnets.
+
+You use magnets every day without thinking about it. Refrigerator doors close with magnets. Earbuds use magnets to make sound. Some toys snap together with magnets.
+
+Magnets are an invisible force — but their power is very real!`,
+    vocabulary: [
+      { word: 'attract', definition: 'To pull something toward itself.', example: 'The magnet will attract any steel paperclip it gets close to.' },
+      { word: 'repel', definition: 'To push something away.', example: 'When the same poles face each other, the magnets repel.' },
+      { word: 'poles', definition: 'The two ends of a magnet where its force is strongest.', example: 'Every magnet has a north pole and a south pole.' },
+    ],
+    questions: [
+      { question: 'What happens when two north poles of magnets are placed near each other?', options: ['They attract strongly', 'They repel each other', 'Nothing happens', 'One pole disappears'], correctIndex: 1, explanation: 'Like poles (north-north or south-south) repel each other — they push apart.' },
+      { question: 'Which material is attracted to magnets?', options: ['Wood', 'Plastic', 'Gold', 'Steel'], correctIndex: 3, explanation: 'Steel is a magnetic material. Wood, plastic, and gold are not attracted to magnets.' },
+      { question: 'What does "repel" mean?', options: ['Pull toward something', 'Push something away', 'Stick to a surface', 'Break apart'], correctIndex: 1, explanation: 'Repel means to push away. When like magnet poles face each other, they push each other away.' },
+      {
+        question: 'What would happen if you put the SOUTH POLE of one magnet against the SOUTH POLE of another magnet?',
+        options: ['They would attract very strongly and stick tightly together', 'They would repel and push each other away', 'Nothing would happen because south poles have no magnetic force at all', 'They would attract weakly at first, then suddenly repel each other'],
+        correctIndex: 1,
+      },
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: ['Magnets are very dangerous objects and should be handled only by adults', 'Magnets push and pull objects using invisible forces and are found in many everyday items', 'Only iron and steel are magnetic because they are the two strongest metals on Earth', 'Scientists still do not fully understand why magnets attract and repel each other'],
+        correctIndex: 1,
+      }
+    ]
+  },
+
+  // ── GRADE 3 ──────────────────────────────────────────────────────────────────
+
+  {
+    id: 'solar-system-gr3',
+    title: 'Our Solar System',
+    topic: 'space',
+    coverEmoji: '🪐',
+    coverColor: '#1e3a8a',
+    gradeLevel: '3',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 258,
+    readTimeMin: 2,
+    text: `Our solar system is an enormous neighborhood in space. At its center burns a giant star we call the **Sun**. Eight planets travel around the sun in paths called **orbits**. Everything in the solar system — planets, moons, and asteroids — is held in place by the sun's powerful gravity.
+
+The four planets closest to the sun are made of rock: Mercury, Venus, Earth, and Mars. Mercury is the smallest planet and the closest to the sun. Venus is the hottest planet because its thick clouds trap heat like a blanket. Earth is the only planet known to have liquid water and life. Mars, the red planet, has the tallest volcano in the solar system — Olympus Mons, nearly three times the height of Mount Everest.
+
+Beyond Mars are four giant planets made mostly of gas: Jupiter, Saturn, Uranus, and Neptune. Jupiter is by far the largest planet — more than 1,300 Earths could fit inside it! Saturn is famous for its beautiful rings made of ice and rock. Uranus and Neptune are so far from the sun that they are bitterly cold.
+
+Between Mars and Jupiter lies the **asteroid belt** — a region filled with millions of rocky chunks that never formed into a planet.
+
+Our solar system is about 4.6 billion years old. Scientists continue to study it today, sending spacecraft to other planets to learn more about our cosmic neighborhood.`,
+    vocabulary: [
+      { word: 'orbit', definition: 'The path an object travels as it moves around another object in space.', example: 'Earth completes one full orbit around the sun every 365 days.' },
+      { word: 'gravity', definition: 'The force that pulls objects toward each other.', example: 'The sun\'s gravity holds all eight planets in their orbits.' },
+      { word: 'asteroid belt', definition: 'A region between Mars and Jupiter filled with millions of rocky objects.', example: 'Spacecraft must travel through the asteroid belt to reach the outer planets.' },
+    ],
+    questions: [
+      { question: 'What is at the CENTER of our solar system?', options: ['Earth', 'Jupiter', 'The Sun', 'The Moon'], correctIndex: 2, explanation: 'The Sun is at the center of our solar system, and all eight planets orbit around it.' },
+      { question: 'Which planet is LARGEST in the solar system?', options: ['Saturn', 'Earth', 'Neptune', 'Jupiter'], correctIndex: 3, explanation: 'Jupiter is the largest planet — more than 1,300 Earths could fit inside it.' },
+      { question: 'What does the word "orbit" mean?', options: ['A type of moon crater', 'The path an object travels around another in space', 'The distance between planets', 'A space telescope'], correctIndex: 1, explanation: 'An orbit is the curved path that a planet or moon follows as it travels around another object like the sun.' },
+      { question: 'Why is Venus the HOTTEST planet even though Mercury is closer to the sun?', options: ['Venus is much larger than Mercury', 'Venus has no moons to cool it down', 'Venus has thick clouds that trap heat', 'Venus spins faster than Mercury'], correctIndex: 2, explanation: 'Venus\'s thick clouds trap the sun\'s heat like a blanket, making it even hotter than Mercury despite being farther from the sun.' },
+      {
+        question: 'Why is Venus the HOTTEST planet even though Mercury is closer to the sun?',
+        options: ['Venus is much larger than Mercury and generates its own internal heat', 'Venus spins so slowly that one side stays in direct sunlight for months at a time', 'Venus has thick clouds that trap the sun\'s heat like a blanket around the planet', 'Venus has no moons to orbit it, which means more heat stays concentrated on the planet'],
+        correctIndex: 2,
+        explanation: 'Venus\'s thick cloud layers trap the sun\'s heat through a greenhouse effect, making it even hotter than Mercury despite being farther away — a clear example of how atmosphere affects planetary temperature.'
+      
+      }
+    ]
+  },
+
+  {
+    id: 'american-flag-meaning',
+    title: 'The Stars and Stripes: Our Flag',
+    topic: 'history',
+    coverEmoji: '🇺🇸',
+    coverColor: '#dc2626',
+    gradeLevel: '3',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 245,
+    readTimeMin: 2,
+    text: `The flag of the United States is one of the most recognized symbols in the world. Its red, white, and blue design tells the story of how our nation began and grew.
+
+The American flag has thirteen red and white **stripes**. These stripes represent the thirteen original colonies that declared independence from Britain in 1776. The colonies became the first thirteen states of the new nation.
+
+In the top left corner of the flag is a blue rectangle called the **canton**, which contains fifty white stars. Each star represents one state. When Alaska and Hawaii joined the United States in 1959, two more stars were added, bringing the total to fifty. Every time a new state joins, a new star is added on the Fourth of July following that state's admission.
+
+The colors of the flag have meaning too. Red stands for **valor** and hardiness — the courage and strength of the American people. White stands for purity and innocence. Blue stands for vigilance, perseverance, and justice.
+
+The flag is called many names: the Stars and Stripes, Old Glory, and the Star-Spangled Banner. Citizens show respect for the flag by placing their right hand over their heart during the Pledge of Allegiance.
+
+The American flag has changed 27 times since the first one flew in 1777. Each change marked a moment when the nation grew.`,
+    vocabulary: [
+      { word: 'stripes', definition: 'The long bands of color on the American flag — seven red and six white.', example: 'The thirteen stripes on the flag represent the first thirteen states.' },
+      { word: 'valor', definition: 'Great bravery and courage, especially in difficult situations.', example: 'Soldiers showed great valor when protecting their country.' },
+      { word: 'canton', definition: 'The rectangular area in the top corner of a flag.', example: 'The blue canton of the American flag holds fifty white stars.' },
+    ],
+    questions: [
+      { question: 'What do the thirteen stripes on the flag represent?', options: ['The thirteen presidents', 'The thirteen original colonies', 'The thirteen states that won the Civil War', 'The thirteen years of the American Revolution'], correctIndex: 1, explanation: 'The thirteen stripes represent the thirteen original colonies that declared independence from Britain in 1776 and became the first states.' },
+      { question: 'Why does the flag have fifty stars today?', options: ['One star for each year the US has existed', 'One star for each president', 'One star for each state', 'One star for each letter in "United States"'], correctIndex: 2, explanation: 'Each star on the flag represents one of the fifty states. When a new state joins, a new star is added.' },
+      { question: 'When are new stars added to the flag?', options: ['On New Year\'s Day after a state joins', 'On the Fourth of July after a state joins', 'On the first day of each new year', 'Whenever Congress votes for it'], correctIndex: 1, explanation: 'New stars are added to the flag on the Fourth of July following a new state\'s admission to the union.' },
+      { question: 'What does red stand for on the American flag?', options: ['Purity and innocence', 'Justice and freedom', 'Valor and hardiness', 'Peace and hope'], correctIndex: 2, explanation: 'According to the passage, red stands for valor and hardiness — the courage and strength of the American people.' },
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in this passage?',
+        options: ['To persuade readers that the American flag is the most beautiful flag in the world', 'To inform readers about the history and meaning behind each element of the American flag', 'To compare the American flag to the flags of other countries', 'To argue that the American flag should be updated to include new symbols'],
+        correctIndex: 1,
+        explanation: 'The author describes each part of the flag (stripes, stars, colors) and explains its historical significance — a clear informational purpose aimed at educating readers about the flag\'s meaning.'
+      
+      }
+    ]
+  },
+
+  {
+    id: 'soil-living-earth',
+    title: 'Soil: The Living Ground Beneath Us',
+    topic: 'science',
+    coverEmoji: '🌱',
+    coverColor: '#78350f',
+    gradeLevel: '3',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 252,
+    readTimeMin: 2,
+    text: `Soil might look like plain old dirt, but it is one of the most important substances on Earth. Without healthy soil, most life on land could not exist.
+
+Soil is made of four main ingredients. The first is tiny bits of broken rock and minerals, which form through thousands of years of weathering — wind, rain, and ice slowly breaking rock into smaller and smaller pieces. The second ingredient is **organic matter** — the remains of dead plants and animals that have decomposed, or broken down. This dark, rich material is called **humus**, and it provides nutrients that plants need to grow.
+
+The third ingredient is water. Soil holds water like a sponge, making it available to plant roots. The fourth ingredient is air. Healthy soil has millions of tiny pockets of air that allow roots to breathe.
+
+Soil is also full of life. A single handful of healthy soil contains billions of **microorganisms** — bacteria and fungi too small to see. Earthworms tunnel through the soil, loosening it and mixing in organic matter. All of these tiny creatures keep the soil healthy.
+
+Soil takes a very long time to form — it can take over 1,000 years to make just one inch of topsoil. That is why protecting soil from erosion — the washing or blowing away of topsoil — is so important.
+
+Farmers, gardeners, and scientists all depend on healthy soil. So does every plant, every animal, and every person on Earth.`,
+    vocabulary: [
+      { word: 'organic matter', definition: 'Material that comes from the remains of once-living plants and animals.', example: 'Fallen leaves break down into organic matter that enriches the soil.' },
+      { word: 'humus', definition: 'Dark, nutrient-rich material in soil made from decomposed plants and animals.', example: 'Gardens with lots of humus grow the healthiest vegetables.' },
+      { word: 'microorganisms', definition: 'Living things so small they can only be seen with a microscope.', example: 'Billions of microorganisms in a handful of soil help break down dead matter.' },
+    ],
+    questions: [
+      { question: 'What are the FOUR main ingredients of soil?', options: ['Sand, clay, salt, and leaves', 'Broken rock, organic matter, water, and air', 'Mud, roots, worms, and seeds', 'Minerals, ice, nitrogen, and humus'], correctIndex: 1, explanation: 'The passage lists the four main ingredients as tiny bits of broken rock and minerals, organic matter, water, and air.' },
+      { question: 'What is humus?', options: ['A type of rock found underground', 'Dark, nutrient-rich material made from decomposed plants and animals', 'Water stored in soil pockets', 'A type of microorganism that lives in dirt'], correctIndex: 1, explanation: 'Humus is the dark, rich organic material formed when plants and animals decompose. It provides nutrients plants need to grow.' },
+      { question: 'Why does the author say protecting soil from erosion is important?', options: ['Because soil costs a lot of money to buy', 'Because soil takes over 1,000 years to form just one inch of topsoil', 'Because erosion causes earthquakes', 'Because plants do not like rocky ground'], correctIndex: 1, explanation: 'Soil formation is extremely slow — over 1,000 years per inch. If topsoil erodes, it cannot be quickly replaced.' },
+      { question: 'How do earthworms help the soil?', options: ['They add water to dry soil', 'They produce the minerals plants need', 'They loosen soil and mix in organic matter', 'They protect roots from cold temperatures'], correctIndex: 2, explanation: 'The passage states that earthworms tunnel through the soil, loosening it and mixing in organic matter, which keeps the soil healthy.' },
+      {
+        question: 'Why does the author say protecting soil from EROSION is so important?',
+        options: ['Erosion makes the soil turn gray and lose its color permanently', 'It takes over 1,000 years to form just one inch of topsoil, so lost soil cannot be quickly replaced', 'Eroded soil always flows into rivers and harms fish and other water animals', 'Erosion causes earthquakes by removing the support under the ground'],
+        correctIndex: 1,
+        explanation: 'The passage states soil takes "over 1,000 years to make just one inch of topsoil." Because formation is so slow, any topsoil lost to erosion represents centuries of natural processes that cannot simply be replaced.'
+      
+      }
+    ]
+  },
+
+  {
+    id: 'timucua-people',
+    title: 'The Timucua: Florida\'s First People',
+    topic: 'history',
+    coverEmoji: '🏹',
+    coverColor: '#92400e',
+    gradeLevel: '3',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 261,
+    readTimeMin: 2,
+    text: `Long before Europeans arrived in Florida, Native American peoples had lived on this land for thousands of years. Among the largest and most powerful of these groups were the **Timucua**, who lived across much of northern and central Florida.
+
+The Timucua were not one single tribe but a group of many smaller **chiefdoms** — communities each led by a chief called a *holata*. At the peak of their population, historians believe there may have been as many as 150,000 to 200,000 Timucua people living in what is now Florida and southern Georgia.
+
+The Timucua built their homes from wood, bark, and palm leaves, and organized their villages around a central public square. They were skilled hunters and fishers, using bows and arrows, spears, and nets to catch deer, fish, and shellfish. They also grew crops such as corn, squash, and beans.
+
+The Timucua were known for their elaborate **tattoos**, which covered their bodies and marked their social rank and achievements.
+
+When Spanish explorers arrived in the 1500s, they brought diseases — including smallpox and measles — to which the Timucua had no immunity. Within 200 years of European contact, the Timucua population had almost entirely collapsed. By the early 1700s, raids by other tribes and European settlers had destroyed most of their villages.
+
+Today, no Timucua people survive as a recognized tribe, but archaeologists continue to uncover artifacts that help us understand their rich culture and history.`,
+    vocabulary: [
+      { word: 'chiefdoms', definition: 'Communities governed by a chief, who holds political and military power.', example: 'The region was divided into several chiefdoms, each with its own leader.' },
+      { word: 'immunity', definition: 'The ability of the body to resist or fight off a disease.', example: 'People who had survived measles before had immunity to it.' },
+      { word: 'tattoos', definition: 'Permanent designs made on the skin, used by the Timucua to show rank and identity.', example: 'The chief\'s tattoos showed his high rank in the village.' },
+    ],
+    questions: [
+      { question: 'Who were the Timucua?', options: ['Spanish explorers who settled in Florida', 'A large Native American group who lived in Florida before Europeans arrived', 'A group of farmers who came from Georgia in the 1700s', 'The first European missionaries in Florida'], correctIndex: 1, explanation: 'The Timucua were Native Americans who lived across much of northern and central Florida for thousands of years before European contact.' },
+      { question: 'What MOST caused the collapse of the Timucua population?', options: ['Drought and crop failure', 'Wars between Timucua chiefdoms', 'Diseases brought by European settlers to which the Timucua had no immunity', 'Flooding from the Atlantic Ocean'], correctIndex: 2, explanation: 'The passage states that Spanish explorers brought diseases like smallpox and measles to which the Timucua had no immunity, causing their population to collapse within 200 years.' },
+      { question: 'What did the Timucua\'s tattoos represent?', options: ['Religious symbols', 'Their social rank and achievements', 'The names of their chiefs', 'Decorations for festivals'], correctIndex: 1, explanation: 'The passage says Timucua tattoos covered their bodies and marked their social rank and achievements.' },
+      { question: 'Based on the passage, which word BEST describes the Timucua before European contact?', options: ['Isolated and weak', 'Large and powerful', 'Nomadic and warlike', 'Small and peaceful'], correctIndex: 1, explanation: 'The passage calls the Timucua "among the largest and most powerful" groups in Florida, with a population that may have reached 200,000.' },
+      {
+        question: 'What MOST contributed to the near-total collapse of the Timucua population after European contact?',
+        options: ['Severe droughts that destroyed the crops the Timucua depended on for food', 'Wars fought between the Timucua and other powerful Native American groups', 'European diseases like smallpox to which the Timucua had no immunity, combined with raids', 'Spanish missionaries who convinced most Timucua to leave Florida permanently'],
+        correctIndex: 2,
+        explanation: 'The passage states that diseases brought by Spanish explorers, to which the Timucua had no immunity, combined with raids by other tribes and settlers, caused the population to collapse within 200 years of contact.'
+      
+      }
+    ]
+  },
+
+  {
+    id: 'human-body-systems',
+    title: 'Your Amazing Body Systems',
+    topic: 'science',
+    coverEmoji: '🫀',
+    coverColor: '#dc2626',
+    gradeLevel: '3',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 262,
+    readTimeMin: 2,
+    text: `Your body is like a city that never sleeps. Different systems work together around the clock to keep you alive, healthy, and moving.
+
+The **skeletal system** is your body's framework. You have 206 bones that support your body, protect your organs, and allow you to move. Bones are alive — they grow, repair themselves when broken, and make blood cells in their centers.
+
+Wrapped around your bones are **muscles**. The **muscular system** moves your body. Some muscles, like the ones in your arms and legs, you control on purpose. Others, like your heart and the muscles in your stomach, work automatically without you thinking about them.
+
+Your **circulatory system** moves blood throughout your body. At the center is your heart — a powerful muscle about the size of your fist. Your heart beats about 100,000 times a day, pumping blood through miles of blood vessels. Blood carries oxygen and nutrients to every cell in your body and removes waste.
+
+The **respiratory system** brings oxygen into your body and pushes carbon dioxide out. When you breathe in, your lungs fill with air. Tiny air sacs inside the lungs pass oxygen into the blood and take out carbon dioxide to be breathed out.
+
+All of these systems are connected. When you exercise, your muscles need more oxygen, so your heart beats faster and you breathe more quickly. Your body is always adjusting, always working, always amazing.`,
+    vocabulary: [
+      { word: 'skeletal system', definition: 'The system of bones that gives your body structure and protection.', example: 'The skeletal system includes all 206 bones in the human body.' },
+      { word: 'circulatory system', definition: 'The system that pumps blood through your body using the heart and blood vessels.', example: 'The circulatory system delivers oxygen to every cell.' },
+      { word: 'respiratory system', definition: 'The system that brings oxygen into the body and removes carbon dioxide.', example: 'Your lungs are the main organ of the respiratory system.' },
+    ],
+    questions: [
+      { question: 'What is the MAIN JOB of the skeletal system?', options: ['To pump blood through the body', 'To bring oxygen into the lungs', 'To support the body, protect organs, and allow movement', 'To break down food for energy'], correctIndex: 2, explanation: 'The passage states the skeletal system supports the body, protects organs, and allows movement — these are its main jobs.' },
+      { question: 'Why does your heart beat FASTER when you exercise?', options: ['Your heart is getting larger', 'Your muscles need more oxygen, so blood must move faster', 'Your bones are growing quickly', 'Your lungs stop taking in air'], correctIndex: 1, explanation: 'The passage explains that when you exercise, your muscles need more oxygen, so your heart speeds up to deliver more oxygen-rich blood.' },
+      { question: 'What does the circulatory system carry through your body?', options: ['Air and carbon dioxide only', 'Oxygen, nutrients, and waste products', 'Water and minerals only', 'Food from the stomach to the lungs'], correctIndex: 1, explanation: 'Blood carries oxygen and nutrients to cells and removes waste — that is the job of the circulatory system.' },
+      { question: 'Which body system brings oxygen INTO your body?', options: ['Skeletal system', 'Muscular system', 'Circulatory system', 'Respiratory system'], correctIndex: 3, explanation: 'The respiratory system — including the lungs — brings oxygen into the body and removes carbon dioxide.' },
+      {
+        question: 'What is the AUTHOR\'S PURPOSE in this passage?',
+        options: ['To argue that the skeletal system is the single most important body system', 'To inform readers about the major body systems and explain how they work together', 'To persuade readers to exercise more by explaining how their muscles work', 'To compare the human body to machines and computers'],
+        correctIndex: 1,
+        explanation: 'The author describes four major body systems and concludes by showing how they all work together when you exercise — a clear informational purpose aimed at helping readers understand how the body functions.'
+      
+      }
+    ]
+  },
 
 ];
