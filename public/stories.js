@@ -18872,4 +18872,504 @@ All of these systems are connected. When you exercise, your muscles need more ox
     ]
   },
 
+  // ── LITERARY FICTION & POETRY — Grades 5–8 ──────────────────────────────────
+  // These fill the gap: all prior 5-8 content is informational.
+  // Aligned to FAST ELA literary-text standards: character, theme, figurative
+  // language, author's craft, point of view, comparing texts.
+
+  // ── FICTION | Grade 5-6 | Character & Persistence ──────────────────────────
+  {
+    id: 'the-perfect-wave',
+    title: 'The Perfect Wave',
+    topic: 'fiction',
+    coverEmoji: '🏄',
+    coverColor: '#0891b2',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [5, 6, 7],
+    wordCount: 335,
+    readTimeMin: 2,
+    text: `Marcus stood at the edge of the water, board under his arm, watching the waves. Two weeks ago, he had wiped out trying to catch his first wave — arms flailing, board flying, water rushing over him like a washing machine. His uncle had laughed, not unkindly, and told him everyone eats it on their first try. But Marcus hadn't gotten back in the ocean since.
+
+The Gulf was calm this morning. The waves rolled in like slow, even breathing — nothing like the churning wall of water that had knocked him sideways. His uncle waded out without a word and sat on his board, waiting.
+
+Marcus pressed his toes into the wet sand. The water crept up over his feet, cold at first, then familiar. He thought about what Coach Rivera always said: *The game doesn't care how many times you fall. It only cares about the one time you get up.*
+
+He walked in.
+
+The water wrapped around his legs, his waist, his chest. When a small wave lifted him, he didn't fight it — he let it carry him forward. His uncle turned and nodded.
+
+"Paddle," his uncle said.
+
+Marcus paddled. He felt the wave begin to push. His arms shook as he pressed his palms flat against the board and rose, one foot forward, one foot back. The world tilted.
+
+He fell.
+
+But this time, when the water settled and he surfaced, he didn't feel embarrassed. He felt something else — not quite confidence, not yet, but the outline of it. He grabbed the board, turned toward the next wave, and paddled again.
+
+His uncle said nothing. He didn't need to.
+
+By the time they walked back up the beach, Marcus hadn't caught a single wave. But he had stayed in the water for an hour. That, he decided, was enough — for today.`,
+    vocabulary: [
+      { word: 'churning', definition: 'Moving in a rapid, turbulent, swirling way.', example: 'The churning water made it hard to swim in a straight line.' },
+      { word: 'waded', definition: 'Walked through shallow water or another substance.', example: 'She waded into the pond up to her knees.' },
+      { word: 'familiar', definition: 'Comfortable; like something you have experienced before.', example: 'After a week at the beach, the sound of the waves felt familiar.' },
+      { word: 'confidence', definition: 'A feeling of trust in your own abilities.', example: 'He gained confidence with every practice session.' },
+    ],
+    questions: [
+      {
+        question: 'What prevented Marcus from returning to the ocean for two weeks after his first attempt?',
+        options: ['His uncle would not let him try again until conditions improved', 'The waves were too dangerous and the water was rough all week', 'Fear and embarrassment from wiping out on his first try', 'He decided that surfing was not the right sport for him'],
+        correctIndex: 2,
+        explanation: 'The passage states Marcus "hadn\'t gotten back in the ocean since" his first wipeout, which left him rattled. His return requires overcoming that fear, not any external obstacle.'
+      },
+      {
+        question: 'Read this sentence: "He felt something else — not quite confidence, not yet, but the outline of it." What does this figurative language suggest about Marcus?',
+        options: ['He had finally mastered surfing and felt ready for larger waves', 'He was still too afraid to continue and planned to quit', 'He was beginning to develop courage, even though it was not fully formed yet', 'He was unsure whether he wanted to be a surfer at all'],
+        correctIndex: 2,
+        explanation: 'The phrase "the outline of it" compares his growing courage to a shape still taking form — not fully there yet, but beginning. This shows Marcus is making progress even though he hasn\'t caught a wave.'
+      },
+      {
+        question: 'How does Coach Rivera\'s quote — "The game doesn\'t care how many times you fall. It only cares about the one time you get up." — relate to the story\'s theme?',
+        options: ['It proves that natural talent is more important than hard work', 'It suggests that persistence after failure matters more than immediate success', 'It warns Marcus that only one chance exists to overcome fear', 'It shows that Coach Rivera was the most important person in Marcus\'s life'],
+        correctIndex: 1,
+        explanation: 'The quote captures the story\'s central theme: getting up after falling — returning to the water after a wipeout — is more meaningful than the result. Marcus applies this idea literally.'
+      },
+      {
+        question: 'What role does the uncle play in the story?',
+        options: ['He pushes Marcus into the water against his will', 'He provides detailed instructions and coaching throughout the lesson', 'He offers quiet, patient support without pressure, letting Marcus face his fear on his own terms', 'He criticizes Marcus for waiting two weeks before trying again'],
+        correctIndex: 2,
+        explanation: 'The uncle says only one word — "Paddle" — and otherwise waits silently. He does not pressure or lecture. His presence is supportive without being controlling, which allows Marcus to make his own choice to re-enter the water.'
+      },
+      {
+        question: 'How does Marcus\'s attitude change from the beginning to the end of the story?',
+        options: ['He begins excited to surf and ends frustrated that he never caught a wave', 'He starts paralyzed by fear and ends with a small but meaningful sense of progress', 'He goes from confident to discouraged after falling a second time', 'He starts uncertain and ends fully confident in his surfing ability'],
+        correctIndex: 1,
+        explanation: 'At the start, Marcus watches from the shore, held back by two weeks of fear. By the end, he has gone back in, fallen again, and chosen to stay in the water for an hour — declaring that "enough — for today." His growth is small but real.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 5-6 | Hope & Love Under Difficulty ─────────────────────
+  {
+    id: 'paper-cranes',
+    title: 'Paper Cranes',
+    topic: 'fiction',
+    coverEmoji: '🕊️',
+    coverColor: '#d97706',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [5, 6, 7],
+    wordCount: 375,
+    readTimeMin: 2,
+    text: `The hospital room smelled like antiseptic and chrysanthemums. Lily set her backpack on the chair beside her grandmother's bed and pulled out a square of gold-foil paper.
+
+"You brought more paper." Her grandmother smiled without moving much — her arm was connected to a thin tube that dripped something clear and slow.
+
+"A thousand cranes," Lily said. "That's the deal."
+
+Bà Nội had told her the story when Lily was six: in Japanese legend, a person who folds a thousand paper cranes is granted one wish. Her grandmother had made it sound like a promise.
+
+Lily's fingers creased the paper with practiced ease — valley fold, mountain fold, pinch, pull, until the small gold bird took shape between her hands. She set it beside the others on the windowsill, a row of them catching the afternoon light.
+
+"Number three hundred and twelve," she announced.
+
+"How long have you been working?"
+
+"Forty-one days," Lily said. "I fold seven a day. More on weekends."
+
+Her grandmother was quiet for a moment. Outside the window, clouds moved slowly over the city skyline.
+
+"You know," Bà Nội said, "the cranes may not be magic. I cannot promise you a wish."
+
+Lily shrugged, creasing another square. "I know."
+
+"Then why?"
+
+Lily didn't answer right away. Her hands kept moving — valley fold, mountain fold. She thought about the question. Why? Not because she believed a wish would come true. Not because folding paper made the fear go away. She had folded cranes in math class and at the kitchen table and in the back seat of the car, and she had cried the whole time on some days. The paper hadn't fixed anything.
+
+But every crane was an hour she had spent thinking of her grandmother. Every crease was a kind of love that didn't know what else to do with itself.
+
+"Because it's something I can do," she finally said.
+
+Her grandmother reached over slowly and took her hand.
+
+"Three hundred and twelve," she said softly. "Only six hundred and eighty-eight to go."`,
+    vocabulary: [
+      { word: 'antiseptic', definition: 'A substance that kills germs; the word also describes the clean, sharp smell of hospitals.', example: 'The nurse used an antiseptic solution to clean the wound.' },
+      { word: 'chrysanthemums', definition: 'A type of flower associated in many Asian cultures with respect and care.', example: 'She brought a bouquet of chrysanthemums to honor her teacher.' },
+      { word: 'crease', definition: 'To fold paper sharply, making a firm line or ridge.', example: 'She creased the paper carefully before folding it again.' },
+      { word: 'legend', definition: 'A traditional story passed down through generations, often involving a magical belief.', example: 'According to the legend, the first crane appeared the day the earth was formed.' },
+    ],
+    questions: [
+      {
+        question: 'What is the Japanese legend that motivates Lily\'s project?',
+        options: ['Placing cranes near a window wards off illness', 'A person who folds one thousand paper cranes is granted one wish', 'Gold paper cranes symbolize healing when given as a gift', 'Cranes carry prayers from the living to those who have passed away'],
+        correctIndex: 1,
+        explanation: 'Lily\'s grandmother told her this legend when she was six: fold a thousand cranes and receive one wish. Lily is working through this project, even while knowing the magic may not be real.'
+      },
+      {
+        question: 'When Lily says "Because it\'s something I can do," what does she reveal about her true motivation?',
+        options: ['She is folding cranes to earn a wish and believes completely in their magic', 'She wants to impress her grandmother with her patience and skill', 'She is expressing her love in a concrete way because she feels helpless to do anything else', 'She is trying to avoid thinking about her grandmother\'s illness by staying busy'],
+        correctIndex: 2,
+        explanation: 'Lily admits she knows the cranes aren\'t magic and that they haven\'t fixed anything. But every crane is time spent thinking of her grandmother — "a kind of love that didn\'t know what else to do with itself." The cranes are how she channels care when she cannot control the outcome.'
+      },
+      {
+        question: 'Read this sentence: "Every crease was a kind of love that didn\'t know what else to do with itself." What does this figurative language mean?',
+        options: ['Lily was frustrated with the repetitive work of folding and needed another outlet', 'Lily felt guilty for not visiting her grandmother more often before she became ill', 'Lily\'s love for her grandmother had no other way to be expressed, so it became the act of folding', 'Lily believed the physical precision of the fold was the source of the crane\'s power'],
+        correctIndex: 2,
+        explanation: 'This sentence personifies love as something restless that needs an outlet. The cranes ARE the love — not a symbol for it, but the only form it can currently take when there is nothing else Lily can do.'
+      },
+      {
+        question: 'How does the hospital setting contribute to the mood of the story?',
+        options: ['It creates a frightening, threatening atmosphere that makes Lily want to leave', 'It establishes a cold, clinical environment that reflects Lily\'s anger', 'It creates a quiet, bittersweet atmosphere that holds both love and fear together', 'It shows that Lily is optimistic because hospitals are places where people get better'],
+        correctIndex: 2,
+        explanation: 'The room smells of antiseptic but also chrysanthemums; the grandmother smiles but moves carefully; the clouds move slowly outside. These details create a mood that is gentle and loving but shadowed by illness — bittersweet.'
+      },
+      {
+        question: 'What does the grandmother\'s final response — "Only six hundred and eighty-eight to go" — reveal about her character?',
+        options: ['She is disappointed Lily has made so few cranes in forty-one days', 'She is reminding Lily of the terms of the legend so Lily doesn\'t give up', 'She gently shows that she accepts Lily\'s love and still has her warmth and humor', 'She is correcting Lily\'s arithmetic because the count is wrong'],
+        correctIndex: 2,
+        explanation: 'Rather than questioning the project or expressing worry, the grandmother counts along and gently teases with "only six hundred and eighty-eight to go." It shows she is present, engaged, and — most importantly — still herself. It\'s a tender, humorous acknowledgment of Lily\'s love.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 6-7 | Friendship & New Beginnings ───────────────────────
+  {
+    id: 'the-empty-chair',
+    title: 'The Empty Chair',
+    topic: 'fiction',
+    coverEmoji: '🪑',
+    coverColor: '#7c3aed',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 430,
+    readTimeMin: 2,
+    text: `The summer that Jade moved away, Priya ate lunch alone every day for two weeks.
+
+It wasn't that anyone was unkind. Kids said hi. Her lab partner offered her a seat on the bus. But none of it filled the particular silence that Jade used to fill — the one that started with "Did you know—" and ended somewhere they never expected.
+
+They had been best friends since second grade. Jade's family moved to Oregon for her father's job, and Jade had cried at the airport and promised to text every day. She did, for the first week. Then every few days. Then once on a Sunday. The time zones, she said. The new school. Priya understood, and also felt the understanding like a small cut.
+
+She started eating lunch near the library window because she liked the quiet and also because there was a bird that kept landing on the same branch outside — a painted bunting, she found out later, one of the most colorful birds in North America.
+
+One afternoon, a girl named Simone sat down across from her without asking and said, "Is that a painted bunting?"
+
+Priya looked up. "I think so."
+
+"I've been watching it for three days," Simone said. "I didn't want to scare it off by getting too close, so I've been circling."
+
+There was a pause.
+
+"I'm Simone," she said. "I know I just sat here without asking. I can leave if you want."
+
+"It's fine," Priya said. And then, because it was true: "I've been watching it too."
+
+They ate in silence for a few minutes, both of them watching the bird work its beak at something in the bark.
+
+"Do you know why they're so colorful?" Simone asked.
+
+"No," Priya said, which felt honest and also like a door.
+
+By the end of lunch, she knew that Simone had moved from Georgia two months ago, loved cryptic crosswords, and had spent three days circling the library window before finally sitting down.
+
+That evening, Priya texted Jade: *I made a sort of friend today.* She thought about deleting it, then sent it. Jade replied almost immediately: *:) Tell me everything.*
+
+Making a new friend, Priya realized, wasn't replacing an old one. It was more like learning that you had more room than you thought.`,
+    vocabulary: [
+      { word: 'particular', definition: 'Special; specific; a certain kind that stands apart from others.', example: 'There was a particular smell in the old library that she had always loved.' },
+      { word: 'painted bunting', definition: 'A small bird native to the American South, known for the male\'s vivid blue, red, and green feathers — one of the most colorful birds in North America.', example: 'The painted bunting perched in the oak tree, its red chest bright in the sun.' },
+      { word: 'cryptic', definition: 'Difficult to understand; mysterious; needing to be puzzled out.', example: 'The cryptic message left everyone guessing what it meant.' },
+      { word: 'circling', definition: 'Moving gradually closer to something without going directly at it; approaching indirectly.', example: 'He had been circling the idea of quitting for weeks before finally saying it aloud.' },
+    ],
+    questions: [
+      {
+        question: 'Why does Priya feel lonely even though "no one was unkind" to her?',
+        options: ['Her classmates ignored her completely and refused to speak with her', 'She was new to the school and did not know anyone yet', 'She missed the specific, irreplaceable quality of her friendship with Jade — something acquaintances could not easily replace', 'She was too shy to respond when classmates spoke to her'],
+        correctIndex: 2,
+        explanation: 'The passage makes clear that people were friendly but couldn\'t fill "the particular silence that Jade used to fill." Priya\'s loneliness is about the loss of a unique friendship, not the absence of social interaction.'
+      },
+      {
+        question: 'Read this sentence: "Priya understood, and also felt the understanding like a small cut." What does this figurative language suggest?',
+        options: ['Understanding why Jade stopped texting made Priya feel relieved and at peace', 'Priya was angry at Jade for breaking her promise to text every day', 'Priya accepted the reason for the change intellectually, but it still hurt emotionally', 'Jade\'s excuses were dishonest and Priya knew it'],
+        correctIndex: 2,
+        explanation: 'A "small cut" is a precise metaphor — minor but real pain. Priya isn\'t furious; she genuinely understands. But understanding doesn\'t eliminate the sting of the friendship fading. Both things are true at once.'
+      },
+      {
+        question: 'What allows Priya and Simone to begin talking?',
+        options: ['Simone introduces herself after noticing Priya crying alone at the window', 'Priya invites Simone to sit because she is tired of eating alone', 'A shared, spontaneous interest in the painted bunting gives them a natural starting point', 'Their teacher assigns them to work together on a science project about birds'],
+        correctIndex: 2,
+        explanation: 'Neither girl orchestrates a friendship. It begins because they are independently watching the same bird and Simone asks a genuine question. Their connection grows organically from shared curiosity.'
+      },
+      {
+        question: 'The author writes that Priya\'s "No" felt "honest and also like a door." What does this metaphor suggest?',
+        options: ['Priya\'s honesty was rude and pushed Simone away from the conversation', 'Admitting she didn\'t know something opened the possibility for conversation and connection between them', 'Priya was confused and didn\'t understand Simone\'s question about the bird', 'The word "no" ended the conversation before a real friendship could begin'],
+        correctIndex: 1,
+        explanation: 'A door suggests an opening, not a closing. Priya\'s honest admission — "No, I don\'t know" — invites Simone to share what she knows and starts a real exchange. Pretending to know would have closed that door.'
+      },
+      {
+        question: 'What is the theme of this story?',
+        options: ['Moving away always permanently damages old friendships', 'Making friends requires being outgoing and fearless', 'New friendships grow alongside old ones without replacing them — connection leaves more room, not less', 'Social media is the best way to maintain long-distance friendships'],
+        correctIndex: 2,
+        explanation: 'Priya\'s final realization — "you had more room than you thought" — is the story\'s theme. She texts Jade about Simone rather than hiding it. New friendship isn\'t a betrayal of the old; it is an expansion.'
+      },
+    ],
+  },
+
+  // ── POETRY | Grade 6-8 | Two Perspectives on the Shore ──────────────────────
+  {
+    id: 'two-voices-at-the-shore',
+    title: 'Two Voices at the Shore',
+    topic: 'poetry',
+    coverEmoji: '🌊',
+    coverColor: '#0e7490',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 220,
+    readTimeMin: 2,
+    text: `*The following two poems describe the same meeting between ocean and land — but from two different perspectives. Read both carefully.*
+
+---
+
+**I. The Wave**
+
+I have crossed the whole dark body of the sea.
+I have rolled through storms that turned the water black,
+spent my force on underwater mountains
+and gathered myself back.
+
+I arrive at the shore with everything I have —
+all my power, all my noise —
+and in one bright, shattering second
+I give it all away.
+
+Then I sink back into the sea,
+quieter, smaller, barely there,
+to be pulled together again, to travel,
+to arrive and disappear.
+
+This is not a loss.
+This is what I am.
+
+---
+
+**II. The Shore**
+
+All day I stand and receive
+what the ocean sends me:
+shells, sea glass, the bones of small things,
+sometimes a stranger's forgotten shoe.
+
+The waves come as if they've traveled just for me.
+Maybe they have.
+They strike and foam and flatten out
+across the dark sand of my shoulders.
+
+I keep what stays.
+I send back what must return.
+
+At dusk, the light turns everything gold.
+I hold the day's gifts quietly —
+worn smooth by their long journey here.`,
+    vocabulary: [
+      { word: 'shattering', definition: 'Breaking into many pieces; here used figuratively to describe a powerful, sudden release of energy.', example: 'The wave made a shattering crash when it hit the seawall.' },
+      { word: 'personification', definition: 'A literary device in which human qualities, actions, or feelings are given to non-human things.', example: 'The poem uses personification when it says the shore has "shoulders."' },
+      { word: 'perspective', definition: 'A particular point of view from which something is described or experienced.', example: 'The two poems give two different perspectives on the same event.' },
+      { word: 'impermanence', definition: 'The quality of not lasting forever; the state of constant change.', example: 'The sandcastle reminded her of impermanence — beautiful, but gone by evening.' },
+    ],
+    questions: [
+      {
+        question: 'In Poem I, the Wave says "This is not a loss. / This is what I am." What does this reveal about the Wave\'s attitude?',
+        options: ['The Wave is sad that it loses all its power every time it reaches the shore', 'The Wave accepts the cycle of release and return as central to its identity — not as tragedy, but as purpose', 'The Wave believes it is stronger than the Shore and will eventually overwhelm it', 'The Wave is apologizing for any damage it causes each time it crashes'],
+        correctIndex: 1,
+        explanation: 'The Wave acknowledges it gives everything away and becomes "quieter, smaller, barely there" — but insists this is its nature, not a loss. The repetition of "this is" creates a tone of self-acceptance.'
+      },
+      {
+        question: 'In Poem II, the Shore says "I keep what stays. / I send back what must return." What theme does this reflect?',
+        options: ['The Shore is selfish and hoards everything the ocean brings', 'The Shore is rejecting most of what the ocean sends', 'The Shore accepts impermanence — holding what can stay while releasing what must go', 'The Shore and ocean are locked in conflict over who controls the beach'],
+        correctIndex: 2,
+        explanation: 'These two short lines capture a philosophy of acceptance: the Shore keeps what belongs and releases what doesn\'t — without struggle or grief. This is the Shore\'s form of wisdom.'
+      },
+      {
+        question: 'Both poems describe the same physical meeting between wave and shore, but from different viewpoints. Which statement BEST describes a key difference between the two speakers?',
+        options: ['The Wave describes the meeting as violent, while the Shore sees it as peaceful', 'The Wave focuses on its own long journey and the act of release, while the Shore focuses on what is received and remains', 'The Wave is joyful about arriving, while the Shore grieves that the wave must leave', 'The Wave describes the Shore as beautiful, while the Shore finds the Wave dangerous'],
+        correctIndex: 1,
+        explanation: 'Poem I is about the journey and the giving: crossing the sea, arriving, releasing everything. Poem II is about receiving: the shells, sea glass, and gifts "worn smooth by their long journey here." Same event, opposite perspectives.'
+      },
+      {
+        question: 'In Poem II, the line "They strike and foam and flatten out / across the dark sand of my shoulders" uses which literary device?',
+        options: ['Simile, because it compares the Shore to a person using "like" or "as"', 'Onomatopoeia, because the word "foam" sounds like the ocean', 'Personification, because the Shore is given human body parts — specifically shoulders', 'Hyperbole, because waves cannot literally flatten against shoulders'],
+        correctIndex: 2,
+        explanation: '"Shoulders" is a human body part. Giving the Shore a human physical feature is personification — it creates an image of the Shore as a patient, receiving figure standing with open arms (or shoulders).'
+      },
+      {
+        question: 'What theme do BOTH poems share?',
+        options: ['The ocean is more powerful than the land and will eventually win', 'Loss is always sad and should be resisted as long as possible', 'There is meaning and purpose in cycles of giving, releasing, and returning — the pattern itself has value', 'Nature is unpredictable and cannot be truly understood by human beings'],
+        correctIndex: 2,
+        explanation: 'The Wave releases everything and finds that meaningful. The Shore receives, keeps what stays, and releases what must return. Both find dignity in the cycle rather than in permanence. The pattern — not the object — is what matters.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 7-8 | Courage & Historical Witness ──────────────────────
+  {
+    id: 'the-photograph',
+    title: 'The Photograph',
+    topic: 'fiction',
+    coverEmoji: '📷',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 495,
+    readTimeMin: 3,
+    text: `My great-grandmother is twenty-three years old in the photograph, and she is furious.
+
+That's the only word for it. She stands at the edge of a crowd on a Florida street — Tallahassee, my mother says, in 1960 — with a hand-lettered sign held at shoulder height. Her jaw is set. Her eyes look directly at whoever is behind that camera, and they are daring them to look away first.
+
+I've known about the lunch counter sit-ins we read about in school, the freedom riders, the marches. But knowing about something and seeing your great-grandmother in the middle of it are two entirely different things. I've been staring at this photograph for a long time.
+
+Her name was Dorothy. She was a first-year nursing student, twenty-three years old, four years away from the country she was born in, seven months pregnant with the child who would become my grandmother. She knew, according to the letter tucked behind the photograph, that she might lose her scholarship if she was identified in a protest. She went anyway.
+
+"Why?" I asked my mother.
+
+My mother didn't answer right away. She picked up the photograph and looked at it the way you look at something you've seen a hundred times but are still trying to understand.
+
+"She told me once," my mother said finally, "that she was afraid. But she said that being afraid and doing it anyway — that's the whole point. Anyone can act when there's nothing to lose."
+
+I thought about that. I thought about the things I'd stayed quiet about this year: the time someone in my class made a comment and I let it pass because the moment felt too complicated, the time I saw something on the bus and pretended I hadn't. The calculations that ran through my head — is this worth it, will anyone care, will it make things worse?
+
+Dorothy had more to lose than I ever have. A scholarship. A future in a country that was still deciding whether to include her. A child on the way.
+
+And she stood on that sidewalk with her sign and her furious, direct eyes, and she looked at the camera like she was asking it a question.
+
+I set the photograph on my desk where I can see it. I don't know what I'll do differently. I can't promise I won't make the same calculations, won't find reasons to stay quiet. But I think about Dorothy standing there at twenty-three with everything at stake, and I think — at minimum — I should ask myself the same question.
+
+She spent the rest of her life as a nurse, caring for strangers. She never talked much about the photograph.
+
+But she kept it.`,
+    vocabulary: [
+      { word: 'sit-in', definition: 'A nonviolent protest in which people occupy a space and refuse to leave until their demands are addressed; used widely during the civil rights movement.', example: 'The students staged a sit-in at the lunch counter to protest segregation.' },
+      { word: 'scholarship', definition: 'Financial support given to a student, often conditional on meeting certain requirements — which could be revoked for rule violations.', example: 'She worked hard to maintain her scholarship so she could afford college.' },
+      { word: 'calculation', definition: 'A careful weighing of risks, costs, and benefits before deciding whether to act.', example: 'He made a quick calculation and decided that speaking up was worth the risk.' },
+      { word: 'stake', definition: 'Something of value that is at risk; what could be lost if a decision goes wrong.', example: 'With a scholarship, a job, and her family\'s future at stake, she chose to act anyway.' },
+    ],
+    questions: [
+      {
+        question: 'What is the narrator\'s INITIAL reaction to seeing the photograph of Dorothy?',
+        options: ['Immediate pride and certainty about what she must do differently', 'Confusion because she does not recognize her great-grandmother\'s face', 'A shift from abstract knowledge of history to a vivid, personal connection to it', 'Fear that her great-grandmother had done something dangerous and illegal'],
+        correctIndex: 2,
+        explanation: 'The narrator says she already knew about sit-ins and marches from school — but "seeing your great-grandmother in the middle of it" is different. The photograph transforms history from information into something personal and present.'
+      },
+      {
+        question: 'Dorothy\'s mother said that "being afraid and doing it anyway — that\'s the whole point." How does this directly relate to the narrator\'s own experiences?',
+        options: ['The narrator had faced the same physical danger as Dorothy and chose to act bravely', 'The narrator realizes she had made choices to stay quiet when action may have been possible', 'The narrator disagrees with Dorothy\'s philosophy and believes caution is wiser', 'The narrator has always been bold and has never needed to weigh the cost of speaking up'],
+        correctIndex: 1,
+        explanation: 'Immediately after hearing this, the narrator lists specific moments she stayed silent — the comment in class, the bus incident. She ran the same "calculations" Dorothy faced, but Dorothy had more to lose. The narrator is confronted with the contrast.'
+      },
+      {
+        question: 'The narrator describes Dorothy\'s eyes as "daring them to look away first." What does this characterization reveal about Dorothy?',
+        options: ['She was personally angry at the photographer for being at the protest', 'She was frightened and was trying to appear brave for the people around her', 'She was refusing to hide her defiance and was directly challenging those who might dismiss her', 'She recognized the photographer and was surprised to see him there'],
+        correctIndex: 2,
+        explanation: '"Daring them to look away first" conveys a refusal to be invisible or ignored. Dorothy faces the camera with challenge, not apology — claiming her right to be seen, even if that attention came with risk.'
+      },
+      {
+        question: 'Why does the narrator place the photograph on her desk at the end of the story?',
+        options: ['She wants to make sure she returns it to her mother safely', 'She plans to use it as a source for a history class project', 'It serves as a daily reminder that raises the question of whether she will act with courage when the moment comes', 'She is proud of her family\'s history and wants her friends to see it'],
+        correctIndex: 2,
+        explanation: 'The narrator does not promise to act differently. But the photograph is now visible — a question Dorothy seems to ask every time the narrator looks at it. Placing it on her desk keeps that question in front of her.'
+      },
+      {
+        question: 'What is the CENTRAL THEME of this story?',
+        options: ['Photographs are important tools for preserving civil rights history', 'Young people today face more difficult choices than previous generations did', 'Courage means acting when there is something real to lose — and history asks whether we would do the same', 'The civil rights movement succeeded because ordinary people chose sacrifice over safety'],
+        correctIndex: 2,
+        explanation: 'The story uses Dorothy\'s photograph not to celebrate a historical hero but to pose a question to the narrator — and to the reader. Dorothy acted despite having more at stake. The theme is the nature of courage and the honest question of whether we would do the same.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 7-8 | Family & Unspoken Connection ──────────────────────
+  {
+    id: 'something-left-unsaid',
+    title: 'Something Left Unsaid',
+    topic: 'fiction',
+    coverEmoji: '🎣',
+    coverColor: '#0f766e',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 525,
+    readTimeMin: 3,
+    text: `My father and I used to talk about everything. Now we talk about fishing.
+
+It started after Mom moved out and we were suddenly two people in a three-person house, and neither of us knew what to say about any of it. He started driving us to the pier on Saturday mornings. I started going without being asked.
+
+We don't catch much. Bass sometimes, small ones, throw-back size. Mostly we watch the water.
+
+He has a way of baiting the hook without looking at it, which I've tried to copy but can't quite manage — I always end up watching my hands while he stares out at the bay like he's doing math in his head. The water here is the color of dark tea in the early morning, and by ten o'clock it turns something close to green.
+
+There's a man who fishes a few spots down from us every Saturday. His name, I found out by accident, is Mr. Avery. He caught a twelve-pound redfish last spring and has been trying to repeat it ever since. He told us this the morning we first arrived at the pier, like it was an ongoing project we were welcome to know about.
+
+My father likes Mr. Avery. He laughs at things Mr. Avery says in a way I haven't heard him laugh in months — not loud, but genuine, the kind that starts in the chest.
+
+I've been thinking about that laugh.
+
+I know things are hard for him. I know he works late on Tuesdays now and that the coffee maker has been making a sound it shouldn't and that he quietly got rid of the second laundry basket. I know because I pay attention to different things than I used to.
+
+Last Saturday, while Mr. Avery was telling a story about a fishing trip in the Keys, my father glanced over at me in the middle of a sentence. Just for a second. I think he was checking if I was listening.
+
+I was.
+
+I don't know what to do with any of this — the pier, the silences, the way we've moved around the house for a year like two people afraid to take up too much space. I don't know how to say *I think you're lonely* or *I am too* or *I'm glad we do this on Saturdays.*
+
+So I don't say any of it.
+
+But when he hands me the second rod and says, "Try the south side today," there's something in the way he says it — careful, like he means more than fishing — and I take the rod and move to the south side and drop my line in.
+
+We stay until noon, the way we always do. On the drive home, he says he'll make sandwiches. I say that sounds good.
+
+It's not everything. But it's something we can keep doing while we figure the rest out.`,
+    vocabulary: [
+      { word: 'genuine', definition: 'Sincere and real; not performed or faked.', example: 'Her smile was genuine — it reached her eyes.' },
+      { word: 'pier', definition: 'A platform built over water, extending from the shore; used for fishing, docking boats, or walking.', example: 'They sat at the end of the pier and watched the pelicans dive.' },
+      { word: 'redfish', definition: 'A type of saltwater fish common along Florida\'s coast, also called red drum; prized by anglers.', example: 'The redfish put up a strong fight before he finally reeled it in.' },
+      { word: 'glanced', definition: 'Looked briefly and quickly at something or someone.', example: 'She glanced at the clock and realized she was late.' },
+    ],
+    questions: [
+      {
+        question: 'How has the relationship between the narrator and his father changed since the mother moved out?',
+        options: ['They argue constantly and cannot agree on how to handle the situation', 'They have grown closer and now talk more openly than before', 'They have lost easy verbal communication and now connect primarily through shared, quiet activity', 'The narrator resents his father and avoids spending time with him when possible'],
+        correctIndex: 2,
+        explanation: 'The first line tells us they used to talk about "everything" — now they talk about fishing. The relationship didn\'t break; it shifted. Shared presence at the pier replaces conversation as the way they maintain their bond.'
+      },
+      {
+        question: 'What does the narrator\'s attention to small details — the "second laundry basket," "works late on Tuesdays," "the coffee maker" — reveal about his character?',
+        options: ['He is angry and is building a case to use against his father later', 'He is bored at home and notices changes because he has nothing else to do', 'He is emotionally observant and expresses his care for his father through noticing what his father does not say', 'He is worried about their finances and is tracking practical changes in the household'],
+        correctIndex: 2,
+        explanation: 'These details are emotional, not practical. The second laundry basket gone. Working late on Tuesdays. The narrator notices signs of his father\'s difficulty without being told — a form of attentiveness that substitutes for the direct conversation they cannot have.'
+      },
+      {
+        question: 'The narrator wants to say "I think you\'re lonely" and "I am too" but cannot bring himself to speak. What does this internal conflict reveal?',
+        options: ['The narrator and his father have never been able to communicate directly', 'The narrator is resentful and is deliberately hiding his feelings as punishment', 'Both feel deeply but lack a way to express it directly — their connection exists in the unspoken space between them', 'The narrator believes his father is not interested in his emotional experience'],
+        correctIndex: 2,
+        explanation: 'The narrator lists exactly what he WANTS to say — showing he is self-aware. But the words don\'t come. This isn\'t a failure of understanding; it\'s the gap between feeling and language that both characters seem to share.'
+      },
+      {
+        question: 'What is the significance of the father\'s brief glance at the narrator during Mr. Avery\'s story?',
+        options: ['The father is signaling that he wants to leave the pier early that morning', 'The father is checking whether the narrator is bored or impatient with Mr. Avery', 'The father is sharing a wordless moment of connection — checking in, wanting to include his son in something that made him happy', 'The father is surprised that the narrator is paying attention and wants to make sure'],
+        correctIndex: 2,
+        explanation: 'The glance happens when the father is laughing — genuinely, from the chest, for the first time in months. He looks to see if his son is there too. It\'s an invitation to share the moment without words.'
+      },
+      {
+        question: 'The story ends: "It\'s not everything. But it\'s something we can keep doing while we figure the rest out." What does this suggest about the narrator\'s understanding?',
+        options: ['He has given up hope of ever talking honestly with his father again', 'He plans to stop fishing and try to speak to his father more directly very soon', 'He accepts that shared activity can hold a relationship together while deeper healing takes time', 'He believes their relationship will permanently stay at the level of fishing trips and nothing more'],
+        correctIndex: 2,
+        explanation: '"Not everything" acknowledges the gap. "Something we can keep doing" acknowledges the value of what they do have. The narrator is not in denial; he is patient. The fishing is scaffolding — it holds things up while the harder work happens slowly.'
+      },
+    ],
+  },
+
 ];

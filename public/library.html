@@ -115,8 +115,19 @@
       box-shadow: 0 2px 12px rgba(124,58,237,0.08);
       overflow: hidden; display: flex; flex-direction: column;
       transition: transform 0.15s, box-shadow 0.15s; cursor: pointer;
+      position: relative;
     }
     .story-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,58,237,0.15); }
+    .card-fav-btn {
+      position: absolute; top: 8px; right: 8px;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+      font-size: 0.95rem; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15); transition: transform 0.15s, background 0.15s;
+      z-index: 2;
+    }
+    .card-fav-btn:hover { transform: scale(1.2); background: #fff; }
+    .card-fav-btn.saved { background: #fff0f0; }
     .card-cover {
       height: 110px; display: flex; align-items: center;
       justify-content: center; font-size: 3.2rem;
@@ -138,6 +149,8 @@
     .topic-biography      { background: var(--pink-soft);   color: #831843; }
     .topic-adventure      { background: var(--orange-soft); color: #92400e; }
     .topic-history        { background: #fce7f3;            color: #831843; }
+    .topic-fiction        { background: #fef9c3;            color: #713f12; }
+    .topic-poetry         { background: #ede9fe;            color: #5b21b6; }
 
     .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 5px; line-height: 1.3; }
     .card-meta  { font-size: 0.82rem; color: var(--muted); margin-bottom: auto; }
@@ -237,10 +250,10 @@
     <!-- Filter tabs -->
     <div class="filter-tabs">
       <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">📚 All Stories</button>
-      <button class="filter-tab" id="tab-fav" onclick="setFilter('fav')">❤️ Favorites</button>
+      <button class="filter-tab" id="tab-fav" onclick="setFilter('fav')">❤️ Saved</button>
     </div>
     <div class="story-grid" id="grid-favorites" style="display:none;"></div>
-    <div id="fav-empty">No favorites yet — tap 🤍 while reading a story to save it here.</div>
+    <div id="fav-empty">No saved stories yet — tap 🤍 on any story card to bookmark it here.</div>
 
     <!-- 🌟 Early Stories Section -->
     <div class="section-header" id="section-header-early" style="display:none;">
@@ -275,7 +288,7 @@
     <div class="story-grid" id="grid-advanced"></div>
   </div>
 
-  <script src="stories.js?v=20260603"></script>
+  <script src="stories.js?v=20260605"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -306,6 +319,8 @@
     document.getElementById('nav-name').textContent = profile.name;
 
     let progressMap = {};
+    const FAV_KEY = 'favorites_' + (profile ? profile.readerId : 'anon');
+    let favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
     let totalStars  = 0;
 
     // Topic → display label
@@ -320,6 +335,8 @@
       'biography':      '👤 Biography',
       'adventure':      '🗺️ Adventure',
       'history':        '📜 History',
+      'fiction':        '📖 Fiction',
+      'poetry':         '🎭 Poetry',
     };
 
     // Section definitions — ordered as they appear on page
@@ -364,7 +381,9 @@
           <a href="read.html?story=${story.id}" class="btn-card ${btnCls}">Read →</a>
         </div>`;
       }
+      const isSaved = favIds.includes(story.id);
       return `<div class="story-card${doneClass}" onclick="window.location='read.html?story=${story.id}'">
+        <button class="card-fav-btn${isSaved ? ' saved' : ''}" data-id="${story.id}" onclick="event.stopPropagation();toggleFav('${story.id}',this)" title="${isSaved ? 'Remove bookmark' : 'Bookmark this story'}">${isSaved ? '❤️' : '🤍'}</button>
         <div class="card-cover" style="background:${story.coverColor}20;">${story.coverEmoji}</div>
         <div class="card-body">
           <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''} <span style="font-size:0.68rem;font-weight:800;padding:2px 7px;border-radius:99px;vertical-align:middle;background:${getDifficultyColor(story)}20;color:${getDifficultyColor(story)};">${getDifficultyLabel(story)}</span>
@@ -424,11 +443,13 @@
         if (!header || !grid) return;
 
         // Filter by level AND grade
-        const stories = STORIES.filter(s =>
-          s.level === sec.level &&
-          Array.isArray(s.grades) &&
-          s.grades.includes(grade)
-        );
+        // 'challenge' is treated as part of the 'advanced' section
+        const stories = STORIES.filter(s => {
+          const levelOk = sec.level === 'advanced'
+            ? (s.level === 'advanced' || s.level === 'challenge')
+            : s.level === sec.level;
+          return levelOk && Array.isArray(s.grades) && s.grades.includes(grade);
+        });
 
         if (stories.length === 0) {
           header.style.display = 'none';
@@ -605,20 +626,65 @@
       if (firstSection) firstSection.before(wrap);
     }
 
-    // ─── Favorites filter ──────────────────────────────────────────────────────
-    const FAV_KEY = 'favorites_' + profile.readerId;
+    // ─── Favorites / Bookmarks ────────────────────────────────────────────────
     const ALL_SECTIONS = ['early','emerging','grade4','advanced'];
 
+    // Sync bookmarks FROM Firestore on page load
+    db.collection('StudentStats').doc(profile.readerId).get().then(doc => {
+      if (doc.exists && Array.isArray(doc.data().bookmarks)) {
+        const fsBookmarks = doc.data().bookmarks;
+        // Merge: union of localStorage + Firestore
+        const merged = [...new Set([...favIds, ...fsBookmarks])];
+        if (merged.length !== favIds.length) {
+          favIds = merged;
+          localStorage.setItem(FAV_KEY, JSON.stringify(favIds));
+          updateFavTab();
+          renderFavorites();
+          renderGrids(); // refresh hearts on all cards
+        }
+      }
+    }).catch(() => {});
+
+    function saveFavs() {
+      localStorage.setItem(FAV_KEY, JSON.stringify(favIds));
+      // Sync to Firestore for cross-device persistence
+      db.collection('StudentStats').doc(profile.readerId)
+        .set({ bookmarks: favIds }, { merge: true })
+        .catch(() => {});
+      updateFavTab();
+    }
+
+    function toggleFav(storyId, btn) {
+      const idx = favIds.indexOf(storyId);
+      if (idx >= 0) {
+        favIds.splice(idx, 1);
+        btn.textContent = '🤍'; btn.classList.remove('saved'); btn.title = 'Bookmark this story';
+      } else {
+        favIds.push(storyId);
+        btn.textContent = '❤️'; btn.classList.add('saved'); btn.title = 'Remove bookmark';
+        btn.style.transform = 'scale(1.4)';
+        setTimeout(() => { btn.style.transform = ''; }, 200);
+      }
+      saveFavs();
+      // If Favorites tab is active, re-render it
+      if (document.getElementById('tab-fav').classList.contains('active')) renderFavorites();
+    }
+
+    function updateFavTab() {
+      const count = favIds.length;
+      document.getElementById('tab-fav').textContent = count > 0 ? `❤️ Saved (${count})` : '❤️ Saved';
+    }
+
     function renderFavorites() {
-      const favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
       const favStories = STORIES.filter(s => favIds.includes(s.id));
       const grid = document.getElementById('grid-favorites');
       const empty = document.getElementById('fav-empty');
       grid.innerHTML = favStories.map(s => buildCard(s, 'btn-read')).join('');
       empty.style.display = favStories.length === 0 && document.getElementById('tab-fav').classList.contains('active') ? 'block' : 'none';
-      // Re-attach stop-propagation
       grid.querySelectorAll('.btn-card').forEach(btn => btn.addEventListener('click', e => e.stopPropagation()));
     }
+
+    updateFavTab(); // set initial count on the tab
 
     function setFilter(mode) {
       const showFav = mode === 'fav';
@@ -634,9 +700,7 @@
       });
       if (showFav) {
         renderFavorites();
-        const favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
-        const favStories = STORIES.filter(s => favIds.includes(s.id));
-        empty.style.display = favStories.length === 0 ? 'block' : 'none';
+        empty.style.display = favIds.length === 0 ? 'block' : 'none';
       } else {
         empty.style.display = 'none';
       }
