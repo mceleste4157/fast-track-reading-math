@@ -207,7 +207,7 @@
   </div>
 </div>
 
-<script src="stories.js?v=20260603"></script>
+<script src="stories.js?v=20260607"></script>
 <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
 <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
 <script src="/__/firebase/init.js"></script>
@@ -270,6 +270,28 @@
     document.getElementById('results-score').textContent = correct + ' / ' + total;
     document.getElementById('results-msg').textContent = pct === 100 ? 'Perfect! You know these words cold.' : pct >= 80 ? 'Great work!' : pct >= 60 ? 'Good effort — keep playing to improve!' : 'Keep reading to build your vocabulary!';
     document.getElementById('results-area').classList.add('active');
+
+    // Award XP based on score
+    const xpEarned = pct === 100 ? 20 : pct >= 80 ? 15 : pct >= 60 ? 10 : 5;
+    try {
+      db.collection('TriviaScores').add({
+        readerId:       profile.readerId,
+        playerName:     profile.name || '',
+        type:           'vocab',
+        correctAnswers: correct,
+        totalQuestions: total,
+        bonusStars:     pct === 100 ? 3 : pct >= 80 ? 2 : 1,
+        points:         correct * 10,
+        xpEarned,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      // Show XP toast
+      const toast = document.createElement('div');
+      toast.textContent = '+' + xpEarned + ' XP earned!';
+      toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:10px 22px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    } catch(e) { /* non-critical */ }
   }
 
   // ── MATCHING GAME ──────────────────────────────────────────────────────────

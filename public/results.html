@@ -325,7 +325,7 @@
     </div>
   </div>
 
-  <script src="stories.js?v=20260603"></script>
+  <script src="stories.js?v=20260607"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -343,6 +343,9 @@
       { id: 'streak_7',      emoji: '⚡', name: 'Week Warrior',   desc: 'Read 7 days in a row' },
       { id: 'streak_14',     emoji: '🌙', name: 'Two-Week Champ', desc: 'Read 14 days in a row' },
       { id: 'xp_500',        emoji: '💎', name: 'XP Hunter',      desc: 'Earned 500 total XP' },
+      { id: 'typing_first',  emoji: '⌨️', name: 'Keyboarder',     desc: 'First typing lesson done' },
+      { id: 'typing_5',      emoji: '🖥️', name: 'Typing Pro',     desc: 'Completed 5 typing lessons' },
+      { id: 'typing_10',     emoji: '⚡', name: 'Speed Demon',    desc: 'Completed 10 typing lessons' },
     ];
     function checkNewBadges(stats, currentBadges) {
       const earned = new Set(currentBadges);
@@ -414,12 +417,14 @@
       for (let i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i].minXp) idx = i; }
       return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null, levelIdx: idx };
     }
-    function calcRewards(score, earnedXpOverride) {
-      const stars = score;
+    function calcRewards(score, total, earnedXpOverride) {
+      // Scale stars to always be out of 5 regardless of question count
+      // e.g. 3/3 → 5 stars, 2/3 → 3 stars, 5/5 → 5 stars (unchanged)
+      const stars = total ? Math.round((score / total) * 5) : score;
       // Use pre-calculated XP from anti-cheat quiz if available
       const xp = (earnedXpOverride != null)
         ? earnedXpOverride
-        : (score * 20 + (score === 5 ? 25 : 0));
+        : (stars * 20 + (stars === 5 ? 25 : 0));
       return { stars, xp };
     }
 
@@ -432,7 +437,7 @@
     const story = STORIES.find(s => s.id === result.storyId);
     if (!story) { window.location.href = 'library.html'; }
 
-    const { stars, xp } = calcRewards(result.score, result.earnedXP);
+    const { stars, xp } = calcRewards(result.score, result.total, result.earnedXP);
     document.getElementById('try-again-btn').href = 'quiz.html?story=' + result.storyId;
 
     // ── Mark activity (clears inactivity decay) ──────────────────────────────
@@ -449,8 +454,8 @@
     document.getElementById('stars-row').textContent = starsHtml;
     document.getElementById('score-label').textContent = result.score + ' out of ' + result.total + ' correct';
 
-    // Perfect — requires all 5 correct AND all first-try (if anti-cheat data present)
-    const isPerfect = result.score === 5 &&
+    // Perfect — all questions correct AND all first-try (if anti-cheat data present)
+    const isPerfect = result.score === result.total &&
       (result.perfectFirstTry !== false); // legacy results without perfectFirstTry still celebrate
     if (isPerfect) {
       document.getElementById('perfect-banner').style.display = 'block';
@@ -589,6 +594,7 @@
         lastReadDate: todayStr, weekStartDate: weekStart,
         storiesThisWeek, mathThisWeek, freezeTokens, lastWeekStories, lastWeekMath,
         badges: [...currentBadges, ...newBadgeIds],
+        inactivityDecay: 0, decayCheckedDate: todayStr,
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
       }, { merge: true }).catch(() => {});
 
@@ -751,7 +757,7 @@
         : 'What is the most interesting fact or idea from this passage? Explain why it stood out to you.';
       document.getElementById('writing-prompt-text').textContent = prompt;
 
-      document.getElementById('writing-textarea') && document.getElementById('writing-response').addEventListener('focus', function() {
+      document.getElementById('writing-response').addEventListener('focus', function() {
         this.style.borderColor = 'var(--purple)';
       });
       document.getElementById('writing-response').addEventListener('blur', function() {

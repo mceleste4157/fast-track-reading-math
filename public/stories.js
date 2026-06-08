@@ -19833,4 +19833,246 @@ It's not everything. But it's something we can keep doing while we figure the re
     ],
   },
 
+  // ── NEW PAIRED PASSAGES: GRADES 5-8 ────────────────────────────────────────
+
+  {
+    id: 'everglades-paired',
+    title: 'Two Views of the Everglades',
+    topic: 'science',
+    coverEmoji: '🌿',
+    coverColor: '#059669',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 595,
+    readTimeMin: 4,
+    paired: true,
+    text: `**PAIRED PASSAGES** — Read both passages, then answer the questions.
+
+---
+
+**Passage 1 — Literary (First Person)**
+*"River of Grass"*
+
+My grandfather says the Everglades isn't really a swamp. He says it's a river — the world's widest, slowest river — and that most people walk right past it without ever knowing.
+
+We were on an airboat before sunrise, skimming across a glassy surface that reflected a sky turning from gray to pink to orange. The saw grass stretched in every direction, taller than me, bending in the wind we made. I could see why someone named it that. The edges would cut you if you weren't paying attention.
+
+"Watch," he said.
+
+A great blue heron stood at the bank, so still it looked painted. Then — quick as thought — its neck stabbed down into the water. When it lifted its head, a small silver fish was gone.
+
+I asked him how deep the water was. He told me to put my hand in and feel the bottom.
+
+It was only knee-deep. Warm, tea-colored, soft with a mat of wet **sediment** and roots. And alive — when I pulled my hand back, something small darted away.
+
+"Everything that lives in South Florida starts here," Grandpa said. "The alligators, the egrets, the fish, the birds that fly all the way up to Canada in summer. This is the source."
+
+But he got quiet after that, the way adults do when there's something they don't want to explain but know they have to.
+
+"It's smaller than it used to be," he finally said. "A lot smaller. We built farms and roads over most of it. Brought in animals that didn't belong. And the water doesn't flow the way it should anymore."
+
+The heron took off then, its great gray wings pulling it upward — slow and **deliberate** and enormous.
+
+I watched it go and thought about what it meant to need a place that was disappearing. The heron didn't know — couldn't know. And that we did know, and that was a different kind of thing entirely.
+
+---
+
+**Passage 2 — Informational**
+*"America's Everglades: Under Pressure"*
+
+The Florida Everglades is one of the most unique **ecosystems** on Earth — a vast, slow-moving river of shallow water that flows southward from Lake Okeechobee to Florida Bay. Once covering nearly four million acres, it is home to hundreds of species found nowhere else on the planet, including the endangered Florida panther and the wood stork.
+
+Today, less than half of the original Everglades remains. The rest has been drained, developed, or converted to farmland over the past century. Agricultural runoff — especially phosphorus from sugar cane fields — has changed the chemistry of the water, causing **invasive** plants to crowd out native saw grass. These changes reduce habitat for wildlife and disrupt the food web the whole ecosystem depends on.
+
+One of the most serious threats comes from Burmese pythons. These large snakes, originally released or escaped from captivity, have thrived in the warm, prey-rich Everglades. Researchers estimate that 90% of small mammal populations — including raccoons, opossums, and rabbits — have collapsed in areas where pythons are established. When a species disappears from an ecosystem, its absence sends ripple effects through the entire food web.
+
+Water flow is another challenge. A century of drainage canals and flood-control systems has disrupted the natural rhythm of wet and dry seasons that native species depend on. Fish, wading birds, and alligators time their breeding cycles to seasonal water levels — when that rhythm breaks, populations decline.
+
+Since 2000, the U.S. government has committed billions of dollars to the Comprehensive Everglades **Restoration** Plan — the largest ecosystem restoration project in American history. Scientists report early progress: some water flow has improved, and certain bird populations are beginning to recover.
+
+The Everglades is not saved. But it is being fought for.`,
+    vocabulary: [
+      { word: 'sediment', definition: 'solid material such as sand, clay, or organic matter that settles at the bottom of water', example: 'The river bottom was soft with layers of dark sediment built up over centuries.' },
+      { word: 'deliberate', definition: 'done on purpose; slow and careful in movement', example: 'The crane moved in a deliberate, unhurried way as it searched the shallows for fish.' },
+      { word: 'ecosystem', definition: 'a community of living things interacting with each other and with their environment', example: 'Removing one predator can throw an entire ecosystem out of balance.' },
+      { word: 'invasive', definition: '(of a species) having spread into a place where it does not naturally belong, often causing harm to native species', example: 'The invasive plant crowded out the wildflowers that native bees depended on.' },
+      { word: 'restoration', definition: 'the work of returning something to its original or natural condition', example: 'The restoration of the wetland took years of effort and millions of dollars.' },
+    ],
+    questions: [
+      {
+        question: 'When the narrator reaches into the water, what does he discover?',
+        options: [
+          'It is deep, cold, and completely clear',
+          'It is surprisingly shallow, warm, and full of life',
+          'It is too muddy and warm to touch comfortably',
+          'It is deep and dark with no visible bottom',
+        ],
+        correctIndex: 1,
+        explanation: '"Only knee-deep. Warm, tea-colored, soft with a mat of wet sediment and roots. And alive — when I pulled my hand back, something small darted away." The water is shallow and teeming with life, not what most people would imagine a swamp to be.',
+      },
+      {
+        question: 'According to Passage 2, what effect have Burmese pythons had on the Everglades?',
+        options: [
+          'They have improved habitat for native birds and fish',
+          'They have caused a collapse in small mammal populations',
+          'They have increased the flow of water through the wetlands',
+          'They have helped control invasive plant species',
+        ],
+        correctIndex: 1,
+        explanation: '"Researchers estimate that 90% of small mammal populations... have collapsed in areas where pythons are established." The pythons — originally released pets — have caused enormous ecological damage that ripples through the food web.',
+      },
+      {
+        question: 'In Passage 2, the word "invasive" describes plants that have spread into the Everglades. What does "invasive" mean in this context?',
+        options: [
+          'Native to Florida but currently endangered by farming',
+          'Dangerous to humans who come into contact with them',
+          'Spreading into a place where they do not naturally belong, causing harm to native species',
+          'Difficult to find and identify in the wild',
+        ],
+        correctIndex: 2,
+        explanation: 'The text explains that runoff causes invasive plants to "crowd out native saw grass" — these plants moved in from outside and are harming the species that naturally belong there. They are harmful newcomers, not native plants.',
+      },
+      {
+        question: 'How does the structure of Passage 2 differ from Passage 1?',
+        options: [
+          'Passage 2 is written in first person, just like Passage 1',
+          'Passage 2 uses a problem-and-solution structure, while Passage 1 tells a personal story',
+          'Passage 2 describes events in time order, while Passage 1 uses statistics and data',
+          'Passage 2 focuses only on what the Everglades looks like, while Passage 1 explains its problems',
+        ],
+        correctIndex: 1,
+        explanation: 'Passage 1 is a personal narrative — one person\'s experience with his grandfather. Passage 2 identifies several threats (invasive species, runoff, water flow) and then describes the restoration effort — a classic problem-and-solution structure used in informational writing.',
+      },
+      {
+        question: 'Both passages suggest that the future of the Everglades depends on which of the following?',
+        options: [
+          'Increasing airboat tourism to raise awareness and funding',
+          'Scientists discovering new native species before they disappear',
+          'People understanding what the Everglades is and choosing to protect it',
+          'Removing all farms and roads built over the original wetlands',
+        ],
+        correctIndex: 2,
+        explanation: 'The grandfather explains the losses, and the narrator reflects on what it means to *know* a place is disappearing — implying that awareness creates responsibility. Passage 2 ends with "it is being fought for," showing that human choice and action will determine the Everglades\' survival.',
+      },
+    ],
+  },
+
+  {
+    id: 'ai-schools-paired',
+    title: 'Two Perspectives on AI in the Classroom',
+    topic: 'science',
+    coverEmoji: '🤖',
+    coverColor: '#4f46e5',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 670,
+    readTimeMin: 4,
+    paired: true,
+    text: `**PAIRED PASSAGES** — Read both passages, then answer the questions.
+
+---
+
+**Passage 1 — Literary (First Person)**
+*"The Essay That Wasn't Mine"*
+
+I got an A on my history essay, and I felt terrible about it.
+
+Mrs. Alvarez said it was "beautifully argued" and "exceptionally well-structured." She wrote three comments in the margins, all compliments. I folded the paper in half before Destiny could see the grade, stuffed it in my bag, and spent the rest of class staring at the whiteboard.
+
+The essay was about the causes of World War I. I had used the AI assistant our school was piloting — not to write the whole thing, but to "help me structure my ideas," which is how I'd told myself it was okay. I typed what I knew. The AI rearranged it, smoothed the language, and suggested two arguments I hadn't thought of. It made everything sound like it was built on purpose.
+
+Which it was. Just not by me.
+
+I'd written essays before where I genuinely struggled to figure out what I thought. Where I'd start with one **thesis** and change it three times before landing on something I actually believed. Those essays got Bs. Sometimes B-minuses. But they were mine in a way this one wasn't.
+
+The **cognitive** work — the real pushing-through-fog part of thinking — was what the AI had done. I got the A. It got the thinking.
+
+I tried to explain this to my mom that night. She said I was being too hard on myself. "You still had to know the content," she said. That was true. But knowing content and building an argument are two different things. The argument is where learning happens. And I had outsourced it.
+
+I don't know what the right answer is. I know AI isn't going away. I know some students at my school use it for everything, and some refuse to touch it, and the teachers are somewhere in the middle, still figuring it out. What I know is that the A felt empty. And that, I think, is worth paying attention to.
+
+---
+
+**Passage 2 — Informational**
+*"AI in School: Tool or Shortcut?"*
+
+Artificial intelligence writing tools — programs that can draft text, organize arguments, and offer feedback in seconds — have arrived in American classrooms faster than most schools were prepared for. As of 2024, an estimated 26% of U.S. students reported using AI to help with schoolwork. Whether that is progress or a problem is a debate that has only just begun.
+
+Supporters point to real benefits. AI tutoring programs can provide instant, **personalized** feedback to students who might otherwise wait days for a response. For students with dyslexia, attention difficulties, or language barriers, AI writing assistants can lower obstacles and help ideas reach the page. Some researchers argue that AI, used carefully, can free teachers from routine grading tasks and give them more time for meaningful instruction.
+
+Critics raise equally serious concerns. Studies show that when students use AI to generate arguments or organize essays, they often skip the mental struggle that makes learning stick. **Cognitive** scientists call this "desirable difficulty" — the idea that the effort of working through a problem is not a flaw in the learning process; it *is* the process. When AI removes that struggle, students may produce polished-looking work while actually learning less.
+
+There is also the question of **integrity**. A 2023 survey found that 43% of college students who used AI on assignments did not disclose it to their instructors. Whether that constitutes dishonesty remains a debate that schools are still navigating.
+
+Most experts agree on one point: blanket bans rarely work, and uncritical acceptance is equally risky. The schools seeing the best results are those teaching students to use AI as a thinking *partner* — not a thinking replacement — and asking students to **reflect** on what they actually learned, not just what they turned in.
+
+The question is not whether AI belongs in school. The question is whether students can use it without losing the work that makes school worthwhile.`,
+    vocabulary: [
+      { word: 'thesis', definition: 'the central claim or main argument of a piece of writing', example: 'Her thesis was that the printing press changed society more than any single war.' },
+      { word: 'cognitive', definition: 'relating to mental processes such as thinking, reasoning, and learning', example: 'Reading complex texts strengthens cognitive skills that carry over into many areas of life.' },
+      { word: 'personalized', definition: 'designed or adapted to meet the specific needs of one individual', example: 'The tutoring program offered personalized feedback based on each student\'s specific errors.' },
+      { word: 'integrity', definition: 'the quality of being honest and following strong moral principles; in school, doing your own work honestly', example: 'Submitting someone else\'s work as your own is a violation of academic integrity.' },
+      { word: 'reflect', definition: 'to think carefully and seriously about an experience or decision', example: 'After the project ended, the class took time to reflect on what strategies had worked best.' },
+    ],
+    questions: [
+      {
+        question: 'Why does the narrator feel bad about getting an A on her history essay?',
+        options: [
+          'She thinks the teacher made a grading mistake and didn\'t read carefully',
+          'She copied sentences from another student\'s paper',
+          'The AI built the argument for her, so the real thinking work wasn\'t hers',
+          'She didn\'t finish reading the required chapters before she started writing',
+        ],
+        correctIndex: 2,
+        explanation: '"The cognitive work — the real pushing-through-fog part of thinking — was what the AI had done. I got the A. It got the thinking." The narrator recognizes that the grade reflects work she didn\'t do herself.',
+      },
+      {
+        question: 'According to Passage 2, what do cognitive scientists mean by "desirable difficulty"?',
+        options: [
+          'Teachers should assign harder tests to identify the strongest students',
+          'AI tools should be designed to be difficult to use so that students avoid them',
+          'The mental struggle of working through a problem is what makes learning actually stick',
+          'Students who find learning difficult will eventually develop stronger study habits on their own',
+        ],
+        correctIndex: 2,
+        explanation: '"The effort of working through a problem is not a flaw in the learning process; it is the process." The struggle is not something to remove — it is what causes real, lasting learning to happen.',
+      },
+      {
+        question: 'In Passage 1, the narrator says the "cognitive work" was done by the AI. Based on context, what does "cognitive" mean?',
+        options: [
+          'Physical effort, such as handwriting or typing',
+          'Related to the appearance and formatting of a paper',
+          'Related to mental processes like reasoning, thinking, and building an argument',
+          'Related to technology and how AI programs function',
+        ],
+        correctIndex: 2,
+        explanation: 'The narrator calls the "real pushing-through-fog part of thinking" her cognitive work — it is the mental effort of reasoning and constructing an argument, not the physical act of writing.',
+      },
+      {
+        question: 'How does the narrator of Passage 1 arrive at a similar conclusion to what researchers describe in Passage 2?',
+        options: [
+          'Both believe AI should be immediately removed from all schools',
+          'Both focus mainly on the legal and ethical consequences of AI use',
+          'Both recognize that AI can produce polished results while the student actually learns less',
+          'Both argue that only students who misuse AI are harmed by it',
+        ],
+        correctIndex: 2,
+        explanation: 'The narrator felt her A was hollow because she hadn\'t done the thinking. Passage 2 states that "students may produce polished-looking work while actually learning less" — the same experience described personally in Passage 1 and scientifically in Passage 2.',
+      },
+      {
+        question: 'Both passages end by raising the same central question. What is it?',
+        options: [
+          'Should all schools ban AI tools for students immediately?',
+          'Can students use AI without giving up the thinking that makes learning real?',
+          'Will AI eventually replace teachers in American classrooms?',
+          'Who is responsible when a student uses AI to complete an assignment dishonestly?',
+        ],
+        correctIndex: 1,
+        explanation: 'The narrator wonders what the right answer is after her A feels empty. Passage 2 closes: "The question is whether students can use it without losing the work that makes school worthwhile." Both passages circle the same core tension between AI assistance and genuine learning.',
+      },
+    ],
+  },
+
 ];

@@ -239,7 +239,7 @@
 
   </div><!-- end .page -->
 
-  <script src="stories.js?v=20260603"></script>
+  <script src="stories.js?v=20260607"></script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
@@ -319,6 +319,9 @@
       { id: 'streak_7',      emoji: '⚡', name: 'Week Warrior'   },
       { id: 'streak_14',     emoji: '🌙', name: 'Two-Week Champ' },
       { id: 'xp_500',        emoji: '💎', name: 'XP Hunter'      },
+      { id: 'typing_first',  emoji: '⌨️', name: 'Keyboarder'     },
+      { id: 'typing_5',      emoji: '🖥️', name: 'Typing Pro'     },
+      { id: 'typing_10',     emoji: '⚡', name: 'Speed Demon'    },
     ];
 
     // ─── Load data ───────────────────────────────────────────────────────────────
@@ -326,8 +329,10 @@
     Promise.all([
       db.collection('Progress').where('readerId', '==', profile.readerId).get(),
       db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
+      db.collection('TypingProgress').where('readerId', '==', profile.readerId).get(),
+      db.collection('TriviaScores').where('readerId', '==', profile.readerId).get(),
       db.collection('StudentStats').doc(profile.readerId).get()
-    ]).then(([readSnap, mathSnap, statsSnap]) => {
+    ]).then(([readSnap, mathSnap, typingSnap, triviaSnap, statsSnap]) => {
 
       // ── Reading aggregates ────────────────────────────────────────────────
       let readXp = 0, bestReadScore = 0;
@@ -367,7 +372,23 @@
         mathDocs.push(data);
       });
 
-      const totalXp      = readXp + mathXp;
+      let typingXp = 0;
+      const typingDocs = [];
+      typingSnap.forEach(d => {
+        const data = d.data();
+        typingXp += (data.xpEarned || 0);
+        typingDocs.push(data);
+      });
+
+      let triviaXp = 0;
+      const triviaDocs = [];
+      triviaSnap.forEach(d => {
+        const data = d.data();
+        triviaXp += (data.xpEarned || 0);
+        triviaDocs.push(data);
+      });
+
+      const totalXp      = readXp + mathXp + typingXp + triviaXp;
       const storiesCount = uniqueStories.size;
       const mathCount    = uniqueMath.size;
       const mathUnlocked = bestReadScore >= 3 || localStorage.getItem('mathUnlocked_' + profile.readerId) === 'true';
@@ -473,6 +494,20 @@
           name:  d.setTitle || d.setId,
           meta:  formatDate(d.completedAt),
           score: d.quizScore === 8 ? '🏆 Perfect' : d.quizScore + '/8'
+        })),
+        ...typingDocs.map(d => ({
+          ts:    d.completedAt,
+          emoji: '⌨️',
+          name:  d.lessonTitle || d.lessonId || 'Typing Lesson',
+          meta:  formatDate(d.completedAt),
+          score: (d.wpm || 0) + ' WPM'
+        })),
+        ...triviaDocs.map(d => ({
+          ts:    d.timestamp,
+          emoji: '🎯',
+          name:  'Story Trivia',
+          meta:  formatDate(d.timestamp),
+          score: (d.correctAnswers || 0) + '/' + (d.totalQuestions || 15) + ' correct'
         }))
       ].sort((a, b) => {
         const ta = a.ts && a.ts.toMillis ? a.ts.toMillis() : 0;

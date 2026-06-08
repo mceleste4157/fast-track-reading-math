@@ -193,6 +193,20 @@
   </style>
 </head>
 <body>
+  <!-- Offline banner -->
+  <div id="offline-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9999;background:#374151;color:#fff;text-align:center;padding:8px 16px;font-size:0.85rem;font-weight:600;">
+    📵 You're offline — scores won't save until you reconnect.
+  </div>
+  <script>
+    (function() {
+      const banner = document.getElementById('offline-banner');
+      function update() { banner.style.display = navigator.onLine ? 'none' : 'block'; }
+      update();
+      window.addEventListener('online',  update);
+      window.addEventListener('offline', update);
+    })();
+  </script>
+
   <div class="page">
 
     <!-- ── Main column ──────────────────────────────────────────────── -->
@@ -308,7 +322,7 @@
 
   </div>
 
-  <a href="parent-portal.html" class="parent-btn">👨‍👩‍👧 Parent</a>
+  <button onclick="requireParentPin(() => { window.location.href = 'parent-portal.html'; })" class="parent-btn">👨‍👩‍👧 Parent</button>
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -322,7 +336,7 @@
       });
     }
   </script>
-  <script src="stories.js?v=20260603"></script>
+  <script src="stories.js?v=20260607"></script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
@@ -526,7 +540,7 @@
     }
     // ─── Inactivity decay ─────────────────────────────────────────────────────
     // Returns { daysMissed, decay } where decay is XP deducted from display.
-    // Decay accumulates at 50 XP/day (grace: 1 day), capped at 200 XP.
+    // Decay accumulates at 50 XP/day (grace: 1 day), capped at 100 XP.
     // Completing a quiz (results.html / math-results.html) resets decay to 0.
     function getActivityStatus(readerId) {
       const todayStr = new Date().toISOString().slice(0, 10);
@@ -541,8 +555,8 @@
       const lastAct = new Date(lastActivity);
       const daysMissed = Math.floor((today - lastAct) / (24 * 60 * 60 * 1000));
 
-      // Read current decay total (set to 0 on quiz completion)
-      let decay = parseInt(localStorage.getItem('inactivityDecay_' + readerId) || '0');
+      // Read current decay total (set to 0 on quiz completion); clamp to new cap
+      let decay = Math.min(100, parseInt(localStorage.getItem('inactivityDecay_' + readerId) || '0'));
 
       // Apply fresh decay if we haven't checked today and days missed > 1
       if (daysMissed > 1) {
@@ -550,8 +564,8 @@
         if (decayCheckedDate !== todayStr) {
           const lastChecked     = new Date(decayCheckedDate);
           const daysSinceCheck  = Math.floor((today - lastChecked) / (24 * 60 * 60 * 1000));
-          const freshDecay      = Math.min(daysSinceCheck * 50, 200 - decay);
-          decay = Math.min(200, decay + Math.max(0, freshDecay));
+          const freshDecay      = Math.min(daysSinceCheck * 50, 100 - decay);
+          decay = Math.min(100, decay + Math.max(0, freshDecay));
           localStorage.setItem('inactivityDecay_' + readerId, decay.toString());
           localStorage.setItem('decayCheckedDate_' + readerId, todayStr);
         }
@@ -590,8 +604,10 @@
     Promise.all([
       db.collection('Progress').where('readerId', '==', profile.readerId).get(),
       db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
+      db.collection('TypingProgress').where('readerId', '==', profile.readerId).get(),
+      db.collection('TriviaScores').where('readerId', '==', profile.readerId).get(),
       db.collection('StudentStats').doc(profile.readerId).get()
-    ]).then(([readSnap, mathSnap, statsSnap]) => {
+    ]).then(([readSnap, mathSnap, typingSnap, triviaSnap, statsSnap]) => {
       let readXp = 0, bestReadScore = 0;
       const uniqueStories = new Set();
       const bestPerStory  = {}; // storyId → best-scoring doc
@@ -613,15 +629,24 @@
 
       let mathXp = 0;
       const uniqueMath = new Set();
+      const mathDocs = [];
       mathSnap.forEach(d => {
         const data = d.data();
         mathXp += (data.xpEarned || 0);
         uniqueMath.add(data.setId);
+        mathDocs.push(data);
       });
 
-      const totalXp = readXp + mathXp;
+      let typingXp = 0;
+      typingSnap.forEach(d => { typingXp += (d.data().xpEarned || 0); });
+
+      let triviaXp = 0;
+      triviaSnap.forEach(d => { triviaXp += (d.data().xpEarned || 0); });
+
+      const totalXp = readXp + mathXp + typingXp + triviaXp;
 
       // Update math unlock from Firestore
+      const mathUnlocked = bestReadScore >= 3 || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';
       if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
         localStorage.setItem(MATH_UNLOCK_KEY, 'true');
         renderMathCard(true);
@@ -650,7 +675,26 @@
         }
       }
 
+      // Sync inactivity decay FROM Firestore so cross-device penalty is consistent
+      if (typeof sd.inactivityDecay === 'number' && sd.inactivityDecay > 0) {
+        const localDecayNow = parseInt(localStorage.getItem('inactivityDecay_' + profile.readerId) || '0');
+        if (sd.inactivityDecay > localDecayNow) {
+          localStorage.setItem('inactivityDecay_' + profile.readerId, String(sd.inactivityDecay));
+        }
+        const fsDecayDate = sd.decayCheckedDate || '';
+        const localDecayDate = localStorage.getItem('decayCheckedDate_' + profile.readerId) || '';
+        if (fsDecayDate > localDecayDate) {
+          localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate);
+        }
+      }
+
       const { daysMissed, decay } = getActivityStatus(profile.readerId);
+      // Write updated decay back to Firestore for cross-device accuracy
+      if (decay !== (sd.inactivityDecay || 0)) {
+        db.collection('StudentStats').doc(profile.readerId)
+          .update({ inactivityDecay: decay, decayCheckedDate: new Date().toISOString().slice(0, 10) })
+          .catch(() => {});
+      }
       // effectiveXp is what we show — decays when inactive, restored on activity
       const effectiveXp = Math.max(0, totalXp - decay);
       let currentStreak = sd.currentStreak || 0;
@@ -852,8 +896,11 @@
       // Level ladder — update with effectiveXp
       renderLadder(effectiveXp);
 
-    }).catch(() => {
-      document.getElementById('xp-label').textContent = '0 XP';
+    }).catch(err => {
+      console.error('Stats load error:', err);
+      document.getElementById('xp-label').innerHTML =
+        '⚠️ Couldn\'t load stats · <a href="javascript:location.reload()" style="color:var(--purple);font-weight:700;">Tap to retry</a>';
+      document.getElementById('s-xp').textContent = '—';
     });
 
     // ─── Schedule enforcement ──────────────────────────────────────────────────

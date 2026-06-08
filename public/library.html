@@ -288,7 +288,7 @@
     <div class="story-grid" id="grid-advanced"></div>
   </div>
 
-  <script src="stories.js?v=20260605"></script>
+  <script src="stories.js?v=20260607"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -369,20 +369,21 @@
       const topicCls = 'topic-' + story.topic;
       const label    = TOPIC_LABELS[story.topic] || story.topic;
       const doneClass = prog ? ' story-card--done' : '';
+      const readUrl  = (story.paired ? 'paired-read' : 'read') + '.html?story=' + story.id;
       let statusHtml = '';
       if (prog) {
         statusHtml = `<div class="card-status">
           <div class="stars">${renderStars(prog.starsEarned, 5)} ${prog.starsEarned}/5 stars</div>
-          <a href="read.html?story=${story.id}" class="btn-card btn-done">⭐ Read Again</a>
+          <a href="${readUrl}" class="btn-card btn-done">⭐ Read Again</a>
         </div>`;
       } else {
         const btnCls = btnClass ? 'btn-read ' + btnClass : 'btn-read';
         statusHtml = `<div class="card-status">
-          <a href="read.html?story=${story.id}" class="btn-card ${btnCls}">Read →</a>
+          <a href="${readUrl}" class="btn-card ${btnCls}">Read →</a>
         </div>`;
       }
       const isSaved = favIds.includes(story.id);
-      return `<div class="story-card${doneClass}" onclick="window.location='read.html?story=${story.id}'">
+      return `<div class="story-card${doneClass}" onclick="window.location='${readUrl}'">
         <button class="card-fav-btn${isSaved ? ' saved' : ''}" data-id="${story.id}" onclick="event.stopPropagation();toggleFav('${story.id}',this)" title="${isSaved ? 'Remove bookmark' : 'Bookmark this story'}">${isSaved ? '❤️' : '🤍'}</button>
         <div class="card-cover" style="background:${story.coverColor}20;">${story.coverEmoji}</div>
         <div class="card-body">
@@ -611,7 +612,7 @@
         <div style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#6b7280;margin-bottom:10px;">✨ Suggested for you</div>
         <div style="display:flex;flex-direction:column;gap:8px;">
           ${items.map(s => `
-            <a href="read.html?story=${s.id}" style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px;text-decoration:none;color:inherit;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow=''">
+            <a href="${(s.paired ? 'paired-read' : 'read') + '.html?story=' + s.id}" style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px;text-decoration:none;color:inherit;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow=''">
               <div style="width:40px;height:40px;border-radius:10px;background:${s.color}22;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">${s.emoji}</div>
               <div style="flex:1;min-width:0;">
                 <div style="font-size:0.82rem;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.title}</div>

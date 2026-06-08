@@ -1,11 +1,11 @@
-// FAST Track — Service Worker v8
+// FAST Track — Service Worker v9
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
 // Offline: core app pages + story/math data pre-cached so reading works offline
-const CACHE = 'fast-track-v8';
+const CACHE = 'fast-track-v9';
 const STATIC_ASSETS = [
   // Core data — pre-cache so stories/math work offline
-  '/stories.js?v=20260603',
+  '/stories.js?v=20260607',
   '/math-data.js',
   // Key app pages
   '/index.html',

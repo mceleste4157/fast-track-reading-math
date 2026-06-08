@@ -275,7 +275,7 @@
     <a class="btn-quiz btn-quiz-locked" id="btn-quiz" href="#">⏳ Quiz in 2:00</a>
   </div>
 
-  <script src="stories.js?v=20260603"></script>
+  <script src="stories.js?v=20260607"></script>
   <script>
     // ─── Profile guard ─────────────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
@@ -636,6 +636,11 @@
         const idx = favs.indexOf(story.id);
         if (idx >= 0) favs.splice(idx, 1); else favs.push(story.id);
         localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+        // Sync to Firestore for cross-device persistence
+        try {
+          firebase.firestore().collection('StudentStats').doc(profile.readerId)
+            .set({ bookmarks: favs }, { merge: true }).catch(() => {});
+        } catch(e) {}
         updateBtn();
         btn.style.transform = 'scale(1.35)';
         setTimeout(() => { btn.style.transform = ''; }, 200);

@@ -340,7 +340,7 @@
   </div>
 </div>
 
-<script src="stories.js?v=20260603"></script>
+<script src="stories.js?v=20260607"></script>
 <script defer src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
 <script defer src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
 <script defer src="/__/firebase/init.js"></script>
@@ -765,17 +765,26 @@
   // ─── Save to Firestore ────────────────────────────────────────────────────
   function saveTriviaResult(bonusStars, correct, points) {
     try {
+      const xpEarned = bonusStars === 3 ? 30 : bonusStars === 2 ? 20 : 10;
       const db = firebase.firestore();
       db.collection('TriviaScores').add({
         readerId:   profile.readerId,
-        playerName: profile.name || 'Leo',
+        playerName: profile.name || '',
         bonusStars,
         correctAnswers: correct,
         totalQuestions: ROUNDS * QS_PER_ROUND,
         points,
         rounds: ROUNDS,
+        xpEarned,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       });
+
+      // Show XP toast
+      const toast = document.createElement('div');
+      toast.textContent = '+' + xpEarned + ' XP earned!';
+      toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:10px 22px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
     } catch(e) { /* non-critical */ }
   }
 
