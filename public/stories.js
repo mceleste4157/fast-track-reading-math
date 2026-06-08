@@ -18872,6 +18872,72 @@ All of these systems are connected. When you exercise, your muscles need more ox
     ]
   },
 
+  // ── MISSING FROM BATCH3 — merged in ────────────────────────────────────────
+  {
+    id: 'human-body-cells-to-systems',
+    title: 'From Cells to Systems: How the Human Body Is Organized',
+    topic: 'science',
+    coverEmoji: '🔬',
+    coverColor: '#7c3aed',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 527,
+    readTimeMin: 3,
+    text: `The human body contains approximately 37 trillion cells — and yet it functions as a single, coordinated organism. How is this possible? The answer lies in a hierarchical organization that moves from the smallest functional units to the largest: **cells**, **tissues**, **organs**, and **organ systems**. Each level of organization builds upon the one below it, and each level has emergent properties — characteristics that only appear when the components are assembled together.
+
+The **cell** is the fundamental unit of life. Every living thing is made of one or more cells, and cells are the smallest structures capable of carrying out the basic processes of life: taking in nutrients, producing energy, growing, and reproducing. The human body contains hundreds of distinct **cell types**, each specialized for a different job. Muscle cells are long and contractile, designed to shorten and generate force. Nerve cells (neurons) have long extensions called **axons** that transmit electrical signals over distances. Red blood cells are disk-shaped and packed with hemoglobin to carry oxygen. A liver cell looks and functions entirely differently from a cell in the retina of your eye — yet both carry the exact same genetic information in their DNA.
+
+**Tissues** are groups of similar cells that work together to perform a specific function. The human body has four main tissue types. **Epithelial tissue** covers the body's surfaces and lines its cavities — your skin is epithelial tissue, as is the lining of your stomach and intestines. **Connective tissue** supports, binds, and separates other tissues and organs — examples include bone, cartilage, tendons, and blood. **Muscle tissue** consists of cells capable of contraction, allowing movement. **Nervous tissue** conducts electrical impulses and consists of neurons and supporting cells called glial cells.
+
+**Organs** are structures made of two or more tissue types that work together to perform complex functions. Your heart is an organ: it is made of cardiac muscle tissue (which contracts rhythmically), connective tissue (which forms its outer wall), epithelial tissue (which lines its inner chambers), and nervous tissue (which regulates its rhythm). Because organs contain multiple tissue types, they can perform functions no single tissue could accomplish alone.
+
+**Organ systems** are groups of organs that coordinate to carry out major body functions. The digestive system — mouth, esophagus, stomach, small intestine, large intestine, liver, and pancreas — works together to break down food and absorb nutrients. The nervous system — brain, spinal cord, and peripheral nerves — processes information and coordinates responses. The endocrine system — glands like the thyroid, adrenal glands, and pancreas — releases **hormones** that regulate metabolism, growth, and stress responses.
+
+What makes human physiology remarkable is how these systems interact. The digestive system absorbs glucose from food; the circulatory system delivers that glucose to cells; the respiratory system provides the oxygen needed for cells to use the glucose in **cellular respiration**; and the nervous and endocrine systems regulate all these processes in response to the body's changing needs. No system operates in isolation. A disease affecting one system — say, diabetes affecting insulin production in the pancreas — creates cascading effects across multiple other systems.
+
+Understanding this organizational hierarchy — from cell to tissue to organ to system — is the foundation of all medical science. When physicians diagnose illness, they trace dysfunction through these levels to find where the breakdown occurs and why.`,
+    vocabulary: [
+      { word: 'cells', definition: 'The smallest functional units of life, each capable of carrying out basic life processes.', example: 'Muscle cells contain proteins that allow them to contract and generate movement.' },
+      { word: 'tissues', definition: 'Groups of similar cells that work together to perform a specific function.', example: 'Muscle tissue is made of contractile cells that work together to move the body.' },
+      { word: 'organs', definition: 'Structures made of two or more tissue types that perform complex, specific functions.', example: 'The kidney is an organ that filters waste from the blood.' },
+      { word: 'hormones', definition: 'Chemical messengers released by glands that travel through the blood to regulate body functions.', example: 'Insulin is a hormone that signals cells to absorb glucose from the blood.' },
+      { word: 'cellular respiration', definition: 'The process by which cells use oxygen and glucose to produce energy, releasing carbon dioxide as a byproduct.', example: 'Muscle cells rely on cellular respiration to produce the energy needed for exercise.' },
+    ],
+    questions: [
+      {
+        question: 'What is the correct order of organization from smallest to largest?',
+        options: ['Organ → tissue → cell → organ system', 'Cell → tissue → organ → organ system', 'Tissue → cell → organ system → organ', 'Organ system → organ → cell → tissue'],
+        correctIndex: 1,
+        explanation: 'The passage describes the hierarchy as cells → tissues → organs → organ systems, moving from the smallest functional units to the largest coordinated structures in the human body.'
+      },
+      {
+        question: 'What does "cellular respiration" mean as used in the passage?',
+        options: ['The process of cells dividing to create new cells', 'The process by which cells use oxygen and glucose to produce energy', 'The way cells communicate using electrical signals', 'The movement of oxygen from the lungs into the bloodstream'],
+        correctIndex: 1,
+        explanation: 'The passage describes cellular respiration as the process by which "cells use the glucose" and oxygen together — producing energy. This is the definition provided in the vocabulary and supported by the context in which it appears.'
+      },
+      {
+        question: 'Why can organs perform functions that single tissues cannot?',
+        options: ['Organs are larger than tissues, giving them more energy to work with', 'Organs contain multiple tissue types that work together to carry out complex functions no single tissue could accomplish alone', 'Organs receive instructions from the brain that individual tissues do not', 'Organs develop before tissues do, making them more mature and capable'],
+        correctIndex: 1,
+        explanation: 'The passage says organs are "made of two or more tissue types that work together" and explicitly states that "organs can perform functions no single tissue could accomplish alone" — using the heart as an example with four tissue types each contributing a different capability.'
+      },
+      {
+        question: 'How does the author use the example of diabetes to support the passage\'s central idea?',
+        options: ['To show that the pancreas is the most important organ in the human body', 'To argue that diseases affecting one system are not serious if other systems compensate', 'To illustrate that systems are interdependent — a problem in one system causes cascading effects in others', 'To explain how the endocrine system differs from the digestive system'],
+        correctIndex: 2,
+        explanation: 'The author introduces diabetes as an example of how "a disease affecting one system creates cascading effects across multiple other systems" — directly supporting the central idea that no body system operates in isolation and that all systems interact.'
+      },
+      {
+        question: 'What does the author mean by "emergent properties" in the first paragraph?',
+        options: ['Properties that are present in individual cells but disappear when cells combine into tissues', 'Medical problems that only appear when a person grows older', 'Characteristics that only appear when smaller components are assembled together into a larger structure', 'Scientific discoveries that emerged from research on the human body'],
+        correctIndex: 2,
+        explanation: 'The passage defines emergent properties as "characteristics that only appear when the components are assembled together" — meaning a tissue can do things a single cell cannot, an organ can do things a tissue cannot, and so on up the hierarchy.'
+      },
+    ],
+  },
+
   // ── LITERARY FICTION & POETRY — Grades 5–8 ──────────────────────────────────
   // These fill the gap: all prior 5-8 content is informational.
   // Aligned to FAST ELA literary-text standards: character, theme, figurative
@@ -19287,6 +19353,401 @@ But she kept it.`,
         options: ['Photographs are important tools for preserving civil rights history', 'Young people today face more difficult choices than previous generations did', 'Courage means acting when there is something real to lose — and history asks whether we would do the same', 'The civil rights movement succeeded because ordinary people chose sacrifice over safety'],
         correctIndex: 2,
         explanation: 'The story uses Dorothy\'s photograph not to celebrate a historical hero but to pose a question to the narrator — and to the reader. Dorothy acted despite having more at stake. The theme is the nature of courage and the honest question of whether we would do the same.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 5-6 | Quiet Courage & Legacy ────────────────────────────
+  {
+    id: 'the-lighthouse-keepers-letter',
+    title: 'The Lighthouse Keeper\'s Letter',
+    topic: 'fiction',
+    coverEmoji: '🏠',
+    coverColor: '#f59e0b',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [5, 6, 7],
+    wordCount: 370,
+    readTimeMin: 2,
+    text: `The brick had been loose for two months before Maya finally pulled it free.
+
+She had noticed it during a bad storm in October — one edge jutting out just slightly more than the others, near the top of the spiral staircase. But her father had been busy watching the light, and she had been busy watching him, and neither of them had spoken of it.
+
+Today, while her father slept in the afternoon lull, Maya climbed the stairs alone and worked the brick free with both hands.
+
+Behind it: an envelope, yellowed and soft at the edges, sealed with wax that had long since dried to a dark crumble. No name was on it — just a date: *September 3, 1935.*
+
+Inside was a letter from a man named Thomas Aldrich, who had been keeper of this same lighthouse during a hurricane that September. The storm had cut the power three times. He had climbed the stairs in the dark to reset the lamp by hand, twice, because two cargo ships were attempting the passage offshore. He wrote: *I do not know if what I did mattered. I only know I could not leave the light unattended while men were on the water.*
+
+Maya sat on the step and read the letter twice.
+
+She had asked her father once why he still wanted to be a lighthouse keeper when most ships used GPS now. He had shrugged and said: *Someone should still be paying attention.*
+
+She thought about that now — about Thomas Aldrich climbing stairs in the dark, and her father rising before dawn every morning not because someone would notice, but because someone might need to. She thought about how certain kinds of care happen where no one is watching: in a lighthouse at 3 a.m., behind a loose brick in a staircase, in a letter no one was ever meant to find.
+
+She tucked the letter carefully into her jacket.
+
+She would show her father when he woke.`,
+    vocabulary: [
+      { word: 'lull', definition: 'A quiet or calm period, especially one between periods of activity or rough weather.', example: 'During the lull in the storm, they went outside to check for damage.' },
+      { word: 'jutting', definition: 'Sticking out sharply from a surface.', example: 'The rock jutted out from the cliff over the water below.' },
+      { word: 'cargo', definition: 'Goods or products carried on a ship, truck, or other vehicle.', example: 'The cargo ship was loaded with lumber and steel bound for the port.' },
+      { word: 'unattended', definition: 'Left without anyone watching over or caring for it.', example: 'The campfire should never be left unattended — it could spread quickly.' },
+    ],
+    questions: [
+      {
+        question: 'Why does Maya finally pull the loose brick free today instead of earlier?',
+        options: ['Her father asked her to inspect the staircase for damage', 'She had been curious since October and takes the chance while her father is sleeping', 'She needs to hide something of her own behind the bricks', 'The brick fell out on its own during the previous night\'s storm'],
+        correctIndex: 1,
+        explanation: 'The passage establishes that Maya noticed the brick in October but that both she and her father were occupied. Today, in the quiet afternoon while her father sleeps, she finally acts on her curiosity.'
+      },
+      {
+        question: 'What motivated Thomas Aldrich to reset the lighthouse lamp during the 1935 hurricane?',
+        options: ['He was under orders and would lose his job if the light went dark', 'He believed the storm would pass quickly and wasn\'t worried about the risk', 'He could not leave the light unattended while ships might be in danger on the water', 'He had no way to evacuate before the storm reached the shore'],
+        correctIndex: 2,
+        explanation: 'Aldrich writes directly: "I could not leave the light unattended while men were on the water." His motivation is duty to the sailors who depended on the light — not rules, not safety, not circumstance.'
+      },
+      {
+        question: 'How does Thomas Aldrich\'s letter deepen Maya\'s understanding of her father?',
+        options: ['It reveals that her father is related to Aldrich and carries on a family tradition', 'It helps her see her father\'s quiet dedication as part of a larger tradition of unwitnessed care', 'It makes her wish her father had a more exciting and recognized job', 'It shows her that lighthouse keeping became unnecessary after GPS was invented'],
+        correctIndex: 1,
+        explanation: 'Maya connects what Aldrich wrote — staying at his post where no one would notice — to what her father said: "Someone should still be paying attention." The letter reveals that this kind of silent dedication has always been the real work of the job.'
+      },
+      {
+        question: 'What THEME is most strongly expressed through this story?',
+        options: ['Storms are dangerous and should always be taken seriously by people near the coast', 'Old documents and historical records are important for understanding the past', 'Certain kinds of care and dedication happen unseen and unrewarded — and are valuable precisely because of that', 'Modern technology has made traditional jobs like lighthouse keeping unnecessary'],
+        correctIndex: 2,
+        explanation: 'The story uses Aldrich\'s letter, Maya\'s father\'s quote, and Maya\'s final reflection to build a single theme: meaningful care often happens in private, unnoticed, and for its own sake — not for recognition.'
+      },
+      {
+        question: 'Why does Maya decide to show the letter to her father rather than keeping it to herself?',
+        options: ['She is worried the letter will be damaged if it stays behind the brick', 'She wants evidence to convince her father to renovate the lighthouse staircase', 'The letter connects directly to something they both understand about purpose and quiet dedication', 'She needs to use it as a source for a school history report'],
+        correctIndex: 2,
+        explanation: 'Maya has just had an insight about her father\'s work — that it resembles Aldrich\'s in its quiet purpose. Sharing the letter is a way of sharing that recognition. It is a connection she wants him to see too.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 5-6 | Dignity of Work & Family Pride ────────────────────
+  {
+    id: 'last-day-of-the-season',
+    title: 'Last Day of the Season',
+    topic: 'fiction',
+    coverEmoji: '🍓',
+    coverColor: '#dc2626',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [5, 6, 7],
+    wordCount: 380,
+    readTimeMin: 2,
+    text: `Luis had been picking strawberries since he was old enough to carry a flat, and he had never liked it. The sun started mean and got worse. The rows were long. His back hurt by eight in the morning.
+
+But this was the last day of the season, and his father said last days were for paying attention.
+
+Luis watched his father work. He had a way of picking that looked almost gentle — checking each berry before pulling, keeping the cap on, setting them in rows in the flat without bruising. Luis grabbed handfuls. His father picked one at a time.
+
+"Why does it matter?" Luis asked. "They're the last ones anyway."
+
+His father didn't look up. "Someone will eat them," he said.
+
+At lunch, a group of kids from town came through the edge of the field on bikes. One of them — Luis didn't know him — looked at the rows and said to his friends, in English he must have thought no one would understand: *Imagine doing this your whole life.*
+
+Luis went still.
+
+He looked at the boy. Then at his father, who was eating without having heard — or without showing that he had.
+
+Luis thought about what he knew: his father had been picking since he was younger than Luis was now, had worked in fields from Florida to North Carolina, had never called in sick, had taken Luis to school every morning in the same blue truck, always pressed. He remembered the way his father's hands moved through the plants — careful, practiced, sure.
+
+He looked back at the boy on the bike.
+
+"My father knows more about where your food comes from than you ever will," Luis said, in clear English.
+
+The boy said nothing. The group moved on.
+
+Luis's father looked at him. He said nothing either. But his expression was something Luis had not seen before — not quite surprise, and not quite pride, but something that included both.
+
+They picked until the last row was done. Luis set his berries in careful rows, cap on, unbrushed.
+
+Someone would eat them.`,
+    vocabulary: [
+      { word: 'flat', definition: 'A shallow tray or container used to hold harvested fruit; common in farming.', example: 'She carried two flats of strawberries to the truck at the end of the row.' },
+      { word: 'bruising', definition: 'Damaging fruit by handling it roughly, causing dark spots.', example: 'Picking too fast causes bruising that makes the berries unsellable.' },
+      { word: 'pressed', definition: 'Neatly ironed; wrinkle-free — describes clothing that has been carefully prepared.', example: 'Even on early mornings, he arrived in a pressed shirt and clean pants.' },
+      { word: 'dignity', definition: 'A sense of pride and self-respect in how one carries oneself or does one\'s work.', example: 'She completed the task with quiet dignity, not drawing attention to the difficulty.' },
+    ],
+    questions: [
+      {
+        question: 'What does Luis\'s father mean when he says "Someone will eat them"?',
+        options: ['He is reminding Luis that wasting food is wrong and they should not throw berries away', 'He is explaining that the quality of the work matters because it affects a real person — the work has purpose beyond the field', 'He is telling Luis that the last berries will be eaten by the farm workers themselves', 'He is changing the subject because he does not want to discuss why picking methods matter'],
+        correctIndex: 1,
+        explanation: 'The father\'s answer is not about rules — it\'s about purpose. The berries will end up on someone\'s table. That person deserves care. This is the same idea Luis applies at the end when he picks carefully: "Someone would eat them."'
+      },
+      {
+        question: 'How does the author use the contrast between Luis\'s and his father\'s picking styles to develop character?',
+        options: ['It shows Luis is lazy and his father is a diligent worker', 'It reveals that they were trained by different supervisors with different standards', 'It shows the father approaches work with care and dignity while Luis is still learning what that means', 'It proves the father\'s method produces better berries that sell at a higher price'],
+        correctIndex: 2,
+        explanation: 'Luis grabs handfuls; his father picks one at a time, gently. The contrast isn\'t about ability — it\'s about attitude toward the work. The story is about Luis coming to understand his father\'s approach, not just copy it.'
+      },
+      {
+        question: 'What is the MOST LIKELY reason Luis\'s father does not visibly react to the boy\'s comment?',
+        options: ['He genuinely did not hear or understand what the boy said', 'He is afraid of causing trouble that might threaten his job on the farm', 'He has learned to carry his dignity quietly without needing to defend himself to strangers', 'He agrees with the boy and finds the comment accurate about his life'],
+        correctIndex: 2,
+        explanation: 'The passage says the father was eating "without having heard — or without showing that he had." Either way, he does not react. His composure is itself a form of dignity — he does not need an outsider\'s opinion to know his own worth.'
+      },
+      {
+        question: 'What does Luis\'s choice to pick his final rows carefully — "cap on, unbrushed" — reveal about his character?',
+        options: ['He wants to avoid getting in trouble for picking carelessly during earlier rows', 'He has decided to copy his father not because he was told to but because he now understands why it matters', 'He wants to prove he is capable of staying on the farm long-term', 'He is trying to impress his father after the confrontation with the boy on the bike'],
+        correctIndex: 1,
+        explanation: 'Luis changes his method without being told. He echoes his father\'s words — "Someone would eat them" — in his own internal conclusion. The change is internal: he now understands the reason, so the behavior follows.'
+      },
+      {
+        question: 'What is the CENTRAL THEME of this story?',
+        options: ['Children should obey their parents without questioning their methods', 'Migrant farmworkers face unfair treatment and need better legal protections', 'Dignity is found in how you do your work — not in whether others notice or value it', 'The relationship between Florida agriculture and the families who depend on it'],
+        correctIndex: 2,
+        explanation: 'The father picks carefully whether anyone watches or not. Luis defends that dignity and then embodies it. The story\'s theme is not about recognition — it\'s about the value of doing your work with care and pride regardless of audience.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 6-7 | Identity & Language ────────────────────────────────
+  {
+    id: 'two-languages',
+    title: 'Two Languages',
+    topic: 'fiction',
+    coverEmoji: '🌮',
+    coverColor: '#059669',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 445,
+    readTimeMin: 2,
+    text: `The phone rang in the middle of Mr. Bauer's explanation of photosynthesis.
+
+Valentina saw the name on the screen — *Abuela* — and her stomach dropped. She had told Abuela about the rule: no calls during school hours. But Abuela was seventy-four and believed that rules about phones were for other people.
+
+"You can step out," Mr. Bauer said.
+
+Valentina answered in the hallway. "Abuela, I'm in class—"
+
+Her grandmother began talking. Not in English. In the fast, rolling Spanish of someone who has never learned to be careful with it — the kind that came from a village in Oaxaca forty years ago and had never changed. Valentina hunched over the phone and spoke back in a near-whisper, aware of the classroom door behind her, aware of her classmates through the small window, not watching but possibly hearing.
+
+She had spoken Spanish her whole life. At home it was the only language. In public, she chose carefully.
+
+After she hung up, she stood in the hallway for a minute before going back in. Abuela had called to say the avocado tree in the yard was flowering. That was all. She had called during school hours, on a Wednesday afternoon, to say that the avocado tree was flowering.
+
+Valentina almost laughed.
+
+That Friday, Mr. Bauer assigned a writing piece: *Write about a language only you speak.*
+
+Most students took it literally — sign language, a code invented with a sibling, a family word for something that had no English translation. Valentina stared at the prompt for a long time.
+
+She wrote about Spanish. Not the textbook kind. The kind that meant *mijita* instead of "my daughter" — the kind that held more than the translation. She wrote about moving between two languages the way you move between two rooms of the same house: each one full of something the other doesn't have. She wrote about how she had learned to whisper her grandmother's language in hallways, and how she was done doing that.
+
+Mr. Bauer read her essay aloud to the class on Monday, with her permission.
+
+Valentina sat at her desk and did not hunch her shoulders.
+
+On the way home, she called her grandmother.
+
+"The avocado tree flowered," she said, in Spanish, loudly, on the sidewalk.
+
+"Yes," her grandmother said. "I knew you would want to know."`,
+    vocabulary: [
+      { word: 'photosynthesis', definition: 'The process by which plants use sunlight, water, and carbon dioxide to produce food and release oxygen.', example: 'The science class was studying how photosynthesis powers almost all life on Earth.' },
+      { word: 'mijita', definition: 'A Spanish term of endearment meaning "my little daughter" or "sweetie" — carries warmth and closeness that the English translation doesn\'t fully capture.', example: 'Her grandmother called her mijita every morning when she came down for breakfast.' },
+      { word: 'translation', definition: 'The process of expressing the meaning of words from one language in another language.', example: 'Some words resist translation — they carry cultural meaning that doesn\'t transfer easily.' },
+      { word: 'endearmant / term of endearment', definition: 'A word or phrase that expresses affection for someone.', example: '"Buddy" and "kiddo" are terms of endearment often used with younger children.' },
+    ],
+    questions: [
+      {
+        question: 'Why does Valentina feel uncomfortable answering her grandmother\'s call in the hallway?',
+        options: ['She knows her grandmother will say something embarrassing to her classmates', 'She is self-conscious about being heard speaking Spanish in a public school setting where she usually keeps it private', 'She is angry at her grandmother for not following the rule she set about calls during school hours', 'She is worried Mr. Bauer will lower her grade for missing class time'],
+        correctIndex: 1,
+        explanation: 'Valentina "hunched over the phone" and spoke in a "near-whisper" — physically making herself smaller. She is aware of being heard and is uncomfortable with her Spanish being audible. In public, "she chose carefully."'
+      },
+      {
+        question: 'What is ironic about the reason Abuela called?',
+        options: ['Abuela claimed to have an emergency but only wanted to talk', 'Abuela called during school hours simply to share that the avocado tree was flowering — a small, ordinary moment she treated as news worth interrupting school for', 'Abuela did not realize she was calling during school hours', 'Abuela called to apologize for an earlier argument'],
+        correctIndex: 1,
+        explanation: 'The irony is the gap between how much the call disrupted Valentina\'s day and how small the actual news was. But the deeper point is that Abuela\'s sense of what\'s worth sharing is different — and Valentina "almost laughed," suggesting she sees the warmth in it.'
+      },
+      {
+        question: 'Valentina writes that she moves "between two languages the way you move between two rooms of the same house." What does this simile suggest?',
+        options: ['Her two languages are completely separate and she can only use one at a time', 'Both languages belong to her and are part of the same whole — she does not have to choose between them', 'Her home is where she speaks Spanish and school is where she speaks English, so they stay confined to those places', 'Moving between languages is as difficult and disorienting as rearranging furniture'],
+        correctIndex: 1,
+        explanation: 'Two rooms of the same house share a foundation — they\'re not separate buildings. The simile says her languages are not opposites or competitors; they\'re both parts of a single space she inhabits fully.'
+      },
+      {
+        question: 'When Valentina writes "she was done doing that" — referring to whispering her grandmother\'s language in hallways — what has changed in her?',
+        options: ['She has decided to stop speaking Spanish in public and use only English', 'She realizes she has been treating her own language as something to hide, and she no longer accepts that', 'She is angry at her school for not offering Spanish language courses', 'She plans to confront her classmates directly about their attitudes toward Spanish speakers'],
+        correctIndex: 1,
+        explanation: 'The shift is internal: Valentina has seen her behavior clearly and decided it reflects a shame she doesn\'t want to carry anymore. The essay is where she works this out; the sidewalk phone call is where she acts on it.'
+      },
+      {
+        question: 'What does Valentina\'s grandmother\'s final line — "I knew you would want to know" — suggest about their relationship?',
+        options: ['The grandmother did not realize the avocado tree was an unusual thing to call about', 'The grandmother understands Valentina better than Valentina sometimes gives her credit for — she knew the small thing would matter', 'The grandmother is reminding Valentina that she should call more often', 'The grandmother is explaining why she broke the no-calls rule during school hours'],
+        correctIndex: 1,
+        explanation: 'The line is quiet and confident. The grandmother didn\'t apologize or explain — she simply knew. It suggests deep mutual knowledge: she understands that Valentina, despite the hallway whisper, would want to hear that their tree had flowered.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 6-7 | Redefining Success ─────────────────────────────────
+  {
+    id: 'second-chair',
+    title: 'Second Chair',
+    topic: 'fiction',
+    coverEmoji: '🎻',
+    coverColor: '#b45309',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [6, 7, 8],
+    wordCount: 405,
+    readTimeMin: 2,
+    text: `For three years, Dani had sat to the right of Marcus in the orchestra.
+
+Second violin. Second chair. Second to everything.
+
+She had practiced the same passages Marcus played — not because she was assigned to, but because she wanted to prove to herself she could. She could. She was sure of that. And yet, every year at chair placement auditions, the judges gave her the same long look and the same small nod, and she walked to seat two.
+
+Her mother said: *Someone has to be second.* This did not help.
+
+Her orchestra teacher, Ms. Fuentes, said nothing — just handed Dani her music and expected her to be ready.
+
+The winter concert was at the end of November. Dani had been looking forward to it with a feeling that was more dread than excitement, because being second chair meant being the one everyone's eyes slid past on their way to Marcus.
+
+But then, during the second movement of the Vivaldi — the part where the first violins carry the melody alone and the second violins play a low, steady accompaniment — Ms. Fuentes caught Dani's eye in the middle of conducting and gave her a small, sharp nod.
+
+Just that.
+
+But Dani heard it. Her bow steadied. The sound she was producing was not the melody — it was the ground beneath the melody. It was the thing the melody needed to stand on. Without the second violins holding steady underneath, the first violin's song would have been beautiful, but unrooted. It would have floated away.
+
+After the concert, Ms. Fuentes found her.
+
+"Do you know what second chair actually means?" she asked.
+
+Dani waited.
+
+"It means you are the first person responsible for holding together the section that holds together the orchestra." Ms. Fuentes said it like a fact, not a comfort. "Marcus plays the melody. You make sure it has somewhere to land."
+
+On the drive home, Dani said nothing about this to her mother. She wanted to keep it for herself for a while.
+
+She had always thought second chair meant she was almost first. She was beginning to understand it meant something else entirely.`,
+    vocabulary: [
+      { word: 'accompaniment', definition: 'A musical part that supports or complements the main melody, usually played by additional instruments.', example: 'The pianist played a soft accompaniment while the singer performed the main melody.' },
+      { word: 'audition', definition: 'A performance given to demonstrate skill and compete for a role, position, or seat.', example: 'She practiced every day for weeks before her orchestra audition.' },
+      { word: 'unrooted', definition: 'Without a foundation or support; unstable and floating.', example: 'Without context, the argument felt unrooted — strong-sounding but without anything to hold it in place.' },
+      { word: 'dread', definition: 'A feeling of fear or anxiety about something that is coming.', example: 'She approached the audition with more dread than excitement, worrying she wasn\'t ready.' },
+    ],
+    questions: [
+      {
+        question: 'Why has Dani been practicing Marcus\'s passages even though she was not assigned to?',
+        options: ['She plans to challenge Marcus for first chair at next year\'s auditions by learning his part', 'She wants to prove to herself she is as capable as he is, even if auditions haven\'t recognized it', 'Her teacher Ms. Fuentes required all violinists to learn both the first and second chair parts', 'She wants to be ready to fill in if Marcus gets sick before a performance'],
+        correctIndex: 1,
+        explanation: 'The passage says she practiced Marcus\'s passages "not because she was assigned to, but because she wanted to prove to herself she could." The motivation is internal: she needs to know she is capable, regardless of what the judges decide.'
+      },
+      {
+        question: 'Read this sentence: "The sound she was producing was not the melody — it was the ground beneath the melody." What does this METAPHOR suggest?',
+        options: ['Dani\'s part is buried and completely inaudible to the audience during the performance', 'The second violin section always plays at a lower pitch than the first violin section', 'Her role is foundational — it supports and stabilizes the music that everyone hears as the main event', 'Dani made an error and was playing the wrong notes during the second movement'],
+        correctIndex: 2,
+        explanation: '"Ground" suggests foundation, stability, something that supports weight. The metaphor reframes Dani\'s role: not inferior, but structural. The melody is only possible because something solid holds it up.'
+      },
+      {
+        question: 'What does Ms. Fuentes\'s explanation reveal about the story\'s central idea?',
+        options: ['Being second chair is better than first chair because it carries less pressure and more freedom', 'Second chair is a temporary position — a stepping stone on the way to eventually earning first chair', '"Second" has its own essential and irreplaceable purpose — holding things together — that is distinct from, not lesser than, "first"', 'Ms. Fuentes is simply trying to make Dani feel better after another year of losing the audition'],
+        correctIndex: 2,
+        explanation: 'Ms. Fuentes delivers her explanation "like a fact, not a comfort" — she is not consoling Dani, she is correcting her. Second chair is not a consolation prize; it carries its own responsibility and its own form of leadership.'
+      },
+      {
+        question: 'Why does Dani choose not to tell her mother what Ms. Fuentes said on the drive home?',
+        options: ['She disagrees with Ms. Fuentes and doesn\'t want her mother to know she is still upset', 'She knows her mother doesn\'t understand music well enough to appreciate the explanation', 'The insight feels new and personal — she needs time to sit with it before sharing it with anyone else', 'She is embarrassed that she needed a teacher to help her feel better about her position'],
+        correctIndex: 2,
+        explanation: 'She "wanted to keep it for herself for a while." This shows Dani is processing something real — the shift in her understanding of her own role. Sharing it immediately might dilute it before she fully owns it.'
+      },
+      {
+        question: 'What is the CENTRAL THEME of this story?',
+        options: ['Success in music requires daily practice and a willingness to compete directly for recognition', 'Some of the most essential roles are the ones no one notices — and understanding that changes how you see yourself', 'Orchestra auditions are not an accurate measure of true musical talent', 'Teachers have a responsibility to help students feel proud of their accomplishments'],
+        correctIndex: 1,
+        explanation: 'The theme is not "be happy with second place" — it is "second chair is not second place." The role has its own definition, its own purpose, its own leadership. Understanding that transforms how Dani sees what she does.'
+      },
+    ],
+  },
+
+  // ── FICTION | Grade 7-8 | Grief, Memory & Nature ────────────────────────────
+  {
+    id: 'what-the-river-remembers',
+    title: 'What the River Remembers',
+    topic: 'fiction',
+    coverEmoji: '🛶',
+    coverColor: '#065f46',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [7, 8],
+    wordCount: 520,
+    readTimeMin: 3,
+    text: `Elias had been on the Suwannee River four times before his grandmother died and zero times since — until today.
+
+He had launched from the same boat ramp she had always used, a concrete slope so familiar he could have found it in his sleep. He remembered her unloading the kayaks from the truck with the efficiency of someone who had done it a thousand times, moving around the equipment the way you move around furniture you've known for decades.
+
+The river was slow this time of year, dark with tannins, the color of strong tea. He had forgotten that. He had forgotten the alligators on the far bank, still as driftwood until they weren't. He had forgotten the great blue herons, which stood in the shallows like old men who had decided there was no longer any point in hurrying.
+
+He recognized each thing as he passed it, the way you recognize a word you haven't heard in years but never actually forgot.
+
+That was the thing about the Suwannee. His grandmother had taught him to read it: the way the current quickened near a bend, the spots where bass held in the shadows of cypress roots, which sandbars were safe to land on. *The river has a memory,* she had told him once. *It has been here long enough to remember things that happened before we were born.*
+
+He had been eleven when she said this and had not understood it. He was fourteen now and thought he was beginning to.
+
+She had not left him a letter or a video. What she had left him was this: how to tie a proper bowline, how to read the color of the water for depth, the names of the wading birds in order of how patient they were. A kind of knowledge that could only be learned in a place like this.
+
+He stopped paddling and let the current carry him.
+
+In the months since the funeral, he had felt her absence as a specific silence — the missing voice that would have known exactly what to say at the moments when nothing felt sayable. He had reached more than once for his phone to call her, before remembering.
+
+But here, drifting down the middle of the Suwannee, he felt something different. Not her presence exactly — he was too honest to confuse comfort with truth. But something like this: the knowledge she had given him was still inside him. The river had not forgotten what she taught him about it. And he had not forgotten either.
+
+He paddled slowly to the bank and sat in the kayak for a while, watching a heron that had been standing in the same place since he arrived.
+
+It did not move. It was waiting for something with no particular urgency.
+
+He thought he understood something about that.
+
+He turned the kayak downstream and paddled home.`,
+    vocabulary: [
+      { word: 'tannins', definition: 'Natural compounds from plants that turn water dark brown or amber — common in Florida\'s rivers, which are often called "blackwater" rivers.', example: 'The river\'s dark color came from tannins in the soil, not pollution — it was perfectly clean.' },
+      { word: 'bowline', definition: 'A type of knot used in sailing and boating that forms a fixed loop and is easy to untie even after being under load.', example: 'She tied a bowline around the dock cleat to keep the kayak from drifting.' },
+      { word: 'tannin / driftwood', definition: 'A piece of wood that has been carried by a river or ocean and left on a bank or shore.', example: 'The alligator was so still it looked exactly like a piece of driftwood on the bank.' },
+      { word: 'urgency', definition: 'A feeling that something must be done immediately; pressing importance.', example: 'He answered the phone with urgency, fearing something was wrong.' },
+    ],
+    questions: [
+      {
+        question: 'Why has Elias avoided the Suwannee River since his grandmother\'s death?',
+        options: ['He no longer has access to the kayaks without her help unloading them', 'He has been too busy with school to find the time to go', 'The river is deeply connected to her — returning means facing her absence somewhere full of her presence', 'He is afraid of the alligators and did not feel safe going without her'],
+        correctIndex: 2,
+        explanation: 'The river is where he learned from her. It holds her more completely than almost any other place. Going back means encountering her absence in the most vivid way — which is exactly why he has avoided it, and exactly why going is meaningful.'
+      },
+      {
+        question: 'Read this sentence: "He recognized each thing as he passed it, the way you recognize a word you haven\'t heard in years but never actually forgot." What does this simile suggest about Elias?',
+        options: ['He is surprised that his memory is unreliable and that he has forgotten so many details', 'The river and its features are stored in him as a deep, lasting knowledge — set aside but never gone', 'He had always disliked the river and returning confirmed that he still felt the same way', 'He is comparing the river to a foreign language he once studied but no longer uses'],
+        correctIndex: 1,
+        explanation: 'A word you haven\'t heard in years but never forgot is immediately available when needed. The simile says his knowledge of the river — and by extension, what his grandmother taught him — is like that: dormant, not lost.'
+      },
+      {
+        question: 'The grandmother said "The river has a memory." What does she most likely mean?',
+        options: ['Rivers contain fossils and geological layers that literally record historical events', 'Rivers flood at the same time each year because water follows predictable patterns', 'The river is ancient — it holds the presence of all that has happened along it in a way that humans can sense', 'River currents can be predicted because water always moves the same direction downstream'],
+        correctIndex: 2,
+        explanation: 'This is a poetic and philosophical statement, not a scientific one. She is saying the river has been present across generations of human experience — it carries something older and larger than any one person\'s life, and being in it connects you to that.'
+      },
+      {
+        question: 'The story says his grandmother left him not a letter or video, but a kind of knowledge. What does this suggest about how she expressed love?',
+        options: ['She was an unsentimental person who did not know how to express emotion through words', 'She did not believe she was close to death and had not prepared final messages', 'Her form of love was practical and lasting — she gave him skills and ways of seeing the world that now live inside him', 'Letters and videos feel more personal, so her choice shows emotional distance'],
+        correctIndex: 2,
+        explanation: 'What she gave him — bowline knots, reading water color, knowing birds by their patience — is more durable than a video. It requires her presence to teach and his presence to receive. It is the most intimate form of legacy: knowledge that lives in the body.'
+      },
+      {
+        question: 'What is the CENTRAL THEME of this story?',
+        options: ['Nature offers beauty and peace that helps people escape from grief', 'Grief fades naturally if you return to the places you associate with those you\'ve lost', 'The knowledge and love someone passes on can outlast their death — what they taught us lives in us', 'Rivers and wilderness areas should be preserved for future generations to experience'],
+        correctIndex: 2,
+        explanation: 'Elias doesn\'t find his grandmother on the river — he finds what she left inside him. He\'s "too honest to confuse comfort with truth." The theme is not that nature heals grief, but that the people we love continue in the knowledge they gave us.'
       },
     ],
   },
