@@ -204,7 +204,15 @@
     .warmup-item {
       display: flex; gap: 14px; align-items: flex-start;
       background: var(--purple-soft); border-radius: 14px; padding: 14px 16px;
+      cursor: pointer; transition: background 0.15s, box-shadow 0.15s;
     }
+    .warmup-item.seen {
+      background: #d1fae5; box-shadow: 0 0 0 2px #10b981;
+    }
+    .warmup-item .warmup-check {
+      font-size: 1.1rem; opacity: 0; transition: opacity 0.2s; margin-left: auto; flex-shrink: 0;
+    }
+    .warmup-item.seen .warmup-check { opacity: 1; }
     .warmup-word {
       font-size: 1.05rem; font-weight: 800; color: var(--purple);
       min-width: 110px; padding-top: 1px;
@@ -217,7 +225,10 @@
       border-radius: 12px; font-size: 1.05rem; font-weight: 800;
       cursor: pointer; transition: background 0.15s;
     }
-    .btn-start-reading:hover { background: #6d28d9; }
+    .btn-start-reading:disabled {
+      background: #c4b5fd; cursor: default;
+    }
+    .btn-start-reading:not(:disabled):hover { background: #6d28d9; }
 
     @media (max-width: 480px) {
       .story-body { font-size: 18px; }
@@ -291,8 +302,9 @@
     const vocabSeen = localStorage.getItem(VOCAB_SEEN_KEY) === 'true';
 
     if (!vocabSeen && story.vocabulary && story.vocabulary.length > 0) {
-      // Populate word list
+      // Populate word list — tap each card to mark it seen
       const listEl = document.getElementById('vocab-warmup-list');
+      const totalWords = story.vocabulary.length;
       listEl.innerHTML = story.vocabulary.map(v => `
         <div class="warmup-item">
           <div class="warmup-word">${v.word}</div>
@@ -300,8 +312,30 @@
             <div class="warmup-def">${v.definition}</div>
             <div class="warmup-ex">"${v.example}"</div>
           </div>
+          <div class="warmup-check">✓</div>
         </div>
       `).join('');
+
+      const startBtn = document.getElementById('btn-start-reading');
+      startBtn.disabled = true;
+      startBtn.textContent = 'Tap each word first (' + totalWords + ' left)';
+
+      let seenCount = 0;
+      listEl.querySelectorAll('.warmup-item').forEach(item => {
+        item.addEventListener('click', function () {
+          if (this.classList.contains('seen')) return;
+          this.classList.add('seen');
+          seenCount++;
+          const left = totalWords - seenCount;
+          if (left === 0) {
+            startBtn.disabled = false;
+            startBtn.textContent = "Let's Read! →";
+          } else {
+            startBtn.textContent = 'Tap each word first (' + left + ' left)';
+          }
+        });
+      });
+
       document.getElementById('vocab-overlay').classList.remove('hidden');
     }
 
@@ -312,6 +346,7 @@
       if (!readStart) {
         readStart = Date.now();
         localStorage.setItem(LS_KEY, readStart.toString());
+        localStorage.setItem('inProgressStory', storyId);
         sessionStorage.setItem('readStartTime', readStart.toString());
         // Kick off countdown if not already running
         if (!countdownInterval && !quizUnlocked) {
@@ -342,6 +377,10 @@
       // Vocab already seen on a previous visit — start timer now
       readStart = Date.now();
       localStorage.setItem(LS_KEY, readStart.toString());
+      localStorage.setItem('inProgressStory', storyId);
+    } else if (readStart) {
+      // Resumed mid-read — keep in-progress marker alive
+      localStorage.setItem('inProgressStory', storyId);
     }
     // Write to sessionStorage for quiz.html cross-check (may be 0 if not started yet)
     sessionStorage.setItem('readStartTime', readStart.toString());
