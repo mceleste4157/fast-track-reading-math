@@ -153,10 +153,10 @@
     .btn-login:hover { background: var(--blue); color: #fff; }
     .btn-edit    { background: #f3f4f6; color: var(--muted); }
     .btn-edit:hover { background: var(--purple-soft); color: var(--purple); }
-    .btn-pin     { background: #fef3c7; color: #92400e; }
-    .btn-pin:hover { background: #f59e0b; color: #fff; }
     .btn-delete  { background: var(--red-soft); color: var(--red); }
     .btn-delete:hover { background: var(--red); color: #fff; }
+    .btn-msg     { background: #ecfdf5; color: #065f46; }
+    .btn-msg:hover { background: #10b981; color: #fff; }
 
     /* ── Add child button ── */
     .btn-add-child {
@@ -306,11 +306,113 @@
     <div class="rn-modal">
       <div class="rn-header">
         <h2>🚀 What's New in FAST Track</h2>
-        <p id="rn-last-updated">Last updated: June 4, 2026</p>
+        <p id="rn-last-updated">Last updated: July 4, 2026</p>
       </div>
       <div class="rn-body">
 
-        <div class="rn-date">June 4, 2026 — Latest Update</div>
+        <div class="rn-date">July 4, 2026 — Latest Update</div>
+        <div class="rn-section">
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">⚡</div>
+              <div class="rn-item-text"><strong>Daily Challenges</strong> — Three new challenges appear every day on the home screen, rotating by student so each child gets a different set. Completing them earns bonus XP (e.g., "Read 2 stories today +40 XP", "Score 5 stars +35 XP"). Challenge XP is tracked separately and counts toward your child's total.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🔤</div>
+              <div class="rn-item-text"><strong>Spelling Quiz</strong> — After finishing a story quiz, students can tap "🔤 Spelling Quiz" to practice vocabulary words from that story. Each round picks up to 5 words, shows a definition and first/last letter hint, and awards 15 XP per correct spelling. A word-by-word review appears at the end.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📖</div>
+              <div class="rn-item-text"><strong>Vocabulary Bank</strong> — A new "Vocab Bank" page (accessible from the Library) shows every vocabulary word your child has encountered across all stories they've read, searchable by word, definition, or story title. Tap any word card to reveal its definition.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🚀</div>
+              <div class="rn-item-text"><strong>Adaptive grade-up suggestion</strong> — After three consecutive perfect (5-star) quizzes at their current grade level, students see a "Ready for the next level?" card suggesting an unread story one grade up. The system never changes the grade automatically — it just opens the door.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🎯</div>
+              <div class="rn-item-text"><strong>Topic Mastery Badges</strong> — Six new badges reward reading across subjects: Florida Naturalist (5 Florida nature stories), Science Whiz (5 science stories), History Buff (5 history stories), Star Gazer (3 space stories), Biography Fan (3 biography stories), and Story Lover (3 fiction stories).</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🎲</div>
+              <div class="rn-item-text"><strong>Surprise Me! button</strong> — A "🎲 Surprise Me!" button in the Library picks a random unread story at the student's grade level and jumps straight to it. If all grade-level stories have been read, it picks from any story at that grade.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📉</div>
+              <div class="rn-item-text"><strong>Fairer inactivity decay</strong> — The XP decay penalty now only kicks in after 5 consecutive days without any activity (was 2 days). Skipping a weekend or a few days will no longer cost XP. Typing lessons now also count as activity and reset the timer, same as reading and math quizzes.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📊</div>
+              <div class="rn-item-text"><strong>Level thresholds raised</strong> — All level XP requirements have been significantly increased so each achievement feels meaningful. FAST Legend now requires 17,000 XP (was 4,000) and Infinity Reader requires 72,000 XP. Students already past a threshold keep their current level.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📚</div>
+              <div class="rn-item-text"><strong>10 new stories added</strong> — New stories covering all grade levels (1–8): sharks &amp; ocean life (Gr 1), four seasons (Gr 2), George Washington (Gr 3), Mary McLeod Bethune &amp; Jamestown (Gr 4), Trail of Tears &amp; Lewis &amp; Clark (Gr 5), Aztec Empire (Gr 6), Korean War (Gr 7), Apollo Moon Race (Gr 8).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-date">June 5, 2026 — Previous Update</div>
+        <div class="rn-section">
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">❤️</div>
+              <div class="rn-item-text"><strong>Story bookmarks</strong> — Students can now tap 🤍 on any story card in the library to save it. Saved stories appear in the new ❤️ Saved tab at the top of the library. Bookmarks sync across devices via Firestore and the 🤍 button on the reading page also works. The tab shows a count of saved stories.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🎯</div>
+              <div class="rn-item-text"><strong>Trivia &amp; Vocab games now award XP</strong> — Completing a Story Trivia round earns 10–30 XP based on stars earned. Finishing a Vocab Game earns 5–20 XP based on accuracy. Both now appear in each student's total XP and activity feed.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">⌨️</div>
+              <div class="rn-item-text"><strong>Typing badges added</strong> — Three new badges reward typing milestones: Keyboarder (first lesson), Typing Pro (5 lessons), and Speed Demon (10 lessons). Badges are awarded instantly when a lesson finishes.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📵</div>
+              <div class="rn-item-text"><strong>Offline indicator</strong> — The home screen now shows a banner when the device loses internet, so students know scores won't save until they reconnect.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📚</div>
+              <div class="rn-item-text"><strong>31 new stories added</strong> — Five new stories per grade for Grades 1–3; four for Grade 4; four for Grade 5; three for Grade 6; four for Grade 7; and one advanced Grade 8 story. Topics cover Florida history, science, civics, and more.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📶</div>
+              <div class="rn-item-text"><strong>Offline cache updated</strong> — All 31 new stories are now pre-cached for offline reading. Students can access every story without an internet connection after their first visit.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-date">June 5, 2026</div>
+        <div class="rn-section">
+          <div class="rn-items">
+            <div class="rn-item">
+              <div class="rn-item-icon">⌨️</div>
+              <div class="rn-item-text"><strong>Typing XP now counts toward total XP</strong> — XP earned from typing lessons is now included in each student's total XP on the home screen, progress page, and admin dashboard. Previously it was tracked but never displayed.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">📱</div>
+              <div class="rn-item-text"><strong>Inactivity penalty syncs across devices</strong> — The XP inactivity penalty now saves to Firestore so it's consistent whether your child logs in on a phone, tablet, or computer. Completing any quiz resets the penalty on all devices immediately.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🔒</div>
+              <div class="rn-item-text"><strong>XP penalty capped at 100 XP</strong> — The maximum inactivity penalty was reduced from 200 XP to 100 XP so students with high XP are not disproportionately penalized for missing a few days.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">⌨️</div>
+              <div class="rn-item-text"><strong>Typing lessons appear in Progress history</strong> — Completed typing lessons now show up in the Recent Activity feed on the Progress page with WPM score.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">⚠️</div>
+              <div class="rn-item-text"><strong>Better error handling</strong> — If stats fail to load (e.g. no internet), the app now shows a clear "Tap to retry" message instead of displaying 0 XP.</div>
+            </div>
+            <div class="rn-item">
+              <div class="rn-item-icon">🛠️</div>
+              <div class="rn-item-text"><strong>Bug fixes</strong> — Fixed a silent JavaScript crash that was causing all students' XP to display as 0. Fixed the writing prompt focus highlight on the quiz results page. Fixed a stale story data cache in the spelling practice page.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rn-date">June 4, 2026</div>
         <div class="rn-section">
           <div class="rn-items">
             <div class="rn-item">
@@ -592,7 +694,7 @@
           <div class="rn-items">
             <div class="rn-item">
               <div class="rn-item-icon">⭐</div>
-              <div class="rn-item-text"><strong>XP, levels & badges</strong> — Kids earn XP and climb 15 levels from Bookworm to FAST Legend.</div>
+              <div class="rn-item-text"><strong>XP, levels & badges</strong> — Kids earn XP and climb 22 levels from Bookworm to Infinity Reader.</div>
             </div>
             <div class="rn-item">
               <div class="rn-item-icon">🔥</div>
@@ -663,14 +765,6 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="f-pin">PIN (4 digits)</label>
-        <div class="pin-wrap">
-          <input type="text" id="f-pin" placeholder="e.g. 1234" maxlength="4" inputmode="numeric"
-                 pattern="[0-9]{4}" autocomplete="off" />
-          <button type="button" class="pin-toggle" id="pin-toggle-btn" title="Toggle visibility">👁</button>
-        </div>
-      </div>
 
       <div class="form-group">
         <label>Avatar Emoji</label>
@@ -855,6 +949,32 @@
       <div id="digest-status" style="font-size:0.85rem;font-weight:600;margin-top:10px;min-height:1.2em;"></div>
     </div>
 
+    <!-- Change PIN -->
+    <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+      <div class="section-heading">🔒 Change Portal PIN</div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:16px;">Update your 4-digit PIN that protects parent settings.</p>
+      <div id="change-pin-wrap" style="background:var(--surface);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:22px;max-width:340px;">
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Current PIN</label>
+          <input id="cp-current" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+        </div>
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">New PIN</label>
+          <input id="cp-new" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Confirm New PIN</label>
+          <input id="cp-confirm" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+        </div>
+        <div id="cp-err" style="font-size:0.85rem;font-weight:600;color:#ef4444;min-height:1.2em;margin-bottom:10px;"></div>
+        <button id="cp-save-btn" style="padding:11px 22px;background:var(--blue);color:#fff;border:none;border-radius:11px;font-size:0.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.15s;">Save New PIN</button>
+        <div id="cp-success" style="font-size:0.85rem;font-weight:600;color:var(--green);margin-top:10px;min-height:1.2em;"></div>
+      </div>
+    </div>
+
     <!-- Suggestion Box -->
     <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
       <div class="section-heading">💡 Suggestion Box</div>
@@ -955,21 +1075,28 @@
     const db   = firebase.firestore();
 
     const LEVELS = [
-      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
-      { name: 'Reader',       minXp: 100,  emoji: '📚' },
-      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
-      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
-      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
-      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
-      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
-      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
-      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
-      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
-      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
-      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
-      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
-      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
-      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+      { name: 'Bookworm',       minXp: 0,     emoji: '📖' },
+      { name: 'Reader',         minXp: 100,   emoji: '📚' },
+      { name: 'Word Hunter',    minXp: 250,   emoji: '🔍' },
+      { name: 'Explorer',       minXp: 450,   emoji: '🗺️' },
+      { name: 'Thinker',        minXp: 700,   emoji: '🧠' },
+      { name: 'Scholar',        minXp: 1000,  emoji: '🎓' },
+      { name: 'Achiever',       minXp: 1400,  emoji: '⚡' },
+      { name: 'Champion',       minXp: 1900,  emoji: '🏆' },
+      { name: 'Super Reader',   minXp: 2800,  emoji: '🌟' },
+      { name: 'Eagle Eye',      minXp: 4000,  emoji: '🦅' },
+      { name: 'Story Master',   minXp: 5500,  emoji: '🚀' },
+      { name: 'Prodigy',        minXp: 7500,  emoji: '💎' },
+      { name: 'Summer Hero',    minXp: 10000, emoji: '☀️' },
+      { name: 'Grand Master',   minXp: 13000, emoji: '👑' },
+      { name: 'FAST Legend',    minXp: 17000, emoji: '🌈' },
+      { name: 'Mythic Reader',  minXp: 21500, emoji: '🔥' },
+      { name: 'Genius',         minXp: 27000, emoji: '🧬' },
+      { name: 'Knowledge Lord', minXp: 33500, emoji: '🔭' },
+      { name: 'Elite Scholar',  minXp: 41000, emoji: '⭐' },
+      { name: 'Legend Maker',   minXp: 50000, emoji: '🌙' },
+      { name: 'Galaxy Brain',   minXp: 60000, emoji: '🪐' },
+      { name: 'Infinity Reader',minXp: 72000, emoji: '♾️' },
     ];
     function getLevel(xp) {
       let idx = 0;
@@ -984,17 +1111,19 @@
     let editingDocId = null; // null = adding new
 
     // ── Auth + Portal PIN guard ────────────────────────────────────────────────
+    // PIN verified by the Parent button on index.html (requireParentPin) carries over.
+    // Direct URL navigation always hits the PIN screen since portalPinVerified won't be set.
+
     auth.onAuthStateChanged(user => {
       if (!user) { window.location.href = 'login.html'; return; }
       currentUser = user;
 
-      // Load parent display name
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         document.getElementById('nav-user').textContent = data.displayName || user.email;
         injectAdminLink(user.email);
 
-        // Check portal PIN
+        // Skip PIN screen if already verified (e.g. came from the Parent button)
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
           loadAdminSuggestions();
@@ -1045,9 +1174,29 @@
             <button onclick="ppDigit('0')" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:10px;cursor:pointer;">0</button>
             <div></div>
           </div>
-          <a href="login.html" style="display:block;margin-top:18px;color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">← Back to login</a>
+          ${!noPin ? `<button id="pp-forgot" style="display:block;width:100%;margin-top:10px;background:none;border:none;color:#9ca3af;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">Forgot PIN?</button>` : ''}
+          <a href="login.html" style="display:block;margin-top:8px;color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">← Back to login</a>
         </div>`;
       document.body.appendChild(screen);
+
+      // Forgot PIN — since the parent is already signed in via Firebase Auth,
+      // that's proof of identity. Let them clear the PIN and set a new one.
+      const forgotBtn = document.getElementById('pp-forgot');
+      if (forgotBtn) {
+        forgotBtn.addEventListener('click', () => {
+          if (!confirm('Reset your portal PIN? You\'ll be asked to set a new one.')) return;
+          db.collection('ParentProfiles').doc(uid)
+            .update({ portalPin: firebase.firestore.FieldValue.delete() })
+            .then(() => {
+              document.removeEventListener('keydown', ppHandleKey); // prevent double-fire
+              screen.remove();
+              showPortalPinScreen(null, uid); // re-open in "set new PIN" mode
+            })
+            .catch(() => {
+              document.getElementById('pp-err').textContent = 'Could not reset PIN — try again.';
+            });
+        });
+      }
 
       let ppEntry = '';
       window.ppDigit = function(n) {
@@ -1089,106 +1238,6 @@
       document.addEventListener('keydown', ppHandleKey);
     }
 
-    // ── Change child PIN modal ─────────────────────────────────────────────────
-    function changePinModal(docId, childName) {
-      const overlay = document.createElement('div');
-      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
-      overlay.innerHTML = `
-        <div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:320px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.2);">
-          <div style="font-size:2rem;margin-bottom:8px;">🔑</div>
-          <div style="font-size:1.2rem;font-weight:800;margin-bottom:5px;">Change ${escHtml(childName)}'s PIN</div>
-          <div style="font-size:0.85rem;color:#6b7280;margin-bottom:20px;" id="cpm-step-label">Enter a new 4-digit PIN</div>
-          <div style="display:flex;justify-content:center;gap:14px;margin-bottom:14px;" id="cpm-dots">
-            ${[0,1,2,3].map(i=>`<div id="cpmd${i}" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;transition:background 0.12s,border-color 0.12s;"></div>`).join('')}
-          </div>
-          <div id="cpm-err" style="color:#ef4444;font-size:0.83rem;font-weight:600;min-height:1.1em;margin-bottom:10px;"></div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:216px;margin:0 auto 18px;">
-            ${[1,2,3,4,5,6,7,8,9].map(n=>`<button class="cpm-btn" data-n="${n}" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;font-family:inherit;">${n}</button>`).join('')}
-            <button class="cpm-btn" data-n="back" style="padding:14px;font-size:1.05rem;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">⌫</button>
-            <button class="cpm-btn" data-n="0" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;font-family:inherit;">0</button>
-            <div></div>
-          </div>
-          <button id="cpm-cancel" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:inherit;padding:8px;">Cancel</button>
-        </div>`;
-      document.body.appendChild(overlay);
-
-      let firstPin = '';
-      let entry = '';
-      let step = 1; // 1 = enter new PIN, 2 = confirm
-
-      function updateDots() {
-        for (let i = 0; i < 4; i++) {
-          const d = document.getElementById('cpmd' + i);
-          d.style.background  = i < entry.length ? '#7c3aed' : 'transparent';
-          d.style.borderColor = i < entry.length ? '#7c3aed' : '#d1d5db';
-        }
-      }
-
-      overlay.querySelector('#cpm-cancel').addEventListener('click', () => { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); });
-      overlay.addEventListener('click', e => { if (e.target === overlay) { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); } });
-      function cpmHandleKey(e) {
-        if (!document.body.contains(overlay)) { document.removeEventListener('keydown', cpmHandleKey); return; }
-        if (e.key >= '0' && e.key <= '9') overlay.querySelector(`.cpm-btn[data-n="${e.key}"]`)?.click();
-        else if (e.key === 'Backspace') overlay.querySelector('.cpm-btn[data-n="back"]')?.click();
-        else if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); }
-      }
-      document.addEventListener('keydown', cpmHandleKey);
-
-      overlay.querySelectorAll('.cpm-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const n = btn.dataset.n;
-          if (n === 'back') { entry = entry.slice(0, -1); }
-          else if (entry.length < 4) { entry += n; }
-          updateDots();
-          document.getElementById('cpm-err').textContent = '';
-
-          if (entry.length === 4) {
-            if (step === 1) {
-              // First entry — move to confirm
-              firstPin = entry;
-              entry = '';
-              step = 2;
-              document.getElementById('cpm-step-label').textContent = 'Confirm the new PIN';
-              setTimeout(updateDots, 50);
-            } else {
-              // Confirm step
-              if (entry === firstPin) {
-                // Match — save to Firestore
-                const saveBtn = overlay.querySelectorAll('.cpm-btn');
-                saveBtn.forEach(b => b.disabled = true);
-                db.collection('StudentProfiles').doc(docId).update({ pin: entry })
-                  .then(() => {
-                    overlay.remove();
-                    // Quick success toast
-                    const toast = document.createElement('div');
-                    toast.textContent = '✅ PIN updated for ' + childName;
-                    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#065f46;color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;font-size:0.92rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
-                    document.body.appendChild(toast);
-                    setTimeout(() => toast.remove(), 3000);
-                  })
-                  .catch(err => {
-                    document.getElementById('cpm-err').textContent = 'Could not save: ' + err.message;
-                    saveBtn.forEach(b => b.disabled = false);
-                    entry = ''; step = 1; firstPin = '';
-                    document.getElementById('cpm-step-label').textContent = 'Enter a new 4-digit PIN';
-                    setTimeout(updateDots, 50);
-                  });
-              } else {
-                // Mismatch — shake and restart
-                document.getElementById('cpm-err').textContent = 'PINs don\'t match — try again';
-                const dotsEl = document.getElementById('cpm-dots');
-                dotsEl.style.animation = 'none'; void dotsEl.offsetWidth;
-                dotsEl.style.animation = 'ppShake 0.35s ease';
-                entry = ''; step = 1; firstPin = '';
-                document.getElementById('cpm-step-label').textContent = 'Enter a new 4-digit PIN';
-                setTimeout(updateDots, 350);
-              }
-            }
-          }
-        });
-      });
-    }
-
     // ── Load children ──────────────────────────────────────────────────────────
     function loadChildren() {
       const area = document.getElementById('children-area');
@@ -1225,22 +1274,62 @@
       const xpPromises = children.map(child =>
         Promise.all([
           db.collection('Progress').where('readerId', '==', child.readerId).get(),
-          db.collection('MathProgress').where('readerId', '==', child.readerId).get()
-        ]).then(([r, m]) => {
+          db.collection('MathProgress').where('readerId', '==', child.readerId).get(),
+          db.collection('TypingProgress').where('readerId', '==', child.readerId).get(),
+          db.collection('TriviaScores').where('readerId', '==', child.readerId).get(),
+          db.collection('StudentStats').doc(child.readerId).get()
+        ]).then(([r, m, t, tr, stats]) => {
           let xp = 0;
           r.forEach(d => { xp += (d.data().xpEarned || 0); });
           m.forEach(d => { xp += (d.data().xpEarned || 0); });
-          return xp;
-        }).catch(() => 0)
+          t.forEach(d => { xp += (d.data().xpEarned || 0); });
+          tr.forEach(d => { xp += (d.data().xpEarned || 0); });
+          const sd = stats.exists ? stats.data() : {};
+          // Count unique stories completed (best attempt per story)
+          const bestStars = {};
+          r.forEach(d => {
+            const { storyId, starsEarned } = d.data();
+            if (storyId && (starsEarned || 0) > (bestStars[storyId] || 0)) bestStars[storyId] = starsEarned || 0;
+          });
+          return {
+            xp,
+            streak: sd.currentStreak || 0,
+            storiesThisWeek: sd.storiesThisWeek || 0,
+            lastReadDate: sd.lastReadDate || null,
+            totalStories: Object.keys(bestStars).length,
+            avgStars: Object.keys(bestStars).length
+              ? (Object.values(bestStars).reduce((a, b) => a + b, 0) / Object.keys(bestStars).length).toFixed(1)
+              : null
+          };
+        }).catch(() => ({ xp: 0, streak: 0, storiesThisWeek: 0, lastReadDate: null, totalStories: 0, avgStars: null }))
       );
 
-      Promise.all(xpPromises).then(xpValues => {
+      Promise.all(xpPromises).then(statsValues => {
         children.forEach((child, i) => {
-          const xp    = xpValues[i];
+          const { xp, streak, storiesThisWeek, lastReadDate, totalStories, avgStars } = statsValues[i];
           const level = getLevel(xp);
           const color  = child.avatarColor || '#2563eb';
           const initials = child.name ? child.name.charAt(0).toUpperCase() : '?';
           const emoji  = child.avatarEmoji || initials;
+
+          // Build last-active label
+          const today = new Date().toISOString().slice(0, 10);
+          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+          let lastActiveLabel = 'Never';
+          let lastActiveColor = '#9ca3af';
+          if (lastReadDate === today) { lastActiveLabel = 'Today ✓'; lastActiveColor = '#10b981'; }
+          else if (lastReadDate === yesterday) { lastActiveLabel = 'Yesterday'; lastActiveColor = '#f59e0b'; }
+          else if (lastReadDate) {
+            const d = new Date(lastReadDate + 'T12:00:00');
+            const daysAgo = Math.round((Date.now() - d.getTime()) / 86400000);
+            lastActiveLabel = daysAgo + 'd ago';
+            lastActiveColor = daysAgo <= 3 ? '#f59e0b' : '#ef4444';
+          }
+
+          const streakEmoji = streak >= 14 ? '🌙' : streak >= 7 ? '⚡' : streak >= 3 ? '🔥' : '📅';
+          const weeklyGoal = child.weeklyGoalStories || 3;
+          const goalPct = Math.min(100, Math.round((storiesThisWeek / weeklyGoal) * 100));
+          const goalColor = goalPct >= 100 ? '#10b981' : goalPct >= 50 ? '#f59e0b' : '#e5e7eb';
 
           const card = document.createElement('div');
           card.className = 'child-card';
@@ -1249,20 +1338,38 @@
               style="cursor:pointer;border-radius:12px;transition:background 0.15s;padding:4px;margin:-4px;"
               onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background=''">
               <div class="child-avatar" style="background:${escHtml(color)}">${escHtml(emoji)}</div>
-              <div>
+              <div style="flex:1;min-width:0;">
                 <div class="child-name" style="display:flex;align-items:center;gap:6px;">${escHtml(child.name)} <span style="font-size:0.72rem;background:var(--blue-soft);color:var(--blue);padding:2px 7px;border-radius:99px;font-weight:700;">Tap to log in</span></div>
                 <div class="child-grade">Grade ${escHtml(String(child.gradeLevel || ''))}</div>
-                <div class="child-xp">${xp} XP</div>
-                <div class="child-level">${level.emoji} ${level.name}</div>
+                <div class="child-xp">${xp} XP · ${level.emoji} ${level.name}</div>
+                ${child.parentMessage ? `<div style="margin-top:4px;font-size:0.75rem;color:#065f46;background:#ecfdf5;border-radius:8px;padding:2px 8px;display:inline-block;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${escHtml(child.parentMessage)}">💬 ${escHtml(child.parentMessage)}</div>` : ''}
               </div>
             </div>
-            <div class="child-actions">
+            <!-- At-a-glance stats row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+              <div style="background:#f9fafb;border-radius:10px;padding:8px 10px;text-align:center;">
+                <div style="font-size:1.1rem;font-weight:800;color:#1e1b4b;">${streakEmoji} ${streak}</div>
+                <div style="font-size:0.68rem;font-weight:700;color:#6b7280;margin-top:1px;">Day Streak</div>
+              </div>
+              <div style="background:#f9fafb;border-radius:10px;padding:8px 10px;text-align:center;">
+                <div style="font-size:1.1rem;font-weight:800;color:#1e1b4b;">${storiesThisWeek} / ${weeklyGoal}</div>
+                <div style="font-size:0.68rem;font-weight:700;color:#6b7280;margin-top:1px;">This Week</div>
+                <div style="height:3px;background:#e5e7eb;border-radius:99px;margin-top:4px;overflow:hidden;"><div style="height:100%;width:${goalPct}%;background:${goalColor};border-radius:99px;"></div></div>
+              </div>
+              <div style="background:#f9fafb;border-radius:10px;padding:8px 10px;text-align:center;">
+                <div style="font-size:1.1rem;font-weight:800;color:${lastActiveColor};">${lastActiveLabel}</div>
+                <div style="font-size:0.68rem;font-weight:700;color:#6b7280;margin-top:1px;">Last Active</div>
+              </div>
+            </div>
+            <!-- Total stories + avg score -->
+            ${totalStories > 0 ? `<div style="margin-top:8px;font-size:0.78rem;color:#6b7280;font-weight:600;padding:0 2px;">📚 ${totalStories} ${totalStories === 1 ? 'story' : 'stories'} completed${avgStars ? ' · avg ' + avgStars + '⭐' : ''}</div>` : ''}
+            <div class="child-actions" style="margin-top:10px;">
               <a href="parent.html?student=${encodeURIComponent(child.readerId)}" class="btn-action btn-view">📊 Progress</a>
               <button class="btn-action btn-login" data-id="${escHtml(child.id)}">🚀 Log in as ${escHtml(child.name)}</button>
             </div>
             <div class="child-actions">
               <button class="btn-action btn-edit"   data-id="${escHtml(child.id)}">✏️ Edit</button>
-              <button class="btn-action btn-pin"    data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}">🔑 Change PIN</button>
+              <button class="btn-action btn-msg"    data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}" data-msg="${escHtml(child.parentMessage || '')}">💬 Message</button>
               <button class="btn-action btn-delete" data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}">🗑️ Delete</button>
             </div>
           `;
@@ -1277,8 +1384,8 @@
               avatarEmoji:       kid.avatarEmoji  || '',
               profileDocId:      kid.id,
               weeklyGoalStories: kid.weeklyGoalStories ?? 3,
-              mathUnlockScore:   kid.mathUnlockScore   ?? 3,
-              dailyReadMinutes:  kid.dailyReadMinutes  ?? 30,
+              mathUnlockScore:   kid.mathUnlockScore   ?? 0,
+              dailyReadMinutes:  kid.dailyReadMinutes  ?? 0,
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
               triviaMinStories:  kid.triviaMinStories  || '5',
               readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on'),
@@ -1299,8 +1406,9 @@
           // Edit button
           card.querySelector('.btn-edit').addEventListener('click', () => openEditForm(child));
 
-          // Change PIN button
-          card.querySelector('.btn-pin').addEventListener('click', () => changePinModal(child.id, child.name));
+
+          // Message button
+          card.querySelector('.btn-msg').addEventListener('click', () => openMessageModal(child.id, child.name, child.parentMessage || ''));
 
           // Delete button
           card.querySelector('.btn-delete').addEventListener('click', () => confirmDelete(child.id, child.name));
@@ -1350,12 +1458,6 @@
       document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
     });
 
-    // PIN toggle visibility
-    const pinInput = document.getElementById('f-pin');
-    document.getElementById('pin-toggle-btn').addEventListener('click', () => {
-      pinInput.type = pinInput.type === 'password' ? 'text' : 'password';
-    });
-    pinInput.type = 'text'; // show by default
 
     // Advanced toggle
     document.getElementById('advanced-toggle').addEventListener('click', () => {
@@ -1386,13 +1488,12 @@
 
       document.getElementById('f-name').value  = child.name || '';
       document.getElementById('f-grade').value = child.gradeLevel || '';
-      document.getElementById('f-pin').value   = child.pin || '';
       document.getElementById('f-emoji').value = child.avatarEmoji || '';
       document.getElementById('f-color').value = child.avatarColor || '#2563eb';
       document.getElementById('f-legacy-id').value    = child.readerId || '';
       document.getElementById('f-goal').value         = child.weeklyGoalStories || 3;
-      document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 3;
-      document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 30;
+      document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 0;
+      document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 0;
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
       document.getElementById('f-trivia-min').value     = child.triviaMinStories || '5';
       document.getElementById('f-read-aloud').value     = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
@@ -1423,7 +1524,7 @@
     }
 
     function resetForm() {
-      ['f-name','f-pin','f-emoji','f-legacy-id'].forEach(id => {
+      ['f-name','f-emoji','f-legacy-id'].forEach(id => {
         document.getElementById(id).value = '';
       });
       document.getElementById('f-grade').value         = '';
@@ -1432,8 +1533,8 @@
       document.getElementById('f-read-aloud').value    = 'on';
       document.getElementById('f-trivia-min').value     = '5';
       document.getElementById('f-reading-timer').value = 'full';
-      document.getElementById('f-math-unlock').value   = '3';
-      document.getElementById('f-read-mins').value     = '30';
+      document.getElementById('f-math-unlock').value   = '0';
+      document.getElementById('f-read-mins').value     = '0';
       document.getElementById('f-math-mins').value     = '10';
       document.getElementById('f-screen-mins').value   = '60';
       document.getElementById('f-message').value       = '';
@@ -1455,7 +1556,6 @@
     function submitChildForm() {
       const name     = document.getElementById('f-name').value.trim();
       const grade    = parseInt(document.getElementById('f-grade').value);
-      const pin      = document.getElementById('f-pin').value.trim();
       const emoji    = document.getElementById('f-emoji').value.trim();
       const color    = document.getElementById('f-color').value;
       const legacyId        = document.getElementById('f-legacy-id').value.trim();
@@ -1473,7 +1573,6 @@
 
       if (!name)                         { showFormErr('Please enter the child\'s name.'); return; }
       if (!grade || grade < 1 || grade > 8) { showFormErr('Please select a grade.'); return; }
-      if (!/^\d{4}$/.test(pin))          { showFormErr('PIN must be exactly 4 digits.'); return; }
 
       const btn = document.getElementById('form-submit-btn');
       btn.disabled = true; btn.textContent = 'Saving…';
@@ -1483,7 +1582,6 @@
         const data = {
           name:              name,
           gradeLevel:        grade,
-          pin:               pin,
           avatarEmoji:       emoji || '',
           avatarColor:       color,
           weeklyGoalStories: weeklyGoalStories,
@@ -1516,7 +1614,6 @@
         const data = {
           name:              name,
           gradeLevel:        grade,
-          pin:               pin,
           avatarEmoji:       emoji || '',
           avatarColor:       color,
           weeklyGoalStories: weeklyGoalStories,
@@ -1576,6 +1673,59 @@
     // ── Delete ─────────────────────────────────────────────────────────────────
     let pendingDeleteId   = null;
     let pendingDeleteName = null;
+
+    // ── Message to child modal ─────────────────────────────────────────────────
+    function openMessageModal(docId, childName, currentMsg) {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(0,0,0,0.2);">
+          <div style="font-size:2rem;margin-bottom:8px;">💬</div>
+          <div style="font-size:1.1rem;font-weight:800;margin-bottom:4px;">Message to ${escHtml(childName)}</div>
+          <div style="font-size:0.84rem;color:#6b7280;margin-bottom:16px;">Your child sees this as a notification when they open the app. Great for encouragement!</div>
+          <textarea id="msg-input" maxlength="120" rows="3"
+            style="width:100%;padding:12px 14px;border:2px solid #e5e7eb;border-radius:10px;font-family:inherit;font-size:0.95rem;resize:none;outline:none;transition:border-color 0.15s;line-height:1.5;"
+            placeholder="e.g. Great job this week! Keep reading! 🌟"
+            onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e5e7eb'"
+          >${escHtml(currentMsg)}</textarea>
+          <div style="font-size:0.75rem;color:#9ca3af;text-align:right;margin-top:4px;margin-bottom:16px;" id="msg-count">${currentMsg.length}/120</div>
+          <div id="msg-err" style="color:#ef4444;font-size:0.84rem;font-weight:600;min-height:1.1em;margin-bottom:10px;"></div>
+          <div style="display:flex;gap:10px;">
+            <button id="msg-clear" style="flex:1;padding:12px;background:#f3f4f6;color:#6b7280;border:none;border-radius:10px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;">Clear</button>
+            <button id="msg-cancel" style="flex:1;padding:12px;background:#f3f4f6;color:#6b7280;border:none;border-radius:10px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;">Cancel</button>
+            <button id="msg-send" style="flex:2;padding:12px;background:#7c3aed;color:#fff;border:none;border-radius:10px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;">Send Message ✉️</button>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      const input = overlay.querySelector('#msg-input');
+      const countEl = overlay.querySelector('#msg-count');
+      input.addEventListener('input', () => { countEl.textContent = input.value.length + '/120'; });
+
+      overlay.querySelector('#msg-cancel').addEventListener('click', () => overlay.remove());
+      overlay.querySelector('#msg-clear').addEventListener('click', () => { input.value = ''; countEl.textContent = '0/120'; });
+      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+
+      overlay.querySelector('#msg-send').addEventListener('click', () => {
+        const msg = input.value.trim();
+        const btn = overlay.querySelector('#msg-send');
+        btn.disabled = true; btn.textContent = 'Saving…';
+        db.collection('StudentProfiles').doc(docId).update({ parentMessage: msg })
+          .then(() => {
+            overlay.remove();
+            const toast = document.createElement('div');
+            toast.textContent = msg ? `✅ Message sent to ${childName}!` : `🗑️ Message cleared for ${childName}.`;
+            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#065f46;color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;font-size:0.92rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+            loadChildren(); // refresh cards so new message shows in data-msg
+          })
+          .catch(err => {
+            overlay.querySelector('#msg-err').textContent = 'Could not save: ' + err.message;
+            btn.disabled = false; btn.textContent = 'Send Message ✉️';
+          });
+      });
+    }
 
     function confirmDelete(docId, name) {
       pendingDeleteId   = docId;
@@ -1777,14 +1927,17 @@
 
     // ── Sibling comparison ─────────────────────────────────────────────────────
     const LEVELS_PP = [
-      { name:'Bookworm',minXp:0,emoji:'📖'},{name:'Reader',minXp:100,emoji:'📚'},
-      {name:'Word Hunter',minXp:200,emoji:'🔍'},{name:'Explorer',minXp:300,emoji:'🗺️'},
-      {name:'Thinker',minXp:450,emoji:'🧠'},{name:'Scholar',minXp:600,emoji:'🎓'},
-      {name:'Achiever',minXp:800,emoji:'⚡'},{name:'Champion',minXp:1000,emoji:'🏆'},
-      {name:'Super Reader',minXp:1500,emoji:'🌟'},{name:'Eagle Eye',minXp:1850,emoji:'🦅'},
-      {name:'Story Master',minXp:2200,emoji:'🚀'},{name:'Prodigy',minXp:2600,emoji:'💎'},
-      {name:'Summer Hero',minXp:3000,emoji:'☀️'},{name:'Grand Master',minXp:3500,emoji:'👑'},
-      {name:'FAST Legend',minXp:4000,emoji:'🌈'}
+      {name:'Bookworm',minXp:0,emoji:'📖'},{name:'Reader',minXp:100,emoji:'📚'},
+      {name:'Word Hunter',minXp:250,emoji:'🔍'},{name:'Explorer',minXp:450,emoji:'🗺️'},
+      {name:'Thinker',minXp:700,emoji:'🧠'},{name:'Scholar',minXp:1000,emoji:'🎓'},
+      {name:'Achiever',minXp:1400,emoji:'⚡'},{name:'Champion',minXp:1900,emoji:'🏆'},
+      {name:'Super Reader',minXp:2800,emoji:'🌟'},{name:'Eagle Eye',minXp:4000,emoji:'🦅'},
+      {name:'Story Master',minXp:5500,emoji:'🚀'},{name:'Prodigy',minXp:7500,emoji:'💎'},
+      {name:'Summer Hero',minXp:10000,emoji:'☀️'},{name:'Grand Master',minXp:13000,emoji:'👑'},
+      {name:'FAST Legend',minXp:17000,emoji:'🌈'},{name:'Mythic Reader',minXp:21500,emoji:'🔥'},
+      {name:'Genius',minXp:27000,emoji:'🧬'},{name:'Knowledge Lord',minXp:33500,emoji:'🔭'},
+      {name:'Elite Scholar',minXp:41000,emoji:'⭐'},{name:'Legend Maker',minXp:50000,emoji:'🌙'},
+      {name:'Galaxy Brain',minXp:60000,emoji:'🪐'},{name:'Infinity Reader',minXp:72000,emoji:'♾️'}
     ];
     function getLevelPP(xp) {
       let idx = 0;
@@ -1899,6 +2052,35 @@
           setTimeout(() => status.textContent = '', 4000);
         });
       }).catch(() => { btn.disabled = false; btn.textContent = '📧 Send Me a Summary'; });
+    });
+
+    // ── Change Portal PIN ──────────────────────────────────────────────────────
+    document.getElementById('cp-save-btn').addEventListener('click', async () => {
+      const errEl    = document.getElementById('cp-err');
+      const successEl = document.getElementById('cp-success');
+      errEl.textContent = ''; successEl.textContent = '';
+
+      const current  = document.getElementById('cp-current').value.trim();
+      const newPin   = document.getElementById('cp-new').value.trim();
+      const confirm  = document.getElementById('cp-confirm').value.trim();
+
+      if (!/^\d{4}$/.test(current)) { errEl.textContent = 'Current PIN must be 4 digits.'; return; }
+      if (!/^\d{4}$/.test(newPin))  { errEl.textContent = 'New PIN must be 4 digits.'; return; }
+      if (newPin !== confirm)        { errEl.textContent = 'New PINs do not match.'; return; }
+
+      const uid = currentUser.uid;
+      const snap = await db.collection('ParentProfiles').doc(uid).get();
+      const savedPin = (snap.data() || {}).portalPin;
+
+      if (savedPin && current !== savedPin) { errEl.textContent = 'Current PIN is incorrect.'; return; }
+
+      await db.collection('ParentProfiles').doc(uid).set({ portalPin: newPin }, { merge: true });
+      sessionStorage.setItem('portalPin', newPin);
+      document.getElementById('cp-current').value = '';
+      document.getElementById('cp-new').value = '';
+      document.getElementById('cp-confirm').value = '';
+      successEl.textContent = '✅ PIN updated!';
+      setTimeout(() => successEl.textContent = '', 4000);
     });
   </script>
 <script>

@@ -254,6 +254,22 @@
         </div>
       </div>
 
+      <!-- Grade-level completion bar -->
+      <div id="grade-progress-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
+        <a href="library.html" style="display:block;text-decoration:none;">
+          <div style="background:var(--surface);border-radius:14px;padding:14px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="font-size:0.82rem;font-weight:800;color:#059669;">📚 Grade <span id="grade-progress-label">?</span> Stories</div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--muted);" id="grade-progress-text"></div>
+            </div>
+            <div style="height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden;">
+              <div id="grade-progress-bar" style="height:100%;background:linear-gradient(90deg,#059669,#10b981);border-radius:99px;width:0%;transition:width 1s;"></div>
+            </div>
+            <div id="grade-progress-status" style="font-size:0.75rem;color:var(--muted);margin-top:5px;font-weight:500;"></div>
+          </div>
+        </a>
+      </div>
+
       <!-- Monthly Challenge -->
       <div id="monthly-challenge-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
         <div style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:14px;padding:14px 16px;">
@@ -264,6 +280,14 @@
             <div id="challenge-bar" style="height:100%;background:linear-gradient(90deg,#f59e0b,#f97316);border-radius:99px;width:0%;transition:width 0.8s;"></div>
           </div>
           <div style="font-size:0.78rem;font-weight:700;color:#92400e;" id="challenge-progress-text"></div>
+        </div>
+      </div>
+
+      <!-- Daily Challenges -->
+      <div id="daily-challenges-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
+        <div style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);border:2px solid #a78bfa;border-radius:14px;padding:14px 16px;">
+          <div style="font-size:0.72rem;font-weight:800;color:#5b21b6;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">⚡ Today's Challenges</div>
+          <div id="daily-challenges-cards" style="display:flex;flex-direction:column;gap:8px;"></div>
         </div>
       </div>
 
@@ -484,21 +508,28 @@
     });
 
     const LEVELS = [
-      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
-      { name: 'Reader',       minXp: 100,  emoji: '📚' },
-      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
-      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
-      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
-      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
-      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
-      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
-      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
-      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
-      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
-      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
-      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
-      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
-      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+      { name: 'Bookworm',       minXp: 0,     emoji: '📖' },
+      { name: 'Reader',         minXp: 100,   emoji: '📚' },
+      { name: 'Word Hunter',    minXp: 250,   emoji: '🔍' },
+      { name: 'Explorer',       minXp: 450,   emoji: '🗺️' },
+      { name: 'Thinker',        minXp: 700,   emoji: '🧠' },
+      { name: 'Scholar',        minXp: 1000,  emoji: '🎓' },
+      { name: 'Achiever',       minXp: 1400,  emoji: '⚡' },
+      { name: 'Champion',       minXp: 1900,  emoji: '🏆' },
+      { name: 'Super Reader',   minXp: 2800,  emoji: '🌟' },
+      { name: 'Eagle Eye',      minXp: 4000,  emoji: '🦅' },
+      { name: 'Story Master',   minXp: 5500,  emoji: '🚀' },
+      { name: 'Prodigy',        minXp: 7500,  emoji: '💎' },
+      { name: 'Summer Hero',    minXp: 10000, emoji: '☀️' },
+      { name: 'Grand Master',   minXp: 13000, emoji: '👑' },
+      { name: 'FAST Legend',    minXp: 17000, emoji: '🌈' },
+      { name: 'Mythic Reader',  minXp: 21500, emoji: '🔥' },
+      { name: 'Genius',         minXp: 27000, emoji: '🧬' },
+      { name: 'Knowledge Lord', minXp: 33500, emoji: '🔭' },
+      { name: 'Elite Scholar',  minXp: 41000, emoji: '⭐' },
+      { name: 'Legend Maker',   minXp: 50000, emoji: '🌙' },
+      { name: 'Galaxy Brain',   minXp: 60000, emoji: '🪐' },
+      { name: 'Infinity Reader',minXp: 72000, emoji: '♾️' },
     ];
     function getLevel(xp) {
       let idx = 0;
@@ -558,8 +589,9 @@
       // Read current decay total (set to 0 on quiz completion); clamp to new cap
       let decay = Math.min(100, parseInt(localStorage.getItem('inactivityDecay_' + readerId) || '0'));
 
-      // Apply fresh decay if we haven't checked today and days missed > 1
-      if (daysMissed > 1) {
+      // Only penalize after 5+ consecutive days with no activity (skipping a
+      // weekend or a few days should never cost XP)
+      if (daysMissed > 4) {
         const decayCheckedDate = localStorage.getItem('decayCheckedDate_' + readerId) || lastActivity;
         if (decayCheckedDate !== todayStr) {
           const lastChecked     = new Date(decayCheckedDate);
@@ -598,6 +630,49 @@
     }
 
     renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+
+    // ─── Daily Challenges ──────────────────────────────────────────────────────
+    const CHALLENGE_POOL = [
+      { id: 'c_read1',    icon: '📖', text: 'Read any story today',             xp: 25 },
+      { id: 'c_read2',    icon: '📚', text: 'Read 2 stories today',             xp: 40 },
+      { id: 'c_perfect',  icon: '⭐', text: 'Score 5 stars on a quiz',          xp: 35 },
+      { id: 'c_newstory', icon: '🆕', text: 'Read a story you\'ve never tried', xp: 30 },
+      { id: 'c_science',  icon: '🔬', text: 'Read a science story',             xp: 25 },
+      { id: 'c_history',  icon: '📜', text: 'Read a history story',             xp: 25 },
+      { id: 'c_florida',  icon: '🌴', text: 'Read a Florida story',             xp: 25 },
+      { id: 'c_typing',   icon: '⌨️', text: 'Complete a typing lesson',         xp: 20 },
+      { id: 'c_math',     icon: '📐', text: 'Complete a math quiz',             xp: 20 },
+      { id: 'c_vocab',    icon: '🔤', text: 'Play the Vocabulary Game',         xp: 20 },
+    ];
+    function getDailyChallenges(readerId) {
+      const d = new Date();
+      const datePart = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+      const idPart = readerId.split('').reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 0);
+      let seed = Math.abs(datePart * 997 + idPart) | 1;
+      const pool = [...CHALLENGE_POOL];
+      for (let i = pool.length - 1; i > 0; i--) {
+        seed = (seed * 1664525 + 1013904223) & 0x7fffffff;
+        [pool[i], pool[Math.abs(seed) % (i + 1)]] = [pool[Math.abs(seed) % (i + 1)], pool[i]];
+      }
+      return pool.slice(0, 3);
+    }
+    function renderDailyChallenges(readerId) {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const state = JSON.parse(localStorage.getItem('dc_' + readerId + '_' + todayStr) || '{"completed":[]}');
+      const challenges = getDailyChallenges(readerId);
+      const done = new Set(state.completed);
+      const allDone = challenges.every(c => done.has(c.id));
+      const wrap = document.getElementById('daily-challenges-wrap');
+      wrap.style.display = 'block';
+      document.getElementById('daily-challenges-cards').innerHTML =
+        challenges.map(c => `
+          <div style="display:flex;align-items:center;gap:12px;background:${done.has(c.id) ? '#f0fdf4' : 'var(--surface)'};border:2px solid ${done.has(c.id) ? '#86efac' : 'var(--border)'};border-radius:12px;padding:11px 14px;transition:background 0.2s;">
+            <div style="font-size:1.4rem;flex-shrink:0;">${done.has(c.id) ? '✅' : c.icon}</div>
+            <div style="flex:1;font-size:0.88rem;font-weight:700;color:${done.has(c.id) ? '#15803d' : 'var(--text)'};${done.has(c.id) ? 'text-decoration:line-through;' : ''}">${c.text}</div>
+            <div style="font-size:0.78rem;font-weight:800;color:${done.has(c.id) ? '#15803d' : 'var(--purple)'};background:${done.has(c.id) ? '#dcfce7' : 'var(--purple-soft)'};padding:3px 9px;border-radius:8px;flex-shrink:0;">+${c.xp} XP</div>
+          </div>`).join('') +
+        (allDone ? '<div style="text-align:center;font-size:0.85rem;font-weight:800;color:#15803d;background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px;margin-top:2px;">🎉 All challenges complete today! Bonus XP awarded!</div>' : '');
+    }
 
     // ─── Load Firestore stats ──────────────────────────────────────────────────
     const db = firebase.firestore();
@@ -643,8 +718,6 @@
       let triviaXp = 0;
       triviaSnap.forEach(d => { triviaXp += (d.data().xpEarned || 0); });
 
-      const totalXp = readXp + mathXp + typingXp + triviaXp;
-
       // Update math unlock from Firestore
       const mathUnlocked = bestReadScore >= 3 || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';
       if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
@@ -655,36 +728,33 @@
       // ── Streak from StudentStats ──────────────────────────────────────────────
       const sd = statsSnap.exists ? statsSnap.data() : {};
 
-      // ── Inactivity decay ────────────────────────────────────────────────────
-      // First, sync Firestore's lastReadDate into localStorage so decay is
-      // cross-device accurate (fixes false "missing days" when child read on
-      // a different device or browser).
+      const challengeXp = sd.challengeXp || 0;
+      const totalXp = readXp + mathXp + typingXp + triviaXp + challengeXp;
+
+      // ── Inactivity decay sync ────────────────────────────────────────────────
+      // Always trust Firestore as the source of truth for the student's activity
+      // date and accumulated decay. This fixes false penalties on new/secondary
+      // devices where localStorage is empty or stale.
       const firestoreLastRead = sd.lastReadDate || null;
+      const fsDecay     = typeof sd.inactivityDecay === 'number' ? sd.inactivityDecay : 0;
+      const fsDecayDate = sd.decayCheckedDate || firestoreLastRead || '';
+
       if (firestoreLastRead) {
         const localLastRead = localStorage.getItem('lastActivityDate_' + profile.readerId) || '';
         if (firestoreLastRead > localLastRead) {
-          // Firestore has a more recent read — update localStorage
+          // Firestore is more recent — take its full decay state
           localStorage.setItem('lastActivityDate_' + profile.readerId, firestoreLastRead);
-          // If Firestore shows the child read yesterday or today, clear any
-          // wrongly-accumulated decay so the false XP loss goes away
-          const ydStr = (() => { const d = new Date(); d.setDate(d.getDate()-1); return d.toISOString().slice(0,10); })();
-          if (firestoreLastRead >= ydStr) {
-            localStorage.setItem('inactivityDecay_' + profile.readerId, '0');
-            localStorage.setItem('decayCheckedDate_' + profile.readerId, firestoreLastRead);
+          localStorage.setItem('inactivityDecay_' + profile.readerId, String(fsDecay));
+          localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate || firestoreLastRead);
+        } else {
+          // Same device — still sync decay upward if Firestore has more penalty,
+          // and sync the checked-date so we don't double-penalize.
+          if (fsDecay > parseInt(localStorage.getItem('inactivityDecay_' + profile.readerId) || '0')) {
+            localStorage.setItem('inactivityDecay_' + profile.readerId, String(fsDecay));
           }
-        }
-      }
-
-      // Sync inactivity decay FROM Firestore so cross-device penalty is consistent
-      if (typeof sd.inactivityDecay === 'number' && sd.inactivityDecay > 0) {
-        const localDecayNow = parseInt(localStorage.getItem('inactivityDecay_' + profile.readerId) || '0');
-        if (sd.inactivityDecay > localDecayNow) {
-          localStorage.setItem('inactivityDecay_' + profile.readerId, String(sd.inactivityDecay));
-        }
-        const fsDecayDate = sd.decayCheckedDate || '';
-        const localDecayDate = localStorage.getItem('decayCheckedDate_' + profile.readerId) || '';
-        if (fsDecayDate > localDecayDate) {
-          localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate);
+          if (fsDecayDate > (localStorage.getItem('decayCheckedDate_' + profile.readerId) || '')) {
+            localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate);
+          }
         }
       }
 
@@ -734,13 +804,13 @@
         bannerEl.className = 'streak-banner fire';
         bannerEl.innerHTML = '🔥 Great work! You read today — keep your streak going!';
         bannerEl.style.display = 'block';
-      } else if (daysMissed === 1) {
+      } else if (daysMissed >= 1 && daysMissed <= 3) {
         bannerEl.className = 'streak-banner warn';
-        bannerEl.innerHTML = '⚠️ You haven\'t read today! Read a story or you\'ll lose <strong>50 XP</strong> tonight!';
+        bannerEl.innerHTML = '⚠️ You haven\'t read in a few days! Read a story to keep your XP safe.';
         bannerEl.style.display = 'block';
-      } else if (daysMissed > 1) {
+      } else if (daysMissed > 4 && decay > 0) {
         bannerEl.className = 'streak-banner decay';
-        bannerEl.innerHTML = `📉 You lost <strong>${decay} XP</strong> from missing ${daysMissed - 1} day${daysMissed > 2 ? 's' : ''}!<br>Read now to stop losing more XP!`;
+        bannerEl.innerHTML = `📉 You lost <strong>${decay} XP</strong> from missing ${daysMissed} days!<br>Read now to stop losing more XP!`;
         bannerEl.style.display = 'block';
       }
 
@@ -756,6 +826,27 @@
         ? '📖 ' + remaining + ' more stor' + (remaining === 1 ? 'y' : 'ies') + ' to reach your goal this week!'
         : '🎉 Goal reached! Keep reading for bonus XP!';
       goalWrap.style.display = 'block';
+
+      // ── Grade-level completion bar ────────────────────────────────────────────
+      (function() {
+        const grade = parseInt(profile.gradeLevel) || 4;
+        const gradeStories = STORIES.filter(s =>
+          Array.isArray(s.grades) && s.grades.includes(grade)
+        );
+        const gradeTotal = gradeStories.length;
+        const gradeCompleted = gradeStories.filter(s => bestPerStory[s.id]).length;
+        const gradePct = gradeTotal > 0 ? Math.min(100, Math.round((gradeCompleted / gradeTotal) * 100)) : 0;
+        const gradeWrap = document.getElementById('grade-progress-wrap');
+        document.getElementById('grade-progress-label').textContent = grade;
+        document.getElementById('grade-progress-text').textContent = gradeCompleted + ' / ' + gradeTotal;
+        document.getElementById('grade-progress-bar').style.width = gradePct + '%';
+        const gradeLeft = gradeTotal - gradeCompleted;
+        document.getElementById('grade-progress-status').textContent =
+          gradeLeft === 0
+            ? '🏆 You\'ve read every story at your grade level!'
+            : gradeLeft + ' more stor' + (gradeLeft === 1 ? 'y' : 'ies') + ' left at your grade level';
+        gradeWrap.style.display = 'block';
+      })();
 
       // ── Monthly challenge ─────────────────────────────────────────────────────
       (function() {
@@ -891,10 +982,13 @@
           + (decay > 0 ? ' (−' + decay + ' XP inactive penalty)' : '');
       } else {
         document.getElementById('xp-bar').style.width = '100%';
-        document.getElementById('xp-label').textContent = '🌈 FAST Legend! ' + effectiveXp + ' XP — you reached the ultimate level!';
+        document.getElementById('xp-label').textContent = level.emoji + ' ' + level.name + '! ' + effectiveXp + ' XP — you reached the ultimate level!';
       }
       // Level ladder — update with effectiveXp
       renderLadder(effectiveXp);
+
+      // Daily challenges
+      renderDailyChallenges(profile.readerId);
 
     }).catch(err => {
       console.error('Stats load error:', err);

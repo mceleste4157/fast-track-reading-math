@@ -20075,4 +20075,3944 @@ The question is not whether AI belongs in school. The question is whether studen
     ],
   },
 
+  // ── NEW BATCH ── Added 2026-06-15 ──────────────────────────────────────────
+
+  // ── Grade 1 | SCIENCE | ELA.1.R.2.1 (main idea) | SC.1.L.17.1 (ocean animals)
+  {
+    id: 'sharks-ocean-hunters',
+    title: 'Sharks: Ocean Hunters',
+    topic: 'science',
+    coverEmoji: '🦈',
+    coverColor: '#0891b2',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 185,
+    readTimeMin: 1,
+    text: `Sharks are fish that live in the ocean. They have been swimming in the sea for millions of years — even before dinosaurs walked the Earth!
+
+Sharks have special body parts that help them live in the water. Their **fins** help them steer and stay balanced as they swim. Their **gills** let them breathe underwater by taking in oxygen from the water as it flows past.
+
+Most sharks have rows of sharp teeth. When a tooth falls out, a new one grows in. A shark might grow thousands of teeth in its lifetime!
+
+Sharks use their powerful sense of smell to find food. They eat fish, seals, and squid. Great white sharks are among the biggest in the ocean. But most sharks are smaller and do not hurt people.
+
+Sharks are very important to the ocean. They help keep the number of other fish from getting too large. Without sharks, the ocean would be out of **balance**.`,
+    vocabulary: [
+      { word: 'fins', definition: 'Flat, wing-like body parts that help fish move and steer through water.', example: 'The shark used its fins to turn quickly toward the school of fish.' },
+      { word: 'gills', definition: 'Body parts that fish use to breathe underwater.', example: 'The fish opened and closed its gills as it swam through the cool water.' },
+      { word: 'balance', definition: 'A state in which things are equal and working together properly.', example: 'The two sides of the seesaw were in balance when each child weighed the same.' },
+      { word: 'oxygen', definition: 'A gas that all living things need to breathe in order to survive.', example: 'Plants release oxygen into the air when they make food from sunlight.' },
+    ],
+    questions: [
+      {
+        question: 'What is the MAIN IDEA of this passage?',
+        options: [
+          'Great white sharks are the most dangerous animals in the ocean.',
+          'Sharks are ancient ocean animals with special body parts that help them survive.',
+          'Sharks lose all of their teeth and must grow new ones each season.',
+          'Most sharks live in shallow water near beaches and swim toward boats.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage explains what sharks are, how long they have existed, what body parts help them, and why they matter to the ocean. The main idea is that sharks are ancient, well-adapted ocean animals.',
+      },
+      {
+        question: 'What do a shark\'s FINS do?',
+        options: [
+          'Help the shark breathe underwater.',
+          'Help the shark smell food from far away.',
+          'Help the shark steer and stay balanced while swimming.',
+          'Help the shark stay warm in cold ocean water.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says fins "help them steer and stay balanced as they swim."',
+      },
+      {
+        question: 'Why are sharks important to the ocean?',
+        options: [
+          'They clean the water by eating pollution near the shore.',
+          'They keep the number of other fish from getting too large.',
+          'They protect smaller fish from being eaten by bigger animals.',
+          'They make the ocean safe for swimmers and divers.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that sharks "help keep the number of other fish from getting too large" and that without them the ocean would be out of balance.',
+      },
+      {
+        question: 'What happens when a shark loses a tooth?',
+        options: [
+          'The shark must find a different kind of food to eat.',
+          'A new tooth grows in to replace the lost one.',
+          'The shark\'s jaw becomes too weak to hunt.',
+          'The shark must wait until spring for its teeth to grow back.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says "When a tooth falls out, a new one grows in."',
+      },
+    ],
+  },
+
+  // ── Grade 2 | SCIENCE | ELA.2.R.2.1 | SC.2.E.7.3 (seasons / Earth science)
+  {
+    id: 'four-seasons',
+    title: 'The Four Seasons',
+    topic: 'science',
+    coverEmoji: '🍂',
+    coverColor: '#b45309',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 255,
+    readTimeMin: 2,
+    text: `Earth travels around the sun once every year. As it moves, different parts of Earth receive more or less sunlight. This causes the four **seasons** — spring, summer, fall, and winter.
+
+In **spring**, the days grow longer and warmer. Rain falls often. Flowers begin to bloom, and trees that lost their leaves grow them back. Many animals have babies in spring. It feels like a fresh beginning.
+
+**Summer** brings the longest days of the year. The sun shines for many hours, warming the air and the ground. Plants grow tall and full. Children enjoy longer days to play outside.
+
+In **fall** — also called **autumn** — the days grow shorter and cooler. Trees change their leaf colors to red, orange, and yellow before the leaves drop to the ground. Animals begin collecting and storing food to get ready for winter.
+
+**Winter** is the coldest season. The days are short and the nights are long. In many places, snow falls and ponds freeze over. Some animals **hibernate**, sleeping through the coldest months to save energy until spring returns.
+
+Each season brings its own kind of weather and change. Together, the four seasons make up a full year on Earth.`,
+    vocabulary: [
+      { word: 'seasons', definition: 'The four parts of the year — spring, summer, fall, and winter — each with its own weather patterns.', example: 'My favorite season is fall because of the colorful leaves.' },
+      { word: 'hibernate', definition: 'To go into a deep, sleep-like rest during winter in order to save energy.', example: 'Bears hibernate in dens while snow covers the ground outside.' },
+      { word: 'autumn', definition: 'Another word for fall — the season between summer and winter.', example: 'The farmers harvested their crops in autumn before the first frost arrived.' },
+      { word: 'bloom', definition: 'To produce flowers; to open up and grow.', example: 'The cherry trees bloom in pink and white every spring.' },
+    ],
+    questions: [
+      {
+        question: 'What CAUSES the four seasons on Earth?',
+        options: [
+          'The moon moving around Earth at different speeds throughout the year.',
+          'The ocean changing temperature and making the air warmer or cooler.',
+          'Different parts of Earth receiving more or less sunlight as Earth travels around the sun.',
+          'The sun getting hotter and cooler at different times of year.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says "As it moves, different parts of Earth receive more or less sunlight. This causes the four seasons."',
+      },
+      {
+        question: 'Which season has the LONGEST days?',
+        options: [
+          'Spring',
+          'Summer',
+          'Fall',
+          'Winter',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "Summer brings the longest days of the year."',
+      },
+      {
+        question: 'What does the word HIBERNATE mean as used in this passage?',
+        options: [
+          'To travel south to a warmer place for the winter.',
+          'To store large amounts of food underground for later.',
+          'To go into a deep, sleep-like rest during winter to save energy.',
+          'To shed fur and grow a thicker coat before cold weather arrives.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says animals hibernate, "sleeping through the coldest months to save energy until spring returns." This matches the definition of hibernating.',
+      },
+      {
+        question: 'In which season do animals BEGIN storing food to prepare for winter?',
+        options: [
+          'Spring',
+          'Summer',
+          'Fall',
+          'Winter',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says that in fall, "animals begin collecting and storing food to get ready for winter."',
+      },
+    ],
+  },
+
+  // ── Grade 3 | HISTORY | ELA.3.R.2.2 (main idea + key details) | SS.3.A.1.2
+  {
+    id: 'george-washington-leader',
+    title: 'George Washington: A New Kind of Leader',
+    topic: 'history',
+    coverEmoji: '🇺🇸',
+    coverColor: '#1e3a8a',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [2, 3, 4],
+    wordCount: 355,
+    readTimeMin: 2,
+    text: `When the thirteen American colonies broke free from Britain in 1776, they needed leaders who could hold a new nation together. No one was more important to that challenge than George Washington.
+
+Washington was born in Virginia in 1732 on a tobacco **plantation**. As a young man, he learned to survey land — to measure and map it carefully. He also served as a soldier in the French and Indian War, gaining experience that would prepare him for greater challenges.
+
+When the Revolutionary War began in 1775, the Continental Congress chose Washington to **command** the American army. His job was nearly impossible. His soldiers were often cold, hungry, and outnumbered. But Washington inspired loyalty with his calm courage. He crossed the icy Delaware River on Christmas night in 1776 and surprised enemy soldiers at Trenton, New Jersey — a victory that gave the struggling army new hope.
+
+After the colonies won their independence, Washington expected to retire to his farm at Mount Vernon. But the nation needed him again. He **presided** over the Constitutional Convention in 1787, helping to write the rules that would govern the new country.
+
+Then, in 1789, Washington became the first President of the United States. He made careful decisions about how the new government should work, knowing that everything he did would set an **example** — a **precedent** — for all future presidents to follow.
+
+When his two terms as president ended, Washington did something remarkable: he gave up power and returned to private life. Most world leaders at the time held power until they died. Washington showed that in a **democracy**, leaders serve the people — and then step aside.`,
+    vocabulary: [
+      { word: 'plantation', definition: 'A large farm, often in the South, where crops like tobacco or cotton were grown.', example: 'Washington grew up on a tobacco plantation in Virginia.' },
+      { word: 'command', definition: 'To be in charge of and give orders to a military force.', example: 'The general was chosen to command thousands of troops in the battle.' },
+      { word: 'presided', definition: 'Led or was in charge of a meeting or group.', example: 'The judge presided over the trial to make sure everything was fair.' },
+      { word: 'precedent', definition: 'An action or decision that becomes a model for others to follow in the future.', example: 'The first president set a precedent by serving only two terms in office.' },
+      { word: 'democracy', definition: 'A system of government in which people choose their leaders through free elections.', example: 'In a democracy, every citizen has the right to vote for their leaders.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'George Washington was the greatest military general in all of American history.',
+          'George Washington served his country as a soldier, leader, and president and set important examples for the future.',
+          'George Washington preferred farming at Mount Vernon over serving in the government.',
+          'The American colonies could not have defeated Britain without crossing the Delaware River.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage covers Washington\'s military service, his role at the Constitutional Convention, his presidency, and his decision to give up power — showing how he served at every stage and set lasting examples.',
+      },
+      {
+        question: 'Why was Washington\'s crossing of the Delaware River important?',
+        options: [
+          'It allowed the army to escape from a British trap near Philadelphia.',
+          'It gave the struggling American army a victory that restored their hope.',
+          'It proved that Washington\'s soldiers were stronger than the British troops.',
+          'It led directly to the signing of the Declaration of Independence.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says the surprise attack at Trenton "gave the struggling army new hope."',
+      },
+      {
+        question: 'What does the word PRECEDENT mean as used in this passage?',
+        options: [
+          'A rule written into the Constitution that must always be followed.',
+          'A promise a president makes when they are first elected to office.',
+          'An action or decision that becomes a model for others to follow later.',
+          'A kind of ceremony held when a new president takes office.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that everything Washington did would "set an example — a precedent — for all future presidents to follow," meaning a model for others to copy.',
+      },
+      {
+        question: 'What did Washington do that the passage calls "remarkable"?',
+        options: [
+          'He led his soldiers across the icy Delaware River on Christmas night.',
+          'He helped write the Constitution at the Constitutional Convention.',
+          'He gave up power at the end of his presidency and returned to private life.',
+          'He agreed to become the first President of the United States.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage calls it "remarkable" that Washington "gave up power and returned to private life" when other world leaders held power until they died.',
+      },
+      {
+        question: 'How does the author ORGANIZE the information in this passage?',
+        options: [
+          'By comparing Washington to other important leaders of the American Revolution.',
+          'By describing Washington\'s life in order from his early years through his presidency.',
+          'By explaining why Washington\'s decisions were better than those of the British.',
+          'By listing the battles of the Revolutionary War from least to most important.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage follows Washington\'s life in chronological order — childhood, the Revolutionary War, the Constitutional Convention, and his presidency.',
+      },
+    ],
+  },
+
+  // ── Grade 4 | BIOGRAPHY | ELA.4.R.2.2 | SS.4.A.6.1 (Florida notable figures)
+  {
+    id: 'mary-mcleod-bethune',
+    title: 'Mary McLeod Bethune: Fighting for Education',
+    topic: 'biography',
+    coverEmoji: '📚',
+    coverColor: '#7c3aed',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 430,
+    readTimeMin: 3,
+    text: `In 1904, a young Black woman arrived in Daytona Beach, Florida, with $1.50 in her pocket and a dream: to open a school for Black girls in the South. Her name was Mary McLeod Bethune, and her school would change thousands of lives.
+
+Mary Jane McLeod was born in 1875 in Mayesville, South Carolina, the fifteenth of seventeen children. Her parents had been enslaved, but after **emancipation** she was the only one of her siblings chosen to attend a nearby mission school. She proved an exceptional student. "The whole world opened up to me when I learned to read," she later wrote.
+
+After earning her education, Bethune came to Daytona Beach determined to give other Black girls the same opportunity she had received. Starting with almost nothing, she collected **donations** from churches, sold sweet potato pies to raise money, and convinced wealthy donors to support her cause. Within two years she had five students, then fifty, then hundreds.
+
+By 1923, Bethune's school merged with a nearby men's college to form Bethune-Cookman College — today a thriving **historically Black college and university**, or HBCU. Bethune served as its president for decades.
+
+But her influence spread far beyond Florida. In 1935 she founded the National Council of Negro Women, uniting Black women's organizations across the country. President Franklin D. Roosevelt appointed her to his cabinet — making her one of the highest-ranking Black officials in U.S. government at the time. She was a close **advisor** to both President Roosevelt and First Lady Eleanor Roosevelt.
+
+Bethune believed deeply in the power of **perseverance**. "Invest in the human soul," she said. "Who knows — it might be a diamond in the rough." She pushed for equal rights in education, voting, and employment throughout her life.
+
+Mary McLeod Bethune died in 1955, but her legacy lives on at Bethune-Cookman University in Daytona Beach. In 2022, a statue of her was unveiled at the U.S. Capitol — the first statue of a Black woman to stand there. Her message endures: education is the key to freedom.`,
+    vocabulary: [
+      { word: 'emancipation', definition: 'The act of being freed from slavery or another form of control.', example: 'After emancipation, many formerly enslaved people worked to build new lives for themselves and their families.' },
+      { word: 'donations', definition: 'Gifts of money, goods, or time given to help a cause or organization.', example: 'The school raised enough money through donations to buy new books and supplies.' },
+      { word: 'perseverance', definition: 'Continuing to work toward a goal despite difficulties and setbacks.', example: 'Her perseverance through years of hard work finally led to her dream coming true.' },
+      { word: 'advisor', definition: 'A person who gives expert advice or guidance to someone in a position of power.', example: 'The president met with his team of advisors before making a major decision.' },
+      { word: 'legacy', definition: 'Something handed down from the past; the lasting impact a person or event leaves behind.', example: 'Her legacy lived on through the thousands of students she had taught and inspired.' },
+    ],
+    questions: [
+      {
+        question: 'What is the CENTRAL IDEA of this passage?',
+        options: [
+          'Mary McLeod Bethune overcame poverty to become a Florida teacher.',
+          'Mary McLeod Bethune\'s determination to provide education for Black girls led to a lifetime of historic achievements.',
+          'Bethune-Cookman University is the most important historically Black college in the United States.',
+          'President Roosevelt appointed more Black advisors than any president before him.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage traces how Bethune\'s passion for education led to founding a school, building a college, advising presidents, and creating a lasting national legacy — her determination connects all her achievements.',
+      },
+      {
+        question: 'How did Bethune RAISE MONEY to start her school?',
+        options: [
+          'She received a large grant from the federal government in Washington, D.C.',
+          'She collected donations, sold sweet potato pies, and convinced wealthy donors to help.',
+          'She borrowed money from Bethune-Cookman College and paid it back later.',
+          'She used savings from her years of teaching at other schools in South Carolina.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says she "collected donations from churches, sold sweet potato pies to raise money, and convinced wealthy donors to support her cause."',
+      },
+      {
+        question: 'What does the word PERSEVERANCE mean as used in this passage?',
+        options: [
+          'The ability to earn large amounts of money through smart investments.',
+          'Continuing to work toward a goal despite difficulties and setbacks.',
+          'The courage to speak out against unfair laws in public.',
+          'A talent for organizing large groups of people to work together.',
+        ],
+        correctIndex: 1,
+        explanation: 'Bethune is described as believing in perseverance — and the passage shows how she pushed toward her goals despite starting with only $1.50 and facing racial barriers throughout her life.',
+      },
+      {
+        question: 'Which statement BEST describes Bethune\'s impact BEYOND Florida?',
+        options: [
+          'She convinced the state of Florida to build more schools for Black students.',
+          'She opened branch schools in five southern states to reach more students.',
+          'She founded a national organization for Black women and served as a presidential advisor.',
+          'She wrote a famous book that changed how people thought about education in America.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says she founded the National Council of Negro Women and was appointed as an advisor in President Roosevelt\'s cabinet — both national-level achievements beyond Florida.',
+      },
+      {
+        question: 'Why is it significant that Bethune\'s statue was placed in the U.S. Capitol in 2022?',
+        options: [
+          'It was the first statue ever placed in the U.S. Capitol by the state of Florida.',
+          'It was the first statue of a Black woman to stand in the U.S. Capitol.',
+          'It honored Bethune as the first woman to serve as a college president in the United States.',
+          'It marked 100 years since Bethune-Cookman College was founded in Daytona Beach.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that Bethune\'s was "the first statue of a Black woman to stand" in the U.S. Capitol — making it a historic milestone.',
+      },
+    ],
+  },
+
+  // ── Grade 4 | HISTORY | ELA.4.R.2.3 | SS.4.A.3.1 (early American settlement)
+  {
+    id: 'jamestown-first-colony',
+    title: 'Jamestown: America\'s First Permanent English Colony',
+    topic: 'history',
+    coverEmoji: '⚓',
+    coverColor: '#475569',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 420,
+    readTimeMin: 3,
+    text: `In May 1607, three small ships sailed into the waters of what is now Virginia and dropped anchor near the shore of a wide river. The 104 English men and boys who stepped ashore called their new home Jamestown, named for King James I of England. They had no idea how hard the years ahead would be.
+
+The **colonists** had come to America hoping to find gold and riches. Instead, they found swampy land buzzing with mosquitoes, contaminated drinking water, and a harsh first winter. Within six months, disease, starvation, and conflict with the local Powhatan people had killed more than half of them.
+
+The early years were called the "Starving Time." In the winter of 1609–1610, the situation became so desperate that only 60 of 500 colonists survived. But the colony did not die. New settlers and fresh **supplies** kept arriving from England.
+
+One thing saved Jamestown: tobacco. A colonist named John Rolfe learned to grow a mild, sweet tobacco plant that English buyers loved. Within a decade, tobacco had become the colony's most valuable crop — its **cash crop**. Farms spread across Virginia, and the colony finally became **profitable**.
+
+Jamestown also introduced something darker to American history. In 1619, the first enslaved Africans arrived in Virginia. They were sold to colonists to work the tobacco fields. This moment marked the beginning of slavery in what would become the United States.
+
+That same year, 1619, saw another historic first: the first representative **assembly** in American history met at Jamestown. Colonists elected representatives to help make laws. This House of Burgesses was an early step toward American democracy.
+
+Jamestown was eventually abandoned after the Virginia capital moved to Williamsburg in 1699. But its legacy endures. It was the first permanent English settlement in America, the birthplace of both slavery and representative government on American soil, and a place where the dreams and tragedies of a new world came together on a Virginia riverbank.`,
+    vocabulary: [
+      { word: 'colonists', definition: 'People who settle in a new territory while maintaining ties to their home country.', example: 'The colonists worked together to build shelters before the first winter arrived.' },
+      { word: 'supplies', definition: 'Food, tools, and other goods needed to survive or complete a task.', example: 'The ships brought fresh supplies of food and equipment to the struggling settlers.' },
+      { word: 'cash crop', definition: 'A crop grown specifically to sell for profit rather than for the farmer\'s own use.', example: 'Tobacco became Virginia\'s most important cash crop because English buyers wanted it badly.' },
+      { word: 'profitable', definition: 'Making more money than is spent; financially successful.', example: 'The business became profitable after it started selling its products in other states.' },
+      { word: 'assembly', definition: 'A group of people elected or chosen to make laws or decisions for a community.', example: 'The assembly voted to build a new road connecting the two towns.' },
+    ],
+    questions: [
+      {
+        question: 'What was the MAIN reason the first Jamestown settlers came to America?',
+        options: [
+          'To escape religious persecution in England and practice their faith freely.',
+          'To find gold and riches they believed were waiting in the New World.',
+          'To start tobacco farms and sell crops back to England for profit.',
+          'To build a military fort that would protect England\'s claims in North America.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that colonists "had come to America hoping to find gold and riches."',
+      },
+      {
+        question: 'What crop SAVED Jamestown and made it successful?',
+        options: [
+          'Cotton',
+          'Corn',
+          'Tobacco',
+          'Sugar',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that John Rolfe learned to grow tobacco that English buyers loved, and it became the colony\'s most valuable cash crop, finally making it profitable.',
+      },
+      {
+        question: 'Why does the author call 1619 a year of HISTORIC FIRSTS?',
+        options: [
+          'It was the year the colonists discovered gold near the James River.',
+          'Both the first enslaved Africans arrived AND the first representative assembly met that year.',
+          'It was the year Jamestown became the capital of the Virginia colony.',
+          'The first successful tobacco harvest and the first school in America both happened that year.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes two events from 1619: the arrival of the first enslaved Africans in Virginia, and the first meeting of the House of Burgesses — both historic firsts on American soil.',
+      },
+      {
+        question: 'What does the word ASSEMBLY mean as used in this passage?',
+        options: [
+          'A large celebration or festival held at the end of the harvest season.',
+          'A building where colonists stored food and supplies for the winter.',
+          'A group of elected people who meet to make laws or decisions.',
+          'A ship that carried settlers and goods from England to the colonies.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says colonists "elected representatives to help make laws" in the assembly — a group chosen to govern.',
+      },
+      {
+        question: 'How does the author present BOTH positive and negative parts of Jamestown\'s history?',
+        options: [
+          'The author describes the good years before focusing on the Starving Time.',
+          'The author presents the colony\'s survival and growth alongside the introduction of slavery and representative government.',
+          'The author argues that Jamestown\'s tobacco success outweighs its role in starting slavery.',
+          'The author only discusses positive achievements and avoids difficult topics.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage presents both hopeful developments (tobacco success, representative assembly) and dark ones (slavery, the Starving Time) — acknowledging that both are part of Jamestown\'s legacy.',
+      },
+    ],
+  },
+
+  // ── Grade 5 | HISTORY | ELA.5.R.2.2 | SS.5.A.6.1 (Westward expansion / Indian removal)
+  {
+    id: 'trail-of-tears-cherokee',
+    title: 'The Trail of Tears: A Nation\'s Forced Journey',
+    topic: 'history',
+    coverEmoji: '🌄',
+    coverColor: '#059669',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 510,
+    readTimeMin: 3,
+    text: `In the early 1800s, the Cherokee Nation had built a **sophisticated** society in the mountains of Georgia, Tennessee, Alabama, and North Carolina. The Cherokee had a written language, a constitution, a court system, and newspapers. They had negotiated treaties with the United States and considered themselves a **sovereign** nation — a nation with the right to govern itself.
+
+White settlers wanted their land. And in 1830, Congress gave them a legal tool to take it: the Indian Removal Act. President Andrew Jackson signed the law, which authorized the forced **relocation** of Native American tribes from the eastern United States to lands west of the Mississippi River, in what is now Oklahoma.
+
+The Cherokee fought back — not with weapons, but in court. Their chief, John Ross, argued their case all the way to the U.S. Supreme Court. In 1832, the Court ruled in the Cherokee's favor: Georgia had no right to take their land. But President Jackson refused to **enforce** the ruling. "John Marshall has made his decision," Jackson reportedly said. "Now let him enforce it." Without the president's support, the ruling meant nothing.
+
+A small group of Cherokee leaders, without the approval of the elected tribal government, signed the Treaty of New Echota in 1835, agreeing to give up Cherokee lands. Most Cherokee people, including Chief Ross, never accepted this treaty as legitimate.
+
+Beginning in 1838, U.S. soldiers rounded up over 15,000 Cherokee men, women, and children at gunpoint and forced them westward. They were marched hundreds of miles in brutal conditions — through freezing temperatures, without adequate food or shelter. Over the course of the journey, an estimated 4,000 Cherokee people died. The survivors named this forced march **Nunna daul Tsuny** — "The Trail Where They Cried" — what history calls the Trail of Tears.
+
+The Trail of Tears represents one of the darkest chapters in American history. It raised fundamental questions — questions that still echo today — about the meaning of justice when a court rules but a president refuses to act, about the rights of **indigenous** peoples, and about whether the promises made in treaties matter when powerful interests want the land.`,
+    vocabulary: [
+      { word: 'sophisticated', definition: 'Highly developed and complex; showing advanced knowledge or organization.', example: 'The city\'s sophisticated water system supplied clean water to hundreds of thousands of people.' },
+      { word: 'sovereign', definition: 'Having independent authority and the right to self-govern; not under the control of another country.', example: 'The tribe argued they were a sovereign nation with the right to make their own laws.' },
+      { word: 'relocation', definition: 'The act of moving people or things from one place to another, often by force.', example: 'The family\'s relocation to a new city was difficult, but they eventually made new friends.' },
+      { word: 'enforce', definition: 'To make sure that a law or rule is followed and carried out.', example: 'Without police to enforce the speed limit, many drivers ignored it.' },
+      { word: 'indigenous', definition: 'Naturally originating in a particular place; native people who originally lived in a region.', example: 'The indigenous peoples of this land had lived here for thousands of years before European settlers arrived.' },
+    ],
+    questions: [
+      {
+        question: 'What does the passage say the Cherokee Nation had built by the early 1800s?',
+        options: [
+          'A powerful army that had defeated several other Native American tribes.',
+          'A written language, constitution, court system, and newspapers.',
+          'A trade network that stretched from the Atlantic Ocean to the Mississippi River.',
+          'A series of fortified towns designed to resist attack from U.S. soldiers.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says the Cherokee "had a written language, a constitution, a court system, and newspapers" — showing a sophisticated, self-governing society.',
+      },
+      {
+        question: 'What did the U.S. Supreme Court decide in 1832?',
+        options: [
+          'That the Cherokee must accept the Treaty of New Echota and leave their land.',
+          'That the Indian Removal Act was a fair and legal law passed by Congress.',
+          'That Georgia had no right to take Cherokee land.',
+          'That President Jackson had the authority to remove Native peoples by force.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says the Court "ruled in the Cherokee\'s favor: Georgia had no right to take their land."',
+      },
+      {
+        question: 'Why did the Supreme Court ruling NOT protect the Cherokee?',
+        options: [
+          'The Cherokee refused to accept the ruling because they wanted to keep fighting.',
+          'Congress quickly passed a new law that overturned the Supreme Court\'s decision.',
+          'President Jackson refused to enforce the ruling, so it had no effect.',
+          'The ruling was appealed to a higher court and eventually reversed.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage explains that Jackson "refused to enforce the ruling," and "without the president\'s support, the ruling meant nothing."',
+      },
+      {
+        question: 'What does SOVEREIGN mean as used in this passage?',
+        options: [
+          'A nation that has never been at war with neighboring countries.',
+          'A nation that has its own land, laws, and right to self-govern.',
+          'A nation that is protected by a treaty with the United States.',
+          'A nation whose leaders are elected by all of its people.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says the Cherokee "considered themselves a sovereign nation — a nation with the right to govern itself."',
+      },
+      {
+        question: 'The author says the Trail of Tears raises questions that "still echo today." What does the author MOST LIKELY mean?',
+        options: [
+          'People still argue about the exact number of Cherokee who died on the march.',
+          'The courts still have not decided whether the Indian Removal Act was constitutional.',
+          'The same questions about justice, treaty promises, and indigenous rights remain unresolved.',
+          'Native American tribes are still being relocated by the U.S. government today.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage ends by listing the unresolved questions the Trail of Tears raised — about justice, treaty promises, and indigenous rights — suggesting these questions remain meaningful and relevant.',
+      },
+    ],
+  },
+
+  // ── Grade 5 | EXPLORATION | ELA.5.R.2.3 | SS.5.A.4.3 (Lewis & Clark)
+  {
+    id: 'lewis-clark-expedition',
+    title: 'Lewis and Clark: Into the Unknown',
+    topic: 'history',
+    coverEmoji: '🗺️',
+    coverColor: '#475569',
+    gradeLevel: '5',
+    level: 'advanced',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 495,
+    readTimeMin: 3,
+    text: `In 1803, President Thomas Jefferson made the largest land purchase in American history: the Louisiana Purchase. For about $15 million, the United States more than doubled in size, buying 828,000 square miles of territory from France. But there was a problem — Jefferson had almost no idea what was actually out there.
+
+To find out, Jefferson sent his personal secretary, Meriwether Lewis, and Lewis's friend William Clark to lead an **expedition** westward. Their mission: explore the new territory, find a route to the Pacific Ocean, and record everything they observed — plants, animals, rivers, and the Native peoples they met along the way.
+
+The Corps of Discovery, as their group was called, left Camp Dubois near St. Louis, Missouri in May 1804. The thirty-three-person team traveled by boat up the Missouri River, then on foot and horseback across the Rocky Mountains, and finally by canoe to the Pacific Coast. The journey covered roughly 8,000 miles and took more than two years.
+
+The expedition would have been far more difficult — perhaps impossible — without the help of a young Shoshone woman named **Sacagawea**. Hired as a guide and **interpreter**, Sacagawea helped the Corps communicate with Native tribes, find food, and navigate the land she knew well. Her calm presence also signaled to Native peoples that the group came in peace — war parties rarely traveled with women and children.
+
+Lewis and Clark kept **meticulous** journals, recording 178 plant species and 122 animal species previously unknown to European science. They drew maps of rivers and mountains that explorers and settlers would use for decades. They also documented dozens of Native American tribes, their languages, customs, and trade networks.
+
+The expedition returned to St. Louis in September 1806, greeted as heroes. But its impact was complicated. Their maps and journals opened the door to westward expansion — migration that would ultimately result in the displacement of the very Native peoples who had helped them survive the journey.
+
+Lewis and Clark expanded the young nation's knowledge of the continent and fueled the idea of **Manifest Destiny** — the belief that the United States was meant to stretch from sea to sea. That idea would shape American history, for better and for worse, for the next century.`,
+    vocabulary: [
+      { word: 'expedition', definition: 'A journey made for a specific purpose, such as exploration or scientific research.', example: 'The scientific expedition spent three months studying animals in the rainforest.' },
+      { word: 'interpreter', definition: 'A person who translates spoken language between people who speak different languages.', example: 'The interpreter helped the diplomat communicate with leaders who spoke a different language.' },
+      { word: 'meticulous', definition: 'Extremely careful and precise, paying close attention to every detail.', example: 'The scientist kept meticulous notes so that every observation could be verified later.' },
+      { word: 'Sacagawea', definition: 'A Shoshone woman who served as guide and interpreter for the Lewis and Clark expedition, helping the Corps cross the Rocky Mountains and communicate with Native tribes.', example: 'Without Sacagawea\'s knowledge of the land and languages, the expedition might not have survived the mountains.' },
+      { word: 'Manifest Destiny', definition: 'The 19th-century belief that the United States was destined to expand across the entire North American continent.', example: 'Manifest Destiny motivated many settlers to move west, often at great cost to Native peoples already living on the land.' },
+    ],
+    questions: [
+      {
+        question: 'What was the MAIN PURPOSE of the Lewis and Clark expedition?',
+        options: [
+          'To establish new trade agreements with Native American tribes in the West.',
+          'To explore the Louisiana Purchase, find a route to the Pacific, and record what they found.',
+          'To build a series of military forts protecting the new western territory.',
+          'To map the Mississippi River and its major tributaries for the U.S. government.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states their mission was to "explore the new territory, find a route to the Pacific Ocean, and record everything they observed."',
+      },
+      {
+        question: 'How did SACAGAWEA contribute to the expedition\'s success?',
+        options: [
+          'She led the entire Corps of Discovery across the Rocky Mountains on her own.',
+          'She translated Jefferson\'s written orders into Native languages for tribal leaders.',
+          'She helped communicate with tribes, find food, navigate the land, and signal the group\'s peaceful intentions.',
+          'She drew maps of the Rocky Mountains that Lewis and Clark used to plan their route.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says Sacagawea helped communicate with tribes, find food, navigate the land, and that her presence signaled the group came in peace.',
+      },
+      {
+        question: 'What does the word METICULOUS mean as used in this passage?',
+        options: [
+          'Extremely fast and efficient when doing a difficult task.',
+          'Extremely careful and precise, paying attention to every detail.',
+          'Determined to complete a mission despite serious danger.',
+          'Honest and straightforward when describing what was observed.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says Lewis and Clark kept "meticulous journals" — recording 178 plant species and 122 animal species in great detail.',
+      },
+      {
+        question: 'Why does the author say the expedition\'s impact was "complicated"?',
+        options: [
+          'Because Lewis and Clark argued with each other and nearly ended the mission early.',
+          'Because the maps they made were inaccurate and misled later settlers.',
+          'Because their work opened the door to westward expansion that displaced the Native peoples who had helped them.',
+          'Because the U.S. government refused to publish their journals for many years.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says their maps "opened the door to westward expansion — migration that would ultimately result in the displacement of the very Native peoples who had helped them survive."',
+      },
+      {
+        question: 'What was the Louisiana Purchase, and why did Jefferson need the expedition?',
+        options: [
+          'It was land bought from Spain; Jefferson needed to find gold there.',
+          'It was land bought from France that doubled U.S. size; Jefferson needed to know what was actually there.',
+          'It was land won in a war with Britain; Jefferson needed to map the new border.',
+          'It was land given to the U.S. by France as a gift; Jefferson needed to decide how to divide it into states.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says the U.S. bought the Louisiana territory from France, more than doubling in size — and Jefferson "had almost no idea what was actually out there," making exploration necessary.',
+      },
+    ],
+  },
+
+  // ── Grade 6 | HISTORY | ELA.6.R.2.2 | SS.6.W.2.6 (ancient civilizations)
+  {
+    id: 'aztec-empire-civilization',
+    title: 'The Aztec Empire: Power, Art, and Collapse',
+    topic: 'history',
+    coverEmoji: '🏛️',
+    coverColor: '#b45309',
+    gradeLevel: '6',
+    level: 'advanced',
+    grades: [5, 6, 7, 8],
+    wordCount: 590,
+    readTimeMin: 3,
+    text: `In the early 1300s, a wandering group of people settled on a small island in the middle of Lake Texcoco in central Mexico. These people — the Mexica, whom we call the Aztec — had been searching for a home for generations, guided by a prophecy that said they would settle where they saw an eagle perched on a cactus, eating a serpent. When they saw that sign on their island, they built a city: **Tenochtitlan**.
+
+What they built over the next two centuries was extraordinary. Tenochtitlan grew into one of the largest cities in the world. By 1500, it housed between 200,000 and 300,000 people — larger than any city in Europe at the time. Engineers constructed **causeways** — raised roads — crossing the lake to the mainland. An aqueduct brought fresh water from springs miles away. Floating gardens called **chinampas** transformed the shallow lake into rich farmland that fed the growing population.
+
+At the center of **Aztec** society was a powerful **theocracy** — a government in which religious and political authority were combined. The emperor was considered a representative of the gods. Priests studied astronomy and developed a remarkably accurate calendar. Artisans created elaborate stone sculptures, featherwork, and goldwork that astonished European visitors.
+
+The Aztec Empire expanded through conquest. Defeated peoples paid tribute — food, cloth, jade, gold, and cacao — to the Aztec capital. This tribute system made Tenochtitlan wealthy, but it also created resentment among the many peoples the Aztec had subjugated.
+
+That resentment played a role when Spanish **conquistadors** — soldiers of conquest — arrived from the Caribbean in 1519. Their leader, Hernán Cortés, brought fewer than 600 men. Yet within two years, the entire Aztec Empire had collapsed. How?
+
+Several factors came together. The Spanish possessed steel weapons and armor, gunpowder, and horses — all unknown in the Americas. Diseases like smallpox, to which the Aztec had no immunity, killed a catastrophic number of people. And crucially, Cortés made alliances with peoples the Aztec had conquered, who welcomed the chance to overthrow their rulers. By 1521, Tenochtitlan had fallen.
+
+The Spanish built their colonial capital on top of the ruins of Tenochtitlan — today's Mexico City. But the Aztec legacy endures. The eagle, cactus, and serpent from their ancient prophecy appear on the modern Mexican flag. Aztec words — including "chocolate," "tomato," and "avocado" — entered the Spanish language and then English. Their agricultural techniques and astronomical knowledge influenced cultures long after the empire fell.`,
+    vocabulary: [
+      { word: 'causeways', definition: 'Raised roads or paths built across water or low ground, connecting two areas of land.', example: 'The ancient causeways across the lake allowed people and goods to move easily between the island and the mainland.' },
+      { word: 'chinampas', definition: 'Floating gardens built by the Aztec by layering mud and vegetation in shallow lake water to create fertile farmland.', example: 'The chinampas produced enough crops to feed the massive population of Tenochtitlan.' },
+      { word: 'theocracy', definition: 'A form of government in which religious leaders or religious law rule, and political and religious authority are combined.', example: 'In a theocracy, the ruler is often seen as a representative of the gods.' },
+      { word: 'tribute', definition: 'Payments — in goods, food, or valuables — demanded by a more powerful group from those it has conquered.', example: 'Conquered towns paid tribute of gold and cloth to the empire every year.' },
+      { word: 'conquistadors', definition: 'Spanish soldiers and explorers who conquered Native peoples and claimed land for Spain in the Americas during the 1500s.', example: 'The conquistadors used their superior weapons and alliances with local peoples to defeat the Aztec Empire.' },
+    ],
+    questions: [
+      {
+        question: 'What was TENOCHTITLAN, and what made it remarkable?',
+        options: [
+          'A Spanish fort built on the site of an Aztec village after the conquest of 1521.',
+          'A floating garden system that turned the lake into farmland for the empire.',
+          'The Aztec capital city, which was one of the world\'s largest cities by 1500, featuring advanced engineering.',
+          'A religious center in the mountains where Aztec priests studied the stars and built temples.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes Tenochtitlan as the Aztec capital built on a lake island, which grew to 200,000–300,000 people with causeways, aqueducts, and floating gardens.',
+      },
+      {
+        question: 'What role did RESENTMENT from conquered peoples play in the Aztec Empire\'s fall?',
+        options: [
+          'Conquered peoples attacked Tenochtitlan before the Spanish arrived, weakening its defenses.',
+          'They provided Cortés with alliances and military support to help overthrow the Aztec.',
+          'They refused to pay tribute, causing the empire to run out of food and gold.',
+          'They supplied the Spanish with information about secret passages into Tenochtitlan.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says "Cortés made alliances with peoples the Aztec had conquered, who welcomed the chance to overthrow their rulers" — their resentment made them willing allies of the Spanish.',
+      },
+      {
+        question: 'Which of the following BEST explains why a small Spanish force was able to conquer a powerful empire?',
+        options: [
+          'The Spanish arrived with thousands of soldiers hidden on ships offshore.',
+          'The Aztec emperor peacefully surrendered Tenochtitlan to avoid bloodshed.',
+          'A combination of superior weapons, disease, and alliances with conquered peoples defeated the Aztec.',
+          'The Spanish blocked the aqueducts, cutting off Tenochtitlan\'s water supply before attacking.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage lists three factors: steel weapons/armor/horses/gunpowder, devastating diseases, and alliances with conquered peoples — together they explain the Spanish victory.',
+      },
+      {
+        question: 'What does TRIBUTE mean as used in this passage?',
+        options: [
+          'A ceremony where Aztec warriors honored the gods before going into battle.',
+          'Payments of goods demanded by the Aztec from peoples they had conquered.',
+          'A type of Aztec art made from gold and feathers for religious ceremonies.',
+          'A formal peace agreement signed between the Aztec and neighboring kingdoms.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says defeated peoples paid "tribute — food, cloth, jade, gold, and cacao — to the Aztec capital," meaning payments demanded from conquered peoples.',
+      },
+      {
+        question: 'How does the author show that the AZTEC LEGACY continued after the empire fell?',
+        options: [
+          'By explaining that some Aztec nobles survived and continued to rule parts of Mexico.',
+          'By noting that the Aztec calendar is still used in some parts of Mexico today.',
+          'By pointing to the Mexican flag\'s symbol, Aztec words in English, and lasting agricultural knowledge.',
+          'By arguing that the Spanish adopted Aztec religious practices after the conquest.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says the eagle/cactus/serpent appears on the Mexican flag, Aztec words like "chocolate" and "tomato" entered English, and their agricultural and astronomical knowledge influenced later cultures.',
+      },
+    ],
+  },
+
+  // ── Grade 7 | HISTORY | ELA.7.R.2.2 | SS.7.W.2.6 (20th century conflicts)
+  {
+    id: 'korean-war-forgotten',
+    title: 'The Korean War: America\'s Forgotten Conflict',
+    topic: 'history',
+    coverEmoji: '🌏',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 655,
+    readTimeMin: 4,
+    text: `When most Americans think of 20th-century wars, they think of World War II or Vietnam. Yet between those two conflicts stood a war that shaped the modern world as profoundly as either — a war that killed over 36,000 Americans and more than 2.5 million Koreans, and that technically never ended. It is called the Korean War. It is also called "The Forgotten War."
+
+The roots of the conflict lie in the aftermath of World War II. When Japan surrendered in 1945, it gave up control of Korea, which it had colonized since 1910. The Allied powers divided Korea along the 38th parallel — an imaginary line of **latitude** — into a Soviet-backed communist North and an American-backed capitalist South. Both sides claimed to be the legitimate government of all Korea.
+
+On June 25, 1950, North Korean forces crossed the 38th parallel and invaded South Korea. Within days, President Harry Truman committed American troops — not as a declaration of war by Congress, but under a United Nations **resolution** authorizing member nations to defend South Korea. This set a precedent: a president deploying military force without a formal congressional declaration of war.
+
+The first months were desperate for U.S. and South Korean forces, who were pushed to a small corner of the peninsula called the Pusan **Perimeter**. Then, in September 1950, General Douglas MacArthur launched a daring amphibious landing at Inchon — far behind enemy lines — that reversed the course of the war. Allied forces recaptured Seoul and pushed the North Koreans almost to the Chinese border.
+
+Then China entered the war. In late October 1950, hundreds of thousands of Chinese soldiers crossed into Korea and drove U.S. forces back south in bitter winter fighting. The conflict settled into brutal **stalemate** along roughly the original border — the 38th parallel.
+
+The war produced a serious constitutional conflict. General MacArthur openly disagreed with President Truman's strategy of **limited war** — fighting to restore the original border rather than seeking total victory over North Korea or China. MacArthur publicly criticized the president's decisions. In April 1951, Truman fired him. This dramatic moment affirmed a core constitutional principle: in the United States, civilian authority — elected leadership — controls the military, not the other way around.
+
+An **armistice** — a ceasefire agreement, not a peace treaty — was signed in July 1953. The border was drawn roughly where it had been at the start. No territory changed hands permanently. But the armistice was not a formal peace; technically, the Korean War never ended. A heavily fortified **demilitarized zone** still divides the Korean peninsula today, one of the most tense military borders in the world.
+
+The Korean War established several important precedents. It demonstrated that the United States would use military force to **contain** the spread of communism — the foreign policy known as containment. It showed that wars could be fought for limited goals rather than unconditional surrender. And it set the pattern of presidents deploying military force without formal congressional declarations of war — a pattern that would shape every American conflict that followed.`,
+    vocabulary: [
+      { word: 'latitude', definition: 'A line on a map or globe that runs east-west, measuring distance north or south of the equator.', example: 'The country was divided along the 38th parallel of latitude, creating two separate zones.' },
+      { word: 'resolution', definition: 'A formal decision or statement made by an official body such as the United Nations.', example: 'The UN passed a resolution calling on member nations to send aid to the disaster zone.' },
+      { word: 'stalemate', definition: 'A situation in which neither side can win or make progress; a deadlock.', example: 'After months of fighting, the two armies reached a stalemate with neither gaining ground.' },
+      { word: 'armistice', definition: 'An agreement by opposing sides in a war to stop fighting — a ceasefire, not necessarily a final peace treaty.', example: 'The armistice ended the shooting, but the two countries did not sign a formal peace treaty.' },
+      { word: 'contain', definition: 'To prevent something from spreading or growing beyond its current limits.', example: 'The U.S. policy was to contain communism by supporting countries threatened by Soviet influence.' },
+    ],
+    questions: [
+      {
+        question: 'Why is the Korean War called "The Forgotten War"?',
+        options: [
+          'Because the U.S. government classified all records of the war for fifty years.',
+          'Because it occurred between two better-known conflicts — World War II and Vietnam — and receives less attention despite its significance.',
+          'Because fewer than 1,000 Americans died, making it seem minor compared to other wars.',
+          'Because it was fought entirely by other nations and American troops never entered combat.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says the Korean War is called "The Forgotten War" because it stands between WWII and Vietnam in popular memory, yet killed over 36,000 Americans and shaped the modern world.',
+      },
+      {
+        question: 'What CONSTITUTIONAL PRINCIPLE did President Truman\'s firing of General MacArthur affirm?',
+        options: [
+          'That Congress must approve the removal of any military general.',
+          'That the president must declare war before deploying troops overseas.',
+          'That civilian, elected leadership controls the military in the United States.',
+          'That generals have the right to express disagreement with presidential policy publicly.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage says that Truman firing MacArthur "affirmed a core constitutional principle: civilian authority — elected leadership — controls the military, not the other way around."',
+      },
+      {
+        question: 'What does ARMISTICE mean, and why is it significant that the Korean War ended with one rather than a peace treaty?',
+        options: [
+          'An armistice is a full peace treaty; it means the Korean War officially and permanently ended in 1953.',
+          'An armistice is only a ceasefire, not a final settlement — meaning the Korean War technically never ended.',
+          'An armistice is a partial peace treaty that transfers some land between nations but leaves borders uncertain.',
+          'An armistice can only be signed at the United Nations, so it carries more international authority than a regular peace treaty.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage defines armistice as "a ceasefire agreement, not a peace treaty," and explicitly states that "technically, the Korean War never ended."',
+      },
+      {
+        question: 'What was the U.S. policy of CONTAINMENT, as described in the passage?',
+        options: [
+          'Keeping American troops inside their own borders rather than fighting in foreign wars.',
+          'Using military force and alliances to prevent the spread of communism beyond its current borders.',
+          'Negotiating peace agreements to keep communist and democratic nations from going to war.',
+          'Building a military alliance with China to contain Soviet expansion in Asia.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage says the Korean War showed the U.S. "would use military force to contain the spread of communism — the foreign policy known as containment."',
+      },
+      {
+        question: 'How does the author convey the SIGNIFICANCE of the Korean War despite it being "forgotten"?',
+        options: [
+          'By comparing it favorably to World War II in terms of strategy and military innovation.',
+          'By listing the casualties, constitutional precedents it set, and its lasting effects on U.S. foreign policy.',
+          'By interviewing veterans who argue the war deserves more recognition in American history.',
+          'By describing the war as a complete American victory that stopped communism across all of Asia.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage demonstrates significance through casualty numbers, the constitutional drama over civilian control, and the foreign policy precedents (containment, limited war, presidential war powers) that shaped all later U.S. conflicts.',
+      },
+    ],
+  },
+
+  // ── Grade 8 | HISTORY | ELA.8.R.2.2 | SS.8.A.5.1 (space race / Cold War)
+  {
+    id: 'apollo-program-moon-race',
+    title: 'Apollo: Racing to the Moon',
+    topic: 'history',
+    coverEmoji: '🚀',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'challenge',
+    grades: [6, 7, 8],
+    wordCount: 790,
+    readTimeMin: 5,
+    text: `At 9:32 a.m. on July 16, 1969, a 363-foot Saturn V rocket lifted off from Kennedy Space Center in Florida, carrying three astronauts — Neil Armstrong, Buzz Aldrin, and Michael Collins — toward a destination that no human being had ever reached. Four days later, Armstrong and Aldrin descended to the lunar surface in a small spacecraft called the Eagle. "The Eagle has landed," Armstrong reported. And then, before a television audience of 600 million people — the largest in history to that point — Armstrong stepped onto the Moon.
+
+What had propelled the United States to this moment was not purely scientific curiosity. It was fear.
+
+In October 1957, the Soviet Union had launched Sputnik — the first artificial satellite to orbit Earth. The beeping signal from that basketball-sized sphere sent shockwaves through the United States. If the Soviets could put a satellite in orbit, could they put a nuclear warhead there? Then, in April 1961, the Soviet cosmonaut Yuri Gagarin became the first human in space, completing an orbit of Earth before the U.S. had even sent a man to space at all. America was losing the **Space Race**.
+
+President John F. Kennedy responded with audacity. On May 25, 1961 — just weeks after Gagarin's flight — Kennedy stood before Congress and made a stunning **proclamation**: "I believe that this nation should commit itself to achieving the goal, before this decade is out, of landing a man on the Moon and returning him safely to Earth." The United States had not yet even put a man in orbit. The goal Kennedy announced would require technologies that did not yet exist.
+
+What followed was an unprecedented **mobilization** of scientific talent, industrial capacity, and public funding. At its peak, the Apollo program employed 400,000 people — engineers, scientists, technicians, and factory workers — and consumed roughly 4% of the entire U.S. federal budget. New materials were invented, new manufacturing processes developed, new calculations performed — many of them by hand, by a team of Black women mathematicians at NASA whose story was later told in the film *Hidden Figures*.
+
+The program suffered devastating tragedy. On January 27, 1967, a fire erupted inside the Apollo 1 capsule during a ground test, killing astronauts Gus Grissom, Ed White, and Roger Chaffee. The program halted. Hundreds of design flaws were identified and corrected. Eighteen months later, Apollo returned to flight.
+
+By the time Apollo 11 lifted off, the program had achieved something remarkable: it had **operationalized** the impossible. The technologies developed for Apollo — including integrated circuits, fuel cells, memory foam, and water purification systems — diffused into everyday life and transformed industries from computing to medicine.
+
+Yet the Moon landing also reflected the **contradictions** of its era. In 1968, the year before Apollo 11, Martin Luther King Jr. and Robert Kennedy were assassinated, American cities erupted in riots, and the Vietnam War was consuming 500 American lives per week. The same federal government spending billions to reach the Moon was failing to address poverty and racial injustice at home. The civil rights leader Ralph Abernathy led a protest at Kennedy Space Center the morning of Apollo 11's launch, pointing out that Americans were hungry and homeless while the nation sent astronauts to the Moon.
+
+Armstrong's words as he stepped onto the lunar surface — "That's one small step for man, one giant leap for mankind" — captured both the triumph and the ambiguity. The Moon landing was a genuine human achievement of staggering difficulty. It was also a Cold War **propaganda** victory, a demonstration of American technological and economic power. Whether it was a "leap for mankind" depended on which part of mankind you were.
+
+The Apollo program ended in 1972 with Apollo 17. Twelve human beings walked on the Moon. None have returned since. NASA is now developing the Artemis program, aiming to return Americans to the Moon — this time including the first woman and the first person of color to walk on the lunar surface.`,
+    vocabulary: [
+      { word: 'proclamation', definition: 'A public and official announcement, especially one made by a person in authority.', example: 'The president\'s proclamation that the country would reach the Moon within a decade shocked and inspired the nation.' },
+      { word: 'mobilization', definition: 'The act of organizing and deploying large numbers of people, resources, or industries to work toward a common goal.', example: 'The mobilization of 400,000 workers required coordinating hundreds of companies across the country.' },
+      { word: 'operationalized', definition: 'Turned an abstract idea or goal into a working, practical reality.', example: 'The engineers operationalized Kennedy\'s dream by solving thousands of technical problems one by one.' },
+      { word: 'contradictions', definition: 'Situations where two things that are happening at the same time are in conflict or opposition with each other.', example: 'The contradictions of the era were evident: great wealth existed alongside deep poverty.' },
+      { word: 'propaganda', definition: 'Information — often exaggerated or one-sided — used to promote a political cause or point of view and influence public opinion.', example: 'Both sides in the Cold War used propaganda to convince their own citizens and the world that their system was superior.' },
+    ],
+    questions: [
+      {
+        question: 'According to the passage, what was the PRIMARY motivation for the U.S. space program — and what evidence supports it?',
+        options: [
+          'Scientific curiosity; the passage describes the detailed experiments astronauts conducted on the Moon.',
+          'Cold War fear and competition; the passage describes Sputnik, Gagarin\'s flight, and Kennedy\'s urgent speech to Congress.',
+          'Economic opportunity; the passage shows that Apollo technologies generated billions in new industries.',
+          'National pride; the passage describes the enormous public enthusiasm for every Apollo launch.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states the motivation "was not purely scientific curiosity — it was fear," then describes Sputnik\'s impact and Gagarin\'s flight leading to Kennedy\'s urgent challenge to Congress.',
+      },
+      {
+        question: 'How does the author use the Apollo 1 fire to develop the PASSAGE\'S ARGUMENT?',
+        options: [
+          'To argue that the program should have been cancelled after such a tragic loss of life.',
+          'To show that the program overcame tragedy through careful redesign, making the eventual success more meaningful.',
+          'To contrast American setbacks with Soviet successes during the same period.',
+          'To explain why Congress reduced NASA\'s budget in 1967 and nearly ended the program.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage describes the fire, then says the program identified hundreds of design flaws, corrected them, and returned to flight — showing that perseverance through tragedy was part of how the impossible was achieved.',
+      },
+      {
+        question: 'What CONTRADICTION does the passage present about the Moon landing?',
+        options: [
+          'That the Moon landing was faked in a studio while real astronauts orbited Earth safely.',
+          'That Kennedy\'s goal was achieved but he did not live to see it, having been assassinated in 1963.',
+          'That the nation spent billions reaching the Moon while failing to address poverty and racial injustice at home.',
+          'That Apollo\'s technology benefited other countries more than the United States itself.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage describes Abernathy\'s protest and the violence, poverty, and war of 1968 — all happening alongside the Moon program — presenting the contradiction between national triumph and domestic failure.',
+      },
+      {
+        question: 'What does the author MOST LIKELY mean by saying whether the Moon landing was "a leap for mankind depended on which part of mankind you were"?',
+        options: [
+          'People in different countries interpreted the landing differently based on their national pride.',
+          'Americans who watched on television experienced the moment more powerfully than those who read about it in newspapers.',
+          'Whether you experienced the era as triumph or injustice depended on your race, economic status, and access to opportunity.',
+          'Astronauts who walked on the Moon understood its importance differently than scientists who worked on the ground.',
+        ],
+        correctIndex: 2,
+        explanation: 'The passage sets up a contrast between the Moon landing as triumph and the simultaneous failures at home — the phrase suggests that for Black Americans, the poor, and others, the "leap for mankind" may have felt hollow.',
+      },
+      {
+        question: 'How does the passage connect APOLLO\'S TECHNOLOGIES to life today?',
+        options: [
+          'It explains that all modern rocket technology was invented during the Apollo program.',
+          'It notes that integrated circuits, fuel cells, memory foam, and water purification systems came from Apollo and spread into everyday life.',
+          'It describes how NASA sold Apollo patents to private companies in exchange for research funding.',
+          'It argues that without Apollo, the internet and personal computers would not exist today.',
+        ],
+        correctIndex: 1,
+        explanation: 'The passage states that "technologies developed for Apollo — including integrated circuits, fuel cells, memory foam, and water purification systems — diffused into everyday life and transformed industries."',
+      },
+    ],
+  },
+
+
+// ── NEW Grade 1 stories ──────────────────────────────────────────────────────
+  {
+    id: 'rain-and-puddles',
+    title: 'Rain and Puddles',
+    topic: 'florida-nature',
+    coverEmoji: '🌧️',
+    coverColor: '#60a5fa',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 140,
+    readTimeMin: 1,
+    text: `Rain falls from clouds in the sky. When it rains, the ground gets wet. Water runs along the sidewalk and collects in low spots. Those low spots become **puddles**!
+
+Puddles can be big or small. After a heavy rain in Florida, some puddles are as big as a swimming pool. Most puddles are much smaller.
+
+Where does the water in a puddle go? The sun warms the water. The water turns into tiny drops that float up into the air. This is called **evaporation**. The puddle slowly disappears on a sunny day.
+
+Rain is very important for plants. Plants drink water through their roots. Without rain, plants would dry out and die. Florida gets a lot of rain in summer. This helps trees, flowers, and crops grow big and strong.
+
+The next time it rains, watch a puddle closely. You might see worms come out of the soil. Worms cannot breathe underwater, so they move to dry land during heavy rain.
+
+Rain may make you want to stay inside, but it is a gift for nature!`,
+    vocabulary: [
+      { word: 'puddles', definition: 'Small pools of water that collect on the ground after rain.', example: 'The children jumped over the puddles on the way to school.' },
+      { word: 'evaporation', definition: 'When liquid water turns into water vapor and rises into the air.', example: 'Evaporation made the puddle disappear after the sun came out.' },
+      { word: 'roots', definition: 'The parts of a plant that grow underground and absorb water.', example: "The tree's roots stretched deep into the wet soil." },
+      { word: 'collect', definition: 'To gather together in one place.', example: 'Water began to collect at the bottom of the hill.' },
+      { word: 'breathe', definition: 'To take air in and out of the body.', example: 'Worms need to breathe, so they come up when the soil floods.' }
+    ],
+    questions: [
+      {
+        question: 'What is a puddle?',
+        options: ['A cloud full of rain', 'A small pool of water on the ground', 'A plant that drinks water', 'A type of Florida bird'],
+        correctIndex: 1,
+        explanation: 'The passage says water collects in low spots and those low spots become puddles.'
+      },
+      {
+        question: 'What happens to a puddle on a sunny day?',
+        options: ['It gets bigger', 'It turns to ice', 'It slowly disappears through evaporation', 'It sinks underground'],
+        correctIndex: 2,
+        explanation: 'The passage explains that the sun warms the water and it evaporates, making the puddle disappear.'
+      },
+      {
+        question: 'Why do plants need rain?',
+        options: ['To keep them cool in hot weather', 'To wash their leaves clean', 'Because they drink water through their roots', 'Because they cannot grow in dry soil'],
+        correctIndex: 2,
+        explanation: 'The passage says plants drink water through their roots and would dry out without rain.'
+      },
+      {
+        question: 'Why do worms come out of the soil during heavy rain?',
+        options: ['They like to play in puddles', 'They cannot breathe underwater', 'They are looking for food on the sidewalk', 'They are trying to find sunlight'],
+        correctIndex: 1,
+        explanation: 'The passage says worms cannot breathe underwater, so they move to dry land during heavy rain.'
+      },
+      {
+        question: 'Which word BEST describes rain, based on this passage?',
+        options: ['Dangerous and scary', 'A gift for nature', 'Only useful for swimming', 'Bad for Florida plants'],
+        correctIndex: 1,
+        explanation: 'The passage ends by calling rain "a gift for nature" because it helps plants grow.'
+      }
+    ]
+  },
+
+  {
+    id: 'ants-at-work',
+    title: 'Ants at Work',
+    topic: 'florida-nature',
+    coverEmoji: '🐜',
+    coverColor: '#dc2626',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 148,
+    readTimeMin: 1,
+    text: `Have you ever watched ants walking in a line? Ants are tiny insects, but they are very strong and very busy.
+
+Ants live together in groups called **colonies**. A colony can have hundreds or even thousands of ants. They all live in a nest underground or inside a log.
+
+Every ant in a colony has a job. The queen ant lays eggs. Worker ants find food and carry it back to the nest. Soldier ants protect the colony. Each ant knows exactly what to do.
+
+Ants can carry things that are much heavier than themselves. If a person could lift as much as an ant, they could pick up a car! Scientists say ants can carry up to 50 times their own body weight.
+
+Ants talk to each other using smells called **pheromones**. When a worker ant finds food, it leaves a scent trail back to the nest. Other ants follow the trail to reach the food. That is why you see ants walking in a straight line!
+
+Next time you see a line of ants, remember — they are a hard-working team.`,
+    vocabulary: [
+      { word: 'colonies', definition: 'Large groups of the same type of insect or animal living together.', example: 'Ant colonies can have millions of members working together.' },
+      { word: 'pheromones', definition: 'Chemicals that insects use to send messages to each other through smell.', example: 'The ant left pheromones on the ground to show other ants where the food was.' },
+      { word: 'protect', definition: 'To keep something safe from harm.', example: 'Soldier ants protect the nest from other insects.' },
+      { word: 'scent', definition: 'A smell that can be followed like a trail.', example: 'The ants followed the scent all the way to the cracker crumbs.' },
+      { word: 'weight', definition: 'How heavy something is.', example: 'The ant carried food that was many times its own weight.' }
+    ],
+    questions: [
+      {
+        question: 'What is an ant colony?',
+        options: ['A type of food that ants eat', 'A group of ants living together', "The queen ant's nest underground", 'A trail ants leave behind'],
+        correctIndex: 1,
+        explanation: 'The passage says ants live together in groups called colonies.'
+      },
+      {
+        question: "What is the queen ant's job?",
+        options: ['To find food for the colony', 'To protect the nest from danger', 'To lay eggs', 'To build tunnels underground'],
+        correctIndex: 2,
+        explanation: 'The passage says the queen ant lays eggs while worker ants find food and soldier ants protect the colony.'
+      },
+      {
+        question: 'How do ants communicate with each other?',
+        options: ['By making loud buzzing sounds', 'By waving their legs in the air', 'By leaving smells called pheromones', 'By changing color to send messages'],
+        correctIndex: 2,
+        explanation: 'The passage explains that ants use chemicals called pheromones to leave scent trails that other ants can follow.'
+      },
+      {
+        question: 'According to the passage, how much weight can an ant carry?',
+        options: ['Up to 5 times its own weight', 'Exactly the same as its own weight', 'Up to 50 times its own weight', 'Two or three times its own weight'],
+        correctIndex: 2,
+        explanation: 'The passage says ants can carry up to 50 times their own body weight.'
+      },
+      {
+        question: 'Why do ants walk in a straight line?',
+        options: ['They are marching to music', 'They are following a scent trail left by other ants', 'Their legs only let them walk straight', 'They are racing each other to the food'],
+        correctIndex: 1,
+        explanation: 'The passage says worker ants leave a scent trail, and other ants follow that trail — which is why they walk in a line.'
+      }
+    ]
+  },
+
+  {
+    id: 'the-library',
+    title: 'The Library',
+    topic: 'community',
+    coverEmoji: '📚',
+    coverColor: '#7c3aed',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 136,
+    readTimeMin: 1,
+    text: `A library is a special place in your community. It is full of books you can borrow for free!
+
+At the library, books are sorted by **topic**. If you want a book about dinosaurs, a librarian can help you find one. If you want a funny story, there is a whole section for that too.
+
+To borrow a book, you need a **library card**. A library card is free. You just need to sign up with your name and address. Then you can borrow books and take them home.
+
+You bring the book back when you are done. Most libraries let you keep a book for two or three weeks. If you want more time, you can **renew** it.
+
+Libraries are quiet places. People come to read and study. It is important to use a soft voice so others can focus.
+
+Libraries are not just for books. Many libraries have computers, movies, and storytime events for kids. The library belongs to everyone in the community — including you!`,
+    vocabulary: [
+      { word: 'topic', definition: 'The subject or main idea that something is about.', example: 'She chose a book on the topic of ocean animals.' },
+      { word: 'library card', definition: 'A card that lets you borrow books and other items from a library for free.', example: 'He showed his library card to check out five books.' },
+      { word: 'borrow', definition: 'To take something that belongs to someone else and return it later.', example: 'She wanted to borrow the book about butterflies for the weekend.' },
+      { word: 'renew', definition: 'To extend the time you are allowed to keep a borrowed item.', example: 'He renewed his library book because he needed more time to finish it.' },
+      { word: 'community', definition: 'A group of people who live in the same area and share things together.', example: 'The library is a place that belongs to the whole community.' }
+    ],
+    questions: [
+      {
+        question: 'What do you need to borrow books from a library?',
+        options: ['A permission slip from school', 'A library card', 'Money to pay for the books', 'A parent to come with you'],
+        correctIndex: 1,
+        explanation: 'The passage says you need a library card to borrow books, and the card is free.'
+      },
+      {
+        question: 'What does the word "renew" mean in this passage?',
+        options: ['To buy a new book', 'To return a book early', 'To get more time to keep a borrowed book', 'To fix a damaged book'],
+        correctIndex: 2,
+        explanation: 'The passage says you can renew a book if you want more time, meaning you extend how long you can keep it.'
+      },
+      {
+        question: 'Why is it important to use a soft voice in the library?',
+        options: ['Because the librarian does not like noise', 'So others can read and focus without being disturbed', 'Because books are damaged by loud sounds', 'Because the library is very small'],
+        correctIndex: 1,
+        explanation: 'The passage says libraries are quiet places where people come to read and study, so a soft voice helps others focus.'
+      },
+      {
+        question: 'According to the passage, what are libraries used for besides books?',
+        options: ['Buying groceries and supplies', 'Computers, movies, and storytime events', 'Watching live plays and performances', 'Sports and exercise classes'],
+        correctIndex: 1,
+        explanation: 'The passage says many libraries also have computers, movies, and storytime events for kids.'
+      },
+      {
+        question: 'Who does the library belong to, according to this passage?',
+        options: ['The librarians who work there', 'The city government that built it', 'Everyone in the community', 'Only the people who pay taxes'],
+        correctIndex: 2,
+        explanation: 'The passage ends by saying "The library belongs to everyone in the community — including you!"'
+      }
+    ]
+  },
+
+  {
+    id: 'helping-at-home',
+    title: 'Helping at Home',
+    topic: 'character-education',
+    coverEmoji: '🏠',
+    coverColor: '#10b981',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 132,
+    readTimeMin: 1,
+    text: `Everyone who lives in a home has a job to do. When family members help each other, the whole home runs better. Helping at home is called doing **chores**.
+
+Chores can be big or small. Setting the table before dinner is a small chore. Washing the dishes after dinner is a bigger chore. Sweeping the floor, feeding a pet, and taking out the trash are all chores too.
+
+When children help with chores, they learn important skills. They learn how to clean, how to organize, and how to take care of things. These are skills they will use their whole lives.
+
+Helping at home also shows **responsibility**. When you do your chore without being asked, your family knows they can count on you. That feels good for everyone.
+
+Some families make a chore chart. A chore chart lists each person's jobs for the week. Everyone knows what to do, and no one has to do everything alone.
+
+Remember: a family is a team. When everyone pitches in, the home is a happier place.`,
+    vocabulary: [
+      { word: 'chores', definition: 'Regular jobs done around the home to keep it clean and running well.', example: 'Her chores included feeding the dog and setting the table each night.' },
+      { word: 'responsibility', definition: 'The duty to do what you are supposed to do without being told.', example: 'Taking out the trash without being reminded showed great responsibility.' },
+      { word: 'organize', definition: 'To put things in order so they are easy to find and use.', example: 'He organized his toys so the room looked neat and tidy.' },
+      { word: 'skills', definition: 'Things you can do well because you have learned and practiced them.', example: 'Cooking and cleaning are useful life skills to learn early.' },
+      { word: 'chart', definition: 'A list or picture that shows information in a clear way.', example: 'The family used a chart on the refrigerator to track their weekly chores.' }
+    ],
+    questions: [
+      {
+        question: 'What are chores?',
+        options: ['Games you play at home', 'Regular jobs done around the home', 'Homework assignments from school', 'Rules you must follow at school'],
+        correctIndex: 1,
+        explanation: 'The passage defines chores as regular jobs done around the home to keep it clean and running well.'
+      },
+      {
+        question: 'Which of these is an example of a chore from the passage?',
+        options: ['Playing video games', 'Reading a book', 'Feeding a pet', 'Watching television'],
+        correctIndex: 2,
+        explanation: 'The passage lists feeding a pet as one example of a chore.'
+      },
+      {
+        question: 'What does doing chores help children learn?',
+        options: ['How to get good grades in school', 'How to clean, organize, and take care of things', 'How to make new friends', 'How to earn money from their parents'],
+        correctIndex: 1,
+        explanation: 'The passage says children learn how to clean, organize, and take care of things — skills they will use their whole lives.'
+      },
+      {
+        question: 'What does a chore chart do?',
+        options: ["Keeps track of everyone's school grades", "Lists each person's jobs for the week", 'Shows which chores earn the most rewards', 'Reminds parents what the children have done wrong'],
+        correctIndex: 1,
+        explanation: "The passage says a chore chart lists each person's jobs for the week so everyone knows what to do."
+      },
+      {
+        question: 'The passage compares a family to a team. What does this MOST LIKELY mean?',
+        options: ['Families should compete against each other', 'Each person has a role, and working together makes things go better', 'Families need a coach to tell them what to do', 'Only the strongest family members should do the hard chores'],
+        correctIndex: 1,
+        explanation: 'The passage says "a family is a team" and that when everyone pitches in, the home is a happier place — meaning cooperation makes everything work better.'
+      }
+    ]
+  },
+
+  {
+    id: 'the-moon-gr1',
+    title: 'The Moon',
+    topic: 'science',
+    coverEmoji: '🌕',
+    coverColor: '#1e3a8a',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1, 2, 3],
+    wordCount: 145,
+    readTimeMin: 1,
+    text: `Look up at the sky on a clear night. You will see the moon! The moon is big and bright. It is the closest space object to Earth.
+
+The moon does not make its own light. It **reflects** light from the sun. The sun shines on the moon, and that light bounces back to Earth. That is why the moon glows at night.
+
+The moon looks different every night. Sometimes it is a full, round circle. Sometimes it is just a thin curved shape called a **crescent**. These changes are called **phases** of the moon. It takes about 29 days for the moon to go through all its phases.
+
+People have studied the moon for thousands of years. In 1969, astronauts from the United States were the first humans to land on the moon. Neil Armstrong was the first person to walk on it.
+
+The moon has no air and no water. Nothing lives there. But from Earth, it looks beautiful in the night sky.
+
+Next time the moon is full, go outside and look up. You are looking at the same moon people have watched for millions of years.`,
+    vocabulary: [
+      { word: 'reflects', definition: 'Bounces light from one surface to another.', example: 'The moon reflects sunlight so we can see it at night.' },
+      { word: 'crescent', definition: "A thin, curved shape like a banana, used to describe the moon's shape.", example: 'A crescent moon hung low in the early evening sky.' },
+      { word: 'phases', definition: 'The different shapes the moon appears to have as it moves around Earth.', example: 'The phases of the moon go from new moon to full moon and back again.' },
+      { word: 'astronauts', definition: 'People who are trained to travel and work in space.', example: 'The astronauts practiced for years before they flew to the moon.' },
+      { word: 'surface', definition: 'The outside or top layer of something.', example: 'The surface of the moon is covered in dust and craters.' }
+    ],
+    questions: [
+      {
+        question: 'Why does the moon glow at night?',
+        options: ['The moon makes its own light like a lamp', 'The moon reflects light from the sun', 'Stars shine their light on the moon', 'The moon is on fire deep inside'],
+        correctIndex: 1,
+        explanation: 'The passage explains that the moon does not make its own light — it reflects light from the sun.'
+      },
+      {
+        question: 'What is a crescent?',
+        options: ['The name of the first moon phase', 'A thin, curved shape the moon sometimes appears to be', 'The dark side of the moon that we never see', 'A crater on the surface of the moon'],
+        correctIndex: 1,
+        explanation: 'The passage says a crescent is a thin curved shape, which is one of the shapes the moon can appear to be.'
+      },
+      {
+        question: 'How long does it take for the moon to go through all its phases?',
+        options: ['7 days', '14 days', 'About 29 days', 'About 365 days'],
+        correctIndex: 2,
+        explanation: 'The passage says it takes about 29 days for the moon to go through all its phases.'
+      },
+      {
+        question: 'Who was the FIRST person to walk on the moon?',
+        options: ['Buzz Aldrin', 'John Glenn', 'Neil Armstrong', 'Mae Jemison'],
+        correctIndex: 2,
+        explanation: 'The passage says Neil Armstrong was the first person to walk on the moon in 1969.'
+      },
+      {
+        question: 'What can we conclude from the fact that the moon has no air or water?',
+        options: ['The moon is too far away for us to visit', 'Nothing can live on the moon', 'The moon was once like Earth but changed', 'Astronauts do not need special suits on the moon'],
+        correctIndex: 1,
+        explanation: 'The passage states directly that the moon has no air and no water, and that nothing lives there.'
+      }
+    ]
+  },
+
+
+// ── NEW Grade 1-2 stories ────────────────────────────────────────────────────
+  {
+    id: 'florida-dolphins',
+    title: 'Dolphins of Florida',
+    topic: 'florida-nature',
+    coverEmoji: '🐬',
+    coverColor: '#0ea5e9',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3, 4],
+    wordCount: 198,
+    readTimeMin: 2,
+    text: `Florida's warm blue waters are home to one of the most playful animals in the ocean — the bottlenose dolphin. These **mammals** live in bays, rivers, and along the coast of Florida all year long.
+
+Dolphins are not fish. They breathe air just like you do. They come to the water's surface every few minutes to take a breath through a **blowhole** on top of their head. When a dolphin surfaces, you can hear it exhale with a loud whooshing sound.
+
+Dolphins are very smart animals. They live in groups called **pods** and communicate with each other using clicks, squeaks, and whistles. Each dolphin has its own special whistle, almost like a name, that other dolphins recognize.
+
+Dolphins work as a team when they hunt fish. A pod will surround a school of fish and take turns swimming through to catch them. They **cooperate** to get more food than they could catch alone.
+
+Baby dolphins are called calves. A calf stays close to its mother for two to three years, learning how to swim, hunt, and communicate. The mother teaches the calf everything it needs to survive.
+
+If you take a boat out on Florida's waterways, you may be lucky enough to see dolphins leaping and splashing beside you. It is one of Florida's most beautiful sights!`,
+    vocabulary: [
+      { word: 'mammals', definition: 'Warm-blooded animals that breathe air, have hair, and feed their babies milk.', example: 'Dolphins are mammals, not fish, because they breathe air and nurse their young.' },
+      { word: 'blowhole', definition: "A nostril on top of a dolphin or whale's head used for breathing.", example: "The dolphin's blowhole sprayed water as it surfaced for air." },
+      { word: 'pods', definition: 'Groups of dolphins or whales that live and travel together.', example: 'A pod of ten dolphins leaped alongside the boat.' },
+      { word: 'communicate', definition: 'To share information or feelings with others.', example: 'Dolphins communicate using whistles and clicks that other dolphins understand.' },
+      { word: 'cooperate', definition: 'To work together toward a shared goal.', example: 'The dolphins cooperate when hunting so each one gets enough food.' }
+    ],
+    questions: [
+      {
+        question: 'Why are dolphins considered mammals, not fish?',
+        options: ['Because they are bigger than most fish', 'Because they breathe air and nurse their young', 'Because they live only near the coast', 'Because they have fins instead of gills'],
+        correctIndex: 1,
+        explanation: 'The passage says dolphins breathe air through a blowhole, just like other mammals, and are not fish.'
+      },
+      {
+        question: 'What is a blowhole?',
+        options: ['A type of whistle dolphins use to communicate', "A nostril on top of a dolphin's head for breathing", 'A hole in the ocean floor where dolphins sleep', 'A wave that dolphins ride near the shore'],
+        correctIndex: 1,
+        explanation: "The passage explains that a blowhole is on top of the dolphin's head and is used to breathe."
+      },
+      {
+        question: 'How do dolphins use their special whistles?',
+        options: ['To warn sharks to stay away', 'To call other dolphins by something like a name', 'To find fish hiding on the ocean floor', 'To guide boats through the water'],
+        correctIndex: 1,
+        explanation: 'The passage says each dolphin has its own special whistle, almost like a name, that other dolphins recognize.'
+      },
+      {
+        question: 'How do dolphins cooperate when hunting?',
+        options: ['They split up and hunt alone so there is more room', 'They surround a school of fish and take turns swimming through', 'They follow fishing boats and eat leftover bait', 'They dig through sand to find hidden fish'],
+        correctIndex: 1,
+        explanation: 'The passage says a pod surrounds a school of fish and takes turns swimming through to catch them.'
+      },
+      {
+        question: 'What can we conclude about dolphin calves from this passage?',
+        options: ['They are able to hunt on their own from birth', 'They need their mothers for several years to learn survival skills', 'They are not as smart as adult dolphins', 'They live in separate pods from their mothers'],
+        correctIndex: 1,
+        explanation: 'The passage says a calf stays close to its mother for two to three years, learning how to swim, hunt, and communicate.'
+      }
+    ]
+  },
+
+  {
+    id: 'what-seeds-need',
+    title: 'What Seeds Need to Grow',
+    topic: 'science',
+    coverEmoji: '🌱',
+    coverColor: '#10b981',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3, 4],
+    wordCount: 184,
+    readTimeMin: 2,
+    text: `Have you ever planted a seed and watched it grow? Seeds are amazing little packages. Each seed holds everything needed to start a brand-new plant — but only if it gets what it needs.
+
+Seeds need three things to begin growing: water, warmth, and the right soil. When a seed soaks up water, it **germinates** — this means it begins to wake up and sprout. The seed cracks open, and a tiny root pushes down into the soil while a small shoot pushes up toward the light.
+
+Why does the root grow down? Roots are pulled toward gravity. They anchor the plant in the soil and soak up water and **nutrients** — the minerals in soil that help the plant grow strong and healthy.
+
+Once the shoot reaches sunlight, the plant begins to make its own food through **photosynthesis**. The plant uses sunlight, water, and a gas called carbon dioxide to make sugar for energy.
+
+Some seeds are very tough. A seed from an oak tree can survive for years waiting for the right conditions. When the soil warms up and rain arrives, the seed finally sprouts.
+
+You can try growing seeds at home. Fill a small cup with soil, push in a bean seed, water it, and place it near a sunny window. Within a week, you may see your first sprout!`,
+    vocabulary: [
+      { word: 'germinates', definition: 'Begins to grow and sprout from a seed.', example: 'The seed germinates when it gets enough water and warmth.' },
+      { word: 'nutrients', definition: 'Minerals and other substances in soil that plants need to grow.', example: 'The rich garden soil was full of nutrients that made the tomatoes grow large.' },
+      { word: 'photosynthesis', definition: 'The process plants use to make food from sunlight, water, and carbon dioxide.', example: 'Without sunlight, the plant could not carry out photosynthesis and began to wilt.' },
+      { word: 'anchor', definition: 'To hold something firmly in place so it does not move.', example: "The tree's deep roots anchor it so it does not tip over in a storm." },
+      { word: 'conditions', definition: 'The surroundings and factors that affect whether something can happen.', example: 'Seeds wait for the right conditions — warmth and moisture — before they sprout.' }
+    ],
+    questions: [
+      {
+        question: 'What three things does a seed need to begin growing?',
+        options: ['Sunlight, wind, and fertilizer', 'Water, warmth, and the right soil', 'Rain, cold weather, and shade', 'Light, sand, and oxygen'],
+        correctIndex: 1,
+        explanation: 'The passage lists water, warmth, and the right soil as the three things a seed needs to begin growing.'
+      },
+      {
+        question: 'What does the word "germinates" mean?',
+        options: ['Dries out and dies', 'Begins to grow and sprout', 'Produces flowers', 'Stores water inside the seed'],
+        correctIndex: 1,
+        explanation: 'The passage says when a seed soaks up water, it germinates — meaning it begins to wake up and sprout.'
+      },
+      {
+        question: 'Why do roots grow downward into the soil?',
+        options: ['Because the root is heavier than the shoot', 'Because roots are pulled toward gravity and need to anchor the plant', 'Because the soil is warmer underground', 'Because roots need to find water before the shoot finds light'],
+        correctIndex: 1,
+        explanation: 'The passage says roots are pulled toward gravity, anchor the plant, and soak up water and nutrients.'
+      },
+      {
+        question: 'What does photosynthesis allow a plant to do?',
+        options: ['Drink water through its roots', 'Make its own food using sunlight', 'Spread seeds to other places', 'Protect itself from insects'],
+        correctIndex: 1,
+        explanation: 'The passage says plants use photosynthesis — sunlight, water, and carbon dioxide — to make sugar for energy.'
+      },
+      {
+        question: 'What conclusion can you draw about seeds from this passage?',
+        options: ['Seeds must be planted indoors to grow successfully', 'Seeds are simple and need very little to survive', 'Seeds are tough and can wait for the right conditions before sprouting', 'Seeds grow faster in cold weather than in warm weather'],
+        correctIndex: 2,
+        explanation: 'The passage says some seeds can survive for years waiting for the right conditions before they sprout.'
+      }
+    ]
+  },
+
+  {
+    id: 'going-to-the-dentist',
+    title: 'Going to the Dentist',
+    topic: 'health',
+    coverEmoji: '🦷',
+    coverColor: '#60a5fa',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2, 3, 4],
+    wordCount: 190,
+    readTimeMin: 2,
+    text: `Many children feel nervous about going to the dentist. But the dentist is one of the most important people you visit for your health. A healthy mouth helps you eat, speak, and feel good.
+
+Your teeth are made of the hardest material in your body — a coating called **enamel**. Enamel protects the softer layers inside each tooth. Even though enamel is very hard, it can be damaged by sugar and acid from food and drinks. When enamel breaks down, it causes **cavities** — tiny holes in your teeth.
+
+When you visit the dentist, they use special tools to clean your teeth. Dental hygienists remove **plaque**, a sticky film of bacteria that builds up on teeth every day. Plaque is what causes cavities if it is not removed.
+
+The dentist checks every tooth carefully. They may take X-rays to see parts of your teeth that are hidden under your gums. If they find a problem early, it is usually easy to fix.
+
+You can protect your teeth at home by brushing twice a day and **flossing** between your teeth to remove plaque from places a toothbrush can't reach.
+
+Most dentists recommend visiting every six months. A clean, healthy mouth is something to smile about!`,
+    vocabulary: [
+      { word: 'enamel', definition: 'The hard outer layer that coats and protects your teeth.', example: 'Drinking too much soda can wear away the enamel on your teeth.' },
+      { word: 'cavities', definition: 'Small holes in teeth caused by decay when plaque breaks down tooth enamel.', example: 'The dentist found two cavities and filled them to stop further damage.' },
+      { word: 'plaque', definition: 'A sticky film of bacteria that forms on teeth and causes decay if not removed.', example: 'Brushing your teeth twice a day helps remove plaque before it hardens.' },
+      { word: 'flossing', definition: 'Using a thin thread to clean between teeth where a toothbrush cannot reach.', example: 'Flossing every night helps prevent cavities between your teeth.' },
+      { word: 'hygienist', definition: 'A dental professional who cleans teeth and teaches patients how to care for their mouths.', example: 'The hygienist showed him the best way to brush along the gum line.' }
+    ],
+    questions: [
+      {
+        question: 'What is enamel?',
+        options: ['A type of toothpaste used by dentists', 'The hard outer coating that protects your teeth', 'A tool dentists use to clean teeth', 'The soft inside layer of a tooth'],
+        correctIndex: 1,
+        explanation: 'The passage says enamel is the hard coating on the outside of each tooth that protects the softer layers inside.'
+      },
+      {
+        question: 'What causes cavities?',
+        options: ['Brushing teeth too hard with a hard-bristle brush', 'Eating too many vegetables', 'Plaque breaking down tooth enamel from sugar and acid', 'Visiting the dentist too often'],
+        correctIndex: 2,
+        explanation: 'The passage explains that plaque builds up from bacteria, and when enamel breaks down from sugar and acid, cavities form.'
+      },
+      {
+        question: 'What does a dental hygienist do during your visit?',
+        options: ['Takes X-rays to find hidden problems', 'Removes plaque from your teeth', 'Fills cavities with special material', 'Gives you a prescription for medicine'],
+        correctIndex: 1,
+        explanation: 'The passage says dental hygienists remove plaque — the sticky film of bacteria — from your teeth.'
+      },
+      {
+        question: 'Why do dentists take X-rays?',
+        options: ['To check if your jaw is growing correctly', 'To see parts of teeth hidden under the gums', 'To count how many teeth you have', 'To test how hard your enamel is'],
+        correctIndex: 1,
+        explanation: 'The passage says dentists use X-rays to see parts of teeth that are hidden under the gums.'
+      },
+      {
+        question: 'Why is flossing important, according to this passage?',
+        options: ['It makes your teeth whiter and brighter', 'It removes plaque from places a toothbrush cannot reach', 'It strengthens the enamel on your teeth', 'It prevents all types of gum disease'],
+        correctIndex: 1,
+        explanation: 'The passage says flossing removes plaque from between teeth — places a toothbrush can\'t reach.'
+      }
+    ]
+  },
+
+// ── NEW Grade 2 stories ──────────────────────────────────────────────────────
+  {
+    id: 'how-rainbows-form',
+    title: 'How Rainbows Form',
+    topic: 'science',
+    coverEmoji: '🌈',
+    coverColor: '#f59e0b',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 222,
+    readTimeMin: 2,
+    text: `Have you ever seen a rainbow after a rainstorm? Rainbows are one of nature's most colorful surprises. But how do they form?
+
+Rainbows happen when sunlight passes through raindrops still in the air. Sunlight looks white, but it is actually made of many colors mixed together. When light enters a raindrop, it **refracts** — this means it bends. As it bends, the different colors separate from each other.
+
+The colors in a rainbow are always in the same order: red, orange, yellow, green, blue, indigo, and violet. You can remember this order with the name **ROY G BIV** — each letter stands for one color.
+
+Why is red always on top and violet always on the bottom? Each color bends at a slightly different angle. Red bends the least, so it ends up at the top. Violet bends the most, so it lands at the bottom.
+
+You always have to be facing away from the sun to see a rainbow. The sun must be behind you and the rain must be in front of you. That is why you often see rainbows in the late afternoon when the sun is low in the sky.
+
+Rainbows are actually full circles! But from the ground, you only see the upper half. If you were up in an airplane, you might be able to see the whole circle.
+
+Next time it rains in the afternoon, look for a rainbow. Nature's light show is right outside your window!`,
+    vocabulary: [
+      { word: 'refracts', definition: 'Bends light as it passes from one material to another.', example: 'Light refracts when it moves from air into water, which is why a straw looks bent in a glass.' },
+      { word: 'ROY G BIV', definition: 'A way to remember the order of rainbow colors: Red, Orange, Yellow, Green, Blue, Indigo, Violet.', example: 'She used ROY G BIV to name every color in the rainbow from top to bottom.' },
+      { word: 'indigo', definition: 'A deep blue-purple color found between blue and violet in the rainbow.', example: 'Indigo is a dark, rich color that is easy to miss between blue and violet.' },
+      { word: 'angle', definition: 'The direction or slant at which something is pointed or turns.', example: 'Each color of light bends at a different angle when it enters a raindrop.' },
+      { word: 'separate', definition: 'To move apart or come apart from each other.', example: 'The prism causes colors to separate and spread out like a rainbow.' }
+    ],
+    questions: [
+      {
+        question: 'What causes a rainbow to form?',
+        options: ['Clouds mixing different colors of light together', 'Sunlight passing through raindrops and bending into colors', 'Sunlight reflecting off a puddle on the ground', 'Rain washing colors off leaves and flowers'],
+        correctIndex: 1,
+        explanation: 'The passage explains that when sunlight passes through raindrops and refracts, the colors separate and form a rainbow.'
+      },
+      {
+        question: 'What does ROY G BIV stand for?',
+        options: ['The names of scientists who studied rainbows', 'The seven colors of the rainbow in order from top to bottom', 'A way to measure how bright a rainbow is', 'The different types of storms that create rainbows'],
+        correctIndex: 1,
+        explanation: 'ROY G BIV stands for Red, Orange, Yellow, Green, Blue, Indigo, Violet — the colors of the rainbow in order.'
+      },
+      {
+        question: 'Why is red always at the TOP of a rainbow?',
+        options: ['Red light is heavier and sinks to the top', 'Red bends the least, so it ends up at the highest angle', "The sun's rays are mostly red at the top", 'Red light travels faster than the other colors'],
+        correctIndex: 1,
+        explanation: 'The passage explains that red bends the least of all colors, which is why it ends up at the top of the rainbow.'
+      },
+      {
+        question: 'Which direction must you face to see a rainbow?',
+        options: ['Toward the sun with rain in front', 'Away from the sun with rain in front', 'Toward the clouds with the sun overhead', 'Toward the west no matter where the sun is'],
+        correctIndex: 1,
+        explanation: 'The passage says you must face away from the sun with the rain in front of you to see a rainbow.'
+      },
+      {
+        question: 'What surprising fact about rainbows does the passage share at the end?',
+        options: ['Rainbows can only last for a few seconds', 'Rainbows are actually full circles, but we only see the top half from the ground', 'No two people ever see the exact same rainbow', 'Rainbows are only visible from airplanes'],
+        correctIndex: 1,
+        explanation: 'The passage says rainbows are actually full circles, but from the ground you only see the upper half. From an airplane you might see the whole circle.'
+      }
+    ]
+  },
+
+  {
+    id: 'florida-springs-gr2',
+    title: "Florida's Amazing Springs",
+    topic: 'florida-nature',
+    coverEmoji: '💧',
+    coverColor: '#0ea5e9',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 218,
+    readTimeMin: 2,
+    text: `Florida has more freshwater springs than any other state in the country. A **spring** is a place where underground water naturally flows up out of the earth. Florida has over 1,000 springs, and some of them are truly amazing.
+
+The water in Florida's springs comes from rain that soaks into the ground and collects in a giant underground layer of rock called the **Floridan Aquifer**. This rock is full of tiny holes that hold water like a sponge. The water travels slowly through the rock, sometimes for thousands of years, before it bubbles up as a spring.
+
+One special thing about spring water is its temperature. Florida spring water is always around 68 degrees Fahrenheit, no matter what time of year it is. In summer, the water feels refreshingly cool. In winter, it feels warm. Manatees take advantage of this — they gather near springs during cold months to stay warm.
+
+The water in springs is incredibly clear because it is **filtered** through layers of limestone rock underground. This filtering removes sand and dirt, leaving water so clear that you can see the bottom from 30 feet away.
+
+People use Florida springs for swimming, snorkeling, and kayaking. But springs face challenges. When people pump too much groundwater, spring flow slows down. Pollution can also harm the delicate **ecosystem** of plants and animals that depend on the spring.
+
+Protecting Florida's springs means protecting a treasure that took thousands of years to create.`,
+    vocabulary: [
+      { word: 'spring', definition: 'A place where underground water naturally flows up to the surface.', example: 'The crystal-clear spring bubbled up from the ground and formed a wide pool.' },
+      { word: 'aquifer', definition: 'An underground layer of rock or sediment that holds and carries water.', example: 'The Floridan Aquifer supplies fresh water to millions of people across the state.' },
+      { word: 'filtered', definition: 'Cleaned by passing through a material that removes dirt and impurities.', example: 'The water was filtered through limestone, making it perfectly clear.' },
+      { word: 'ecosystem', definition: 'All the living things in an area along with their environment, working together.', example: 'The spring ecosystem includes fish, plants, and the manatees that visit each winter.' },
+      { word: 'fahrenheit', definition: 'A temperature scale used in the United States.', example: 'The spring stays at 68 degrees Fahrenheit all year, which feels cool in summer.' }
+    ],
+    questions: [
+      {
+        question: 'What is a spring?',
+        options: ['A man-made pool filled with well water', 'A place where underground water naturally flows up to the surface', 'A type of river that flows from north to south', 'A season when more rain falls in Florida'],
+        correctIndex: 1,
+        explanation: 'The passage defines a spring as a place where underground water naturally flows up out of the earth.'
+      },
+      {
+        question: "Where does the water in Florida's springs come from?",
+        options: ['From the ocean, filtered by sand dunes', 'From rivers that flow underground', 'From rain that soaks into the ground and collects in the Floridan Aquifer', 'From melting glaciers far to the north'],
+        correctIndex: 2,
+        explanation: 'The passage explains the water comes from rain that soaks into the ground, collects in the Floridan Aquifer, and eventually bubbles up as a spring.'
+      },
+      {
+        question: 'Why do manatees gather near springs in winter?',
+        options: ['Because springs have more fish to eat in winter', 'Because the spring water stays warm at 68 degrees year-round', 'Because manatees migrate south each winter to find springs', 'Because springs are the only place manatees can breathe fresh air'],
+        correctIndex: 1,
+        explanation: 'The passage says spring water stays around 68 degrees Fahrenheit all year, which feels warm in winter, so manatees gather there to stay warm.'
+      },
+      {
+        question: 'Why is spring water so clear?',
+        options: ['Because it comes from very deep underground where no plants grow', 'Because it is filtered through limestone rock that removes sand and dirt', 'Because springs are protected areas where swimming is not allowed', 'Because spring water does not contain any minerals or chemicals'],
+        correctIndex: 1,
+        explanation: 'The passage says the water is filtered through layers of limestone rock underground, which removes sand and dirt.'
+      },
+      {
+        question: "What are TWO threats to Florida's springs mentioned in the passage?",
+        options: ['Hurricane damage and rising sea levels', 'Too many swimmers and overfishing', 'Pumping too much groundwater and pollution', 'Droughts and erosion from boat traffic'],
+        correctIndex: 2,
+        explanation: 'The passage mentions pumping too much groundwater slows spring flow, and pollution can harm the spring ecosystem.'
+      }
+    ]
+  },
+
+  {
+    id: 'keeping-promises',
+    title: 'Keeping Promises',
+    topic: 'character-education',
+    coverEmoji: '🤝',
+    coverColor: '#7c3aed',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 204,
+    readTimeMin: 2,
+    text: `A promise is a serious thing. When you make a promise, you are giving your word that you will do something. The people who hear your promise are counting on you.
+
+Think about how it feels when someone breaks a promise to you. Maybe a friend said they would meet you at the park, but they never showed up. Maybe a family member said they would help with your project and then forgot. It can feel hurtful and disappointing.
+
+When you keep a promise, something important happens — you build **trust**. Trust is what makes friendships and families strong. When people know you always keep your word, they feel comfortable relying on you. They know you are **dependable**.
+
+Sometimes keeping a promise is hard. Maybe you promised to help a friend study, but then a better plan came along. Keeping the promise anyway is a sign of good **character**. It shows that your word matters to you more than convenience.
+
+But what if you realize you cannot keep a promise? The right thing to do is to tell the person as soon as possible. Explain what happened and say you are sorry. This is much better than simply not showing up.
+
+Before you make a promise, think carefully. Can you truly do what you are about to say? It is better to say "I'll try my best" than to promise something you are not sure you can deliver.
+
+A person who keeps their promises is someone people want in their life.`,
+    vocabulary: [
+      { word: 'trust', definition: 'A belief that someone is honest, reliable, and will do what they say.', example: 'Years of keeping her word built a deep trust between the two friends.' },
+      { word: 'dependable', definition: 'Able to be counted on to do what you say you will do.', example: 'He was dependable — if he said he would be there at 3, he was there at 3.' },
+      { word: 'character', definition: 'The mix of qualities that shows what kind of person someone is — their honesty, kindness, and courage.', example: 'Keeping her promise even when it was hard showed her strong character.' },
+      { word: 'convenience', definition: 'Something that makes your life easier or more comfortable.', example: 'She chose to keep her promise even though staying home was more convenient.' },
+      { word: 'reliable', definition: 'Consistently doing what you say and being there when people need you.', example: 'A reliable friend is one you can call in an emergency and know they will come.' }
+    ],
+    questions: [
+      {
+        question: 'What is a promise, according to this passage?',
+        options: ['A plan you might change if something better comes up', 'Your word that you will do something others are counting on', 'A kind offer to help someone when you feel like it', 'A wish for something good to happen in the future'],
+        correctIndex: 1,
+        explanation: 'The passage says a promise means giving your word that you will do something and that others are counting on you.'
+      },
+      {
+        question: 'What happens when you keep a promise, according to the passage?',
+        options: ['People will start asking you for bigger favors', 'You build trust with the people around you', 'Others will feel they owe you something in return', 'Your friendships become less important to you'],
+        correctIndex: 1,
+        explanation: 'The passage says keeping a promise builds trust, which makes friendships and families strong.'
+      },
+      {
+        question: 'What does the passage say is a sign of good character?',
+        options: ['Only making promises you are excited about', 'Keeping a promise even when something better comes along', 'Telling friends when their plans are not worth your time', 'Being honest about not wanting to keep a promise'],
+        correctIndex: 1,
+        explanation: 'The passage says keeping a promise even when a better plan comes along shows good character.'
+      },
+      {
+        question: 'If you cannot keep a promise, what does the passage say you should do?',
+        options: ['Pretend you forgot and hope the person understands', 'Send a gift instead of showing up', 'Tell the person as soon as possible and say you are sorry', 'Wait until the last minute to cancel so they are not waiting long'],
+        correctIndex: 2,
+        explanation: 'The passage says the right thing is to tell the person as soon as possible and explain what happened.'
+      },
+      {
+        question: 'What does the passage suggest you do BEFORE making a promise?',
+        options: ['Ask other friends if they think you can keep it', 'Write it down so you do not forget', 'Think carefully about whether you can truly do what you are about to say', 'Only make promises when adults are listening'],
+        correctIndex: 2,
+        explanation: 'The passage advises thinking carefully before promising — it is better to say "I\'ll try my best" than to promise something you are unsure about.'
+      }
+    ]
+  },
+
+
+// ── NEW Grade 2-3 stories ────────────────────────────────────────────────────
+  {
+    id: 'wright-brothers-flight',
+    title: 'The Wright Brothers Take Flight',
+    topic: 'history',
+    coverEmoji: '✈️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '2-3',
+    level: 'early',
+    grades: [2, 3, 4, 5],
+    wordCount: 260,
+    readTimeMin: 2,
+    text: `On a cold December morning in 1903, two brothers from Ohio changed the world. Orville and Wilbur Wright built and flew the first successful **airplane** in history at Kitty Hawk, North Carolina.
+
+Orville and Wilbur grew up in Dayton, Ohio. They owned a bicycle shop and were fascinated by machines. In the late 1890s, they began studying how birds flew. They noticed that birds **tilted** their wings to turn and balance in the air. The brothers decided to use this idea to design flying machines.
+
+They built gliders — aircraft without engines — and tested them in the sand dunes of Kitty Hawk, where steady winds helped with their experiments. They failed many times. Each time a glider crashed, they studied what went wrong and tried again. They understood that **failure** was part of learning.
+
+Finally, they added an engine to their design. On December 17, 1903, Orville flew the airplane for 12 seconds and traveled about 120 feet. It was not far, but it was the first time any person had flown a **powered** airplane successfully.
+
+They made four flights that day, with Wilbur's final flight lasting 59 seconds and covering 852 feet.
+
+The Wright brothers did not have college degrees. They did not have government funding. They figured things out through careful observation, hard work, and the willingness to fail and try again.
+
+Today, millions of people fly in airplanes every day. It all began with two brothers and a dream on a windy beach in North Carolina.`,
+    vocabulary: [
+      { word: 'airplane', definition: 'A powered flying vehicle with wings and an engine that carries people or cargo through the air.', example: 'The airplane lifted off the runway and climbed into the clouds.' },
+      { word: 'tilted', definition: 'Moved or leaned to one side at an angle.', example: 'The bird tilted its wings to turn left in the wind.' },
+      { word: 'gliders', definition: 'Aircraft with no engine that fly by riding air currents.', example: 'The brothers tested gliders from the sand dunes before adding an engine.' },
+      { word: 'powered', definition: 'Run by an engine or motor.', example: 'The powered airplane used a gasoline engine to turn its propellers.' },
+      { word: 'observation', definition: 'Watching carefully and noticing details to learn from them.', example: 'Their careful observation of birds showed them how tilting wings creates balance.' }
+    ],
+    questions: [
+      {
+        question: 'Where did the Wright brothers make their first successful flight?',
+        options: ['Dayton, Ohio, near their bicycle shop', 'Kitty Hawk, North Carolina', 'Washington, D.C., for a government test', 'Cape Canaveral, Florida'],
+        correctIndex: 1,
+        explanation: 'The passage says the brothers flew at Kitty Hawk, North Carolina, where steady winds helped with their experiments.'
+      },
+      {
+        question: 'What gave the Wright brothers the idea for how airplane wings should work?',
+        options: ['Watching hot air balloons float', 'Studying how birds tilt their wings', 'Reading a book by a French inventor', 'Testing kites in strong storms'],
+        correctIndex: 1,
+        explanation: 'The passage says they noticed birds tilted their wings to turn and balance, and used that idea in their design.'
+      },
+      {
+        question: 'How long did the first successful powered flight last?',
+        options: ['59 seconds', '12 seconds', '3 minutes', '30 seconds'],
+        correctIndex: 1,
+        explanation: "The passage says Orville flew for 12 seconds on the first flight. Wilbur's final flight that day lasted 59 seconds."
+      },
+      {
+        question: 'What does the passage say about failure for the Wright brothers?',
+        options: ['They believed failure meant giving up and trying something new', 'Failure was part of learning — they studied crashes and tried again', 'They had very few failures because of their experience with bicycles', 'Failure made them give up gliders and go straight to powered aircraft'],
+        correctIndex: 1,
+        explanation: 'The passage says each time a glider crashed they studied what went wrong and tried again, understanding failure was part of learning.'
+      },
+      {
+        question: 'What can you conclude about the Wright brothers from this passage?',
+        options: ['They succeeded because of government support and university training', 'They were lucky to find good conditions at Kitty Hawk', 'They succeeded through hard work, observation, and persistence despite many failures', 'They invented the airplane by copying an earlier French design'],
+        correctIndex: 2,
+        explanation: 'The passage emphasizes they had no degrees or government funding and succeeded through careful observation, hard work, and willingness to fail and try again.'
+      }
+    ]
+  },
+
+  {
+    id: 'food-chain-basics',
+    title: 'The Food Chain',
+    topic: 'science',
+    coverEmoji: '🌿',
+    coverColor: '#10b981',
+    gradeLevel: '2-3',
+    level: 'early',
+    grades: [2, 3, 4, 5],
+    wordCount: 248,
+    readTimeMin: 2,
+    text: `Every living thing needs energy to survive. Plants make their own food using sunlight. But animals must eat other living things to get the energy they need. The order in which living things eat and are eaten is called a **food chain**.
+
+Food chains begin with **producers** — plants that make their own food through photosynthesis. Grass, algae, and trees are all producers. They trap the sun's energy and store it in their leaves and stems.
+
+Next come the **herbivores**, or plant-eaters. Deer, rabbits, caterpillars, and many insects eat plants. They get energy by eating producers. Herbivores are also called **primary consumers** because they are the first animals to eat in the food chain.
+
+**Carnivores** are meat-eaters. They eat herbivores to get their energy. A hawk that eats a mouse, or a frog that eats a caterpillar, is a carnivore. Carnivores are called secondary consumers because they eat the primary consumers.
+
+At the top of many food chains are **apex predators** — animals with no natural enemies. Lions, sharks, and eagles are apex predators. When they die, **decomposers** like bacteria and fungi break down their bodies. This returns nutrients to the soil, where plants can use them to grow again.
+
+Food chains are connected. If one part of the chain is removed — say, if a prey animal disappears — predators lose their food source and may starve. Food chains remind us that all living things depend on each other.
+
+In Florida, a simple food chain looks like this: algae → small fish → bass → osprey. Each link depends on the one before it.`,
+    vocabulary: [
+      { word: 'producers', definition: 'Living things (mostly plants) that make their own food using sunlight.', example: 'Grass and trees are producers that form the base of most food chains.' },
+      { word: 'herbivores', definition: 'Animals that eat only plants.', example: 'Deer are herbivores that graze on grasses and leaves.' },
+      { word: 'carnivores', definition: 'Animals that eat other animals for food.', example: 'The hawk is a carnivore that hunts mice and small birds.' },
+      { word: 'apex predators', definition: 'Animals at the top of the food chain with no natural predators.', example: 'Great white sharks are apex predators of the ocean.' },
+      { word: 'decomposers', definition: 'Organisms like bacteria and fungi that break down dead matter and return nutrients to the soil.', example: 'Decomposers break down fallen leaves and dead animals, recycling their nutrients.' }
+    ],
+    questions: [
+      {
+        question: 'Where does a food chain begin?',
+        options: ['With apex predators at the top', 'With producers like plants that make their own food', 'With decomposers breaking down dead matter', 'With herbivores eating grass'],
+        correctIndex: 1,
+        explanation: 'The passage says food chains begin with producers — plants that make their own food through photosynthesis.'
+      },
+      {
+        question: 'What is a herbivore?',
+        options: ['An animal that eats only meat', 'A plant that produces its own food', 'An animal that eats only plants', 'An organism that breaks down dead things'],
+        correctIndex: 2,
+        explanation: 'The passage defines herbivores as plant-eaters — animals like deer and rabbits that eat producers.'
+      },
+      {
+        question: 'What do decomposers do?',
+        options: ['Hunt apex predators for food', 'Break down dead matter and return nutrients to the soil', 'Eat plants to get energy from the sun', 'Protect prey animals from predators'],
+        correctIndex: 1,
+        explanation: 'The passage says decomposers like bacteria and fungi break down dead bodies, returning nutrients to the soil for plants to use.'
+      },
+      {
+        question: 'What would MOST LIKELY happen if a prey animal disappeared from a food chain?',
+        options: ['Predators would switch to eating plants instead', 'Apex predators would take over as the primary consumers', 'Predators that relied on that animal might starve', 'Decomposers would produce more nutrients to fill the gap'],
+        correctIndex: 2,
+        explanation: 'The passage warns that removing one part of the chain — like a prey animal — means predators lose their food and may starve.'
+      },
+      {
+        question: 'In the Florida food chain example, what is the ROLE of algae?',
+        options: ['Carnivore — it eats small fish', 'Apex predator — nothing eats it', 'Producer — it starts the food chain', 'Decomposer — it breaks down dead fish'],
+        correctIndex: 2,
+        explanation: 'Algae is a producer — a plant-like organism that uses sunlight to make food, forming the base of the food chain.'
+      }
+    ]
+  },
+
+// ── NEW Grade 3 stories ──────────────────────────────────────────────────────
+  {
+    id: 'rosa-parks-courage',
+    title: 'Rosa Parks: The Power of One Brave Act',
+    topic: 'history',
+    coverEmoji: '✊',
+    coverColor: '#dc2626',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [3, 4, 5, 6],
+    wordCount: 298,
+    readTimeMin: 3,
+    text: `On December 1, 1955, a quiet seamstress from Montgomery, Alabama, did something that would change American history. Her name was Rosa Parks, and on that evening, she refused to give up her seat on a city bus to a white passenger.
+
+In Montgomery in the 1950s, **segregation** was the law. Black Americans were forced to sit in the back of buses. If the white section in front was full, Black passengers were required to give up their seats to white passengers. Rosa Parks had obeyed these unjust rules for years.
+
+But on that December evening, after a long day of work, Rosa Parks was tired. When the bus driver ordered her to move, she calmly said no. She was arrested and taken to jail.
+
+Her arrest sparked something powerful. Local civil rights leaders, including a young minister named Martin Luther King Jr., organized a **boycott** of the city's bus system. For 381 days — more than a year — Black residents of Montgomery refused to ride the buses. They walked, carpooled, and shared rides instead. This caused major financial losses for the bus company.
+
+In November 1956, the U.S. Supreme Court ruled that **segregation** on public buses was **unconstitutional** — it violated the law of the land. The boycott had worked.
+
+Rosa Parks did not plan to become a symbol that day. She was simply exhausted and believed she had a right to her seat. But her quiet **defiance** showed the world that ordinary people can create extraordinary change.
+
+She later said: "I had decided that I would not be pushed around." Those words inspired a generation.`,
+    vocabulary: [
+      { word: 'segregation', definition: 'The forced separation of people based on race or other characteristics.', example: 'Segregation forced Black Americans to use separate schools, restaurants, and buses.' },
+      { word: 'boycott', definition: 'A protest in which people refuse to use a product or service to force change.', example: 'The boycott lasted over a year and caused the bus company to lose money.' },
+      { word: 'unconstitutional', definition: "Going against the rules set out in a country's constitution, making it illegal.", example: 'The court ruled that bus segregation was unconstitutional and had to end.' },
+      { word: 'defiance', definition: 'Refusing to obey someone in authority, especially to stand up for what is right.', example: 'Her quiet defiance inspired thousands to join the civil rights movement.' },
+      { word: 'inspired', definition: 'Filled someone with the desire to do something great or important.', example: "Rosa Parks' courage inspired people across the country to stand up against injustice." },
+    ],
+    questions: [
+      {
+        question: 'Why was Rosa Parks arrested on December 1, 1955?',
+        options: ['She was leading a protest march through downtown Montgomery', 'She refused to give up her bus seat to a white passenger', 'She organized the bus boycott without a permit', 'She broke a window on the city bus during an argument'],
+        correctIndex: 1,
+        explanation: 'The passage says Rosa Parks refused to give up her seat on the bus when a white passenger needed it, which led to her arrest.'
+      },
+      {
+        question: 'What was the Montgomery Bus Boycott?',
+        options: ['A one-day strike by bus drivers in Montgomery', 'Black residents refusing to ride the buses for over a year', 'A march from Montgomery to Washington, D.C.', 'A lawsuit filed against the bus company in court'],
+        correctIndex: 1,
+        explanation: 'The passage says Black residents refused to ride the buses for 381 days, walking and carpooling instead.'
+      },
+      {
+        question: 'What was the result of the Montgomery Bus Boycott?',
+        options: ['Rosa Parks was released from jail immediately', 'Bus drivers went on strike to support equal seating', 'The Supreme Court ruled bus segregation was unconstitutional', 'Montgomery built a new bus system with equal seating'],
+        correctIndex: 2,
+        explanation: 'The passage says the U.S. Supreme Court ruled that segregation on public buses was unconstitutional — a direct result of the boycott.'
+      },
+      {
+        question: 'What does the word "defiance" mean in this passage?',
+        options: ['Feeling tired after a long day of work', 'Refusing to obey authority in order to stand up for what is right', 'Planning a careful and organized protest', 'Being afraid but doing something anyway'],
+        correctIndex: 1,
+        explanation: "The passage uses 'defiance' to describe Rosa Parks' refusal to obey the bus driver's order — standing up against authority."
+      },
+      {
+        question: "According to the passage, what is the most important lesson from Rosa Parks' story?",
+        options: ['Only leaders and ministers can create important social change', 'Legal change requires filing lawsuits, not protests', 'Ordinary people who stand up for what is right can create extraordinary change', 'Bus systems should be run by the federal government, not cities'],
+        correctIndex: 2,
+        explanation: 'The passage says Rosa Parks did not plan to become a symbol — she simply believed she had a right to her seat, and her quiet defiance showed ordinary people can create extraordinary change.'
+      }
+    ]
+  },
+
+  {
+    id: 'human-skeleton-gr3',
+    title: 'Your Amazing Skeleton',
+    topic: 'science',
+    coverEmoji: '🦴',
+    coverColor: '#6b7280',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [3, 4, 5],
+    wordCount: 285,
+    readTimeMin: 3,
+    text: `Right now, inside your body, there are 206 bones holding you up, protecting your organs, and helping you move. Together, these bones form your **skeleton** — the framework that gives your body its shape.
+
+Bones are not solid rocks. They are living tissue with a hard outer layer and a spongy inner part. Inside many bones is a soft material called **bone marrow**, which produces red and white blood cells. Your blood is actually made inside your bones!
+
+Bones are connected at **joints** — places where two or more bones meet. Your knee, elbow, and shoulder are all joints. Different joints allow different kinds of movement. Ball-and-socket joints, like your shoulder, let you move in circles. Hinge joints, like your knee, only bend back and forth, like a door.
+
+Your skeleton protects your most important organs. Your skull is a hard helmet that protects your brain. Your **ribcage** surrounds your heart and lungs, protecting them from impacts. Your backbone, or spine, protects your spinal cord — the bundle of nerves that connects your brain to the rest of your body.
+
+Bones grow throughout childhood. When you are born, many of your "bones" are actually soft **cartilage** — a flexible tissue that gradually hardens into bone. By the time you are fully grown, your 206 bones are solid and strong.
+
+To keep bones healthy, eat foods with **calcium** — like milk, cheese, and leafy greens. Calcium is the mineral that makes bones hard. Exercise also strengthens bones; weight-bearing activities like running and jumping put stress on bones, which actually makes them grow stronger.
+
+Take care of your skeleton, and it will support you for life.`,
+    vocabulary: [
+      { word: 'skeleton', definition: "The framework of bones that gives a body its shape and supports movement.", example: "Without a skeleton, your body would have no shape and couldn't stand upright." },
+      { word: 'bone marrow', definition: 'The soft, spongy tissue inside bones that produces blood cells.', example: 'Red blood cells are made in the bone marrow deep inside your largest bones.' },
+      { word: 'joints', definition: 'Places where two or more bones meet, allowing movement.', example: 'Your elbow and knee are hinge joints that allow bending back and forth.' },
+      { word: 'ribcage', definition: 'The curved set of bones surrounding your chest that protects your heart and lungs.', example: 'The ribcage forms a protective cage around the heart and lungs.' },
+      { word: 'cartilage', definition: 'A flexible tissue that forms part of the skeleton and gradually hardens into bone.', example: 'Babies have more cartilage than adults, which is why their bones are more flexible.' }
+    ],
+    questions: [
+      {
+        question: 'How many bones are in the adult human body?',
+        options: ['104', '165', '206', '312'],
+        correctIndex: 2,
+        explanation: 'The passage states that there are 206 bones in the human body.'
+      },
+      {
+        question: 'What is bone marrow and what does it do?',
+        options: ['The hard outer shell of bones that prevents breaking', 'Soft material inside bones that produces blood cells', 'A type of joint that connects large bones', 'The nutrient in milk that makes bones strong'],
+        correctIndex: 1,
+        explanation: 'The passage says bone marrow is a soft material inside bones that produces red and white blood cells.'
+      },
+      {
+        question: 'What is the difference between a ball-and-socket joint and a hinge joint?',
+        options: ['Ball-and-socket joints are larger and stronger than hinge joints', 'Ball-and-socket joints allow circular movement; hinge joints only bend back and forth', 'Hinge joints connect to muscles while ball-and-socket joints connect to tendons', 'Ball-and-socket joints are in the legs; hinge joints are in the arms'],
+        correctIndex: 1,
+        explanation: 'The passage explains ball-and-socket joints (like shoulders) allow circular motion, while hinge joints (like knees) only bend back and forth.'
+      },
+      {
+        question: 'Why is calcium important for bones?',
+        options: ['It helps bones produce red blood cells more efficiently', 'It is the mineral that makes bones hard and strong', 'It allows joints to move without friction', 'It helps bones heal faster after a break'],
+        correctIndex: 1,
+        explanation: 'The passage says calcium is the mineral that makes bones hard, and recommends foods like milk and cheese.'
+      },
+      {
+        question: 'According to the passage, how does exercise affect bones?',
+        options: ['Exercise wears down bones over time, making them thinner', 'Exercise has no effect on bone strength', 'Weight-bearing exercise puts stress on bones, which makes them grow stronger', 'Only swimming and non-impact exercise benefit bone health'],
+        correctIndex: 2,
+        explanation: 'The passage says weight-bearing activities like running and jumping put stress on bones, which actually makes them grow stronger.'
+      }
+    ]
+  },
+
+
+// ── NEW Grade 4 stories ──────────────────────────────────────────────────────
+  {
+    id: 'american-revolution-gr4',
+    title: 'The American Revolution',
+    topic: 'history',
+    coverEmoji: '🇺🇸',
+    coverColor: '#1e3a8a',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 345,
+    readTimeMin: 3,
+    text: `For most of the 1700s, the thirteen American colonies were ruled by Britain, a powerful empire across the Atlantic Ocean. Colonists paid taxes to the British government, but they had no say in the laws being made. This felt deeply unfair. Their frustration grew into a revolution that changed the course of history.
+
+Britain passed several tax laws that angered colonists. The **Stamp Act** of 1765 taxed newspapers, legal documents, and even playing cards. The **Townshend Acts** taxed goods like glass, paint, and tea. Colonists protested loudly, chanting the famous phrase: "No taxation without representation!" They argued that it was wrong to be taxed by a government in which they had no elected voice.
+
+Tensions boiled over in 1770 when British soldiers fired into a crowd of colonists in Boston, killing five people. This became known as the **Boston Massacre**. Three years later, colonists dumped an entire shipment of British tea into Boston Harbor to protest the tea tax — an event called the **Boston Tea Party**.
+
+Britain responded harshly, closing Boston's port and sending more troops. This pushed colonists toward open rebellion. In April 1775, the first shots of the Revolutionary War were fired at Lexington and Concord, Massachusetts.
+
+In July 1776, colonial leaders gathered in Philadelphia and adopted the **Declaration of Independence**, written mainly by Thomas Jefferson. It declared that all men are created equal and have the right to life, liberty, and the pursuit of happiness. It officially announced that the colonies were breaking free from British rule.
+
+The war lasted until 1783, when Britain **recognized** American independence in the Treaty of Paris. The new nation called itself the United States of America.
+
+The Revolution was not just a military event — it was a powerful idea: that government should serve the people, and that people have the right to choose their leaders.`,
+    vocabulary: [
+      { word: 'Stamp Act', definition: 'A 1765 British law that taxed printed materials in the American colonies.', example: 'The Stamp Act angered colonists because they had to pay a tax on newspapers and legal papers.' },
+      { word: 'representation', definition: 'Having elected leaders who speak for a group of people in government.', example: 'Colonists demanded representation in Parliament before they would agree to pay any taxes.' },
+      { word: 'Boston Massacre', definition: 'A 1770 event in which British soldiers shot and killed five colonists in Boston.', example: 'The Boston Massacre increased colonial anger toward British rule.' },
+      { word: 'Declaration of Independence', definition: 'The 1776 document declaring the American colonies free from British rule.', example: 'The Declaration of Independence stated that all men are created equal.' },
+      { word: 'recognized', definition: 'Officially accepted as real or valid.', example: 'Britain recognized American independence in the 1783 Treaty of Paris.' }
+    ],
+    questions: [
+      {
+        question: 'What did colonists mean by "No taxation without representation"?',
+        options: ['They wanted to stop paying all taxes to anyone', 'They believed it was wrong to be taxed by a government they had no vote in', 'They demanded that British taxes be replaced by local sales taxes', 'They wanted Britain to send elected officials to live in the colonies'],
+        correctIndex: 1,
+        explanation: 'Colonists argued that paying taxes to a government they could not vote in was unjust — they wanted elected representatives in Parliament.'
+      },
+      {
+        question: 'What was the Boston Tea Party?',
+        options: ['A meeting of colonial leaders to discuss the tea tax', 'Colonists dumping British tea into Boston Harbor to protest a tax', 'British soldiers destroying colonial tea warehouses', 'A celebration of the end of the Townshend Acts'],
+        correctIndex: 1,
+        explanation: 'The passage says colonists dumped an entire shipment of British tea into Boston Harbor to protest the tea tax.'
+      },
+      {
+        question: 'What was the main purpose of the Declaration of Independence?',
+        options: ['To create the rules for the new American government', 'To officially announce the colonies were breaking free from British rule', 'To list all the taxes that Britain had placed on the colonies', 'To invite France to join the fight against Britain'],
+        correctIndex: 1,
+        explanation: 'The passage says the Declaration officially announced that the colonies were breaking free from British rule and declared that all men are created equal.'
+      },
+      {
+        question: 'When did the American Revolutionary War officially end?',
+        options: ['1776 with the Declaration of Independence', '1770 after the Boston Massacre', '1775 after the Battle of Lexington and Concord', '1783 with the Treaty of Paris'],
+        correctIndex: 3,
+        explanation: 'The passage says the war lasted until 1783, when Britain recognized American independence in the Treaty of Paris.'
+      },
+      {
+        question: "According to the passage, what was the Revolution's most powerful idea?",
+        options: ['That armies are more powerful than governments', 'That the British Empire was too large to rule fairly', 'That government should serve the people, who have the right to choose their leaders', 'That taxes are necessary for a country to survive'],
+        correctIndex: 2,
+        explanation: "The passage ends by stating the Revolution's core idea: that government should serve the people, and people have the right to choose their leaders."
+      }
+    ]
+  },
+
+  {
+    id: 'seminole-wars-florida',
+    title: "The Seminole Wars: Florida's Native Story",
+    topic: 'florida-history',
+    coverEmoji: '🏹',
+    coverColor: '#92400e',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [3, 4, 5, 6, 7, 8],
+    wordCount: 332,
+    readTimeMin: 3,
+    text: `Florida has a complex and often painful history with its Native American people. For much of the 1800s, the United States government tried to remove the Seminole Nation from Florida — and the Seminoles fought back in three wars that stretched over decades.
+
+The Seminole people were not a single original tribe. They were a group that formed in Florida in the 1700s, made up of Creek Indians from Georgia and Alabama, escaped enslaved people, and other Native groups. The name "Seminole" comes from a word meaning "wild one" or "runaway" — fitting for a people who had chosen freedom on Florida's frontier.
+
+After the United States acquired Florida from Spain in 1821, pressure mounted on Native Americans to leave. The **Indian Removal Act** of 1830, signed by President Andrew Jackson, ordered all Native tribes east of the Mississippi River to move to land in present-day Oklahoma, called Indian Territory.
+
+The Seminoles refused. In 1835, the Second Seminole War began — the longest and most expensive Indian war in American history, lasting seven years and costing the U.S. government approximately $40 million. The Seminoles, led by brilliant leaders like **Osceola**, used the swamps and forests of Florida to wage a successful **guerrilla** war against the much larger American army.
+
+Osceola became a symbol of resistance. Even after he was captured under a flag of truce — a deeply dishonored act — Seminole fighters continued resisting.
+
+In the end, most Seminoles were forcibly removed to Oklahoma. But a small group retreated deep into the Everglades, never signing a peace treaty. Their descendants, the Seminole Tribe of Florida, still live in Florida today. They are sometimes called "the unconquered people."
+
+Their story is one of loss, but also of extraordinary survival and **resilience**.`,
+    vocabulary: [
+      { word: 'Indian Removal Act', definition: 'An 1830 law that forced Native American tribes east of the Mississippi to relocate to Oklahoma.', example: 'The Indian Removal Act led to the Trail of Tears for the Cherokee and the Seminole Wars in Florida.' },
+      { word: 'Osceola', definition: 'A Seminole leader who led resistance against removal during the Second Seminole War.', example: 'Osceola became a symbol of Seminole resistance after leading successful ambushes against U.S. forces.' },
+      { word: 'guerrilla', definition: 'A type of fighting where small groups use surprise attacks, ambushes, and local terrain to resist a larger force.', example: 'The Seminoles used guerrilla tactics in the swamps to avoid the larger American army.' },
+      { word: 'resilience', definition: 'The ability to recover and keep going in spite of great hardship.', example: 'The survival of the Seminole people in the Everglades is a remarkable example of resilience.' },
+      { word: 'unconquered', definition: 'Never defeated or forced to surrender.', example: 'The Seminole Tribe is called "the unconquered people" because they never signed a peace treaty.' }
+    ],
+    questions: [
+      {
+        question: 'Who were the Seminole people, according to the passage?',
+        options: ['An ancient Florida tribe that had lived there for 10,000 years', 'A group formed in the 1700s from Creek Indians, escaped enslaved people, and other groups', 'Spanish settlers who adopted Native American customs', 'A tribe moved from Oklahoma to Florida by the government'],
+        correctIndex: 1,
+        explanation: 'The passage says the Seminoles formed in Florida in the 1700s from Creek Indians, escaped enslaved people, and other Native groups.'
+      },
+      {
+        question: 'What did the Indian Removal Act of 1830 require?',
+        options: ['Native tribes to pay taxes to the U.S. government', 'All Native tribes east of the Mississippi to move to Oklahoma', 'Florida to be returned to Spain within ten years', 'Seminole leaders to sign peace treaties by 1835'],
+        correctIndex: 1,
+        explanation: 'The passage says the Indian Removal Act ordered all Native tribes east of the Mississippi to move to land in Oklahoma called Indian Territory.'
+      },
+      {
+        question: 'Why was the Second Seminole War significant?',
+        options: ['It was the first war fought on American soil', 'It resulted in Florida becoming a U.S. state', 'It was the longest, most expensive Indian war in U.S. history', 'It ended with a peace treaty that granted Seminoles land rights'],
+        correctIndex: 2,
+        explanation: 'The passage calls it the longest and most expensive Indian war in American history, lasting seven years and costing $40 million.'
+      },
+      {
+        question: 'How did the Seminoles fight against the much larger American army?',
+        options: ['They allied with Spanish forces who supplied them with weapons', "They used guerrilla tactics in Florida's swamps and forests", 'They signed a temporary peace treaty while planning attacks', 'They captured American forts and held them as bases'],
+        correctIndex: 1,
+        explanation: 'The passage says the Seminoles used the swamps and forests of Florida to wage a guerrilla war against the larger American army.'
+      },
+      {
+        question: 'Why are the Florida Seminoles sometimes called "the unconquered people"?',
+        options: ['Because American forces never actually invaded Florida', 'Because they won all three Seminole Wars', 'Because a group retreated into the Everglades and never signed a peace treaty', 'Because they were the largest Native American tribe in the country'],
+        correctIndex: 2,
+        explanation: 'The passage says a small group retreated into the Everglades and never signed a peace treaty — their descendants are still in Florida today.'
+      }
+    ]
+  },
+
+// ── NEW Grade 5 stories ──────────────────────────────────────────────────────
+  {
+    id: 'plate-tectonics-gr5',
+    title: "Plate Tectonics: Earth's Moving Puzzle",
+    topic: 'science',
+    coverEmoji: '🌋',
+    coverColor: '#92400e',
+    gradeLevel: '5',
+    level: 'grade5',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 368,
+    readTimeMin: 4,
+    text: `The ground beneath your feet may feel solid and still, but Earth's crust is actually in constant — if very slow — motion. The theory of **plate tectonics** explains how Earth's outer shell is divided into large slabs called tectonic plates, and how their movements shape the surface of our planet.
+
+Earth's structure has several layers. The outermost layer, the **crust**, is where we live. Below the crust is the **mantle** — a thick layer of hot, semi-solid rock. Though the mantle is solid, it behaves somewhat like a very thick fluid over millions of years. Heat from Earth's core creates **convection currents** in the mantle, slow churning movements that drag the tectonic plates above them.
+
+There are about 15 major tectonic plates, including large ones like the North American Plate and the Pacific Plate. These plates move about one to ten centimeters per year — roughly the rate your fingernails grow. That seems tiny, but over millions of years, the movement is enormous. Scientists believe that all of Earth's continents were once joined in a single supercontinent called **Pangaea**, which began breaking apart about 200 million years ago.
+
+Where tectonic plates meet, dramatic things happen. When two plates collide, one may be forced under the other in a process called **subduction**, forming deep ocean trenches and volcanic mountain chains. When plates push against each other, they can buckle upward, forming mountain ranges like the Himalayas. When plates slide past each other horizontally, the stress builds up and is released as earthquakes — like along California's San Andreas Fault.
+
+**Volcanoes** frequently appear at plate boundaries. When a plate is subducted into the hot mantle, rock melts and magma rises to the surface. Hawaii's volcanoes formed over a **hot spot** — a place where a plume of magma breaks through the plate far from its edge.
+
+Plate tectonics also explains why fossils of the same ancient creatures are found on different continents — the land masses were once connected, allowing organisms to spread before the continents drifted apart.
+
+Understanding plate tectonics helps scientists predict where earthquakes and volcanic eruptions are most likely — and design buildings and communities to be safer when the earth moves.`,
+    vocabulary: [
+      { word: 'plate tectonics', definition: "The scientific theory that Earth's crust is divided into moving plates whose interactions cause earthquakes, volcanoes, and mountains.", example: 'Plate tectonics explains why most volcanoes and earthquakes occur near plate boundaries.' },
+      { word: 'mantle', definition: "The thick layer of hot, semi-solid rock beneath Earth's crust.", example: 'Heat from the mantle drives the slow movement of tectonic plates.' },
+      { word: 'convection currents', definition: 'Circular movements of heat in a fluid or semi-solid material, where hot material rises and cool material sinks.', example: "Convection currents in the mantle slowly drag tectonic plates across Earth's surface." },
+      { word: 'Pangaea', definition: "The ancient supercontinent that included all of Earth's land masses before they drifted apart.", example: "Pangaea began breaking apart about 200 million years ago, slowly forming today's continents." },
+      { word: 'subduction', definition: 'The process where one tectonic plate is forced beneath another and sinks into the mantle.', example: 'Subduction of the oceanic plate beneath the continental plate creates deep trenches and volcanoes.' }
+    ],
+    questions: [
+      {
+        question: 'What causes tectonic plates to move?',
+        options: ['The weight of mountains pushing down on the crust', "Convection currents in the mantle driven by heat from Earth's core", 'Ocean tides pulling on the edges of the plates', 'Earthquakes jolting plates out of position over time'],
+        correctIndex: 1,
+        explanation: "The passage explains that heat from Earth's core creates convection currents in the mantle that drag the tectonic plates above them."
+      },
+      {
+        question: 'What was Pangaea?',
+        options: ["The name of Earth's largest tectonic plate today", 'A single supercontinent containing all of Earth land masses', "The ocean that formed between the Americas and Europe", "The first mountain range created by plate collisions"],
+        correctIndex: 1,
+        explanation: "The passage says Pangaea was a single supercontinent that included all of Earth's continents before they began drifting apart 200 million years ago."
+      },
+      {
+        question: 'What happens during subduction?',
+        options: ['Two plates push against each other and buckle upward into mountains', 'One plate is forced beneath another and sinks into the mantle', 'Two plates slide past each other horizontally, releasing earthquakes', 'A plate breaks apart, creating a rift valley'],
+        correctIndex: 1,
+        explanation: 'The passage defines subduction as one plate being forced under another, which forms ocean trenches and volcanic chains.'
+      },
+      {
+        question: 'How do fossils of the same ancient creatures appear on different continents?',
+        options: ['Ancient animals swam across the oceans', 'Plate tectonics does not explain fossil patterns', 'The continents were once connected, allowing organisms to spread before drifting apart', 'Scientists believe the fossils were moved by ancient floods'],
+        correctIndex: 2,
+        explanation: 'The passage says fossils of the same creatures appear on different continents because those land masses were once connected as Pangaea.'
+      },
+      {
+        question: 'How does understanding plate tectonics benefit people today?',
+        options: ['It allows scientists to stop earthquakes before they happen', 'It helps predict where earthquakes and eruptions are likely, improving safety', 'It explains why some countries have more gold and oil than others', 'It allows engineers to build taller buildings in earthquake zones'],
+        correctIndex: 1,
+        explanation: 'The passage says understanding plate tectonics helps scientists predict where earthquakes and volcanic eruptions are most likely, helping communities be safer.'
+      }
+    ]
+  },
+
+  {
+    id: 'us-constitution-gr5',
+    title: 'The U.S. Constitution: Framework for a Nation',
+    topic: 'civics',
+    coverEmoji: '📜',
+    coverColor: '#1e3a8a',
+    gradeLevel: '5',
+    level: 'grade5',
+    grades: [4, 5, 6, 7, 8],
+    wordCount: 352,
+    readTimeMin: 4,
+    text: `When the American Revolution ended in 1783, the new United States had a problem: it had no effective national government. The Articles of Confederation, the first attempt at a national framework, gave the central government almost no power. States acted like separate countries, refusing to cooperate on trade, defense, and finance. Something had to change.
+
+In the summer of 1787, 55 delegates met in Philadelphia for the **Constitutional Convention**. Their goal was to create a new governing document. After four months of debate, argument, and compromise, they produced the **Constitution of the United States** — a document that still governs the country today.
+
+The Constitution established three branches of government, each with different powers. The **legislative branch** (Congress) makes laws. It is divided into two parts: the Senate and the House of Representatives. The **executive branch**, led by the President, carries out laws and leads the military. The **judicial branch**, headed by the Supreme Court, interprets laws and decides whether they follow the Constitution.
+
+The founders deliberately divided power this way to prevent any one person or group from gaining too much control. This system is called **separation of powers**, and it is reinforced by **checks and balances** — each branch has ways to limit the power of the others. For example, the President can veto a law passed by Congress, but Congress can override a veto with enough votes.
+
+The Constitution was not perfect at first. It did not grant rights to enslaved people or give women the right to vote. To address gaps, the founders created a process for adding **amendments** — changes or additions to the Constitution. The first ten amendments, called the **Bill of Rights**, were added in 1791 and guaranteed freedoms like speech, religion, and a fair trial.
+
+Since then, 17 more amendments have been added — including the 13th, which abolished slavery, and the 19th, which gave women the right to vote.
+
+The Constitution has lasted more than 230 years because it was designed to be adaptable. Its core ideas — limited government, protected rights, and shared power — continue to shape American democracy.`,
+    vocabulary: [
+      { word: 'Constitutional Convention', definition: 'The 1787 meeting in Philadelphia where delegates wrote the U.S. Constitution.', example: 'The Constitutional Convention produced a governing framework that has lasted over 230 years.' },
+      { word: 'separation of powers', definition: 'The division of government into three branches — legislative, executive, and judicial — so no one has total control.', example: 'Separation of powers prevents any single branch from becoming too powerful.' },
+      { word: 'checks and balances', definition: 'A system where each branch of government can limit the power of the other branches.', example: 'Checks and balances allow Congress to override a presidential veto with enough votes.' },
+      { word: 'amendments', definition: 'Official changes or additions made to the Constitution.', example: 'The 19th Amendment gave women the right to vote in 1920.' },
+      { word: 'Bill of Rights', definition: 'The first ten amendments to the Constitution, guaranteeing individual rights and freedoms.', example: 'The Bill of Rights protects free speech, freedom of religion, and the right to a fair trial.' }
+    ],
+    questions: [
+      {
+        question: 'Why did the founders create the Constitution?',
+        options: ['To declare independence from Britain', 'To replace the ineffective Articles of Confederation with a working national government', 'To create a new tax system for the colonies', 'To give states more independence from the national government'],
+        correctIndex: 1,
+        explanation: 'The passage explains the Articles of Confederation gave the central government almost no power, so the Constitution was created to fix that problem.'
+      },
+      {
+        question: 'What is the purpose of the judicial branch?',
+        options: ['To make laws for the country', 'To lead the military and carry out laws', 'To interpret laws and decide if they follow the Constitution', 'To represent the states in the Senate'],
+        correctIndex: 2,
+        explanation: 'The passage says the judicial branch, headed by the Supreme Court, interprets laws and decides whether they follow the Constitution.'
+      },
+      {
+        question: 'What are checks and balances?',
+        options: ['A budget system that prevents the government from spending too much', "A system where each branch of government can limit the others' power", 'Rules about how much money each branch can spend', 'A list of rights that citizens can use to challenge government decisions'],
+        correctIndex: 1,
+        explanation: 'The passage defines checks and balances as a system where each branch has ways to limit the power of the other branches.'
+      },
+      {
+        question: 'What was the Bill of Rights?',
+        options: ['The original Constitution signed in 1787', 'A document sent to Britain explaining American independence', 'The first ten amendments, guaranteeing individual rights and freedoms', 'A list of duties that American citizens must perform'],
+        correctIndex: 2,
+        explanation: 'The passage says the Bill of Rights was the first ten amendments added in 1791, guaranteeing freedoms like speech, religion, and a fair trial.'
+      },
+      {
+        question: 'What does the passage say makes the Constitution successful after 230+ years?',
+        options: ['It has never needed to be changed since 1787', 'It was designed to be adaptable through the amendment process', 'It was approved unanimously by all 55 delegates at the Convention', 'It gives the President final authority over the other two branches'],
+        correctIndex: 1,
+        explanation: 'The passage says the Constitution has lasted because it was designed to be adaptable — amendments could be added to address flaws and changing needs.'
+      }
+    ]
+  },
+
+
+// ── NEW Grade 6 stories ──────────────────────────────────────────────────────
+  {
+    id: 'renaissance-rebirth',
+    title: 'The Renaissance: A Rebirth of Ideas',
+    topic: 'world-history',
+    coverEmoji: '🎨',
+    coverColor: '#7c3aed',
+    gradeLevel: '6',
+    level: 'grade6',
+    grades: [5, 6, 7, 8],
+    wordCount: 392,
+    readTimeMin: 4,
+    text: `Between roughly 1300 and 1600, Europe experienced one of the most remarkable periods of cultural and intellectual growth in history. Historians call this era the **Renaissance** — a French word meaning "rebirth." It marked a dramatic shift away from the Middle Ages and toward a new era of human achievement in art, science, literature, and philosophy.
+
+The Renaissance began in Italy, particularly in wealthy city-states like Florence, Venice, and Milan. These cities had grown rich through trade and banking, and their wealthy merchants and rulers — called **patrons** — funded artists, architects, and scholars. The Medici family of Florence were among the most famous patrons, sponsoring artists like Botticelli and Leonardo da Vinci.
+
+At the heart of the Renaissance was a philosophy called **humanism** — the belief that human beings have the capacity for great reason, creativity, and achievement. Humanists studied ancient Greek and Roman texts, which had been largely ignored during the Middle Ages. They believed that learning about the classics could improve society and expand human potential.
+
+Renaissance art reflected this spirit. Artists like **Leonardo da Vinci**, Michelangelo, and Raphael created works of extraordinary realism and beauty. Leonardo studied human anatomy by dissecting bodies, using the knowledge to make his paintings more lifelike. Michelangelo's sculpture of David and his paintings on the Sistine Chapel ceiling remain among the most celebrated works in human history.
+
+The **printing press**, invented by Johannes Gutenberg around 1440, transformed the Renaissance. Before the printing press, books had to be copied by hand — expensive and time-consuming. The press allowed books to be produced quickly and cheaply, spreading Renaissance ideas to a much wider audience. Literacy rates rose, and ideas traveled faster than ever before.
+
+Renaissance thinkers also questioned traditional authority. **Nicolaus Copernicus** proposed that Earth orbits the sun — not the other way around — challenging a centuries-old belief that the Earth was the center of the universe. This sparked a broader Scientific Revolution in the centuries that followed.
+
+The Renaissance was not without its contradictions. It flourished among the educated elite while much of Europe's population lived in poverty. Women were largely excluded from its opportunities. And the wealth that funded it often came from exploitation.
+
+Still, the Renaissance's legacy is profound. Its emphasis on human reason, artistic excellence, and scientific inquiry laid the groundwork for the modern world.`,
+    vocabulary: [
+      { word: 'Renaissance', definition: 'A European cultural movement from roughly 1300–1600 marked by renewed interest in art, science, and classical learning; the word means "rebirth."', example: 'The Renaissance transformed European art by encouraging painters to depict realistic human figures.' },
+      { word: 'patrons', definition: "Wealthy people who financially supported artists, scholars, or writers.", example: "The Medici family were powerful patrons who funded many of Florence's greatest artists." },
+      { word: 'humanism', definition: 'A Renaissance philosophy emphasizing human potential, reason, and achievement through the study of classical texts.', example: 'Humanism encouraged scholars to study ancient Greek philosophy rather than focus purely on religious texts.' },
+      { word: 'printing press', definition: 'A machine invented around 1440 that mechanically reproduced written text, making books affordable and widespread.', example: 'The printing press allowed Renaissance ideas to spread across Europe in a way that hand-copied manuscripts could not.' },
+      { word: 'Copernicus', definition: "A Renaissance astronomer who proposed that Earth and the other planets orbit the sun — not the Earth.", example: "Copernicus's heliocentric model challenged the Church's teaching that Earth was the center of the universe." },
+    ],
+    questions: [
+      {
+        question: 'What does the word "Renaissance" mean, and why is it an appropriate name for this period?',
+        options: ['It means "revolution" — appropriate because artists revolted against the Church', 'It means "rebirth" — appropriate because it marked renewed interest in classical learning and human achievement', 'It means "invention" — appropriate because so many new technologies were created', 'It means "golden age" — appropriate because Italy was the wealthiest nation in Europe'],
+        correctIndex: 1,
+        explanation: 'The passage says Renaissance means "rebirth," reflecting the revival of interest in ancient Greek and Roman ideas and the dramatic growth in art and science.'
+      },
+      {
+        question: 'What was the role of patrons during the Renaissance?',
+        options: ['They were government officials who controlled what artists could create', 'They were wealthy sponsors who funded artists, scholars, and architects', 'They were teachers at universities who trained Renaissance artists', 'They were merchants who sold artwork to buyers across Europe'],
+        correctIndex: 1,
+        explanation: 'The passage defines patrons as wealthy merchants and rulers who funded artists and scholars, with the Medici family as a prime example.'
+      },
+      {
+        question: 'How did the printing press change the Renaissance?',
+        options: ['It allowed artists to reproduce paintings and sell them to more buyers', 'It let the Church control which ideas could be published and spread', 'It made books cheap and quick to produce, spreading ideas to a wider audience', 'It replaced the need for universities by giving everyone access to knowledge'],
+        correctIndex: 2,
+        explanation: 'The passage says the printing press allowed books to be produced quickly and cheaply, spreading Renaissance ideas to a much wider audience and raising literacy rates.'
+      },
+      {
+        question: "What was controversial about Copernicus's proposal?",
+        options: ['He said the Earth was flat, contradicting scientific knowledge', 'He claimed the sun was millions of years old, contradicting the Bible', 'He proposed Earth orbits the sun, challenging the centuries-old belief that Earth was the center of the universe', 'He argued that Galileo, not the Church, should control scientific education'],
+        correctIndex: 2,
+        explanation: 'The passage says Copernicus proposed Earth orbits the sun, challenging a long-held belief — upheld by the Church — that Earth was at the center of the universe.'
+      },
+      {
+        question: 'What criticism of the Renaissance does the author include?',
+        options: ['It produced great art but no advances in science or philosophy', 'It only lasted in Italy and never spread to other parts of Europe', 'It benefited mostly wealthy elites while much of the population lived in poverty, and women were excluded', 'It was based on false interpretations of ancient Greek and Roman texts'],
+        correctIndex: 2,
+        explanation: 'The passage notes that the Renaissance flourished among the educated elite while most of Europe lived in poverty, women were largely excluded, and its wealth often came from exploitation.'
+      }
+    ]
+  },
+
+  {
+    id: 'silk-road-gr6',
+    title: 'The Silk Road: Ancient Networks of Trade',
+    topic: 'world-history',
+    coverEmoji: '🐫',
+    coverColor: '#92400e',
+    gradeLevel: '6',
+    level: 'grade6',
+    grades: [5, 6, 7, 8],
+    wordCount: 375,
+    readTimeMin: 4,
+    text: `Long before there were airplanes or container ships, merchants carried goods across thousands of miles on foot and by camel. The network of trade routes connecting China to the Mediterranean world became known as the **Silk Road** — one of the most important trade networks in human history.
+
+The Silk Road was not a single road. It was a web of overland and sea routes stretching about 4,000 miles from China through Central Asia, Persia (modern Iran), and the Middle East to Rome and other Mediterranean cities. The name "Silk Road" was coined by a German geographer in 1877, though merchants had been traveling these routes since around 130 BCE, when the Chinese Han Dynasty first established formal connections with Central Asia.
+
+Silk was China's most valuable export. The Chinese had mastered the technique of making silk from silkworm **cocoons** — a secret they guarded jealously for centuries. Smuggling silk-making technology out of China was punishable by death. In exchange for silk, merchants brought Rome's glassware, wool, wine, and gold back to China. Other goods that traveled the Silk Road included spices from India, gems from Central Asia, and cotton from the Middle East.
+
+But the Silk Road carried more than goods. It was a highway for ideas, religions, and cultures. **Buddhism** traveled from India to China and Southeast Asia along these routes. **Islam** spread westward and eastward through Silk Road trading communities. Artistic styles, agricultural techniques, and mathematical knowledge also flowed between civilizations that had never directly met.
+
+Disease, too, traveled these routes. Historians believe the **Black Death** — the devastating plague that killed one-third of Europe's population in the 14th century — spread westward from Central Asia along Silk Road trade networks.
+
+The Silk Road reached its peak during the **Tang Dynasty** (618–907 CE) and the **Mongol Empire** (13th–14th centuries), when strong central powers maintained security along the routes. The Mongol period saw the famous journey of Marco Polo, who traveled from Venice to China and returned with accounts that stunned European readers.
+
+The Silk Road's importance declined after 1450, when European explorers found sea routes to Asia that were faster and cheaper. But its legacy endures: the Silk Road was humanity's first great experiment in **globalization** — proof that distant civilizations have always been more connected than they may appear.`,
+    vocabulary: [
+      { word: 'Silk Road', definition: 'An ancient network of trade routes connecting China to the Mediterranean world, used for over a thousand years.', example: 'The Silk Road allowed Chinese silk to reach Roman markets thousands of miles away.' },
+      { word: 'cocoons', definition: 'The silky protective cases spun by silkworm larvae, from which silk thread is extracted.', example: 'Chinese workers unwound silk thread from silkworm cocoons to weave into fine fabric.' },
+      { word: 'Buddhism', definition: 'A religion founded in ancient India by Siddhartha Gautama that emphasizes ending suffering through mindfulness and ethical living.', example: 'Buddhism spread from India to China and Japan partly through Silk Road trade networks.' },
+      { word: 'Black Death', definition: "A devastating plague that killed about one-third of Europe's population in the 14th century.", example: 'The Black Death spread along Silk Road routes from Central Asia into Europe.' },
+      { word: 'globalization', definition: 'The process of increasing interconnection between different peoples, economies, and cultures across the world.', example: 'The Silk Road was an early form of globalization, linking civilizations that had never directly met.' }
+    ],
+    questions: [
+      {
+        question: 'What was the Silk Road?',
+        options: ['A single paved road built by the Roman Empire connecting Rome to China', 'A network of overland and sea trade routes linking China to the Mediterranean world', 'An ancient waterway used to ship Chinese silk by boat to Europe', "A series of markets along China's border where merchants exchanged goods"],
+        correctIndex: 1,
+        explanation: 'The passage describes the Silk Road as a web of overland and sea routes stretching about 4,000 miles, not a single road.'
+      },
+      {
+        question: 'Why did China guard its silk-making technology so carefully?',
+        options: ['Silk-making required rare materials found only in China', "Silk was China's most valuable export — sharing the secret would end their monopoly", 'The Chinese emperor believed silk had magical properties', 'Other countries lacked the climate needed to raise silkworms'],
+        correctIndex: 1,
+        explanation: "The passage says silk was China's most valuable export, and smuggling its production secrets out was punishable by death — protecting their monopoly."
+      },
+      {
+        question: 'Beyond goods, what else traveled along the Silk Road?',
+        options: ['Only religious artifacts and sacred texts', 'Ideas, religions, artistic styles, agricultural techniques, and diseases', 'Military technology that was kept secret from foreign empires', 'Only luxury items like gold and gemstones'],
+        correctIndex: 1,
+        explanation: 'The passage says Buddhism, Islam, artistic styles, agricultural techniques, mathematical knowledge, and even the Black Death all traveled the Silk Road.'
+      },
+      {
+        question: 'What caused the decline of the Silk Road after 1450?',
+        options: ['The Mongol Empire collapsed, making the routes too dangerous', 'China banned trade with Western nations', 'European explorers found faster, cheaper sea routes to Asia', 'The Black Death killed too many merchants to sustain the trade network'],
+        correctIndex: 2,
+        explanation: "The passage says the Silk Road's importance declined after 1450 when European explorers found sea routes to Asia that were faster and cheaper."
+      },
+      {
+        question: "How does the author describe the Silk Road's larger significance?",
+        options: ['As the first time European nations gained economic power over Asia', 'As proof that war, not trade, shaped the ancient world', "As humanity's first great experiment in globalization — showing distant civilizations were always more connected than they appeared", 'As a system that only benefited the Chinese Han Dynasty'],
+        correctIndex: 2,
+        explanation: "The passage calls the Silk Road \"humanity's first great experiment in globalization\" — proof that distant civilizations have always been more connected than they appear."
+      }
+    ]
+  },
+
+
+// ── NEW Grade 7 stories ──────────────────────────────────────────────────────
+  {
+    id: 'french-revolution-gr7',
+    title: 'The French Revolution: Liberty, Equality, Fraternity',
+    topic: 'world-history',
+    coverEmoji: '⚔️',
+    coverColor: '#1e3a8a',
+    gradeLevel: '7',
+    level: 'grade7',
+    grades: [6, 7, 8],
+    wordCount: 428,
+    readTimeMin: 5,
+    text: `In the summer of 1789, the people of France rose up against their king and launched one of the most dramatic revolutions in history. The French Revolution reshaped France, inspired revolutionary movements around the world, and established ideas about liberty and equality that still echo in modern democracies.
+
+France in the late 1700s was a society of extreme inequality. Society was divided into three **estates**. The First Estate was the clergy (the Church). The Second Estate was the nobility — aristocrats who owned vast land and paid few taxes. The Third Estate comprised everyone else — roughly 97% of the population — including peasants, urban workers, and a growing middle class called the **bourgeoisie**. The Third Estate shouldered nearly all the tax burden while living in poverty.
+
+France was also deeply in debt, partly from supporting the American Revolution. When King Louis XVI called the Estates-General in 1789 to discuss finances, the Third Estate saw an opportunity. They broke away and declared themselves the National Assembly, vowing to write a constitution that would limit royal power.
+
+On July 14, 1789, a Parisian crowd stormed the **Bastille** — a royal prison and symbol of royal tyranny. The Bastille's fall marked the beginning of the Revolution. The National Assembly abolished **feudalism** — the system of noble privilege — and issued the **Declaration of the Rights of Man and Citizen**, which proclaimed liberty, equality, and popular sovereignty.
+
+The Revolution's early idealism soon turned violent. Radical leaders like Maximilien Robespierre used the **guillotine** to execute thousands of perceived enemies during the **Reign of Terror** (1793–1794). Louis XVI and his queen, Marie Antoinette, were executed. Robespierre himself was eventually arrested and guillotined.
+
+After the Reign of Terror, a more moderate government took power, but France remained unstable. In 1799, a young military general named Napoleon Bonaparte seized power in a coup. The Revolution, officially, was over — though its ideas were not.
+
+The French Revolution had profound and contradictory effects. It spread the ideals of liberty and democracy across Europe and the Americas. But it also showed how revolutions can spiral into violence and authoritarian rule. Napoleon spread both the revolutionary ideals and a new form of conquest across Europe.
+
+The Revolution's slogan — **Liberté, Égalité, Fraternité** (Liberty, Equality, Brotherhood) — became a rallying cry for oppressed peoples worldwide. It remains France's national motto today.`,
+    vocabulary: [
+      { word: 'estates', definition: 'The three social divisions of French society before the Revolution: clergy, nobility, and everyone else.', example: 'The Third Estate, representing 97% of French people, demanded equal political representation.' },
+      { word: 'bourgeoisie', definition: 'The middle class — merchants, lawyers, and professionals — who grew powerful during the French Revolution.', example: 'The bourgeoisie played a central role in organizing the National Assembly.' },
+      { word: 'Bastille', definition: "A royal prison in Paris whose storming on July 14, 1789 became the symbol of the Revolution's beginning.", example: 'The fall of the Bastille is still celebrated in France each July 14 as Bastille Day.' },
+      { word: 'Reign of Terror', definition: 'A period during the French Revolution (1793–1794) when radical leaders executed thousands of perceived enemies of the Revolution.', example: 'The Reign of Terror turned revolutionary idealism into mass executions and fear.' },
+      { word: 'Liberté, Égalité, Fraternité', definition: 'The French for "Liberty, Equality, Brotherhood" — the motto of the French Revolution and modern France.', example: "Liberté, Égalité, Fraternité expressed the Revolution's core ideals but was not always achieved in practice." }
+    ],
+    questions: [
+      {
+        question: 'What was the fundamental inequality in French society that helped cause the Revolution?',
+        options: ['Kings had all the land while merchants controlled all the trade', 'The Third Estate — 97% of the population — bore nearly all the tax burden while clergy and nobility had privilege', 'The Catholic Church controlled all three estates and taxed everyone unfairly', "France's nobles owed money to foreign banks and taxed peasants to pay it back"],
+        correctIndex: 1,
+        explanation: 'The passage explains the Third Estate — 97% of France — paid nearly all the taxes while the privileged First and Second Estates had exemptions.'
+      },
+      {
+        question: 'What was the significance of the storming of the Bastille?',
+        options: ['It freed thousands of political prisoners and ended royal authority', 'It marked the beginning of the Revolution as a symbol of defiance against royal tyranny', "It allowed the National Assembly to seize the king's treasury and fund the war", 'It was the last battle of the Revolution before Napoleon took power'],
+        correctIndex: 1,
+        explanation: "The passage says the Bastille's fall on July 14, 1789 marked the beginning of the Revolution as a symbolic strike against royal power."
+      },
+      {
+        question: 'What was the Reign of Terror?',
+        options: ['The period when Louis XVI used secret police to arrest revolutionary leaders', 'A phase when radical leaders executed thousands of perceived enemies of the Revolution', "Napoleon's campaign of conquest across Europe after seizing power", 'The period of chaos after France lost its overseas colonies'],
+        correctIndex: 1,
+        explanation: 'The passage describes the Reign of Terror as a period in 1793–1794 when radical leaders used the guillotine to execute thousands of perceived enemies.'
+      },
+      {
+        question: "How does the author describe the Revolution's \"contradictory effects\"?",
+        options: ['It strengthened the Church while weakening the monarchy', 'It freed serfs but made the bourgeoisie richer than the old nobility', "It spread democratic ideals but also spiraled into violence and helped produce Napoleon's authoritarianism", 'It helped France but harmed its European neighbors who adopted its reforms'],
+        correctIndex: 2,
+        explanation: 'The passage says the Revolution spread liberty and democracy but also showed how revolutions can spiral into violence, and that Napoleon used revolutionary ideals to justify new conquest.'
+      },
+      {
+        question: "What can you infer about why the Revolution's motto still resonates today?",
+        options: ['Because France later adopted a system of government that perfectly achieved all three ideals', 'Because the ideals of liberty, equality, and brotherhood remain aspirational goals for people fighting oppression worldwide', 'Because France was the first country to fully abolish poverty and inequality', 'Because the motto was officially adopted by the United Nations as a universal value'],
+        correctIndex: 1,
+        explanation: "The passage says the motto became a rallying cry for oppressed people worldwide and remains France's motto — suggesting the ideals are still aspirational and relevant, even when difficult to achieve."
+      }
+    ]
+  },
+
+  {
+    id: 'dna-genetics-gr7',
+    title: 'DNA: The Blueprint of Life',
+    topic: 'science',
+    coverEmoji: '🧬',
+    coverColor: '#10b981',
+    gradeLevel: '7',
+    level: 'grade7',
+    grades: [6, 7, 8],
+    wordCount: 412,
+    readTimeMin: 5,
+    text: `Every living thing on Earth — from a blade of grass to a blue whale — carries instructions for how to build and run itself. These instructions are written in a molecule called **DNA**, or deoxyribonucleic acid. Understanding DNA is one of the most important scientific breakthroughs of the 20th century.
+
+DNA is found in nearly every cell of your body. It is organized into structures called **chromosomes**, which are located in the cell's nucleus. Humans have 46 chromosomes arranged in 23 pairs — one chromosome in each pair inherited from each parent. The chromosomes carry all the genetic information needed to develop, maintain, and reproduce a human being.
+
+DNA's structure resembles a twisted ladder, a shape called a **double helix**. The sides of the ladder are made of alternating sugar and phosphate molecules. The rungs of the ladder are made of pairs of chemical bases: adenine pairs with thymine, and guanine pairs with cytosine. These are often abbreviated as A, T, G, and C.
+
+The order — or **sequence** — of these base pairs along the DNA molecule acts like a code. Segments of this code, called **genes**, contain instructions for building proteins. Proteins do almost everything in the body: they form muscle, carry oxygen in blood, fight disease, and speed up chemical reactions. A human has about 20,000–25,000 genes scattered along 3 billion base pairs of DNA.
+
+When cells divide, DNA is replicated — copied — so each new cell receives a complete set of instructions. Errors in copying, called **mutations**, can be harmless, beneficial, or harmful. Some mutations cause diseases like cancer; others, over millions of generations, drive evolutionary change.
+
+The structure of DNA was discovered in 1953 by James Watson and Francis Crick, working with X-ray diffraction images produced by Rosalind Franklin. Franklin's crucial contribution was not fully credited during her lifetime — a significant historical injustice in science.
+
+Today, DNA science has transformed medicine and beyond. **Genetic testing** can identify risks for inherited diseases. DNA fingerprinting is used in criminal investigations to match evidence to suspects. Researchers are developing **gene therapy** — techniques that correct faulty genes to treat or cure diseases. Scientists have even decoded the full human **genome** — all 3 billion base pairs — in a project completed in 2003.
+
+DNA is a remarkable reminder that the complexity of life is encoded in molecules too small to see without a microscope. The secrets of who we are — and how life works — are written at the molecular level.`,
+    vocabulary: [
+      { word: 'DNA', definition: 'Deoxyribonucleic acid — the molecule that carries genetic instructions in living organisms.', example: 'DNA determines inherited traits like eye color, height, and blood type.' },
+      { word: 'chromosomes', definition: "Thread-like structures in a cell's nucleus that contain DNA; humans have 46 arranged in 23 pairs.", example: 'Each of your 46 chromosomes carries thousands of genes.' },
+      { word: 'double helix', definition: 'The twisted-ladder shape of a DNA molecule, with two strands spiraling around each other.', example: "Watson and Crick described DNA's double helix structure in 1953." },
+      { word: 'genes', definition: 'Segments of DNA that contain instructions for building specific proteins.', example: 'A gene for insulin tells cells how to produce the protein that regulates blood sugar.' },
+      { word: 'genome', definition: 'The complete set of all genetic information in an organism.', example: 'Scientists sequenced the entire human genome — all 3 billion base pairs — by 2003.' }
+    ],
+    questions: [
+      {
+        question: 'What is DNA and where is it found?',
+        options: ['A protein found in muscle tissue that controls movement', "A molecule found in nearly every cell's nucleus that carries genetic instructions", 'A chemical produced by the immune system to fight disease', 'A type of chromosome found only in reproductive cells'],
+        correctIndex: 1,
+        explanation: "The passage says DNA is a molecule found in nearly every cell, organized into chromosomes in the cell's nucleus, carrying instructions for the organism."
+      },
+      {
+        question: 'What does the sequence of DNA base pairs do?',
+        options: ['It determines the shape and size of chromosomes', 'It acts like a code, with segments called genes that carry instructions for building proteins', 'It determines how many chromosomes an organism has', 'It controls how quickly cells divide and reproduce'],
+        correctIndex: 1,
+        explanation: 'The passage says the order of base pairs along DNA acts like a code, and genes — segments of this code — contain instructions for building proteins.'
+      },
+      {
+        question: 'What is a mutation?',
+        options: ['The normal process of DNA replication during cell division', 'A deliberate change made by scientists to a gene during therapy', 'An error in DNA copying that can be harmless, beneficial, or harmful', 'The pairing of base pairs during the double helix formation'],
+        correctIndex: 2,
+        explanation: 'The passage defines mutations as errors in DNA copying that can be harmless, beneficial, or harmful — including causing diseases or driving evolution.'
+      },
+      {
+        question: 'What historical injustice does the author mention in this passage?',
+        options: ['Watson and Crick published their findings before testing them properly', "Rosalind Franklin's crucial contribution to discovering DNA's structure was not fully credited during her lifetime", 'The Human Genome Project excluded female scientists from its leadership', 'James Watson incorrectly described the double helix and stole the idea from Crick'],
+        correctIndex: 1,
+        explanation: "The passage notes that Rosalind Franklin produced the X-ray images crucial to discovering DNA's structure but did not receive full credit during her lifetime."
+      },
+      {
+        question: 'Which application of DNA science does the passage describe as potentially treating or curing diseases?',
+        options: ['DNA fingerprinting used in criminal investigations', 'The sequencing of the human genome completed in 2003', 'Gene therapy — techniques that correct faulty genes', 'Genetic testing that identifies risks for inherited conditions'],
+        correctIndex: 2,
+        explanation: 'The passage describes gene therapy as techniques that correct faulty genes to treat or cure diseases — a distinct application from genetic testing or fingerprinting.'
+      }
+    ]
+  },
+
+// ── NEW Grade 8 stories ──────────────────────────────────────────────────────
+  {
+    id: 'cold-war-gr8',
+    title: 'The Cold War: Decades of Tension',
+    topic: 'history',
+    coverEmoji: '🌐',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'grade8',
+    grades: [7, 8],
+    wordCount: 468,
+    readTimeMin: 5,
+    text: `For nearly half a century after World War II, the world lived under the shadow of a conflict that was never directly fought — a standoff between the two most powerful nations on Earth. Historians call it the **Cold War**, a global ideological and geopolitical struggle between the United States and the Soviet Union that lasted from approximately 1947 to 1991.
+
+The Cold War grew from the ashes of World War II. The United States and the Soviet Union had been allies against Nazi Germany, but their fundamental differences quickly surfaced. The U.S. championed liberal democracy and capitalist economics. The Soviet Union promoted **communism** — a system in which the state controlled the economy and ruled as a one-party dictatorship. Each nation believed its system was superior, and each feared the other's expansion.
+
+Rather than fighting directly — which would have risked nuclear war — the two powers competed through **proxy wars**, economic pressure, political manipulation, espionage, and an arms race. The United States adopted a strategy called **containment**: the policy of preventing communism from spreading beyond where it already existed. The Marshall Plan, which gave billions of dollars to rebuild Western Europe after the war, was partly a containment strategy — a prosperous Western Europe would be less vulnerable to communist appeal.
+
+The most dangerous moment of the Cold War came in October 1962, during the **Cuban Missile Crisis**. The Soviet Union had placed nuclear missiles in Cuba, just 90 miles from Florida's coast. For 13 days, the world held its breath as U.S. President John F. Kennedy and Soviet leader Nikita Khrushchev negotiated. A miscalculation by either side could have triggered nuclear war. Ultimately, the Soviets agreed to remove the missiles in exchange for a U.S. pledge not to invade Cuba.
+
+The Cold War played out across the globe. In Korea (1950–1953) and Vietnam (1955–1975), the U.S. fought costly wars to prevent communist expansion in Asia — with mixed results. The Soviet Union suppressed reform movements in Hungary (1956) and Czechoslovakia (1968) with military force. Both sides funded and armed **authoritarian** governments around the world, prioritizing ideology over human rights.
+
+The Space Race became a technological battlefield. The Soviets launched **Sputnik**, the first satellite, in 1957, shocking Americans. The U.S. responded with a massive investment in science education and eventually landed astronauts on the moon in 1969.
+
+The Cold War ended not with a bang but with an economic and political collapse. The Soviet Union's economy, strangled by military spending and political repression, could not keep pace. Reform efforts under leader **Mikhail Gorbachev** unleashed forces that spun beyond control. In 1989, the Berlin Wall fell — a symbol of communist division — and in 1991, the Soviet Union itself dissolved.
+
+The Cold War's legacy is complex. It produced unprecedented military technology and scientific advances. It also left behind dozens of destabilized regions, nuclear arsenals that still pose risks, and a template for ideological conflict that shapes global politics today.`,
+    vocabulary: [
+      { word: 'Cold War', definition: 'The post-WWII global tension (1947–1991) between the U.S. and Soviet Union, fought through proxy conflicts, espionage, and the arms race rather than direct combat.', example: 'The Cold War shaped nearly every major geopolitical conflict from 1947 to 1991.' },
+      { word: 'communism', definition: 'A political and economic system in which the state owns all property and controls the economy, typically under a one-party government.', example: 'The Soviet Union promoted communism as an alternative to Western capitalism.' },
+      { word: 'containment', definition: 'The U.S. Cold War strategy of preventing the spread of communism beyond countries where it already existed.', example: 'The Marshall Plan was part of containment — prosperous democracies would resist communism.' },
+      { word: 'Cuban Missile Crisis', definition: 'A 1962 confrontation in which the USSR placed nuclear missiles in Cuba, bringing the U.S. and Soviet Union to the brink of nuclear war.', example: 'The Cuban Missile Crisis lasted 13 days and is considered the closest the Cold War came to becoming nuclear war.' },
+      { word: 'Sputnik', definition: 'The Soviet satellite launched in 1957 — the first artificial satellite ever placed in orbit, shocking the Western world.', example: "Sputnik's launch triggered a massive American investment in science and technology to catch up with the Soviets." }
+    ],
+    questions: [
+      {
+        question: 'Why was the post-WWII conflict between the U.S. and Soviet Union called the "Cold War"?',
+        options: ['Because it was fought mostly in cold climates like Korea and Vietnam', 'Because it was a conflict fought through tension and competition rather than direct military combat', 'Because both nations agreed to fight only in winter months to reduce casualties', 'Because the war began with a cold-weather naval standoff in the Arctic'],
+        correctIndex: 1,
+        explanation: 'The passage describes it as a struggle "never directly fought" — conducted through proxy wars, espionage, and competition rather than direct U.S.-Soviet combat.'
+      },
+      {
+        question: 'What was the U.S. strategy of "containment" designed to do?',
+        options: ['Contain Soviet nuclear technology by restricting uranium exports', 'Prevent communism from spreading beyond countries where it already existed', 'Contain the Soviet military by building a larger army than the USSR', 'Keep Soviet influence out of Latin America specifically'],
+        correctIndex: 1,
+        explanation: 'The passage defines containment as preventing communism from spreading beyond where it already existed, citing the Marshall Plan as an example.'
+      },
+      {
+        question: 'What made the Cuban Missile Crisis so dangerous?',
+        options: ['Cuba had invaded Florida and the U.S. was preparing a counterattack', 'Soviet nuclear missiles in Cuba were 90 miles from Florida — a miscalculation could have caused nuclear war', 'The U.S. had secretly placed missiles in West Germany aimed at Moscow', 'Cuba refused to allow UN inspectors to verify missile removal'],
+        correctIndex: 1,
+        explanation: 'The passage says the Soviets placed nuclear missiles in Cuba, 90 miles from Florida, and that a miscalculation could have triggered nuclear war.'
+      },
+      {
+        question: 'How did the Cold War end?',
+        options: ['The U.S. won a decisive military victory in Vietnam', 'Both nations signed a formal peace treaty in 1989', "The Soviet economy collapsed and political reforms spun beyond control, leading to the USSR's dissolution in 1991", 'A nuclear test accident forced both nations to agree to disarmament'],
+        correctIndex: 2,
+        explanation: "The passage says the Soviet economy was strangled by military spending, Gorbachev's reforms unleashed forces beyond control, the Berlin Wall fell in 1989, and the USSR dissolved in 1991."
+      },
+      {
+        question: "The passage says the Cold War's legacy is \"complex.\" What evidence supports this characterization?",
+        options: ['Because it is unclear who actually won — historians disagree', 'Because it produced scientific advances but also destabilized regions, created nuclear risks, and established templates for ongoing ideological conflict', 'Because the Cold War is still technically ongoing since no peace treaty was signed', 'Because both the U.S. and Soviet Union made equal contributions to world stability'],
+        correctIndex: 1,
+        explanation: 'The passage explicitly says the Cold War produced unprecedented advances but also destabilized regions, left nuclear arsenals, and shaped ongoing global conflicts — a complex mix of outcomes.'
+      }
+    ]
+  },
+
+  {
+    id: 'florida-environment-gr8',
+    title: "Florida's Environmental Crossroads",
+    topic: 'florida-environment',
+    coverEmoji: '🌿',
+    coverColor: '#10b981',
+    gradeLevel: '8',
+    level: 'grade8',
+    grades: [7, 8],
+    wordCount: 452,
+    readTimeMin: 5,
+    text: `Florida is one of the most biologically diverse states in the nation. Its 1,350 miles of coastline, 7,700 lakes, 50,000 miles of rivers and streams, and vast wetlands support thousands of plant and animal species found nowhere else on Earth. But Florida is also one of the most environmentally threatened states — and the pressures are accelerating.
+
+Florida's population has grown explosively since the mid-20th century. Roughly 1,000 people move to Florida every single day. This growth has driven **urban sprawl** — the rapid spread of low-density development across previously wild or agricultural land. Wetlands are drained, forests cleared, and coastal dunes flattened to make way for houses, shopping centers, and roads. Between 1945 and 2010, Florida lost nearly half its original wetlands — habitats critical for water filtration, flood protection, and wildlife.
+
+The **Everglades** represents both Florida's most spectacular ecological achievement and its deepest environmental wound. Once a 60-mile-wide "River of Grass" flowing slowly from Lake Okeechobee to Florida Bay, the Everglades was systematically drained and channelized beginning in the early 20th century to create agricultural land and prevent flooding. Today, the original Everglades has been reduced to roughly half its former size. Populations of wading birds have declined by 90% since the 1930s. The **restoration** of the Everglades — through a $10.5 billion federal and state project — is the largest environmental restoration project in American history, and its success remains uncertain.
+
+**Climate change** compounds these challenges in ways that are especially severe for Florida. Florida's average elevation is only 6 feet above sea level — the lowest of any U.S. state. Scientists project that sea levels along Florida's coast could rise between 1 and 4 feet by 2100. At the lower end of that range, major storm surges would threaten Miami, Tampa, and dozens of coastal communities. At the higher end, parts of South Florida could face regular inundation.
+
+Rising ocean temperatures are **bleaching** coral reefs. Florida's Coral Reef — the third largest in the world — has lost more than half its coral cover since the 1970s. Warmer, more acidic water weakens coral's calcium carbonate skeleton, causing bleaching and death. The reef protects coastal communities from storm surge and supports a fishing industry worth hundreds of millions of dollars annually.
+
+Freshwater is another critical concern. Florida depends on underground **aquifers** for most of its drinking water, but population growth and agricultural demand are depleting these reserves faster than rain can replenish them. Saltwater **intrusion** — ocean water seeping into freshwater aquifers as sea levels rise — threatens to contaminate the water supply of coastal communities.
+
+Florida faces a defining choice. Its natural environment is both an ecological treasure and the foundation of a $100 billion tourism economy. Protecting it requires confronting difficult tradeoffs between development, agriculture, energy, and conservation — decisions that will shape the state's identity for generations.`,
+    vocabulary: [
+      { word: 'urban sprawl', definition: 'The uncontrolled spread of urban development into surrounding natural or agricultural land.', example: 'Urban sprawl has converted thousands of acres of Florida wetlands into subdivisions.' },
+      { word: 'restoration', definition: 'The process of returning a damaged or degraded ecosystem to a more natural, functioning state.', example: 'The Everglades restoration project is the largest in American history, aimed at rehydrating the original ecosystem.' },
+      { word: 'bleaching', definition: 'The whitening of coral when stressed by warm water, causing it to expel its symbiotic algae and become vulnerable to death.', example: "Rising ocean temperatures triggered widespread bleaching of Florida's coral reef." },
+      { word: 'aquifers', definition: 'Underground layers of permeable rock or sediment that hold and supply groundwater.', example: "Florida's aquifers supply drinking water to millions, but overuse and saltwater intrusion threaten them." },
+      { word: 'intrusion', definition: 'The unwanted entry of one substance into an area it should not be — in this context, saltwater seeping into freshwater aquifers.', example: 'Saltwater intrusion near the coast has contaminated wells that communities depend on for drinking water.' }
+    ],
+    questions: [
+      {
+        question: 'What is urban sprawl and how has it affected Florida?',
+        options: ['The construction of tall buildings that block coastal views and damage tourism', 'The rapid spread of low-density development that has destroyed wetlands, forests, and coastal habitats', 'The migration of people away from cities into rural areas, leaving urban areas abandoned', "The overuse of Florida's water supply by large resort hotels and theme parks"],
+        correctIndex: 1,
+        explanation: 'The passage defines urban sprawl as rapid spread of low-density development, noting that Florida lost nearly half its original wetlands between 1945 and 2010 as a result.'
+      },
+      {
+        question: 'What was the original Everglades, and what has happened to it?',
+        options: ['A national park created in 1947 that has been protected from all development', 'A 60-mile-wide wetland ecosystem that has been reduced to about half its size by drainage and channelization', 'A series of inland lakes connected by canals that supply water to South Florida cities', 'A coastal mangrove system that has expanded due to conservation efforts'],
+        correctIndex: 1,
+        explanation: 'The passage describes the original Everglades as a 60-mile-wide River of Grass that was systematically drained, reducing it to roughly half its former size.'
+      },
+      {
+        question: 'Why is climate change especially dangerous for Florida?',
+        options: ["Florida's tropical climate makes hurricanes more frequent than anywhere else in the U.S.", 'Florida has the lowest average elevation of any U.S. state, making it extremely vulnerable to sea level rise', "Florida's coral reefs attract warm-water currents that accelerate local climate change", "Florida's thin soil makes it more susceptible to droughts caused by climate change"],
+        correctIndex: 1,
+        explanation: "The passage says Florida's average elevation is only 6 feet — the lowest of any U.S. state — making projected sea level rises of 1–4 feet catastrophic for coastal communities."
+      },
+      {
+        question: 'What is saltwater intrusion and why is it a problem for Florida?',
+        options: ['Ocean storms pushing saltwater into inland rivers and contaminating fish habitats', 'Saltwater seeping into freshwater aquifers as sea levels rise, threatening the drinking water supply', 'Salt deposits from dried-up lakes contaminating agricultural soil', "Ocean currents bringing salty water into Florida's freshwater springs"],
+        correctIndex: 1,
+        explanation: "The passage explains that saltwater intrusion is ocean water seeping into freshwater aquifers as sea levels rise, threatening coastal communities' water supply."
+      },
+      {
+        question: 'What "defining choice" does the author say Florida faces?',
+        options: ['Whether to relocate coastal cities inland before sea levels rise', 'Whether to prioritize growth and development or protect the environment and long-term sustainability', 'Whether to accept federal control of land use in exchange for environmental funding', 'Whether tourism or agriculture should be the primary economic sector'],
+        correctIndex: 1,
+        explanation: "The passage frames Florida's challenge as confronting \"difficult tradeoffs between development, agriculture, energy, and conservation\" — decisions that will shape the state's identity for generations."
+      }
+    ]
+  },
+
+
+// ── Additional Grade 2 stories ───────────────────────────────────────────────
+  {
+    id: 'martin-luther-king-gr2',
+    title: 'Martin Luther King Jr.: A Dream for All',
+    topic: 'history',
+    coverEmoji: '✊',
+    coverColor: '#1e3a8a',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 230,
+    readTimeMin: 2,
+    text: `Martin Luther King Jr. was born on January 15, 1929, in Atlanta, Georgia. He grew up to become one of the most important leaders in American history. He believed that all people should be treated **equally**, no matter the color of their skin.
+
+When Martin was young, Black Americans were treated unfairly in many places. There were separate schools, water fountains, and restaurants for Black people and white people. This was called **segregation**. Martin knew this was wrong.
+
+Martin studied hard and became a pastor — a leader of a church. He believed in **peaceful** protests — ways to show people that something is wrong without using violence. He organized marches, boycotts, and speeches to change unfair laws.
+
+On August 28, 1963, Martin stood in front of more than 250,000 people in Washington, D.C. He gave one of the most famous speeches in American history. He said, "I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character."
+
+In 1964, Martin was awarded the **Nobel Peace Prize** — one of the highest honors in the world — for his peaceful fight for equality.
+
+Today, we celebrate Martin Luther King Jr. Day every January. His dream — that all people be treated fairly — is still something Americans work toward.`,
+    vocabulary: [
+      { word: 'equally', definition: 'In the same way, with the same rights and fairness for everyone.', example: 'Martin believed all people should be treated equally under the law.' },
+      { word: 'segregation', definition: 'Keeping people separated based on race, with unequal treatment.', example: 'Segregation forced Black children to attend separate and unequal schools.' },
+      { word: 'peaceful', definition: 'Done without fighting or violence.', example: 'The peaceful march showed that people could protest without causing harm.' },
+      { word: 'boycott', definition: 'Refusing to use something as a form of protest to bring about change.', example: 'The bus boycott lasted over a year until the unfair rules were changed.' },
+      { word: 'Nobel Peace Prize', definition: 'A major international award given to people who work for peace and justice in the world.', example: 'Martin Luther King Jr. received the Nobel Peace Prize in 1964 for his peaceful activism.' }
+    ],
+    questions: [
+      {
+        question: 'What did Martin Luther King Jr. believe about all people?',
+        options: ['That only the strongest people deserved equal rights', 'That all people should be treated equally, no matter the color of their skin', 'That separate schools were fine as long as they were equal', 'That protests should always include some form of force'],
+        correctIndex: 1,
+        explanation: 'The passage says Martin believed all people should be treated equally regardless of the color of their skin.'
+      },
+      {
+        question: 'What does the word "segregation" mean in this passage?',
+        options: ['A type of peaceful march to protest unfair laws', 'Keeping people separated based on race, with unequal treatment', 'A prize given to people who work for peace', 'A law that gave everyone equal rights'],
+        correctIndex: 1,
+        explanation: 'The passage defines segregation as separate schools, water fountains, and restaurants for Black and white people — an unjust system Martin fought against.'
+      },
+      {
+        question: 'How did Martin Luther King Jr. choose to fight for equal rights?',
+        options: ['By running for president and changing laws from the inside', 'Through peaceful protests — marches, boycotts, and speeches, not violence', 'By taking over television stations to broadcast his message', 'By starting a political party that challenged the government'],
+        correctIndex: 1,
+        explanation: 'The passage emphasizes that Martin believed in peaceful protests — marches, boycotts, and speeches — without violence.'
+      },
+      {
+        question: 'What did Martin mean when he said he had a "dream"?',
+        options: ['He literally had a dream while sleeping about the future', 'He had a wish and hope that children would be judged by character, not skin color', 'He planned to build a new city where everyone was equal', 'He wanted to travel and see different parts of the country'],
+        correctIndex: 1,
+        explanation: 'In his speech, Martin described a hope — a dream — that his children would be judged by their character, not skin color.'
+      },
+      {
+        question: 'Why do we still celebrate Martin Luther King Jr. Day today?',
+        options: ['Because he was the first Black president of the United States', 'To remember his dream of equality and continue working toward a fair society for all', 'Because he ended segregation by himself in one year', 'To celebrate the year the Nobel Peace Prize was created'],
+        correctIndex: 1,
+        explanation: 'The passage says his dream — that all people be treated fairly — is still something Americans work toward, which is why his legacy is celebrated.'
+      }
+    ]
+  },
+
+  {
+    id: 'caring-for-our-earth',
+    title: 'Taking Care of Our Earth',
+    topic: 'environment',
+    coverEmoji: '🌍',
+    coverColor: '#10b981',
+    gradeLevel: '2',
+    level: 'early',
+    grades: [2, 3, 4],
+    wordCount: 215,
+    readTimeMin: 2,
+    text: `Earth is our home. It gives us clean air to breathe, fresh water to drink, food to eat, and a place to live. But Earth needs our help. People are causing **pollution** and using up **natural resources** too quickly.
+
+**Pollution** happens when harmful things get into the air, water, or soil. Cars and factories release gases into the air that can make it hard to breathe. Trash thrown into rivers and oceans hurts fish and other animals. Pollution is a big problem all around the world.
+
+We use **natural resources** — things from the earth like wood, water, coal, and oil — to build homes, make products, and create energy. Some resources can run out if we use too much. Trees take many years to grow back. Oil takes millions of years to form underground.
+
+The good news is that we can help! One way is to **reduce** the amount we use. Turn off the lights when you leave a room. Use both sides of paper. Drink from a reusable water bottle.
+
+Another way is to **reuse** things instead of throwing them away. Fix a broken toy instead of buying a new one.
+
+We can also **recycle** — turn old materials into new ones. Glass, paper, plastic, and metal can all be recycled.
+
+These three words — Reduce, Reuse, Recycle — are easy to remember and can make a big difference. Every small action counts when millions of people take it together.`,
+    vocabulary: [
+      { word: 'pollution', definition: 'Harmful substances that get into the air, water, or soil and damage the environment.', example: 'Pollution from factories made the river unsafe for fish to live in.' },
+      { word: 'natural resources', definition: 'Materials that come from the earth and are used by people, like wood, water, oil, and minerals.', example: 'Trees are a natural resource used to make paper, furniture, and homes.' },
+      { word: 'reduce', definition: 'To use less of something so there is less waste.', example: 'Turning off the lights when you leave a room helps reduce electricity use.' },
+      { word: 'reuse', definition: 'To use something again instead of throwing it away.', example: 'Reusing a shopping bag each time you go to the store cuts down on plastic waste.' },
+      { word: 'recycle', definition: 'To process old materials so they can be made into new products.', example: 'When you recycle a plastic bottle, it can be turned into new plastic products.' }
+    ],
+    questions: [
+      {
+        question: 'What is pollution?',
+        options: ['Using too many natural resources at once', 'Harmful substances that get into the air, water, or soil', 'The process of turning old things into new materials', 'Building too many factories in one place'],
+        correctIndex: 1,
+        explanation: 'The passage defines pollution as harmful things getting into the air, water, or soil, like gases from cars or trash in rivers.'
+      },
+      {
+        question: 'Why is it a problem when we use natural resources too quickly?',
+        options: ['It costs the government too much money', 'Natural resources like trees and oil can run out', 'Other countries will try to take our natural resources', 'Using resources creates too much recycling to handle'],
+        correctIndex: 1,
+        explanation: 'The passage explains that trees take years to grow back and oil takes millions of years to form — so using them too quickly means they could run out.'
+      },
+      {
+        question: 'What does it mean to "reduce"?',
+        options: ['To recycle old materials into new products', 'To use less of something to create less waste', 'To reuse something instead of throwing it away', 'To donate things you no longer need'],
+        correctIndex: 1,
+        explanation: 'The passage says reduce means using less — like turning off lights or using both sides of paper.'
+      },
+      {
+        question: 'What does "recycle" mean?',
+        options: ['To reuse the same item multiple times without changing it', 'To turn old materials into new products', 'To stop using certain products completely', 'To donate old items to people who need them'],
+        correctIndex: 1,
+        explanation: 'The passage defines recycle as turning old materials into new ones, giving glass, paper, plastic, and metal as examples.'
+      },
+      {
+        question: 'What is the main message of this passage?',
+        options: ['Earth is too damaged to save, so we should find a new planet', 'Individual actions like reducing, reusing, and recycling can help protect Earth', 'Only governments and factories can solve pollution problems', 'The best way to help Earth is to plant more trees'],
+        correctIndex: 1,
+        explanation: 'The passage ends by saying every small action counts when millions of people take it — emphasizing that individuals can make a difference through reduce, reuse, recycle.'
+      }
+    ]
+  },
+
+// ── Additional Grade 3 stories ───────────────────────────────────────────────
+  {
+    id: 'water-conservation-gr3',
+    title: 'Water: Our Most Precious Resource',
+    topic: 'science',
+    coverEmoji: '💧',
+    coverColor: '#0ea5e9',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [3, 4, 5],
+    wordCount: 295,
+    readTimeMin: 3,
+    text: `Without water, no living thing on Earth could survive. We drink it, cook with it, and wash with it. Plants need it to grow. Animals need it to live. Water is the most essential resource on our planet — and it is more limited than most people realize.
+
+About 71% of Earth's surface is covered by water, but nearly all of it — about 96.5% — is saltwater in the oceans. Humans cannot drink saltwater. Of the remaining **freshwater**, most is locked in glaciers and ice caps. Only about 0.3% of all freshwater on Earth is available in lakes, rivers, and underground sources. That's the water most people use every day.
+
+The **water cycle** keeps freshwater moving and available. Water evaporates from oceans, lakes, and rivers, rises into the atmosphere, forms clouds, and falls back down as rain or snow. This rain replenishes rivers, lakes, and underground **aquifers**.
+
+Florida gets plenty of rain — about 53 inches per year — but even here, water **conservation** is critical. Florida's population is growing fast, and more people means more water use. Aquifers — underground water supplies — can be depleted faster than rain can refill them. In some coastal areas, so much groundwater has been pumped out that saltwater from the ocean has begun to seep in, making well water **undrinkable**.
+
+There are simple ways to conserve water every day. Fix leaky faucets — a dripping tap can waste more than 3,000 gallons per year. Take shorter showers. Water your garden in the early morning or evening when less water evaporates. Choose plants that don't need much water.
+
+Every drop matters. Water may fall from the sky, but clean, drinkable freshwater is a precious and limited resource. Taking care of it means taking care of all life on Earth.`,
+    vocabulary: [
+      { word: 'freshwater', definition: 'Water that is not salty and is safe for people and animals to drink.', example: "Less than 1% of Earth's water is freshwater available for human use." },
+      { word: 'water cycle', definition: 'The continuous process by which water evaporates, forms clouds, falls as precipitation, and flows back to oceans, lakes, and aquifers.', example: 'The water cycle replenishes rivers and lakes with fresh rain each season.' },
+      { word: 'aquifers', definition: 'Underground layers of rock or sediment that hold freshwater.', example: 'Florida depends on the Floridan Aquifer for most of its drinking water.' },
+      { word: 'conservation', definition: 'The careful use of resources to avoid waste and protect them for the future.', example: 'Water conservation is important in dry regions where freshwater is scarce.' },
+      { word: 'undrinkable', definition: 'Not safe or suitable for drinking.', example: 'Saltwater intrusion made the well water undrinkable for the coastal community.' }
+    ],
+    questions: [
+      {
+        question: "Why can humans not drink most of Earth's water?",
+        options: ['Most water is too polluted from industrial waste', "About 96.5% of Earth's water is saltwater, which humans cannot drink", 'Most freshwater is used by agriculture before it reaches people', 'Most water is underground and too difficult to pump to the surface'],
+        correctIndex: 1,
+        explanation: "The passage says about 96.5% of Earth's water is saltwater in the oceans, which humans cannot drink."
+      },
+      {
+        question: 'What is the water cycle?',
+        options: ['The system of pipes that brings water to homes and schools', 'The process by which water evaporates, forms clouds, falls as rain, and replenishes water sources', 'The rotation of Earth that causes wet and dry seasons', 'The filtering process that turns saltwater into drinking water'],
+        correctIndex: 1,
+        explanation: 'The passage defines the water cycle as water evaporating, rising into the atmosphere, forming clouds, and falling back as rain or snow to replenish water sources.'
+      },
+      {
+        question: 'What problem can happen when too much groundwater is pumped from coastal aquifers?',
+        options: ['Rivers flood because the water has nowhere to go', 'Saltwater from the ocean seeps into the aquifer, making well water undrinkable', 'Sinkholes form under roads and buildings', 'Underground springs dry up and disappear permanently'],
+        correctIndex: 1,
+        explanation: 'The passage says in coastal areas where too much groundwater is pumped, saltwater seeps in from the ocean and makes the well water undrinkable.'
+      },
+      {
+        question: 'According to the passage, how much water can a leaky faucet waste per year?',
+        options: ['About 100 gallons', 'About 500 gallons', 'About 3,000 gallons', 'About 10,000 gallons'],
+        correctIndex: 2,
+        explanation: 'The passage says a dripping tap can waste more than 3,000 gallons per year.'
+      },
+      {
+        question: 'What is the main argument the author makes in this passage?',
+        options: ['Florida has too much water and should share it with drier states', 'Clean freshwater is precious and limited, so conservation is essential for all life', 'The water cycle produces enough water that conservation is not really necessary', 'Saltwater technology will soon make water conservation unnecessary'],
+        correctIndex: 1,
+        explanation: 'The passage repeatedly emphasizes that available freshwater is very limited and conservation is essential — ending with "taking care of it means taking care of all life on Earth."'
+      }
+    ]
+  },
+
+// ── Additional Grade 8 stories ───────────────────────────────────────────────
+  {
+    id: 'scientific-revolution-gr8',
+    title: 'The Scientific Revolution: When Humans Learned to Question',
+    topic: 'history',
+    coverEmoji: '🔭',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'grade8',
+    grades: [7, 8],
+    wordCount: 445,
+    readTimeMin: 5,
+    text: `For most of human history, the primary authority on how the natural world worked was not science but religion. Church teachings and ancient texts — especially the works of Greek philosopher Aristotle — were considered the final word on everything from the motion of planets to the anatomy of the human body. Then, between the 16th and 18th centuries, a revolution in thinking permanently transformed humanity's relationship with knowledge. Historians call it the **Scientific Revolution**.
+
+The Scientific Revolution was not a single discovery but a fundamental shift in method. Instead of trusting authority, natural philosophers — what we now call scientists — began insisting on **empirical** evidence: knowledge gained through careful observation and experiment, not inherited tradition. This seemingly simple shift had enormous consequences.
+
+**Nicolaus Copernicus** fired the first major shot in 1543 by proposing a **heliocentric** model of the solar system — placing the sun at the center rather than the Earth. Church doctrine held that Earth was the center of the universe; Copernicus's model implied the opposite. He published his findings only at the end of his life, reportedly to avoid persecution.
+
+**Galileo Galilei** used a newly improved telescope to observe moons orbiting Jupiter — proof that not everything in the heavens revolved around Earth. His support for Copernicus's model brought him into direct conflict with the Catholic Church. In 1633, the **Inquisition** forced Galileo to recant his findings and placed him under house arrest for the rest of his life — a stark demonstration of the stakes of challenging established authority.
+
+**Johannes Kepler** determined mathematically that planets move in **elliptical** orbits, not the perfect circles Aristotle had assumed. **Andreas Vesalius** revolutionized medicine by actually dissecting human cadavers — something scholars had avoided — and correcting centuries of anatomical errors. **William Harvey** discovered the circulation of blood, disproving the ancient theory that blood was consumed by the body rather than recycled.
+
+The Scientific Revolution culminated in the work of **Isaac Newton**, whose 1687 masterwork *Principia Mathematica* described the laws of motion and universal gravitation with mathematical precision. Newton's laws explained the movements of planets, falling apples, and cannon balls with the same equations — unifying terrestrial and celestial mechanics into a single system of laws. It was one of the greatest intellectual achievements in human history.
+
+The legacy of the Scientific Revolution extends beyond any specific discovery. It established the **scientific method** — hypothesis, experiment, observation, revision — as the most reliable path to knowledge. It demonstrated that the universe operates according to discoverable laws, not arbitrary divine will. And it established that authority, tradition, and consensus are not substitutes for evidence.
+
+This last lesson remains among its most important — and most contested — contributions.`,
+    vocabulary: [
+      { word: 'empirical', definition: 'Based on observation, experiment, and evidence rather than theory or belief alone.', example: 'The scientific revolution insisted on empirical evidence rather than inherited wisdom from ancient texts.' },
+      { word: 'heliocentric', definition: 'The model of the solar system in which the sun, not the Earth, is at the center.', example: "Copernicus's heliocentric model challenged Church doctrine that Earth was the universe's center." },
+      { word: 'Inquisition', definition: 'A Church institution that investigated and punished people considered heretics — those who challenged Catholic doctrine.', example: 'The Inquisition forced Galileo to publicly recant his support for the heliocentric model.' },
+      { word: 'elliptical', definition: "Oval-shaped; Kepler showed planetary orbits are ellipses, not perfect circles.", example: "Kepler's elliptical orbit model more accurately predicted planetary positions than Aristotle's circular model." },
+      { word: 'scientific method', definition: 'A systematic process for gaining knowledge through hypothesis, controlled experiment, observation, and revision based on evidence.', example: 'The scientific method replaced reliance on ancient authority with repeatable, testable experiments.' }
+    ],
+    questions: [
+      {
+        question: 'What fundamental shift characterized the Scientific Revolution?',
+        options: ['Replacing religion entirely with scientific study of nature', 'Moving from trusting authority and tradition to requiring empirical evidence through observation and experiment', 'Discovering that ancient Greek thinkers had been wrong about everything', 'Using mathematics instead of philosophy to explain government and society'],
+        correctIndex: 1,
+        explanation: 'The passage says the Scientific Revolution was a shift from trusting authority to insisting on empirical evidence — knowledge from observation and experiment.'
+      },
+      {
+        question: 'Why did Galileo face persecution from the Catholic Church?',
+        options: ['He claimed the Earth was flat, contradicting Church astronomy', 'He supported the heliocentric model, which contradicted Church doctrine about Earth being the center of the universe', "He published Newton's laws of motion without giving the Church credit", 'He dissected human bodies, which the Church considered sacrilegious'],
+        correctIndex: 1,
+        explanation: "The passage says Galileo's support for Copernicus's heliocentric model brought him into conflict with the Church, which held Earth was the center of the universe."
+      },
+      {
+        question: "What was Newton's most significant contribution, according to the passage?",
+        options: ["He built the first telescope powerful enough to see Jupiter's moons", 'He proved that planetary orbits are elliptical, not circular', 'He described laws of motion and gravity that unified the movement of planets and objects on Earth', 'He invented the scientific method of hypothesis, experiment, and observation'],
+        correctIndex: 2,
+        explanation: "The passage says Newton's Principia Mathematica described laws that explained planets, falling objects, and cannon balls with the same equations — unifying terrestrial and celestial mechanics."
+      },
+      {
+        question: 'What did Vesalius contribute to the Scientific Revolution?',
+        options: ['He proved that blood circulates through the body rather than being consumed', 'He determined mathematically that planetary orbits are elliptical', 'He dissected human cadavers and corrected centuries of anatomical errors', 'He used a telescope to observe that Jupiter has moons'],
+        correctIndex: 2,
+        explanation: 'The passage says Vesalius revolutionized medicine by actually dissecting human cadavers and correcting centuries of anatomical errors based on ancient texts.'
+      },
+      {
+        question: "The author says the Scientific Revolution's most important — and \"contested\" — legacy is which idea?",
+        options: ['That the sun is the center of the solar system', 'That authority, tradition, and consensus are not substitutes for evidence', 'That mathematics can describe physical laws precisely', 'That human anatomy should be studied through direct observation'],
+        correctIndex: 1,
+        explanation: 'The passage ends by saying the most important and "contested" legacy is the principle that authority, tradition, and consensus cannot replace actual evidence — an idea still disputed today.'
+      }
+    ]
+  },
+
+
+// ── Additional Grade 2-3 stories ─────────────────────────────────────────────
+  {
+    id: 'honeybees-gr23',
+    title: 'Honeybees: Tiny Workers, Big Impact',
+    topic: 'animals',
+    coverEmoji: '🐝',
+    coverColor: '#fbbf24',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 260,
+    readTimeMin: 3,
+    text: `Honeybees are among the hardest workers in the animal kingdom. A single honeybee colony can hold up to 60,000 bees, and each bee has a specific job.
+
+The **queen bee** is the only bee that lays eggs. She can lay up to 1,500 eggs each day. **Worker bees** are all female, and they do almost everything else — they build and repair the hive, care for the young bees, guard the entrance, and collect food. **Drone bees** are male. Their only job is to mate with a queen.
+
+Worker bees collect **nectar** from flowers. Nectar is a sweet liquid that bees convert into honey. They store honey in the hive to use as food during winter when flowers are not blooming. Bees also collect **pollen**, a powdery substance from flowers. As bees move from flower to flower, pollen sticks to their bodies and transfers between plants. This process is called **pollination**.
+
+Pollination is essential for many plants to produce fruit and seeds. About one-third of the food humans eat depends on pollinators like bees. Apples, strawberries, almonds, and blueberries all need bee pollination. Without bees, many crops would fail.
+
+Unfortunately, honeybee populations have been declining because of pesticides, habitat loss, and disease. Scientists and farmers are working to protect bees by planting wildflowers, reducing harmful chemicals, and creating safe habitats. You can help too — even planting a few flowers in your yard gives bees a place to feed.`,
+    vocabulary: [
+      { word: 'colony', definition: 'A group of the same type of animal living and working together.', example: 'A honeybee colony works together to build and maintain the hive.' },
+      { word: 'nectar', definition: 'A sweet liquid produced by flowers that bees collect and convert into honey.', example: 'The worker bee gathered nectar from dozens of flowers before returning to the hive.' },
+      { word: 'pollen', definition: 'A fine powder produced by flowers that is needed for plants to reproduce.', example: 'Yellow pollen clung to the bee as it moved from flower to flower.' },
+      { word: 'pollination', definition: 'The transfer of pollen between flowers, allowing plants to produce fruit and seeds.', example: 'Pollination by bees is essential for apple trees to produce fruit.' },
+      { word: 'pesticides', definition: 'Chemicals used to kill insects or other pests that damage crops.', example: 'Some pesticides that protect crops from pests can also harm bees.' }
+    ],
+    questions: [
+      {
+        question: 'What is the main job of the queen bee?',
+        options: ['To collect nectar from flowers', 'To guard the entrance of the hive', 'To lay eggs', 'To build the honeycomb'],
+        correctIndex: 2,
+        explanation: 'The passage says the queen bee is the only bee that lays eggs — up to 1,500 per day.'
+      },
+      {
+        question: 'Why is pollination important for humans?',
+        options: ['It helps bees make honey that humans eat', 'About one-third of human food depends on pollination by bees and other pollinators', 'It keeps flowers colorful so humans can enjoy them', 'It protects crops from being eaten by insects'],
+        correctIndex: 1,
+        explanation: 'The passage states that about one-third of the food humans eat depends on pollinators like bees.'
+      },
+      {
+        question: 'Why do bees store honey in the hive?',
+        options: ['To attract other bees to join the colony', 'To trade with other animals for food', 'To use as food during winter when flowers are not blooming', 'To build stronger honeycomb walls'],
+        correctIndex: 2,
+        explanation: 'The passage says bees store honey to use as food during winter when flowers are not blooming.'
+      },
+      {
+        question: 'What are three reasons honeybee populations are declining?',
+        options: ['Too many drone bees, not enough worker bees, and queen bees dying early', 'Pesticides, habitat loss, and disease', 'Cold winters, dry summers, and fewer flowers', 'Predators, floods, and competition from other insects'],
+        correctIndex: 1,
+        explanation: 'The passage lists pesticides, habitat loss, and disease as the reasons honeybee populations have been declining.'
+      },
+      {
+        question: 'Based on the passage, what can you conclude about worker bees?',
+        options: ['They do the least work of any bee in the colony', 'They are the most important bees because they are the largest', 'They are essential to the hive because they perform nearly all of its functions', 'They only work during the summer months when nectar is available'],
+        correctIndex: 2,
+        explanation: 'The passage lists many jobs worker bees do — building, caring for young, guarding, and collecting food — showing they perform nearly all hive functions.'
+      }
+    ]
+  },
+
+  {
+    id: 'american-symbols-gr23',
+    title: 'American Symbols and What They Mean',
+    topic: 'social-studies',
+    coverEmoji: '🗽',
+    coverColor: '#1e3a8a',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 245,
+    readTimeMin: 3,
+    text: `Countries use symbols to represent their values and history. The United States has many national symbols that Americans recognize and celebrate.
+
+The **American flag** has 13 stripes — red and white — representing the original 13 colonies. It has 50 stars, one for each state. The colors have meaning: red stands for courage, white for purity, and blue for perseverance and justice.
+
+The **Statue of Liberty** stands on Liberty Island in New York Harbor. France gave it to the United States as a gift in 1886. She holds a torch representing freedom and a tablet with the date July 4, 1776 — Independence Day. For millions of immigrants arriving by ship, the Statue of Liberty was their first view of America and a symbol of hope.
+
+The **bald eagle** became the national bird in 1782. It was chosen because bald eagles are found only in North America and because they are powerful and free. The bald eagle appears on the **Great Seal** of the United States, which is used to mark official government documents.
+
+The **Liberty Bell** is located in Philadelphia, Pennsylvania. It was rung to call citizens to hear the first public reading of the Declaration of Independence in 1776. The bell has a famous crack that appeared over time. Today it is a symbol of American freedom and independence.
+
+These symbols remind Americans of the values the country was founded on: liberty, courage, and unity.`,
+    vocabulary: [
+      { word: 'symbol', definition: 'An image, object, or mark that represents an idea or meaning.', example: 'The American flag is a symbol of the United States and its values.' },
+      { word: 'perseverance', definition: 'The quality of continuing to try even when things are difficult.', example: 'Blue on the flag represents perseverance — the determination to keep going.' },
+      { word: 'immigrants', definition: 'People who move from one country to live in another.', example: 'Immigrants arriving in New York Harbor saw the Statue of Liberty as a symbol of hope.' },
+      { word: 'independence', definition: 'The state of being free from control by another country or government.', example: 'July 4, 1776 is the date America declared its independence from Britain.' },
+      { word: 'liberty', definition: 'The freedom to live, speak, and act without being controlled unfairly.', example: 'The Liberty Bell and Statue of Liberty both represent the American value of liberty.' }
+    ],
+    questions: [
+      {
+        question: 'What do the 13 stripes on the American flag represent?',
+        options: ['The 13 founding fathers who signed the Declaration of Independence', 'The 13 original colonies that became the first states', 'The 13 years it took to write the Constitution', 'The 13 battles of the Revolutionary War'],
+        correctIndex: 1,
+        explanation: 'The passage says the 13 stripes represent the original 13 colonies.'
+      },
+      {
+        question: 'Who gave the Statue of Liberty to the United States, and when?',
+        options: ['England gave it in 1776 to celebrate American independence', 'France gave it in 1886 as a gift', 'Italy built it in 1776 to mark the founding of America', 'Spain donated it in 1886 in honor of Columbus'],
+        correctIndex: 1,
+        explanation: 'The passage states that France gave the Statue of Liberty to the United States as a gift in 1886.'
+      },
+      {
+        question: 'Why was the bald eagle chosen as the national bird?',
+        options: ['Because it is the largest bird in North America', 'Because Benjamin Franklin suggested it in his writings', 'Because it is found only in North America and is powerful and free', 'Because it was the most common bird seen by the founding fathers'],
+        correctIndex: 2,
+        explanation: 'The passage says the bald eagle was chosen because it is found only in North America and because it is powerful and free.'
+      },
+      {
+        question: 'What event caused the Liberty Bell to become famous in 1776?',
+        options: ['It was rung when George Washington became president', 'It was rung to call citizens to hear the first public reading of the Declaration of Independence', 'It cracked while being rung to celebrate the end of the Revolutionary War', 'It was presented to Philadelphia as a gift from Benjamin Franklin'],
+        correctIndex: 1,
+        explanation: 'The passage says the Liberty Bell was rung to call citizens to hear the first public reading of the Declaration of Independence in 1776.'
+      },
+      {
+        question: 'What values do these American symbols share, according to the passage?',
+        options: ['Wealth, military strength, and technological progress', 'Liberty, courage, and unity', 'Hard work, education, and religious faith', 'Loyalty to leaders, obedience to laws, and civic duty'],
+        correctIndex: 1,
+        explanation: 'The passage concludes that these symbols remind Americans of the values the country was founded on: liberty, courage, and unity.'
+      }
+    ]
+  },
+
+  {
+    id: 'volcanoes-gr23',
+    title: 'Volcanoes: Fire Mountains',
+    topic: 'earth-science',
+    coverEmoji: '🌋',
+    coverColor: '#dc2626',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 255,
+    readTimeMin: 3,
+    text: `A volcano is an opening in the Earth's surface where melted rock, ash, and gases can escape from deep underground. When a volcano releases these materials, we say it is **erupting**.
+
+Deep beneath the Earth's crust, rock is so hot it melts into a liquid called **magma**. Magma is less dense than solid rock, so it slowly rises upward through cracks and weak spots in the crust. When magma reaches the surface, it is called **lava**. Lava can flow down a volcano's sides at different speeds — thin lava flows quickly, while thick, sticky lava moves slowly.
+
+Volcanic eruptions can be dangerous but also creative. Lava cools and hardens into new rock, forming new land. The Hawaiian Islands were formed entirely by volcanic activity over millions of years. The island of Hawaii is still growing today because its volcanoes are still erupting.
+
+Not all volcanoes are the same. **Shield volcanoes** have gentle slopes and produce slow-moving lava flows. **Stratovolcanoes** have steep sides and can erupt explosively, shooting ash miles into the sky. Mount St. Helens in Washington State is a stratovolcano that had a massive eruption in 1980.
+
+Volcanoes also create rich soil. Volcanic rock breaks down over time into minerals that make farmland extremely fertile. Many ancient civilizations built their cities near volcanoes for this reason.
+
+Scientists called **volcanologists** study volcanoes to understand eruptions and help protect nearby communities.`,
+    vocabulary: [
+      { word: 'erupting', definition: 'When a volcano is actively releasing lava, ash, or gases from its opening.', example: 'Residents evacuated the area when the volcano began erupting.' },
+      { word: 'magma', definition: 'Melted rock found beneath the surface of the Earth.', example: 'Magma rises toward the surface through cracks in the crust.' },
+      { word: 'lava', definition: 'Magma that has reached and flowed out onto the surface of the Earth.', example: 'Lava flowed slowly down the volcano and hardened into new rock.' },
+      { word: 'fertile', definition: 'Rich in nutrients and good for growing plants.', example: 'The volcanic soil was extremely fertile, producing large harvests of crops.' },
+      { word: 'volcanologists', definition: 'Scientists who study volcanoes and volcanic activity.', example: 'Volcanologists monitor eruptions to warn nearby communities of danger.' }
+    ],
+    questions: [
+      {
+        question: 'What is magma, and what happens when it reaches the surface?',
+        options: ['Magma is a type of volcanic gas; it becomes ash when it reaches the surface', 'Magma is melted rock underground; it is called lava once it reaches the surface', 'Magma is hardened volcanic rock; it melts into lava when exposed to air', 'Magma is a mixture of water and minerals; it evaporates when it reaches the surface'],
+        correctIndex: 1,
+        explanation: 'The passage defines magma as melted rock deep underground, and says it is called lava once it reaches the surface.'
+      },
+      {
+        question: 'How were the Hawaiian Islands formed?',
+        options: ['They were pushed up from the ocean floor by earthquakes', 'They were formed entirely by volcanic activity over millions of years', 'They were created when glaciers melted and land rose from the sea', 'They were formed by erosion from powerful ocean currents'],
+        correctIndex: 1,
+        explanation: 'The passage says the Hawaiian Islands were formed entirely by volcanic activity over millions of years.'
+      },
+      {
+        question: 'What is the difference between a shield volcano and a stratovolcano?',
+        options: ['Shield volcanoes are larger; stratovolcanoes are found only underwater', 'Shield volcanoes have gentle slopes and slow lava; stratovolcanoes have steep sides and explosive eruptions', 'Shield volcanoes erupt frequently; stratovolcanoes only erupt once', 'Shield volcanoes produce ash; stratovolcanoes produce only lava flows'],
+        correctIndex: 1,
+        explanation: 'The passage contrasts shield volcanoes — gentle slopes and slow-moving lava — with stratovolcanoes — steep sides and explosive eruptions.'
+      },
+      {
+        question: 'Why did ancient civilizations build near volcanoes?',
+        options: ['Volcanoes provided heat during cold winters', 'The volcanic rock was easy to use for building homes and temples', 'Volcanic soil is extremely fertile and good for farming', 'Volcanoes protected cities from invaders with their steep slopes'],
+        correctIndex: 2,
+        explanation: 'The passage says volcanic rock breaks down into minerals that make farmland extremely fertile, which is why ancient civilizations built near volcanoes.'
+      },
+      {
+        question: 'What can you conclude about volcanoes from this passage?',
+        options: ['Volcanoes are only harmful and have no benefits', 'Volcanoes are far too dangerous for scientists to study safely', 'Volcanoes are both destructive and creative forces that shape Earth and support life', 'Volcanoes only exist on islands formed in the ocean'],
+        correctIndex: 2,
+        explanation: 'The passage describes both the dangers of volcanic eruptions and their benefits — creating new land, fertile soil, and entire island chains — showing they are both destructive and creative.'
+      }
+    ]
+  },
+
+  {
+    id: 'maps-and-geography-gr23',
+    title: 'Reading Maps: Finding Your Way',
+    topic: 'social-studies',
+    coverEmoji: '🗺️',
+    coverColor: '#059669',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 240,
+    readTimeMin: 3,
+    text: `A map is a flat drawing that shows what a place looks like from above. People have used maps for thousands of years to navigate, explore, and understand the world.
+
+Every map has important tools that help you read it correctly. The **legend** (also called a key) explains what the symbols and colors on the map mean. For example, a blue line might represent a river, and a small star might mark a capital city.
+
+The **compass rose** shows the four main directions: north, south, east, and west. Most maps are drawn with north at the top. If you are facing north, east is to your right, west is to your left, and south is behind you.
+
+The **scale** tells you how distances on the map compare to real distances. For example, one inch on a map might represent 100 miles in real life. The scale lets you estimate how far apart two places really are.
+
+There are many different types of maps. **Physical maps** show natural features like mountains, rivers, and plains. **Political maps** show the borders of countries, states, and cities. **Road maps** show highways and streets to help travelers find their way. **Weather maps** show temperature and precipitation across a region.
+
+Today, many people use digital maps on phones and computers. Apps like Google Maps can give turn-by-turn directions and show real-time traffic. But the basic parts — direction, scale, and a legend — are the same whether you use a paper map or a smartphone.
+
+Reading a map is a skill that helps you understand the world around you.`,
+    vocabulary: [
+      { word: 'legend', definition: 'A key on a map that explains what symbols and colors mean.', example: 'The map legend showed that a blue line meant a river and a triangle meant a mountain.' },
+      { word: 'compass rose', definition: 'A symbol on a map showing the four cardinal directions: north, south, east, and west.', example: 'I used the compass rose to figure out that the lake was north of our campsite.' },
+      { word: 'scale', definition: 'A tool on a map that shows how distances on the map compare to real distances.', example: 'According to the scale, the two cities were about 200 miles apart.' },
+      { word: 'physical map', definition: 'A map that shows natural features like mountains, rivers, and plains.', example: 'The physical map showed a large mountain range running along the western coast.' },
+      { word: 'political map', definition: 'A map that shows borders of countries, states, and cities.', example: 'We used a political map to see which states bordered our state.' }
+    ],
+    questions: [
+      {
+        question: 'What does the legend (key) on a map tell you?',
+        options: ['How far apart two places are', 'The direction you are facing', 'What the symbols and colors on the map mean', 'How old the map is and who made it'],
+        correctIndex: 2,
+        explanation: 'The passage defines the legend as the tool that explains what symbols and colors on a map mean.'
+      },
+      {
+        question: 'If you are facing north, where is east?',
+        options: ['Behind you', 'To your left', 'To your right', 'The same direction as north'],
+        correctIndex: 2,
+        explanation: 'The passage states that if you are facing north, east is to your right.'
+      },
+      {
+        question: 'What is the purpose of the scale on a map?',
+        options: ['To show which way is north', 'To explain the symbols and colors used on the map', 'To tell you how map distances compare to real distances', 'To show the names of cities and countries'],
+        correctIndex: 2,
+        explanation: 'The passage says the scale tells you how distances on the map compare to real distances.'
+      },
+      {
+        question: 'What type of map would you use to find out which states border Florida?',
+        options: ['A physical map', 'A weather map', 'A road map', 'A political map'],
+        correctIndex: 3,
+        explanation: 'The passage says political maps show the borders of countries, states, and cities — so a political map would show which states border Florida.'
+      },
+      {
+        question: 'What does the passage say digital map apps have in common with paper maps?',
+        options: ['They both need to be printed before use', 'They both require a compass to read accurately', 'They both use the same basic parts: direction, scale, and a legend', 'They both show only roads and highways'],
+        correctIndex: 2,
+        explanation: 'The passage says the basic parts — direction, scale, and a legend — are the same whether you use a paper map or a smartphone.'
+      }
+    ]
+  },
+
+  {
+    id: 'ocean-zones-gr23',
+    title: 'The Ocean: Exploring the Zones',
+    topic: 'ocean-science',
+    coverEmoji: '🌊',
+    coverColor: '#0891b2',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 250,
+    readTimeMin: 3,
+    text: `The ocean covers more than 70 percent of Earth's surface. It is the largest habitat on the planet, home to an incredible variety of life. Scientists divide the ocean into zones based on depth and the amount of light that reaches each layer.
+
+The **sunlight zone** is the top layer, reaching about 660 feet deep. Sunlight penetrates this zone, allowing **photosynthesis** — the process plants and algae use to make food from sunlight. Most ocean life lives here, including fish, sea turtles, dolphins, sharks, and colorful coral reefs.
+
+Below that is the **twilight zone**, from 660 to 3,300 feet. Very little sunlight reaches this depth, so no plants can grow. Animals here have special adaptations to survive in dim light — some can produce their own light in a process called **bioluminescence**. The lanternfish, which flickers like a tiny underwater lantern, is one example.
+
+Deeper still is the **midnight zone**, from 3,300 to 13,000 feet. No sunlight reaches here at all. The water is freezing cold and the pressure is crushing. Yet life still exists — anglerfish, giant squid, and other bizarre creatures have adapted to these extreme conditions.
+
+The deepest part of the ocean is the **hadal zone**, found in ocean trenches. The Mariana Trench, the deepest point on Earth, reaches nearly 36,000 feet — more than 6 miles deep. Even here, scientists have found bacteria and small invertebrates.
+
+More than 80 percent of the ocean has never been explored. Scientists continue to discover new species and secrets in its depths.`,
+    vocabulary: [
+      { word: 'photosynthesis', definition: 'The process by which plants and algae use sunlight to make food.', example: 'Photosynthesis can only occur in the sunlit top layer of the ocean.' },
+      { word: 'bioluminescence', definition: 'The ability of some living things to produce their own light.', example: 'Deep-sea creatures use bioluminescence to attract prey in the dark ocean.' },
+      { word: 'adaptations', definition: 'Special features or behaviors that help an animal survive in its environment.', example: 'The anglerfish has special adaptations for surviving in the crushing pressure of the deep ocean.' },
+      { word: 'pressure', definition: 'The force pushing on an object from all sides; increases with depth in the ocean.', example: 'The pressure in the midnight zone is so intense that it would crush most surface creatures.' },
+      { word: 'trenches', definition: 'Deep, narrow valleys in the ocean floor.', example: 'The Mariana Trench is the deepest ocean trench and the deepest point on Earth.' }
+    ],
+    questions: [
+      {
+        question: 'Why do most ocean animals live in the sunlight zone?',
+        options: ['The water temperature is warmer near the surface', 'The pressure is lower and easier for animals to survive', 'Sunlight allows photosynthesis, supporting food chains that most animals depend on', 'The sunlight zone is the only place without predators'],
+        correctIndex: 2,
+        explanation: 'The passage says sunlight allows photosynthesis in the sunlight zone, and that most ocean life lives there.'
+      },
+      {
+        question: 'What is bioluminescence?',
+        options: ['A type of camouflage that makes deep-sea creatures invisible', 'The ability of some living things to produce their own light', 'A special type of photosynthesis that works without sunlight', 'A layer of glowing bacteria found on the ocean floor'],
+        correctIndex: 1,
+        explanation: 'The passage defines bioluminescence as the ability of some animals to produce their own light.'
+      },
+      {
+        question: 'What two conditions make the midnight zone difficult to survive in?',
+        options: ['Strong currents and very warm water', 'No food and no oxygen', 'Freezing cold and crushing pressure', 'Bright light and constant storms'],
+        correctIndex: 2,
+        explanation: 'The passage says the midnight zone has freezing cold temperatures and crushing pressure — yet life still exists there.'
+      },
+      {
+        question: 'What is the deepest point on Earth, and how deep does it reach?',
+        options: ['The Arctic Ocean floor — about 10,000 feet deep', 'The Mariana Trench — nearly 36,000 feet deep', 'The midnight zone — about 13,000 feet deep', 'The Atlantic Trench — more than 20,000 feet deep'],
+        correctIndex: 1,
+        explanation: 'The passage says the Mariana Trench is the deepest point on Earth, reaching nearly 36,000 feet — more than 6 miles deep.'
+      },
+      {
+        question: 'What can you infer from the fact that bacteria were found even in the hadal zone?',
+        options: ['Life can only survive in extreme conditions with the help of bacteria', 'Life on Earth is limited to the ocean and cannot survive on land', 'Life is remarkably adaptable and can exist even in the most extreme environments', 'The hadal zone is the most important zone for ocean biodiversity'],
+        correctIndex: 2,
+        explanation: 'Finding life even in the deepest, most extreme ocean zone suggests life is remarkably adaptable and can exist in nearly any environment.'
+      }
+    ]
+  },
+
+  {
+    id: 'simple-machines-gr23',
+    title: 'Simple Machines: Making Work Easier',
+    topic: 'science',
+    coverEmoji: '⚙️',
+    coverColor: '#6b7280',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 248,
+    readTimeMin: 3,
+    text: `Every time you open a door, ride a bicycle, or use scissors, you are using a simple machine. Simple machines are basic devices that make work easier by changing the direction or the amount of force needed to move an object.
+
+There are six types of simple machines. A **lever** is a rigid bar that pivots on a fixed point called a **fulcrum**. Seesaws and crowbars are levers. By placing the fulcrum close to the heavy object, you can lift it with less force.
+
+A **wheel and axle** is a wheel attached to a rod. When you turn the wheel, the axle also turns. Doorknobs, steering wheels, and bicycle wheels are examples.
+
+A **pulley** is a wheel with a grooved rim that holds a rope. Pulling one end of the rope lifts a load attached to the other end. Flagpoles use pulleys to raise flags.
+
+An **inclined plane** is a slanted surface — a ramp. It lets you move a heavy object to a higher level using less force than lifting it straight up. Wheelchair ramps and loading docks are inclined planes.
+
+A **wedge** is two inclined planes joined together at a point. Knives, axes, and doorstoppers are wedges. A wedge converts force in one direction into force that pushes outward.
+
+A **screw** is an inclined plane wrapped around a cylinder. Screws hold objects together tightly and are much stronger than nails.
+
+Most complex machines — cars, elevators, cranes — are made from combinations of these six simple machines working together.`,
+    vocabulary: [
+      { word: 'lever', definition: 'A simple machine made of a rigid bar that pivots on a fulcrum to move objects.', example: 'A crowbar is a lever that can pry up heavy objects with less effort.' },
+      { word: 'fulcrum', definition: 'The fixed point on which a lever pivots.', example: 'Moving the fulcrum closer to the heavy load makes lifting easier.' },
+      { word: 'pulley', definition: 'A simple machine using a wheel with a groove and rope to lift loads.', example: 'The flagpole uses a pulley so you can pull down to raise the flag up.' },
+      { word: 'inclined plane', definition: 'A slanted surface (ramp) that reduces the force needed to move something to a higher level.', example: 'A ramp at the loading dock is an inclined plane that makes moving heavy boxes easier.' },
+      { word: 'force', definition: 'A push or pull that causes an object to move, stop, or change direction.', example: 'Simple machines reduce the amount of force you need to do a task.' }
+    ],
+    questions: [
+      {
+        question: 'What is a simple machine?',
+        options: ['A computer program that controls factory robots', 'A basic device that makes work easier by changing the direction or amount of force needed', 'Any tool that has moving parts', 'A machine that only children can use'],
+        correctIndex: 1,
+        explanation: 'The passage defines simple machines as basic devices that make work easier by changing the direction or amount of force needed to move an object.'
+      },
+      {
+        question: 'How does a lever make lifting easier?',
+        options: ['It eliminates the need for any force by using a motor', 'By placing the fulcrum close to the heavy object, you can lift it with less force', 'It multiplies the speed of movement so objects can be lifted faster', 'By storing energy that is released when you push down'],
+        correctIndex: 1,
+        explanation: 'The passage says placing the fulcrum close to the heavy object allows you to lift it with less force.'
+      },
+      {
+        question: 'Which of the following is an example of an inclined plane?',
+        options: ['A pair of scissors', 'A bicycle wheel', 'A wheelchair ramp', 'A flagpole'],
+        correctIndex: 2,
+        explanation: 'The passage says inclined planes are slanted surfaces like wheelchair ramps and loading docks.'
+      },
+      {
+        question: 'What is the relationship between a screw and an inclined plane?',
+        options: ['A screw is a type of pulley that spins instead of rolling', 'A screw is an inclined plane wrapped around a cylinder', 'A screw and inclined plane do the same job but in opposite directions', 'A screw is made from two wedges pushed together'],
+        correctIndex: 1,
+        explanation: 'The passage states that a screw is an inclined plane wrapped around a cylinder.'
+      },
+      {
+        question: 'What can you conclude about complex machines like cars and elevators?',
+        options: ['They work without using any of the six simple machines', 'They are made from combinations of the six simple machines working together', 'They are too complicated to be explained by simple machine principles', 'They replaced simple machines and made them unnecessary'],
+        correctIndex: 1,
+        explanation: 'The passage states that most complex machines — cars, elevators, cranes — are made from combinations of the six simple machines working together.'
+      }
+    ]
+  },
+
+  {
+    id: 'george-washington-gr23',
+    title: 'George Washington: First President',
+    topic: 'american-history',
+    coverEmoji: '🇺🇸',
+    coverColor: '#1e3a8a',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 255,
+    readTimeMin: 3,
+    text: `George Washington is known as the "Father of His Country" because of his leadership during the founding of the United States. He served as a general, a leader at the Constitutional Convention, and the nation's first president.
+
+Washington was born in Virginia in 1732. As a young man, he worked as a **surveyor** — someone who measures land. This gave him a deep knowledge of the American countryside, which later helped him as a military commander.
+
+During the Revolutionary War, Washington commanded the **Continental Army** — the American fighting force against the British. The conditions were extremely difficult. His soldiers faced harsh winters, lack of supplies, and a much larger British army. The winter at **Valley Forge** in 1777–1778 was especially brutal — thousands of soldiers suffered from cold and disease. But Washington kept the army together through sheer leadership and determination.
+
+After the war, Washington attended the **Constitutional Convention** in 1787, where he helped guide the creation of the U.S. Constitution. The delegates trusted and respected him so much that they unanimously chose him to be the first president.
+
+Washington served as president from 1789 to 1797. He made many important decisions that set **precedents** — examples for future leaders. One of his most important decisions was to step down after two terms instead of serving for life. This peaceful transfer of power became a cornerstone of American democracy.
+
+When Washington died in 1799, people across America mourned. His example of service, humility, and duty to country has influenced every president who followed him.`,
+    vocabulary: [
+      { word: 'surveyor', definition: 'A person who measures and maps land boundaries.', example: 'Washington worked as a surveyor in Virginia, which gave him detailed knowledge of American geography.' },
+      { word: 'Continental Army', definition: 'The American military force that fought against the British during the Revolutionary War.', example: 'Washington commanded the Continental Army through difficult winters and shortages of supplies.' },
+      { word: 'Constitutional Convention', definition: 'The 1787 meeting in Philadelphia where delegates wrote the U.S. Constitution.', example: 'Washington helped guide the Constitutional Convention to create a strong national government.' },
+      { word: 'precedents', definition: 'Examples or decisions that become the standard for future situations.', example: "Washington's two-term limit set a precedent that most presidents have followed." },
+      { word: 'unanimous', definition: 'When everyone agrees or votes the same way.', example: 'Washington was unanimously chosen as the first president — all delegates agreed.' }
+    ],
+    questions: [
+      {
+        question: 'Why is George Washington called the "Father of His Country"?',
+        options: ['Because he had the most children of any American president', 'Because he was the oldest founding father at the Constitutional Convention', 'Because of his leadership as general, Constitutional delegate, and first president during the founding of the U.S.', 'Because he founded the first American public school system'],
+        correctIndex: 2,
+        explanation: 'The passage explains Washington is called "Father of His Country" because of his leadership as general, Constitutional Convention delegate, and first president.'
+      },
+      {
+        question: 'How did working as a surveyor help Washington as a military commander?',
+        options: ['It taught him how to negotiate treaties with foreign governments', 'It gave him a deep knowledge of the American countryside', 'It trained him to lead large groups of workers', 'It helped him understand how to supply an army in the field'],
+        correctIndex: 1,
+        explanation: 'The passage says surveying gave Washington deep knowledge of the American countryside, which later helped him as a military commander.'
+      },
+      {
+        question: 'Why was Valley Forge significant?',
+        options: ['It was where Washington won his greatest battle against the British', 'It was the site of a brutal winter where thousands of soldiers suffered from cold and disease', 'It was where the Declaration of Independence was signed', 'It was the first battle of the Revolutionary War'],
+        correctIndex: 1,
+        explanation: 'The passage describes Valley Forge as an especially brutal winter at 1777-1778 where thousands of soldiers suffered from cold and disease.'
+      },
+      {
+        question: "What precedent did Washington set when he stepped down after two terms?",
+        options: ['That presidents should serve for life to maintain stability', 'That peaceful transfer of power after two terms is a cornerstone of American democracy', 'That only military generals should become president', 'That the Constitution should be rewritten after every presidency'],
+        correctIndex: 1,
+        explanation: 'The passage says stepping down after two terms rather than serving for life became a precedent and a cornerstone of American democracy.'
+      },
+      {
+        question: 'What does it mean that Washington was unanimously chosen as president?',
+        options: ['Only Washington ran for president and no one else was eligible', 'A simple majority of delegates voted for him over other candidates', 'Every single delegate agreed and chose him', 'Congress voted and nearly all members supported him'],
+        correctIndex: 2,
+        explanation: 'The passage says the delegates unanimously chose Washington, and the passage defines unanimous as everyone agreeing.'
+      }
+    ]
+  },
+
+  {
+    id: 'human-body-systems-gr23',
+    title: 'Your Amazing Body Systems',
+    topic: 'human-body',
+    coverEmoji: '🫀',
+    coverColor: '#dc2626',
+    gradeLevel: '2-3',
+    level: 'grade23',
+    grades: [2, 3, 4],
+    wordCount: 260,
+    readTimeMin: 3,
+    text: `Your body is like a city with many different systems working together to keep everything running. Each body system has a special job, and they all work together to keep you healthy and alive.
+
+The **skeletal system** is your framework. Your 206 bones give your body its shape, protect your organs, and allow you to move. Bones also make blood cells in a spongy material called **bone marrow**.
+
+The **muscular system** works with your bones to allow movement. When you walk, run, or pick something up, muscles pull on bones to create motion. Your heart is also a muscle — it pumps blood without you having to think about it.
+
+The **circulatory system** is your body's delivery network. Your heart pumps blood through a system of blood vessels — arteries carry blood away from the heart, and veins carry it back. Blood delivers oxygen and nutrients to every cell and carries away waste products.
+
+The **respiratory system** is your breathing system. Your lungs take in oxygen from the air and release carbon dioxide when you exhale. Oxygen moves from your lungs into your bloodstream and is carried to all your body's cells.
+
+The **digestive system** breaks down food into nutrients your body can use. It starts in your mouth, continues through your stomach, and finishes in your intestines, where nutrients are absorbed into the bloodstream.
+
+The **nervous system** is your body's communication network. Your brain sends and receives signals through your spinal cord and nerves to control everything — from voluntary actions like throwing a ball to automatic actions like breathing and heartbeat.`,
+    vocabulary: [
+      { word: 'skeletal system', definition: 'The system of 206 bones that gives the body shape, protects organs, and supports movement.', example: 'The skeletal system protects the brain inside the skull and the heart inside the rib cage.' },
+      { word: 'circulatory system', definition: 'The system that moves blood through the body using the heart and blood vessels.', example: 'The circulatory system delivers oxygen to every cell in the body.' },
+      { word: 'arteries', definition: 'Blood vessels that carry blood away from the heart to the rest of the body.', example: 'Arteries carry oxygen-rich blood from the heart to the muscles and organs.' },
+      { word: 'respiratory system', definition: 'The body system responsible for breathing — taking in oxygen and releasing carbon dioxide.', example: 'The respiratory system includes the lungs, nose, and windpipe.' },
+      { word: 'nutrients', definition: 'Substances in food that the body needs for energy, growth, and repair.', example: 'The digestive system breaks food into nutrients that the bloodstream delivers to cells.' }
+    ],
+    questions: [
+      {
+        question: 'What are two jobs of the skeletal system?',
+        options: ['To pump blood and deliver oxygen to organs', 'To give the body shape and protect organs', 'To digest food and absorb nutrients', 'To send signals from the brain to muscles'],
+        correctIndex: 1,
+        explanation: 'The passage says bones give the body shape, protect organs, and allow movement — so giving shape and protecting organs are two jobs.'
+      },
+      {
+        question: 'How do arteries and veins differ?',
+        options: ['Arteries are larger; veins are smaller and carry more blood', 'Arteries carry blood away from the heart; veins carry blood back to the heart', 'Arteries carry waste products; veins carry oxygen and nutrients', 'Arteries are only in the legs; veins are only in the upper body'],
+        correctIndex: 1,
+        explanation: 'The passage says arteries carry blood away from the heart, while veins carry it back.'
+      },
+      {
+        question: 'What is the job of the respiratory system?',
+        options: ['To break down food and absorb nutrients into the bloodstream', 'To send signals from the brain to control the body', 'To take in oxygen from the air and release carbon dioxide', 'To pump blood through blood vessels to all body parts'],
+        correctIndex: 2,
+        explanation: 'The passage says the respiratory system takes in oxygen from the air and releases carbon dioxide when you exhale.'
+      },
+      {
+        question: 'Where does digestion begin?',
+        options: ['In the stomach, where food is first broken down by acids', 'In the intestines, where nutrients are absorbed', 'In the mouth', 'In the bloodstream, where food particles are filtered'],
+        correctIndex: 2,
+        explanation: 'The passage says the digestive system starts in the mouth, continues through the stomach, and finishes in the intestines.'
+      },
+      {
+        question: 'What does the nervous system control, according to the passage?',
+        options: ['Only automatic functions like breathing and heartbeat', 'Only voluntary actions like throwing a ball', 'Both voluntary actions and automatic actions like breathing and heartbeat', 'The delivery of nutrients from the digestive system to other body systems'],
+        correctIndex: 2,
+        explanation: 'The passage says the nervous system controls both voluntary actions like throwing a ball and automatic actions like breathing and heartbeat.'
+      }
+    ]
+  },
+
+
+// ── Additional Grade 2 stories ────────────────────────────────────────────────
+  {
+    id: 'sea-turtles-gr2',
+    title: 'Sea Turtles: Ocean Travelers',
+    topic: 'animals',
+    coverEmoji: '🐢',
+    coverColor: '#059669',
+    gradeLevel: '2',
+    level: 'grade2',
+    grades: [1, 2, 3],
+    wordCount: 195,
+    readTimeMin: 2,
+    text: `Sea turtles are ancient animals. They have lived on Earth for more than 100 million years — even longer than dinosaurs. Today, seven species of sea turtles swim in the world's oceans.
+
+Sea turtles are reptiles. They breathe air, but they spend almost their entire lives in the water. They swim thousands of miles every year. Leatherback sea turtles, the largest, can grow up to six feet long and weigh up to 2,000 pounds.
+
+Female sea turtles do something amazing — they return to the same beach where they were born to lay their eggs. A mother turtle crawls onto the beach at night, digs a nest in the sand, and lays around 100 eggs. Then she covers the nest and returns to the ocean. About two months later, the baby turtles hatch and crawl to the sea.
+
+Florida has some of the most important sea turtle nesting beaches in the world. Loggerhead, green, and leatherback turtles all nest along Florida's coasts.
+
+Sea turtles face many dangers, including pollution, fishing nets, and losing their nesting beaches. People can help by keeping beaches clean, turning off lights near beaches at night, and never bothering nesting turtles.`,
+    vocabulary: [
+      { word: 'reptiles', definition: 'Cold-blooded animals that breathe air and usually have scaly skin.', example: 'Sea turtles are reptiles that breathe air but spend most of their lives underwater.' },
+      { word: 'species', definition: 'A group of animals that are the same type and can reproduce together.', example: "There are seven species of sea turtles in the world's oceans." },
+      { word: 'nesting', definition: 'The process of building or preparing a place to lay eggs.', example: 'Sea turtle nesting season in Florida runs from May through October.' },
+      { word: 'hatch', definition: 'To break out of an egg.', example: 'Baby sea turtles hatch from eggs buried in the sand and crawl toward the ocean.' },
+      { word: 'pollution', definition: 'Harmful materials that damage the environment.', example: 'Plastic pollution in the ocean is dangerous for sea turtles that mistake it for food.' }
+    ],
+    questions: [
+      {
+        question: 'How long have sea turtles lived on Earth?',
+        options: ['About 10,000 years', 'About 1 million years', 'More than 100 million years', 'About 65 million years'],
+        correctIndex: 2,
+        explanation: 'The passage says sea turtles have lived on Earth for more than 100 million years — longer than dinosaurs.'
+      },
+      {
+        question: 'Where do female sea turtles lay their eggs?',
+        options: ['In underwater caves near coral reefs', 'On the same beach where they were born', 'On any sandy beach they can find', 'In shallow lagoons protected from waves'],
+        correctIndex: 1,
+        explanation: 'The passage says female sea turtles return to the same beach where they were born to lay their eggs.'
+      },
+      {
+        question: 'About how many eggs does a mother sea turtle lay at a time?',
+        options: ['About 10 eggs', 'About 50 eggs', 'About 100 eggs', 'About 200 eggs'],
+        correctIndex: 2,
+        explanation: 'The passage says a mother turtle lays around 100 eggs.'
+      },
+      {
+        question: 'What is one way people can help protect sea turtles?',
+        options: ['Feeding them food when they come onto the beach', 'Turning off lights near beaches at night', 'Moving turtle nests to safer locations', 'Building walls to protect nesting beaches'],
+        correctIndex: 1,
+        explanation: 'The passage says people can help by turning off lights near beaches at night — lights can confuse hatchlings.'
+      },
+      {
+        question: 'What makes leatherback sea turtles special?',
+        options: ['They are the only sea turtles that nest in Florida', 'They can breathe underwater unlike other sea turtles', 'They are the largest sea turtles — up to six feet long and 2,000 pounds', 'They lay the most eggs of any sea turtle species'],
+        correctIndex: 2,
+        explanation: 'The passage says leatherback sea turtles are the largest, growing up to six feet long and weighing up to 2,000 pounds.'
+      }
+    ]
+  },
+
+  {
+    id: 'butterfly-life-cycle-gr2',
+    title: "A Butterfly's Life: Four Amazing Changes",
+    topic: 'science',
+    coverEmoji: '🦋',
+    coverColor: '#f59e0b',
+    gradeLevel: '2',
+    level: 'grade2',
+    grades: [1, 2, 3],
+    wordCount: 185,
+    readTimeMin: 2,
+    text: `A butterfly goes through one of the most amazing changes in the animal world. This process is called **metamorphosis** — a complete transformation from one form to another. A butterfly changes four times during its life.
+
+The life cycle starts when a female butterfly lays **eggs** on a leaf. The eggs are tiny, often smaller than a pinhead.
+
+After a few days, a small caterpillar, called a **larva**, hatches from the egg. The caterpillar's only job is to eat. It munches on leaves constantly, growing bigger and bigger. The caterpillar sheds its skin several times as it grows.
+
+When the caterpillar is big enough, it forms a protective shell called a **chrysalis** (or pupa). Inside the chrysalis, an incredible change happens. The caterpillar's body breaks down and rebuilds itself into a completely different creature.
+
+After one to two weeks, an adult butterfly emerges from the chrysalis. The butterfly pumps fluid into its crumpled wings to straighten them out. When the wings are dry, the butterfly flies away. Adult butterflies drink nectar from flowers and search for mates. The female lays eggs, and the cycle begins again.`,
+    vocabulary: [
+      { word: 'metamorphosis', definition: 'A complete change of body form as an animal grows from young to adult.', example: "The metamorphosis of a caterpillar into a butterfly is one of nature's most amazing processes." },
+      { word: 'larva', definition: "The caterpillar stage of a butterfly's life — the worm-like young form.", example: 'The larva ate leaves constantly to store energy for its transformation.' },
+      { word: 'chrysalis', definition: 'The protective shell inside which a caterpillar transforms into a butterfly.', example: 'The chrysalis hung from a branch for two weeks before the butterfly emerged.' },
+      { word: 'emerges', definition: 'Comes out from inside something.', example: 'A fully formed butterfly emerges from the chrysalis after its transformation is complete.' },
+      { word: 'cycle', definition: 'A series of events that repeat in the same order.', example: 'The butterfly life cycle repeats each generation — egg, larva, chrysalis, adult.' }
+    ],
+    questions: [
+      {
+        question: 'What is metamorphosis?',
+        options: ['The process of a butterfly finding a mate', 'A complete transformation from one body form to another', 'The way butterflies migrate to warmer places in winter', 'The process of a caterpillar shedding its skin to grow'],
+        correctIndex: 1,
+        explanation: 'The passage defines metamorphosis as a complete transformation from one form to another.'
+      },
+      {
+        question: 'What is the main job of the caterpillar (larva) stage?',
+        options: ['To find a safe place to build a chrysalis', 'To lay eggs on leaves for the next generation', 'To eat and grow as big as possible', 'To spread its wings and practice flying'],
+        correctIndex: 2,
+        explanation: "The passage says the caterpillar's only job is to eat, and it munches on leaves constantly, growing bigger and bigger."
+      },
+      {
+        question: 'What happens inside the chrysalis?',
+        options: ['The caterpillar sleeps to conserve energy before becoming an adult', "The caterpillar's body breaks down and rebuilds itself into a butterfly", 'The caterpillar grows a new set of legs to use as a butterfly', 'The caterpillar becomes very small so it can fit inside the butterfly form'],
+        correctIndex: 1,
+        explanation: "The passage says inside the chrysalis, the caterpillar's body breaks down and rebuilds itself into a completely different creature."
+
+      },
+      {
+        question: 'What does a butterfly do immediately after emerging from the chrysalis?',
+        options: ['It immediately flies away to find nectar', 'It lays eggs on the nearest leaf', 'It pumps fluid into its wings to straighten them', 'It eats leaves to regain energy after the transformation'],
+        correctIndex: 2,
+        explanation: 'The passage says the butterfly pumps fluid into its crumpled wings to straighten them out, then waits for them to dry before flying.'
+      },
+      {
+        question: "How many stages are in a butterfly's life cycle?",
+
+        options: ['Two', 'Three', 'Four', 'Five'],
+        correctIndex: 2,
+        explanation: 'The passage says a butterfly changes four times: egg, larva (caterpillar), chrysalis (pupa), and adult butterfly.'
+      }
+    ]
+  },
+
+  {
+    id: 'florida-manatees-gr2',
+    title: "Manatees: Florida's Gentle Giants",
+
+    topic: 'florida-nature',
+    coverEmoji: '🦭',
+    coverColor: '#64748b',
+    gradeLevel: '2',
+    level: 'grade2',
+    grades: [1, 2, 3],
+    wordCount: 190,
+    readTimeMin: 2,
+    text: `Manatees are large, gentle mammals that live in warm, shallow water. They are sometimes called "sea cows" because they are so large and slow-moving. An adult manatee can grow up to 13 feet long and weigh up to 1,300 pounds.
+
+Manatees breathe air, just like humans. They must come to the surface every three to five minutes to breathe. When they are resting, manatees can hold their breath for up to 20 minutes.
+
+Manatees eat mostly plants — grasses and seaweeds that grow underwater. They can eat up to 10% of their body weight in plants every day. That means a large manatee might eat 130 pounds of plants in one day.
+
+Florida is one of the best places in the world to see manatees. During cold weather, manatees gather near warm springs and warm-water outflows from power plants. Crystal River in Florida is especially famous for its manatees.
+
+Manatees are an **endangered** species. They face dangers from boats — their slow speed makes them hard to move out of the way in time. Many manatees have scars on their backs from boat propellers. Laws in Florida protect manatees by requiring boats to slow down in areas where manatees live.
+
+You can help manatees by learning about them and supporting organizations that protect their habitat.`,
+    vocabulary: [
+      { word: 'mammals', definition: 'Warm-blooded animals that breathe air, have fur or hair, and feed their young milk.', example: 'Manatees are mammals that must surface to breathe air, just like whales and dolphins.' },
+      { word: 'surface', definition: 'The top layer; to surface means to come up to the top of the water.', example: 'Manatees surface every few minutes to breathe before diving down again.' },
+      { word: 'endangered', definition: 'At serious risk of becoming extinct if not protected.', example: 'Manatees are an endangered species that need legal protection to survive.' },
+      { word: 'propellers', definition: 'The spinning blades on a boat that push it through the water.', example: 'Slow-moving manatees are often injured by boat propellers.' },
+      { word: 'habitat', definition: 'The natural environment where an animal lives.', example: "Protecting the manatee's warm-water habitat is key to their survival." }
+    ],
+    questions: [
+      {
+        question: 'Why are manatees called "sea cows"?',
+        options: ['Because they produce milk just like dairy cows', 'Because they are large and slow-moving', 'Because they live in herds like cattle on land', 'Because they eat grass like cows do on farms'],
+        correctIndex: 1,
+        explanation: 'The passage says manatees are called sea cows because they are so large and slow-moving.'
+      },
+      {
+        question: 'How often must a manatee come to the surface to breathe?',
+        options: ['Every 30 to 60 minutes', 'About once an hour', 'Every three to five minutes', 'Only when they are swimming fast'],
+        correctIndex: 2,
+        explanation: 'The passage says manatees must come to the surface every three to five minutes to breathe.'
+      },
+      {
+        question: 'What do manatees eat?',
+        options: ['Small fish and shrimp', 'Mostly underwater grasses and seaweeds', 'Jellyfish and other ocean creatures', 'Crabs and clams from the ocean floor'],
+        correctIndex: 1,
+        explanation: 'The passage says manatees eat mostly plants — grasses and seaweeds that grow underwater.'
+      },
+      {
+        question: 'What is the main danger to manatees from boats?',
+        options: ['The noise from boat engines disrupts their communication', 'Boats disturb the warm springs where manatees gather', 'Manatees are too slow to get out of the way and are often injured by propellers', 'Boat pollution poisons the plants that manatees eat'],
+        correctIndex: 2,
+        explanation: 'The passage says manatees are slow and hard to move out of the way in time, so many have scars from boat propellers.'
+      },
+      {
+        question: 'Why do manatees gather near warm springs and power plants in cold weather?',
+        options: ['They find more food near these locations', 'They need warm water because they cannot survive in cold water', 'Power plants provide shelter from winter storms', 'Springs and power plants have fewer boats nearby'],
+        correctIndex: 1,
+        explanation: 'The passage says manatees gather near warm springs and power plant outflows during cold weather — implying they need warm water to survive cold temperatures.'
+      }
+    ]
+  },
+
+  {
+    id: 'pioneers-westward-gr2',
+    title: 'Pioneer Families: Moving West',
+    topic: 'american-history',
+    coverEmoji: '🐂',
+    coverColor: '#92400e',
+    gradeLevel: '2',
+    level: 'grade2',
+    grades: [1, 2, 3],
+    wordCount: 195,
+    readTimeMin: 2,
+    text: `In the 1800s, thousands of American families packed everything they owned and moved west. These **pioneers** traveled hundreds of miles in covered wagons, looking for new land to farm and a better life.
+
+The journey was long and hard. Families traveled in groups called **wagon trains** for safety and help. The trip from Missouri to Oregon or California could take four to six months. Pioneers crossed prairies, deserts, and mountain ranges. They faced danger from storms, illness, and accidents. There was no turning back — families had sold their homes before leaving.
+
+Life on the trail was full of hard work. Women cooked over open fires and cared for children. Men drove the wagons and cared for the oxen that pulled them. Children had chores too — gathering firewood, fetching water, and helping with camp.
+
+When pioneers finally settled in a new place, they had to build everything from scratch. They cut trees to build log cabins. They cleared land to plant crops. Neighbors helped each other — if one family was building a barn, the whole community would come to help.
+
+Pioneer children had fewer toys and less free time than children today, but they still found ways to have fun — playing games like tag, fishing, and making up stories around campfires.
+
+The pioneers' courage and hard work helped the United States grow from coast to coast.`,
+    vocabulary: [
+      { word: 'pioneers', definition: 'People who move into a new area to settle and build a life there.', example: 'Pioneer families packed their belongings into covered wagons and moved west to find new farmland.' },
+      { word: 'wagon trains', definition: 'Groups of covered wagons that traveled together for safety across the American frontier.', example: 'Traveling in a wagon train gave pioneers safety in numbers and help when wagons broke down.' },
+      { word: 'prairies', definition: 'Large flat areas of land covered in grass.', example: 'Pioneer families crossed the wide, open prairies of the Midwest before reaching the mountains.' },
+      { word: 'oxen', definition: 'Large, strong cattle used to pull heavy loads like wagons.', example: 'Pioneers depended on their oxen to pull heavy covered wagons across hundreds of miles.' },
+      { word: 'cleared', definition: 'Removed trees, bushes, and rocks to prepare land for farming.', example: 'Pioneer families cleared the land around their new home to plant crops for food.' }
+    ],
+    questions: [
+      {
+        question: 'Why did pioneer families travel in wagon trains?',
+        options: ['Because wagons were too heavy for a single family to drive alone', 'For safety and so families could help each other', 'Because the government required all settlers to travel in groups', 'To make the journey faster by sharing the work of driving'],
+        correctIndex: 1,
+        explanation: 'The passage says families traveled in wagon trains "for safety and help."'
+      },
+      {
+        question: 'How long could the journey from Missouri to Oregon or California take?',
+        options: ['About two weeks', 'About one month', 'Four to six months', 'About a year'],
+        correctIndex: 2,
+        explanation: 'The passage says the trip could take four to six months.'
+      },
+      {
+        question: 'What did pioneer children do to help on the trail?',
+        options: ['They drove the wagons while adults rested', 'They gathered firewood, fetched water, and helped with camp', 'They helped navigate using stars and maps', 'They cared for the sick and injured during the journey'],
+        correctIndex: 1,
+        explanation: 'The passage says children gathered firewood, fetched water, and helped with camp.'
+      },
+      {
+        question: 'How did pioneer communities help each other after settling?',
+        options: ['They shared all their food and crops equally among every family', 'They took turns owning the same piece of land each year', 'Neighbors came together to help each other with big tasks like building barns', 'They built one large house for the whole community to share'],
+        correctIndex: 2,
+        explanation: 'The passage says if one family was building a barn, the whole community would come to help.'
+      },
+      {
+        question: 'What can you conclude about why so many families chose to make this dangerous journey?',
+        options: ['They were forced to leave by the government', 'They had nothing left where they lived', 'They believed the chance for new land and a better life was worth the risks', 'They did not know how dangerous the journey would be'],
+        correctIndex: 2,
+        explanation: 'The passage says pioneers were "looking for new land to farm and a better life," suggesting the hope of a better future motivated them to accept the risks.'
+      }
+    ]
+  },
+
+  {
+    id: 'weather-tools-gr2',
+    title: 'Measuring Weather: Science Tools',
+    topic: 'weather',
+    coverEmoji: '🌡️',
+    coverColor: '#0284c7',
+    gradeLevel: '2',
+    level: 'grade2',
+    grades: [1, 2, 3],
+    wordCount: 180,
+    readTimeMin: 2,
+    text: `Meteorologists are scientists who study weather. They use special tools to measure the air around us. These measurements help predict what the weather will be like.
+
+A **thermometer** measures temperature — how hot or cold the air is. Temperature is measured in degrees. In the United States, we often use Fahrenheit degrees. Water freezes at 32°F and boils at 212°F.
+
+A **rain gauge** is a tube that collects rain. After it rains, you can measure how many inches of rain fell. Florida gets a lot of rain, especially in summer.
+
+An **anemometer** measures wind speed. It has cups that spin in the wind — the faster they spin, the stronger the wind.
+
+A **weather vane** shows wind direction. It points into the wind, showing which direction the wind is coming from. Wind from the south often brings warm air to Florida.
+
+A **barometer** measures air pressure — the weight of the air pressing down on us. When air pressure drops, stormy weather often follows. When air pressure rises, clear weather usually comes.
+
+Weather stations have all these tools working together. The data they collect is sent to meteorologists, who use it to make weather forecasts — predictions about what the weather will do next.`,
+    vocabulary: [
+      { word: 'meteorologists', definition: 'Scientists who study and predict weather.', example: 'Meteorologists use data from weather stations to forecast rain and storms.' },
+      { word: 'thermometer', definition: 'A tool that measures temperature in degrees.', example: 'The thermometer outside showed it was 95°F — a hot Florida summer day.' },
+      { word: 'anemometer', definition: 'A tool that measures wind speed using spinning cups.', example: 'The anemometer showed winds of 60 mph as the storm approached.' },
+      { word: 'barometer', definition: 'A tool that measures air pressure to help predict weather changes.', example: 'The barometer was dropping, which told the meteorologist a storm was coming.' },
+      { word: 'forecasts', definition: 'Predictions about what the weather will be in the future.', example: 'The weather forecast warned of heavy rain and thunderstorms for the afternoon.' }
+    ],
+    questions: [
+      {
+        question: 'What does a thermometer measure?',
+        options: ['Wind speed', 'Rainfall amount', 'Temperature', 'Air pressure'],
+        correctIndex: 2,
+        explanation: 'The passage says a thermometer measures temperature — how hot or cold the air is.'
+      },
+      {
+        question: 'How does an anemometer measure wind speed?',
+        options: ['It measures how hard wind pushes against a flat panel', 'It has cups that spin in the wind — faster spinning means stronger wind', 'It tracks a balloon released into the air and measures how fast it moves', 'It measures air pressure changes caused by wind'],
+        correctIndex: 1,
+        explanation: 'The passage says an anemometer has cups that spin in the wind — the faster they spin, the stronger the wind.'
+      },
+      {
+        question: 'What does a dropping barometer reading usually mean?',
+        options: ['Clear, sunny weather is coming', 'Temperature will rise soon', 'Stormy weather often follows', 'Wind speed is decreasing'],
+        correctIndex: 2,
+        explanation: 'The passage says when air pressure drops, stormy weather often follows.'
+      },
+      {
+        question: 'What is a weather forecast?',
+        options: ['A record of past weather events', 'A prediction about what the weather will do next', 'A map showing where storms are currently located', 'A tool that measures multiple weather conditions at once'],
+        correctIndex: 1,
+        explanation: 'The passage defines forecasts as predictions about what the weather will do next.'
+      },
+      {
+        question: 'Which tool would help you find out if wind from the south is bringing warm air?',
+        options: ['A thermometer', 'A rain gauge', 'A weather vane', 'A barometer'],
+        correctIndex: 2,
+        explanation: 'The passage says a weather vane shows wind direction — it points into the wind, showing which direction the wind is coming from.'
+      }
+    ]
+  },
+
+// ── Additional Grade 3 stories ────────────────────────────────────────────────
+  {
+    id: 'american-indians-gr3',
+    title: 'Native Americans: First Peoples of North America',
+    topic: 'american-history',
+    coverEmoji: '🏕️',
+    coverColor: '#78350f',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [2, 3, 4],
+    wordCount: 265,
+    readTimeMin: 3,
+    text: `Long before Europeans arrived, North America was home to millions of people who had lived here for thousands of years. We call them Native Americans, American Indians, or Indigenous peoples. They were not one single group — there were hundreds of different nations, each with its own language, culture, and way of life.
+
+Native peoples adapted to the land they lived on. The **Plains Indians**, like the Sioux and Comanche, lived on the vast grasslands of the middle of the continent. They followed herds of **bison** — millions of animals that provided food, clothing, and shelter. After Europeans brought horses to North America, Plains Indians became expert riders who could hunt bison from horseback.
+
+The **Pueblo peoples** of the Southwest built multi-story stone and adobe homes in the desert. They were skilled farmers who grew corn, beans, and squash — called the "Three Sisters" — by carefully managing scarce water.
+
+Along the Pacific Coast, groups like the Chinook and Tlingit lived in forests rich with salmon. They built large wooden houses and elaborate carved wooden **totem poles** that told their family histories.
+
+In the Eastern Woodlands, nations like the Haudenosaunee (Iroquois) formed a powerful alliance called the **Iroquois Confederacy** — a form of united government that some historians believe influenced the framers of the U.S. Constitution.
+
+When Europeans arrived, Native peoples faced devastating consequences: diseases to which they had no immunity killed millions, and their lands were taken. Today, over 5 million Native Americans live in the United States, continuing their cultures and traditions.`,
+    vocabulary: [
+      { word: 'Indigenous', definition: 'Originally from a place; Native Americans are the indigenous peoples of North America.', example: 'Indigenous peoples had lived in North America for thousands of years before European contact.' },
+      { word: 'bison', definition: 'Large wild cattle (also called buffalo) that once roamed the Great Plains in vast herds.', example: 'Plains Indians depended on bison for food, clothing, shelter, and tools.' },
+      { word: 'adobe', definition: 'A building material made from clay and straw dried in the sun.', example: 'Pueblo peoples built multi-story homes from adobe bricks that stayed cool in the desert heat.' },
+      { word: 'totem poles', definition: 'Carved wooden poles made by Pacific Northwest peoples that record family histories and stories.', example: 'The totem poles outside the Tlingit village told the histories of the families who lived there.' },
+      { word: 'confederacy', definition: 'A group of nations or states united for a common purpose.', example: 'The Iroquois Confederacy united six nations under a shared government for mutual protection.' }
+    ],
+    questions: [
+      {
+        question: 'Why were bison so important to Plains Indians?',
+        options: ['They used bison to trade with European settlers for guns and horses', 'Bison provided food, clothing, and shelter — meeting nearly all their needs', 'Plains Indians worshipped bison as sacred animals but did not hunt them', 'They used bison to plow fields for farming on the grasslands'],
+        correctIndex: 1,
+        explanation: 'The passage says bison provided food, clothing, and shelter for Plains Indians.'
+      },
+      {
+        question: 'What were the "Three Sisters" grown by Pueblo farmers?',
+        options: ['Potatoes, tomatoes, and peppers', 'Wheat, rice, and barley', 'Corn, beans, and squash', 'Sunflowers, sweet potatoes, and pumpkins'],
+        correctIndex: 2,
+        explanation: 'The passage says Pueblo peoples grew corn, beans, and squash — called the Three Sisters.'
+      },
+      {
+        question: 'What are totem poles?',
+        options: ['Wooden weapons used in ceremonies and battles', 'Carved wooden poles that record family histories and stories', 'Structures used to dry fish from the Pacific Ocean', 'Wooden markers showing the boundaries of village land'],
+        correctIndex: 1,
+        explanation: 'The passage says Pacific Coast peoples built elaborate carved wooden totem poles that told their family histories.'
+      },
+      {
+        question: 'What was the Iroquois Confederacy?',
+        options: ['A trading network connecting Eastern Woodlands tribes', 'A series of wars between Iroquois nations', 'A powerful alliance that formed a united government among several nations', 'An agreement to share hunting grounds on the Great Plains'],
+        correctIndex: 2,
+        explanation: 'The passage describes the Iroquois Confederacy as a form of united government formed by the Haudenosaunee nations.'
+      },
+      {
+        question: 'What were two devastating consequences for Native peoples when Europeans arrived?',
+        options: ['Loss of their bison herds and destruction of their forests', 'Disease, to which they had no immunity, and the taking of their lands', 'Forced conversion to Christianity and destruction of their totem poles', 'Loss of their horses and forced relocation to reservations'],
+        correctIndex: 1,
+        explanation: 'The passage says diseases to which they had no immunity killed millions, and their lands were taken.'
+      }
+    ]
+  },
+
+  {
+    id: 'electricity-basics-gr3',
+    title: 'How Electricity Works',
+    topic: 'science',
+    coverEmoji: '⚡',
+    coverColor: '#ca8a04',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [2, 3, 4],
+    wordCount: 265,
+    readTimeMin: 3,
+    text: `Electricity powers nearly everything we use — lights, computers, phones, and refrigerators. But what exactly is electricity?
+
+Everything around us is made of tiny particles called **atoms**. Inside every atom are even tinier particles: protons, neutrons, and **electrons**. Electrons carry a negative electric charge. When electrons flow from one atom to the next, they create an electric **current** — and that flow of electrons is what we call electricity.
+
+For electricity to flow, it needs a path called a **circuit**. A circuit must be a complete loop — from a power source, through wires, through a device like a light bulb, and back to the power source. If the circuit has a gap (like an open switch), the electricity stops.
+
+Some materials let electrons flow through them easily — they are called **conductors**. Metals like copper are excellent conductors, which is why wires are usually made of copper. Other materials block the flow of electrons — these are called **insulators**. Rubber and plastic are insulators, which is why wires are wrapped in rubber or plastic to keep electricity from escaping.
+
+Electricity comes in two forms. **Static electricity** is a buildup of electric charge that does not flow. When you rub a balloon on your hair, you are creating static electricity. When the charge suddenly releases, you see a spark or feel a shock. **Current electricity** is the steady flow of electrons through a circuit — this is what powers your home.
+
+Electricity was first harnessed in the late 1800s, largely through the work of inventors like Thomas Edison and Nikola Tesla. Today, electric power comes from power plants that burn fuel, harness wind or solar energy, or use nuclear reactions.`,
+    vocabulary: [
+      { word: 'electrons', definition: 'Tiny negatively charged particles found in all atoms; their flow creates electricity.', example: 'When electrons move from atom to atom, they create the electric current that powers devices.' },
+      { word: 'current', definition: 'The flow of electrons through a conductor.', example: 'Electric current flows through the wire from the battery to the light bulb.' },
+      { word: 'circuit', definition: 'A complete loop through which electric current can flow.', example: 'The circuit must be complete for the light bulb to turn on.' },
+      { word: 'conductors', definition: 'Materials that allow electrons to flow through them easily.', example: 'Copper is an excellent conductor, which is why electrical wires are made of copper.' },
+      { word: 'insulators', definition: 'Materials that block the flow of electrons.', example: 'The rubber coating on wires is an insulator that prevents electric shock.' }
+    ],
+    questions: [
+      {
+        question: 'What creates an electric current?',
+        options: ['Protons moving between atoms in a wire', 'Electrons flowing from one atom to the next', 'Atoms spinning inside a magnetic field', 'Neutrons escaping from the nucleus of an atom'],
+        correctIndex: 1,
+        explanation: 'The passage says when electrons flow from one atom to the next, they create an electric current.'
+      },
+      {
+        question: 'What must be true for electricity to flow through a circuit?',
+        options: ['The circuit must use copper wire to allow electrons to move', 'The circuit must be a complete, unbroken loop', 'The power source must be larger than the device it powers', 'The circuit must pass through an insulator to control the electricity'],
+        correctIndex: 1,
+        explanation: 'The passage says a circuit must be a complete loop — if there is a gap, the electricity stops.'
+      },
+      {
+        question: 'Why are wires usually made of copper?',
+        options: ['Copper is cheap and easy to bend into thin wire shapes', 'Copper is an excellent conductor that allows electrons to flow easily', 'Copper does not heat up when electricity flows through it', 'Copper acts as an insulator that controls how much electricity flows'],
+        correctIndex: 1,
+        explanation: 'The passage says metals like copper are excellent conductors, which is why wires are usually made of copper.'
+      },
+      {
+        question: 'What is the difference between static electricity and current electricity?',
+        options: ['Static electricity flows continuously; current electricity only flows in bursts', 'Static electricity is a buildup of charge that does not flow; current electricity is a steady flow through a circuit', 'Static electricity is safe; current electricity is always dangerous', 'Static electricity powers large machines; current electricity powers small devices'],
+        correctIndex: 1,
+        explanation: 'The passage says static electricity is a buildup of charge that does not flow, while current electricity is the steady flow of electrons through a circuit.'
+      },
+      {
+        question: 'What is one source of electricity used by power plants today?',
+        options: ['Only burning fossil fuels like coal and oil', 'Only nuclear reactions', 'Wind, solar energy, nuclear reactions, or burning fuel', 'Collecting static electricity from storms'],
+        correctIndex: 2,
+        explanation: 'The passage lists several sources: burning fuel, wind or solar energy, and nuclear reactions.'
+      }
+    ]
+  },
+
+  {
+    id: 'civil-war-basics-gr3',
+    title: 'The Civil War: A Nation Divided',
+    topic: 'american-history',
+    coverEmoji: '⚔️',
+    coverColor: '#374151',
+    gradeLevel: '3',
+    level: 'grade3',
+    grades: [2, 3, 4],
+    wordCount: 265,
+    readTimeMin: 3,
+    text: `The American Civil War (1861–1865) was the deadliest war in American history. It was fought between the Northern states (the Union) and the Southern states (the Confederacy). At the heart of the conflict was the question of **slavery**.
+
+By the mid-1800s, slavery had existed in America for over 200 years. Enslaved African Americans were forced to work on Southern plantations growing cotton and tobacco. Many Northerners believed slavery was wrong and should not spread to new territories. Most Southerners, especially wealthy plantation owners, argued that their economy depended on enslaved labor and that states had the right to decide their own laws.
+
+When Abraham Lincoln was elected president in 1860, Southern states feared he would abolish slavery. Seven states **seceded** — officially left the United States — and formed the Confederate States of America. The Civil War began when Confederate forces fired on **Fort Sumter**, a U.S. military post in South Carolina, in April 1861.
+
+The war lasted four brutal years. More Americans died in the Civil War than in any other war — over 600,000 soldiers. Fighting was especially deadly because new rifles could shoot much farther than weapons from previous wars, but military tactics had not yet changed.
+
+In 1863, President Lincoln issued the **Emancipation Proclamation**, which declared enslaved people in Confederate states to be free. This transformed the war into a direct fight against slavery.
+
+The Union won in April 1865 when Confederate General Robert E. Lee surrendered. Shortly after, the 13th Amendment to the Constitution permanently **abolished** slavery throughout the United States.`,
+    vocabulary: [
+      { word: 'slavery', definition: 'The practice of owning people as property and forcing them to work without pay.', example: 'Slavery was the central cause of the Civil War — the South wanted to keep it, the North wanted to stop its spread.' },
+      { word: 'seceded', definition: 'Officially left and withdrew from a larger organization or country.', example: 'Southern states seceded from the United States and formed their own separate government.' },
+      { word: 'Emancipation Proclamation', definition: "President Lincoln's 1863 order declaring enslaved people in Confederate states to be free.", example: 'The Emancipation Proclamation changed the Civil War into a direct fight to end slavery.' },
+      { word: 'abolished', definition: 'Officially ended and made illegal.', example: 'The 13th Amendment abolished slavery throughout the entire United States.' },
+      { word: 'Confederacy', definition: 'The government formed by Southern states that seceded from the United States during the Civil War.', example: "The Confederacy fought to preserve slavery and states' rights to make their own laws." }
+    ],
+    questions: [
+      {
+        question: 'What was the main issue at the heart of the Civil War?',
+        options: ['A disagreement over taxes between Northern and Southern states', 'Slavery — whether it should continue and spread to new territories', 'A dispute over land boundaries between the North and South', 'Southern states refusing to pay for the national army'],
+        correctIndex: 1,
+        explanation: 'The passage says slavery was "at the heart of the conflict."'
+      },
+      {
+        question: "Why did Southern states secede after Lincoln's election?",
+
+        options: ['Because Lincoln threatened to raise taxes on Southern exports', 'Because Lincoln refused to allow Southern states representation in Congress', 'Because they feared Lincoln would abolish slavery', 'Because Lincoln moved the capital from Washington to a Northern city'],
+        correctIndex: 2,
+        explanation: 'The passage says Southern states feared Lincoln would abolish slavery and so seceded to form the Confederacy.'
+      },
+      {
+        question: 'What was the Emancipation Proclamation?',
+        options: ['An amendment to the Constitution that abolished slavery everywhere', "President Lincoln's order declaring enslaved people in Confederate states to be free", 'A peace treaty offered to the South in exchange for ending the war', 'A law passed by Congress to free all enslaved people in the North'],
+        correctIndex: 1,
+        explanation: "The passage defines the Emancipation Proclamation as Lincoln's 1863 declaration that enslaved people in Confederate states were free."
+
+      },
+      {
+        question: 'How did the Civil War end?',
+        options: ['Both sides agreed to a peace treaty in Washington, D.C.', 'Confederate President Jefferson Davis was captured and surrendered', 'Confederate General Robert E. Lee surrendered to the Union in April 1865', 'Congress voted to end the war and force Southern states back into the Union'],
+        correctIndex: 2,
+        explanation: 'The passage says the Union won when Confederate General Robert E. Lee surrendered in April 1865.'
+      },
+      {
+        question: 'What permanently abolished slavery throughout the United States?',
+        options: ['The Emancipation Proclamation', "President Lincoln's executive order in 1865", 'The 13th Amendment to the Constitution', "The Confederacy's surrender agreement"],
+        correctIndex: 2,
+        explanation: 'The passage says the 13th Amendment permanently abolished slavery throughout the United States.'
+      }
+    ]
+  },
+
+
+// ── Additional Grade 8 stories ────────────────────────────────────────────────
+  {
+    id: 'industrial-revolution-gr8',
+    title: 'The Industrial Revolution: When Machines Changed the World',
+    topic: 'world-history',
+    coverEmoji: '🏭',
+    coverColor: '#374151',
+    gradeLevel: '8',
+    level: 'grade8',
+    grades: [7, 8, 9],
+    wordCount: 420,
+    readTimeMin: 5,
+    text: `In the late 1700s, a transformation began in Britain that would reshape human civilization more profoundly than almost any other event in history. The Industrial Revolution replaced hand production with machine manufacturing, moved workers from farms and homes into factories, and launched an era of unprecedented economic growth — and unprecedented human suffering.
+
+Before industrialization, most goods were made at home or in small workshops. Skilled craftsmen made cloth, tools, and goods by hand. Most people lived in rural areas and farmed the land. Economies were local, slow-changing, and limited by human and animal muscle.
+
+The transformation began with the **textile industry**. New inventions — the spinning jenny, the water frame, the steam-powered loom — allowed factories to produce cloth far faster than hand-weavers. The invention of the **steam engine**, perfected by James Watt in the 1760s, was the catalyst for a broader industrial revolution. Steam power could drive factories, pump water from mines, and eventually propel **locomotives** and steamships.
+
+Britain industrialized first because it had key advantages: coal and iron deposits, a strong banking system, a colonial empire that provided raw materials and markets, and no major internal tariffs blocking trade. By the early 1800s, British factories were producing more goods than the rest of the world combined.
+
+The human consequences were severe. Factory workers — including children as young as five — labored 12 to 16 hours a day in dangerous conditions for meager wages. Cities grew explosively and chaotically. **Urbanization** outpaced the ability of governments to provide housing, sanitation, or clean water. **Cholera** and other diseases swept through overcrowded slums. Life expectancy in industrial cities was lower than in rural areas.
+
+These conditions sparked political and economic debate. **Karl Marx**, observing industrial Britain, developed his critique of **capitalism**, arguing that workers were being exploited by owners of the means of production. His ideas, published in "The Communist Manifesto" (1848) and "Das Kapital" (1867), would shape revolutions and political movements well into the 20th century.
+
+At the same time, industrialization created a new middle class — factory owners, engineers, managers, and professionals. Rising productivity eventually led to higher wages and shorter hours. By the late 1800s, labor movements had won child labor laws, workplace safety regulations, and the right to organize unions.
+
+The Industrial Revolution spread from Britain to Europe, the United States, and Japan through the 19th century. By 1900, nations that had industrialized wielded enormous economic and military power over those that had not — a disparity that shaped imperialism, colonialism, and the political map of the 20th century.
+
+Whether the Industrial Revolution was progress or exploitation — or both — remains one of history's central debates. It created the modern world, with all its abundance and inequality.`,
+    vocabulary: [
+      { word: 'textile industry', definition: 'The manufacturing of cloth and clothing — the first industry to be industrialized.', example: 'New textile machines could produce cloth hundreds of times faster than hand-weavers.' },
+      { word: 'steam engine', definition: 'A machine that converts steam pressure into mechanical motion — the core technology of the Industrial Revolution.', example: "James Watt's improved steam engine powered factories, mines, and eventually locomotives." },
+      { word: 'urbanization', definition: 'The rapid growth of cities as people move from rural areas to urban centers.', example: 'Rapid urbanization created chaotic, overcrowded industrial cities with inadequate sanitation.' },
+      { word: 'capitalism', definition: 'An economic system in which private individuals or corporations own the means of production and compete in markets for profit.', example: "Karl Marx argued that capitalism exploited workers by paying them less than the value their labor created." },
+      { word: 'labor movements', definition: 'Organized efforts by workers to improve wages, hours, and working conditions through collective action.', example: 'Labor movements won child labor laws, safety regulations, and the right to form unions.' }
+    ],
+    questions: [
+      {
+        question: 'What was the significance of the steam engine to the Industrial Revolution?',
+        options: ['It replaced coal as the primary fuel for heating homes and factories', 'It was the catalyst that powered factories, mines, locomotives, and steamships — enabling broad industrialization', 'It allowed Britain to manufacture textiles faster than other countries for the first time', 'It provided cheap electricity that replaced candles and gas lamps in factories'],
+        correctIndex: 1,
+        explanation: "The passage says the steam engine was the catalyst for a broader industrial revolution — it could drive factories, pump water from mines, and propel locomotives and steamships."
+      },
+      {
+        question: 'Why did Britain industrialize before other nations?',
+        options: ['Britain had the largest population and therefore the most factory workers available', 'Britain had coal and iron, a strong banking system, a colonial empire, and no internal trade barriers', 'The British government ordered factories to be built as part of a national economic plan', 'British inventors created more machines than inventors in other countries combined'],
+        correctIndex: 1,
+        explanation: 'The passage lists specific British advantages: coal and iron deposits, banking system, colonial empire, and no internal tariffs.'
+      },
+      {
+        question: 'What were the severe human consequences of industrialization described in the passage?',
+        options: ['Workers lost their religious faith and traditional family structures', 'Children worked long hours in dangerous conditions, cities grew chaotically, disease spread through slums', 'Farmers were forced off their land by government to provide workers for factories', 'Skilled craftsmen lost their income and became the poorest class in society'],
+        correctIndex: 1,
+        explanation: 'The passage describes children working 12-16 hours a day in dangerous conditions, explosive and chaotic urban growth, inadequate sanitation, and disease sweeping slums.'
+      },
+      {
+        question: "What was Karl Marx's critique of industrialization?",
+        options: ['That factories should be owned by governments, not private companies', 'That industrialization was destroying traditional rural culture and should be stopped', 'That workers were being exploited by owners of the means of production', 'That free trade was spreading industrialization too quickly to other countries'],
+        correctIndex: 2,
+        explanation: "The passage says Marx argued that workers were being exploited by owners of the means of production — a critique of capitalism."
+      },
+      {
+        question: "What does the author suggest about the Industrial Revolution's legacy?",
+        options: ['It was clearly a positive development that benefited all of humanity equally', 'It was clearly harmful and its negative effects outweigh any economic benefits', 'It remains debated — it created the modern world with both abundance and inequality', 'Its effects were limited to Britain and did not significantly affect other nations'],
+        correctIndex: 2,
+        explanation: "The passage ends by saying whether the Industrial Revolution was progress or exploitation \"remains one of history's central debates\" — it created the modern world with all its abundance and inequality."
+      }
+    ]
+  },
+
+  {
+    id: 'civil-rights-movement-gr8',
+    title: 'The Civil Rights Movement: Demanding Equality',
+    topic: 'american-history',
+    coverEmoji: '✊',
+    coverColor: '#1e3a8a',
+    gradeLevel: '8',
+    level: 'grade8',
+    grades: [7, 8, 9],
+    wordCount: 430,
+    readTimeMin: 5,
+    text: `The Civil Rights Movement of the 1950s and 1960s was one of the most significant social and political movements in American history. It challenged the system of racial **segregation** and legal discrimination that had oppressed African Americans for nearly a century after the Civil War.
+
+After the Civil War and the abolition of slavery, Southern states passed laws known as **Jim Crow laws** that enforced racial segregation in nearly every area of public life — schools, restaurants, buses, waiting rooms, and voting. African Americans were systematically denied the right to vote through poll taxes, literacy tests, and intimidation. The Supreme Court's 1896 ruling in *Plessy v. Ferguson* upheld "separate but equal" facilities, providing legal cover for decades of segregation.
+
+The movement gained momentum after World War II, when Black veterans returned from fighting for democracy abroad to find they were still denied basic rights at home. In 1954, the Supreme Court's landmark ruling in *Brown v. Board of Education* declared school segregation unconstitutional, overturning *Plessy v. Ferguson*. But implementing the ruling faced violent resistance in the South.
+
+The movement built on multiple strategies. In 1955, Rosa Parks refused to give up her seat on a Montgomery, Alabama bus, sparking the **Montgomery Bus Boycott** — a 381-day economic protest led by a young Baptist minister named **Martin Luther King Jr.** King became the movement's most visible leader, advocating **nonviolent direct action** inspired by Mahatma Gandhi's tactics in India.
+
+**Sit-ins** at segregated lunch counters — where Black students calmly sat and refused to leave despite verbal abuse and physical attacks — drew national attention. The **Freedom Riders** of 1961 challenged segregated interstate bus travel. Televised coverage of police using fire hoses and dogs against peaceful marchers in Birmingham shocked the nation and built public support for civil rights legislation.
+
+The March on Washington in August 1963, where King delivered his "I Have a Dream" speech before 250,000 people, became the movement's defining moment. The pressure of sustained protest and political organizing produced landmark legislation: the **Civil Rights Act of 1964** outlawed discrimination based on race, color, religion, sex, or national origin. The **Voting Rights Act of 1965** protected African Americans' right to vote.
+
+The movement was not without division. Leaders like **Malcolm X** challenged King's nonviolent approach, arguing that Black Americans had the right to defend themselves and that integration into a white-dominated society was insufficient. The later 1960s saw the emergence of **Black Power** movements that emphasized Black pride, economic self-reliance, and political power.
+
+The Civil Rights Movement permanently transformed American law and society. It opened doors, changed minds, and demonstrated the power of organized, sustained nonviolent resistance. Yet the full promise of equality it fought for remains unfinished.`,
+    vocabulary: [
+      { word: 'segregation', definition: 'The forced separation of people based on race in public spaces and institutions.', example: 'Jim Crow laws enforced segregation in schools, buses, restaurants, and other public places.' },
+      { word: 'Jim Crow laws', definition: 'State and local laws in Southern states that enforced racial segregation and discrimination from the 1870s to 1960s.', example: 'Under Jim Crow laws, Black Americans were forced to use separate and inferior facilities.' },
+      { word: 'nonviolent direct action', definition: 'A strategy of peaceful protest — boycotts, sit-ins, marches — to challenge unjust laws without violence.', example: 'Martin Luther King Jr. used nonviolent direct action to pressure the government to change segregation laws.' },
+      { word: 'Civil Rights Act of 1964', definition: 'A landmark law that outlawed discrimination based on race, color, religion, sex, or national origin.', example: 'The Civil Rights Act of 1964 made it illegal to deny service or employment based on race.' },
+      { word: 'Voting Rights Act of 1965', definition: 'A law that prohibited discriminatory voting practices used to prevent African Americans from voting.', example: 'The Voting Rights Act of 1965 dismantled the poll taxes and literacy tests used to deny Black voters their rights.' }
+    ],
+    questions: [
+      {
+        question: 'What were Jim Crow laws, and where were they enforced?',
+        options: ['Federal laws that segregated the military during World War II', 'State and local laws in Southern states that enforced racial segregation in nearly all areas of public life', 'Laws that prevented African Americans from moving to Northern states', 'International laws that restricted immigration from African countries'],
+        correctIndex: 1,
+        explanation: 'The passage defines Jim Crow laws as state and local laws that enforced racial segregation in schools, restaurants, buses, and voting.'
+      },
+      {
+        question: "What was the significance of the Supreme Court's Brown v. Board of Education ruling?",
+        options: ['It authorized the federal government to enforce desegregation by sending troops to Southern states', 'It declared school segregation unconstitutional, overturning the Plessy v. Ferguson precedent', 'It created the legal framework for the Civil Rights Act of 1964', 'It required states to allow African Americans to register to vote without restrictions'],
+        correctIndex: 1,
+        explanation: 'The passage says Brown v. Board of Education declared school segregation unconstitutional, overturning Plessy v. Ferguson.'
+      },
+      {
+        question: "What strategy did Martin Luther King Jr. advocate, and what was his inspiration?",
+        options: ['Armed resistance inspired by the American Revolution', 'Political lobbying inspired by the labor movement of the 1930s', 'Nonviolent direct action inspired by Mahatma Gandhi in India', 'Legal challenges inspired by the NAACP in the 1940s'],
+        correctIndex: 2,
+        explanation: "The passage says King advocated nonviolent direct action inspired by Mahatma Gandhi's tactics in India."
+
+      },
+      {
+        question: 'What two major laws resulted from the Civil Rights Movement?',
+        options: ['The 13th and 14th Amendments to the Constitution', 'The Civil Rights Act of 1964 and the Voting Rights Act of 1965', 'The Equal Pay Act and the Fair Housing Act', 'Brown v. Board of Education and the Montgomery Bus Boycott settlement'],
+        correctIndex: 1,
+        explanation: 'The passage identifies the Civil Rights Act of 1964 and the Voting Rights Act of 1965 as the landmark legislation produced by the movement.'
+      },
+      {
+        question: "How did Malcolm X and the Black Power movement differ from Martin Luther King's approach?",
+        options: ['They sought to create a separate African American nation rather than integrate into U.S. society', 'They challenged nonviolence, argued for self-defense, and emphasized Black pride and economic self-reliance', 'They focused exclusively on passing new laws rather than using protests or demonstrations', 'They rejected all political organizing and relied solely on economic boycotts'],
+        correctIndex: 1,
+        explanation: 'The passage says Malcolm X challenged the nonviolent approach and argued Black Americans had the right to defend themselves; Black Power emphasized Black pride, economic self-reliance, and political power.'
+      }
+    ]
+  },
+
 ];
