@@ -184,7 +184,7 @@
     }
     .section-toggle:hover { background: #f3f4f6; color: var(--text); border-color: #9ca3af; }
 
-    .filter-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .filter-tabs { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
     .filter-tab {
       padding: 8px 16px; border-radius: 99px; font-size: 0.88rem; font-weight: 700;
       cursor: pointer; border: 2px solid var(--border); background: var(--surface);
@@ -192,7 +192,28 @@
     }
     .filter-tab.active { background: var(--purple); color: #fff; border-color: var(--purple); }
     .filter-tab:hover:not(.active) { border-color: var(--purple); color: var(--purple); }
+    .topic-pills { display: flex; gap: 7px; margin-bottom: 20px; flex-wrap: wrap; }
+    .topic-pill {
+      padding: 5px 13px; border-radius: 99px; font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; border: 2px solid var(--border); background: var(--surface);
+      color: var(--muted); transition: all 0.15s; font-family: inherit;
+    }
+    .topic-pill.active { background: #0ea5e9; color: #fff; border-color: #0ea5e9; }
+    .topic-pill:hover:not(.active) { border-color: #0ea5e9; color: #0ea5e9; }
+    .card-new-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 800;
+      background: #f59e0b; color: #fff; padding: 1px 7px; border-radius: 99px;
+      vertical-align: middle; margin-left: 4px; letter-spacing: 0.03em;
+    }
     #fav-empty { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 0.95rem; display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root { --surface: #1e1b2e; --border: rgba(255,255,255,0.1); --text: #f0eaff; --muted: #9ca3af; --purple-soft: #2d1b69; }
+      body { background: #111827; }
+      .nav { background: #1e1b2e; }
+      .story-card { background: #1e1b2e; }
+      .math-zone-banner { background: #1e1b2e !important; border-color: #374151 !important; }
+      .section-toggle { background: #1e1b2e; }
+    }
   </style>
 </head>
 <body>
@@ -284,6 +305,15 @@
       <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">📚 All Stories</button>
       <button class="filter-tab" id="tab-fav" onclick="setFilter('fav')">❤️ Saved</button>
     </div>
+    <!-- Topic filter pills -->
+    <div class="topic-pills" id="topic-pills">
+      <button class="topic-pill active" data-topic="all">All Topics</button>
+      <button class="topic-pill" data-topic="fiction">📖 Fiction</button>
+      <button class="topic-pill" data-topic="biography">🧑 Biography</button>
+      <button class="topic-pill" data-topic="science">🔬 Science</button>
+      <button class="topic-pill" data-topic="history">📜 History</button>
+      <button class="topic-pill" data-topic="florida">🌴 Florida</button>
+    </div>
     <div class="story-grid" id="grid-favorites" style="display:none;"></div>
     <div id="fav-empty">No saved stories yet — tap 🤍 on any story card to bookmark it here.</div>
 
@@ -320,7 +350,7 @@
     <div class="story-grid" id="grid-advanced"></div>
   </div>
 
-  <script src="stories.js?v=20260607"></script>
+  <script src="stories.js?v=20260705"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -352,6 +382,33 @@
 
     let progressMap = {};
     const FAV_KEY = 'favorites_' + (profile ? profile.readerId : 'anon');
+
+    // ─── New-story badge (update IDs each release) ─────────────────────────────
+    const NEW_STORY_IDS = new Set([
+      'the-brave-little-firefly-gr1','ruby-bridges-gr1-2','mia-and-the-missing-backpack-gr2',
+      'the-storm-and-the-seed-gr3','the-map-in-the-attic-gr4','marie-curie-science-barrier-gr6',
+      'thurgood-marshall-equal-justice-gr7','florida-space-coast-gr7',
+      'cesar-chavez-farmworkers-gr8','the-internet-arpanet-to-everything-gr8',
+    ]);
+
+    // ─── Topic filter ──────────────────────────────────────────────────────────
+    const TOPIC_GROUPS = {
+      fiction:   t => t === 'fiction',
+      biography: t => t === 'biography',
+      science:   t => t.startsWith('science') || t === 'space' || t === 'human-body' || t === 'earth-science' || t === 'life-science' || t === 'technology',
+      history:   t => t.includes('history') || t === 'civics' || t === 'social-studies' || t === 'social studies' || t === 'world-history' || t === 'us-history' || t === 'american-history',
+      florida:   t => t.startsWith('florida') || t === 'florida-nature' || t === 'florida-environment',
+    };
+    let activeTopicFilter = 'all';
+
+    document.getElementById('topic-pills').addEventListener('click', e => {
+      const btn = e.target.closest('.topic-pill');
+      if (!btn) return;
+      activeTopicFilter = btn.dataset.topic;
+      document.querySelectorAll('.topic-pill').forEach(p => p.classList.toggle('active', p === btn));
+      renderGrids();
+      renderFavorites();
+    });
     let favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
     let totalStars  = 0;
 
@@ -415,11 +472,12 @@
         </div>`;
       }
       const isSaved = favIds.includes(story.id);
+      const newBadge = NEW_STORY_IDS.has(story.id) ? '<span class="card-new-badge">NEW</span>' : '';
       return `<div class="story-card${doneClass}" onclick="window.location='${readUrl}'">
         <button class="card-fav-btn${isSaved ? ' saved' : ''}" data-id="${story.id}" onclick="event.stopPropagation();toggleFav('${story.id}',this)" title="${isSaved ? 'Remove bookmark' : 'Bookmark this story'}">${isSaved ? '❤️' : '🤍'}</button>
         <div class="card-cover" style="background:${story.coverColor}20;">${story.coverEmoji}</div>
         <div class="card-body">
-          <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''} <span style="font-size:0.68rem;font-weight:800;padding:2px 7px;border-radius:99px;vertical-align:middle;background:${getDifficultyColor(story)}20;color:${getDifficultyColor(story)};">${getDifficultyLabel(story)}</span>
+          <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''}${newBadge} <span style="font-size:0.68rem;font-weight:800;padding:2px 7px;border-radius:99px;vertical-align:middle;background:${getDifficultyColor(story)}20;color:${getDifficultyColor(story)};">${getDifficultyLabel(story)}</span>
           <div class="card-title">${story.title}</div>
           <div class="card-meta">~${story.readTimeMin} min · ${story.wordCount} words</div>
           ${statusHtml}
@@ -475,13 +533,15 @@
         const grid   = document.getElementById('grid-' + sec.key);
         if (!header || !grid) return;
 
-        // Filter by level AND grade
-        // 'challenge' is treated as part of the 'advanced' section
+        // Filter by level AND grade AND active topic
+        const topicMatch = activeTopicFilter === 'all'
+          ? () => true
+          : s => TOPIC_GROUPS[activeTopicFilter] ? TOPIC_GROUPS[activeTopicFilter](s.topic) : s.topic === activeTopicFilter;
         const stories = STORIES.filter(s => {
           const levelOk = sec.level === 'advanced'
             ? (s.level === 'advanced' || s.level === 'challenge')
             : s.level === sec.level;
-          return levelOk && Array.isArray(s.grades) && s.grades.includes(grade);
+          return levelOk && Array.isArray(s.grades) && s.grades.includes(grade) && topicMatch(s);
         });
 
         if (stories.length === 0) {

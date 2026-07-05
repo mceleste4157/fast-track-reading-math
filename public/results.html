@@ -319,13 +319,44 @@
       <a class="adaptive-btn" id="adaptive-link" href="#">Read →</a>
     </div>
 
+    <!-- Grade-up suggestion (shows after 3 consecutive perfect scores) -->
+    <div class="adaptive-card" id="gradeup-card" style="display:none;border-color:#f59e0b;background:linear-gradient(135deg,#fffbeb,#fef3c7);">
+      <div class="adaptive-emoji">🚀</div>
+      <div class="adaptive-body">
+        <div class="adaptive-label" style="color:#92400e;">Ready for the next level?</div>
+        <div class="adaptive-title" id="gradeup-title"></div>
+        <div class="adaptive-meta" id="gradeup-meta"></div>
+      </div>
+      <a class="adaptive-btn" id="gradeup-link" href="#" style="background:#f59e0b;">Try it →</a>
+    </div>
+
     <div class="btn-row">
       <a href="library.html" class="btn-primary">📚 Back to Library</a>
       <a id="try-again-btn" href="#" class="btn-secondary">🔄 Try Again</a>
+      <a id="spelling-btn" href="#" class="btn-secondary" style="display:none;">🔤 Spelling Quiz</a>
+    </div>
+
+    <!-- Mini-games -->
+    <div id="minigames-wrap" style="display:none;width:100%;margin-top:4px;">
+      <div style="font-size:.72rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;text-align:center;">🎮 More Ways to Practice</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <a id="mg-flash" href="#" style="display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--text);font-weight:700;font-size:.88rem;">
+          <span style="font-size:1.4rem;">🃏</span><span>Flashcards</span>
+        </a>
+        <a id="mg-fill" href="#" style="display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--text);font-weight:700;font-size:.88rem;">
+          <span style="font-size:1.4rem;">✏️</span><span>Fill in Blank</span>
+        </a>
+        <a id="mg-scramble" href="#" style="display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--text);font-weight:700;font-size:.88rem;">
+          <span style="font-size:1.4rem;">🔀</span><span>Unscramble</span>
+        </a>
+        <a id="mg-match" href="#" style="display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--text);font-weight:700;font-size:.88rem;">
+          <span style="font-size:1.4rem;">🧩</span><span>Memory Match</span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <script src="stories.js?v=20260607"></script>
+  <script src="stories.js?v=20260705"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -343,12 +374,21 @@
       { id: 'streak_7',      emoji: '⚡', name: 'Week Warrior',   desc: 'Read 7 days in a row' },
       { id: 'streak_14',     emoji: '🌙', name: 'Two-Week Champ', desc: 'Read 14 days in a row' },
       { id: 'xp_500',        emoji: '💎', name: 'XP Hunter',      desc: 'Earned 500 total XP' },
-      { id: 'typing_first',  emoji: '⌨️', name: 'Keyboarder',     desc: 'First typing lesson done' },
-      { id: 'typing_5',      emoji: '🖥️', name: 'Typing Pro',     desc: 'Completed 5 typing lessons' },
-      { id: 'typing_10',     emoji: '⚡', name: 'Speed Demon',    desc: 'Completed 10 typing lessons' },
+      { id: 'typing_first',  emoji: '⌨️', name: 'Keyboarder',        desc: 'First typing lesson done' },
+      { id: 'typing_5',      emoji: '🖥️', name: 'Typing Pro',        desc: 'Completed 5 typing lessons' },
+      { id: 'typing_10',     emoji: '⚡', name: 'Speed Demon',        desc: 'Completed 10 typing lessons' },
+      { id: 'topic_florida', emoji: '🌴', name: 'Florida Naturalist', desc: 'Read 5 Florida nature stories' },
+      { id: 'topic_science', emoji: '🔬', name: 'Science Whiz',       desc: 'Read 5 science stories' },
+      { id: 'topic_history', emoji: '📜', name: 'History Buff',       desc: 'Read 5 history stories' },
+      { id: 'topic_space',   emoji: '🚀', name: 'Star Gazer',         desc: 'Read 3 space stories' },
+      { id: 'topic_bio',     emoji: '👤', name: 'Biography Fan',      desc: 'Read 3 biography stories' },
+      { id: 'topic_fiction', emoji: '✨', name: 'Story Lover',        desc: 'Read 3 fiction stories' },
     ];
     function checkNewBadges(stats, currentBadges) {
       const earned = new Set(currentBadges);
+      const tc = stats.topicCounts || {};
+      const florida = (tc['florida-nature'] || 0) + (tc['florida-history'] || 0);
+      const history = (tc['history'] || 0) + (tc['florida-history'] || 0) + (tc['us-history'] || 0);
       return [
         ['first_story',   stats.storiesRead >= 1],
         ['story_5',       stats.storiesRead >= 5],
@@ -362,6 +402,12 @@
         ['streak_7',      stats.streak >= 7],
         ['streak_14',     stats.streak >= 14],
         ['xp_500',        stats.totalXp >= 500],
+        ['topic_florida', florida >= 5],
+        ['topic_science', (tc['science'] || 0) >= 5],
+        ['topic_history', history >= 5],
+        ['topic_space',   (tc['space'] || 0) >= 3],
+        ['topic_bio',     (tc['biography'] || 0) >= 3],
+        ['topic_fiction', (tc['fiction'] || 0) >= 3],
       ].filter(([id, cond]) => cond && !earned.has(id)).map(([id]) => id);
     }
     function getWeekStart() {
@@ -396,21 +442,28 @@
     }
 
     const LEVELS = [
-      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
-      { name: 'Reader',       minXp: 100,  emoji: '📚' },
-      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
-      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
-      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
-      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
-      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
-      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
-      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
-      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
-      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
-      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
-      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
-      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
-      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+      { name: 'Bookworm',       minXp: 0,     emoji: '📖' },
+      { name: 'Reader',         minXp: 100,   emoji: '📚' },
+      { name: 'Word Hunter',    minXp: 250,   emoji: '🔍' },
+      { name: 'Explorer',       minXp: 450,   emoji: '🗺️' },
+      { name: 'Thinker',        minXp: 700,   emoji: '🧠' },
+      { name: 'Scholar',        minXp: 1000,  emoji: '🎓' },
+      { name: 'Achiever',       minXp: 1400,  emoji: '⚡' },
+      { name: 'Champion',       minXp: 1900,  emoji: '🏆' },
+      { name: 'Super Reader',   minXp: 2800,  emoji: '🌟' },
+      { name: 'Eagle Eye',      minXp: 4000,  emoji: '🦅' },
+      { name: 'Story Master',   minXp: 5500,  emoji: '🚀' },
+      { name: 'Prodigy',        minXp: 7500,  emoji: '💎' },
+      { name: 'Summer Hero',    minXp: 10000, emoji: '☀️' },
+      { name: 'Grand Master',   minXp: 13000, emoji: '👑' },
+      { name: 'FAST Legend',    minXp: 17000, emoji: '🌈' },
+      { name: 'Mythic Reader',  minXp: 21500, emoji: '🔥' },
+      { name: 'Genius',         minXp: 27000, emoji: '🧬' },
+      { name: 'Knowledge Lord', minXp: 33500, emoji: '🔭' },
+      { name: 'Elite Scholar',  minXp: 41000, emoji: '⭐' },
+      { name: 'Legend Maker',   minXp: 50000, emoji: '🌙' },
+      { name: 'Galaxy Brain',   minXp: 60000, emoji: '🪐' },
+      { name: 'Infinity Reader',minXp: 72000, emoji: '♾️' },
     ];
     function getLevel(xp) {
       let idx = 0;
@@ -439,6 +492,25 @@
 
     const { stars, xp } = calcRewards(result.score, result.total, result.earnedXP);
     document.getElementById('try-again-btn').href = 'quiz.html?story=' + result.storyId;
+    if (stars >= 5) {
+      document.getElementById('try-again-btn').textContent = '📖 Read Again';
+    }
+
+    // Spelling quiz button — only if story has vocab words
+    const hasVocab = story.vocabulary && story.vocabulary.length >= 3;
+    if (hasVocab) {
+      const spellBtn = document.getElementById('spelling-btn');
+      spellBtn.href = 'spelling-quiz.html?story=' + result.storyId;
+      spellBtn.style.display = '';
+    }
+
+    // Mini-games panel
+    const sid = result.storyId;
+    document.getElementById('mg-flash').href    = 'flashcards.html?story='   + sid;
+    document.getElementById('mg-fill').href     = 'fill-in-blank.html?story=' + sid;
+    document.getElementById('mg-scramble').href = 'unscramble.html?story='    + sid;
+    document.getElementById('mg-match').href    = 'memory-match.html?story='  + sid;
+    document.getElementById('minigames-wrap').style.display = 'block';
 
     // ── Mark activity (clears inactivity decay) ──────────────────────────────
     (function markActivity() {
@@ -524,7 +596,7 @@
         document.getElementById('xp-bar-label').textContent = totalXp + ' / ' + nextLevel.minXp + ' XP → ' + nextLevel.name;
       } else {
         document.getElementById('xp-bar-fill').style.width = '100%';
-        document.getElementById('xp-bar-label').textContent = '🌈 FAST Legend! ' + totalXp + ' XP!';
+        document.getElementById('xp-bar-label').textContent = level.emoji + ' ' + level.name + '! ' + totalXp + ' XP!';
       }
       // Level-up?
       if (newLvlData.levelIdx > oldLvlData.levelIdx) {
@@ -560,6 +632,29 @@
         }, 2000);
       }
 
+      // Combo toast — 2+ stories finished today
+      (function () {
+        const todayStr2 = new Date().toISOString().slice(0, 10);
+        const comboKey  = 'comboDate_' + profile.readerId;
+        const comboCountKey = 'comboCount_' + profile.readerId;
+        const lastComboDate = localStorage.getItem(comboKey);
+        let comboCount = lastComboDate === todayStr2 ? parseInt(localStorage.getItem(comboCountKey) || '0') : 0;
+        comboCount++;
+        localStorage.setItem(comboKey, todayStr2);
+        localStorage.setItem(comboCountKey, String(comboCount));
+        if (comboCount >= 2) {
+          setTimeout(() => {
+            const msgs = ['', '', '2 in a row today! 🔥 Keep it up!', '3 stories today! 🚀 You\'re on fire!', '4 today! 🌟 Amazing reading session!', '5 stories today! 🏆 Unstoppable!'];
+            const msg = msgs[Math.min(comboCount, msgs.length - 1)] || comboCount + ' stories today! 🏆 Incredible!';
+            const toast = document.createElement('div');
+            toast.textContent = msg;
+            toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;padding:13px 22px;border-radius:13px;font-weight:800;font-size:0.92rem;z-index:9999;box-shadow:0 4px 20px rgba(124,58,237,0.4);max-width:340px;text-align:center;';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
+          }, 1500);
+        }
+      })();
+
       // Weekly counts
       const isNewWeek = (sd.weekStartDate || '') !== weekStart;
       const storiesThisWeek = (isNewWeek ? 0 : (sd.storiesThisWeek || 0)) + 1;
@@ -578,12 +673,22 @@
       // ── Badges ─────────────────────────────────────────────────────────────
       const currentBadges = sd.badges || [];
       const storiesRead = uniqueStories.has(result.storyId) ? uniqueStories.size : uniqueStories.size + 1;
+      // Build per-topic read counts (include current story)
+      const topicCounts = {};
+      readSnap.forEach(d => {
+        const t = d.data().storyTopic;
+        if (t) topicCounts[t] = (topicCounts[t] || 0) + 1;
+      });
+      if (!uniqueStories.has(result.storyId)) {
+        const ct = result.storyTopic || story.topic;
+        if (ct) topicCounts[ct] = (topicCounts[ct] || 0) + 1;
+      }
       const newBadgeIds = checkNewBadges({
         storiesRead, hadPerfect,
         mathUnlocked: localStorage.getItem(MATH_UNLOCK_KEY) === 'true',
         mathTopics:   uniqueMath.size,
         streak:       currentStreak,
-        totalXp
+        totalXp,     topicCounts
       }, currentBadges);
       showBadges(newBadgeIds);
 
@@ -645,6 +750,61 @@
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(err => console.error('Firestore write failed:', err));
+
+      // ── Daily Challenge completion ───────────────────────────────────────────
+      (function checkDailyChallenges() {
+        const todayStr2 = new Date().toISOString().slice(0, 10);
+        const lsKey = 'dc_' + profile.readerId + '_' + todayStr2;
+        const state = JSON.parse(localStorage.getItem(lsKey) || '{"completed":[]}');
+        const done = new Set(state.completed);
+        const storyTopic = result.storyTopic || story.topic || '';
+        const toComplete = [];
+
+        if (!done.has('c_read1')) toComplete.push('c_read1');
+        if (stars >= 5 && !done.has('c_perfect')) toComplete.push('c_perfect');
+        if (!done.has('c_newstory')) toComplete.push('c_newstory');
+        if (storyTopic.includes('science') && !done.has('c_science')) toComplete.push('c_science');
+        if ((storyTopic.includes('history') || storyTopic.includes('florida')) && !done.has('c_history')) toComplete.push('c_history');
+        if (storyTopic.includes('florida') && !done.has('c_florida')) toComplete.push('c_florida');
+
+        if (!done.has('c_read2')) {
+          db.collection('Progress').where('readerId', '==', profile.readerId).get().then(snap => {
+            const todayReads = snap.docs.filter(d => {
+              const ts = d.data().completedAt;
+              return ts && ts.toDate && ts.toDate().toISOString().slice(0, 10) === todayStr2;
+            }).length + 1;
+            if (todayReads >= 2) toComplete.push('c_read2');
+            awardChallenges(toComplete, done, lsKey, state);
+          }).catch(() => awardChallenges(toComplete, done, lsKey, state));
+        } else {
+          awardChallenges(toComplete, done, lsKey, state);
+        }
+      })();
+    }
+
+    function awardChallenges(toComplete, done, lsKey, state) {
+      const CHALLENGE_POOL = [
+        { id: 'c_read1', xp: 25 }, { id: 'c_read2', xp: 40 }, { id: 'c_perfect', xp: 35 },
+        { id: 'c_newstory', xp: 30 }, { id: 'c_science', xp: 25 }, { id: 'c_history', xp: 25 },
+        { id: 'c_florida', xp: 25 }, { id: 'c_typing', xp: 20 }, { id: 'c_math', xp: 20 },
+        { id: 'c_vocab', xp: 20 },
+      ];
+      if (!toComplete.length) return;
+      let bonusXp = 0;
+      toComplete.forEach(id => {
+        if (!done.has(id)) {
+          done.add(id);
+          const ch = CHALLENGE_POOL.find(c => c.id === id);
+          if (ch) bonusXp += ch.xp;
+        }
+      });
+      state.completed = [...done];
+      localStorage.setItem(lsKey, JSON.stringify(state));
+      if (bonusXp > 0) {
+        firebase.firestore().collection('StudentStats').doc(profile.readerId)
+          .set({ challengeXp: firebase.firestore.FieldValue.increment(bonusXp), lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
+          .catch(() => {});
+      }
     }
 
     // ─── Grade advancement ─────────────────────────────────────────────────────
@@ -787,6 +947,49 @@
           this.disabled = false; this.textContent = 'Submit Response';
         });
       });
+    })();
+
+    // ─── Grade-up suggestion (shown when 3 consecutive perfect scores at grade) ──
+    (function () {
+      if (stars < 5) return;
+      const grade = parseInt(profile.gradeLevel) || 4;
+      if (grade >= 8) return; // already at max grade
+      db.collection('Progress').where('readerId', '==', profile.readerId).get().then(snap => {
+        // Collect all docs for stories at the student's current grade, sorted newest first
+        const gradeCompletions = snap.docs
+          .filter(d => {
+            const sid = d.data().storyId;
+            const s = STORIES.find(x => x.id === sid);
+            return s && Array.isArray(s.grades) && s.grades.includes(grade);
+          })
+          .sort((a, b) => {
+            const ta = a.data().completedAt, tb = b.data().completedAt;
+            return (tb && tb.toMillis ? tb.toMillis() : 0) - (ta && ta.toMillis ? ta.toMillis() : 0);
+          });
+
+        // Include the current result (just submitted, may not be in snap yet)
+        const alreadyIn = gradeCompletions.some(d => d.data().storyId === result.storyId);
+        const recentStars = alreadyIn
+          ? gradeCompletions.slice(0, 3).map(d => d.data().starsEarned || 0)
+          : [stars, ...gradeCompletions.slice(0, 2).map(d => d.data().starsEarned || 0)];
+
+        if (recentStars.length < 3 || recentStars.some(s => s < 5)) return;
+
+        // Find an unread story one grade up
+        const readIds = new Set(snap.docs.map(d => d.data().storyId));
+        const nextGrade = grade + 1;
+        const suggestion = STORIES.find(s =>
+          !readIds.has(s.id) &&
+          Array.isArray(s.grades) && s.grades.includes(nextGrade)
+        );
+        if (!suggestion) return;
+
+        document.getElementById('gradeup-title').textContent = suggestion.title;
+        document.getElementById('gradeup-meta').textContent =
+          'Grade ' + nextGrade + ' · ~' + suggestion.readTimeMin + ' min · ' + suggestion.wordCount + ' words';
+        document.getElementById('gradeup-link').href = 'read.html?story=' + suggestion.id;
+        document.getElementById('gradeup-card').style.display = 'flex';
+      }).catch(() => {});
     })();
 
     // ─── Adaptive suggestion (shown when score < 3 stars) ─────────────────────

@@ -190,6 +190,16 @@
     @keyframes ppmShake {
       0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
     }
+    @media (prefers-color-scheme: dark) {
+      :root { --surface: #1e1b2e; --border: rgba(255,255,255,0.1); --text: #f0eaff; --muted: #9ca3af; --purple-soft: #2d1b69; }
+      body { background: #111827; }
+      .nav { background: #1e1b2e; }
+      .hero-card { background: #1e1b2e; }
+      .stat-card { background: #1e1b2e; }
+      .module-card { background: #1e1b2e !important; }
+      .xp-bar-wrap { background: #374151; }
+      .lvl-row { background: #1e1b2e; border-color: #374151; }
+    }
   </style>
 </head>
 <body>
@@ -238,6 +248,7 @@
         <div class="stat-card"><div class="stat-val" id="s-xp">…</div><div class="stat-label">Total XP</div></div>
         <div class="stat-card"><div class="stat-val" id="s-stories">…</div><div class="stat-label">Stories</div></div>
         <div class="stat-card"><div class="stat-val" id="s-math">…</div><div class="stat-label">Math</div></div>
+        <div class="stat-card"><div class="stat-val" id="s-readtime">—</div><div class="stat-label">Today</div></div>
       </div>
 
       <!-- Weekly goal bar -->
@@ -360,7 +371,7 @@
       });
     }
   </script>
-  <script src="stories.js?v=20260607"></script>
+  <script src="stories.js?v=20260705"></script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
@@ -676,6 +687,13 @@
 
     // ─── Load Firestore stats ──────────────────────────────────────────────────
     const db = firebase.firestore();
+
+    // Show a retry link if Firestore takes more than 5 seconds
+    const _loadingTimeout = setTimeout(() => {
+      document.getElementById('xp-label').innerHTML =
+        '⚠️ Taking too long · <a href="javascript:location.reload()" style="color:var(--purple);font-weight:700;">Tap to retry</a>';
+    }, 5000);
+
     Promise.all([
       db.collection('Progress').where('readerId', '==', profile.readerId).get(),
       db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
@@ -683,6 +701,7 @@
       db.collection('TriviaScores').where('readerId', '==', profile.readerId).get(),
       db.collection('StudentStats').doc(profile.readerId).get()
     ]).then(([readSnap, mathSnap, typingSnap, triviaSnap, statsSnap]) => {
+      clearTimeout(_loadingTimeout);
       let readXp = 0, bestReadScore = 0;
       const uniqueStories = new Set();
       const bestPerStory  = {}; // storyId → best-scoring doc
@@ -918,6 +937,16 @@
       const gradeForMath = parseInt(profile.gradeLevel) || 4;
       const gradeMathSets = MATH_SETS.filter(s => Array.isArray(s.grades) && s.grades.includes(gradeForMath));
       document.getElementById('s-math').textContent    = uniqueMath.size + '/' + gradeMathSets.length;
+      // Today's reading time from localStorage
+      (function () {
+        const todayKey  = new Date().toISOString().slice(0, 10);
+        const dateKey   = 'readTimeDate_' + profile.readerId;
+        const secsKey   = 'readTimeSecs_' + profile.readerId;
+        const secs = localStorage.getItem(dateKey) === todayKey
+          ? parseInt(localStorage.getItem(secsKey) || '0') : 0;
+        const mins = Math.round(secs / 60);
+        document.getElementById('s-readtime').textContent = mins > 0 ? mins + 'm' : '0m';
+      })();
       const mathSubEl = document.getElementById('math-topics-sub');
       if (mathSubEl) mathSubEl.textContent = gradeMathSets.length + ' topics • Grade ' + gradeForMath + ' math';
 
