@@ -24015,4 +24015,836 @@ The Civil Rights Movement permanently transformed American law and society. It o
     ]
   },
 
+  // ── CONTENT GAP FILLS ─────────────────────────────────────────────────────
+
+  // Grade 1 — Fiction (missing)
+  {
+    id: 'the-brave-little-firefly-gr1',
+    title: "The Brave Little Firefly",
+    topic: 'fiction',
+    coverEmoji: '✨',
+    coverColor: '#fef3c7',
+    gradeLevel: '1',
+    level: 'early',
+    grades: [1],
+    wordCount: 280,
+    readTimeMin: 2,
+    text: `
+Finn was a small firefly who lived in a big dark forest.
+
+Every night, the other fireflies flew up high and made the sky sparkle. But Finn stayed low near the grass. His light felt too small. He was afraid it would not matter.
+
+One night, a little girl named Maya got lost in the forest. She sat down and started to cry. It was very dark. She could not see the path home.
+
+Finn saw Maya crying. He wanted to help, but he thought, "My light is so tiny. How can I help?"
+
+Then Finn had an idea. He flew close to Maya and blinked his little light — on, off, on, off.
+
+"Oh!" said Maya. "A firefly!"
+
+Finn blinked again and flew one step down the path. Maya followed. Finn blinked and flew one more step. Maya followed again.
+
+Step by step, Finn led Maya through the forest. His small light showed just enough path for her feet.
+
+Soon Maya saw the lights of her house. She ran to her family.
+
+"A tiny firefly led me home!" she told them.
+
+Up in the sky, the other fireflies cheered. Finn flew up to join them. His light did not feel small anymore. He had helped someone find their way — and that was the biggest thing a firefly could do.
+
+From that night on, Finn flew a little higher. And every time he blinked his light, he remembered: even a small light matters in the dark.
+    `.trim(),
+    vocabulary: [
+      { word: 'sparkle', definition: 'To shine with small, bright flashes of light.', example: "The stars sparkle in the night sky." },
+      { word: 'afraid', definition: 'Feeling scared or worried about something.', example: "She was afraid of the loud thunder." },
+      { word: 'tiny', definition: 'Very, very small.', example: "The ant is a tiny insect." },
+      { word: 'followed', definition: 'Went behind someone or something.', example: "The puppy followed the boy down the street." },
+      { word: 'cheered', definition: 'Shouted or clapped to show happiness.', example: "The crowd cheered when the team scored." },
+    ],
+    questions: [
+      {
+        question: 'Why did Finn stay low near the grass at the start of the story?',
+        options: ['He was tired and wanted to rest', 'He felt his light was too small to matter', 'He did not like the other fireflies', 'He was looking for food in the grass'],
+        correctIndex: 1,
+        explanation: 'The story says Finn was afraid his light felt too small and would not matter, so he stayed low instead of flying high.'
+      },
+      {
+        question: 'What problem did Maya have in the forest?',
+        options: ['She fell and hurt her knee', 'She lost her backpack', 'She got lost and could not see the path home', 'She was afraid of the fireflies'],
+        correctIndex: 2,
+        explanation: 'Maya got lost in the dark forest and could not see the path home, so she sat down and cried.'
+      },
+      {
+        question: 'How did Finn help Maya find her way?',
+        options: ['He flew her on his back', 'He called out to her family', 'He blinked his light and moved one step at a time down the path', 'He made his light very bright so the whole forest lit up'],
+        correctIndex: 2,
+        explanation: "Finn blinked his light and moved one step at a time down the path so Maya could follow him step by step."
+      },
+      {
+        question: 'What lesson does Finn learn at the end of the story?',
+        options: ['Big fireflies make the best lights', 'Even a small light can matter and help someone', 'It is better to stay safe and not take risks', 'The forest is a dangerous place at night'],
+        correctIndex: 1,
+        explanation: 'After helping Maya, Finn learned that even a small light matters in the dark — a small act of courage can make a big difference.'
+      },
+      {
+        question: 'What word best describes Finn at the end of the story?',
+        options: ['Afraid', 'Selfish', 'Brave', 'Angry'],
+        correctIndex: 2,
+        explanation: 'Finn overcame his fear and helped Maya even though he thought his light was too small. That makes him brave.'
+      },
+    ]
+  },
+
+  // Grade 1-2 — Biography (missing)
+  {
+    id: 'ruby-bridges-gr1-2',
+    title: "Ruby Bridges: Walking to School",
+    topic: 'biography',
+    coverEmoji: '🏫',
+    coverColor: '#fce7f3',
+    gradeLevel: '1-2',
+    level: 'early',
+    grades: [1, 2],
+    wordCount: 320,
+    readTimeMin: 2,
+    text: `
+In 1960, a six-year-old girl named Ruby Bridges did something very brave. She walked into a new school — and changed history.
+
+Ruby lived in New Orleans, Louisiana. At that time, Black children and white children had to go to different schools. This was called segregation. It was not fair, and many people knew it.
+
+A new law said that all children could go to the same schools. Ruby was chosen to be one of the first Black students at William Frantz Elementary School.
+
+On her first day, Ruby wore a white dress with a white bow in her hair. She carried a small lunch box. Outside the school, angry crowds shouted. They did not want Ruby there.
+
+Ruby was protected by four tall federal marshals — officers sent by the government to keep her safe. They walked with her every single day.
+
+Inside the school, some parents pulled their children out of class. Only one teacher, Mrs. Henry, was willing to teach Ruby. Mrs. Henry said Ruby was one of the best students she ever had.
+
+Every day for a whole year, Ruby walked past the shouting crowds. She never missed a day of school. She never gave up.
+
+Ruby later said she was not scared because she was praying as she walked. She prayed for the people who were angry at her.
+
+Today, Ruby Bridges is famous for her courage. A famous painting by Norman Rockwell shows her walking to school. There is even a statue of her outside the school where she made history.
+
+Ruby showed that one small child can stand up for what is right — and the whole world can change.
+    `.trim(),
+    vocabulary: [
+      { word: 'segregation', definition: 'The unfair practice of keeping people apart because of their race.', example: "Segregation kept Black and white students in separate schools." },
+      { word: 'federal', definition: 'Belonging to the national government of the United States.', example: "Federal marshals were sent to protect Ruby." },
+      { word: 'courage', definition: 'The strength to do something scary or hard.', example: "It took great courage to walk past the angry crowds." },
+      { word: 'protected', definition: 'Kept safe from danger.', example: "The officers protected Ruby every day." },
+      { word: 'praying', definition: 'Talking to God or asking for help or strength.', example: "She felt calm because she was praying as she walked." },
+    ],
+    questions: [
+      {
+        question: 'What was segregation?',
+        options: ['A type of school where children learned together', 'The unfair practice of keeping people apart because of their race', 'A law that helped Ruby go to school', 'A neighborhood in New Orleans'],
+        correctIndex: 1,
+        explanation: 'Segregation was the unfair practice of keeping Black and white people separated, including in schools.'
+      },
+      {
+        question: 'Why was it hard for Ruby to go to school every day?',
+        options: ['The school was very far away', 'Angry crowds outside the school shouted at her', 'She did not have a teacher', 'The school did not have room for her'],
+        correctIndex: 1,
+        explanation: 'Angry crowds gathered outside the school every day and shouted at Ruby because they did not want her there.'
+      },
+      {
+        question: 'Who helped keep Ruby safe on her walk to school?',
+        options: ['Her parents', 'Other students', 'Four federal marshals', 'The school principal'],
+        correctIndex: 2,
+        explanation: 'Four federal marshals — officers sent by the government — walked with Ruby every single day to keep her safe.'
+      },
+      {
+        question: 'Which teacher was willing to teach Ruby?',
+        options: ['Mrs. Williams', 'Mrs. Henry', 'Mrs. Bridges', 'Mrs. Rockwell'],
+        correctIndex: 1,
+        explanation: 'Mrs. Henry was the only teacher willing to teach Ruby, and she said Ruby was one of the best students she ever had.'
+      },
+      {
+        question: 'What did Ruby say helped her feel calm when she walked past the angry crowds?',
+        options: ['Holding her lunch box tightly', 'Thinking about her friends', 'Singing songs to herself', 'Praying for the people who were angry'],
+        correctIndex: 3,
+        explanation: "Ruby said she was not scared because she was praying — and she prayed for the people who were angry at her, not just for herself."
+      },
+    ]
+  },
+
+  // Grade 2 — Fiction (missing)
+  {
+    id: 'mia-and-the-missing-backpack-gr2',
+    title: "Mia and the Missing Backpack",
+    topic: 'fiction',
+    coverEmoji: '🎒',
+    coverColor: '#ecfdf5',
+    gradeLevel: '2',
+    level: 'emerging',
+    grades: [2],
+    wordCount: 360,
+    readTimeMin: 3,
+    text: `
+Mia loved her purple backpack. It had a patch of a dolphin on the front, and it held all her most important things: her reading journal, her lucky eraser, and a photo of her dog, Biscuit.
+
+One Monday morning, Mia reached under her desk for her backpack — and it was gone.
+
+"Oh no," she whispered. Her heart thumped.
+
+She looked around the classroom. She checked the cubby by the door. She even looked under the beanbag chairs in the reading corner. No purple backpack anywhere.
+
+At lunch, Mia told her best friend, Deja.
+
+"When did you last have it?" asked Deja.
+
+Mia thought hard. "After gym class. I had it in the hallway."
+
+"Then let's go to the gym," said Deja.
+
+After lunch, Mia and Deja walked to the gym. They asked Coach Rivera. He shook his head. But then he pointed down the hall. "Check the lost and found near the front office."
+
+Mia had never been to the lost and found before. It was a big blue bin overflowing with hats, scarves, and one lonely roller skate. Mia dug through it carefully.
+
+At the very bottom, there was something purple.
+
+"MY BACKPACK!" Mia shouted. She pulled it out and hugged it.
+
+Deja laughed. "Your journal, your eraser, and Biscuit are all safe!"
+
+Mia checked inside. Everything was there. She let out a long breath.
+
+"Next time," said Deja, "put your name on your bag."
+
+"Already thinking about it," said Mia. She grinned and pulled out a marker. Right there in the hallway, she wrote MIA in big purple letters.
+
+She would never lose her backpack again.
+    `.trim(),
+    vocabulary: [
+      { word: 'thumped', definition: 'Beat loudly and heavily, like a heart when nervous.', example: "Her heart thumped when she could not find her homework." },
+      { word: 'cubby', definition: 'A small space or shelf used to store belongings at school.', example: "She put her coat and lunchbox in her cubby." },
+      { word: 'overflowing', definition: 'So full that things are spilling out.', example: "The lost and found bin was overflowing with items." },
+      { word: 'carefully', definition: 'Slowly and with attention, so nothing goes wrong.', example: "She carefully sorted through the bin looking for her bag." },
+      { word: 'grinned', definition: 'Smiled widely and happily.', example: "He grinned when his team scored the winning point." },
+    ],
+    questions: [
+      {
+        question: 'What made the purple backpack special to Mia?',
+        options: ['Her grandmother sewed it for her birthday', 'It held her reading journal, lucky eraser, and a photo of her dog', 'It was the most expensive backpack in school', 'It had a special pocket for her lunch'],
+        correctIndex: 1,
+        explanation: "The backpack held Mia's most important things: her reading journal, lucky eraser, and a photo of her dog Biscuit."
+      },
+      {
+        question: 'How did Mia figure out where to start looking for her backpack?',
+        options: ['She asked her teacher', 'She checked the school office first', 'She remembered she last had it after gym class', 'She posted signs around the school'],
+        correctIndex: 2,
+        explanation: "Mia thought hard and remembered she last had the backpack in the hallway after gym class, which told her where to start looking."
+      },
+      {
+        question: 'Who suggested going to the lost and found?',
+        options: ['Mia', 'Deja', 'Coach Rivera', 'The front office secretary'],
+        correctIndex: 2,
+        explanation: 'Coach Rivera pointed them toward the lost and found bin near the front office after they asked him about the backpack.'
+      },
+      {
+        question: 'Where was the backpack found?',
+        options: ['Under the bleachers in the gym', 'In the classroom cubby', 'At the very bottom of the lost and found bin', 'On the playground bench'],
+        correctIndex: 2,
+        explanation: 'The purple backpack was at the very bottom of the lost and found bin, under hats, scarves, and a roller skate.'
+      },
+      {
+        question: 'What did Mia do right after finding her backpack to make sure it would not happen again?',
+        options: ['She tied it to her desk', 'She asked Deja to hold it for her', 'She wrote her name on it in big purple letters', 'She put it in her cubby with a lock'],
+        correctIndex: 2,
+        explanation: 'Taking her best friend Deja\'s advice, Mia immediately wrote MIA in big purple letters on her bag so it could always be identified.'
+      },
+    ]
+  },
+
+  // Grade 3 — Fiction (missing)
+  {
+    id: 'the-storm-and-the-seed-gr3',
+    title: "The Storm and the Seed",
+    topic: 'fiction',
+    coverEmoji: '🌱',
+    coverColor: '#d1fae5',
+    gradeLevel: '3',
+    level: 'emerging',
+    grades: [3],
+    wordCount: 450,
+    readTimeMin: 3,
+    text: `
+The summer Marcus turned nine was the summer a hurricane took his grandmother's garden.
+
+They had driven to Grandma Ruth's house in central Florida just days before the storm. Grandma Ruth spent every spring planting: tomatoes, collard greens, sunflowers tall as fences. But when Hurricane Dalia swept through, it flattened everything. Afterward, the backyard looked like a muddy, twisted mess.
+
+Grandma Ruth walked through it slowly. Marcus expected her to cry. Instead, she crouched down near a broken fence post and picked up something small and brown.
+
+"Seeds," she said.
+
+Marcus looked at the tiny things in her palm. "From what?"
+
+"My sunflowers." She smiled, though her voice was quiet. "They dropped before the storm took them. Seeds always fall before the end."
+
+Marcus did not know what to say. So he helped.
+
+They spent three days clearing the yard together — hauling broken branches, raking mud, stacking rocks. Marcus's arms ached. His back hurt. He complained twice, and Grandma Ruth laughed both times.
+
+"The work hurts because it matters," she said.
+
+By Thursday, they had cleared a patch of earth near the back wall. Grandma Ruth showed Marcus how to press each seed into the soil — not too deep, just deep enough. "Give it a little room," she said. "Plants need space to reach."
+
+Before Marcus went home, he stood at the edge of the garden patch. It looked like nothing — just a square of flat brown dirt.
+
+"When will something grow?" he asked.
+
+"You'll have to come back to see," said Grandma Ruth.
+
+He came back in October. And there they were — six thin sunflower stalks poking up from the exact spots he remembered pressing the seeds. They were not tall yet. But they were there.
+
+Grandma Ruth put her arm around his shoulders.
+
+"Storms take things," she said. "But they can't take the seeds you save."
+
+Marcus looked at the small green stalks. He thought that was probably the truest thing he had ever heard.
+    `.trim(),
+    vocabulary: [
+      { word: 'hurricane', definition: 'A powerful tropical storm with very strong winds and heavy rain.', example: "The hurricane caused flooding and knocked down many trees." },
+      { word: 'flattened', definition: 'Made completely flat by force or weight.', example: "The strong wind flattened the corn in the field." },
+      { word: 'crouched', definition: 'Bent down low to the ground while keeping balance.', example: "She crouched down to pick up the tiny seed from the soil." },
+      { word: 'hauling', definition: 'Carrying or dragging something heavy from one place to another.', example: "The students spent the morning hauling branches to the pile." },
+      { word: 'stalks', definition: 'The main upright stems of a plant.', example: "Corn stalks can grow taller than a person." },
+    ],
+    questions: [
+      {
+        question: 'What happened to Grandma Ruth\'s garden during Hurricane Dalia?',
+        options: ['Heavy rain helped the plants grow bigger than usual', 'The storm flattened everything and left the yard a muddy mess', 'The garden was protected by a fence and survived unharmed', 'Grandma Ruth moved her plants inside before the storm'],
+        correctIndex: 1,
+        explanation: 'Hurricane Dalia swept through and flattened the entire garden — the tomatoes, collard greens, and sunflowers were all destroyed.'
+      },
+      {
+        question: 'What did Grandma Ruth find near the broken fence post after the storm?',
+        options: ['A packet of new seeds she had bought', 'A baby bird that fell from a tree', 'Seeds from her sunflowers that had dropped before the storm', 'A small photograph that had blown from the house'],
+        correctIndex: 2,
+        explanation: "Grandma Ruth found seeds from her sunflowers that had fallen to the ground before the storm destroyed the plants."
+      },
+      {
+        question: 'What does Grandma Ruth mean when she says, "The work hurts because it matters"?',
+        options: ['You should stop working if anything feels uncomfortable', 'Hard work that is important is worth doing even when it is difficult', 'Gardens are too much trouble and not worth the effort', 'Marcus was working the wrong way and needed to rest'],
+        correctIndex: 1,
+        explanation: "Grandma Ruth is teaching Marcus that hard, painful work is a sign that what you are doing truly matters — effort and meaning go together."
+      },
+      {
+        question: 'How did Marcus help prepare the new garden?',
+        options: ['He bought new plants from a store', 'He helped clear the yard and pressed seeds into the soil', 'He built a new fence around the entire backyard', 'He asked neighbors to donate plants'],
+        correctIndex: 1,
+        explanation: 'Marcus helped haul branches, rake mud, and stack rocks to clear the yard. Then Grandma Ruth showed him how to press each seed into the soil.'
+      },
+      {
+        question: 'What is the most important lesson Marcus learns from his grandmother?',
+        options: ['Gardening requires expensive tools and supplies', 'Storms always destroy everything and nothing can be saved', 'Even after loss and destruction, life can grow again from what was saved', 'It is better to buy new plants than to start from seeds'],
+        correctIndex: 2,
+        explanation: "Grandma Ruth's lesson — \"Storms take things, but they can't take the seeds you save\" — teaches Marcus that even after devastating loss, new life and hope can grow."
+      },
+    ]
+  },
+
+  // Grade 4 — Fiction (missing)
+  {
+    id: 'the-map-in-the-attic-gr4',
+    title: "The Map in the Attic",
+    topic: 'fiction',
+    coverEmoji: '🗺️',
+    coverColor: '#fef9c3',
+    gradeLevel: '4',
+    level: 'grade4',
+    grades: [4],
+    wordCount: 520,
+    readTimeMin: 4,
+    text: `
+The summer Lena turned ten, her family moved to a creaky old house on the edge of town. On the first afternoon, while her parents argued about which boxes to unpack first, Lena discovered the attic.
+
+It was hot and dusty up there, full of things left by the family who lived there before. Cardboard boxes. A rocking chair with one missing leg. A stack of Reader's Digests from 1978.
+
+And then, tucked between two water-stained ceiling beams: a rolled-up piece of paper tied with kitchen twine.
+
+Lena pulled it out carefully. It was a hand-drawn map — ink faded to brown, the lines wobbly and imprecise. It showed the neighborhood, but the streets had different names. At the center of the map, someone had drawn an X in red pencil and written three words in careful cursive: *The Oak Remembers.*
+
+The oak. Lena went to the window and looked out. At the edge of the backyard, half-swallowed by overgrown hedges, stood an enormous live oak. Its branches spread wide as a house. She had noticed it on moving day but thought nothing of it.
+
+Now she thought about it.
+
+The next morning, Lena brought a garden trowel from the garage and went to the base of the oak. She felt a little silly — she half-expected to find nothing. But the ground near the biggest root was soft, as if it had been turned before.
+
+Three inches down, the trowel hit something hard.
+
+She dug carefully with her hands. The soil fell away from a tin box about the size of a thick novel. Inside, wrapped in wax paper, were three things: a photograph of two girls around her age standing in front of the very same oak, a folded letter, and a glass marble, bright blue.
+
+The letter was short. It read:
+
+*If you are reading this, you live in our old house. We hid this in June 1987. We are moving to Georgia and we won't be back. We left our best marble because we think the oak should have a keeper. Please look after it. — Clara and June*
+
+Lena sat back on her heels. Clara and June had been real. They had stood in this yard, dug in this same soft dirt, and decided to leave something behind for whoever came next.
+
+She put the marble back in the tin. She would not take it. She would add something of her own.
+
+Later, she went inside and found a quarter, a polished penny, and a strip of paper on which she wrote her name, the date, and eight words: *I am the new keeper. The oak is safe.*
+
+She buried it all together.
+
+Then she patted the earth smooth, looked up through the great arms of the oak, and felt — for the first time since moving day — like she was exactly where she was supposed to be.
+    `.trim(),
+    vocabulary: [
+      { word: 'imprecise', definition: 'Not exactly right; a little off or rough.', example: "The hand-drawn map was imprecise, with wobbly lines and guessed distances." },
+      { word: 'cursive', definition: 'A style of handwriting where letters are joined together in flowing strokes.', example: "She practiced writing her name in cursive until it looked elegant." },
+      { word: 'trowel', definition: 'A small, handheld tool with a flat blade used for digging in soil.', example: "She used a trowel to dig a hole for the plant." },
+      { word: 'wax paper', definition: 'A type of paper coated with wax to make it waterproof and good for wrapping or protecting things.', example: "The old letter had been wrapped in wax paper to protect it from moisture." },
+      { word: 'heels', definition: 'The back parts of the feet; sitting back on your heels means crouching with weight resting backward.', example: "She sat back on her heels and read the letter again slowly." },
+    ],
+    questions: [
+      {
+        question: 'What did Lena find tucked between the ceiling beams in the attic?',
+        options: ['A tin box filled with old photographs', 'A hand-drawn map tied with kitchen twine', 'A journal belonging to the previous owner', 'A stack of old magazines from 1978'],
+        correctIndex: 1,
+        explanation: 'Lena found a rolled-up piece of paper tied with kitchen twine. When she unrolled it, it turned out to be a hand-drawn map of the neighborhood.'
+      },
+      {
+        question: 'What did the words "The Oak Remembers" on the map direct Lena to do?',
+        options: ['Read the old magazines in the attic', 'Ask her parents about the neighborhood history', 'Investigate the large live oak tree in the backyard', 'Look for a door hidden in the floor of the attic'],
+        correctIndex: 2,
+        explanation: 'The X on the map pointed to the center of the yard, and "The Oak Remembers" hinted that something important was connected to the large live oak tree.'
+      },
+      {
+        question: 'What did Clara and June\'s letter ask Lena to do?',
+        options: ['Return the tin box to their new address in Georgia', 'Give the marble to a local museum', 'Be a keeper of the oak tree and look after it', 'Share the treasure with everyone in the neighborhood'],
+        correctIndex: 2,
+        explanation: 'Clara and June asked whoever found the box to look after the oak tree and be its keeper, leaving behind their best marble as a symbol of that responsibility.'
+      },
+      {
+        question: 'Why did Lena decide not to take the marble?',
+        options: ['She already had a better marble of her own', 'She thought the marble was too old to be valuable', 'She wanted to leave the tin for whoever found it next', 'She was afraid she would get in trouble for taking it'],
+        correctIndex: 2,
+        explanation: "Lena understood that the tradition was to leave something for the next keeper. She kept the marble in place and added her own items to pass along."
+      },
+      {
+        question: 'What does the ending of the story suggest about how Lena feels about her new home?',
+        options: ['She still wishes she had not moved and wants to go back to her old house', 'She has found a connection to the house and finally feels she belongs there', 'She plans to search the attic for more hidden maps the next day', 'She is excited to tell her parents about the treasure she found'],
+        correctIndex: 1,
+        explanation: "After burying the tin and becoming the oak's new keeper, Lena feels — for the first time since moving day — like she is exactly where she is supposed to be. This shows she has connected to her new home."
+      },
+    ]
+  },
+
+  // Grade 6 — Biography (missing)
+  {
+    id: 'marie-curie-science-barrier-gr6',
+    title: "Marie Curie: Breaking Every Barrier",
+    topic: 'biography',
+    coverEmoji: '⚗️',
+    coverColor: '#ede9fe',
+    gradeLevel: '6',
+    level: 'grade6',
+    grades: [6],
+    wordCount: 620,
+    readTimeMin: 5,
+    text: `
+In the history of science, no one broke more barriers than Marie Curie. Born Maria Sklodowska in Warsaw, Poland, in 1867, she became the first woman to win a Nobel Prize — and then she won a second one in a different field. No person, male or female, had ever done that before.
+
+**Early Life and Education**
+
+Growing up in Russian-occupied Poland, Curie faced two obstacles most people never encounter: she was brilliant, and she was female. Polish universities did not admit women. To pursue higher education, Marie and her sister Bronya struck a deal. Marie would work as a governess and send money to fund Bronya's medical degree in Paris. Once Bronya finished, she would pay for Marie's education.
+
+Marie waited years. She secretly studied science on her own, attending underground classes in Warsaw called the "Floating University" — illegal gatherings where Polish women and men could learn despite Russian restrictions. In 1891, she finally left for Paris and enrolled in the Sorbonne, graduating first in her class in physics.
+
+**The Discovery of Radioactivity**
+
+In Paris, Curie met and married physicist Pierre Curie. Together they began investigating uranium rays, a phenomenon first observed by scientist Henri Becquerel. Marie's key insight was to treat radioactivity — a word she coined — as a property of the atom itself, not a product of chemical reactions. This was a revolutionary idea.
+
+Working in a leaky shed with primitive equipment, Marie and Pierre discovered two new elements: polonium, named after her homeland, and radium. The discovery of radium alone reshaped medicine and physics.
+
+In 1903, Marie Curie received the Nobel Prize in Physics — becoming the first woman to win the prize. When the Royal Swedish Academy initially considered giving it only to Pierre and Becquerel, Pierre refused to accept it unless Marie was included.
+
+**A Second Nobel Prize**
+
+Pierre Curie died in a street accident in 1906. Marie was devastated, but she continued their research. In 1911 she received a second Nobel Prize — this time in Chemistry — for her discovery of polonium and radium. She remains the only person to win Nobel Prizes in two different sciences.
+
+**Legacy**
+
+Curie's work had life-saving consequences. Radioactivity led to cancer treatment through radiation therapy and to the development of X-rays for medical imaging. During World War I, Curie designed mobile X-ray units — nicknamed "petites Curies" — that she drove to the front lines to help doctors treat wounded soldiers.
+
+Ironically, the very materials that made her famous also cost her her life. Decades of exposure to radioactive elements damaged her bone marrow. She died in 1934 from aplastic anemia, a blood disorder caused by radiation.
+
+Her laboratory notebooks are still radioactive today and must be stored in lead-lined boxes. Researchers who wish to read them must sign a waiver acknowledging the health risk.
+
+Marie Curie proved that curiosity and persistence can overcome any obstacle — even the barriers that society constructs around gender and nationality. Her work did not just advance science. It saved lives, and it opened doors for generations of women who followed her into laboratories around the world.
+    `.trim(),
+    vocabulary: [
+      { word: 'radioactivity', definition: 'The release of energy from unstable atoms as they break down; Marie Curie coined this term.', example: "Radioactivity can be used to treat cancer with controlled radiation therapy." },
+      { word: 'governess', definition: 'A woman employed to teach and care for children in their family home.', example: "She worked as a governess to earn money for her sister\'s education." },
+      { word: 'phenomenon', definition: 'An observable fact or event that is remarkable or unusual.', example: "Scientists were fascinated by the phenomenon of uranium emitting mysterious rays." },
+      { word: 'aplastic anemia', definition: 'A serious blood disorder where the bone marrow stops making enough blood cells, often caused by radiation exposure.', example: "Marie Curie developed aplastic anemia after decades of working with radioactive materials." },
+      { word: 'coined', definition: 'Invented or first used a new word or phrase.', example: "Marie Curie coined the term radioactivity to describe the energy released by unstable atoms." },
+    ],
+    questions: [
+      {
+        question: 'What arrangement did Marie and her sister Bronya make to get their educations?',
+        options: ["Their father funded both sisters' educations at the same time", 'Marie worked as a governess to pay for Bronya\'s degree, and Bronya would later fund Marie\'s', 'Marie and Bronya both attended the Floating University together in Warsaw', 'A scholarship paid for both sisters to study in Paris'],
+        correctIndex: 1,
+        explanation: 'Because they could not afford simultaneous education, Marie worked and sent money to fund Bronya\'s medical degree; once Bronya graduated, she paid for Marie\'s studies in Paris.'
+      },
+      {
+        question: 'What was Marie Curie\'s key scientific insight about radioactivity?',
+        options: ['Radioactivity was caused by chemical reactions between elements', 'Radioactivity was a property of the atom itself, not a product of reactions', 'Radioactivity only occurred in rare, naturally glowing minerals', 'Radioactivity was the same as ordinary light energy from the sun'],
+        correctIndex: 1,
+        explanation: 'Curie realized that radioactivity was a fundamental property of atoms themselves — a revolutionary idea that changed how scientists understood matter.'
+      },
+      {
+        question: 'Why is Marie Curie unique in the history of the Nobel Prize?',
+        options: ['She was the only scientist ever to study radioactive elements', 'She won Nobel Prizes in two different scientific fields, something no person has done before or since', 'She discovered more elements than any other chemist in history', 'She was the first non-European to win a Nobel Prize in science'],
+        correctIndex: 1,
+        explanation: 'Marie Curie won Nobel Prizes in both Physics (1903) and Chemistry (1911) — making her the only person ever to win the prize in two different sciences.'
+      },
+      {
+        question: 'How did Curie\'s research directly help save lives during World War I?',
+        options: ['She developed vaccines to protect soldiers from disease', 'She designed mobile X-ray units that she drove to the front lines to help treat wounded soldiers', 'She created bulletproof materials using her knowledge of radiation', 'She trained nurses to use radioactive medicine in field hospitals'],
+        correctIndex: 1,
+        explanation: 'Curie designed mobile X-ray units known as "petites Curies" and drove them to the front lines herself so that doctors could use X-ray imaging to treat wounded soldiers.'
+      },
+      {
+        question: 'What does the fact that Curie\'s notebooks are still radioactive today tell us?',
+        options: ['She was careless and did not properly clean her laboratory equipment', 'The materials she worked with were so powerfully radioactive that their effects have lasted nearly a century', 'Scientists today have not yet learned how to safely neutralize radioactive objects', 'The notebooks were stored incorrectly and became contaminated after her death'],
+        correctIndex: 1,
+        explanation: "The notebooks remain radioactive nearly 90 years after her death, demonstrating how intensely radioactive the materials she handled daily were — and explaining why they ultimately cost her her life."
+      },
+    ]
+  },
+
+  // Grade 7 — Biography (missing)
+  {
+    id: 'thurgood-marshall-equal-justice-gr7',
+    title: "Thurgood Marshall: Equal Justice Under Law",
+    topic: 'biography',
+    coverEmoji: '⚖️',
+    coverColor: '#dbeafe',
+    gradeLevel: '7',
+    level: 'grade7',
+    grades: [7],
+    wordCount: 680,
+    readTimeMin: 5,
+    text: `
+When Thurgood Marshall was a student at Lincoln University in Pennsylvania, he applied to the University of Maryland School of Law — and was rejected because he was Black. The experience shaped the next thirty years of his career. Marshall would eventually dismantle the very system that had shut him out, winning one of the most consequential Supreme Court cases in American history.
+
+**From Baltimore to the Courtroom**
+
+Born in Baltimore, Maryland, in 1908, Thurgood Marshall grew up with a father who loved to argue and a mother who pushed education above everything else. His father frequently took him to watch court proceedings, and Marshall absorbed the idea that the law was the arena where injustice could be challenged and overturned.
+
+After earning his law degree from Howard University — a historically Black college — in 1933, Marshall returned to Baltimore and began handling civil rights cases for little or no pay. He quickly came to the attention of Charles Hamilton Houston, the dean who had transformed Howard's law school into a civil rights training ground. Houston took Marshall under his wing, and together they began laying the legal groundwork to attack segregation.
+
+**The NAACP and the Long Campaign**
+
+Marshall joined the NAACP's Legal Defense Fund in 1940 and eventually became its chief counsel. Over the next decade, he traveled across the South, often at personal risk, arguing cases for Black defendants who faced all-white juries and overtly racist courts. He won 29 of 32 cases argued before the Supreme Court — an almost unheard-of record.
+
+His strategy was deliberate and cumulative. Rather than attacking segregation head-on from the start, Marshall built a foundation of smaller victories: proving that Black graduate schools were unequal, that transportation segregation caused specific harms, that jury selection practices were discriminatory. Each case tightened the legal noose around *Plessy v. Ferguson* — the 1896 ruling that had established "separate but equal" as constitutional.
+
+**Brown v. Board of Education**
+
+In 1954, Marshall argued the consolidated cases known as *Brown v. Board of Education* before the Supreme Court. The core argument was that segregated schools could not be truly equal, because separation itself sent a message of inferiority to Black children. Marshall presented psychological research showing that Black children who attended segregated schools often internalized feelings of worthlessness.
+
+On May 17, 1954, Chief Justice Earl Warren delivered a unanimous opinion: segregated public schools were unconstitutional. It was the end of *Plessy*. Marshall reportedly wept.
+
+In 1967, President Lyndon Johnson appointed Marshall to the United States Supreme Court, making him the first African American justice. He served for 24 years, writing opinions that consistently defended civil liberties, the rights of the accused, and the constitutional protection of all citizens regardless of race.
+
+**Legacy**
+
+Thurgood Marshall's career demonstrated that the law is not a fixed and static thing — it is a living system that can be challenged, argued, and changed. The phrase carved into the Supreme Court building, "Equal Justice Under Law," became his lifelong mission statement.
+
+The University of Maryland School of Law — the same institution that rejected him in 1930 — renamed its library after him in 1980. It was, perhaps, the most fitting tribute of all.
+    `.trim(),
+    vocabulary: [
+      { word: 'consequential', definition: 'Having important or far-reaching effects; highly significant.', example: "Brown v. Board of Education was one of the most consequential decisions in Supreme Court history." },
+      { word: 'cumulative', definition: 'Building up gradually through the addition of many small parts over time.', example: "Marshall\'s cumulative legal strategy built a foundation of smaller victories before attacking the main ruling." },
+      { word: 'discriminatory', definition: 'Treating people unfairly based on their race, gender, or another characteristic.', example: "The all-white jury selection process was ruled discriminatory because it excluded Black citizens." },
+      { word: 'inferiority', definition: 'The state of being considered lower in quality, value, or status than others.', example: "The research showed that segregation caused Black children to internalize feelings of inferiority." },
+      { word: 'unanimous', definition: 'When all members of a group agree completely with no dissent.', example: "The Supreme Court issued a unanimous opinion, meaning all nine justices agreed." },
+    ],
+    questions: [
+      {
+        question: 'How did being rejected from the University of Maryland Law School shape Marshall\'s career?',
+        options: ['It convinced him to pursue medicine instead of law', 'It motivated him to dismantle the segregation system that had excluded him', 'He accepted the rejection and attended a less competitive law school', 'He sued the university immediately and won admission through the courts'],
+        correctIndex: 1,
+        explanation: "Being rejected because of his race shaped Marshall's determination to dismantle the very system of segregation that had shut him out — a mission he spent the next 30 years pursuing."
+      },
+      {
+        question: 'What was Marshall\'s legal strategy in attacking segregation?',
+        options: ['He immediately challenged Plessy v. Ferguson in his first Supreme Court case', 'He focused only on voting rights before turning to education cases', 'He built a foundation of smaller victories that gradually weakened Plessy v. Ferguson before the final challenge', 'He worked exclusively in Southern state courts and avoided the Supreme Court'],
+        correctIndex: 2,
+        explanation: 'Marshall deliberately built a cumulative strategy — winning cases about graduate schools, transportation, and jury selection — that tightened the legal case against Plessy before the final Brown challenge.'
+      },
+      {
+        question: 'What psychological evidence did Marshall present in Brown v. Board of Education?',
+        options: ['That Black students scored lower on standardized tests in segregated schools', 'That Black children in segregated schools often internalized feelings of worthlessness and inferiority', 'That white students in segregated schools performed better than integrated ones', 'That teachers in segregated Black schools were paid less than those in white schools'],
+        correctIndex: 1,
+        explanation: 'Marshall presented psychological research showing that segregation sent a message of inferiority to Black children, who often internalized feelings of worthlessness as a result.'
+      },
+      {
+        question: 'What was the significance of the Supreme Court\'s ruling in Brown v. Board of Education?',
+        options: ['It required all schools to teach the same curriculum regardless of location', 'It declared segregated public schools unconstitutional and ended the Plessy v. Ferguson precedent', 'It gave states the power to choose their own integration timelines', 'It focused only on graduate schools and did not affect elementary schools'],
+        correctIndex: 1,
+        explanation: "The unanimous Brown ruling declared segregated public schools unconstitutional, ending the 'separate but equal' doctrine established by Plessy v. Ferguson in 1896."
+      },
+      {
+        question: 'What is the significance of the University of Maryland School of Law naming its library after Marshall?',
+        options: ['It was the university where Marshall earned his law degree', "It was an ironic tribute — the same school that rejected him because he was Black honored him with its highest recognition", 'The library held the largest collection of Marshall\'s legal papers and writings', 'It was Marshall\'s way of forgiving the institution that had wronged him'],
+        correctIndex: 1,
+        explanation: "The same school that rejected Marshall in 1930 because he was Black named its library after him in 1980 — a deeply ironic and fitting tribute to the man who helped dismantle the legal basis for that rejection."
+      },
+    ]
+  },
+
+  // Grade 7 — Florida history (missing)
+  {
+    id: 'florida-space-coast-gr7',
+    title: "Florida's Space Coast: The Launch Capital of the World",
+    topic: 'florida-history',
+    coverEmoji: '🚀',
+    coverColor: '#e0f2fe',
+    gradeLevel: '7',
+    level: 'grade7',
+    grades: [7],
+    wordCount: 660,
+    readTimeMin: 5,
+    text: `
+On the eastern shore of Florida, where the Atlantic Ocean meets a narrow barrier island, stands the most significant launch facility in American history. Cape Canaveral — and the broader area known as Florida's Space Coast — has been the departure point for humans traveling to the Moon, satellites circling Earth, and robotic probes exploring the outer solar system. Understanding how this remote stretch of Florida became the center of American space exploration requires understanding both the geography and the geopolitics that shaped the twentieth century.
+
+**Why Florida?**
+
+In the late 1940s, the U.S. military was searching for a place to test long-range rockets developed from captured German V-2 technology after World War II. Cape Canaveral offered three critical advantages: its location at the southern tip of the continental United States meant rockets launched eastward would travel over open ocean rather than populated areas; its proximity to the equator gave rockets a natural boost from Earth's rotation; and the sparsely populated surrounding area minimized public risk.
+
+In 1949, President Truman established the Joint Long Range Proving Ground at Cape Canaveral. Within a decade, it had become the epicenter of the Space Race.
+
+**The Space Race and Mercury**
+
+The Soviet Union's 1957 launch of Sputnik — the first artificial satellite — shocked the United States and triggered a decade of frantic competition. The response was Project Mercury, NASA's first human spaceflight program. On May 5, 1961, astronaut Alan Shepard launched from Cape Canaveral's Launch Complex 5 and became the first American in space, completing a 15-minute suborbital flight aboard Freedom 7.
+
+The Space Coast community transformed rapidly. Towns like Titusville, Cocoa Beach, and Melbourne grew as engineers, scientists, and aerospace workers flooded the region. The Kennedy Space Center was established adjacent to the Cape in 1962, named after President Kennedy following his assassination in 1963.
+
+**Apollo and the Moon**
+
+The Apollo program, concentrated at Kennedy Space Center, represented the Space Coast's defining moment. On July 16, 1969, Apollo 11 lifted off from Launch Pad 39A. Four days later, Neil Armstrong became the first human to walk on the Moon. Over a million people gathered along Florida's highways and beaches to watch the Saturn V rocket rise into the sky.
+
+The Saturn V remains the most powerful rocket ever successfully launched. Standing 363 feet tall and generating 7.6 million pounds of thrust, it carried 12 astronauts to the lunar surface across six successful missions between 1969 and 1972.
+
+**The Shuttle Era and Beyond**
+
+After Apollo, the Space Shuttle program operated from Kennedy Space Center for 30 years (1981–2011). The shuttles were reusable — unlike previous rockets — and completed 135 missions, including construction of the International Space Station and deployment of the Hubble Space Telescope.
+
+The Shuttle program also witnessed its darkest moments at the Space Coast. The 1986 Challenger disaster, in which seven crew members died when the shuttle broke apart 73 seconds after launch, and the 2003 Columbia disaster, which killed another seven crew members during reentry, reminded the world that space exploration carries profound human risk.
+
+Today, Kennedy Space Center hosts NASA missions alongside commercial companies like SpaceX and Boeing. SpaceX has made reusable rocket technology routine — landing boosters vertically after launch in ways that once seemed impossible — and has restored American crewed spaceflight from Florida soil.
+
+The Space Coast is no longer just a launch site. It is a living record of human ambition: a place where the desire to leave Earth's surface, to explore, and to extend the reach of human knowledge has been turning possibility into reality for more than seventy years.
+    `.trim(),
+    vocabulary: [
+      { word: 'epicenter', definition: 'The central point of something; the place where something is most intense or focused.', example: "Cape Canaveral became the epicenter of the American space program." },
+      { word: 'suborbital', definition: 'A flight path that goes into space but does not complete a full orbit around Earth.', example: "Alan Shepard\'s first flight was suborbital — it reached space but came back down without circling Earth." },
+      { word: 'geopolitics', definition: 'The influence of geography, economics, and politics on how countries relate to each other.', example: "The Space Race was driven by geopolitics — a rivalry between the U.S. and Soviet Union." },
+      { word: 'reusable', definition: 'Able to be used again after being cleaned or refurbished rather than discarded.', example: "The Space Shuttle was reusable, unlike earlier rockets that were used only once." },
+      { word: 'proximity', definition: 'Nearness to something in place or position.', example: "Florida\'s proximity to the equator gives rockets a speed boost when launching eastward." },
+    ],
+    questions: [
+      {
+        question: 'Why did the U.S. military choose Cape Canaveral as a rocket testing site in the late 1940s?',
+        options: ['It had existing military bases and weapons storage from World War II', 'It offered ocean coverage for safety, equatorial proximity for a speed boost, and a sparse population', 'It was the closest point to Europe, reducing flight time for long-range rockets', 'The local government offered large financial incentives to attract military investment'],
+        correctIndex: 1,
+        explanation: 'Cape Canaveral was chosen for three geographic advantages: rockets launched eastward over open ocean, proximity to the equator gave a natural speed boost, and sparse population minimized risk.'
+      },
+      {
+        question: 'What event triggered the Space Race between the U.S. and Soviet Union?',
+        options: ['The Soviet Union landing a probe on the Moon before the United States', "The Soviet Union's 1957 launch of Sputnik, the first artificial satellite", 'The United States developing nuclear weapons that the Soviets could not match', 'The Soviet Union recruiting German rocket scientists after World War II'],
+        correctIndex: 1,
+        explanation: "The Soviet Union's 1957 launch of Sputnik — the first artificial satellite — shocked the United States and triggered a decade of intense competition that became known as the Space Race."
+      },
+      {
+        question: 'What was significant about the Saturn V rocket used in the Apollo program?',
+        options: ['It was the first reusable rocket ever built, later adapted for the Space Shuttle', 'It remains the most powerful rocket ever successfully launched, standing 363 feet tall', 'It was built entirely from technology captured from the Soviet Union during the Cold War', 'It was smaller and cheaper than previous rockets, making the Apollo missions affordable'],
+        correctIndex: 1,
+        explanation: 'The Saturn V remains the most powerful rocket ever successfully launched — 363 feet tall, generating 7.6 million pounds of thrust, it carried 12 astronauts to the Moon.'
+      },
+      {
+        question: 'What major advance did the Space Shuttle represent compared to earlier rockets?',
+        options: ['It could travel faster than any previous spacecraft', 'It was reusable, unlike earlier rockets that were discarded after one use', 'It required no crew and could operate entirely by computer', 'It was powered by solar energy rather than chemical fuel'],
+        correctIndex: 1,
+        explanation: 'The Space Shuttle was reusable — unlike earlier rockets that were discarded after a single launch — and completed 135 missions over 30 years.'
+      },
+      {
+        question: 'How has the role of the Space Coast changed since the end of the Shuttle program?',
+        options: ['NASA closed Kennedy Space Center and moved all operations to Texas', 'It now hosts only unmanned satellite launches and no longer supports crewed missions', 'It hosts both NASA missions and commercial companies like SpaceX, which has restored crewed flights from Florida', 'The site was converted into a public museum and no longer conducts active launches'],
+        correctIndex: 2,
+        explanation: 'Today Kennedy Space Center hosts NASA alongside commercial companies like SpaceX, which has made reusable rockets routine and restored American crewed spaceflight from Florida.'
+      },
+    ]
+  },
+
+  // Grade 8 — Biography (missing)
+  {
+    id: 'cesar-chavez-farmworkers-gr8',
+    title: "Cesar Chavez and the Fight for Farmworkers",
+    topic: 'biography',
+    coverEmoji: '✊',
+    coverColor: '#fef9c3',
+    gradeLevel: '8',
+    level: 'grade8',
+    grades: [8],
+    wordCount: 700,
+    readTimeMin: 5,
+    text: `
+In the summer of 1965, grape pickers in California's San Joaquin Valley walked off the job. The workers — mostly Filipino immigrants organized by the Agricultural Workers Organizing Committee — were striking for better wages and working conditions. They asked Cesar Chavez and his National Farm Workers Association (NFWA) to join them. After two weeks of deliberation, Chavez said yes. It was a decision that would transform American labor history.
+
+**From Migrant Worker to Organizer**
+
+Cesar Chavez was born in 1927 on his family's farm near Yuma, Arizona. When he was ten, the family lost the farm during the Great Depression and became migrant workers, following crop harvests across California and Arizona. Chavez attended more than thirty schools as a child, often working in fields rather than sitting in classrooms. He dropped out of school after eighth grade to work full time and support his family.
+
+The experience of migrant labor — the poverty, the pesticide exposure, the lack of toilets or clean water in the fields, the contemptuous treatment by labor contractors — shaped Chavez's entire worldview. In the early 1950s, he began organizing with the Community Service Organization (CSO), registering voters and fighting discrimination. By 1962, he had left the CSO to co-found the NFWA with Dolores Huerta.
+
+**The Grape Boycott**
+
+Chavez's most powerful weapon was not the strike — it was the boycott. Unable to win through strikes alone in an industry where growers could easily import replacement workers, Chavez brought the struggle to American consumers. He called for a national boycott of California table grapes, asking every American to refuse to buy grapes until growers negotiated fair contracts.
+
+The boycott was remarkably effective. At its peak, an estimated 17 million Americans stopped buying grapes. Supermarkets felt the economic pressure. By 1970, after five years of striking and boycotting, nearly every major California grape grower had signed union contracts. Farmworkers won higher wages, rest periods, clean drinking water, and protections against pesticide exposure.
+
+Chavez combined union organizing with the nonviolent tactics of the civil rights movement — tactics directly inspired by Gandhi and Martin Luther King Jr. His personal fasts, during which he refused food for weeks at a time to call attention to the farmworkers' cause, became powerful symbols. In 1968, he fasted for 25 days. Robert Kennedy flew to California to break bread with him when Chavez ended the fast, in a gesture that drew national attention to the movement.
+
+**Challenges and Legacy**
+
+The gains of the 1970s were difficult to sustain. Growers found legal ways to undermine union contracts. California's political climate shifted. Agricultural mechanization reduced the number of workers needed. Chavez spent much of the 1970s and 1980s fighting legal battles and internal union struggles as much as fighting growers.
+
+He died in 1993, still fighting. The contracts had shrunk. Membership had declined. But the structural changes Chavez helped create — California's Agricultural Labor Relations Act of 1975, which gave farmworkers the legal right to organize and bargain collectively — remained in place. No state had passed comparable legislation before.
+
+Chavez's significance extends beyond labor law. He demonstrated that communities with little formal power — immigrants, the poor, workers without legal protections — could organize, sustain pressure, and force change. His famous phrase, *Si se puede* — "Yes, it can be done" — became a rallying cry that later movements, including Barack Obama's 2008 presidential campaign, would borrow as their own.
+
+In 1994, President Clinton awarded Chavez the Presidential Medal of Freedom posthumously. March 31 — Chavez's birthday — is now a state holiday in California, Colorado, Texas, and several other states. His image appears on murals across the American Southwest, a reminder of what patient, principled organizing can achieve.
+    `.trim(),
+    vocabulary: [
+      { word: 'boycott', definition: 'A campaign in which people refuse to buy from or deal with a company or country to force change.', example: "Millions of Americans joined the grape boycott to pressure growers into negotiating." },
+      { word: 'migrant', definition: 'A person who moves from place to place, often following seasonal work opportunities.', example: "As a migrant worker, Chavez moved from farm to farm harvesting different crops." },
+      { word: 'mechanization', definition: 'The replacement of human labor with machines.', example: "Agricultural mechanization reduced the number of farmworkers needed to harvest crops." },
+      { word: 'posthumously', definition: 'After a person has died.', example: "Chavez received the Presidential Medal of Freedom posthumously in 1994." },
+      { word: 'collectively', definition: 'As a group, working together toward a shared goal.', example: "The new law gave farmworkers the right to bargain collectively with their employers." },
+    ],
+    questions: [
+      {
+        question: 'What circumstances in Chavez\'s childhood most directly shaped his commitment to farmworkers\' rights?',
+        options: ['His study of labor law and union organizing at a California university', 'His own experience as a migrant worker — the poverty, pesticide exposure, and poor conditions in the fields', 'His friendship with Martin Luther King Jr. and participation in the civil rights marches', 'His work as a community organizer registering voters in Arizona in the 1940s'],
+        correctIndex: 1,
+        explanation: "Chavez's childhood experience as a migrant worker — the poverty, pesticide exposure, lack of basic facilities, and contemptuous treatment — directly shaped his understanding of what farmworkers needed and his determination to fight for them."
+      },
+      {
+        question: 'Why did Chavez rely on a consumer boycott rather than strikes alone to pressure grape growers?',
+        options: ['Strikes were illegal for agricultural workers under California law at the time', 'Growers could easily replace striking workers by importing other laborers, making strikes less effective', 'The farmworkers\' union did not have enough members to sustain a strike for more than a few days', 'Chavez believed boycotts were more consistent with the nonviolent principles of Gandhi and King'],
+        correctIndex: 1,
+        explanation: 'Growers could easily import replacement workers to break strikes in agriculture. A consumer boycott bypassed this problem by putting economic pressure directly on the growers through the marketplace.'
+      },
+      {
+        question: 'What specific gains did farmworkers win through the grape boycott?',
+        options: ['Free housing, transportation, and health insurance from all California growers', 'Higher wages, rest periods, clean drinking water, and protections against pesticide exposure', 'The right to vote in California elections regardless of citizenship status', 'Government-funded schools built at every major agricultural labor camp'],
+        correctIndex: 1,
+        explanation: 'After five years of striking and boycotting, farmworkers won higher wages, rest periods, clean drinking water, and critical protections against pesticide exposure.'
+      },
+      {
+        question: 'What was the lasting legal impact of Chavez\'s movement?',
+        options: ['Congress passed a national law guaranteeing farmworkers the right to overtime pay', 'California passed the Agricultural Labor Relations Act of 1975, giving farmworkers the legal right to organize and bargain collectively', 'The Supreme Court ruled that agricultural workers must be covered by all existing federal labor laws', 'A new federal agency was created to inspect farms and enforce safety standards for workers'],
+        correctIndex: 1,
+        explanation: "California's Agricultural Labor Relations Act of 1975 — which gave farmworkers the legal right to organize and bargain collectively — was a structural change that no other state had achieved before and outlasted the movement's other gains."
+      },
+      {
+        question: 'What does the continued use of "Si se puede" in later movements suggest about Chavez\'s legacy?',
+        options: ['Spanish is now the dominant language in American political organizing', 'Chavez\'s specific labor demands became the model for all later union movements', 'His message that even powerless communities can organize and achieve change has resonated far beyond the farmworkers\' movement', 'Later movements borrowed the phrase only as a reference to farm labor, not as a broader political message'],
+        correctIndex: 2,
+        explanation: '"Si se puede" — "Yes, it can be done" — captured a broader message about the power of organized communities to force change. Later movements, including Obama\'s 2008 campaign, adopted it because that message of possibility extended far beyond the original context.'
+      },
+    ]
+  },
+
+  // Grade 8 — Technology (missing)
+  {
+    id: 'the-internet-arpanet-to-everything-gr8',
+    title: "The Internet: From ARPANET to Everything",
+    topic: 'technology',
+    coverEmoji: '🌐',
+    coverColor: '#e0f2fe',
+    gradeLevel: '8',
+    level: 'grade8',
+    grades: [8],
+    wordCount: 720,
+    readTimeMin: 5,
+    text: `
+In October 1969, a graduate student at UCLA typed the letters "L" and "O" into a computer terminal. His goal was to send the word "login" to a computer at Stanford Research Institute 350 miles away. The system crashed before he finished typing. But those two characters — "L" and "O" — were the first message ever sent over ARPANET, the experimental network that became the foundation of the modern internet.
+
+The internet is now so woven into daily life that most people cannot imagine its absence. But it did not emerge fully formed. It was built over decades through thousands of decisions made by governments, universities, corporations, and individual engineers — each adding a layer to the system we use today.
+
+**Cold War Origins**
+
+The internet has its roots in the Cold War. In 1957, the Soviet Union launched Sputnik, shocking the American government and triggering a massive investment in science and technology. One concern was military communication: if the Soviet Union launched a nuclear strike and destroyed key communication centers, could the U.S. still coordinate a response?
+
+The Defense Advanced Research Projects Agency (DARPA) funded a solution: a decentralized network in which information would be broken into small packets, sent through multiple possible paths, and reassembled at the destination. Even if parts of the network were destroyed, messages could still get through. This packet-switching architecture, developed by researchers Paul Baran and Donald Davies independently, became the technical foundation of the internet.
+
+**Building the Network**
+
+ARPANET launched in 1969 with four nodes: UCLA, Stanford Research Institute, UC Santa Barbara, and the University of Utah. By 1971 there were 23 nodes; by 1981, over 200. Email was invented in 1971 and quickly became ARPANET's most popular application, even though the network was designed for data sharing between researchers.
+
+In the 1970s, computer scientist Vint Cerf and engineer Bob Kahn developed TCP/IP — the Transmission Control Protocol/Internet Protocol — a universal set of rules that allowed different networks to communicate with each other. This was the critical leap: instead of a single closed network, TCP/IP made it possible to connect any network to any other network. ARPANET became the backbone of an internet — literally a "network of networks."
+
+**The World Wide Web**
+
+In 1989, a British computer scientist named Tim Berners-Lee, working at the CERN physics laboratory in Switzerland, proposed something new: a system of interlinked hypertext documents that anyone with a browser could navigate. He called it the World Wide Web.
+
+The Web was not the internet itself — it was an application built on top of the internet. But it transformed the internet from a tool used by researchers and military personnel into a medium accessible to ordinary people. The first website went live in 1991. By 1995, there were 10 million users. By 2000, 400 million. Today, over five billion people use the internet.
+
+**The Social Internet and Its Consequences**
+
+The early 2000s brought a new phase: social media. Facebook launched in 2004, YouTube in 2005, Twitter in 2006. These platforms created something the internet's founders had never envisioned — spaces where billions of people could publish content, form communities, and communicate in real time across every border.
+
+The consequences have been profound and mixed. Social media has connected activists across repressive regimes, enabling pro-democracy movements in the Arab Spring. It has also amplified misinformation, enabled surveillance, and created algorithmically curated environments that may deepen political polarization.
+
+The internet's architecture — decentralized, open, and protocol-based — was designed for resilience in wartime. It turned out to be equally effective for commerce, communication, activism, entertainment, and surveillance. What its inventors built as a military communication backup became the most transformative technology of the twentieth and twenty-first centuries.
+
+The student at UCLA typed "L" and "O" — and the network crashed. He called the Stanford team to tell them. Then they fixed it and tried again. That iterative process — build, fail, learn, rebuild — is how the internet has worked ever since.
+    `.trim(),
+    vocabulary: [
+      { word: 'decentralized', definition: 'Organized without a single central authority or control point; spread across many locations.', example: "ARPANET\'s decentralized design meant no single point of failure could destroy the whole network." },
+      { word: 'packet-switching', definition: 'A method of sending data by breaking it into small chunks (packets) that travel independently and are reassembled at the destination.', example: "Packet-switching allowed messages to find alternative routes if part of the network was damaged." },
+      { word: 'protocol', definition: 'A set of agreed-upon rules that govern how computers communicate with each other.', example: "TCP/IP is the protocol that allows any computer network to communicate with any other." },
+      { word: 'hypertext', definition: 'Text displayed on a screen with links that connect to other documents, allowing readers to jump between related content.', example: "Tim Berners-Lee used hypertext to create the clickable links that make web pages easy to navigate." },
+      { word: 'polarization', definition: 'The division of a group or society into opposing sides with little common ground.', example: "Some researchers argue that social media algorithms increase political polarization by showing people only content that confirms their existing views." },
+    ],
+    questions: [
+      {
+        question: 'What Cold War concern motivated the U.S. government to fund the research that led to the internet?',
+        options: ['The need to share scientific research findings more efficiently between universities', 'The fear that a nuclear strike could destroy communication centers, leaving the military unable to coordinate', 'Competition with the Soviet Union to develop the first commercial computer network', 'The need to monitor Soviet military communications without being detected'],
+        correctIndex: 1,
+        explanation: 'The key motivation was military resilience: if Soviet nuclear strikes destroyed key communication centers, the U.S. needed a network that could still function. The decentralized design solved this problem.'
+      },
+      {
+        question: 'What technical innovation made it possible to connect different networks together into a single "internet"?',
+        options: ['The invention of email, which gave all networks a common application to share', 'The construction of a single high-speed cable connecting all major research institutions', 'TCP/IP, a universal set of communication rules developed by Vint Cerf and Bob Kahn', 'The creation of ARPANET\'s packet-switching architecture by DARPA in 1969'],
+        correctIndex: 2,
+        explanation: "TCP/IP — the Transmission Control Protocol/Internet Protocol — was the critical leap that allowed any network to communicate with any other. It turned ARPANET's single closed network into a true 'network of networks.'"
+      },
+      {
+        question: 'What is the difference between the internet and the World Wide Web?',
+        options: ['They are exactly the same thing — the terms are used interchangeably', 'The internet is a physical system of cables; the World Wide Web is the wireless portion', 'The internet is the underlying network infrastructure; the World Wide Web is an application built on top of it', 'The World Wide Web was the original name for the internet, replaced by the current term in the 1990s'],
+        correctIndex: 2,
+        explanation: "Tim Berners-Lee's World Wide Web was not the internet itself but an application built on top of it — a system of interlinked documents that made the internet accessible to ordinary people."
+      },
+      {
+        question: 'How did social media platforms change the nature of the internet in the 2000s?',
+        options: ['They made the internet faster and more reliable for all users', 'They created spaces where billions of people could publish content and communicate in real time across borders', 'They restricted internet access to verified users only, making it more secure', 'They replaced email and web browsing as the primary ways people used the internet'],
+        correctIndex: 1,
+        explanation: 'Social media transformed the internet from a tool for finding information into a medium where billions of people could publish, communicate, and form communities across every border in real time.'
+      },
+      {
+        question: 'What does the story of the first message sent over ARPANET — "L" and "O" before the system crashed — suggest about how technology develops?',
+        options: ['Early technology is always unreliable and should be distrusted until proven stable', 'Failure is a normal part of technological development; the important thing is to rebuild and keep trying', 'Military technology should not be shared with civilians because it was not designed for them', 'Small steps like "L" and "O" are less important than the final working system'],
+        correctIndex: 1,
+        explanation: 'The first message crashed after two letters — but the team fixed it and tried again. The passage explicitly identifies this "build, fail, learn, rebuild" process as how the internet has worked ever since, suggesting that failure and iteration are fundamental to technological progress.'
+      },
+    ]
+  },
+
 ];
