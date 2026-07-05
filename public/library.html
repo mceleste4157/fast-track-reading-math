@@ -399,7 +399,8 @@
       history:   t => t.includes('history') || t === 'civics' || t === 'social-studies' || t === 'social studies' || t === 'world-history' || t === 'us-history' || t === 'american-history',
       florida:   t => t.startsWith('florida') || t === 'florida-nature' || t === 'florida-environment',
     };
-    let activeTopicFilter = 'all';
+    const _urlTopic = new URLSearchParams(location.search).get('topic') || 'all';
+    let activeTopicFilter = (TOPIC_GROUPS[_urlTopic] || _urlTopic === 'all') ? _urlTopic : 'all';
 
     document.getElementById('topic-pills').addEventListener('click', e => {
       const btn = e.target.closest('.topic-pill');
@@ -409,6 +410,15 @@
       renderGrids();
       renderFavorites();
     });
+
+    // Auto-select pill if arriving from a challenge link
+    if (activeTopicFilter !== 'all') {
+      const targetPill = document.querySelector(`.topic-pill[data-topic="${activeTopicFilter}"]`);
+      if (targetPill) {
+        document.querySelectorAll('.topic-pill').forEach(p => p.classList.remove('active'));
+        targetPill.classList.add('active');
+      }
+    }
     let favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
     let totalStars  = 0;
 

@@ -903,22 +903,54 @@
         </div>`;
       document.body.appendChild(screen);
 
-      // Forgot PIN — since the parent is already signed in via Firebase Auth,
-      // that's proof of identity. Let them clear the PIN and set a new one.
+      // Forgot PIN — require password re-authentication so a child can't bypass
       const forgotBtn = document.getElementById('pp-forgot');
       if (forgotBtn) {
         forgotBtn.addEventListener('click', () => {
-          if (!confirm('Reset your portal PIN? You\'ll be asked to set a new one.')) return;
-          db.collection('ParentProfiles').doc(uid)
-            .update({ portalPin: firebase.firestore.FieldValue.delete() })
-            .then(() => {
-              document.removeEventListener('keydown', ppHandleKey); // prevent double-fire
-              screen.remove();
-              showPortalPinScreen(null, uid); // re-open in "set new PIN" mode
-            })
-            .catch(() => {
-              document.getElementById('pp-err').textContent = 'Could not reset PIN — try again.';
-            });
+          document.removeEventListener('keydown', ppHandleKey);
+          screen.innerHTML = `
+            <div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:340px;box-shadow:0 8px 40px rgba(0,0,0,0.18);text-align:center;">
+              <div style="font-size:2rem;margin-bottom:10px;">🔐</div>
+              <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:6px;">Verify it's you</h2>
+              <p style="font-size:0.85rem;color:#6b7280;margin-bottom:20px;">Enter your account password to reset the PIN.</p>
+              <input id="pp-reauth-pw" type="password" placeholder="Account password" autocomplete="current-password"
+                style="width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #e5e7eb;border-radius:12px;font-size:1rem;font-family:inherit;outline:none;margin-bottom:12px;"/>
+              <div id="pp-reauth-err" style="color:#dc2626;font-size:0.82rem;font-weight:600;min-height:18px;margin-bottom:10px;"></div>
+              <button id="pp-reauth-btn" style="width:100%;padding:13px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;">Verify &amp; Reset PIN</button>
+              <button id="pp-reauth-cancel" style="display:block;width:100%;margin-top:10px;background:none;border:none;color:#9ca3af;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">← Back</button>
+            </div>`;
+
+          document.getElementById('pp-reauth-cancel').addEventListener('click', () => {
+            screen.remove();
+            showPortalPinScreen(storedPin, uid);
+          });
+
+          document.getElementById('pp-reauth-btn').addEventListener('click', doReauth);
+          document.getElementById('pp-reauth-pw').addEventListener('keydown', e => { if (e.key === 'Enter') doReauth(); });
+
+          function doReauth() {
+            const pw = document.getElementById('pp-reauth-pw').value;
+            const errEl = document.getElementById('pp-reauth-err');
+            if (!pw) { errEl.textContent = 'Please enter your password.'; return; }
+            const btn = document.getElementById('pp-reauth-btn');
+            btn.disabled = true; btn.textContent = 'Verifying…';
+            const user = firebase.auth().currentUser;
+            const credential = firebase.auth.EmailAuthProvider.credential(user.email, pw);
+            user.reauthenticateWithCredential(credential)
+              .then(() => {
+                return db.collection('ParentProfiles').doc(uid).update({ portalPin: firebase.firestore.FieldValue.delete() });
+              })
+              .then(() => {
+                screen.remove();
+                showPortalPinScreen(null, uid);
+              })
+              .catch(err => {
+                btn.disabled = false; btn.textContent = 'Verify & Reset PIN';
+                errEl.textContent = err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential'
+                  ? 'Incorrect password — try again.'
+                  : 'Could not verify — try again.';
+              });
+          }
         });
       }
 
