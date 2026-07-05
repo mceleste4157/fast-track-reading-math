@@ -76,6 +76,37 @@
     }
     .btn-secondary:hover { background: var(--blue-soft); border-color: var(--blue); }
 
+    /* ── Math Grade Advancement Modal ── */
+    .grade-advance-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.75); z-index: 500;
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .grade-advance-overlay.show { display: flex; }
+    .grade-advance-card {
+      background: linear-gradient(145deg, #0c1a4b 0%, #1e3a8a 50%, #1e40af 100%);
+      border-radius: 28px; padding: 44px 32px; text-align: center;
+      max-width: 380px; width: 100%;
+      box-shadow: 0 20px 60px rgba(37,99,235,0.55);
+      border: 2px solid rgba(255,255,255,0.15);
+      animation: gaIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    @keyframes gaIn {
+      from { transform: scale(0.5) translateY(40px); opacity: 0; }
+      to   { transform: scale(1)   translateY(0);    opacity: 1; }
+    }
+    .ga-grade-box     { background: rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 24px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+    .ga-grade-box.new { background: linear-gradient(135deg,#2563eb,#1d4ed8); box-shadow: 0 4px 20px rgba(37,99,235,0.5); border-color: rgba(255,255,255,0.25); }
+    .ga-grade-label   { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; color: #93c5fd; margin-bottom: 5px; }
+    .ga-grade-num     { font-size: 2.2rem; font-weight: 900; color: #fff; line-height: 1; }
+    .ga-btn {
+      width: 100%; padding: 16px; background: linear-gradient(135deg,#2563eb,#1d4ed8);
+      color: #fff; border: none; border-radius: 14px; font-size: 1.05rem; font-weight: 800;
+      cursor: pointer; font-family: inherit; margin-top: 24px;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.4); transition: transform 0.15s;
+    }
+    .ga-btn:hover { transform: translateY(-2px); }
+
     /* XP LOSS BANNER */
     .xp-loss-banner {
       background: linear-gradient(135deg, #ef4444, #dc2626);
@@ -96,6 +127,7 @@
       animation: confetti-fall linear infinite; z-index: 0; pointer-events: none;
     }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <div id="confetti-container"></div>
@@ -165,6 +197,9 @@
       { id: 'streak_7',      emoji: '⚡', name: 'Week Warrior',   desc: 'Read 7 days in a row' },
       { id: 'streak_14',     emoji: '🌙', name: 'Two-Week Champ', desc: 'Read 14 days in a row' },
       { id: 'xp_500',        emoji: '💎', name: 'XP Hunter',      desc: 'Earned 500 total XP' },
+      { id: 'typing_first',  emoji: '⌨️', name: 'Keyboarder',     desc: 'First typing lesson done' },
+      { id: 'typing_5',      emoji: '🖥️', name: 'Typing Pro',     desc: 'Completed 5 typing lessons' },
+      { id: 'typing_10',     emoji: '⚡', name: 'Speed Demon',    desc: 'Completed 10 typing lessons' },
     ];
     function checkNewBadges(stats, currentBadges) {
       const earned = new Set(currentBadges);
@@ -214,21 +249,28 @@
     }
 
     const LEVELS = [
-      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
-      { name: 'Reader',       minXp: 100,  emoji: '📚' },
-      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
-      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
-      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
-      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
-      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
-      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
-      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
-      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
-      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
-      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
-      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
-      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
-      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+      { name: 'Bookworm',       minXp: 0,     emoji: '📖' },
+      { name: 'Reader',         minXp: 100,   emoji: '📚' },
+      { name: 'Word Hunter',    minXp: 250,   emoji: '🔍' },
+      { name: 'Explorer',       minXp: 450,   emoji: '🗺️' },
+      { name: 'Thinker',        minXp: 700,   emoji: '🧠' },
+      { name: 'Scholar',        minXp: 1000,  emoji: '🎓' },
+      { name: 'Achiever',       minXp: 1400,  emoji: '⚡' },
+      { name: 'Champion',       minXp: 1900,  emoji: '🏆' },
+      { name: 'Super Reader',   minXp: 2800,  emoji: '🌟' },
+      { name: 'Eagle Eye',      minXp: 4000,  emoji: '🦅' },
+      { name: 'Story Master',   minXp: 5500,  emoji: '🚀' },
+      { name: 'Prodigy',        minXp: 7500,  emoji: '💎' },
+      { name: 'Summer Hero',    minXp: 10000, emoji: '☀️' },
+      { name: 'Grand Master',   minXp: 13000, emoji: '👑' },
+      { name: 'FAST Legend',    minXp: 17000, emoji: '🌈' },
+      { name: 'Mythic Reader',  minXp: 21500, emoji: '🔥' },
+      { name: 'Genius',         minXp: 27000, emoji: '🧬' },
+      { name: 'Knowledge Lord', minXp: 33500, emoji: '🔭' },
+      { name: 'Elite Scholar',  minXp: 41000, emoji: '⭐' },
+      { name: 'Legend Maker',   minXp: 50000, emoji: '🌙' },
+      { name: 'Galaxy Brain',   minXp: 60000, emoji: '🪐' },
+      { name: 'Infinity Reader',minXp: 72000, emoji: '♾️' },
     ];
     function getLevel(xp) {
       let idx = 0;
@@ -322,7 +364,7 @@
         document.getElementById('xp-bar-label').textContent = totalXp + ' / ' + nextLevel.minXp + ' XP → ' + nextLevel.name;
       } else {
         document.getElementById('xp-bar-fill').style.width = '100%';
-        document.getElementById('xp-bar-label').textContent = '🌈 FAST Legend! ' + totalXp + ' XP!';
+        document.getElementById('xp-bar-label').textContent = level.emoji + ' ' + level.name + '! ' + totalXp + ' XP!';
       }
       // Level-up?
       if (newLvlData.levelIdx > oldLvlData.levelIdx) {
@@ -366,6 +408,7 @@
         lastReadDate: todayStr, weekStartDate: weekStart,
         storiesThisWeek, mathThisWeek,
         badges: [...currentBadges, ...newBadgeIds],
+        inactivityDecay: 0, decayCheckedDate: todayStr,
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
       }, { merge: true }).catch(() => {});
 
@@ -410,6 +453,20 @@
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp:   firebase.firestore.FieldValue.serverTimestamp()
       }).catch(err => console.error('MathProgress write failed:', err));
+
+      // Daily challenge: c_math
+      (function() {
+        const todayStr = new Date().toISOString().slice(0, 10);
+        const lsKey = 'dc_' + profile.readerId + '_' + todayStr;
+        const state = JSON.parse(localStorage.getItem(lsKey) || '{"completed":[]}');
+        if (!state.completed.includes('c_math')) {
+          state.completed.push('c_math');
+          localStorage.setItem(lsKey, JSON.stringify(state));
+          firebase.firestore().collection('StudentStats').doc(profile.readerId)
+            .set({ challengeXp: firebase.firestore.FieldValue.increment(20), lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
+            .catch(() => {});
+        }
+      })();
     }
 
     // Confetti

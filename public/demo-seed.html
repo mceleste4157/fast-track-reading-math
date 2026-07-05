@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Seed — FAST Track Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f9fafb; color: #1e1b4b; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .card { background: #fff; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 40px 36px; max-width: 520px; width: 100%; }
+    h1 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    p  { font-size: 0.9rem; color: #6b7280; margin-bottom: 24px; line-height: 1.5; }
+    label { display: block; font-size: 0.82rem; font-weight: 700; color: #6b7280; margin-bottom: 6px; }
+    input { width: 100%; padding: 12px 14px; border: 2px solid #e5e7eb; border-radius: 10px; font-family: inherit; font-size: 0.95rem; margin-bottom: 16px; outline: none; }
+    input:focus { border-color: #7c3aed; }
+    button { width: 100%; padding: 14px; background: #7c3aed; color: #fff; border: none; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    button:hover { background: #6d28d9; }
+    button:disabled { background: #a78bfa; cursor: not-allowed; }
+    #status { margin-top: 20px; font-size: 0.88rem; font-weight: 600; line-height: 1.6; white-space: pre-wrap; }
+    .ok  { color: #065f46; }
+    .err { color: #dc2626; }
+  </style>
+  <link rel="stylesheet" href="dark.css" />
+</head>
+<body>
+<div class="card">
+  <div style="font-size:2.4rem;margin-bottom:12px;">🌱</div>
+  <h1>Demo Data Seeder</h1>
+  <p>Fills a demo student profile with realistic reading, math, typing, and trivia history so the demo account looks active. Run this once. Running it again adds more records on top.</p>
+
+  <label>Demo Student's readerId (from Firestore StudentProfiles)</label>
+  <input type="text" id="reader-id" placeholder="e.g. demo-student-2024" />
+
+  <label>Demo Student's display name</label>
+  <input type="text" id="reader-name" placeholder="e.g. Alex" value="Alex" />
+
+  <button id="seed-btn">🌱 Seed Demo Data</button>
+  <div id="status"></div>
+</div>
+
+<script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+<script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
+<script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script>
+  const auth = firebase.auth();
+  const db   = firebase.firestore();
+  const ts   = firebase.firestore.FieldValue.serverTimestamp;
+
+  const ADMIN_EMAIL = 'celeste1311@gmail.com';
+
+  auth.onAuthStateChanged(user => {
+    if (!user) { window.location.href = 'login.html'; return; }
+    if (user.email !== ADMIN_EMAIL) {
+      document.getElementById('status').className = 'err';
+      document.getElementById('status').textContent = '⛔ Admin only.';
+      document.getElementById('seed-btn').disabled = true;
+    }
+  });
+
+  function log(msg, cls = '') {
+    const el = document.getElementById('status');
+    el.className = cls;
+    el.textContent += msg + '\n';
+  }
+
+  document.getElementById('seed-btn').addEventListener('click', async () => {
+    const readerId = document.getElementById('reader-id').value.trim();
+    const name     = document.getElementById('reader-name').value.trim() || 'Alex';
+    if (!readerId) { log('⚠️ Enter a readerId first.', 'err'); return; }
+
+    const btn = document.getElementById('seed-btn');
+    btn.disabled = true;
+    btn.textContent = 'Seeding…';
+    document.getElementById('status').textContent = '';
+
+    // Helper: date string N days ago
+    function daysAgo(n) {
+      const d = new Date();
+      d.setDate(d.getDate() - n);
+      return d.toISOString().slice(0, 10);
+    }
+
+    try {
+      // ── Reading Progress (12 stories, spread over last 3 weeks) ──────────────
+      const readingRecords = [
+        { storyId: 'florida-everglades',        storyTitle: 'The Heart of Florida: The Everglades', storyTopic: 'florida-nature', quizScore: 5, quizTotal: 5, starsEarned: 5, xpEarned: 125, perfectFirstTry: true,  daysBack: 2  },
+        { storyId: 'monarch-migration',          storyTitle: 'Monarch Migration',                    storyTopic: 'science',        quizScore: 4, quizTotal: 5, starsEarned: 4, xpEarned: 80,  perfectFirstTry: false, daysBack: 4  },
+        { storyId: 'elenas-idea',                storyTitle: "Elena's Brilliant Idea",               storyTopic: 'character',      quizScore: 5, quizTotal: 5, starsEarned: 5, xpEarned: 125, perfectFirstTry: true,  daysBack: 5  },
+        { storyId: 'mae-jemison',                storyTitle: 'Mae Jemison',                          storyTopic: 'biography',      quizScore: 4, quizTotal: 5, starsEarned: 4, xpEarned: 80,  perfectFirstTry: false, daysBack: 7  },
+        { storyId: 'plastic-problem',            storyTitle: 'The Plastic Problem',                  storyTopic: 'science',        quizScore: 3, quizTotal: 5, starsEarned: 3, xpEarned: 60,  perfectFirstTry: false, daysBack: 8  },
+        { storyId: 'how-hurricanes-form',        storyTitle: 'How Hurricanes Form',                  storyTopic: 'science',        quizScore: 5, quizTotal: 5, starsEarned: 5, xpEarned: 125, perfectFirstTry: true,  daysBack: 10 },
+        { storyId: 'florida-panther',            storyTitle: 'The Florida Panther',                  storyTopic: 'florida-nature', quizScore: 4, quizTotal: 5, starsEarned: 4, xpEarned: 80,  perfectFirstTry: false, daysBack: 11 },
+        { storyId: 'manatees',                   storyTitle: 'Gentle Giants: Manatees',              storyTopic: 'florida-nature', quizScore: 5, quizTotal: 5, starsEarned: 5, xpEarned: 125, perfectFirstTry: true,  daysBack: 13 },
+        { storyId: 'sea-turtles',                storyTitle: 'Sea Turtles',                          storyTopic: 'florida-nature', quizScore: 3, quizTotal: 5, starsEarned: 3, xpEarned: 60,  perfectFirstTry: false, daysBack: 14 },
+        { storyId: 'thomas-edison',              storyTitle: 'Thomas Edison',                        storyTopic: 'history',        quizScore: 4, quizTotal: 5, starsEarned: 4, xpEarned: 80,  perfectFirstTry: false, daysBack: 16 },
+        { storyId: 'coral-reef-crisis',          storyTitle: 'Coral Reef Crisis',                    storyTopic: 'science',        quizScore: 5, quizTotal: 5, starsEarned: 5, xpEarned: 125, perfectFirstTry: true,  daysBack: 18 },
+        { storyId: 'zora-neale-hurston',         storyTitle: 'Zora Neale Hurston',                   storyTopic: 'biography',      quizScore: 4, quizTotal: 5, starsEarned: 4, xpEarned: 80,  perfectFirstTry: false, daysBack: 20 },
+      ];
+
+      for (const r of readingRecords) {
+        await db.collection('Progress').add({
+          readerId, readerName: name,
+          storyId: r.storyId, storyTitle: r.storyTitle, storyTopic: r.storyTopic,
+          quizScore: r.quizScore, quizTotal: r.quizTotal,
+          starsEarned: r.starsEarned, xpEarned: r.xpEarned,
+          perfectFirstTry: r.perfectFirstTry,
+          answers: [],
+          completedAt: ts(), timestamp: ts()
+        });
+      }
+      log(`✅ Added ${readingRecords.length} reading records`, 'ok');
+
+      // ── Math Progress (6 topics) ──────────────────────────────────────────────
+      const mathRecords = [
+        { setId: 'gr4-multiplication', setTitle: 'Multiplication',        quizScore: 8, quizTotal: 8, xpEarned: 60, perfectFirstTry: true,  daysBack: 3  },
+        { setId: 'gr4-division',       setTitle: 'Division',              quizScore: 7, quizTotal: 8, xpEarned: 45, perfectFirstTry: false, daysBack: 6  },
+        { setId: 'gr4-fractions',      setTitle: 'Fractions',             quizScore: 6, quizTotal: 8, xpEarned: 30, perfectFirstTry: false, daysBack: 9  },
+        { setId: 'gr4-geometry',       setTitle: 'Geometry Basics',       quizScore: 8, quizTotal: 8, xpEarned: 60, perfectFirstTry: true,  daysBack: 12 },
+        { setId: 'gr4-place-value',    setTitle: 'Place Value',           quizScore: 7, quizTotal: 8, xpEarned: 45, perfectFirstTry: false, daysBack: 15 },
+        { setId: 'gr4-measurement',    setTitle: 'Measurement & Data',    quizScore: 8, quizTotal: 8, xpEarned: 60, perfectFirstTry: true,  daysBack: 19 },
+      ];
+
+      for (const m of mathRecords) {
+        await db.collection('MathProgress').add({
+          readerId, readerName: name,
+          setId: m.setId, setTitle: m.setTitle,
+          quizScore: m.quizScore, quizTotal: m.quizTotal,
+          xpEarned: m.xpEarned, perfectFirstTry: m.perfectFirstTry,
+          answers: [],
+          completedAt: ts(), timestamp: ts()
+        });
+      }
+      log(`✅ Added ${mathRecords.length} math records`, 'ok');
+
+      // ── Typing Progress (4 lessons) ───────────────────────────────────────────
+      const typingRecords = [
+        { lessonId: 'home-row',     lessonTitle: 'Home Row Keys',  wpm: 32, accuracy: 94, stars: 4, xpEarned: 30, daysBack: 2  },
+        { lessonId: 'top-row',      lessonTitle: 'Top Row Keys',   wpm: 28, accuracy: 88, stars: 3, xpEarned: 20, daysBack: 7  },
+        { lessonId: 'bottom-row',   lessonTitle: 'Bottom Row Keys',wpm: 25, accuracy: 85, stars: 3, xpEarned: 20, daysBack: 12 },
+        { lessonId: 'full-keyboard',lessonTitle: 'Full Keyboard',  wpm: 35, accuracy: 96, stars: 5, xpEarned: 45, daysBack: 17 },
+      ];
+
+      for (const t of typingRecords) {
+        await db.collection('TypingProgress').add({
+          readerId, readerName: name,
+          lessonId: t.lessonId, lessonTitle: t.lessonTitle,
+          wpm: t.wpm, accuracy: t.accuracy, stars: t.stars, xpEarned: t.xpEarned,
+          timeSeconds: Math.round(60 / t.wpm * 200),
+          completedAt: ts(), timestamp: ts()
+        });
+      }
+      log(`✅ Added ${typingRecords.length} typing records`, 'ok');
+
+      // ── Trivia Scores (2 rounds) ──────────────────────────────────────────────
+      await db.collection('TriviaScores').add({ readerId, playerName: name, bonusStars: 3, correctAnswers: 14, totalQuestions: 15, points: 140, rounds: 3, xpEarned: 30, timestamp: ts() });
+      await db.collection('TriviaScores').add({ readerId, playerName: name, bonusStars: 2, correctAnswers: 10, totalQuestions: 15, points: 100, rounds: 3, xpEarned: 20, timestamp: ts() });
+      log(`✅ Added 2 trivia records`, 'ok');
+
+      // ── StudentStats ─────────────────────────────────────────────────────────
+      const totalXp = readingRecords.reduce((s, r) => s + r.xpEarned, 0)
+                    + mathRecords.reduce((s, m) => s + m.xpEarned, 0)
+                    + typingRecords.reduce((s, t) => s + t.xpEarned, 0)
+                    + 50; // trivia
+
+      await db.collection('StudentStats').doc(readerId).set({
+        readerId,
+        currentStreak:   8,
+        longestStreak:   12,
+        lastReadDate:    daysAgo(2),
+        weekStartDate:   daysAgo(new Date().getDay() === 0 ? 6 : new Date().getDay() - 1),
+        storiesThisWeek: 3,
+        mathThisWeek:    2,
+        lastWeekStories: 5,
+        lastWeekMath:    3,
+        freezeTokens:    1,
+        badges: ['first_story','story_5','story_10','perfect_score','math_unlock','math_first','streak_3','streak_7','xp_500','typing_first','typing_5'],
+        inactivityDecay: 0,
+        decayCheckedDate: daysAgo(2),
+        lastUpdated: ts()
+      });
+      log(`✅ StudentStats written (${totalXp} total XP, 8-day streak, 11 badges)`, 'ok');
+
+      // ── StudentActivity log ───────────────────────────────────────────────────
+      const activityEntries = [
+        ...readingRecords.map(r => ({ type: 'story', id: r.storyId,    title: r.storyTitle, starsEarned: r.starsEarned, xpEarned: r.xpEarned, daysBack: r.daysBack })),
+        ...mathRecords.map(m =>    ({ type: 'math',  id: m.setId,      title: m.setTitle,   starsEarned: m.quizScore,   xpEarned: m.xpEarned, daysBack: m.daysBack })),
+      ];
+      for (const a of activityEntries) {
+        await db.collection('StudentActivity').add({
+          readerId, readerName: name,
+          type: a.type, storyId: a.id, title: a.title,
+          starsEarned: a.starsEarned, xpEarned: a.xpEarned,
+          date: daysAgo(a.daysBack),
+          timestamp: ts()
+        });
+      }
+      log(`✅ Added ${activityEntries.length} activity records`, 'ok');
+
+      log(`\n🎉 Done! ${name} (${readerId}) is fully seeded.\nTotal XP: ~${totalXp} · Level: Scholar 🎓 · Streak: 8 days`, 'ok');
+      btn.textContent = '✅ Seeded!';
+    } catch (err) {
+      log(`\n❌ Error: ${err.message}`, 'err');
+      btn.disabled = false;
+      btn.textContent = '🌱 Seed Demo Data';
+    }
+  });
+</script>
+</body>
+</html>

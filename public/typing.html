@@ -100,6 +100,7 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <nav class="nav">
@@ -141,17 +142,17 @@
     if (!profile) { window.location.href = 'login.html'; }
 
     // grade → recommended starting lesson (1-indexed)
-    const GRADE_START = { 1:1, 2:1, 3:3, 4:5, 5:7, 6:9, 7:10, 8:11 };
+    const GRADE_START = { 1:1, 2:1, 3:3, 4:5, 5:13, 6:14, 7:15, 8:16 };
     // grade → hero subtitle
     const GRADE_TIPS = {
       1: 'Start with the home row keys — the most important letters!',
       2: 'Practice home row first, then reach for E, I, T, and O.',
       3: 'Work on the full keyboard with both hands together.',
       4: 'Focus on accuracy — speed follows once your fingers know the keys.',
-      5: 'Build speed with capitals and punctuation — aim for 30+ WPM.',
-      6: 'Sentences and paragraphs — aim for 40+ WPM with great accuracy.',
-      7: 'Push to 50+ WPM using real paragraphs and mixed content.',
-      8: 'Aim for 60+ WPM — the speed you\'ll need for timed writing tests.',
+      5: 'Type real story passages — build fluency with connected sentences.',
+      6: 'Type longer passages with punctuation — aim for 35+ WPM.',
+      7: 'Push to 45+ WPM typing full paragraphs with varied vocabulary.',
+      8: 'Aim for 55+ WPM — the speed you\'ll need for timed writing tests.',
     };
 
     const grade = parseInt(profile.gradeLevel) || 4;
@@ -170,7 +171,12 @@
       { id: 'l9',  emoji: '⇧',  title: 'Capitals',          sub: 'Using the Shift key',          minGrade: 4, text: 'The dog ran. I see a cat. Go now! Please help me. Sam likes fish.' },
       { id: 'l10', emoji: '📝', title: 'Common Words',      sub: 'Words you use every day',      minGrade: 5, text: 'they were have when that with this will been some what from which more' },
       { id: 'l11', emoji: '✍️', title: 'Sentences',         sub: 'Punctuation and flow',         minGrade: 6, text: 'Reading every day makes you a better writer. Try your best and you will improve.' },
-      { id: 'l12', emoji: '📄', title: 'Full Paragraph',    sub: 'Florida theme',                minGrade: 7, text: 'Florida is a warm and sunny state. Many animals live in its forests and wetlands. The Everglades is home to alligators, birds, and fish. Protecting nature helps everyone.' },
+      { id: 'l12', emoji: '📄', title: 'Full Paragraph',    sub: 'Florida theme',                minGrade: 4, text: 'Florida is a warm and sunny state. Many animals live in its forests and wetlands. The Everglades is home to alligators, birds, and fish. Protecting nature helps everyone.' },
+      { id: 'l13', emoji: '🌿', title: 'The Everglades',    sub: 'Real story passage',           minGrade: 5, text: 'The Everglades is not a swamp or a lake. It is a wide, shallow river that flows slowly southward across Florida. More than 360 bird species live or feed there. Alligators dig deep holes that hold water long after the rest of the marsh dries out, helping other animals survive the dry season.' },
+      { id: 'l14', emoji: '🚀', title: 'Space Coast',       sub: 'Florida and NASA',             minGrade: 5, text: 'Florida became the launch capital of the United States because of its geography. Rockets launched eastward over the Atlantic fall safely into the ocean. In July 1969, Apollo 11 lifted off from Kennedy Space Center, carrying three astronauts on a historic journey to the Moon.' },
+      { id: 'l15', emoji: '🌍', title: 'Pangaea',           sub: 'Science passage',              minGrade: 6, text: 'Alfred Wegener noticed that the coastlines of South America and Africa looked like puzzle pieces that fit together. He proposed that all continents were once joined in a supercontinent called Pangaea. Over millions of years, they slowly drifted apart, driven by the movement of tectonic plates deep beneath Earth\'s crust.' },
+      { id: 'l16', emoji: '✊', title: 'Civil Rights',      sub: 'Florida history passage',      minGrade: 7, text: 'Harry T. Moore spent decades organizing voter registration drives across Florida and investigating racial violence. On Christmas night in 1951, a bomb destroyed his home in Mims, Florida, killing him and his wife Harriette. He is remembered as one of Florida\'s earliest and most courageous civil rights leaders.' },
+      { id: 'l17', emoji: '🔐', title: 'Digital Privacy',   sub: 'Grade 8 challenge passage',   minGrade: 8, text: 'Every time you use a search engine or open an app, data is collected about you. Companies track what you search, how long you read each page, and where you travel. This information is analyzed and often sold to other businesses. Understanding digital privacy has become an essential skill in the modern world.' },
     ];
 
     const db = firebase.firestore();
