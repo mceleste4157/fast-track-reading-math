@@ -427,6 +427,7 @@
           feedback.textContent = '✅ Correct! "' + item.word + '" — ' + item.definition;
           feedback.className = 'fitb-feedback ok';
           fitbCorrect++;
+          document.getElementById('fitb-score-label').textContent = '✅ ' + fitbCorrect + ' correct';
           document.getElementById('fitb-sentence').innerHTML = item.example.replace(
             new RegExp('\\b' + item.word + '\\b', 'i'),
             '<span class="fitb-blank" style="color:var(--green);">' + item.word + '</span>'
