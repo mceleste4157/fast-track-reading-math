@@ -697,18 +697,28 @@
     // ─── Load Firestore stats ──────────────────────────────────────────────────
     const db = firebase.firestore();
 
+    if (!profile.readerId) {
+      // Profile exists but readerId is missing — force re-login
+      localStorage.removeItem('readerProfile');
+      window.location.href = 'login.html';
+    }
+
     // Show a retry link if Firestore takes more than 5 seconds
     const _loadingTimeout = setTimeout(() => {
       document.getElementById('xp-label').innerHTML =
         '⚠️ Taking too long · <a href="javascript:location.reload()" style="color:var(--purple);font-weight:700;">Tap to retry</a>';
     }, 5000);
 
+    // Wrap each query individually so one failure doesn't blank the whole page
+    const emptySnap = { forEach: () => {}, docs: [], empty: true, exists: false, data: () => ({}) };
+    function safeGet(query) { return query.catch(() => emptySnap); }
+
     Promise.all([
-      db.collection('Progress').where('readerId', '==', profile.readerId).get(),
-      db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
-      db.collection('TypingProgress').where('readerId', '==', profile.readerId).get(),
-      db.collection('TriviaScores').where('readerId', '==', profile.readerId).get(),
-      db.collection('StudentStats').doc(profile.readerId).get()
+      safeGet(db.collection('Progress').where('readerId', '==', profile.readerId).get()),
+      safeGet(db.collection('MathProgress').where('readerId', '==', profile.readerId).get()),
+      safeGet(db.collection('TypingProgress').where('readerId', '==', profile.readerId).get()),
+      safeGet(db.collection('TriviaScores').where('readerId', '==', profile.readerId).get()),
+      safeGet(db.collection('StudentStats').doc(profile.readerId).get())
     ]).then(([readSnap, mathSnap, typingSnap, triviaSnap, statsSnap]) => {
       clearTimeout(_loadingTimeout);
       let readXp = 0, bestReadScore = 0;
