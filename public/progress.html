@@ -256,7 +256,7 @@
     if (profile.avatarEmoji) {
       avatarEl.textContent = profile.avatarEmoji;
     } else {
-      avatarEl.textContent = profile.name.charAt(0).toUpperCase();
+      avatarEl.textContent = (profile.name || '?').charAt(0).toUpperCase();
     }
     if (profile.avatarColor) avatarEl.style.background = profile.avatarColor;
 

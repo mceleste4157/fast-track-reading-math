@@ -146,7 +146,7 @@
     if (profile.avatarEmoji) {
       av.textContent = profile.avatarEmoji;
     } else {
-      av.textContent = profile.name.trim().charAt(0).toUpperCase();
+      av.textContent = (profile.name || '?').trim().charAt(0).toUpperCase();
     }
 
     // Grade-filtered math sets

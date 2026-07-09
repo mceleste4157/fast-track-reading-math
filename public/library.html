@@ -369,9 +369,9 @@
       av.style.background = profile.avatarColor || '#7c3aed';
     } else {
       av.style.background = profile.avatarColor || '#7c3aed';
-      av.textContent = profile.name.trim().charAt(0).toUpperCase();
+      av.textContent = (profile.name || '?').trim().charAt(0).toUpperCase();
     }
-    document.getElementById('nav-name').textContent = profile.name;
+    document.getElementById('nav-name').textContent = profile.name || '';
 
     let progressMap = {};
     const FAV_KEY = 'favorites_' + (profile ? profile.readerId : 'anon');
