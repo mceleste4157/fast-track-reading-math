@@ -336,6 +336,18 @@
       <div id="math-daily-nudge" style="display:none;width:100%;max-width:480px;margin-bottom:8px;"></div>
 
       <a href="progress.html" class="progress-link" id="quest-link">🗺️ See Quest Board →</a>
+
+      <!-- Offline download button -->
+      <div id="offline-dl-wrap" style="width:100%;max-width:480px;margin-top:8px;display:none;">
+        <button id="offline-dl-btn" onclick="downloadForOffline()"
+          style="width:100%;padding:12px 16px;background:var(--surface);border:2px solid var(--border);border-radius:12px;font-size:0.88rem;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:border-color 0.15s,color 0.15s;">
+          📥 Download for Offline Use
+        </button>
+        <div id="offline-dl-bar-wrap" style="display:none;margin-top:8px;background:#e5e7eb;border-radius:99px;height:6px;overflow:hidden;">
+          <div id="offline-dl-bar" style="height:100%;width:0%;background:var(--purple);border-radius:99px;transition:width 0.2s;"></div>
+        </div>
+        <div id="offline-dl-status" style="font-size:0.78rem;color:var(--muted);text-align:center;margin-top:5px;min-height:16px;"></div>
+      </div>
     </div>
 
     <!-- ── Sidebar: Level Ladder ─────────────────────────────────────── -->
@@ -1194,6 +1206,72 @@
         setTimeout(() => toast.remove(), 6000);
       }, 1500);
     })();
+
+    // ── Offline download button ────────────────────────────────────────────────
+    (function () {
+      // Only show when online and service workers are supported
+      if (!('serviceWorker' in navigator) || !('caches' in window)) return;
+      const wrap = document.getElementById('offline-dl-wrap');
+      function syncVisibility() {
+        wrap.style.display = navigator.onLine ? 'block' : 'none';
+      }
+      syncVisibility();
+      window.addEventListener('online',  syncVisibility);
+      window.addEventListener('offline', syncVisibility);
+    })();
+
+    async function downloadForOffline() {
+      const btn      = document.getElementById('offline-dl-btn');
+      const barWrap  = document.getElementById('offline-dl-bar-wrap');
+      const bar      = document.getElementById('offline-dl-bar');
+      const status   = document.getElementById('offline-dl-status');
+
+      const ASSETS = [
+        '/stories.js?v=20260705', '/math-data.js', '/dark.css',
+        '/__/firebase/10.0.0/firebase-app-compat.js',
+        '/__/firebase/10.0.0/firebase-auth-compat.js',
+        '/__/firebase/10.0.0/firebase-firestore-compat.js',
+        '/__/firebase/init.js',
+        '/index.html','/login.html','/library.html','/read.html',
+        '/quiz.html','/results.html','/progress.html',
+        '/math.html','/math-quiz.html','/math-results.html',
+        '/spelling.html','/vocab.html','/vocab-game.html',
+        '/trivia.html','/typing-practice.html','/story-type.html',
+        '/parent-portal.html',
+      ];
+
+      btn.disabled = true;
+      btn.innerHTML = '⏳ Downloading…';
+      barWrap.style.display = 'block';
+      status.textContent = '';
+
+      let done = 0, failed = 0;
+      const cache = await caches.open('fast-track-v10');
+
+      for (const url of ASSETS) {
+        try {
+          const res = await fetch(url, { cache: 'reload' });
+          if (res.ok) await cache.put(url, res);
+          else failed++;
+        } catch (e) { failed++; }
+        done++;
+        const pct = Math.round((done / ASSETS.length) * 100);
+        bar.style.width = pct + '%';
+        status.textContent = 'Caching ' + done + ' of ' + ASSETS.length + '…';
+      }
+
+      if (failed === 0) {
+        btn.innerHTML = '✅ Ready for Offline!';
+        btn.style.borderColor = '#10b981';
+        btn.style.color = '#065f46';
+        status.textContent = 'All ' + ASSETS.length + ' files saved. You\'re good to go!';
+        bar.style.background = '#10b981';
+      } else {
+        btn.innerHTML = '⚠️ Partial — tap to retry';
+        btn.disabled = false;
+        status.textContent = failed + ' file(s) failed. Try again.';
+      }
+    }
   </script>
 </body>
 </html>
