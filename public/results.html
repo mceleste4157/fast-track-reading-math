@@ -694,6 +694,13 @@
       showBadges(newBadgeIds);
 
       // ── Write StudentStats ──────────────────────────────────────────────────
+      // Compute aggregated fields so home page only needs to read this one doc
+      const totalReadStars = Object.values(bestPerStory).reduce((s, d) => s + (d.starsEarned || 0), 0);
+      const bestReadScoreNow = Math.max(sd.bestReadScore || 0, result.score || 0);
+      const now2 = new Date();
+      const monthStart = now2.getFullYear() + '-' + String(now2.getMonth() + 1).padStart(2, '0');
+      const isNewMonth = (sd.monthStartDate || '') !== monthStart;
+      const storiesThisMonth = (isNewMonth ? 0 : (sd.storiesThisMonth || 0)) + 1;
       db.collection('StudentStats').doc(profile.readerId).set({
         readerId: profile.readerId,
         currentStreak, longestStreak,
@@ -701,6 +708,11 @@
         storiesThisWeek, mathThisWeek, freezeTokens, lastWeekStories, lastWeekMath,
         badges: [...currentBadges, ...newBadgeIds],
         inactivityDecay: 0, decayCheckedDate: todayStr,
+        totalXp, readStars: totalReadStars,
+        bestReadScore: bestReadScoreNow,
+        storiesThisMonth, monthStartDate: monthStart,
+        lastStoryId: result.storyId,
+        completedStoryIds: firebase.firestore.FieldValue.arrayUnion(result.storyId),
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
       }, { merge: true }).catch(() => {});
 

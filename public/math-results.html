@@ -402,6 +402,7 @@
       showBadges(newBadgeIds);
 
       // ── Write StudentStats ──────────────────────────────────────────────────
+      const mathSetsCompleted = uniqueMath.has(result.setId) ? uniqueMath.size : uniqueMath.size + 1;
       db.collection('StudentStats').doc(profile.readerId).set({
         readerId: profile.readerId,
         currentStreak, longestStreak,
@@ -409,6 +410,7 @@
         storiesThisWeek, mathThisWeek,
         badges: [...currentBadges, ...newBadgeIds],
         inactivityDecay: 0, decayCheckedDate: todayStr,
+        totalXp, mathSetsCompleted,
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
       }, { merge: true }).catch(() => {});
 
