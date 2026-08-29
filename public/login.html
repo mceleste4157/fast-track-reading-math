@@ -136,6 +136,8 @@
     }
     .card-name  { font-size: 1.05rem; font-weight: 800; text-align: center; }
     .card-grade { font-size: 0.82rem; color: var(--muted); font-weight: 600; margin-top: 4px; }
+    .card-xp    { font-size: 0.75rem; font-weight: 700; color: var(--purple); margin-top: 5px; text-align: center; min-height: 14px; }
+    .student-card { position: relative; }
 
     .empty-kids {
       text-align: center; padding: 48px 24px;
@@ -355,6 +357,7 @@
       kids.forEach(kid => {
         const card = document.createElement('div');
         card.className = 'student-card';
+        card.dataset.readerId = kid.readerId;
         const color  = escHtml(kid.avatarColor || '#7c3aed');
         const avatar = kid.avatarEmoji
           ? escHtml(kid.avatarEmoji)
@@ -362,12 +365,44 @@
         card.innerHTML = `
           <div class="card-avatar" style="background:${color}">${avatar}</div>
           <div class="card-name">${escHtml(kid.name || '')}</div>
-          <div class="card-grade">Grade ${escHtml(String(kid.gradeLevel || ''))}</div>`;
+          <div class="card-grade">Grade ${escHtml(String(kid.gradeLevel || ''))}</div>
+          <div class="card-xp" id="xp-${escHtml(kid.readerId || kid.id)}"></div>`;
         card.addEventListener('click', () => startKidSession(kid));
         grid.appendChild(card);
       });
       area.innerHTML = '';
       area.appendChild(grid);
+
+      // ── Sibling XP Race ────────────────────────────────────────────────────
+      if (kids.length > 0) {
+        Promise.all(kids.map(k =>
+          db.collection('StudentStats').doc(k.readerId).get().catch(() => null)
+        )).then(statDocs => {
+          // Find leader
+          let topXp = 0, topReaderId = null;
+          statDocs.forEach((s, i) => {
+            if (s && s.exists) {
+              const xp = s.data().totalXp || 0;
+              if (xp > topXp) { topXp = xp; topReaderId = kids[i].readerId; }
+            }
+          });
+          statDocs.forEach((s, i) => {
+            const kid = kids[i];
+            const el = document.getElementById('xp-' + kid.readerId);
+            if (!el) return;
+            const xp = (s && s.exists) ? (s.data().totalXp || 0) : 0;
+            const streak = (s && s.exists) ? (s.data().currentStreak || 0) : 0;
+            const isLeader = kids.length > 1 && kid.readerId === topReaderId && topXp > 0;
+            if (isLeader) {
+              const card = el.closest('.student-card');
+              if (card) card.insertAdjacentHTML('afterbegin', '<div style="position:absolute;top:-10px;right:6px;font-size:1.3rem;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.3))">👑</div>');
+            }
+            if (xp > 0 || streak > 0) {
+              el.textContent = xp + ' XP' + (streak > 1 ? ' · 🔥' + streak : '');
+            }
+          });
+        }).catch(() => {});
+      }
     }
 
     function startKidSession(kid) {

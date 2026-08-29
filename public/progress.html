@@ -238,6 +238,18 @@
       <div class="badge-wrap" id="badge-grid"></div>
     </div>
 
+    <!-- Avatar Shop -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🛍️ Avatar Shop</div>
+        <div style="font-size:0.78rem;font-weight:600;color:var(--muted);" id="shop-xp-label"></div>
+      </div>
+      <div style="padding:4px 12px 14px;">
+        <div style="font-size:0.8rem;color:var(--muted);margin-bottom:12px;">Spend XP to unlock new avatars — tap to equip!</div>
+        <div id="avatar-shop-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;"></div>
+      </div>
+    </div>
+
   </div><!-- end .page -->
 
   <script src="stories.js?v=20260705"></script>
@@ -618,6 +630,85 @@
         if (el) el.innerHTML = '<div class="empty" style="color:#dc2626">⚠️ Could not load — check connection.</div>';
       });
     });
+
+    // ── Avatar Shop ─────────────────────────────────────────────────────────────
+    (function() {
+      const AVATARS = [
+        { emoji: '🐶', name: 'Puppy',       xp: 0   },
+        { emoji: '🐱', name: 'Kitten',       xp: 0   },
+        { emoji: '🐭', name: 'Mouse',        xp: 0   },
+        { emoji: '🐹', name: 'Hamster',      xp: 0   },
+        { emoji: '🐰', name: 'Bunny',        xp: 0   },
+        { emoji: '🦊', name: 'Fox',          xp: 50  },
+        { emoji: '🐸', name: 'Frog',         xp: 50  },
+        { emoji: '🐼', name: 'Panda',        xp: 50  },
+        { emoji: '🐨', name: 'Koala',        xp: 50  },
+        { emoji: '🦁', name: 'Lion',         xp: 50  },
+        { emoji: '🦄', name: 'Unicorn',      xp: 100 },
+        { emoji: '🐉', name: 'Dragon',       xp: 100 },
+        { emoji: '🦋', name: 'Butterfly',    xp: 100 },
+        { emoji: '🦉', name: 'Owl',          xp: 100 },
+        { emoji: '🐬', name: 'Dolphin',      xp: 100 },
+        { emoji: '🚀', name: 'Rocket',       xp: 200 },
+        { emoji: '👾', name: 'Alien',        xp: 200 },
+        { emoji: '🌟', name: 'Star',         xp: 200 },
+        { emoji: '💎', name: 'Diamond',      xp: 200 },
+        { emoji: '🔥', name: 'Fire',         xp: 200 },
+        { emoji: '🏆', name: 'Trophy',       xp: 500 },
+        { emoji: '⚡', name: 'Lightning',    xp: 500 },
+        { emoji: '🌈', name: 'Rainbow',      xp: 500 },
+        { emoji: '🦅', name: 'Eagle',        xp: 500 },
+        { emoji: '👑', name: 'Crown',        xp: 500 },
+      ];
+
+      const db2 = firebase.firestore();
+      db2.collection('StudentStats').doc(profile.readerId).get().then(snap => {
+        const sd = snap.exists ? snap.data() : {};
+        const totalXp = sd.totalXp || 0;
+        const equipped = profile.avatarEmoji || '';
+        document.getElementById('shop-xp-label').textContent = totalXp + ' XP available';
+
+        const grid = document.getElementById('avatar-shop-grid');
+        let currentEquipped = equipped;
+
+        function renderShop() {
+          grid.innerHTML = '';
+          AVATARS.forEach(av => {
+            const unlocked = totalXp >= av.xp;
+            const isEquipped = av.emoji === currentEquipped;
+            const tile = document.createElement('div');
+            tile.title = av.name + (av.xp > 0 ? ' · ' + av.xp + ' XP' : ' · Free');
+            tile.style.cssText = [
+              'display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;border-radius:12px;',
+              unlocked ? 'cursor:pointer;' : 'cursor:default;',
+              'border:2px solid ' + (isEquipped ? 'var(--purple)' : unlocked ? 'var(--border)' : '#e5e7eb') + ';',
+              'background:' + (isEquipped ? '#ede9fe' : unlocked ? 'var(--surface)' : '#f9fafb') + ';',
+              'opacity:' + (unlocked ? '1' : '0.45') + ';',
+              'transition:transform 0.1s,border-color 0.15s;',
+            ].join('');
+            tile.innerHTML =
+              '<span style="font-size:1.6rem;line-height:1;">' + av.emoji + '</span>' +
+              '<span style="font-size:0.58rem;font-weight:700;color:' + (unlocked ? 'var(--muted)' : '#9ca3af') + '">' + (av.xp > 0 ? av.xp + ' XP' : 'FREE') + '</span>' +
+              (isEquipped ? '<span style="font-size:0.6rem;font-weight:800;color:var(--purple);">ON</span>' : '');
+            if (unlocked && !isEquipped) {
+              tile.addEventListener('click', () => {
+                if (profile.profileDocId) {
+                  db2.collection('StudentProfiles').doc(profile.profileDocId).update({ avatarEmoji: av.emoji }).catch(() => {});
+                }
+                profile.avatarEmoji = av.emoji;
+                localStorage.setItem('readerProfile', JSON.stringify(profile));
+                const heroAv = document.getElementById('hero-avatar');
+                if (heroAv) heroAv.textContent = av.emoji;
+                currentEquipped = av.emoji;
+                renderShop();
+              });
+            }
+            grid.appendChild(tile);
+          });
+        }
+        renderShop();
+      }).catch(() => {});
+    })();
   </script>
   <script>
     if ('serviceWorker' in navigator) {

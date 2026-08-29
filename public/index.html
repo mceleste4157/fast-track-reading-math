@@ -190,6 +190,9 @@
     @keyframes ppmShake {
       0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
     }
+    @keyframes lvlPop {
+      0%{opacity:0;transform:scale(0.7) translateY(20px)} 100%{opacity:1;transform:scale(1) translateY(0)}
+    }
   </style>
   <link rel="stylesheet" href="dark.css" />
 </head>
@@ -547,7 +550,7 @@
     function getLevel(xp) {
       let idx = 0;
       for (let i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i].minXp) idx = i; }
-      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null };
+      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null, levelIdx: idx };
     }
 
     const MATH_UNLOCK_KEY = 'mathUnlocked_' + (profile ? profile.readerId : 'unknown');
@@ -975,6 +978,32 @@
       }
       // Level ladder — update with effectiveXp
       renderLadder(effectiveXp);
+
+      // ── Level-up celebration ──────────────────────────────────────────────────
+      (function() {
+        const lvlKey = 'lastLevelIdx_' + profile.readerId;
+        const { levelIdx } = getLevel(effectiveXp);
+        const lastIdx = parseInt(localStorage.getItem(lvlKey) ?? '-1');
+        localStorage.setItem(lvlKey, levelIdx);
+        if (lastIdx < 0 || levelIdx <= lastIdx) return;
+        // Level increased since last visit!
+        setTimeout(() => {
+          const overlay = document.createElement('div');
+          overlay.style.cssText = 'position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;padding:24px;';
+          overlay.innerHTML = `
+            <div style="background:#fff;border-radius:24px;padding:36px 28px;max-width:340px;width:100%;text-align:center;animation:lvlPop 0.4s cubic-bezier(.34,1.56,.64,1) both;">
+              <div style="font-size:4rem;margin-bottom:8px;">${level.emoji}</div>
+              <div style="font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#7c3aed;margin-bottom:6px;">Level Up!</div>
+              <div style="font-size:1.8rem;font-weight:900;color:#1e1b4b;margin-bottom:6px;">${level.name}</div>
+              <div style="font-size:0.95rem;color:#6b7280;margin-bottom:24px;">You earned a new rank — amazing work! 🎉</div>
+              <button onclick="this.closest('[style*=fixed]').remove()" style="width:100%;padding:14px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;">Let's go! 🚀</button>
+            </div>`;
+          document.body.appendChild(overlay);
+          overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+          // Burst confetti
+          if (typeof startConfetti === 'function') startConfetti();
+        }, 800);
+      })();
 
       // Daily challenges
       renderDailyChallenges(profile.readerId);
