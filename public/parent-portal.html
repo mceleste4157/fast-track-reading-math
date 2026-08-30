@@ -153,10 +153,10 @@
     .btn-login:hover { background: var(--blue); color: #fff; }
     .btn-edit    { background: #f3f4f6; color: var(--muted); }
     .btn-edit:hover { background: var(--purple-soft); color: var(--purple); }
-    .btn-pin     { background: #fef3c7; color: #92400e; }
-    .btn-pin:hover { background: #f59e0b; color: #fff; }
     .btn-delete  { background: var(--red-soft); color: var(--red); }
     .btn-delete:hover { background: var(--red); color: #fff; }
+    .btn-msg     { background: #ecfdf5; color: #065f46; }
+    .btn-msg:hover { background: #10b981; color: #fff; }
 
     /* ── Add child button ── */
     .btn-add-child {
@@ -290,6 +290,7 @@
       0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
     }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
 
@@ -306,241 +307,9 @@
     <div class="rn-modal">
       <div class="rn-header">
         <h2>🚀 What's New in FAST Track</h2>
-        <p>Last updated: June 1, 2026</p>
+        <p id="rn-last-updated">Last updated: July 4, 2026</p>
       </div>
-      <div class="rn-body">
-
-        <div class="rn-date">June 1, 2026 — Latest Update</div>
-        <div class="rn-section">
-          <div class="rn-items">
-            <div class="rn-item">
-              <div class="rn-item-icon">🔄</div>
-              <div class="rn-item-text"><strong>Auto-reload on updates</strong> — No more hard refresh needed! When we deploy new features, the app automatically reloads itself to show the latest version.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📚</div>
-              <div class="rn-item-text"><strong>58 stories — 8 new added</strong> — 5 new early stories for Grades 1–2 (pelican, sea turtle, manatee, thunderstorm, new neighbor) and 3 new advanced stories for Grades 5–8 (AI, Frederick Douglass, Florida coral reefs).</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🔍</div>
-              <div class="rn-item-text"><strong>Library search</strong> — Type any title or topic in the new search bar at the top of the library to filter stories instantly.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🏷️</div>
-              <div class="rn-item-text"><strong>Difficulty badges</strong> — Every story card now shows ⭐ Beginner, 📘 Grade Level, or 🔥 Challenge so kids can pick the right level.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">👍</div>
-              <div class="rn-item-text"><strong>Story ratings</strong> — After every quiz, kids can rate the story with a thumbs up or down. Feedback goes straight to the developer.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🔖</div>
-              <div class="rn-item-text"><strong>Continue where you left off</strong> — The home screen shows a banner pointing to the last story read, if it wasn't today.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">☀️</div>
-              <div class="rn-item-text"><strong>Monthly reading challenge</strong> — A themed goal appears on the home screen and Quest Board each month (e.g. "June: Read 10 stories").</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📅</div>
-              <div class="rn-item-text"><strong>Reading streak calendar</strong> — The Quest Board now shows a monthly calendar with every day your child read highlighted in green.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📊</div>
-              <div class="rn-item-text"><strong>FAST standards tracker</strong> — The Quest Board shows all 9 Florida B.E.S.T. ELA benchmarks and which ones your child has practiced through completed stories.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🧊</div>
-              <div class="rn-item-text"><strong>Streak Freeze</strong> — Earned every 7-day streak milestone. If a child misses a day, it auto-applies and saves their streak.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📖</div>
-              <div class="rn-item-text"><strong>4 Paired Passages</strong> — More FAST ELA format practice: Florida Springs, Manatees, Marathon Running, and Florida Hurricanes (50 stories total).</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">💬</div>
-              <div class="rn-item-text"><strong>Parent message to child</strong> — Leave an encouraging note in Edit; your child sees it as a toast when they log in.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📱</div>
-              <div class="rn-item-text"><strong>Add to Home Screen</strong> — FAST Track can now be installed on phones and tablets for quick app-like access.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🌟</div>
-              <div class="rn-item-text"><strong>Daily login bonus</strong> — Kids earn +10 XP just for showing up each day.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🎮</div>
-              <div class="rn-item-text"><strong>Vocab Games</strong> — Word Match and Fill in the Blank games built from story vocab. Find them in the library nav.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📈</div>
-              <div class="rn-item-text"><strong>Week-over-week trends</strong> — Parent view shows ↑↓ arrows comparing this week's reading and math to last week.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">⚠️</div>
-              <div class="rn-item-text"><strong>Inactivity alerts</strong> — Parent portal flags children who haven't logged in for 3+ days, with a Send Reminder button.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📥</div>
-              <div class="rn-item-text"><strong>CSV export</strong> — Admin dashboard can now download all student progress as a spreadsheet.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🏆</div>
-              <div class="rn-item-text"><strong>Grade completion certificate</strong> — A printable certificate appears on the Quest Board when a child finishes every story for their grade.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rn-date">June 1, 2026 — Earlier</div>
-        <div class="rn-section">
-          <div class="rn-items">
-            <div class="rn-item">
-              <div class="rn-item-icon">❤️</div>
-              <div class="rn-item-text"><strong>Story favorites</strong> — Kids can heart any story while reading; a Favorites tab in the library shows saved stories instantly.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🔤</div>
-              <div class="rn-item-text"><strong>Spelling practice</strong> — New module that pulls vocabulary words from completed stories and drills spelling with definition clues and hints.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📖</div>
-              <div class="rn-item-text"><strong>Paired passages</strong> — New FAST ELA format: two related texts followed by comparison questions. First paired passage now in the library.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">✍️</div>
-              <div class="rn-item-text"><strong>Writing prompts</strong> — After every quiz, kids write a short reflection. Responses are saved and visible to parents in the progress view.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🎯</div>
-              <div class="rn-item-text"><strong>Adaptive story suggestions</strong> — If a child scores below 3 stars, the app recommends a related unread story to try next.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🎉</div>
-              <div class="rn-item-text"><strong>Weekly goal celebration</strong> — Confetti and a banner appear the moment a child hits their weekly reading goal.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📊</div>
-              <div class="rn-item-text"><strong>Sibling comparison</strong> — Parent portal now shows all children side-by-side with XP, level, streak, and weekly progress (appears for families with 2+ children).</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">⏰</div>
-              <div class="rn-item-text"><strong>Daily screen time cap</strong> — Set a total daily limit across all modules. A friendly "Time's Up" screen appears when the limit is reached.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📅</div>
-              <div class="rn-item-text"><strong>App schedule</strong> — Choose which days of the week the app is available. On off-days, children see a "Come back on [day]" screen.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📈</div>
-              <div class="rn-item-text"><strong>Quiz score graph</strong> — Parent view now includes a color-coded bar chart showing your child's quiz scores over their last 15 attempts.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📧</div>
-              <div class="rn-item-text"><strong>Weekly email summary</strong> — One tap in the Parent Portal generates a pre-filled email with all your children's progress for the week.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🔇</div>
-              <div class="rn-item-text"><strong>Read-aloud control</strong> — Three modes per child: Full, Vocab words only, or Disabled — set from the Edit screen.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📚</div>
-              <div class="rn-item-text"><strong>47 FAST ELA stories</strong> — 7 new Florida B.E.S.T.-aligned stories added, including Seminole history, Henry Flagler, figurative language, bioluminescence, and the first paired passage.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">⌨️</div>
-              <div class="rn-item-text"><strong>Keyboard PIN entry</strong> — All PIN screens now accept keyboard input: digits 0–9, Backspace to delete, Escape to cancel.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">📦</div>
-              <div class="rn-item-text"><strong>Suggestion archiving</strong> — Admin can archive and restore suggestions to keep the inbox organized.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rn-date">App Launch</div>
-        <div class="rn-section">
-          <div class="rn-section-title">📖 Reading</div>
-          <div class="rn-items">
-            <div class="rn-item">
-              <div class="rn-item-icon">📖</div>
-              <div class="rn-item-text"><strong>Grade-leveled story library</strong> — Grades 1–8, automatically filtered to your child's level with a Story of the Day picked fresh each session.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🔊</div>
-              <div class="rn-item-text"><strong>Read-aloud</strong> — Kids can listen along while following the text, great for early readers.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🃏</div>
-              <div class="rn-item-text"><strong>Vocab flashcards</strong> — Key words from every completed story become review cards.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rn-section">
-          <div class="rn-section-title">📐 Math Zone</div>
-          <div class="rn-items">
-            <div class="rn-item">
-              <div class="rn-item-icon">🧮</div>
-              <div class="rn-item-text"><strong>10 math topics per grade</strong> — Addition through fractions, matched to each child's grade level.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🔒</div>
-              <div class="rn-item-text"><strong>Reading-first gates</strong> — Require stars or reading minutes before Math Zone unlocks each day.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">⏱️</div>
-              <div class="rn-item-text"><strong>Daily time limit</strong> — Set a per-child math time cap (5–30 min) to keep screen time balanced.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rn-section">
-          <div class="rn-section-title">⌨️ Typing Practice</div>
-          <div class="rn-items">
-            <div class="rn-item">
-              <div class="rn-item-icon">⌨️</div>
-              <div class="rn-item-text"><strong>12 progressive lessons</strong> — Home-row basics to full-keyboard fluency, with live WPM and accuracy tracking.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rn-section">
-          <div class="rn-section-title">🏆 Progress & Rewards</div>
-          <div class="rn-items">
-            <div class="rn-item">
-              <div class="rn-item-icon">⭐</div>
-              <div class="rn-item-text"><strong>XP, levels & badges</strong> — Kids earn XP and climb 15 levels from Bookworm to FAST Legend.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🔥</div>
-              <div class="rn-item-text"><strong>Streaks & weekly goals</strong> — A weekly story goal you set keeps kids coming back daily.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">🖨️</div>
-              <div class="rn-item-text"><strong>Printable progress report</strong> — One tap generates a summary of reading, math, and typing activity.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rn-section">
-          <div class="rn-section-title">👨‍👩‍👧 Parent Portal</div>
-          <div class="rn-items">
-            <div class="rn-item">
-              <div class="rn-item-icon">🔒</div>
-              <div class="rn-item-text"><strong>Portal PIN</strong> — 4-digit PIN keeps kids out of parent settings without a full sign-out.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">👶</div>
-              <div class="rn-item-text"><strong>Multiple child profiles</strong> — Each child gets their own avatar, grade, PIN, and settings.</div>
-            </div>
-            <div class="rn-item">
-              <div class="rn-item-icon">💡</div>
-              <div class="rn-item-text"><strong>Suggestion box</strong> — Send ideas directly to the developer from the portal.</div>
-            </div>
-          </div>
-        </div>
-
+      <div class="rn-body" id="rn-body">
         <button class="rn-close" id="rn-close-btn">Got it — Close</button>
       </div>
     </div>
@@ -581,14 +350,6 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="f-pin">PIN (4 digits)</label>
-        <div class="pin-wrap">
-          <input type="text" id="f-pin" placeholder="e.g. 1234" maxlength="4" inputmode="numeric"
-                 pattern="[0-9]{4}" autocomplete="off" />
-          <button type="button" class="pin-toggle" id="pin-toggle-btn" title="Toggle visibility">👁</button>
-        </div>
-      </div>
 
       <div class="form-group">
         <label>Avatar Emoji</label>
@@ -610,10 +371,14 @@
         <select id="f-goal" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:1rem;font-weight:600;">
           <option value="1">1 story / week — Just getting started</option>
           <option value="2">2 stories / week — Building the habit</option>
-          <option value="3" selected>3 stories / week — Recommended ⭐</option>
-          <option value="4">4 stories / week — Strong reader</option>
-          <option value="5">5 stories / week — Summer champion</option>
-          <option value="7">7 stories / week — Every day!</option>
+          <option value="3">3 stories / week</option>
+          <option value="4">4 stories / week</option>
+          <option value="5">5 stories / week</option>
+          <option value="7" selected>7 stories / week — Recommended ⭐</option>
+          <option value="10">10 stories / week — Strong reader</option>
+          <option value="14">14 stories / week — Two a day</option>
+          <option value="20">20 stories / week</option>
+          <option value="28">28 stories / week — Full grade in one week</option>
         </select>
       </div>
 
@@ -623,6 +388,20 @@
         <input type="text" id="f-message" placeholder="e.g. 'Great job this week! Keep it up! 🌟'" maxlength="120" />
       </div>
 
+      <!-- Story Trivia unlock -->
+      <div class="form-group" style="margin-top:4px;">
+        <label for="f-trivia-min">Story Trivia unlock <span style="color:#6b7280;font-weight:500;">(stories required before trivia is available)</span></label>
+        <select id="f-trivia-min" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+          <option value="3">3 stories completed</option>
+          <option value="5" selected>5 stories completed — Recommended ⭐</option>
+          <option value="10">10 stories completed</option>
+          <option value="15">15 stories completed</option>
+          <option value="20">20 stories completed</option>
+          <option value="today">Must read a story today first</option>
+          <option value="today10">Must read today + 10 stories total</option>
+        </select>
+      </div>
+
       <!-- Read-Aloud Setting -->
       <div class="form-group" style="margin-top:4px;">
         <label for="f-read-aloud">Read-Aloud</label>
@@ -630,6 +409,18 @@
           <option value="on">🔊 Full — read whole story aloud + tap any word</option>
           <option value="words">🔤 Vocab words only — tap a word to hear it</option>
           <option value="off">🔇 Disabled — no read-aloud</option>
+        </select>
+      </div>
+
+      <!-- Reading Timer -->
+      <div class="form-group" style="margin-top:4px;">
+        <label for="f-reading-timer">Reading timer <span style="color:#6b7280;font-weight:500;">(how long before the quiz unlocks)</span></label>
+        <select id="f-reading-timer" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+          <option value="full">⏱️ Full reading time — Recommended ⭐</option>
+          <option value="half">⏱️ Half the reading time</option>
+          <option value="1min">⏱️ 1 minute minimum</option>
+          <option value="double">⏱️ 2× the reading time (encourage slower reading)</option>
+          <option value="off">🚀 No timer — quiz is always available</option>
         </select>
       </div>
 
@@ -743,6 +534,32 @@
       <div id="digest-status" style="font-size:0.85rem;font-weight:600;margin-top:10px;min-height:1.2em;"></div>
     </div>
 
+    <!-- Change PIN -->
+    <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+      <div class="section-heading">🔒 Change Portal PIN</div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:16px;">Update your 4-digit PIN that protects parent settings.</p>
+      <div id="change-pin-wrap" style="background:var(--surface);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:22px;max-width:340px;">
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Current PIN</label>
+          <input id="cp-current" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+        </div>
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">New PIN</label>
+          <input id="cp-new" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Confirm New PIN</label>
+          <input id="cp-confirm" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+        </div>
+        <div id="cp-err" style="font-size:0.85rem;font-weight:600;color:#ef4444;min-height:1.2em;margin-bottom:10px;"></div>
+        <button id="cp-save-btn" style="padding:11px 22px;background:var(--blue);color:#fff;border:none;border-radius:11px;font-size:0.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.15s;">Save New PIN</button>
+        <div id="cp-success" style="font-size:0.85rem;font-weight:600;color:var(--green);margin-top:10px;min-height:1.2em;"></div>
+      </div>
+    </div>
+
     <!-- Suggestion Box -->
     <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
       <div class="section-heading">💡 Suggestion Box</div>
@@ -804,7 +621,155 @@
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
-    // Release notes modal
+    // ── Release notes data — add new entries at the TOP of this array ──────────
+    // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
+    const RELEASE_NOTES = [
+      { date: 'July 4, 2026', label: 'Latest Update', items: [
+        { icon: '⚡', title: 'Daily Challenges', text: 'Three new challenges appear every day on the home screen, rotating by student so each child gets a different set. Completing them earns bonus XP (e.g., "Read 2 stories today +40 XP", "Score 5 stars +35 XP"). Challenge XP is tracked separately and counts toward your child\'s total.' },
+        { icon: '🔤', title: 'Spelling Quiz', text: 'After finishing a story quiz, students can tap "🔤 Spelling Quiz" to practice vocabulary words from that story. Each round picks up to 5 words, shows a definition and first/last letter hint, and awards 15 XP per correct spelling. A word-by-word review appears at the end.' },
+        { icon: '📖', title: 'Vocabulary Bank', text: 'A new "Vocab Bank" page (accessible from the Library) shows every vocabulary word your child has encountered across all stories they\'ve read, searchable by word, definition, or story title. Tap any word card to reveal its definition.' },
+        { icon: '🚀', title: 'Adaptive grade-up suggestion', text: 'After three consecutive perfect (5-star) quizzes at their current grade level, students see a "Ready for the next level?" card suggesting an unread story one grade up. The system never changes the grade automatically — it just opens the door.' },
+        { icon: '🎯', title: 'Topic Mastery Badges', text: 'Six new badges reward reading across subjects: Florida Naturalist (5 Florida nature stories), Science Whiz (5 science stories), History Buff (5 history stories), Star Gazer (3 space stories), Biography Fan (3 biography stories), and Story Lover (3 fiction stories).' },
+        { icon: '🎲', title: 'Surprise Me! button', text: 'A "🎲 Surprise Me!" button in the Library picks a random unread story at the student\'s grade level and jumps straight to it. If all grade-level stories have been read, it picks from any story at that grade.' },
+        { icon: '📉', title: 'Fairer inactivity decay', text: 'The XP decay penalty now only kicks in after 5 consecutive days without any activity (was 2 days). Skipping a weekend or a few days will no longer cost XP. Typing lessons now also count as activity and reset the timer, same as reading and math quizzes.' },
+        { icon: '📊', title: 'Level thresholds raised', text: 'All level XP requirements have been significantly increased so each achievement feels meaningful. FAST Legend now requires 17,000 XP (was 4,000) and Infinity Reader requires 72,000 XP. Students already past a threshold keep their current level.' },
+        { icon: '📚', title: '10 new stories added', text: 'New stories covering all grade levels (1–8): sharks & ocean life (Gr 1), four seasons (Gr 2), George Washington (Gr 3), Mary McLeod Bethune & Jamestown (Gr 4), Trail of Tears & Lewis & Clark (Gr 5), Aztec Empire (Gr 6), Korean War (Gr 7), Apollo Moon Race (Gr 8).' },
+      ]},
+      { date: 'June 5, 2026', label: 'Previous Update', items: [
+        { icon: '❤️', title: 'Story bookmarks', text: 'Students can now tap 🤍 on any story card in the library to save it. Saved stories appear in the new ❤️ Saved tab at the top of the library. Bookmarks sync across devices via Firestore and the 🤍 button on the reading page also works. The tab shows a count of saved stories.' },
+        { icon: '🎯', title: 'Trivia & Vocab games now award XP', text: 'Completing a Story Trivia round earns 10–30 XP based on stars earned. Finishing a Vocab Game earns 5–20 XP based on accuracy. Both now appear in each student\'s total XP and activity feed.' },
+        { icon: '⌨️', title: 'Typing badges added', text: 'Three new badges reward typing milestones: Keyboarder (first lesson), Typing Pro (5 lessons), and Speed Demon (10 lessons). Badges are awarded instantly when a lesson finishes.' },
+        { icon: '📵', title: 'Offline indicator', text: 'The home screen now shows a banner when the device loses internet, so students know scores won\'t save until they reconnect.' },
+        { icon: '📚', title: '31 new stories added', text: 'Five new stories per grade for Grades 1–3; four for Grade 4; four for Grade 5; three for Grade 6; four for Grade 7; and one advanced Grade 8 story. Topics cover Florida history, science, civics, and more.' },
+        { icon: '📶', title: 'Offline cache updated', text: 'All 31 new stories are now pre-cached for offline reading. Students can access every story without an internet connection after their first visit.' },
+      ]},
+      { date: 'June 5, 2026', items: [
+        { icon: '⌨️', title: 'Typing XP now counts toward total XP', text: 'XP earned from typing lessons is now included in each student\'s total XP on the home screen, progress page, and admin dashboard. Previously it was tracked but never displayed.' },
+        { icon: '📱', title: 'Inactivity penalty syncs across devices', text: 'The XP inactivity penalty now saves to Firestore so it\'s consistent whether your child logs in on a phone, tablet, or computer. Completing any quiz resets the penalty on all devices immediately.' },
+        { icon: '🔒', title: 'XP penalty capped at 100 XP', text: 'The maximum inactivity penalty was reduced from 200 XP to 100 XP so students with high XP are not disproportionately penalized for missing a few days.' },
+        { icon: '⌨️', title: 'Typing lessons appear in Progress history', text: 'Completed typing lessons now show up in the Recent Activity feed on the Progress page with WPM score.' },
+        { icon: '⚠️', title: 'Better error handling', text: 'If stats fail to load (e.g. no internet), the app now shows a clear "Tap to retry" message instead of displaying 0 XP.' },
+        { icon: '🛠️', title: 'Bug fixes', text: 'Fixed a silent JavaScript crash that was causing all students\' XP to display as 0. Fixed the writing prompt focus highlight on the quiz results page. Fixed a stale story data cache in the spelling practice page.' },
+      ]},
+      { date: 'June 4, 2026', items: [
+        { icon: '⚡', title: 'Vocab Quick Review', text: 'New "⚡ Quick Review" button in the library nav opens 15 random vocabulary words from completed stories in a fast flip-card mode with no scoring — great for a quick warm-up before a quiz.' },
+        { icon: '✨', title: 'Smarter story suggestions', text: 'The library now shows a "Suggested for you" section pointing to topics your child hasn\'t tried yet and any stories they scored low on, so they always know what to read next.' },
+        { icon: '⌨️', title: 'Typing practice by grade', text: 'The typing page now shows a grade-appropriate tip and highlights the recommended starting lesson with a "⭐ Start here" badge. Harder lessons show a "Grade N+" tag so kids know what to work toward.' },
+        { icon: '📐', title: 'Math daily goal nudge', text: 'The home screen now shows a compact math card: a green ✅ confirmation if math was done today (with a streak counter), or a "Do math today!" prompt with a progress bar if not.' },
+        { icon: '📱', title: 'Offline reading', text: 'After the first visit, the app now works without an internet connection. Stories, math questions, and all core pages are cached so your child can read and practice even on spotty Wi-Fi.' },
+        { icon: '📚', title: '70 new math sets — all grades covered', text: 'Math Zone now has grade-appropriate content for every grade from 1 to 8: basic addition and shapes for Grade 1 all the way to linear equations, the Pythagorean theorem, and slope for Grade 8. 80 total math sets, all aligned to Florida B.E.S.T. standards.' },
+      ]},
+      { date: 'June 4, 2026', items: [
+        { icon: '🗺️', title: 'Redesigned Progress page', text: 'Cleaner, less cluttered layout. Removed duplicate sections (Summer Goal, Monthly Challenge, 15 milestone cards, locked badges). Stats are now compact chips, quests are simple rows, and only earned badges are shown.' },
+        { icon: '🎯', title: 'Weekly goal now supports up to 28 stories', text: 'The weekly reading goal can now be set to 10, 14, 20, or 28 stories per week, not just up to 7.' },
+        { icon: '🚫', title: 'Trivia unlock gate', text: 'Set how many stories a child must complete before Story Trivia unlocks (3, 5, 10, 15, or 20 stories), or require them to read a story that day first. Stops kids from skipping straight to trivia.' },
+        { icon: '🔧', title: 'False "missed days" XP penalty fixed', text: 'The inactivity decay message was sometimes showing incorrectly if a child read on a different device. It now syncs with Firestore so the correct last-read date is always used.' },
+        { icon: '⏱️', title: 'Reading timer now applies to the quiz page too', text: 'Previously the reading timer only controlled the button on the reading page; the quiz page still had its own fixed timer. Both now respect the parent-set timer mode.' },
+      ]},
+      { date: 'June 3, 2026', items: [
+        { icon: '📚', title: '188 stories — all grades now have 28', text: '130 new Florida B.E.S.T.-aligned stories added across every grade level. Grades 1–3 get shorter emerging stories; Grades 5–8 get full-length analytical passages covering Florida history, science, biography, civics, and more.' },
+        { icon: '🎓', title: 'Auto grade advancement', text: 'When a student earns 3+ stars on every story for their grade level, they automatically move up to the next grade. A celebration screen appears and new stories unlock instantly.' },
+        { icon: '⏱️', title: 'Reading timer control', text: 'Choose how long a child must spend reading before the quiz button unlocks: full reading time, half time, 1 minute, 2× time, or no timer at all. Set it in the child\'s Edit screen.' },
+        { icon: '🎮', title: 'Story Trivia improvements', text: 'A "📄 Show Story" button now appears on every trivia question so kids can re-read the passage before answering. Answer options are shuffled each round. Parents can now set a minimum story count (or require reading today first) before trivia unlocks — great for kids who skip reading and go straight to trivia.' },
+        { icon: '🔤', title: 'Spelling practice fixes', text: 'The 🔊 button now reads the word aloud (not the definition), so children hear what they need to spell. The "undefined" display under some definitions is also fixed.' },
+      ]},
+      { date: 'June 1, 2026', items: [
+        { icon: '🔄', title: 'Auto-reload on updates', text: 'No more hard refresh needed! When we deploy new features, the app automatically reloads itself to show the latest version.' },
+        { icon: '📚', title: '58 stories milestone', text: '5 new early stories for Grades 1–2 (pelican, sea turtle, manatee, thunderstorm, new neighbor) and 3 new advanced stories for Grades 5–8 (AI, Frederick Douglass, Florida coral reefs). <em>Now expanded to 188 — see above.</em>' },
+        { icon: '🔍', title: 'Library search', text: 'Type any title or topic in the new search bar at the top of the library to filter stories instantly.' },
+        { icon: '🏷️', title: 'Difficulty badges', text: 'Every story card now shows ⭐ Beginner, 📘 Grade Level, or 🔥 Challenge so kids can pick the right level.' },
+        { icon: '👍', title: 'Story ratings', text: 'After every quiz, kids can rate the story with a thumbs up or down. Feedback goes straight to the developer.' },
+        { icon: '🔖', title: 'Continue where you left off', text: 'The home screen shows a banner pointing to the last story read, if it wasn\'t today.' },
+        { icon: '☀️', title: 'Monthly reading challenge', text: 'A themed goal appears on the home screen and Quest Board each month (e.g. "June: Read 10 stories").' },
+        { icon: '📅', title: 'Reading streak calendar', text: 'The Quest Board now shows a monthly calendar with every day your child read highlighted in green.' },
+        { icon: '📊', title: 'FAST standards tracker', text: 'The Quest Board shows all 9 Florida B.E.S.T. ELA benchmarks and which ones your child has practiced through completed stories.' },
+        { icon: '🧊', title: 'Streak Freeze', text: 'Earned every 7-day streak milestone. If a child misses a day, it auto-applies and saves their streak.' },
+        { icon: '📖', title: '4 Paired Passages', text: 'More FAST ELA format practice: Florida Springs, Manatees, Marathon Running, and Florida Hurricanes (50 stories total).' },
+        { icon: '💬', title: 'Parent message to child', text: 'Leave an encouraging note in Edit; your child sees it as a toast when they log in.' },
+        { icon: '📱', title: 'Add to Home Screen', text: 'FAST Track can now be installed on phones and tablets for quick app-like access.' },
+        { icon: '🌟', title: 'Daily login bonus', text: 'Kids earn +10 XP just for showing up each day.' },
+        { icon: '🎮', title: 'Vocab Games', text: 'Word Match and Fill in the Blank games built from story vocab. Find them in the library nav.' },
+        { icon: '📈', title: 'Week-over-week trends', text: 'Parent view shows ↑↓ arrows comparing this week\'s reading and math to last week.' },
+        { icon: '⚠️', title: 'Inactivity alerts', text: 'Parent portal flags children who haven\'t logged in for 3+ days, with a Send Reminder button.' },
+        { icon: '📥', title: 'CSV export', text: 'Admin dashboard can now download all student progress as a spreadsheet.' },
+        { icon: '🏆', title: 'Grade completion certificate', text: 'A printable certificate appears on the Quest Board when a child finishes every story for their grade.' },
+      ]},
+      { date: 'June 1, 2026', label: 'Earlier', items: [
+        { icon: '❤️', title: 'Story favorites', text: 'Kids can heart any story while reading; a Favorites tab in the library shows saved stories instantly.' },
+        { icon: '🔤', title: 'Spelling practice', text: 'New module that pulls vocabulary words from completed stories and drills spelling with definition clues and hints.' },
+        { icon: '📖', title: 'Paired passages', text: 'New FAST ELA format: two related texts followed by comparison questions. First paired passage now in the library.' },
+        { icon: '✍️', title: 'Writing prompts', text: 'After every quiz, kids write a short reflection. Responses are saved and visible to parents in the progress view.' },
+        { icon: '🎯', title: 'Adaptive story suggestions', text: 'If a child scores below 3 stars, the app recommends a related unread story to try next.' },
+        { icon: '🎉', title: 'Weekly goal celebration', text: 'Confetti and a banner appear the moment a child hits their weekly reading goal.' },
+        { icon: '📊', title: 'Sibling comparison', text: 'Parent portal now shows all children side-by-side with XP, level, streak, and weekly progress (appears for families with 2+ children).' },
+        { icon: '⏰', title: 'Daily screen time cap', text: 'Set a total daily limit across all modules. A friendly "Time\'s Up" screen appears when the limit is reached.' },
+        { icon: '📅', title: 'App schedule', text: 'Choose which days of the week the app is available. On off-days, children see a "Come back on [day]" screen.' },
+        { icon: '📈', title: 'Quiz score graph', text: 'Parent view now includes a color-coded bar chart showing your child\'s quiz scores over their last 15 attempts.' },
+        { icon: '📧', title: 'Weekly email summary', text: 'One tap in the Parent Portal generates a pre-filled email with all your children\'s progress for the week.' },
+        { icon: '🔇', title: 'Read-aloud control', text: 'Three modes per child: Full, Vocab words only, or Disabled — set from the Edit screen.' },
+        { icon: '📚', title: '47 FAST ELA stories', text: '7 new Florida B.E.S.T.-aligned stories added, including Seminole history, Henry Flagler, figurative language, bioluminescence, and the first paired passage.' },
+        { icon: '⌨️', title: 'Keyboard PIN entry', text: 'All PIN screens now accept keyboard input: digits 0–9, Backspace to delete, Escape to cancel.' },
+        { icon: '📦', title: 'Suggestion archiving', text: 'Admin can archive and restore suggestions to keep the inbox organized.' },
+      ]},
+      { date: 'App Launch', sections: [
+        { title: '📖 Reading', items: [
+          { icon: '📖', title: 'Grade-leveled story library', text: 'Grades 1–8, automatically filtered to your child\'s level with a Story of the Day picked fresh each session.' },
+          { icon: '🔊', title: 'Read-aloud', text: 'Kids can listen along while following the text, great for early readers.' },
+          { icon: '🃏', title: 'Vocab flashcards', text: 'Key words from every completed story become review cards.' },
+        ]},
+        { title: '📐 Math Zone', items: [
+          { icon: '🧮', title: '10 math topics per grade', text: 'Addition through fractions, matched to each child\'s grade level.' },
+          { icon: '🔒', title: 'Reading-first gates', text: 'Require stars or reading minutes before Math Zone unlocks each day.' },
+          { icon: '⏱️', title: 'Daily time limit', text: 'Set a per-child math time cap (5–30 min) to keep screen time balanced.' },
+        ]},
+        { title: '⌨️ Typing Practice', items: [
+          { icon: '⌨️', title: '12 progressive lessons', text: 'Home-row basics to full-keyboard fluency, with live WPM and accuracy tracking.' },
+        ]},
+        { title: '🏆 Progress & Rewards', items: [
+          { icon: '⭐', title: 'XP, levels & badges', text: 'Kids earn XP and climb 22 levels from Bookworm to Infinity Reader.' },
+          { icon: '🔥', title: 'Streaks & weekly goals', text: 'A weekly story goal you set keeps kids coming back daily.' },
+          { icon: '🖨️', title: 'Printable progress report', text: 'One tap generates a summary of reading, math, and typing activity.' },
+        ]},
+        { title: '👨‍👩‍👧 Parent Portal', items: [
+          { icon: '🔒', title: 'Portal PIN', text: '4-digit PIN keeps kids out of parent settings without a full sign-out.' },
+          { icon: '👶', title: 'Multiple child profiles', text: 'Each child gets their own avatar, grade, PIN, and settings.' },
+          { icon: '💡', title: 'Suggestion box', text: 'Send ideas directly to the developer from the portal.' },
+        ]},
+      ]},
+    ];
+
+    // ── Render release notes from data array ────────────────────────────────────
+    (function () {
+      function escRn(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+      function renderItems(items) {
+        return items.map(it => `
+          <div class="rn-item">
+            <div class="rn-item-icon">${it.icon}</div>
+            <div class="rn-item-text"><strong>${escRn(it.title)}</strong> — ${it.text}</div>
+          </div>`).join('');
+      }
+
+      const body = document.getElementById('rn-body');
+      const closeBtn = document.getElementById('rn-close-btn');
+      let html = '';
+      RELEASE_NOTES.forEach(entry => {
+        const dateLabel = entry.label ? entry.date + ' — ' + entry.label : entry.date;
+        html += `<div class="rn-date">${dateLabel}</div>`;
+        if (entry.sections) {
+          entry.sections.forEach(sec => {
+            html += `<div class="rn-section"><div class="rn-section-title">${sec.title}</div><div class="rn-items">${renderItems(sec.items)}</div></div>`;
+          });
+        } else {
+          html += `<div class="rn-section"><div class="rn-items">${renderItems(entry.items)}</div></div>`;
+        }
+      });
+      body.insertAdjacentHTML('afterbegin', html);
+
+      // Auto-set last-updated header
+      const el = document.getElementById('rn-last-updated');
+      if (el && RELEASE_NOTES.length) el.textContent = 'Last updated: ' + RELEASE_NOTES[0].date;
+    })();
+
     document.getElementById('whats-new-btn').addEventListener('click', () => {
       document.getElementById('rn-overlay').classList.add('show');
     });
@@ -835,21 +800,28 @@
     const db   = firebase.firestore();
 
     const LEVELS = [
-      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
-      { name: 'Reader',       minXp: 100,  emoji: '📚' },
-      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
-      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
-      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
-      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
-      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
-      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
-      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
-      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
-      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
-      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
-      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
-      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
-      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+      { name: 'Bookworm',       minXp: 0,     emoji: '📖' },
+      { name: 'Reader',         minXp: 100,   emoji: '📚' },
+      { name: 'Word Hunter',    minXp: 250,   emoji: '🔍' },
+      { name: 'Explorer',       minXp: 450,   emoji: '🗺️' },
+      { name: 'Thinker',        minXp: 700,   emoji: '🧠' },
+      { name: 'Scholar',        minXp: 1000,  emoji: '🎓' },
+      { name: 'Achiever',       minXp: 1400,  emoji: '⚡' },
+      { name: 'Champion',       minXp: 1900,  emoji: '🏆' },
+      { name: 'Super Reader',   minXp: 2800,  emoji: '🌟' },
+      { name: 'Eagle Eye',      minXp: 4000,  emoji: '🦅' },
+      { name: 'Story Master',   minXp: 5500,  emoji: '🚀' },
+      { name: 'Prodigy',        minXp: 7500,  emoji: '💎' },
+      { name: 'Summer Hero',    minXp: 10000, emoji: '☀️' },
+      { name: 'Grand Master',   minXp: 13000, emoji: '👑' },
+      { name: 'FAST Legend',    minXp: 17000, emoji: '🌈' },
+      { name: 'Mythic Reader',  minXp: 21500, emoji: '🔥' },
+      { name: 'Genius',         minXp: 27000, emoji: '🧬' },
+      { name: 'Knowledge Lord', minXp: 33500, emoji: '🔭' },
+      { name: 'Elite Scholar',  minXp: 41000, emoji: '⭐' },
+      { name: 'Legend Maker',   minXp: 50000, emoji: '🌙' },
+      { name: 'Galaxy Brain',   minXp: 60000, emoji: '🪐' },
+      { name: 'Infinity Reader',minXp: 72000, emoji: '♾️' },
     ];
     function getLevel(xp) {
       let idx = 0;
@@ -864,17 +836,19 @@
     let editingDocId = null; // null = adding new
 
     // ── Auth + Portal PIN guard ────────────────────────────────────────────────
+    // PIN verified by the Parent button on index.html (requireParentPin) carries over.
+    // Direct URL navigation always hits the PIN screen since portalPinVerified won't be set.
+
     auth.onAuthStateChanged(user => {
       if (!user) { window.location.href = 'login.html'; return; }
       currentUser = user;
 
-      // Load parent display name
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         document.getElementById('nav-user').textContent = data.displayName || user.email;
         injectAdminLink(user.email);
 
-        // Check portal PIN
+        // Skip PIN screen if already verified (e.g. came from the Parent button)
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
           loadAdminSuggestions();
@@ -925,9 +899,61 @@
             <button onclick="ppDigit('0')" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:10px;cursor:pointer;">0</button>
             <div></div>
           </div>
-          <a href="login.html" style="display:block;margin-top:18px;color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">← Back to login</a>
+          ${!noPin ? `<button id="pp-forgot" style="display:block;width:100%;margin-top:10px;background:none;border:none;color:#9ca3af;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">Forgot PIN?</button>` : ''}
+          <a href="login.html" style="display:block;margin-top:8px;color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">← Back to login</a>
         </div>`;
       document.body.appendChild(screen);
+
+      // Forgot PIN — require password re-authentication so a child can't bypass
+      const forgotBtn = document.getElementById('pp-forgot');
+      if (forgotBtn) {
+        forgotBtn.addEventListener('click', () => {
+          document.removeEventListener('keydown', ppHandleKey);
+          screen.innerHTML = `
+            <div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:340px;box-shadow:0 8px 40px rgba(0,0,0,0.18);text-align:center;">
+              <div style="font-size:2rem;margin-bottom:10px;">🔐</div>
+              <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:6px;">Verify it's you</h2>
+              <p style="font-size:0.85rem;color:#6b7280;margin-bottom:20px;">Enter your account password to reset the PIN.</p>
+              <input id="pp-reauth-pw" type="password" placeholder="Account password" autocomplete="current-password"
+                style="width:100%;box-sizing:border-box;padding:12px 14px;border:2px solid #e5e7eb;border-radius:12px;font-size:1rem;font-family:inherit;outline:none;margin-bottom:12px;"/>
+              <div id="pp-reauth-err" style="color:#dc2626;font-size:0.82rem;font-weight:600;min-height:18px;margin-bottom:10px;"></div>
+              <button id="pp-reauth-btn" style="width:100%;padding:13px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;">Verify &amp; Reset PIN</button>
+              <button id="pp-reauth-cancel" style="display:block;width:100%;margin-top:10px;background:none;border:none;color:#9ca3af;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;">← Back</button>
+            </div>`;
+
+          document.getElementById('pp-reauth-cancel').addEventListener('click', () => {
+            screen.remove();
+            showPortalPinScreen(storedPin, uid);
+          });
+
+          document.getElementById('pp-reauth-btn').addEventListener('click', doReauth);
+          document.getElementById('pp-reauth-pw').addEventListener('keydown', e => { if (e.key === 'Enter') doReauth(); });
+
+          function doReauth() {
+            const pw = document.getElementById('pp-reauth-pw').value;
+            const errEl = document.getElementById('pp-reauth-err');
+            if (!pw) { errEl.textContent = 'Please enter your password.'; return; }
+            const btn = document.getElementById('pp-reauth-btn');
+            btn.disabled = true; btn.textContent = 'Verifying…';
+            const user = firebase.auth().currentUser;
+            const credential = firebase.auth.EmailAuthProvider.credential(user.email, pw);
+            user.reauthenticateWithCredential(credential)
+              .then(() => {
+                return db.collection('ParentProfiles').doc(uid).update({ portalPin: firebase.firestore.FieldValue.delete() });
+              })
+              .then(() => {
+                screen.remove();
+                showPortalPinScreen(null, uid);
+              })
+              .catch(err => {
+                btn.disabled = false; btn.textContent = 'Verify & Reset PIN';
+                errEl.textContent = err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential'
+                  ? 'Incorrect password — try again.'
+                  : 'Could not verify — try again.';
+              });
+          }
+        });
+      }
 
       let ppEntry = '';
       window.ppDigit = function(n) {
@@ -969,106 +995,6 @@
       document.addEventListener('keydown', ppHandleKey);
     }
 
-    // ── Change child PIN modal ─────────────────────────────────────────────────
-    function changePinModal(docId, childName) {
-      const overlay = document.createElement('div');
-      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
-      overlay.innerHTML = `
-        <div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:320px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.2);">
-          <div style="font-size:2rem;margin-bottom:8px;">🔑</div>
-          <div style="font-size:1.2rem;font-weight:800;margin-bottom:5px;">Change ${escHtml(childName)}'s PIN</div>
-          <div style="font-size:0.85rem;color:#6b7280;margin-bottom:20px;" id="cpm-step-label">Enter a new 4-digit PIN</div>
-          <div style="display:flex;justify-content:center;gap:14px;margin-bottom:14px;" id="cpm-dots">
-            ${[0,1,2,3].map(i=>`<div id="cpmd${i}" style="width:18px;height:18px;border-radius:50%;border:2px solid #d1d5db;transition:background 0.12s,border-color 0.12s;"></div>`).join('')}
-          </div>
-          <div id="cpm-err" style="color:#ef4444;font-size:0.83rem;font-weight:600;min-height:1.1em;margin-bottom:10px;"></div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:216px;margin:0 auto 18px;">
-            ${[1,2,3,4,5,6,7,8,9].map(n=>`<button class="cpm-btn" data-n="${n}" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;font-family:inherit;">${n}</button>`).join('')}
-            <button class="cpm-btn" data-n="back" style="padding:14px;font-size:1.05rem;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">⌫</button>
-            <button class="cpm-btn" data-n="0" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;font-family:inherit;">0</button>
-            <div></div>
-          </div>
-          <button id="cpm-cancel" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:inherit;padding:8px;">Cancel</button>
-        </div>`;
-      document.body.appendChild(overlay);
-
-      let firstPin = '';
-      let entry = '';
-      let step = 1; // 1 = enter new PIN, 2 = confirm
-
-      function updateDots() {
-        for (let i = 0; i < 4; i++) {
-          const d = document.getElementById('cpmd' + i);
-          d.style.background  = i < entry.length ? '#7c3aed' : 'transparent';
-          d.style.borderColor = i < entry.length ? '#7c3aed' : '#d1d5db';
-        }
-      }
-
-      overlay.querySelector('#cpm-cancel').addEventListener('click', () => { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); });
-      overlay.addEventListener('click', e => { if (e.target === overlay) { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); } });
-      function cpmHandleKey(e) {
-        if (!document.body.contains(overlay)) { document.removeEventListener('keydown', cpmHandleKey); return; }
-        if (e.key >= '0' && e.key <= '9') overlay.querySelector(`.cpm-btn[data-n="${e.key}"]`)?.click();
-        else if (e.key === 'Backspace') overlay.querySelector('.cpm-btn[data-n="back"]')?.click();
-        else if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', cpmHandleKey); }
-      }
-      document.addEventListener('keydown', cpmHandleKey);
-
-      overlay.querySelectorAll('.cpm-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const n = btn.dataset.n;
-          if (n === 'back') { entry = entry.slice(0, -1); }
-          else if (entry.length < 4) { entry += n; }
-          updateDots();
-          document.getElementById('cpm-err').textContent = '';
-
-          if (entry.length === 4) {
-            if (step === 1) {
-              // First entry — move to confirm
-              firstPin = entry;
-              entry = '';
-              step = 2;
-              document.getElementById('cpm-step-label').textContent = 'Confirm the new PIN';
-              setTimeout(updateDots, 50);
-            } else {
-              // Confirm step
-              if (entry === firstPin) {
-                // Match — save to Firestore
-                const saveBtn = overlay.querySelectorAll('.cpm-btn');
-                saveBtn.forEach(b => b.disabled = true);
-                db.collection('StudentProfiles').doc(docId).update({ pin: entry })
-                  .then(() => {
-                    overlay.remove();
-                    // Quick success toast
-                    const toast = document.createElement('div');
-                    toast.textContent = '✅ PIN updated for ' + childName;
-                    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#065f46;color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;font-size:0.92rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
-                    document.body.appendChild(toast);
-                    setTimeout(() => toast.remove(), 3000);
-                  })
-                  .catch(err => {
-                    document.getElementById('cpm-err').textContent = 'Could not save: ' + err.message;
-                    saveBtn.forEach(b => b.disabled = false);
-                    entry = ''; step = 1; firstPin = '';
-                    document.getElementById('cpm-step-label').textContent = 'Enter a new 4-digit PIN';
-                    setTimeout(updateDots, 50);
-                  });
-              } else {
-                // Mismatch — shake and restart
-                document.getElementById('cpm-err').textContent = 'PINs don\'t match — try again';
-                const dotsEl = document.getElementById('cpm-dots');
-                dotsEl.style.animation = 'none'; void dotsEl.offsetWidth;
-                dotsEl.style.animation = 'ppShake 0.35s ease';
-                entry = ''; step = 1; firstPin = '';
-                document.getElementById('cpm-step-label').textContent = 'Enter a new 4-digit PIN';
-                setTimeout(updateDots, 350);
-              }
-            }
-          }
-        });
-      });
-    }
-
     // ── Load children ──────────────────────────────────────────────────────────
     function loadChildren() {
       const area = document.getElementById('children-area');
@@ -1105,22 +1031,62 @@
       const xpPromises = children.map(child =>
         Promise.all([
           db.collection('Progress').where('readerId', '==', child.readerId).get(),
-          db.collection('MathProgress').where('readerId', '==', child.readerId).get()
-        ]).then(([r, m]) => {
+          db.collection('MathProgress').where('readerId', '==', child.readerId).get(),
+          db.collection('TypingProgress').where('readerId', '==', child.readerId).get(),
+          db.collection('TriviaScores').where('readerId', '==', child.readerId).get(),
+          db.collection('StudentStats').doc(child.readerId).get()
+        ]).then(([r, m, t, tr, stats]) => {
           let xp = 0;
           r.forEach(d => { xp += (d.data().xpEarned || 0); });
           m.forEach(d => { xp += (d.data().xpEarned || 0); });
-          return xp;
-        }).catch(() => 0)
+          t.forEach(d => { xp += (d.data().xpEarned || 0); });
+          tr.forEach(d => { xp += (d.data().xpEarned || 0); });
+          const sd = stats.exists ? stats.data() : {};
+          // Count unique stories completed (best attempt per story)
+          const bestStars = {};
+          r.forEach(d => {
+            const { storyId, starsEarned } = d.data();
+            if (storyId && (starsEarned || 0) > (bestStars[storyId] || 0)) bestStars[storyId] = starsEarned || 0;
+          });
+          return {
+            xp,
+            streak: sd.currentStreak || 0,
+            storiesThisWeek: sd.storiesThisWeek || 0,
+            lastReadDate: sd.lastReadDate || null,
+            totalStories: Object.keys(bestStars).length,
+            avgStars: Object.keys(bestStars).length
+              ? (Object.values(bestStars).reduce((a, b) => a + b, 0) / Object.keys(bestStars).length).toFixed(1)
+              : null
+          };
+        }).catch(() => ({ xp: 0, streak: 0, storiesThisWeek: 0, lastReadDate: null, totalStories: 0, avgStars: null }))
       );
 
-      Promise.all(xpPromises).then(xpValues => {
+      Promise.all(xpPromises).then(statsValues => {
         children.forEach((child, i) => {
-          const xp    = xpValues[i];
+          const { xp, streak, storiesThisWeek, lastReadDate, totalStories, avgStars } = statsValues[i];
           const level = getLevel(xp);
           const color  = child.avatarColor || '#2563eb';
           const initials = child.name ? child.name.charAt(0).toUpperCase() : '?';
           const emoji  = child.avatarEmoji || initials;
+
+          // Build last-active label
+          const today = new Date().toISOString().slice(0, 10);
+          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+          let lastActiveLabel = 'Never';
+          let lastActiveColor = '#9ca3af';
+          if (lastReadDate === today) { lastActiveLabel = 'Today ✓'; lastActiveColor = '#10b981'; }
+          else if (lastReadDate === yesterday) { lastActiveLabel = 'Yesterday'; lastActiveColor = '#f59e0b'; }
+          else if (lastReadDate) {
+            const d = new Date(lastReadDate + 'T12:00:00');
+            const daysAgo = Math.round((Date.now() - d.getTime()) / 86400000);
+            lastActiveLabel = daysAgo + 'd ago';
+            lastActiveColor = daysAgo <= 3 ? '#f59e0b' : '#ef4444';
+          }
+
+          const streakEmoji = streak >= 14 ? '🌙' : streak >= 7 ? '⚡' : streak >= 3 ? '🔥' : '📅';
+          const weeklyGoal = child.weeklyGoalStories || 3;
+          const goalPct = Math.min(100, Math.round((storiesThisWeek / weeklyGoal) * 100));
+          const goalColor = goalPct >= 100 ? '#10b981' : goalPct >= 50 ? '#f59e0b' : '#e5e7eb';
 
           const card = document.createElement('div');
           card.className = 'child-card';
@@ -1129,20 +1095,38 @@
               style="cursor:pointer;border-radius:12px;transition:background 0.15s;padding:4px;margin:-4px;"
               onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background=''">
               <div class="child-avatar" style="background:${escHtml(color)}">${escHtml(emoji)}</div>
-              <div>
+              <div style="flex:1;min-width:0;">
                 <div class="child-name" style="display:flex;align-items:center;gap:6px;">${escHtml(child.name)} <span style="font-size:0.72rem;background:var(--blue-soft);color:var(--blue);padding:2px 7px;border-radius:99px;font-weight:700;">Tap to log in</span></div>
                 <div class="child-grade">Grade ${escHtml(String(child.gradeLevel || ''))}</div>
-                <div class="child-xp">${xp} XP</div>
-                <div class="child-level">${level.emoji} ${level.name}</div>
+                <div class="child-xp">${xp} XP · ${level.emoji} ${level.name}</div>
+                ${child.parentMessage ? `<div style="margin-top:4px;font-size:0.75rem;color:#065f46;background:#ecfdf5;border-radius:8px;padding:2px 8px;display:inline-block;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${escHtml(child.parentMessage)}">💬 ${escHtml(child.parentMessage)}</div>` : ''}
               </div>
             </div>
-            <div class="child-actions">
+            <!-- At-a-glance stats row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+              <div style="background:#f9fafb;border-radius:10px;padding:8px 10px;text-align:center;">
+                <div style="font-size:1.1rem;font-weight:800;color:#1e1b4b;">${streakEmoji} ${streak}</div>
+                <div style="font-size:0.68rem;font-weight:700;color:#6b7280;margin-top:1px;">Day Streak</div>
+              </div>
+              <div style="background:#f9fafb;border-radius:10px;padding:8px 10px;text-align:center;">
+                <div style="font-size:1.1rem;font-weight:800;color:#1e1b4b;">${storiesThisWeek} / ${weeklyGoal}</div>
+                <div style="font-size:0.68rem;font-weight:700;color:#6b7280;margin-top:1px;">This Week</div>
+                <div style="height:3px;background:#e5e7eb;border-radius:99px;margin-top:4px;overflow:hidden;"><div style="height:100%;width:${goalPct}%;background:${goalColor};border-radius:99px;"></div></div>
+              </div>
+              <div style="background:#f9fafb;border-radius:10px;padding:8px 10px;text-align:center;">
+                <div style="font-size:1.1rem;font-weight:800;color:${lastActiveColor};">${lastActiveLabel}</div>
+                <div style="font-size:0.68rem;font-weight:700;color:#6b7280;margin-top:1px;">Last Active</div>
+              </div>
+            </div>
+            <!-- Total stories + avg score -->
+            ${totalStories > 0 ? `<div style="margin-top:8px;font-size:0.78rem;color:#6b7280;font-weight:600;padding:0 2px;">📚 ${totalStories} ${totalStories === 1 ? 'story' : 'stories'} completed${avgStars ? ' · avg ' + avgStars + '⭐' : ''}</div>` : ''}
+            <div class="child-actions" style="margin-top:10px;">
               <a href="parent.html?student=${encodeURIComponent(child.readerId)}" class="btn-action btn-view">📊 Progress</a>
               <button class="btn-action btn-login" data-id="${escHtml(child.id)}">🚀 Log in as ${escHtml(child.name)}</button>
             </div>
             <div class="child-actions">
               <button class="btn-action btn-edit"   data-id="${escHtml(child.id)}">✏️ Edit</button>
-              <button class="btn-action btn-pin"    data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}">🔑 Change PIN</button>
+              <button class="btn-action btn-msg"    data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}" data-msg="${escHtml(child.parentMessage || '')}">💬 Message</button>
               <button class="btn-action btn-delete" data-id="${escHtml(child.id)}" data-name="${escHtml(child.name)}">🗑️ Delete</button>
             </div>
           `;
@@ -1157,11 +1141,13 @@
               avatarEmoji:       kid.avatarEmoji  || '',
               profileDocId:      kid.id,
               weeklyGoalStories: kid.weeklyGoalStories ?? 3,
-              mathUnlockScore:   kid.mathUnlockScore   ?? 3,
-              dailyReadMinutes:  kid.dailyReadMinutes  ?? 30,
+              mathUnlockScore:   kid.mathUnlockScore   ?? 0,
+              dailyReadMinutes:  kid.dailyReadMinutes  ?? 0,
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
+              triviaMinStories:  kid.triviaMinStories  || '5',
               readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on'),
-              dailyScreenMins:   kid.dailyScreenMins  ?? 60,
+              readingTimerMode:  kid.readingTimerMode  || 'full',
+              dailyScreenMins:   kid.dailyScreenMins   ?? 60,
               activeDays:        kid.activeDays        ?? [0,1,2,3,4,5,6],
               parentMessage:     kid.parentMessage      || ''
             }));
@@ -1177,8 +1163,9 @@
           // Edit button
           card.querySelector('.btn-edit').addEventListener('click', () => openEditForm(child));
 
-          // Change PIN button
-          card.querySelector('.btn-pin').addEventListener('click', () => changePinModal(child.id, child.name));
+
+          // Message button
+          card.querySelector('.btn-msg').addEventListener('click', () => openMessageModal(child.id, child.name, child.parentMessage || ''));
 
           // Delete button
           card.querySelector('.btn-delete').addEventListener('click', () => confirmDelete(child.id, child.name));
@@ -1228,12 +1215,6 @@
       document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
     });
 
-    // PIN toggle visibility
-    const pinInput = document.getElementById('f-pin');
-    document.getElementById('pin-toggle-btn').addEventListener('click', () => {
-      pinInput.type = pinInput.type === 'password' ? 'text' : 'password';
-    });
-    pinInput.type = 'text'; // show by default
 
     // Advanced toggle
     document.getElementById('advanced-toggle').addEventListener('click', () => {
@@ -1264,16 +1245,17 @@
 
       document.getElementById('f-name').value  = child.name || '';
       document.getElementById('f-grade').value = child.gradeLevel || '';
-      document.getElementById('f-pin').value   = child.pin || '';
       document.getElementById('f-emoji').value = child.avatarEmoji || '';
       document.getElementById('f-color').value = child.avatarColor || '#2563eb';
       document.getElementById('f-legacy-id').value    = child.readerId || '';
       document.getElementById('f-goal').value         = child.weeklyGoalStories || 3;
-      document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 3;
-      document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 30;
+      document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 0;
+      document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 0;
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
-      document.getElementById('f-read-aloud').value   = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
-      document.getElementById('f-screen-mins').value  = child.dailyScreenMins ?? 60;
+      document.getElementById('f-trivia-min').value     = child.triviaMinStories || '5';
+      document.getElementById('f-read-aloud').value     = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
+      document.getElementById('f-reading-timer').value = child.readingTimerMode || 'full';
+      document.getElementById('f-screen-mins').value   = child.dailyScreenMins ?? 60;
       document.getElementById('f-message').value      = child.parentMessage || '';
       const activeDays = child.activeDays ?? [0,1,2,3,4,5,6];
       document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => {
@@ -1299,11 +1281,21 @@
     }
 
     function resetForm() {
-      ['f-name','f-pin','f-emoji','f-legacy-id'].forEach(id => {
+      ['f-name','f-emoji','f-legacy-id'].forEach(id => {
         document.getElementById(id).value = '';
       });
-      document.getElementById('f-grade').value = '';
-      document.getElementById('f-color').value = '#2563eb';
+      document.getElementById('f-grade').value         = '';
+      document.getElementById('f-color').value         = '#2563eb';
+      document.getElementById('f-goal').value          = '7';
+      document.getElementById('f-read-aloud').value    = 'on';
+      document.getElementById('f-trivia-min').value     = '5';
+      document.getElementById('f-reading-timer').value = 'full';
+      document.getElementById('f-math-unlock').value   = '0';
+      document.getElementById('f-read-mins').value     = '0';
+      document.getElementById('f-math-mins').value     = '10';
+      document.getElementById('f-screen-mins').value   = '60';
+      document.getElementById('f-message').value       = '';
+      document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => { cb.checked = true; });
       document.querySelectorAll('.emoji-chip').forEach(c => c.classList.remove('selected'));
       document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
       document.getElementById('form-error').style.display = 'none';
@@ -1321,7 +1313,6 @@
     function submitChildForm() {
       const name     = document.getElementById('f-name').value.trim();
       const grade    = parseInt(document.getElementById('f-grade').value);
-      const pin      = document.getElementById('f-pin').value.trim();
       const emoji    = document.getElementById('f-emoji').value.trim();
       const color    = document.getElementById('f-color').value;
       const legacyId        = document.getElementById('f-legacy-id').value.trim();
@@ -1329,15 +1320,16 @@
       const mathUnlockScore   = parseInt(document.getElementById('f-math-unlock').value);
       const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
       const dailyMathMinutes  = parseInt(document.getElementById('f-math-mins').value);
-      const readAloudMode  = document.getElementById('f-read-aloud').value;
-      const dailyScreenMins = parseInt(document.getElementById('f-screen-mins').value) || 0;
+      const triviaMinStories = document.getElementById('f-trivia-min').value;
+      const readAloudMode    = document.getElementById('f-read-aloud').value;
+      const readingTimerMode = document.getElementById('f-reading-timer').value;
+      const dailyScreenMins  = parseInt(document.getElementById('f-screen-mins').value) || 0;
       const activeDays = Array.from(document.querySelectorAll('#days-chips input[name="day"]:checked')).map(cb => parseInt(cb.value));
       const errEl    = document.getElementById('form-error');
       errEl.style.display = 'none';
 
       if (!name)                         { showFormErr('Please enter the child\'s name.'); return; }
       if (!grade || grade < 1 || grade > 8) { showFormErr('Please select a grade.'); return; }
-      if (!/^\d{4}$/.test(pin))          { showFormErr('PIN must be exactly 4 digits.'); return; }
 
       const btn = document.getElementById('form-submit-btn');
       btn.disabled = true; btn.textContent = 'Saving…';
@@ -1347,14 +1339,15 @@
         const data = {
           name:              name,
           gradeLevel:        grade,
-          pin:               pin,
           avatarEmoji:       emoji || '',
           avatarColor:       color,
           weeklyGoalStories: weeklyGoalStories,
           mathUnlockScore:   mathUnlockScore,
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
+          triviaMinStories:  triviaMinStories,
           readAloudMode:     readAloudMode,
+          readingTimerMode:  readingTimerMode,
           dailyScreenMins:   dailyScreenMins,
           activeDays:        activeDays,
           parentMessage:     document.getElementById('f-message').value.trim(),
@@ -1378,14 +1371,15 @@
         const data = {
           name:              name,
           gradeLevel:        grade,
-          pin:               pin,
           avatarEmoji:       emoji || '',
           avatarColor:       color,
           weeklyGoalStories: weeklyGoalStories,
           mathUnlockScore:   mathUnlockScore,
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
+          triviaMinStories:  triviaMinStories,
           readAloudMode:     readAloudMode,
+          readingTimerMode:  readingTimerMode,
           dailyScreenMins:   dailyScreenMins,
           activeDays:        activeDays,
           parentMessage:     document.getElementById('f-message').value.trim(),
@@ -1436,6 +1430,59 @@
     // ── Delete ─────────────────────────────────────────────────────────────────
     let pendingDeleteId   = null;
     let pendingDeleteName = null;
+
+    // ── Message to child modal ─────────────────────────────────────────────────
+    function openMessageModal(docId, childName, currentMsg) {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(0,0,0,0.2);">
+          <div style="font-size:2rem;margin-bottom:8px;">💬</div>
+          <div style="font-size:1.1rem;font-weight:800;margin-bottom:4px;">Message to ${escHtml(childName)}</div>
+          <div style="font-size:0.84rem;color:#6b7280;margin-bottom:16px;">Your child sees this as a notification when they open the app. Great for encouragement!</div>
+          <textarea id="msg-input" maxlength="120" rows="3"
+            style="width:100%;padding:12px 14px;border:2px solid #e5e7eb;border-radius:10px;font-family:inherit;font-size:0.95rem;resize:none;outline:none;transition:border-color 0.15s;line-height:1.5;"
+            placeholder="e.g. Great job this week! Keep reading! 🌟"
+            onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e5e7eb'"
+          >${escHtml(currentMsg)}</textarea>
+          <div style="font-size:0.75rem;color:#9ca3af;text-align:right;margin-top:4px;margin-bottom:16px;" id="msg-count">${currentMsg.length}/120</div>
+          <div id="msg-err" style="color:#ef4444;font-size:0.84rem;font-weight:600;min-height:1.1em;margin-bottom:10px;"></div>
+          <div style="display:flex;gap:10px;">
+            <button id="msg-clear" style="flex:1;padding:12px;background:#f3f4f6;color:#6b7280;border:none;border-radius:10px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;">Clear</button>
+            <button id="msg-cancel" style="flex:1;padding:12px;background:#f3f4f6;color:#6b7280;border:none;border-radius:10px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;">Cancel</button>
+            <button id="msg-send" style="flex:2;padding:12px;background:#7c3aed;color:#fff;border:none;border-radius:10px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;">Send Message ✉️</button>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      const input = overlay.querySelector('#msg-input');
+      const countEl = overlay.querySelector('#msg-count');
+      input.addEventListener('input', () => { countEl.textContent = input.value.length + '/120'; });
+
+      overlay.querySelector('#msg-cancel').addEventListener('click', () => overlay.remove());
+      overlay.querySelector('#msg-clear').addEventListener('click', () => { input.value = ''; countEl.textContent = '0/120'; });
+      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+
+      overlay.querySelector('#msg-send').addEventListener('click', () => {
+        const msg = input.value.trim();
+        const btn = overlay.querySelector('#msg-send');
+        btn.disabled = true; btn.textContent = 'Saving…';
+        db.collection('StudentProfiles').doc(docId).update({ parentMessage: msg })
+          .then(() => {
+            overlay.remove();
+            const toast = document.createElement('div');
+            toast.textContent = msg ? `✅ Message sent to ${childName}!` : `🗑️ Message cleared for ${childName}.`;
+            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#065f46;color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;font-size:0.92rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+            loadChildren(); // refresh cards so new message shows in data-msg
+          })
+          .catch(err => {
+            overlay.querySelector('#msg-err').textContent = 'Could not save: ' + err.message;
+            btn.disabled = false; btn.textContent = 'Send Message ✉️';
+          });
+      });
+    }
 
     function confirmDelete(docId, name) {
       pendingDeleteId   = docId;
@@ -1637,14 +1684,17 @@
 
     // ── Sibling comparison ─────────────────────────────────────────────────────
     const LEVELS_PP = [
-      { name:'Bookworm',minXp:0,emoji:'📖'},{name:'Reader',minXp:100,emoji:'📚'},
-      {name:'Word Hunter',minXp:200,emoji:'🔍'},{name:'Explorer',minXp:300,emoji:'🗺️'},
-      {name:'Thinker',minXp:450,emoji:'🧠'},{name:'Scholar',minXp:600,emoji:'🎓'},
-      {name:'Achiever',minXp:800,emoji:'⚡'},{name:'Champion',minXp:1000,emoji:'🏆'},
-      {name:'Super Reader',minXp:1500,emoji:'🌟'},{name:'Eagle Eye',minXp:1850,emoji:'🦅'},
-      {name:'Story Master',minXp:2200,emoji:'🚀'},{name:'Prodigy',minXp:2600,emoji:'💎'},
-      {name:'Summer Hero',minXp:3000,emoji:'☀️'},{name:'Grand Master',minXp:3500,emoji:'👑'},
-      {name:'FAST Legend',minXp:4000,emoji:'🌈'}
+      {name:'Bookworm',minXp:0,emoji:'📖'},{name:'Reader',minXp:100,emoji:'📚'},
+      {name:'Word Hunter',minXp:250,emoji:'🔍'},{name:'Explorer',minXp:450,emoji:'🗺️'},
+      {name:'Thinker',minXp:700,emoji:'🧠'},{name:'Scholar',minXp:1000,emoji:'🎓'},
+      {name:'Achiever',minXp:1400,emoji:'⚡'},{name:'Champion',minXp:1900,emoji:'🏆'},
+      {name:'Super Reader',minXp:2800,emoji:'🌟'},{name:'Eagle Eye',minXp:4000,emoji:'🦅'},
+      {name:'Story Master',minXp:5500,emoji:'🚀'},{name:'Prodigy',minXp:7500,emoji:'💎'},
+      {name:'Summer Hero',minXp:10000,emoji:'☀️'},{name:'Grand Master',minXp:13000,emoji:'👑'},
+      {name:'FAST Legend',minXp:17000,emoji:'🌈'},{name:'Mythic Reader',minXp:21500,emoji:'🔥'},
+      {name:'Genius',minXp:27000,emoji:'🧬'},{name:'Knowledge Lord',minXp:33500,emoji:'🔭'},
+      {name:'Elite Scholar',minXp:41000,emoji:'⭐'},{name:'Legend Maker',minXp:50000,emoji:'🌙'},
+      {name:'Galaxy Brain',minXp:60000,emoji:'🪐'},{name:'Infinity Reader',minXp:72000,emoji:'♾️'}
     ];
     function getLevelPP(xp) {
       let idx = 0;
@@ -1674,7 +1724,7 @@
         grid.innerHTML = results.map(({ child, xp, streak, storiesWeek }) => {
           const lvl   = getLevelPP(xp);
           const color = child.avatarColor || '#7c3aed';
-          const emoji = child.avatarEmoji || child.name.charAt(0).toUpperCase();
+          const emoji = child.avatarEmoji || (child.name ? child.name.charAt(0).toUpperCase() : '?');
           const goal  = child.weeklyGoalStories || 3;
           const pct   = Math.min(100, Math.round((storiesWeek / goal) * 100));
           return `<div style="background:var(--surface);border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
@@ -1720,7 +1770,7 @@
             ? Math.floor((today - new Date(lastRead)) / (1000 * 60 * 60 * 24))
             : null;
           const color = child.avatarColor || '#7c3aed';
-          const emoji = child.avatarEmoji || child.name.charAt(0).toUpperCase();
+          const emoji = child.avatarEmoji || (child.name ? child.name.charAt(0).toUpperCase() : '?');
           return `<div style="display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--orange);box-shadow:0 2px 8px rgba(0,0,0,0.06);">
             <div style="width:38px;height:38px;border-radius:50%;background:${escHtml(color)};display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;">${escHtml(emoji)}</div>
             <div style="flex:1;">
@@ -1759,6 +1809,35 @@
           setTimeout(() => status.textContent = '', 4000);
         });
       }).catch(() => { btn.disabled = false; btn.textContent = '📧 Send Me a Summary'; });
+    });
+
+    // ── Change Portal PIN ──────────────────────────────────────────────────────
+    document.getElementById('cp-save-btn').addEventListener('click', async () => {
+      const errEl    = document.getElementById('cp-err');
+      const successEl = document.getElementById('cp-success');
+      errEl.textContent = ''; successEl.textContent = '';
+
+      const current  = document.getElementById('cp-current').value.trim();
+      const newPin   = document.getElementById('cp-new').value.trim();
+      const confirm  = document.getElementById('cp-confirm').value.trim();
+
+      if (!/^\d{4}$/.test(current)) { errEl.textContent = 'Current PIN must be 4 digits.'; return; }
+      if (!/^\d{4}$/.test(newPin))  { errEl.textContent = 'New PIN must be 4 digits.'; return; }
+      if (newPin !== confirm)        { errEl.textContent = 'New PINs do not match.'; return; }
+
+      const uid = currentUser.uid;
+      const snap = await db.collection('ParentProfiles').doc(uid).get();
+      const savedPin = (snap.data() || {}).portalPin;
+
+      if (savedPin && current !== savedPin) { errEl.textContent = 'Current PIN is incorrect.'; return; }
+
+      await db.collection('ParentProfiles').doc(uid).set({ portalPin: newPin }, { merge: true });
+      sessionStorage.setItem('portalPin', newPin);
+      document.getElementById('cp-current').value = '';
+      document.getElementById('cp-new').value = '';
+      document.getElementById('cp-confirm').value = '';
+      successEl.textContent = '✅ PIN updated!';
+      setTimeout(() => successEl.textContent = '', 4000);
     });
   </script>
 <script>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocab Bank – FAST Track Reading</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --green:  #10b981; --green-soft:  #d1fae5;
+      --orange: #f59e0b;
+      --blue:   #2563eb;
+      --bg: #f8f7ff; --surface: #ffffff;
+      --border: #e5e7eb; --text: #111827; --muted: #6b7280;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-back { text-decoration: none; color: var(--purple); font-weight: 600; font-size: 0.9rem; }
+    .nav-title { font-weight: 700; font-size: 1rem; flex: 1; text-align: center; color: var(--text); }
+
+    .page { max-width: 560px; margin: 0 auto; padding: 20px 16px 80px; }
+
+    .search-bar {
+      width: 100%; padding: 11px 16px; font-size: 0.95rem; font-family: inherit;
+      border: 2px solid var(--border); border-radius: 12px; outline: none;
+      background: var(--surface); color: var(--text); margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .search-bar:focus { border-color: var(--purple); }
+
+    .stats-row {
+      display: flex; gap: 10px; margin-bottom: 18px;
+    }
+    .stat-chip {
+      flex: 1; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 12px 8px; text-align: center;
+    }
+    .stat-chip .val { font-size: 1.4rem; font-weight: 800; color: var(--purple); line-height: 1; }
+    .stat-chip .lbl { font-size: 0.7rem; font-weight: 600; color: var(--muted); margin-top: 3px; }
+
+    .section-label {
+      font-size: 0.72rem; font-weight: 800; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.06em; margin: 18px 0 10px;
+    }
+
+    .word-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .word-card {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 12px 13px; cursor: pointer;
+      transition: border-color 0.15s, transform 0.1s;
+    }
+    .word-card:hover { border-color: var(--purple); transform: translateY(-1px); }
+    .word-card.expanded { border-color: var(--purple); background: var(--purple-soft); }
+
+    .word-text { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .word-story { font-size: 0.68rem; color: var(--muted); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .word-def {
+      font-size: 0.78rem; color: #4b5563; margin-top: 8px; line-height: 1.4;
+      border-top: 1px solid #ddd6fe; padding-top: 7px; display: none;
+    }
+    .word-card.expanded .word-def { display: block; }
+
+    .empty { text-align: center; padding: 48px 20px; color: var(--muted); }
+    .empty .icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .empty .msg { font-size: 0.9rem; font-weight: 600; }
+
+    .loading { text-align: center; padding: 40px 0; color: var(--muted); font-weight: 600; }
+  </style>
+  <link rel="stylesheet" href="dark.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-back" href="library.html">← Library</a>
+    <span class="nav-title">📖 Vocab Bank</span>
+    <span style="width:60px;"></span>
+  </nav>
+
+  <div class="page">
+    <input class="search-bar" id="search" type="search" placeholder="Search words…" oninput="filterWords()" />
+
+    <div class="stats-row">
+      <div class="stat-chip"><div class="val" id="stat-words">—</div><div class="lbl">Words Learned</div></div>
+      <div class="stat-chip"><div class="val" id="stat-stories">—</div><div class="lbl">Stories Read</div></div>
+    </div>
+
+    <div id="content">
+      <div class="loading">Loading your vocabulary…</div>
+    </div>
+  </div>
+
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="stories.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) window.location.href = 'login.html';
+
+    // Build a lookup map from storyId → story
+    const storyMap = {};
+    STORIES.forEach(s => { storyMap[s.id] = s; });
+
+    // All word entries accumulated from read stories
+    let allWords = []; // { word, definition, storyId, storyTitle, storyEmoji }
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function buildWordList(readStoryIds) {
+      const seen = new Set();
+      const words = [];
+      readStoryIds.forEach(storyId => {
+        const s = storyMap[storyId];
+        if (!s || !Array.isArray(s.vocabulary)) return;
+        s.vocabulary.forEach(v => {
+          const key = (v.word || v).toLowerCase();
+          if (seen.has(key)) return;
+          seen.add(key);
+          words.push({
+            word: v.word || v,
+            definition: v.definition || '',
+            storyId: s.id,
+            storyTitle: s.title,
+            storyEmoji: s.coverEmoji || '📖',
+          });
+        });
+      });
+      words.sort((a, b) => a.word.localeCompare(b.word));
+      return words;
+    }
+
+    function renderWords(words) {
+      if (!words.length) {
+        document.getElementById('content').innerHTML =
+          '<div class="empty"><div class="icon">📭</div><div class="msg">No words match your search.</div></div>';
+        return;
+      }
+      document.getElementById('content').innerHTML =
+        '<div class="word-grid" id="word-grid">' +
+        words.map((w, i) => `
+          <div class="word-card" id="wc-${i}" onclick="toggleCard(${i})">
+            <div class="word-text">${escHtml(w.word)}</div>
+            <div class="word-story">${escHtml(w.storyEmoji + ' ' + w.storyTitle)}</div>
+            ${w.definition ? `<div class="word-def">${escHtml(w.definition)}</div>` : ''}
+          </div>`).join('') +
+        '</div>';
+    }
+
+    function toggleCard(i) {
+      const el = document.getElementById('wc-' + i);
+      if (el) el.classList.toggle('expanded');
+    }
+
+    function filterWords() {
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      const filtered = q ? allWords.filter(w =>
+        w.word.toLowerCase().includes(q) ||
+        w.definition.toLowerCase().includes(q) ||
+        w.storyTitle.toLowerCase().includes(q)
+      ) : allWords;
+      renderWords(filtered);
+    }
+
+    firebase.firestore()
+      .collection('Progress')
+      .where('readerId', '==', profile.readerId)
+      .get()
+      .then(snap => {
+        const storyIds = [...new Set(snap.docs.map(d => d.data().storyId).filter(Boolean))];
+        document.getElementById('stat-stories').textContent = storyIds.length;
+        allWords = buildWordList(storyIds);
+        document.getElementById('stat-words').textContent = allWords.length;
+        if (!allWords.length) {
+          document.getElementById('content').innerHTML =
+            '<div class="empty"><div class="icon">📖</div><div class="msg">Read some stories to fill your Vocab Bank!</div></div>';
+          return;
+        }
+        renderWords(allWords);
+      })
+      .catch(() => {
+        document.getElementById('content').innerHTML =
+          '<div class="empty"><div class="icon">⚠️</div><div class="msg">Couldn\'t load vocabulary. Please try again.</div></div>';
+      });
+  </script>
+</body>
+</html>

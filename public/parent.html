@@ -200,6 +200,7 @@
       .hist-table td:nth-child(4) { display: none; }
     }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
 
@@ -340,7 +341,7 @@
     </div>
   </div>
 
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260705"></script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
@@ -380,21 +381,28 @@
     });
 
     const LEVELS = [
-      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
-      { name: 'Reader',       minXp: 100,  emoji: '📚' },
-      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
-      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
-      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
-      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
-      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
-      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
-      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
-      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
-      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
-      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
-      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
-      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
-      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+      { name: "Bookworm",       minXp: 0,     emoji: "📖" },
+      { name: "Reader",         minXp: 100,   emoji: "📚" },
+      { name: "Word Hunter",    minXp: 250,   emoji: "🔍" },
+      { name: "Explorer",       minXp: 450,   emoji: "🗺️" },
+      { name: "Thinker",        minXp: 700,   emoji: "🧠" },
+      { name: "Scholar",        minXp: 1000,  emoji: "🎓" },
+      { name: "Achiever",       minXp: 1400,  emoji: "⚡" },
+      { name: "Champion",       minXp: 1900,  emoji: "🏆" },
+      { name: "Super Reader",   minXp: 2800,  emoji: "🌟" },
+      { name: "Eagle Eye",      minXp: 4000,  emoji: "🦅" },
+      { name: "Story Master",   minXp: 5500,  emoji: "🚀" },
+      { name: "Prodigy",        minXp: 7500,  emoji: "💎" },
+      { name: "Summer Hero",    minXp: 10000, emoji: "☀️" },
+      { name: "Grand Master",   minXp: 13000, emoji: "👑" },
+      { name: "FAST Legend",    minXp: 17000, emoji: "🌈" },
+      { name: "Mythic Reader",  minXp: 21500, emoji: "🔥" },
+      { name: "Genius",         minXp: 27000, emoji: "🧬" },
+      { name: "Knowledge Lord", minXp: 33500, emoji: "🔭" },
+      { name: "Elite Scholar",  minXp: 41000, emoji: "⭐" },
+      { name: "Legend Maker",   minXp: 50000, emoji: "🌙" },
+      { name: "Galaxy Brain",   minXp: 60000, emoji: "🪐" },
+      { name: "Infinity Reader",minXp: 72000, emoji: "♾️" },
     ];
     function getLevel(xp) {
       let idx = 0;

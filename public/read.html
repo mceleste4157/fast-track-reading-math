@@ -204,7 +204,15 @@
     .warmup-item {
       display: flex; gap: 14px; align-items: flex-start;
       background: var(--purple-soft); border-radius: 14px; padding: 14px 16px;
+      cursor: pointer; transition: background 0.15s, box-shadow 0.15s;
     }
+    .warmup-item.seen {
+      background: #d1fae5; box-shadow: 0 0 0 2px #10b981;
+    }
+    .warmup-item .warmup-check {
+      font-size: 1.1rem; opacity: 0; transition: opacity 0.2s; margin-left: auto; flex-shrink: 0;
+    }
+    .warmup-item.seen .warmup-check { opacity: 1; }
     .warmup-word {
       font-size: 1.05rem; font-weight: 800; color: var(--purple);
       min-width: 110px; padding-top: 1px;
@@ -217,7 +225,10 @@
       border-radius: 12px; font-size: 1.05rem; font-weight: 800;
       cursor: pointer; transition: background 0.15s;
     }
-    .btn-start-reading:hover { background: #6d28d9; }
+    .btn-start-reading:disabled {
+      background: #c4b5fd; cursor: default;
+    }
+    .btn-start-reading:not(:disabled):hover { background: #6d28d9; }
 
     @media (max-width: 480px) {
       .story-body { font-size: 18px; }
@@ -226,6 +237,7 @@
       .warmup-word { min-width: unset; }
     }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <nav class="nav">
@@ -275,7 +287,7 @@
     <a class="btn-quiz btn-quiz-locked" id="btn-quiz" href="#">⏳ Quiz in 2:00</a>
   </div>
 
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260705"></script>
   <script>
     // ─── Profile guard ─────────────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
@@ -291,8 +303,9 @@
     const vocabSeen = localStorage.getItem(VOCAB_SEEN_KEY) === 'true';
 
     if (!vocabSeen && story.vocabulary && story.vocabulary.length > 0) {
-      // Populate word list
+      // Populate word list — tap each card to mark it seen
       const listEl = document.getElementById('vocab-warmup-list');
+      const totalWords = story.vocabulary.length;
       listEl.innerHTML = story.vocabulary.map(v => `
         <div class="warmup-item">
           <div class="warmup-word">${v.word}</div>
@@ -300,8 +313,30 @@
             <div class="warmup-def">${v.definition}</div>
             <div class="warmup-ex">"${v.example}"</div>
           </div>
+          <div class="warmup-check">✓</div>
         </div>
       `).join('');
+
+      const startBtn = document.getElementById('btn-start-reading');
+      startBtn.disabled = true;
+      startBtn.textContent = 'Tap each word first (' + totalWords + ' left)';
+
+      let seenCount = 0;
+      listEl.querySelectorAll('.warmup-item').forEach(item => {
+        item.addEventListener('click', function () {
+          if (this.classList.contains('seen')) return;
+          this.classList.add('seen');
+          seenCount++;
+          const left = totalWords - seenCount;
+          if (left === 0) {
+            startBtn.disabled = false;
+            startBtn.textContent = "Let's Read! →";
+          } else {
+            startBtn.textContent = 'Tap each word first (' + left + ' left)';
+          }
+        });
+      });
+
       document.getElementById('vocab-overlay').classList.remove('hidden');
     }
 
@@ -312,6 +347,7 @@
       if (!readStart) {
         readStart = Date.now();
         localStorage.setItem(LS_KEY, readStart.toString());
+        localStorage.setItem('inProgressStory', storyId);
         sessionStorage.setItem('readStartTime', readStart.toString());
         // Kick off countdown if not already running
         if (!countdownInterval && !quizUnlocked) {
@@ -324,7 +360,15 @@
     document.getElementById('btn-start-reading').addEventListener('click', dismissVocabOverlay);
 
     // ─── Reading timer (persisted per story in localStorage) ───────────────────
-    const QUIZ_UNLOCK_SECONDS = story.readTimeMin * 60; // scales with story length
+    // Duration is parent-controlled via readingTimerMode in the child's profile
+    const timerMode = profile.readingTimerMode || 'full';
+    const baseSeconds = story.readTimeMin * 60;
+    const QUIZ_UNLOCK_SECONDS =
+      timerMode === 'off'    ? 0 :
+      timerMode === '1min'   ? 60 :
+      timerMode === 'half'   ? Math.round(baseSeconds / 2) :
+      timerMode === 'double' ? baseSeconds * 2 :
+      baseSeconds; // 'full' (default)
     const LS_KEY = 'readStart_' + storyId;
 
     // Use existing start time if available (so reloads don't reset the clock).
@@ -334,6 +378,10 @@
       // Vocab already seen on a previous visit — start timer now
       readStart = Date.now();
       localStorage.setItem(LS_KEY, readStart.toString());
+      localStorage.setItem('inProgressStory', storyId);
+    } else if (readStart) {
+      // Resumed mid-read — keep in-progress marker alive
+      localStorage.setItem('inProgressStory', storyId);
     }
     // Write to sessionStorage for quiz.html cross-check (may be 0 if not started yet)
     sessionStorage.setItem('readStartTime', readStart.toString());
@@ -345,8 +393,19 @@
     let countdownInterval = null;
 
     function updateQuizButton() {
+      // If timer is off, unlock immediately regardless of readStart
+      if (QUIZ_UNLOCK_SECONDS === 0) {
+        if (!quizUnlocked) {
+          quizUnlocked = true;
+          clearInterval(countdownInterval);
+          quizBtn.textContent = '✏️ Take the Quiz →';
+          quizBtn.classList.remove('btn-quiz-locked');
+          quizBtn.href = 'quiz.html?story=' + storyId;
+        }
+        return;
+      }
       if (!readStart) {
-        quizBtn.textContent = '⏳ Quiz in 2:00'; // vocab overlay not yet dismissed
+        quizBtn.textContent = `⏳ Quiz in ${Math.floor(QUIZ_UNLOCK_SECONDS/60)}:${String(QUIZ_UNLOCK_SECONDS%60).padStart(2,'0')}`;
         return;
       }
       const elapsed   = (Date.now() - readStart) / 1000;
@@ -533,13 +592,19 @@
     document.addEventListener('click', e => { if (!popup.contains(e.target)) popup.classList.remove('show'); });
 
     // ─── Font size controls ────────────────────────────────────────────────────
-    let fontSize = 20;
+    const FONT_SIZE_KEY = 'storyFontSize';
+    let fontSize = parseInt(localStorage.getItem(FONT_SIZE_KEY)) || 20;
     const bodyEl = document.getElementById('story-body');
+    bodyEl.style.fontSize = fontSize + 'px';
     document.getElementById('font-minus').addEventListener('click', () => {
-      fontSize = Math.max(14, fontSize - 2); bodyEl.style.fontSize = fontSize + 'px';
+      fontSize = Math.max(14, fontSize - 2);
+      bodyEl.style.fontSize = fontSize + 'px';
+      localStorage.setItem(FONT_SIZE_KEY, fontSize);
     });
     document.getElementById('font-plus').addEventListener('click', () => {
-      fontSize = Math.min(32, fontSize + 2); bodyEl.style.fontSize = fontSize + 'px';
+      fontSize = Math.min(32, fontSize + 2);
+      bodyEl.style.fontSize = fontSize + 'px';
+      localStorage.setItem(FONT_SIZE_KEY, fontSize);
     });
 
     // ─── Read-aloud ────────────────────────────────────────────────────────────
@@ -617,6 +682,11 @@
         const idx = favs.indexOf(story.id);
         if (idx >= 0) favs.splice(idx, 1); else favs.push(story.id);
         localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+        // Sync to Firestore for cross-device persistence
+        try {
+          firebase.firestore().collection('StudentStats').doc(profile.readerId)
+            .set({ bookmarks: favs }, { merge: true }).catch(() => {});
+        } catch(e) {}
         updateBtn();
         btn.style.transform = 'scale(1.35)';
         setTimeout(() => { btn.style.transform = ''; }, 200);

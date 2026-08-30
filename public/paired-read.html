@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paired Passages – FAST Track Reading & Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-soft: #ede9fe;
+      --teal:   #0891b2; --teal-soft:   #e0f2fe;
+      --orange: #f59e0b; --orange-soft: #fffbeb;
+      --green:  #10b981; --green-soft:  #d1fae5;
+      --bg: linear-gradient(135deg, #faf5ff 0%, #e0f2fe 100%);
+      --surface: #ffffff; --border: rgba(0,0,0,0.08);
+      --text: #1e1b4b; --muted: #6b7280; --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* ── NAV ─────────────────────────────────────────────────────────────── */
+    .nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 12px 20px; display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 20;
+    }
+    .nav-back { text-decoration: none; color: var(--purple); font-weight: 700; font-size: 0.95rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-badge {
+      background: linear-gradient(135deg, var(--purple), var(--teal));
+      color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;
+      padding: 3px 10px; border-radius: 99px; flex-shrink: 0;
+    }
+    .nav-title {
+      font-weight: 700; font-size: 0.95rem; flex: 1; text-align: center;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .font-controls { display: flex; gap: 6px; }
+    .font-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 2px solid var(--border); background: var(--surface);
+      font-weight: 800; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; font-size: 0.95rem; transition: border-color 0.15s;
+    }
+    .font-btn:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* ── PROGRESS BAR ────────────────────────────────────────────────────── */
+    .progress-bar-wrap { height: 4px; background: #e5e7eb; }
+    .progress-bar-fill {
+      height: 100%; border-radius: 99px;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+      transition: width 0.25s;
+    }
+
+    /* ── PAGE ────────────────────────────────────────────────────────────── */
+    .page { max-width: 740px; margin: 0 auto; padding: 28px 20px 110px; }
+
+    /* ── STORY HEADER ────────────────────────────────────────────────────── */
+    .story-cover {
+      border-radius: 20px; height: 120px; display: flex; align-items: center;
+      justify-content: center; font-size: 4rem; margin-bottom: 20px;
+    }
+    .story-title-big { font-size: 1.55rem; font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
+    .story-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .meta-chip {
+      font-size: 0.78rem; font-weight: 600; padding: 4px 12px;
+      border-radius: 99px; background: var(--purple-soft); color: var(--purple);
+    }
+    .meta-chip.teal { background: var(--teal-soft); color: var(--teal); }
+
+    /* ── INSTRUCTION BANNER ──────────────────────────────────────────────── */
+    .instruction-banner {
+      background: #f0f9ff; border: 1.5px solid #bae6fd;
+      border-radius: 12px; padding: 12px 16px;
+      font-size: 0.9rem; color: #0369a1; font-weight: 600;
+      margin-bottom: 18px; line-height: 1.5;
+    }
+
+    /* ── VOCAB LEGEND ────────────────────────────────────────────────────── */
+    .vocab-legend {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      font-size: 0.82rem; color: var(--muted); margin-bottom: 18px;
+    }
+    .vocab-legend-swatch {
+      background: #fef3c7; border-bottom: 2px solid var(--orange);
+      border-radius: 3px; padding: 0 5px; font-size: 0.82rem;
+    }
+
+    /* ── TAB BAR ─────────────────────────────────────────────────────────── */
+    .tab-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+    .tab-btn {
+      flex: 1; padding: 14px 12px; border-radius: 14px;
+      border: 2px solid var(--border); background: var(--surface);
+      font-family: inherit; cursor: pointer; transition: all 0.18s;
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+    }
+    .tab-btn-title { font-size: 0.92rem; font-weight: 700; }
+    .tab-btn-sub   { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+    .tab-btn-check { font-size: 0.72rem; color: var(--green); font-weight: 700; display: none; }
+    .tab-btn.seen .tab-btn-check { display: block; }
+
+    .tab-btn.active-p1 {
+      border-color: var(--purple); background: var(--purple-soft);
+      box-shadow: 0 2px 10px rgba(124,58,237,0.15);
+    }
+    .tab-btn.active-p1 .tab-btn-title { color: var(--purple); }
+    .tab-btn.active-p1 .tab-btn-sub   { color: #6d28d9; }
+
+    .tab-btn.active-p2 {
+      border-color: var(--teal); background: var(--teal-soft);
+      box-shadow: 0 2px 10px rgba(8,145,178,0.15);
+    }
+    .tab-btn.active-p2 .tab-btn-title { color: var(--teal); }
+    .tab-btn.active-p2 .tab-btn-sub   { color: #0369a1; }
+
+    /* ── PASSAGE PANELS ──────────────────────────────────────────────────── */
+    .passage-panel {
+      border-radius: 16px; padding: 28px;
+      background: var(--surface);
+      border-left: 5px solid transparent;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+    }
+    .passage-panel.p1-panel { border-left-color: var(--purple); }
+    .passage-panel.p2-panel { border-left-color: var(--teal); }
+
+    .passage-label {
+      display: inline-block; font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; margin-bottom: 6px;
+    }
+    .p1-panel .passage-label { background: var(--purple-soft); color: var(--purple); }
+    .p2-panel .passage-label { background: var(--teal-soft); color: var(--teal); }
+
+    .passage-subtitle {
+      font-size: 1.1rem; font-weight: 700; font-style: italic;
+      color: var(--muted); margin-bottom: 22px; line-height: 1.4;
+    }
+
+    /* ── PASSAGE BODY TEXT ───────────────────────────────────────────────── */
+    .passage-body { font-size: 20px; line-height: 1.8; color: var(--text); cursor: text; }
+    .passage-body p  { margin-bottom: 1.4em; }
+    .passage-body p:last-child { margin-bottom: 0; }
+    .passage-body h2 { font-size: 1.05rem; font-weight: 800; margin: 1.5em 0 0.6em; }
+    .p1-panel .passage-body h2 { color: var(--purple); }
+    .p2-panel .passage-body h2 { color: var(--teal); }
+    .passage-body em { font-style: italic; }
+
+    /* ── VOCABULARY HIGHLIGHT ────────────────────────────────────────────── */
+    .vocab-word {
+      background: #fef3c7; border-bottom: 2px solid var(--orange);
+      cursor: pointer; border-radius: 3px; padding: 0 2px;
+      transition: background 0.15s;
+    }
+    .vocab-word:hover { background: #fde68a; }
+
+    /* ── VOCAB POPUP ─────────────────────────────────────────────────────── */
+    .vocab-popup {
+      position: fixed; z-index: 100;
+      background: var(--surface); border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 18px 20px; max-width: 300px; width: 90vw; display: none;
+    }
+    .vocab-popup.show { display: block; }
+    .popup-word    { font-size: 1.1rem; font-weight: 800; color: var(--purple); margin-bottom: 6px; }
+    .popup-def     { font-size: 0.92rem; line-height: 1.5; margin-bottom: 8px; }
+    .popup-example { font-size: 0.82rem; color: var(--muted); font-style: italic; line-height: 1.4; margin-bottom: 12px; }
+    .popup-close   { position: absolute; top: 10px; right: 12px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--muted); }
+    .popup-hear-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 8px;
+      border: 2px solid var(--purple); background: var(--purple-soft);
+      color: var(--purple); font-weight: 700; font-size: 0.85rem; cursor: pointer;
+    }
+    .popup-hear-btn:hover { background: var(--purple); color: #fff; }
+
+    /* ── SPEAK INDICATOR ─────────────────────────────────────────────────── */
+    .speak-indicator {
+      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+      background: rgba(30,27,75,0.88); color: #fff;
+      padding: 8px 18px; border-radius: 99px; font-size: 0.88rem; font-weight: 600;
+      pointer-events: none; opacity: 0; transition: opacity 0.2s; z-index: 50;
+    }
+    .speak-indicator.show { opacity: 1; }
+
+    /* ── VOCAB WARM-UP OVERLAY ───────────────────────────────────────────── */
+    .vocab-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .vocab-overlay.hidden { display: none; }
+    .vocab-box {
+      background: var(--surface); border-radius: 20px;
+      padding: 28px 24px; max-width: 500px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+    }
+    .vocab-box h2 { font-size: 1.2rem; font-weight: 800; color: var(--purple); margin-bottom: 4px; }
+    .vocab-box p  { font-size: 0.88rem; color: var(--muted); margin-bottom: 16px; }
+    .warmup-item  { padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .warmup-item:last-of-type { border-bottom: none; }
+    .warmup-word  { font-weight: 800; font-size: 0.95rem; color: var(--purple); margin-bottom: 3px; }
+    .warmup-def   { font-size: 0.88rem; line-height: 1.45; margin-bottom: 3px; }
+    .warmup-ex    { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .btn-start {
+      width: 100%; padding: 14px; margin-top: 18px;
+      background: var(--purple); color: #fff; border: none; border-radius: 12px;
+      font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.15s;
+    }
+    .btn-start:hover { background: #6d28d9; }
+
+    /* ── BOTTOM QUIZ BAR ─────────────────────────────────────────────────── */
+    .read-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 12px 20px; display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+    }
+    .bar-hint { font-size: 0.8rem; color: var(--muted); font-weight: 500; flex: 1; }
+    .btn-quiz {
+      padding: 11px 22px; border-radius: 12px;
+      font-size: 0.9rem; font-weight: 700; text-decoration: none; white-space: nowrap;
+      transition: background 0.15s; border: none; font-family: inherit; cursor: pointer;
+    }
+    .btn-quiz-locked { background: #e5e7eb; color: #9ca3af; pointer-events: none; }
+    .btn-quiz-open   { background: var(--orange); color: #fff; cursor: pointer; }
+    .btn-quiz-open:hover { background: #d97706; }
+    @keyframes just-unlocked { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+    .btn-quiz-open.pop { animation: just-unlocked 0.4s ease; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+    @media (max-width: 520px) {
+      .passage-body   { font-size: 18px; }
+      .passage-panel  { padding: 18px 14px; }
+      .tab-btn        { padding: 11px 8px; }
+      .tab-btn-title  { font-size: 0.85rem; }
+      .story-title-big{ font-size: 1.3rem; }
+      .bar-hint       { display: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="dark.css" />
+</head>
+<body>
+
+  <!-- ── NAV ───────────────────────────────────────────────────────────── -->
+  <nav class="nav">
+    <a class="nav-back" id="nav-back" href="library.html">← Library</a>
+    <span class="nav-badge">PAIRED</span>
+    <div class="nav-title" id="nav-title"></div>
+    <div class="font-controls">
+      <button class="font-btn" id="font-minus" title="Smaller text">A−</button>
+      <button class="font-btn" id="font-plus"  title="Larger text">A+</button>
+    </div>
+  </nav>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="pb-fill" style="width:0%"></div></div>
+
+  <!-- ── VOCAB WARM-UP OVERLAY ─────────────────────────────────────────── -->
+  <div class="vocab-overlay hidden" id="vocab-overlay">
+    <div class="vocab-box">
+      <h2>📖 Vocabulary Warm-Up</h2>
+      <p>Learn these words before you read both passages.</p>
+      <div id="vocab-warmup-list"></div>
+      <button class="btn-start" id="btn-start-reading">Let's Read! →</button>
+    </div>
+  </div>
+
+  <!-- ── MAIN PAGE ─────────────────────────────────────────────────────── -->
+  <div class="page">
+    <div id="story-header"></div>
+
+    <div class="instruction-banner">
+      📖 Read <strong>both passages</strong>, then take the quiz — it tests your understanding of
+      how the passages connect, compare, and differ.
+    </div>
+
+    <div class="vocab-legend">
+      <span class="vocab-legend-swatch">word</span>
+      <span>= tap to see definition &amp; hear it</span>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="tab-bar">
+      <button class="tab-btn active-p1" id="tab1" onclick="showPassage(1)">
+        <span class="tab-btn-title">📖 Passage 1</span>
+        <span class="tab-btn-sub"  id="tab1-sub">Literary</span>
+        <span class="tab-btn-check">✓ Read</span>
+      </button>
+      <button class="tab-btn" id="tab2" onclick="showPassage(2)">
+        <span class="tab-btn-title">📄 Passage 2</span>
+        <span class="tab-btn-sub"  id="tab2-sub">Informational</span>
+        <span class="tab-btn-check">✓ Read</span>
+      </button>
+    </div>
+
+    <!-- Passage panels -->
+    <div class="passage-panel p1-panel" id="panel1"></div>
+    <div class="passage-panel p2-panel" id="panel2" style="display:none"></div>
+  </div>
+
+  <!-- ── VOCAB POPUP ────────────────────────────────────────────────────── -->
+  <div class="vocab-popup" id="vocab-popup">
+    <button class="popup-close" id="popup-close">✕</button>
+    <div class="popup-word"    id="popup-word"></div>
+    <div class="popup-def"     id="popup-def"></div>
+    <div class="popup-example" id="popup-example"></div>
+    <button class="popup-hear-btn" id="popup-hear-btn">🔊 Hear it</button>
+  </div>
+  <div class="speak-indicator" id="speak-indicator"></div>
+
+  <!-- ── BOTTOM QUIZ BAR ───────────────────────────────────────────────── -->
+  <div class="read-bar">
+    <div class="bar-hint" id="bar-hint">👆 Tap any word to hear it</div>
+    <a class="btn-quiz btn-quiz-locked" id="btn-quiz" href="#">⏳ Quiz in 3:00</a>
+  </div>
+
+  <script src="stories.js?v=20260705"></script>
+  <script>
+    // ── Profile guard ────────────────────────────────────────────────────────
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) { window.location.href = 'index.html'; }
+
+    const params  = new URLSearchParams(location.search);
+    const storyId = params.get('story');
+    const story   = STORIES.find(s => s.id === storyId);
+    if (!story) { window.location.href = 'library.html'; }
+
+    document.getElementById('nav-title').textContent = story.title;
+
+    // ── Parse text into two passages ─────────────────────────────────────────
+    // Format: intro\n---\nPassage1\n---\nPassage2
+    const rawParts = story.text.split(/\n---\n/);
+    // rawParts[0] = "**PAIRED PASSAGES** — ..." (skip)
+    // rawParts[1] = Passage 1 raw
+    // rawParts[2] = Passage 2 raw
+
+    function extractPassage(raw) {
+      const lines = (raw || '').trim().split('\n');
+      let label = '', subtitle = '', bodyStartIdx = 0;
+      for (let i = 0; i < lines.length; i++) {
+        const l = lines[i].trim();
+        if (!l) continue;
+        if (!label) {
+          label = l.replace(/\*\*/g, '');   // "Passage 1 — Literary (First Person)"
+          bodyStartIdx = i + 1;
+          continue;
+        }
+        if (l.startsWith('*')) {
+          subtitle = l.replace(/^\*"?|"?\*$/g, '').replace(/\*/g, '');
+          bodyStartIdx = i + 1;
+          break;
+        }
+        break;
+      }
+      const bodyText = lines.slice(bodyStartIdx).join('\n').trim();
+      // Extract type from label: "Passage 1 — Literary (First Person)" → "Literary"
+      const typePart = label.split('—')[1] || '';
+      const type = typePart.replace(/\(.*\)/, '').trim();
+      return { label, type, subtitle, body: bodyText };
+    }
+
+    const p1 = extractPassage(rawParts[1]);
+    const p2 = extractPassage(rawParts[2]);
+
+    // Populate tab subtitles
+    document.getElementById('tab1-sub').textContent = p1.type || 'Literary';
+    document.getElementById('tab2-sub').textContent = p2.type || 'Informational';
+
+    // ── Vocab map ────────────────────────────────────────────────────────────
+    const vocabMap = {};
+    (story.vocabulary || []).forEach(v => { vocabMap[v.word.toLowerCase()] = v; });
+
+    // ── processText ──────────────────────────────────────────────────────────
+    function processText(raw) {
+      return raw.trim().split(/\n\n+/).map(para => {
+        const t = para.trim();
+        if (t.startsWith('## ')) return `<h2>${t.slice(3)}</h2>`;
+        // Italic-only paragraph (passage sub-headings like *"subtitle"*)
+        if (/^\*[^*]/.test(t)) {
+          const inner = t.replace(/^\*"?|"?\*$/g, '').replace(/\*/g, '');
+          return `<p><em>${inner}</em></p>`;
+        }
+        const html = t
+          .replace(/\*\*([^*]+)\*\*/g, (_, w) =>
+            `<span class="vocab-word" data-word="${w.toLowerCase()}">${w}</span>`)
+          .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        return `<p>${html}</p>`;
+      }).join('');
+    }
+
+    // ── Render story header ──────────────────────────────────────────────────
+    document.getElementById('story-header').innerHTML = `
+      <div class="story-cover" style="background:${story.coverColor}18;">${story.coverEmoji}</div>
+      <div class="story-title-big">${story.title}</div>
+      <div class="story-meta">
+        <span class="meta-chip">📚 Paired Passages</span>
+        <span class="meta-chip teal">~${story.readTimeMin} min read</span>
+        <span class="meta-chip">${story.wordCount} words</span>
+      </div>
+    `;
+
+    // ── Render passage panels ────────────────────────────────────────────────
+    function renderPanel(panelId, p) {
+      const el = document.getElementById(panelId);
+      el.innerHTML = `
+        <div class="passage-label">${p.label}</div>
+        <div class="passage-subtitle">"${p.subtitle}"</div>
+        <div class="passage-body">${processText(p.body)}</div>
+      `;
+      el.querySelectorAll('.vocab-word').forEach(w => {
+        w.addEventListener('click', e => {
+          showPopup(w.dataset.word, w.getBoundingClientRect());
+          speakWord(w.dataset.word);
+          e.stopPropagation();
+        });
+      });
+      el.querySelector('.passage-body').addEventListener('click', e => {
+        if (e.target.classList.contains('vocab-word')) return;
+        const word = getWordAtPoint(e.clientX, e.clientY);
+        if (word) speakWord(word);
+      });
+    }
+
+    renderPanel('panel1', p1);
+    renderPanel('panel2', p2);
+
+    // ── Passage tab tracking ─────────────────────────────────────────────────
+    const viewedPassages = new Set();
+
+    function markSeen(n) {
+      viewedPassages.add(n);
+      document.getElementById('tab' + n).classList.add('seen');
+    }
+
+    // Passage 1 is shown immediately — mark as seen after a brief delay so
+    // the student can't just instantly click to Passage 2 and back.
+    markSeen(1);
+
+    let currentPassage = 1;
+
+    function showPassage(n) {
+      if (n === currentPassage) return;
+      currentPassage = n;
+      markSeen(n);
+
+      // Update tabs
+      const t1 = document.getElementById('tab1');
+      const t2 = document.getElementById('tab2');
+      t1.className = 'tab-btn' + (n === 1 ? ' active-p1' : '') + (viewedPassages.has(1) ? ' seen' : '');
+      t2.className = 'tab-btn' + (n === 2 ? ' active-p2' : '') + (viewedPassages.has(2) ? ' seen' : '');
+
+      // Show/hide panels
+      document.getElementById('panel1').style.display = n === 1 ? '' : 'none';
+      document.getElementById('panel2').style.display = n === 2 ? '' : 'none';
+
+      // Scroll to top of page content
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Close any open popup
+      popup.classList.remove('show');
+
+      updateQuizButton();
+    }
+
+    // ── Vocab warm-up overlay ────────────────────────────────────────────────
+    const VOCAB_SEEN_KEY = 'vocabSeen_' + storyId;
+    const vocabSeen = localStorage.getItem(VOCAB_SEEN_KEY) === 'true';
+
+    if (!vocabSeen && story.vocabulary && story.vocabulary.length > 0) {
+      document.getElementById('vocab-warmup-list').innerHTML =
+        story.vocabulary.map(v => `
+          <div class="warmup-item">
+            <div class="warmup-word">${v.word}</div>
+            <div class="warmup-def">${v.definition}</div>
+            <div class="warmup-ex">"${v.example}"</div>
+          </div>
+        `).join('');
+      document.getElementById('vocab-overlay').classList.remove('hidden');
+    }
+
+    function dismissVocabOverlay() {
+      localStorage.setItem(VOCAB_SEEN_KEY, 'true');
+      document.getElementById('vocab-overlay').classList.add('hidden');
+      if (!readStart) {
+        readStart = Date.now();
+        localStorage.setItem(LS_KEY, readStart.toString());
+        sessionStorage.setItem('readStartTime', readStart.toString());
+        if (!countdownInterval && !quizUnlocked) countdownInterval = setInterval(tick, 1000);
+        updateQuizButton();
+      }
+    }
+    document.getElementById('btn-start-reading').addEventListener('click', dismissVocabOverlay);
+
+    // ── Reading timer ────────────────────────────────────────────────────────
+    const timerMode = profile.readingTimerMode || 'full';
+    const baseSeconds = story.readTimeMin * 60;
+    const QUIZ_UNLOCK_SECONDS =
+      timerMode === 'off'    ? 0 :
+      timerMode === '1min'   ? 60 :
+      timerMode === 'half'   ? Math.round(baseSeconds / 2) :
+      timerMode === 'double' ? baseSeconds * 2 :
+      baseSeconds;
+
+    const LS_KEY = 'readStart_' + storyId;
+    let readStart = parseInt(localStorage.getItem(LS_KEY) || '0');
+    if (!readStart && vocabSeen) {
+      readStart = Date.now();
+      localStorage.setItem(LS_KEY, readStart.toString());
+    }
+    sessionStorage.setItem('readStartTime', readStart.toString());
+    sessionStorage.setItem('readStoryId', storyId);
+
+    const quizBtn = document.getElementById('btn-quiz');
+    let quizUnlocked = false;
+    let countdownInterval = null;
+
+    function updateQuizButton() {
+      const bothSeen = viewedPassages.size >= 2;
+
+      if (QUIZ_UNLOCK_SECONDS === 0) {
+        if (bothSeen) { if (!quizUnlocked) unlockQuiz(); }
+        else quizBtn.textContent = '📄 Read Passage 2 first';
+        return;
+      }
+      if (!readStart) {
+        quizBtn.textContent = `⏳ ${fmt(QUIZ_UNLOCK_SECONDS)}`;
+        return;
+      }
+      const elapsed   = (Date.now() - readStart) / 1000;
+      const remaining = Math.max(0, QUIZ_UNLOCK_SECONDS - elapsed);
+
+      if (remaining <= 0 && bothSeen) { if (!quizUnlocked) unlockQuiz(); return; }
+      if (remaining <= 0 && !bothSeen) {
+        quizBtn.textContent = '📄 Read Passage 2 to unlock';
+        return;
+      }
+      quizBtn.textContent = bothSeen
+        ? `⏳ Quiz in ${fmt(remaining)}`
+        : `📄 Read Passage 2 — ${fmt(remaining)}`;
+    }
+
+    function fmt(secs) {
+      const m = Math.floor(secs / 60), s = Math.floor(secs % 60);
+      return `${m}:${String(s).padStart(2,'0')}`;
+    }
+
+    function unlockQuiz() {
+      quizUnlocked = true;
+      clearInterval(countdownInterval);
+      quizBtn.textContent = '✏️ Take the Quiz →';
+      quizBtn.className = 'btn-quiz btn-quiz-open pop';
+      quizBtn.href = 'quiz.html?story=' + storyId;
+      setTimeout(() => quizBtn.classList.remove('pop'), 500);
+    }
+
+    function tick() { if (!quizUnlocked) updateQuizButton(); }
+
+    updateQuizButton();
+    if (!quizUnlocked && readStart) countdownInterval = setInterval(tick, 1000);
+
+    // ── Scroll progress bar ──────────────────────────────────────────────────
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('pb-fill').style.width = (h > 0 ? Math.min(100, window.scrollY / h * 100) : 0) + '%';
+    });
+
+    // ── Font size ────────────────────────────────────────────────────────────
+    let fontSize = parseInt(localStorage.getItem('fontSize') || '20');
+    function applyFont() {
+      document.querySelectorAll('.passage-body').forEach(el => { el.style.fontSize = fontSize + 'px'; });
+    }
+    document.getElementById('font-minus').addEventListener('click', () => {
+      fontSize = Math.max(14, fontSize - 2); localStorage.setItem('fontSize', fontSize); applyFont();
+    });
+    document.getElementById('font-plus').addEventListener('click', () => {
+      fontSize = Math.min(28, fontSize + 2); localStorage.setItem('fontSize', fontSize); applyFont();
+    });
+    applyFont();
+
+    // ── Speech ───────────────────────────────────────────────────────────────
+    const readAloudMode = profile.readAloudMode || (profile.readAloudEnabled === false ? 'off' : 'on');
+    const indicator = document.getElementById('speak-indicator');
+    let speakTimeout = null;
+
+    function speakWord(word) {
+      if (readAloudMode === 'off' || !word || !window.speechSynthesis) return;
+      const clean = word.replace(/[^a-zA-Z'-]/g, '').trim();
+      if (!clean) return;
+      speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(clean);
+      utt.rate = 0.85; utt.lang = 'en-US';
+      indicator.textContent = '🔊 ' + clean;
+      indicator.classList.add('show');
+      clearTimeout(speakTimeout);
+      speakTimeout = setTimeout(() => indicator.classList.remove('show'), 1500);
+      speechSynthesis.speak(utt);
+    }
+
+    function getWordAtPoint(x, y) {
+      try {
+        let range;
+        if (document.caretRangeFromPoint) {
+          range = document.caretRangeFromPoint(x, y);
+        } else if (document.caretPositionFromPoint) {
+          const pos = document.caretPositionFromPoint(x, y);
+          if (pos && pos.offsetNode) {
+            range = document.createRange();
+            range.setStart(pos.offsetNode, pos.offset);
+            range.setEnd(pos.offsetNode, pos.offset);
+          }
+        }
+        if (!range) return '';
+        range.expand('word');
+        return range.toString();
+      } catch(e) { return ''; }
+    }
+
+    // ── Vocab popup ──────────────────────────────────────────────────────────
+    const popup = document.getElementById('vocab-popup');
+    let currentPopupWord = '';
+
+    function showPopup(word, rect) {
+      const v = vocabMap[word];
+      if (!v) return;
+      currentPopupWord = v.word;
+      document.getElementById('popup-word').textContent    = v.word;
+      document.getElementById('popup-def').textContent     = v.definition;
+      document.getElementById('popup-example').textContent = '"' + v.example + '"';
+      popup.classList.add('show');
+      const pw = Math.min(300, window.innerWidth * 0.9);
+      let left = rect.left;
+      let top  = rect.bottom + 8 + window.scrollY;
+      if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+      if (left < 8) left = 8;
+      popup.style.left = left + 'px';
+      popup.style.top  = top  + 'px';
+      popup.style.maxWidth = pw + 'px';
+    }
+
+    document.getElementById('popup-close').addEventListener('click', () => popup.classList.remove('show'));
+    document.getElementById('popup-hear-btn').addEventListener('click', e => {
+      e.stopPropagation(); speakWord(currentPopupWord);
+    });
+    document.addEventListener('click', e => {
+      if (!popup.contains(e.target) && !e.target.classList.contains('vocab-word'))
+        popup.classList.remove('show');
+    });
+
+    // ── QQQ bypass (parent/teacher can skip timer) ───────────────────────────
+    (function() {
+      let keys = '', t = null;
+      document.addEventListener('keydown', e => {
+        if (quizUnlocked) return;
+        if (e.key === 'Q' || e.key === 'q') {
+          keys += 'Q'; clearTimeout(t);
+          t = setTimeout(() => { keys = ''; }, 1000);
+          if (keys.length >= 3) {
+            keys = ''; clearTimeout(t); clearInterval(countdownInterval);
+            localStorage.setItem(LS_KEY, (Date.now() - QUIZ_UNLOCK_SECONDS * 1000).toString());
+            markSeen(1); markSeen(2);
+            // Make sure tab states reflect both seen
+            document.getElementById('tab1').classList.add('seen');
+            document.getElementById('tab2').classList.add('seen');
+            unlockQuiz();
+          }
+        } else { keys = ''; clearTimeout(t); }
+      });
+    })();
+  </script>
+</body>
+</html>

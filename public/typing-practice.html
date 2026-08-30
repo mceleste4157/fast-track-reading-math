@@ -182,6 +182,7 @@
       .kb-key.space { min-width: 160px; }
     }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <nav class="nav">
@@ -268,6 +269,11 @@
       l10: { emoji:'📝', title:'Common Words',     sub:'Words you use every day',     xp:25, text:'they were have when that with this will been some what from which more' },
       l11: { emoji:'✍️', title:'Sentences',        sub:'Punctuation and flow',        xp:30, text:'Reading every day makes you a better writer. Try your best and you will improve.' },
       l12: { emoji:'📄', title:'Full Paragraph',   sub:'Florida theme',               xp:35, text:'Florida is a warm and sunny state. Many animals live in its forests and wetlands. The Everglades is home to alligators, birds, and fish. Protecting nature helps everyone.' },
+      l13: { emoji:'🌿', title:'The Everglades',   sub:'Real story passage',          xp:40, text:'The Everglades is not a swamp or a lake. It is a wide, shallow river that flows slowly southward across Florida. More than 360 bird species live or feed there. Alligators dig deep holes that hold water long after the rest of the marsh dries out, helping other animals survive the dry season.' },
+      l14: { emoji:'🚀', title:'Space Coast',      sub:'Florida and NASA',            xp:40, text:'Florida became the launch capital of the United States because of its geography. Rockets launched eastward over the Atlantic fall safely into the ocean. In July 1969, Apollo 11 lifted off from Kennedy Space Center, carrying three astronauts on a historic journey to the Moon.' },
+      l15: { emoji:'🌍', title:'Pangaea',          sub:'Science passage',             xp:45, text:'Alfred Wegener noticed that the coastlines of South America and Africa looked like puzzle pieces that fit together. He proposed that all continents were once joined in a supercontinent called Pangaea. Over millions of years, they slowly drifted apart, driven by the movement of tectonic plates deep beneath Earth\'s crust.' },
+      l16: { emoji:'✊', title:'Civil Rights',     sub:'Florida history passage',     xp:50, text:'Harry T. Moore spent decades organizing voter registration drives across Florida and investigating racial violence. On Christmas night in 1951, a bomb destroyed his home in Mims, Florida, killing him and his wife Harriette. He is remembered as one of Florida\'s earliest and most courageous civil rights leaders.' },
+      l17: { emoji:'🔐', title:'Digital Privacy',  sub:'Grade 8 challenge passage',  xp:55, text:'Every time you use a search engine or open an app, data is collected about you. Companies track what you search, how long you read each page, and where you travel. This information is analyzed and often sold to other businesses. Understanding digital privacy has become an essential skill in the modern world.' },
     };
 
     const params   = new URLSearchParams(location.search);
@@ -459,8 +465,61 @@
         timestamp:   firebase.firestore.FieldValue.serverTimestamp()
       }).catch(() => {});
 
-      // Also contribute to general XP via MathProgress-style write (StudentStats)
-      // We'll just log it — no need for full StudentStats update here
+      // Check for typing badges
+      db.collection('TypingProgress').where('readerId', '==', profile.readerId).get()
+        .then(snap => {
+          const count = snap.size + 1; // +1 for the lesson just written
+          db.collection('StudentStats').doc(profile.readerId).get().then(statsDoc => {
+            const sd = statsDoc.exists ? statsDoc.data() : {};
+            const currentBadges = new Set(sd.badges || []);
+            const newBadges = [];
+            if (count >= 1 && !currentBadges.has('typing_first')) newBadges.push('typing_first');
+            if (count >= 5 && !currentBadges.has('typing_5'))     newBadges.push('typing_5');
+            if (count >= 10 && !currentBadges.has('typing_10'))   newBadges.push('typing_10');
+            if (newBadges.length) {
+              db.collection('StudentStats').doc(profile.readerId).set({
+                badges: [...(sd.badges || []), ...newBadges]
+              }, { merge: true }).catch(() => {});
+              // Show badge toast
+              newBadges.forEach((id, i) => {
+                const labels = { typing_first: '⌨️ Badge: Keyboarder!', typing_5: '⌨️ Badge: Typing Pro!', typing_10: '⌨️ Badge: Speed Demon!' };
+                setTimeout(() => {
+                  const t = document.createElement('div');
+                  t.textContent = labels[id] || '⌨️ Badge earned!';
+                  t.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:11px 22px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+                  document.body.appendChild(t);
+                  setTimeout(() => t.remove(), 4000);
+                }, i * 1200);
+              });
+            }
+          }).catch(() => {});
+        }).catch(() => {});
+
+      // Update lastReadDate so inactivity decay stays accurate
+      (function() {
+        const todayStr = new Date().toISOString().slice(0, 10);
+        localStorage.setItem('lastActivityDate_' + profile.readerId, todayStr);
+        localStorage.setItem('inactivityDecay_' + profile.readerId, '0');
+        localStorage.setItem('decayCheckedDate_' + profile.readerId, todayStr);
+        firebase.firestore().collection('StudentStats').doc(profile.readerId)
+          .set({ lastReadDate: todayStr, inactivityDecay: 0, decayCheckedDate: todayStr,
+                 lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
+          .catch(() => {});
+      })();
+
+      // Daily challenge: c_typing
+      (function() {
+        const todayStr = new Date().toISOString().slice(0, 10);
+        const lsKey = 'dc_' + profile.readerId + '_' + todayStr;
+        const state = JSON.parse(localStorage.getItem(lsKey) || '{"completed":[]}');
+        if (!state.completed.includes('c_typing')) {
+          state.completed.push('c_typing');
+          localStorage.setItem(lsKey, JSON.stringify(state));
+          firebase.firestore().collection('StudentStats').doc(profile.readerId)
+            .set({ challengeXp: firebase.firestore.FieldValue.increment(20), lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
+            .catch(() => {});
+        }
+      })();
     }
 
     function restartLesson() {

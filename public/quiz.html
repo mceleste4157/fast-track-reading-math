@@ -118,6 +118,13 @@
     .explanation.correct-exp { background: var(--green-soft); color: #064e3b; border-left: 4px solid var(--green); }
     .explanation.wrong-exp   { background: var(--red-soft);   color: #7f1d1d; border-left: 4px solid var(--red); }
     .explanation.hint-exp    { background: #fffbeb; color: #78350f; border-left: 4px solid var(--orange); }
+    .try-again-btn {
+      display: inline-block; margin-top: 12px; padding: 10px 22px;
+      background: var(--orange); color: #fff; border: none; border-radius: 10px;
+      font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .try-again-btn:hover { background: #d97706; }
 
     /* NEXT BUTTON */
     .next-btn {
@@ -176,6 +183,7 @@
 
     @media (max-width: 480px) { .question-text { font-size: 1.15rem; } }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <nav class="nav">
@@ -228,7 +236,7 @@
     </div>
   </div>
 
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260705"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) { window.location.href = 'index.html'; }
@@ -245,7 +253,14 @@
 
     // ── Config ────────────────────────────────────────────────────────────────
     const THINK_SECONDS       = 3;
-    const QUIZ_UNLOCK_SECONDS = story.readTimeMin * 60; // scales with story length
+    const timerMode = profile.readingTimerMode || 'full';
+    const _baseSeconds = story.readTimeMin * 60;
+    const QUIZ_UNLOCK_SECONDS =
+      timerMode === 'off'    ? 0 :
+      timerMode === '1min'   ? 60 :
+      timerMode === 'half'   ? Math.round(_baseSeconds / 2) :
+      timerMode === 'double' ? _baseSeconds * 2 :
+      _baseSeconds; // 'full' (default)
     const XP_FIRST_TRY        = 20;
     const XP_NOT_FIRST        = 10;
     const XP_PERFECT_BONUS    = 25;
@@ -498,23 +513,27 @@
           return;
         }
 
-        // Show hint briefly, then reshuffle
+        // Show hint — student must click "try again" to continue
         const feedbackEl = document.getElementById('feedback');
         feedbackEl.className = 'feedback wrong-fb show';
-        feedbackEl.innerHTML = '❌ Not quite — the answers are shuffling…';
+        feedbackEl.innerHTML = '❌ Not quite — read the hint below!';
 
         const expEl = document.getElementById('explanation');
         expEl.className = 'explanation show hint-exp';
-        expEl.textContent = '💡 ' + q.explanation;
+        expEl.innerHTML = '<div>💡 ' + q.explanation + '</div>' +
+          '<button class="try-again-btn" id="try-again-btn">Got it — try again! →</button>';
 
-        // Reshuffle after a beat
-        setTimeout(() => reshuffleAndShow(q), 950);
+        document.getElementById('try-again-btn').addEventListener('click', () => reshuffleAndShow(q), { once: true });
       }
     }
 
     // ── Reshuffle options and re-render ───────────────────────────────────────
     function reshuffleAndShow(q) {
       const optDiv = document.getElementById('options');
+
+      // Remove the "try again" button but keep hint text visible
+      const tryBtn = document.getElementById('try-again-btn');
+      if (tryBtn) tryBtn.remove();
 
       // Fade out
       optDiv.style.opacity = '0';
@@ -524,8 +543,7 @@
 
         document.getElementById('feedback').className    = 'feedback';
         document.getElementById('feedback').innerHTML    = '';
-        document.getElementById('explanation').className = 'explanation';
-        document.getElementById('explanation').innerHTML = '';
+        // Explanation stays visible so student can read the hint while retrying
 
         renderOptions(false /* not locked — no think timer on reshuffle */);
 
@@ -593,6 +611,7 @@
     function finishQuiz() {
       playSound('complete');
       sessionStorage.removeItem(QUIZ_STATE_KEY); // quiz done — clear resume state
+      localStorage.removeItem('inProgressStory'); // clear "continue reading" banner
       const score           = answers.filter(a => a.correct).length;
       const perfectFirstTry = answers.every(a => a.correct && a.attempts === 1);
       let earnedXP          = answers.reduce((sum, a) => sum + a.earnedXP, 0);

@@ -190,9 +190,27 @@
     @keyframes ppmShake {
       0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
     }
+    @keyframes lvlPop {
+      0%{opacity:0;transform:scale(0.7) translateY(20px)} 100%{opacity:1;transform:scale(1) translateY(0)}
+    }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
+  <!-- Offline banner -->
+  <div id="offline-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9999;background:#374151;color:#fff;text-align:center;padding:8px 16px;font-size:0.85rem;font-weight:600;">
+    📵 You're offline — scores won't save until you reconnect.
+  </div>
+  <script>
+    (function() {
+      const banner = document.getElementById('offline-banner');
+      function update() { banner.style.display = navigator.onLine ? 'none' : 'block'; }
+      update();
+      window.addEventListener('online',  update);
+      window.addEventListener('offline', update);
+    })();
+  </script>
+
   <div class="page">
 
     <!-- ── Main column ──────────────────────────────────────────────── -->
@@ -224,6 +242,7 @@
         <div class="stat-card"><div class="stat-val" id="s-xp">…</div><div class="stat-label">Total XP</div></div>
         <div class="stat-card"><div class="stat-val" id="s-stories">…</div><div class="stat-label">Stories</div></div>
         <div class="stat-card"><div class="stat-val" id="s-math">…</div><div class="stat-label">Math</div></div>
+        <div class="stat-card"><div class="stat-val" id="s-readtime">—</div><div class="stat-label">Today</div></div>
       </div>
 
       <!-- Weekly goal bar -->
@@ -240,6 +259,22 @@
         </div>
       </div>
 
+      <!-- Grade-level completion bar -->
+      <div id="grade-progress-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
+        <a href="library.html" style="display:block;text-decoration:none;">
+          <div style="background:var(--surface);border-radius:14px;padding:14px 18px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <div style="font-size:0.82rem;font-weight:800;color:#059669;">📚 Grade <span id="grade-progress-label">?</span> Stories</div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--muted);" id="grade-progress-text"></div>
+            </div>
+            <div style="height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden;">
+              <div id="grade-progress-bar" style="height:100%;background:linear-gradient(90deg,#059669,#10b981);border-radius:99px;width:0%;transition:width 1s;"></div>
+            </div>
+            <div id="grade-progress-status" style="font-size:0.75rem;color:var(--muted);margin-top:5px;font-weight:500;"></div>
+          </div>
+        </a>
+      </div>
+
       <!-- Monthly Challenge -->
       <div id="monthly-challenge-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
         <div style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:14px;padding:14px 16px;">
@@ -250,6 +285,14 @@
             <div id="challenge-bar" style="height:100%;background:linear-gradient(90deg,#f59e0b,#f97316);border-radius:99px;width:0%;transition:width 0.8s;"></div>
           </div>
           <div style="font-size:0.78rem;font-weight:700;color:#92400e;" id="challenge-progress-text"></div>
+        </div>
+      </div>
+
+      <!-- Daily Challenges -->
+      <div id="daily-challenges-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
+        <div style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);border:2px solid #a78bfa;border-radius:14px;padding:14px 16px;">
+          <div style="font-size:0.72rem;font-weight:800;color:#5b21b6;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">⚡ Today's Challenges</div>
+          <div id="daily-challenges-cards" style="display:flex;flex-direction:column;gap:8px;"></div>
         </div>
       </div>
 
@@ -292,7 +335,22 @@
         </div>
       </div>
 
+      <!-- Math daily goal nudge (filled by JS) -->
+      <div id="math-daily-nudge" style="display:none;width:100%;max-width:480px;margin-bottom:8px;"></div>
+
       <a href="progress.html" class="progress-link" id="quest-link">🗺️ See Quest Board →</a>
+
+      <!-- Offline download button -->
+      <div id="offline-dl-wrap" style="width:100%;max-width:480px;margin-top:8px;display:none;">
+        <button id="offline-dl-btn" onclick="downloadForOffline()"
+          style="width:100%;padding:12px 16px;background:var(--surface);border:2px solid var(--border);border-radius:12px;font-size:0.88rem;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:border-color 0.15s,color 0.15s;">
+          📥 Download for Offline Use
+        </button>
+        <div id="offline-dl-bar-wrap" style="display:none;margin-top:8px;background:#e5e7eb;border-radius:99px;height:6px;overflow:hidden;">
+          <div id="offline-dl-bar" style="height:100%;width:0%;background:var(--purple);border-radius:99px;transition:width 0.2s;"></div>
+        </div>
+        <div id="offline-dl-status" style="font-size:0.78rem;color:var(--muted);text-align:center;margin-top:5px;min-height:16px;"></div>
+      </div>
     </div>
 
     <!-- ── Sidebar: Level Ladder ─────────────────────────────────────── -->
@@ -305,7 +363,7 @@
 
   </div>
 
-  <a href="parent-portal.html" class="parent-btn">👨‍👩‍👧 Parent</a>
+  <button onclick="requireParentPin(() => { window.location.href = 'parent-portal.html'; })" class="parent-btn">👨‍👩‍👧 Parent</button>
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -319,8 +377,7 @@
       });
     }
   </script>
-  <script src="stories.js"></script>
-  <script src="math-data.js"></script>
+  <script src="stories-meta.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
@@ -353,7 +410,7 @@
     // ─── Story of the Day ─────────────────────────────────────────────────────────
     (function() {
       const grade = parseInt(profile.gradeLevel) || 4;
-      const eligible = (typeof STORIES !== 'undefined') ? STORIES.filter(s =>
+      const eligible = (typeof STORIES_META !== 'undefined') ? STORIES_META.filter(s =>
         Array.isArray(s.grades) && s.grades.includes(grade)) : [];
       if (!eligible.length) return;
       const dayNum = Math.floor(Date.now() / 86400000);
@@ -467,26 +524,33 @@
     });
 
     const LEVELS = [
-      { name: 'Bookworm',     minXp: 0,    emoji: '📖' },
-      { name: 'Reader',       minXp: 100,  emoji: '📚' },
-      { name: 'Word Hunter',  minXp: 200,  emoji: '🔍' },
-      { name: 'Explorer',     minXp: 300,  emoji: '🗺️' },
-      { name: 'Thinker',      minXp: 450,  emoji: '🧠' },
-      { name: 'Scholar',      minXp: 600,  emoji: '🎓' },
-      { name: 'Achiever',     minXp: 800,  emoji: '⚡' },
-      { name: 'Champion',     minXp: 1000, emoji: '🏆' },
-      { name: 'Super Reader', minXp: 1500, emoji: '🌟' },
-      { name: 'Eagle Eye',    minXp: 1850, emoji: '🦅' },
-      { name: 'Story Master', minXp: 2200, emoji: '🚀' },
-      { name: 'Prodigy',      minXp: 2600, emoji: '💎' },
-      { name: 'Summer Hero',  minXp: 3000, emoji: '☀️' },
-      { name: 'Grand Master', minXp: 3500, emoji: '👑' },
-      { name: 'FAST Legend',  minXp: 4000, emoji: '🌈' },
+      { name: 'Bookworm',       minXp: 0,     emoji: '📖' },
+      { name: 'Reader',         minXp: 100,   emoji: '📚' },
+      { name: 'Word Hunter',    minXp: 250,   emoji: '🔍' },
+      { name: 'Explorer',       minXp: 450,   emoji: '🗺️' },
+      { name: 'Thinker',        minXp: 700,   emoji: '🧠' },
+      { name: 'Scholar',        minXp: 1000,  emoji: '🎓' },
+      { name: 'Achiever',       minXp: 1400,  emoji: '⚡' },
+      { name: 'Champion',       minXp: 1900,  emoji: '🏆' },
+      { name: 'Super Reader',   minXp: 2800,  emoji: '🌟' },
+      { name: 'Eagle Eye',      minXp: 4000,  emoji: '🦅' },
+      { name: 'Story Master',   minXp: 5500,  emoji: '🚀' },
+      { name: 'Prodigy',        minXp: 7500,  emoji: '💎' },
+      { name: 'Summer Hero',    minXp: 10000, emoji: '☀️' },
+      { name: 'Grand Master',   minXp: 13000, emoji: '👑' },
+      { name: 'FAST Legend',    minXp: 17000, emoji: '🌈' },
+      { name: 'Mythic Reader',  minXp: 21500, emoji: '🔥' },
+      { name: 'Genius',         minXp: 27000, emoji: '🧬' },
+      { name: 'Knowledge Lord', minXp: 33500, emoji: '🔭' },
+      { name: 'Elite Scholar',  minXp: 41000, emoji: '⭐' },
+      { name: 'Legend Maker',   minXp: 50000, emoji: '🌙' },
+      { name: 'Galaxy Brain',   minXp: 60000, emoji: '🪐' },
+      { name: 'Infinity Reader',minXp: 72000, emoji: '♾️' },
     ];
     function getLevel(xp) {
       let idx = 0;
       for (let i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i].minXp) idx = i; }
-      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null };
+      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null, levelIdx: idx };
     }
 
     const MATH_UNLOCK_KEY = 'mathUnlocked_' + (profile ? profile.readerId : 'unknown');
@@ -523,7 +587,7 @@
     }
     // ─── Inactivity decay ─────────────────────────────────────────────────────
     // Returns { daysMissed, decay } where decay is XP deducted from display.
-    // Decay accumulates at 50 XP/day (grace: 1 day), capped at 200 XP.
+    // Decay accumulates at 50 XP/day (grace: 1 day), capped at 100 XP.
     // Completing a quiz (results.html / math-results.html) resets decay to 0.
     function getActivityStatus(readerId) {
       const todayStr = new Date().toISOString().slice(0, 10);
@@ -538,17 +602,18 @@
       const lastAct = new Date(lastActivity);
       const daysMissed = Math.floor((today - lastAct) / (24 * 60 * 60 * 1000));
 
-      // Read current decay total (set to 0 on quiz completion)
-      let decay = parseInt(localStorage.getItem('inactivityDecay_' + readerId) || '0');
+      // Read current decay total (set to 0 on quiz completion); clamp to new cap
+      let decay = Math.min(100, parseInt(localStorage.getItem('inactivityDecay_' + readerId) || '0'));
 
-      // Apply fresh decay if we haven't checked today and days missed > 1
-      if (daysMissed > 1) {
+      // Only penalize after 5+ consecutive days with no activity (skipping a
+      // weekend or a few days should never cost XP)
+      if (daysMissed > 4) {
         const decayCheckedDate = localStorage.getItem('decayCheckedDate_' + readerId) || lastActivity;
         if (decayCheckedDate !== todayStr) {
           const lastChecked     = new Date(decayCheckedDate);
           const daysSinceCheck  = Math.floor((today - lastChecked) / (24 * 60 * 60 * 1000));
-          const freshDecay      = Math.min(daysSinceCheck * 50, 200 - decay);
-          decay = Math.min(200, decay + Math.max(0, freshDecay));
+          const freshDecay      = Math.min(daysSinceCheck * 50, 100 - decay);
+          decay = Math.min(100, decay + Math.max(0, freshDecay));
           localStorage.setItem('inactivityDecay_' + readerId, decay.toString());
           localStorage.setItem('decayCheckedDate_' + readerId, todayStr);
         }
@@ -566,7 +631,7 @@
             <div class="mod-icon">📐</div>
             <div class="mod-body">
               <div class="mod-title">Math Zone</div>
-              <div class="mod-sub">10 topics • FAST Math Grade 4</div>
+              <div class="mod-sub" id="math-topics-sub">Math topics • All grade levels</div>
             </div>
             <div class="mod-badge">Go! →</div>
            </a>`
@@ -582,55 +647,138 @@
 
     renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
 
+    // ─── Daily Challenges ──────────────────────────────────────────────────────
+    const CHALLENGE_POOL = [
+      { id: 'c_read1',    icon: '📖', text: 'Read any story today',             xp: 25 },
+      { id: 'c_read2',    icon: '📚', text: 'Read 2 stories today',             xp: 40 },
+      { id: 'c_perfect',  icon: '⭐', text: 'Score 5 stars on a quiz',          xp: 35 },
+      { id: 'c_newstory', icon: '🆕', text: 'Read a story you\'ve never tried', xp: 30 },
+      { id: 'c_science',  icon: '🔬', text: 'Read a science story',             xp: 25 },
+      { id: 'c_history',  icon: '📜', text: 'Read a history story',             xp: 25 },
+      { id: 'c_florida',  icon: '🌴', text: 'Read a Florida story',             xp: 25 },
+      { id: 'c_typing',   icon: '⌨️', text: 'Complete a typing lesson',         xp: 20 },
+      { id: 'c_math',     icon: '📐', text: 'Complete a math quiz',             xp: 20 },
+      { id: 'c_vocab',    icon: '🔤', text: 'Play the Vocabulary Game',         xp: 20 },
+    ];
+    function getDailyChallenges(readerId) {
+      const d = new Date();
+      const datePart = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+      const idPart = readerId.split('').reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 0);
+      let seed = Math.abs(datePart * 997 + idPart) | 1;
+      const pool = [...CHALLENGE_POOL];
+      for (let i = pool.length - 1; i > 0; i--) {
+        seed = (seed * 1664525 + 1013904223) & 0x7fffffff;
+        [pool[i], pool[Math.abs(seed) % (i + 1)]] = [pool[Math.abs(seed) % (i + 1)], pool[i]];
+      }
+      return pool.slice(0, 3);
+    }
+    const CHALLENGE_URLS = {
+      c_read1:    'library.html',
+      c_read2:    'library.html',
+      c_perfect:  'library.html',
+      c_newstory: 'library.html',
+      c_science:  'library.html?topic=science',
+      c_history:  'library.html?topic=history',
+      c_florida:  'library.html?topic=florida',
+      c_typing:   'typing-practice.html',
+      c_math:     'math.html',
+      c_vocab:    'vocab-game.html',
+    };
+    function renderDailyChallenges(readerId) {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const state = JSON.parse(localStorage.getItem('dc_' + readerId + '_' + todayStr) || '{"completed":[]}');
+      const challenges = getDailyChallenges(readerId);
+      const done = new Set(state.completed);
+      const allDone = challenges.every(c => done.has(c.id));
+      const wrap = document.getElementById('daily-challenges-wrap');
+      wrap.style.display = 'block';
+      document.getElementById('daily-challenges-cards').innerHTML =
+        challenges.map(c => {
+          const isDone = done.has(c.id);
+          const url = CHALLENGE_URLS[c.id] || 'library.html';
+          const tag = isDone ? 'div' : 'a';
+          const href = isDone ? '' : `href="${url}"`;
+          return `<${tag} ${href} style="display:flex;align-items:center;gap:12px;background:${isDone ? '#f0fdf4' : 'var(--surface)'};border:2px solid ${isDone ? '#86efac' : 'var(--border)'};border-radius:12px;padding:11px 14px;transition:background 0.2s,box-shadow 0.15s;text-decoration:none;${isDone ? '' : 'cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.06);'}">
+            <div style="font-size:1.4rem;flex-shrink:0;">${isDone ? '✅' : c.icon}</div>
+            <div style="flex:1;font-size:0.88rem;font-weight:700;color:${isDone ? '#15803d' : 'var(--text)'};${isDone ? 'text-decoration:line-through;' : ''}">${c.text}</div>
+            <div style="font-size:0.78rem;font-weight:800;color:${isDone ? '#15803d' : 'var(--purple)'};background:${isDone ? '#dcfce7' : 'var(--purple-soft)'};padding:3px 9px;border-radius:8px;flex-shrink:0;">+${c.xp} XP</div>
+            ${isDone ? '' : '<div style="font-size:1rem;color:#9ca3af;flex-shrink:0;">›</div>'}
+          </${tag}>`;
+        }).join('') +
+        (allDone ? '<div style="text-align:center;font-size:0.85rem;font-weight:800;color:#15803d;background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:10px;margin-top:2px;">🎉 All challenges complete today! Bonus XP awarded!</div>' : '');
+    }
+
     // ─── Load Firestore stats ──────────────────────────────────────────────────
     const db = firebase.firestore();
-    Promise.all([
-      db.collection('Progress').where('readerId', '==', profile.readerId).get(),
-      db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
-      db.collection('StudentStats').doc(profile.readerId).get()
-    ]).then(([readSnap, mathSnap, statsSnap]) => {
-      let readXp = 0, bestReadScore = 0;
-      const uniqueStories = new Set();
-      const bestPerStory  = {}; // storyId → best-scoring doc
 
-      readSnap.forEach(d => {
-        const data = d.data();
-        readXp += (data.xpEarned || 0);
-        if ((data.quizScore || 0) > bestReadScore) bestReadScore = data.quizScore;
-        uniqueStories.add(data.storyId);
-        // Keep only the highest-scoring attempt per story
-        if (!bestPerStory[data.storyId] ||
-            (data.quizScore || 0) > (bestPerStory[data.storyId].quizScore || 0)) {
-          bestPerStory[data.storyId] = data;
-        }
-      });
-      // Stars counted from best attempt per story (consistent with quest board & parent)
-      const readStars = Object.values(bestPerStory)
-        .reduce((sum, d) => sum + (d.starsEarned || 0), 0);
+    if (!profile.readerId) {
+      // Profile exists but readerId is missing — force re-login
+      localStorage.removeItem('readerProfile');
+      window.location.href = 'login.html';
+    }
 
-      let mathXp = 0;
-      const uniqueMath = new Set();
-      mathSnap.forEach(d => {
-        const data = d.data();
-        mathXp += (data.xpEarned || 0);
-        uniqueMath.add(data.setId);
-      });
+    // Show a retry link if Firestore takes more than 5 seconds
+    const _loadingTimeout = setTimeout(() => {
+      document.getElementById('xp-label').innerHTML =
+        '⚠️ Taking too long · <a href="javascript:location.reload()" style="color:var(--purple);font-weight:700;">Tap to retry</a>';
+    }, 5000);
 
-      const totalXp = readXp + mathXp;
+    // Wrap each query individually so one failure doesn't blank the whole page
+    db.collection('StudentStats').doc(profile.readerId).get().catch(() => ({ exists: false, data: () => ({}) }))
+    .then(statsSnap => {
+      clearTimeout(_loadingTimeout);
+      const sd = statsSnap.exists ? statsSnap.data() : {};
 
-      // Update math unlock from Firestore
+      // All aggregated values come from StudentStats (written by results/math-results pages)
+      const readStars     = sd.readStars     || 0;
+      const bestReadScore = sd.bestReadScore || 0;
+      const storiesCount  = (sd.completedStoryIds || []).length;
+      const mathSetsCompleted = sd.mathSetsCompleted || 0;
+      const totalXp       = sd.totalXp       || 0;
+
+      // Math unlock
+      const mathUnlocked = bestReadScore >= 3 || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';
       if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
         localStorage.setItem(MATH_UNLOCK_KEY, 'true');
         renderMathCard(true);
       }
 
-      // ── Inactivity decay ────────────────────────────────────────────────────
+      // ── Inactivity decay sync ────────────────────────────────────────────────
+      // Always trust Firestore as the source of truth for the student's activity
+      // date and accumulated decay. This fixes false penalties on new/secondary
+      // devices where localStorage is empty or stale.
+      const firestoreLastRead = sd.lastReadDate || null;
+      const fsDecay     = typeof sd.inactivityDecay === 'number' ? sd.inactivityDecay : 0;
+      const fsDecayDate = sd.decayCheckedDate || firestoreLastRead || '';
+
+      if (firestoreLastRead) {
+        const localLastRead = localStorage.getItem('lastActivityDate_' + profile.readerId) || '';
+        if (firestoreLastRead > localLastRead) {
+          // Firestore is more recent — take its full decay state
+          localStorage.setItem('lastActivityDate_' + profile.readerId, firestoreLastRead);
+          localStorage.setItem('inactivityDecay_' + profile.readerId, String(fsDecay));
+          localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate || firestoreLastRead);
+        } else {
+          // Same device — still sync decay upward if Firestore has more penalty,
+          // and sync the checked-date so we don't double-penalize.
+          if (fsDecay > parseInt(localStorage.getItem('inactivityDecay_' + profile.readerId) || '0')) {
+            localStorage.setItem('inactivityDecay_' + profile.readerId, String(fsDecay));
+          }
+          if (fsDecayDate > (localStorage.getItem('decayCheckedDate_' + profile.readerId) || '')) {
+            localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate);
+          }
+        }
+      }
+
       const { daysMissed, decay } = getActivityStatus(profile.readerId);
+      // Write updated decay back to Firestore for cross-device accuracy
+      if (decay !== (sd.inactivityDecay || 0)) {
+        db.collection('StudentStats').doc(profile.readerId)
+          .update({ inactivityDecay: decay, decayCheckedDate: new Date().toISOString().slice(0, 10) })
+          .catch(() => {});
+      }
       // effectiveXp is what we show — decays when inactive, restored on activity
       const effectiveXp = Math.max(0, totalXp - decay);
-
-      // ── Streak from StudentStats ──────────────────────────────────────────────
-      const sd = statsSnap.exists ? statsSnap.data() : {};
       let currentStreak = sd.currentStreak || 0;
       const longestStreak = sd.longestStreak || 0;
       const freezeTokens  = sd.freezeTokens  || 0;
@@ -668,13 +816,13 @@
         bannerEl.className = 'streak-banner fire';
         bannerEl.innerHTML = '🔥 Great work! You read today — keep your streak going!';
         bannerEl.style.display = 'block';
-      } else if (daysMissed === 1) {
+      } else if (daysMissed >= 1 && daysMissed <= 3) {
         bannerEl.className = 'streak-banner warn';
-        bannerEl.innerHTML = '⚠️ You haven\'t read today! Read a story or you\'ll lose <strong>50 XP</strong> tonight!';
+        bannerEl.innerHTML = '⚠️ You haven\'t read in a few days! Read a story to keep your XP safe.';
         bannerEl.style.display = 'block';
-      } else if (daysMissed > 1) {
+      } else if (daysMissed > 4 && decay > 0) {
         bannerEl.className = 'streak-banner decay';
-        bannerEl.innerHTML = `📉 You lost <strong>${decay} XP</strong> from missing ${daysMissed - 1} day${daysMissed > 2 ? 's' : ''}!<br>Read now to stop losing more XP!`;
+        bannerEl.innerHTML = `📉 You lost <strong>${decay} XP</strong> from missing ${daysMissed} days!<br>Read now to stop losing more XP!`;
         bannerEl.style.display = 'block';
       }
 
@@ -691,73 +839,121 @@
         : '🎉 Goal reached! Keep reading for bonus XP!';
       goalWrap.style.display = 'block';
 
-      // ── Monthly challenge ─────────────────────────────────────────────────────
+      // ── Grade-level completion bar ────────────────────────────────────────────
+      (function() {
+        const grade = parseInt(profile.gradeLevel) || 4;
+        const completedIds = new Set(sd.completedStoryIds || []);
+        const gradeStories = STORIES_META.filter(s => Array.isArray(s.grades) && s.grades.includes(grade));
+        const gradeTotal     = gradeStories.length;
+        const gradeCompleted = gradeStories.filter(s => completedIds.has(s.id)).length;
+        const gradePct = gradeTotal > 0 ? Math.min(100, Math.round((gradeCompleted / gradeTotal) * 100)) : 0;
+        const gradeWrap = document.getElementById('grade-progress-wrap');
+        document.getElementById('grade-progress-label').textContent = grade;
+        document.getElementById('grade-progress-text').textContent = gradeCompleted + ' / ' + gradeTotal;
+        document.getElementById('grade-progress-bar').style.width = gradePct + '%';
+        const gradeLeft = gradeTotal - gradeCompleted;
+        document.getElementById('grade-progress-status').textContent =
+          gradeLeft === 0
+            ? '🏆 You\'ve read every story at your grade level!'
+            : gradeLeft + ' more stor' + (gradeLeft === 1 ? 'y' : 'ies') + ' left at your grade level';
+        gradeWrap.style.display = 'block';
+      })();
+
+      // ── Monthly challenge (uses storiesThisMonth cached in StudentStats) ───────
       (function() {
         const now   = new Date();
-        const month = now.getMonth(); // 0=Jan
+        const month = now.getMonth();
         const CHALLENGES = [
-          { month: 0,  title: 'New Year Reader',        desc: 'Read 8 stories in January',         goal: 8,  field: 'storiesTotal' },
-          { month: 1,  title: 'Florida History Month',  desc: 'Read 4 Florida history stories',    goal: 4,  field: 'storiesTotal' },
-          { month: 2,  title: 'March Reading Marathon', desc: 'Read 10 stories this month',         goal: 10, field: 'storiesTotal' },
-          { month: 3,  title: 'Spring Sprint',          desc: 'Complete 5 quizzes with 4+ stars',  goal: 5,  field: 'storiesTotal' },
-          { month: 4,  title: 'May the Reading Be With You', desc: 'Read 8 stories in May',        goal: 8,  field: 'storiesTotal' },
-          { month: 5,  title: 'Summer Kickoff',         desc: 'Read 10 stories to start summer',   goal: 10, field: 'storiesTotal' },
-          { month: 6,  title: 'July FAST Prep',         desc: 'Read 12 stories this month',        goal: 12, field: 'storiesTotal' },
-          { month: 7,  title: 'August Academy',         desc: 'Complete 10 stories before school', goal: 10, field: 'storiesTotal' },
-          { month: 8,  title: 'Back to School Blitz',  desc: 'Read 8 stories in September',       goal: 8,  field: 'storiesTotal' },
-          { month: 9,  title: 'October Adventure',      desc: 'Read 6 stories in October',         goal: 6,  field: 'storiesTotal' },
-          { month: 10, title: 'November Knowledge',     desc: 'Read 8 stories in November',        goal: 8,  field: 'storiesTotal' },
-          { month: 11, title: 'December Dash',          desc: 'Finish 6 stories before winter break', goal: 6, field: 'storiesTotal' },
+          { month: 0,  title: 'New Year Reader',             desc: 'Read 8 stories in January',            goal: 8  },
+          { month: 1,  title: 'Florida History Month',       desc: 'Read 4 Florida history stories',       goal: 4  },
+          { month: 2,  title: 'March Reading Marathon',      desc: 'Read 10 stories this month',            goal: 10 },
+          { month: 3,  title: 'Spring Sprint',               desc: 'Complete 5 quizzes with 4+ stars',     goal: 5  },
+          { month: 4,  title: 'May the Reading Be With You', desc: 'Read 8 stories in May',                goal: 8  },
+          { month: 5,  title: 'Summer Kickoff',              desc: 'Read 10 stories to start summer',      goal: 10 },
+          { month: 6,  title: 'July FAST Prep',              desc: 'Read 12 stories this month',           goal: 12 },
+          { month: 7,  title: 'August Academy',              desc: 'Complete 10 stories before school',    goal: 10 },
+          { month: 8,  title: 'Back to School Blitz',        desc: 'Read 8 stories in September',         goal: 8  },
+          { month: 9,  title: 'October Adventure',           desc: 'Read 6 stories in October',           goal: 6  },
+          { month: 10, title: 'November Knowledge',          desc: 'Read 8 stories in November',          goal: 8  },
+          { month: 11, title: 'December Dash',               desc: 'Finish 6 stories before winter break', goal: 6  },
         ];
         const challenge = CHALLENGES[month];
         if (!challenge) return;
-
-        // Count stories read THIS month from StudentActivity
-        firebase.firestore().collection('StudentActivity')
-          .where('readerId', '==', profile.readerId)
-          .where('type', '==', 'story')
-          .get().then(snap => {
-            const monthStr = (now.getMonth() + 1).toString().padStart(2, '0');
-            const prefix   = now.getFullYear() + '-' + monthStr;
-            const done = snap.docs.filter(d => (d.data().date || '').startsWith(prefix)).length;
-            const pct  = Math.min(100, Math.round((done / challenge.goal) * 100));
-
-            document.getElementById('challenge-title').textContent = challenge.title;
-            document.getElementById('challenge-desc').textContent  = challenge.desc;
-            document.getElementById('challenge-bar').style.width   = pct + '%';
-            document.getElementById('challenge-progress-text').textContent =
-              done + ' / ' + challenge.goal + ' stories' + (done >= challenge.goal ? ' — ✅ Complete!' : '');
-            document.getElementById('monthly-challenge-wrap').style.display = 'block';
-          }).catch(() => {});
+        const currentMonth = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+        const done = (sd.monthStartDate === currentMonth) ? (sd.storiesThisMonth || 0) : 0;
+        const pct  = Math.min(100, Math.round((done / challenge.goal) * 100));
+        document.getElementById('challenge-title').textContent = challenge.title;
+        document.getElementById('challenge-desc').textContent  = challenge.desc;
+        document.getElementById('challenge-bar').style.width   = pct + '%';
+        document.getElementById('challenge-progress-text').textContent =
+          done + ' / ' + challenge.goal + ' stories' + (done >= challenge.goal ? ' — ✅ Complete!' : '');
+        document.getElementById('monthly-challenge-wrap').style.display = 'block';
       })();
 
-      // ── Continue reading banner ───────────────────────────────────────────────
-      // Requires Firestore composite index on StudentActivity: (readerId ASC, type ASC, timestamp DESC)
-      db.collection('StudentActivity')
-        .where('readerId', '==', profile.readerId)
-        .where('type', '==', 'story')
-        .orderBy('timestamp', 'desc')
-        .limit(1)
-        .get().then(lastSnap => {
-          if (lastSnap.empty) return;
-          const last = lastSnap.docs[0].data();
-          // Only show if the story hasn't been read today already
-          if (last.date === new Date().toISOString().slice(0,10)) return;
-          const story = (typeof STORIES !== 'undefined') ? STORIES.find(s => s.id === last.storyId) : null;
-          if (!story) return;
-          const banner = document.createElement('div');
-          banner.style.cssText = 'width:100%;max-width:480px;margin-bottom:16px;background:var(--surface);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:14px 16px;display:flex;align-items:center;gap:12px;border-left:4px solid var(--purple);';
-          banner.innerHTML = `<div style="font-size:1.8rem;flex-shrink:0;">${story.coverEmoji}</div><div style="flex:1;min-width:0;"><div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--purple);margin-bottom:2px;">Continue Reading</div><div style="font-weight:700;font-size:0.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${story.title}</div></div><a href="read.html?story=${story.id}" style="flex-shrink:0;padding:8px 14px;background:var(--purple);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;">Read →</a>`;
-          // Insert before the module grid
-          const moduleGrid = document.querySelector('.module-grid');
-          if (moduleGrid) moduleGrid.before(banner);
-        }).catch(() => {});
+      // ── Continue reading banner (uses lastStoryId cached in StudentStats) ──────
+      (function() {
+        const lastStoryId = sd.lastStoryId;
+        const lastReadDate = sd.lastReadDate || '';
+        if (!lastStoryId || lastReadDate === new Date().toISOString().slice(0,10)) return;
+        const story = STORIES_META.find(s => s.id === lastStoryId);
+        if (!story) return;
+        const banner = document.createElement('div');
+        banner.style.cssText = 'width:100%;max-width:480px;margin-bottom:16px;background:var(--surface);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:14px 16px;display:flex;align-items:center;gap:12px;border-left:4px solid var(--purple);';
+        banner.innerHTML = `<div style="font-size:1.8rem;flex-shrink:0;">${story.coverEmoji}</div><div style="flex:1;min-width:0;"><div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--purple);margin-bottom:2px;">Continue Reading</div><div style="font-weight:700;font-size:0.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${story.title}</div></div><a href="read.html?story=${story.id}" style="flex-shrink:0;padding:8px 14px;background:var(--purple);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;">Read →</a>`;
+        const moduleGrid = document.querySelector('.module-grid');
+        if (moduleGrid) moduleGrid.before(banner);
+      })();
 
       // Stats
       document.getElementById('s-stars').textContent   = '⭐ ' + readStars;
       document.getElementById('s-xp').textContent      = effectiveXp;
-      document.getElementById('s-stories').textContent = uniqueStories.size;
-      document.getElementById('s-math').textContent    = uniqueMath.size + '/' + MATH_SETS.length;
+      document.getElementById('s-stories').textContent = storiesCount;
+      document.getElementById('s-math').textContent    = mathSetsCompleted;
+      // Today's reading time from localStorage
+      (function () {
+        const todayKey = new Date().toISOString().slice(0, 10);
+        const secs = localStorage.getItem('readTimeDate_' + profile.readerId) === todayKey
+          ? parseInt(localStorage.getItem('readTimeSecs_' + profile.readerId) || '0') : 0;
+        document.getElementById('s-readtime').textContent = secs > 0 ? Math.round(secs / 60) + 'm' : '0m';
+      })();
+      const mathSubEl = document.getElementById('math-topics-sub');
+      if (mathSubEl) mathSubEl.textContent = 'Grade ' + (parseInt(profile.gradeLevel) || 4) + ' math';
+
+      // ── Math daily goal nudge ──────────────────────────────────────────────────
+      (function() {
+        const nudgeEl = document.getElementById('math-daily-nudge');
+        if (!nudgeEl || !mathUnlocked) return;
+        const today = new Date().toISOString().slice(0,10);
+        const mathDoneToday = sd.lastReadDate === today && (sd.mathThisWeek || 0) > 0
+          || localStorage.getItem('mathDoneDate_' + profile.readerId) === today;
+        const mathStreak = parseInt(localStorage.getItem('mathStreak_' + profile.readerId) || '0');
+        const mathStreakDate = localStorage.getItem('mathStreakDate_' + profile.readerId) || '';
+        const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
+        const yStr = yesterday.toISOString().slice(0,10);
+        let newStreak = mathStreak;
+        if (mathDoneToday) {
+          if (mathStreakDate !== today) {
+            newStreak = (mathStreakDate === yStr ? mathStreak : 0) + 1;
+            localStorage.setItem('mathStreak_' + profile.readerId, newStreak);
+            localStorage.setItem('mathStreakDate_' + profile.readerId, today);
+          }
+          const streakText = newStreak >= 2 ? ' · 🔥 ' + newStreak + '-day math streak!' : '';
+          nudgeEl.innerHTML = `<div style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);border:1px solid #93c5fd;border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:0.88rem;font-weight:700;color:#1d4ed8;">
+            <span style="font-size:1.2rem;">✅</span> Math done today!${streakText}
+          </div>`;
+        } else {
+          const pct = mathSetsCompleted ? Math.round(mathSetsCompleted / 20 * 100) : 0;
+          nudgeEl.innerHTML = `<a href="math.html" style="text-decoration:none;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;">
+            <span style="font-size:1.4rem;">📐</span>
+            <div style="flex:1;">
+              <div style="font-size:0.88rem;font-weight:700;color:var(--text);">Do math today!</div>
+              <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">${mathSetsCompleted} topics complete · ${pct}% done</div>
+            </div>
+            <span style="font-size:0.82rem;font-weight:700;color:var(--purple);">Go →</span>
+          </a>`;
+        }
+        nudgeEl.style.display = 'block';
+      })();
 
       if (freezeTokens > 0) {
         const streakEl = document.getElementById('streak-banner');
@@ -778,13 +974,45 @@
           + (decay > 0 ? ' (−' + decay + ' XP inactive penalty)' : '');
       } else {
         document.getElementById('xp-bar').style.width = '100%';
-        document.getElementById('xp-label').textContent = '🌈 FAST Legend! ' + effectiveXp + ' XP — you reached the ultimate level!';
+        document.getElementById('xp-label').textContent = level.emoji + ' ' + level.name + '! ' + effectiveXp + ' XP — you reached the ultimate level!';
       }
       // Level ladder — update with effectiveXp
       renderLadder(effectiveXp);
 
-    }).catch(() => {
-      document.getElementById('xp-label').textContent = '0 XP';
+      // ── Level-up celebration ──────────────────────────────────────────────────
+      (function() {
+        const lvlKey = 'lastLevelIdx_' + profile.readerId;
+        const { levelIdx } = getLevel(effectiveXp);
+        const lastIdx = parseInt(localStorage.getItem(lvlKey) ?? '-1');
+        localStorage.setItem(lvlKey, levelIdx);
+        if (lastIdx < 0 || levelIdx <= lastIdx) return;
+        // Level increased since last visit!
+        setTimeout(() => {
+          const overlay = document.createElement('div');
+          overlay.style.cssText = 'position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;padding:24px;';
+          overlay.innerHTML = `
+            <div style="background:#fff;border-radius:24px;padding:36px 28px;max-width:340px;width:100%;text-align:center;animation:lvlPop 0.4s cubic-bezier(.34,1.56,.64,1) both;">
+              <div style="font-size:4rem;margin-bottom:8px;">${level.emoji}</div>
+              <div style="font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#7c3aed;margin-bottom:6px;">Level Up!</div>
+              <div style="font-size:1.8rem;font-weight:900;color:#1e1b4b;margin-bottom:6px;">${level.name}</div>
+              <div style="font-size:0.95rem;color:#6b7280;margin-bottom:24px;">You earned a new rank — amazing work! 🎉</div>
+              <button onclick="this.closest('[style*=fixed]').remove()" style="width:100%;padding:14px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;">Let's go! 🚀</button>
+            </div>`;
+          document.body.appendChild(overlay);
+          overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+          // Burst confetti
+          if (typeof startConfetti === 'function') startConfetti();
+        }, 800);
+      })();
+
+      // Daily challenges
+      renderDailyChallenges(profile.readerId);
+
+    }).catch(err => {
+      console.error('Stats load error:', err);
+      document.getElementById('xp-label').innerHTML =
+        '⚠️ Couldn\'t load stats · <a href="javascript:location.reload()" style="color:var(--purple);font-weight:700;">Tap to retry</a>';
+      document.getElementById('s-xp').textContent = '—';
     });
 
     // ─── Schedule enforcement ──────────────────────────────────────────────────
@@ -936,6 +1164,72 @@
         setTimeout(() => toast.remove(), 6000);
       }, 1500);
     })();
+
+    // ── Offline download button ────────────────────────────────────────────────
+    (function () {
+      // Only show when online and service workers are supported
+      if (!('serviceWorker' in navigator) || !('caches' in window)) return;
+      const wrap = document.getElementById('offline-dl-wrap');
+      function syncVisibility() {
+        wrap.style.display = navigator.onLine ? 'block' : 'none';
+      }
+      syncVisibility();
+      window.addEventListener('online',  syncVisibility);
+      window.addEventListener('offline', syncVisibility);
+    })();
+
+    async function downloadForOffline() {
+      const btn      = document.getElementById('offline-dl-btn');
+      const barWrap  = document.getElementById('offline-dl-bar-wrap');
+      const bar      = document.getElementById('offline-dl-bar');
+      const status   = document.getElementById('offline-dl-status');
+
+      const ASSETS = [
+        '/stories-meta.js', '/stories.js?v=20260705', '/math-data.js', '/dark.css',
+        '/__/firebase/10.0.0/firebase-app-compat.js',
+        '/__/firebase/10.0.0/firebase-auth-compat.js',
+        '/__/firebase/10.0.0/firebase-firestore-compat.js',
+        '/__/firebase/init.js',
+        '/index.html','/login.html','/library.html','/read.html',
+        '/quiz.html','/results.html','/progress.html',
+        '/math.html','/math-quiz.html','/math-results.html',
+        '/spelling.html','/vocab.html','/vocab-game.html',
+        '/trivia.html','/typing-practice.html','/story-type.html',
+        '/parent-portal.html',
+      ];
+
+      btn.disabled = true;
+      btn.innerHTML = '⏳ Downloading…';
+      barWrap.style.display = 'block';
+      status.textContent = '';
+
+      let done = 0, failed = 0;
+      const cache = await caches.open('fast-track-v10');
+
+      for (const url of ASSETS) {
+        try {
+          const res = await fetch(url, { cache: 'reload' });
+          if (res.ok) await cache.put(url, res);
+          else failed++;
+        } catch (e) { failed++; }
+        done++;
+        const pct = Math.round((done / ASSETS.length) * 100);
+        bar.style.width = pct + '%';
+        status.textContent = 'Caching ' + done + ' of ' + ASSETS.length + '…';
+      }
+
+      if (failed === 0) {
+        btn.innerHTML = '✅ Ready for Offline!';
+        btn.style.borderColor = '#10b981';
+        btn.style.color = '#065f46';
+        status.textContent = 'All ' + ASSETS.length + ' files saved. You\'re good to go!';
+        bar.style.background = '#10b981';
+      } else {
+        btn.innerHTML = '⚠️ Partial — tap to retry';
+        btn.disabled = false;
+        status.textContent = failed + ' file(s) failed. Try again.';
+      }
+    }
   </script>
 </body>
 </html>

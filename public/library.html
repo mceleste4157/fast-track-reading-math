@@ -115,8 +115,19 @@
       box-shadow: 0 2px 12px rgba(124,58,237,0.08);
       overflow: hidden; display: flex; flex-direction: column;
       transition: transform 0.15s, box-shadow 0.15s; cursor: pointer;
+      position: relative;
     }
     .story-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,58,237,0.15); }
+    .card-fav-btn {
+      position: absolute; top: 8px; right: 8px;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+      font-size: 0.95rem; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15); transition: transform 0.15s, background 0.15s;
+      z-index: 2;
+    }
+    .card-fav-btn:hover { transform: scale(1.2); background: #fff; }
+    .card-fav-btn.saved { background: #fff0f0; }
     .card-cover {
       height: 110px; display: flex; align-items: center;
       justify-content: center; font-size: 3.2rem;
@@ -138,6 +149,8 @@
     .topic-biography      { background: var(--pink-soft);   color: #831843; }
     .topic-adventure      { background: var(--orange-soft); color: #92400e; }
     .topic-history        { background: #fce7f3;            color: #831843; }
+    .topic-fiction        { background: #fef9c3;            color: #713f12; }
+    .topic-poetry         { background: #ede9fe;            color: #5b21b6; }
 
     .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 5px; line-height: 1.3; }
     .card-meta  { font-size: 0.82rem; color: var(--muted); margin-bottom: auto; }
@@ -171,7 +184,7 @@
     }
     .section-toggle:hover { background: #f3f4f6; color: var(--text); border-color: #9ca3af; }
 
-    .filter-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .filter-tabs { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
     .filter-tab {
       padding: 8px 16px; border-radius: 99px; font-size: 0.88rem; font-weight: 700;
       cursor: pointer; border: 2px solid var(--border); background: var(--surface);
@@ -179,8 +192,22 @@
     }
     .filter-tab.active { background: var(--purple); color: #fff; border-color: var(--purple); }
     .filter-tab:hover:not(.active) { border-color: var(--purple); color: var(--purple); }
+    .topic-pills { display: flex; gap: 7px; margin-bottom: 20px; flex-wrap: wrap; }
+    .topic-pill {
+      padding: 5px 13px; border-radius: 99px; font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; border: 2px solid var(--border); background: var(--surface);
+      color: var(--muted); transition: all 0.15s; font-family: inherit;
+    }
+    .topic-pill.active { background: #0ea5e9; color: #fff; border-color: #0ea5e9; }
+    .topic-pill:hover:not(.active) { border-color: #0ea5e9; color: #0ea5e9; }
+    .card-new-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 800;
+      background: #f59e0b; color: #fff; padding: 1px 7px; border-radius: 99px;
+      vertical-align: middle; margin-left: 4px; letter-spacing: 0.03em;
+    }
     #fav-empty { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 0.95rem; display: none; }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <nav class="nav">
@@ -189,6 +216,7 @@
     <div class="nav-stars" id="nav-stars">⭐ 0</div>
     <a href="vocab-game.html" class="nav-progress" style="color:var(--purple);">🎮 Vocab Games</a>
     <a href="spelling.html" class="nav-progress" style="color:var(--purple);">🔤 Spelling</a>
+    <a href="vocab.html?mode=quick" class="nav-progress" style="color:var(--purple);" title="Quick 15-card flip review">⚡ Quick Review</a>
     <a href="vocab.html" class="nav-progress" style="color:var(--purple);">📝 Vocab</a>
     <a href="progress.html" class="nav-progress">My Progress →</a>
   </nav>
@@ -221,8 +249,40 @@
       ">🎮 Play Trivia!</a>
     </div>
 
+    <!-- Continue Reading Banner -->
+    <div id="continue-banner" style="display:none;
+      background: linear-gradient(135deg,#ede9fe,#ddd6fe);
+      border: 2px solid #a78bfa; border-radius: 14px;
+      padding: 14px 18px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 14px;
+    ">
+      <div style="font-size:1.8rem; flex-shrink:0;">📖</div>
+      <div style="flex:1; min-width:0;">
+        <div style="font-size:0.82rem; font-weight:700; color:#5b21b6;">Continue reading</div>
+        <div id="continue-story-title" style="font-size:1rem; font-weight:800; color:#3b0764; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></div>
+      </div>
+      <a id="continue-story-link" href="#" style="
+        flex-shrink:0; background:#7c3aed; color:#fff; text-decoration:none;
+        font-size:0.88rem; font-weight:700; padding:9px 14px;
+        border-radius:10px; white-space:nowrap;
+        box-shadow:0 2px 8px rgba(124,58,237,0.3);
+      ">Keep Reading →</a>
+    </div>
+
     <!-- Math Zone Banner -->
     <div id="math-banner"></div>
+
+    <!-- Surprise Me + Vocab Bank row -->
+    <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+      <button id="surprise-btn" onclick="surpriseMe()"
+        style="flex:1;min-width:140px;padding:11px 16px;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;border:none;border-radius:12px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 10px rgba(124,58,237,0.25);">
+        🎲 Surprise Me!
+      </button>
+      <a href="vocab-bank.html"
+        style="flex:1;min-width:140px;padding:11px 16px;background:linear-gradient(135deg,#0891b2,#0e7490);color:#fff;border-radius:12px;font-size:0.95rem;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 2px 10px rgba(8,145,178,0.25);">
+        📖 Vocab Bank
+      </a>
+    </div>
 
     <!-- Search bar -->
     <div style="margin-bottom:14px;">
@@ -236,10 +296,19 @@
     <!-- Filter tabs -->
     <div class="filter-tabs">
       <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">📚 All Stories</button>
-      <button class="filter-tab" id="tab-fav" onclick="setFilter('fav')">❤️ Favorites</button>
+      <button class="filter-tab" id="tab-fav" onclick="setFilter('fav')">❤️ Saved</button>
+    </div>
+    <!-- Topic filter pills -->
+    <div class="topic-pills" id="topic-pills">
+      <button class="topic-pill active" data-topic="all">All Topics</button>
+      <button class="topic-pill" data-topic="fiction">📖 Fiction</button>
+      <button class="topic-pill" data-topic="biography">🧑 Biography</button>
+      <button class="topic-pill" data-topic="science">🔬 Science</button>
+      <button class="topic-pill" data-topic="history">📜 History</button>
+      <button class="topic-pill" data-topic="florida">🌴 Florida</button>
     </div>
     <div class="story-grid" id="grid-favorites" style="display:none;"></div>
-    <div id="fav-empty">No favorites yet — tap 🤍 while reading a story to save it here.</div>
+    <div id="fav-empty">No saved stories yet — tap 🤍 on any story card to bookmark it here.</div>
 
     <!-- 🌟 Early Stories Section -->
     <div class="section-header" id="section-header-early" style="display:none;">
@@ -274,7 +343,7 @@
     <div class="story-grid" id="grid-advanced"></div>
   </div>
 
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260705"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -300,11 +369,50 @@
       av.style.background = profile.avatarColor || '#7c3aed';
     } else {
       av.style.background = profile.avatarColor || '#7c3aed';
-      av.textContent = profile.name.trim().charAt(0).toUpperCase();
+      av.textContent = (profile.name || '?').trim().charAt(0).toUpperCase();
     }
-    document.getElementById('nav-name').textContent = profile.name;
+    document.getElementById('nav-name').textContent = profile.name || '';
 
     let progressMap = {};
+    const FAV_KEY = 'favorites_' + (profile ? profile.readerId : 'anon');
+
+    // ─── New-story badge (update IDs each release) ─────────────────────────────
+    const NEW_STORY_IDS = new Set([
+      'the-brave-little-firefly-gr1','ruby-bridges-gr1-2','mia-and-the-missing-backpack-gr2',
+      'the-storm-and-the-seed-gr3','the-map-in-the-attic-gr4','marie-curie-science-barrier-gr6',
+      'thurgood-marshall-equal-justice-gr7','florida-space-coast-gr7',
+      'cesar-chavez-farmworkers-gr8','the-internet-arpanet-to-everything-gr8',
+    ]);
+
+    // ─── Topic filter ──────────────────────────────────────────────────────────
+    const TOPIC_GROUPS = {
+      fiction:   t => t === 'fiction',
+      biography: t => t === 'biography',
+      science:   t => t.startsWith('science') || t === 'space' || t === 'human-body' || t === 'earth-science' || t === 'life-science' || t === 'technology',
+      history:   t => t.includes('history') || t === 'civics' || t === 'social-studies' || t === 'social studies' || t === 'world-history' || t === 'us-history' || t === 'american-history',
+      florida:   t => t.startsWith('florida') || t === 'florida-nature' || t === 'florida-environment',
+    };
+    const _urlTopic = new URLSearchParams(location.search).get('topic') || 'all';
+    let activeTopicFilter = (TOPIC_GROUPS[_urlTopic] || _urlTopic === 'all') ? _urlTopic : 'all';
+
+    document.getElementById('topic-pills').addEventListener('click', e => {
+      const btn = e.target.closest('.topic-pill');
+      if (!btn) return;
+      activeTopicFilter = btn.dataset.topic;
+      document.querySelectorAll('.topic-pill').forEach(p => p.classList.toggle('active', p === btn));
+      renderGrids();
+      renderFavorites();
+    });
+
+    // Auto-select pill if arriving from a challenge link
+    if (activeTopicFilter !== 'all') {
+      const targetPill = document.querySelector(`.topic-pill[data-topic="${activeTopicFilter}"]`);
+      if (targetPill) {
+        document.querySelectorAll('.topic-pill').forEach(p => p.classList.remove('active'));
+        targetPill.classList.add('active');
+      }
+    }
+    let favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
     let totalStars  = 0;
 
     // Topic → display label
@@ -319,6 +427,8 @@
       'biography':      '👤 Biography',
       'adventure':      '🗺️ Adventure',
       'history':        '📜 History',
+      'fiction':        '📖 Fiction',
+      'poetry':         '🎭 Poetry',
     };
 
     // Section definitions — ordered as they appear on page
@@ -351,22 +461,26 @@
       const topicCls = 'topic-' + story.topic;
       const label    = TOPIC_LABELS[story.topic] || story.topic;
       const doneClass = prog ? ' story-card--done' : '';
+      const readUrl  = (story.paired ? 'paired-read' : 'read') + '.html?story=' + story.id;
       let statusHtml = '';
       if (prog) {
         statusHtml = `<div class="card-status">
           <div class="stars">${renderStars(prog.starsEarned, 5)} ${prog.starsEarned}/5 stars</div>
-          <a href="read.html?story=${story.id}" class="btn-card btn-done">⭐ Read Again</a>
+          <a href="${readUrl}" class="btn-card btn-done">⭐ Read Again</a>
         </div>`;
       } else {
         const btnCls = btnClass ? 'btn-read ' + btnClass : 'btn-read';
         statusHtml = `<div class="card-status">
-          <a href="read.html?story=${story.id}" class="btn-card ${btnCls}">Read →</a>
+          <a href="${readUrl}" class="btn-card ${btnCls}">Read →</a>
         </div>`;
       }
-      return `<div class="story-card${doneClass}" onclick="window.location='read.html?story=${story.id}'">
+      const isSaved = favIds.includes(story.id);
+      const newBadge = NEW_STORY_IDS.has(story.id) ? '<span class="card-new-badge">NEW</span>' : '';
+      return `<div class="story-card${doneClass}" onclick="window.location='${readUrl}'">
+        <button class="card-fav-btn${isSaved ? ' saved' : ''}" data-id="${story.id}" onclick="event.stopPropagation();toggleFav('${story.id}',this)" title="${isSaved ? 'Remove bookmark' : 'Bookmark this story'}">${isSaved ? '❤️' : '🤍'}</button>
         <div class="card-cover" style="background:${story.coverColor}20;">${story.coverEmoji}</div>
         <div class="card-body">
-          <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''} <span style="font-size:0.68rem;font-weight:800;padding:2px 7px;border-radius:99px;vertical-align:middle;background:${getDifficultyColor(story)}20;color:${getDifficultyColor(story)};">${getDifficultyLabel(story)}</span>
+          <span class="card-topic ${topicCls}">${label}</span>${story.paired ? ' <span style="font-size:0.68rem;font-weight:800;background:#dbeafe;color:#1d4ed8;padding:2px 7px;border-radius:99px;vertical-align:middle;">PAIRED</span>' : ''}${newBadge} <span style="font-size:0.68rem;font-weight:800;padding:2px 7px;border-radius:99px;vertical-align:middle;background:${getDifficultyColor(story)}20;color:${getDifficultyColor(story)};">${getDifficultyLabel(story)}</span>
           <div class="card-title">${story.title}</div>
           <div class="card-meta">~${story.readTimeMin} min · ${story.wordCount} words</div>
           ${statusHtml}
@@ -422,12 +536,16 @@
         const grid   = document.getElementById('grid-' + sec.key);
         if (!header || !grid) return;
 
-        // Filter by level AND grade
-        const stories = STORIES.filter(s =>
-          s.level === sec.level &&
-          Array.isArray(s.grades) &&
-          s.grades.includes(grade)
-        );
+        // Filter by level AND grade AND active topic
+        const topicMatch = activeTopicFilter === 'all'
+          ? () => true
+          : s => TOPIC_GROUPS[activeTopicFilter] ? TOPIC_GROUPS[activeTopicFilter](s.topic) : s.topic === activeTopicFilter;
+        const stories = STORIES.filter(s => {
+          const levelOk = sec.level === 'advanced'
+            ? (s.level === 'advanced' || s.level === 'challenge')
+            : s.level === sec.level;
+          return levelOk && Array.isArray(s.grades) && s.grades.includes(grade) && topicMatch(s);
+        });
 
         if (stories.length === 0) {
           header.style.display = 'none';
@@ -447,6 +565,20 @@
       });
 
       applyCollapseState();
+    }
+
+    // ─── Surprise Me ──────────────────────────────────────────────────────────
+    function surpriseMe() {
+      const grade = parseInt(profile.gradeLevel) || 4;
+      const completed = new Set(Object.keys(progressMap));
+      const eligible = STORIES.filter(s =>
+        Array.isArray(s.grades) && s.grades.includes(grade) && !completed.has(s.id)
+      );
+      const pool = eligible.length > 0 ? eligible
+        : STORIES.filter(s => Array.isArray(s.grades) && s.grades.includes(grade));
+      if (!pool.length) return;
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      window.location.href = 'read.html?story=' + pick.id;
     }
 
     // ─── Math Zone Banner ──────────────────────────────────────────────────────
@@ -492,14 +624,32 @@
     }
 
     renderMathBanner(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+
+    // ─── "Continue reading" resume banner ─────────────────────────────────────
+    (function () {
+      const inProgressId = localStorage.getItem('inProgressStory');
+      if (!inProgressId) return;
+      const inProgressStory = STORIES.find(s => s.id === inProgressId);
+      if (!inProgressStory) return;
+      const banner = document.getElementById('continue-banner');
+      document.getElementById('continue-story-title').textContent = inProgressStory.title;
+      document.getElementById('continue-story-link').href = 'read.html?story=' + inProgressId;
+      banner.style.display = 'flex';
+    })();
+
     renderGrids(); // initial render while Firestore loads
 
     // ─── Load Firestore progress ───────────────────────────────────────────────
     const db = firebase.firestore();
+    const _libLoadingTimeout = setTimeout(() => {
+      const strip = document.getElementById('summer-strip-desc');
+      if (strip) strip.innerHTML = '⚠️ Taking too long · <a href="javascript:location.reload()" style="color:var(--purple);font-weight:700;">Tap to retry</a>';
+    }, 5000);
     db.collection('Progress')
       .where('readerId', '==', profile.readerId)
       .get()
       .then(snap => {
+        clearTimeout(_libLoadingTimeout);
         let bestReadScore = 0;
         // Collect all docs, build best-per-story map
         snap.forEach(d => {
@@ -538,23 +688,131 @@
 
         renderGrids();
         renderFavorites();
+        renderSuggestions();
       })
       .catch(() => { renderFavorites(); });
 
-    // ─── Favorites filter ──────────────────────────────────────────────────────
-    const FAV_KEY = 'favorites_' + profile.readerId;
+    // ─── Smarter story suggestions ─────────────────────────────────────────────
+    function renderSuggestions() {
+      const grade = parseInt(profile.gradeLevel) || 4;
+      const gradeStories = STORIES.filter(s =>
+        Array.isArray(s.grades) && s.grades.includes(grade)
+      );
+      const completed = new Set(Object.keys(progressMap));
+
+      // Find topics the student hasn't tried yet
+      const topicsDone = new Set(
+        gradeStories.filter(s => completed.has(s.id)).map(s => s.topic)
+      );
+      const unseenTopics = [...new Set(
+        gradeStories.filter(s => !completed.has(s.id)).map(s => s.topic)
+      )].filter(t => !topicsDone.has(t));
+
+      // Find low-score stories (< 3 stars, already read)
+      const lowScore = gradeStories
+        .filter(s => completed.has(s.id) && (progressMap[s.id]?.starsEarned || 0) < 3)
+        .slice(0, 1);
+
+      // Pick up to 2 unread stories from new topics
+      const tryNew = unseenTopics.slice(0, 2).map(topic =>
+        gradeStories.find(s => !completed.has(s.id) && s.topic === topic)
+      ).filter(Boolean);
+
+      if (tryNew.length === 0 && lowScore.length === 0) return;
+
+      const items = [
+        ...tryNew.map(s => ({
+          emoji: s.coverEmoji, title: s.title, id: s.id,
+          label: '🆕 New topic: ' + (s.topic.replace(/-/g,' ')),
+          color: s.coverColor
+        })),
+        ...lowScore.map(s => ({
+          emoji: s.coverEmoji, title: s.title, id: s.id,
+          label: '🔄 Try again — scored ' + (progressMap[s.id]?.starsEarned || 0) + '/5 ⭐',
+          color: s.coverColor
+        }))
+      ];
+
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'margin:0 0 20px;';
+      wrap.innerHTML = `
+        <div style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#6b7280;margin-bottom:10px;">✨ Suggested for you</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          ${items.map(s => `
+            <a href="${(s.paired ? 'paired-read' : 'read') + '.html?story=' + s.id}" style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px;text-decoration:none;color:inherit;transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow=''">
+              <div style="width:40px;height:40px;border-radius:10px;background:${s.color}22;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">${s.emoji}</div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:0.82rem;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.title}</div>
+                <div style="font-size:0.72rem;color:#6b7280;margin-top:2px;">${s.label}</div>
+              </div>
+              <span style="font-size:0.82rem;font-weight:700;color:#7c3aed;flex-shrink:0;">Read →</span>
+            </a>`).join('')}
+        </div>`;
+
+      // Insert just before the first section header
+      const firstSection = document.querySelector('.section-wrap');
+      if (firstSection) firstSection.before(wrap);
+    }
+
+    // ─── Favorites / Bookmarks ────────────────────────────────────────────────
     const ALL_SECTIONS = ['early','emerging','grade4','advanced'];
 
+    // Sync bookmarks FROM Firestore on page load
+    db.collection('StudentStats').doc(profile.readerId).get().then(doc => {
+      if (doc.exists && Array.isArray(doc.data().bookmarks)) {
+        const fsBookmarks = doc.data().bookmarks;
+        // Merge: union of localStorage + Firestore
+        const merged = [...new Set([...favIds, ...fsBookmarks])];
+        if (merged.length !== favIds.length) {
+          favIds = merged;
+          localStorage.setItem(FAV_KEY, JSON.stringify(favIds));
+          updateFavTab();
+          renderFavorites();
+          renderGrids(); // refresh hearts on all cards
+        }
+      }
+    }).catch(() => {});
+
+    function saveFavs() {
+      localStorage.setItem(FAV_KEY, JSON.stringify(favIds));
+      // Sync to Firestore for cross-device persistence
+      db.collection('StudentStats').doc(profile.readerId)
+        .set({ bookmarks: favIds }, { merge: true })
+        .catch(() => {});
+      updateFavTab();
+    }
+
+    function toggleFav(storyId, btn) {
+      const idx = favIds.indexOf(storyId);
+      if (idx >= 0) {
+        favIds.splice(idx, 1);
+        btn.textContent = '🤍'; btn.classList.remove('saved'); btn.title = 'Bookmark this story';
+      } else {
+        favIds.push(storyId);
+        btn.textContent = '❤️'; btn.classList.add('saved'); btn.title = 'Remove bookmark';
+        btn.style.transform = 'scale(1.4)';
+        setTimeout(() => { btn.style.transform = ''; }, 200);
+      }
+      saveFavs();
+      // If Favorites tab is active, re-render it
+      if (document.getElementById('tab-fav').classList.contains('active')) renderFavorites();
+    }
+
+    function updateFavTab() {
+      const count = favIds.length;
+      document.getElementById('tab-fav').textContent = count > 0 ? `❤️ Saved (${count})` : '❤️ Saved';
+    }
+
     function renderFavorites() {
-      const favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
       const favStories = STORIES.filter(s => favIds.includes(s.id));
       const grid = document.getElementById('grid-favorites');
       const empty = document.getElementById('fav-empty');
       grid.innerHTML = favStories.map(s => buildCard(s, 'btn-read')).join('');
       empty.style.display = favStories.length === 0 && document.getElementById('tab-fav').classList.contains('active') ? 'block' : 'none';
-      // Re-attach stop-propagation
       grid.querySelectorAll('.btn-card').forEach(btn => btn.addEventListener('click', e => e.stopPropagation()));
     }
+
+    updateFavTab(); // set initial count on the tab
 
     function setFilter(mode) {
       const showFav = mode === 'fav';
@@ -570,9 +828,7 @@
       });
       if (showFav) {
         renderFavorites();
-        const favIds = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
-        const favStories = STORIES.filter(s => favIds.includes(s.id));
-        empty.style.display = favStories.length === 0 ? 'block' : 'none';
+        empty.style.display = favIds.length === 0 ? 'block' : 'none';
       } else {
         empty.style.display = 'none';
       }
