@@ -129,11 +129,12 @@
     }
     .btn-restart:hover { background: #6d28d9; }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <nav class="nav">
     <a href="library.html" class="nav-back">← Library</a>
-    <div class="nav-title">📝 Vocab Flashcards</div>
+    <div class="nav-title" id="nav-title">📝 Vocab Flashcards</div>
     <div class="nav-count" id="nav-count"></div>
   </nav>
 
@@ -200,13 +201,19 @@
     </div>
   </div>
 
-  <script src="stories.js"></script>
+  <script src="stories.js?v=20260705"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) { window.location.href = 'login.html'; return; }
+
+    // ─── Quick Review mode (no scoring, just flip through) ───────────────────────
+    const QUICK_MODE = new URLSearchParams(location.search).get('mode') === 'quick';
+    if (QUICK_MODE) {
+      document.getElementById('nav-title').textContent = '⚡ Quick Review';
+    }
 
     const STORAGE_KEY = 'vocabProgress_' + profile.readerId;
     let allCards = [];    // { word, definition, example, storyTitle }
@@ -254,6 +261,20 @@
           </div>`;
         document.getElementById('loading-state').style.display = 'block';
         return;
+      }
+
+      // Quick mode: shuffle all cards and hide scoring UI
+      if (QUICK_MODE) {
+        // Shuffle
+        for (let i = allCards.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [allCards[i], allCards[j]] = [allCards[j], allCards[i]];
+        }
+        document.querySelector('.filter-row').style.display = 'none';
+        document.querySelector('.stats-strip').style.display = 'none';
+        document.getElementById('action-row').style.display = 'none';
+        // Limit to 15 cards for a quick session
+        allCards = allCards.slice(0, 15);
       }
 
       buildDeck();

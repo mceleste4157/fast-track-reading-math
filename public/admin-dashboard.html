@@ -175,6 +175,7 @@
     .access-denied h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
     .access-denied p { color: var(--muted); }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
 
@@ -287,13 +288,16 @@
   const ADMIN_EMAIL = 'celeste1311@gmail.com';
   const LEVELS = [
     {name:'Bookworm',minXp:0,emoji:'📖'},{name:'Reader',minXp:100,emoji:'📚'},
-    {name:'Word Hunter',minXp:200,emoji:'🔍'},{name:'Explorer',minXp:300,emoji:'🗺️'},
-    {name:'Thinker',minXp:450,emoji:'🧠'},{name:'Scholar',minXp:600,emoji:'🎓'},
-    {name:'Achiever',minXp:800,emoji:'⚡'},{name:'Champion',minXp:1000,emoji:'🏆'},
-    {name:'Super Reader',minXp:1500,emoji:'🌟'},{name:'Eagle Eye',minXp:1850,emoji:'🦅'},
-    {name:'Story Master',minXp:2200,emoji:'🚀'},{name:'Prodigy',minXp:2600,emoji:'💎'},
-    {name:'Summer Hero',minXp:3000,emoji:'☀️'},{name:'Grand Master',minXp:3500,emoji:'👑'},
-    {name:'FAST Legend',minXp:4000,emoji:'🌈'}
+    {name:'Word Hunter',minXp:250,emoji:'🔍'},{name:'Explorer',minXp:450,emoji:'🗺️'},
+    {name:'Thinker',minXp:700,emoji:'🧠'},{name:'Scholar',minXp:1000,emoji:'🎓'},
+    {name:'Achiever',minXp:1400,emoji:'⚡'},{name:'Champion',minXp:1900,emoji:'🏆'},
+    {name:'Super Reader',minXp:2800,emoji:'🌟'},{name:'Eagle Eye',minXp:4000,emoji:'🦅'},
+    {name:'Story Master',minXp:5500,emoji:'🚀'},{name:'Prodigy',minXp:7500,emoji:'💎'},
+    {name:'Summer Hero',minXp:10000,emoji:'☀️'},{name:'Grand Master',minXp:13000,emoji:'👑'},
+    {name:'FAST Legend',minXp:17000,emoji:'🌈'},{name:'Mythic Reader',minXp:21500,emoji:'🔥'},
+    {name:'Genius',minXp:27000,emoji:'🧬'},{name:'Knowledge Lord',minXp:33500,emoji:'🔭'},
+    {name:'Elite Scholar',minXp:41000,emoji:'⭐'},{name:'Legend Maker',minXp:50000,emoji:'🌙'},
+    {name:'Galaxy Brain',minXp:60000,emoji:'🪐'},{name:'Infinity Reader',minXp:72000,emoji:'♾️'}
   ];
   function getLevel(xp) {
     let idx = 0;
@@ -393,24 +397,36 @@
       db.collection('StudentStats').get(),
       db.collection('Progress').get(),
       db.collection('MathProgress').get(),
+      db.collection('TypingProgress').get(),
+      db.collection('TriviaScores').get(),
       db.collection('ParentProfiles').get()
-    ]).then(([spSnap, statsSnap, progSnap, mathSnap, ppSnap]) => {
+    ]).then(([spSnap, statsSnap, progSnap, mathSnap, typingSnap, triviaSnap, ppSnap]) => {
 
       // Build parent email map: uid → email
       const parentMap = {};
       ppSnap.forEach(d => { parentMap[d.id] = d.data().displayName || d.data().email || d.id; });
 
-      // Build XP map: readerId → { readXp, mathXp }
+      // Build XP map: readerId → { readXp, mathXp, typingXp }
       const xpMap = {};
       progSnap.forEach(d => {
         const r = d.data().readerId;
-        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
+        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0, typingXp: 0 };
         xpMap[r].readXp += (d.data().xpEarned || 0);
       });
       mathSnap.forEach(d => {
         const r = d.data().readerId;
-        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0 };
+        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0, typingXp: 0 };
         xpMap[r].mathXp += (d.data().xpEarned || 0);
+      });
+      typingSnap.forEach(d => {
+        const r = d.data().readerId;
+        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0, typingXp: 0, triviaXp: 0 };
+        xpMap[r].typingXp += (d.data().xpEarned || 0);
+      });
+      triviaSnap.forEach(d => {
+        const r = d.data().readerId;
+        if (!xpMap[r]) xpMap[r] = { readXp: 0, mathXp: 0, typingXp: 0, triviaXp: 0 };
+        xpMap[r].triviaXp += (d.data().xpEarned || 0);
       });
 
       // Math topics per student
@@ -421,16 +437,29 @@
         mathTopicsMap[r].add(d.data().setId);
       });
 
+      // Last-active map: track the most recent timestamp across all activity collections
+      const lastActiveMap = {};
+      function trackTs(readerId, ts) {
+        if (!ts || !readerId) return;
+        const ms = ts.toMillis ? ts.toMillis() : (ts.toDate ? ts.toDate().getTime() : new Date(ts).getTime());
+        if (!lastActiveMap[readerId] || ms > lastActiveMap[readerId]) lastActiveMap[readerId] = ms;
+      }
+      progSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
+      mathSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
+      typingSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
+      triviaSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
+
       // Stats map
       const statsMap = {};
       statsSnap.forEach(d => { statsMap[d.id] = d.data(); });
 
       allStudents = spSnap.docs.map(d => ({
         id: d.id, ...d.data(),
-        xp:           (xpMap[d.data().readerId]?.readXp || 0) + (xpMap[d.data().readerId]?.mathXp || 0),
+        xp:           (xpMap[d.data().readerId]?.readXp || 0) + (xpMap[d.data().readerId]?.mathXp || 0) + (xpMap[d.data().readerId]?.typingXp || 0) + (xpMap[d.data().readerId]?.triviaXp || 0) + ((statsMap[d.data().readerId]?.challengeXp) || 0),
         stats:        statsMap[d.data().readerId] || {},
         mathTopics:   mathTopicsMap[d.data().readerId]?.size || 0,
-        parentName:   parentMap[d.data().parentUid] || '—'
+        parentName:   parentMap[d.data().parentUid] || '—',
+        lastActiveMs: lastActiveMap[d.data().readerId] || 0,
       })).sort((a, b) => b.xp - a.xp);
 
       renderStudents(allStudents);
@@ -452,7 +481,9 @@
       const emoji   = s.avatarEmoji || (s.name ? s.name.charAt(0).toUpperCase() : '?');
       const streak  = s.stats.currentStreak || 0;
       const week    = s.stats.storiesThisWeek || 0;
-      const last    = s.stats.lastReadDate || '—';
+      const last = s.lastActiveMs
+        ? new Date(s.lastActiveMs).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: '2-digit' })
+        : '—';
       return `<tr>
         <td>
           <div style="display:flex;align-items:center;">

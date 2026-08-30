@@ -7,15 +7,6 @@
         { "fieldPath": "readerId", "order": "ASCENDING" },
         { "fieldPath": "completedAt", "order": "DESCENDING" }
       ]
-    },
-    {
-      "collectionGroup": "StudentActivity",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "readerId", "order": "ASCENDING" },
-        { "fieldPath": "type", "order": "ASCENDING" },
-        { "fieldPath": "timestamp", "order": "DESCENDING" }
-      ]
     }
   ],
   "fieldOverrides": []

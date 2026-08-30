@@ -60,7 +60,8 @@
       border: 2px solid transparent;
     }
     .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(8,145,178,0.18); border-color: var(--teal); }
-    .lesson-card.completed { border-color: var(--green); }
+    .lesson-card.completed    { border-color: var(--green); }
+    .lesson-card.recommended  { border-color: #7c3aed; box-shadow: 0 4px 20px rgba(124,58,237,0.2); }
 
     .lesson-cover {
       height: 80px; display: flex; align-items: center; justify-content: center;
@@ -99,6 +100,7 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
   <nav class="nav">
@@ -111,7 +113,7 @@
       <div class="hero-icon">⌨️</div>
       <div class="hero-body">
         <h1>Typing Practice</h1>
-        <p>Build speed and accuracy one lesson at a time.<br>4th graders need to type — practice every day!</p>
+        <p id="typing-hero-sub">Build speed and accuracy one lesson at a time.</p>
       </div>
       <div class="hero-stat" id="hero-stat" style="display:none;">
         <div class="hero-wpm" id="best-wpm">—</div>
@@ -139,19 +141,42 @@
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) { window.location.href = 'login.html'; return; }
 
+    // grade → recommended starting lesson (1-indexed)
+    const GRADE_START = { 1:1, 2:1, 3:3, 4:5, 5:13, 6:14, 7:15, 8:16 };
+    // grade → hero subtitle
+    const GRADE_TIPS = {
+      1: 'Start with the home row keys — the most important letters!',
+      2: 'Practice home row first, then reach for E, I, T, and O.',
+      3: 'Work on the full keyboard with both hands together.',
+      4: 'Focus on accuracy — speed follows once your fingers know the keys.',
+      5: 'Type real story passages — build fluency with connected sentences.',
+      6: 'Type longer passages with punctuation — aim for 35+ WPM.',
+      7: 'Push to 45+ WPM typing full paragraphs with varied vocabulary.',
+      8: 'Aim for 55+ WPM — the speed you\'ll need for timed writing tests.',
+    };
+
+    const grade = parseInt(profile.gradeLevel) || 4;
+    const subEl = document.getElementById('typing-hero-sub');
+    if (subEl) subEl.textContent = GRADE_TIPS[grade] || GRADE_TIPS[4];
+
     const LESSONS = [
-      { id: 'l1',  emoji: '👈', title: 'Left Home Row',     sub: 'a · s · d · f · g',          text: 'aaa sss ddd fff asd fds fad sad add lass flask glass glad flask adds' },
-      { id: 'l2',  emoji: '👉', title: 'Right Home Row',    sub: 'h · j · k · l · ;',           text: 'jjj kkk lll jkl jal kal jak hall fall silk disk hall hjkl' },
-      { id: 'l3',  emoji: '👐', title: 'Full Home Row',     sub: 'Both hands together',          text: 'ask all fall flask glad lads add silk hall shall salad flask asks' },
-      { id: 'l4',  emoji: '🔤', title: 'Adding E and I',    sub: 'Middle fingers reach up',      text: 'else idea file like side hide fill feel skill aide said desk isle' },
-      { id: 'l5',  emoji: '☝️', title: 'Adding T and O',    sub: 'Index fingers stretch up',     text: 'told old look store floor tool root foot total loose stool told' },
-      { id: 'l6',  emoji: '🤙', title: 'Adding R and U',    sub: 'More index finger reaches',    text: 'true tour rust door ruler ruse road rule four pour sure lure true' },
-      { id: 'l7',  emoji: '🖐️', title: 'Adding N and G',    sub: 'Center keys',                  text: 'sing ring king long song gone fine nine line mine sign tongue ring' },
-      { id: 'l8',  emoji: '🔡', title: 'Bottom Row',        sub: 'c · v · b · n · m',            text: 'came mice back come make black much cave comb became mice back came' },
-      { id: 'l9',  emoji: '⇧',  title: 'Capitals',          sub: 'Using the Shift key',          text: 'The dog ran. I see a cat. Go now! Please help me. Sam likes fish.' },
-      { id: 'l10', emoji: '📝', title: 'Common Words',      sub: 'Words you use every day',      text: 'they were have when that with this will been some what from which more' },
-      { id: 'l11', emoji: '✍️', title: 'Sentences',         sub: 'Punctuation and flow',         text: 'Reading every day makes you a better writer. Try your best and you will improve.' },
-      { id: 'l12', emoji: '📄', title: 'Full Paragraph',    sub: 'Florida theme',                text: 'Florida is a warm and sunny state. Many animals live in its forests and wetlands. The Everglades is home to alligators, birds, and fish. Protecting nature helps everyone.' },
+      { id: 'l1',  emoji: '👈', title: 'Left Home Row',     sub: 'a · s · d · f · g',          minGrade: 1, text: 'aaa sss ddd fff asd fds fad sad add lass flask glass glad flask adds' },
+      { id: 'l2',  emoji: '👉', title: 'Right Home Row',    sub: 'h · j · k · l · ;',           minGrade: 1, text: 'jjj kkk lll jkl jal kal jak hall fall silk disk hall hjkl' },
+      { id: 'l3',  emoji: '👐', title: 'Full Home Row',     sub: 'Both hands together',          minGrade: 2, text: 'ask all fall flask glad lads add silk hall shall salad flask asks' },
+      { id: 'l4',  emoji: '🔤', title: 'Adding E and I',    sub: 'Middle fingers reach up',      minGrade: 2, text: 'else idea file like side hide fill feel skill aide said desk isle' },
+      { id: 'l5',  emoji: '☝️', title: 'Adding T and O',    sub: 'Index fingers stretch up',     minGrade: 3, text: 'told old look store floor tool root foot total loose stool told' },
+      { id: 'l6',  emoji: '🤙', title: 'Adding R and U',    sub: 'More index finger reaches',    minGrade: 3, text: 'true tour rust door ruler ruse road rule four pour sure lure true' },
+      { id: 'l7',  emoji: '🖐️', title: 'Adding N and G',    sub: 'Center keys',                  minGrade: 4, text: 'sing ring king long song gone fine nine line mine sign tongue ring' },
+      { id: 'l8',  emoji: '🔡', title: 'Bottom Row',        sub: 'c · v · b · n · m',            minGrade: 4, text: 'came mice back come make black much cave comb became mice back came' },
+      { id: 'l9',  emoji: '⇧',  title: 'Capitals',          sub: 'Using the Shift key',          minGrade: 4, text: 'The dog ran. I see a cat. Go now! Please help me. Sam likes fish.' },
+      { id: 'l10', emoji: '📝', title: 'Common Words',      sub: 'Words you use every day',      minGrade: 5, text: 'they were have when that with this will been some what from which more' },
+      { id: 'l11', emoji: '✍️', title: 'Sentences',         sub: 'Punctuation and flow',         minGrade: 6, text: 'Reading every day makes you a better writer. Try your best and you will improve.' },
+      { id: 'l12', emoji: '📄', title: 'Full Paragraph',    sub: 'Florida theme',                minGrade: 4, text: 'Florida is a warm and sunny state. Many animals live in its forests and wetlands. The Everglades is home to alligators, birds, and fish. Protecting nature helps everyone.' },
+      { id: 'l13', emoji: '🌿', title: 'The Everglades',    sub: 'Real story passage',           minGrade: 5, text: 'The Everglades is not a swamp or a lake. It is a wide, shallow river that flows slowly southward across Florida. More than 360 bird species live or feed there. Alligators dig deep holes that hold water long after the rest of the marsh dries out, helping other animals survive the dry season.' },
+      { id: 'l14', emoji: '🚀', title: 'Space Coast',       sub: 'Florida and NASA',             minGrade: 5, text: 'Florida became the launch capital of the United States because of its geography. Rockets launched eastward over the Atlantic fall safely into the ocean. In July 1969, Apollo 11 lifted off from Kennedy Space Center, carrying three astronauts on a historic journey to the Moon.' },
+      { id: 'l15', emoji: '🌍', title: 'Pangaea',           sub: 'Science passage',              minGrade: 6, text: 'Alfred Wegener noticed that the coastlines of South America and Africa looked like puzzle pieces that fit together. He proposed that all continents were once joined in a supercontinent called Pangaea. Over millions of years, they slowly drifted apart, driven by the movement of tectonic plates deep beneath Earth\'s crust.' },
+      { id: 'l16', emoji: '✊', title: 'Civil Rights',      sub: 'Florida history passage',      minGrade: 7, text: 'Harry T. Moore spent decades organizing voter registration drives across Florida and investigating racial violence. On Christmas night in 1951, a bomb destroyed his home in Mims, Florida, killing him and his wife Harriette. He is remembered as one of Florida\'s earliest and most courageous civil rights leaders.' },
+      { id: 'l17', emoji: '🔐', title: 'Digital Privacy',   sub: 'Grade 8 challenge passage',   minGrade: 8, text: 'Every time you use a search engine or open an app, data is collected about you. Companies track what you search, how long you read each page, and where you travel. This information is analyzed and often sold to other businesses. Understanding digital privacy has become an essential skill in the modern world.' },
     ];
 
     const db = firebase.firestore();
@@ -183,16 +208,27 @@
         const grid = document.createElement('div');
         grid.className = 'lessons-grid';
 
+        const gradeStart = GRADE_START[grade] || 1;
+        // Add a grade tip above the grid
+        const tip = document.createElement('div');
+        tip.style.cssText = 'background:#ede9fe;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:0.88rem;font-weight:600;color:#5b21b6;display:flex;align-items:center;gap:10px;';
+        tip.innerHTML = `<span style="font-size:1.2rem;">🎯</span> Grade ${grade} recommended start: <strong>Lesson ${gradeStart} — ${LESSONS[gradeStart-1]?.title}</strong>`;
+        container.appendChild(tip);
+
         LESSONS.forEach((lesson, i) => {
           const b = best[lesson.id];
           const done = !!b;
+          const isRecommended = (i + 1) === gradeStart && !done;
           const card = document.createElement('a');
           card.href = 'typing-practice.html?lesson=' + lesson.id;
-          card.className = 'lesson-card' + (done ? ' completed' : '');
+          card.className = 'lesson-card' + (done ? ' completed' : '') + (isRecommended ? ' recommended' : '');
+          const gradeBadge = lesson.minGrade > grade
+            ? `<span style="font-size:0.65rem;background:#fef3c7;color:#92400e;padding:2px 6px;border-radius:99px;font-weight:700;">Grade ${lesson.minGrade}+</span>`
+            : (isRecommended ? `<span style="font-size:0.65rem;background:#7c3aed;color:#fff;padding:2px 6px;border-radius:99px;font-weight:700;">⭐ Start here</span>` : '');
           card.innerHTML = `
             <div class="lesson-cover">${lesson.emoji}</div>
             <div class="lesson-body">
-              <div class="lesson-num">Lesson ${i + 1}</div>
+              <div class="lesson-num" style="display:flex;align-items:center;gap:6px;">Lesson ${i + 1} ${gradeBadge}</div>
               <div class="lesson-title">${lesson.title}</div>
               <div class="lesson-sub">${lesson.sub}</div>
               <div class="lesson-stats">

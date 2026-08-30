@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fill in the Blank – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{--purple:#7c3aed;--purple-soft:#ede9fe;--green:#10b981;--green-soft:#d1fae5;--red:#dc2626;--red-soft:#fee2e2;--bg:#f8f7ff;--surface:#fff;--border:#e5e7eb;--text:#111827;--muted:#6b7280;--radius:14px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    .nav{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;}
+    .nav-back{text-decoration:none;color:var(--purple);font-weight:600;font-size:.9rem;}
+    .nav-title{font-weight:700;font-size:1rem;flex:1;text-align:center;}
+    .nav-prog{font-size:.82rem;font-weight:700;color:var(--muted);}
+    .page{max-width:480px;margin:0 auto;padding:28px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:20px;}
+    .prog-bar-wrap{width:100%;height:7px;background:var(--border);border-radius:99px;overflow:hidden;}
+    .prog-bar-fill{height:100%;background:var(--purple);border-radius:99px;transition:width .4s;}
+    .question-card{width:100%;background:var(--surface);border:2px solid var(--border);border-radius:20px;padding:26px 22px;text-align:center;}
+    .q-label{font-size:.7rem;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;}
+    .q-sentence{font-size:1.1rem;font-weight:600;line-height:1.7;color:var(--text);}
+    .blank{display:inline-block;width:110px;height:1.4em;border-bottom:3px solid var(--purple);vertical-align:bottom;margin:0 4px;}
+    .q-hint{font-size:.8rem;color:var(--muted);margin-top:12px;font-weight:500;}
+    .spell-input{width:100%;padding:14px 18px;font-size:1.1rem;font-family:inherit;font-weight:700;text-align:center;border:2.5px solid var(--border);border-radius:12px;outline:none;background:var(--surface);color:var(--text);transition:border-color .2s;letter-spacing:.04em;}
+    .spell-input:focus{border-color:var(--purple);}
+    .spell-input.correct{border-color:var(--green);background:var(--green-soft);}
+    .spell-input.wrong{border-color:var(--red);background:var(--red-soft);}
+    .feedback{font-size:1rem;font-weight:700;min-height:1.4em;text-align:center;}
+    .feedback.correct{color:var(--green);}
+    .feedback.wrong{color:var(--red);}
+    .btn-check{width:100%;padding:15px;background:var(--purple);color:#fff;border:none;border-radius:14px;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:inherit;transition:opacity .15s;}
+    .btn-check:disabled{opacity:.4;cursor:default;}
+    .results-screen{width:100%;text-align:center;display:none;flex-direction:column;align-items:center;gap:16px;}
+    .result-emoji{font-size:4rem;}
+    .result-title{font-size:1.5rem;font-weight:900;}
+    .result-sub{font-size:.92rem;color:var(--muted);font-weight:600;}
+    .xp-pill{display:inline-flex;align-items:center;gap:6px;background:var(--purple-soft);color:var(--purple);font-size:.9rem;font-weight:800;padding:8px 18px;border-radius:99px;}
+    .review-list{width:100%;display:flex;flex-direction:column;gap:8px;}
+    .review-row{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:11px 14px;}
+    .review-row.correct{border-color:var(--green);background:var(--green-soft);}
+    .review-row.wrong{border-color:var(--red);background:var(--red-soft);}
+    .btn-row{display:flex;gap:12px;width:100%;}
+    .btn-primary{flex:1;padding:14px;background:var(--purple);color:#fff;border:none;border-radius:14px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;text-decoration:none;text-align:center;}
+    .btn-secondary{flex:1;padding:14px;background:var(--surface);color:var(--purple);border:2px solid var(--purple);border-radius:14px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;}
+  </style>
+  <link rel="stylesheet" href="dark.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-back" id="nav-back" href="library.html">← Back</a>
+    <span class="nav-title">✏️ Fill in the Blank</span>
+    <span class="nav-prog" id="nav-prog"></span>
+  </nav>
+  <div class="page" id="quiz-screen">
+    <div class="prog-bar-wrap"><div class="prog-bar-fill" id="prog-bar" style="width:0%"></div></div>
+    <div class="question-card">
+      <div class="q-label">Complete the sentence</div>
+      <div class="q-sentence" id="q-sentence"></div>
+      <div class="q-hint" id="q-hint"></div>
+    </div>
+    <input class="spell-input" id="spell-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type the missing word…" />
+    <div class="feedback" id="feedback"></div>
+    <button class="btn-check" id="btn-check">Check ✓</button>
+  </div>
+  <div class="page results-screen" id="results-screen">
+    <div class="result-emoji" id="result-emoji"></div>
+    <div class="result-title" id="result-title"></div>
+    <div class="result-sub"  id="result-sub"></div>
+    <div class="xp-pill" id="xp-pill" style="display:none"></div>
+    <div class="review-list" id="review-list"></div>
+    <div class="btn-row">
+      <a class="btn-primary" href="library.html">📚 Library</a>
+      <button class="btn-secondary" onclick="startQuiz()">🔄 Try Again</button>
+    </div>
+  </div>
+  <script src="stories.js?v=20260705"></script>
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) window.location.href = 'login.html';
+    const params  = new URLSearchParams(location.search);
+    const storyId = params.get('story');
+    const story   = storyId ? STORIES.find(s => s.id === storyId) : null;
+    if (!story) window.location.href = 'library.html';
+    document.getElementById('nav-back').href = storyId ? 'results.html' : 'library.html';
+
+    function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+    function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+    // Build question pool from vocabulary words found in story text
+    function buildQuestions() {
+      const vocab = (story.vocabulary || []).map(v => typeof v === 'string' ? {word:v,definition:''} : v);
+      const sentences = story.text
+        .split(/(?<=[.!?])\s+/)
+        .map(s => s.trim())
+        .filter(s => s.length > 20 && s.length < 200);
+
+      const questions = [];
+      vocab.forEach(v => {
+        const word = v.word;
+        const regex = new RegExp('\\b' + word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b','i');
+        const match = sentences.find(s => regex.test(s));
+        if (match) {
+          const blanked = match.replace(regex, '_____');
+          questions.push({ sentence: blanked, answer: word, hint: v.definition ? 'Hint: ' + v.definition : word.length + ' letters', definition: v.definition });
+        }
+      });
+      // Fallback: definition-style if no sentence match
+      vocab.forEach(v => {
+        if (!questions.find(q => q.answer.toLowerCase() === v.word.toLowerCase()) && v.definition) {
+          questions.push({ sentence: '_____: ' + v.definition, answer: v.word, hint: v.word.length + ' letters', definition: v.definition });
+        }
+      });
+      return shuffle(questions).slice(0, 6);
+    }
+
+    let questions = [], idx = 0, answers = [];
+
+    function startQuiz() {
+      questions = buildQuestions();
+      if (!questions.length) { window.location.href = 'library.html'; return; }
+      idx = 0; answers = [];
+      document.getElementById('results-screen').style.display = 'none';
+      document.getElementById('quiz-screen').style.display    = 'flex';
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const q = questions[idx];
+      document.getElementById('nav-prog').textContent = (idx+1) + ' / ' + questions.length;
+      document.getElementById('prog-bar').style.width = (idx/questions.length*100) + '%';
+      document.getElementById('q-sentence').innerHTML = escHtml(q.sentence).replace('_____','<span class="blank"></span>');
+      document.getElementById('q-hint').textContent = q.hint;
+      const inp = document.getElementById('spell-input');
+      inp.value=''; inp.className='spell-input'; inp.disabled=false; inp.focus();
+      document.getElementById('feedback').textContent=''; document.getElementById('feedback').className='feedback';
+      const btn = document.getElementById('btn-check');
+      btn.textContent='Check ✓'; btn.disabled=false; btn.onclick=checkAnswer;
+    }
+
+    function checkAnswer() {
+      const q = questions[idx];
+      const typed = document.getElementById('spell-input').value.trim();
+      if (!typed) return;
+      const correct = typed.toLowerCase() === q.answer.toLowerCase();
+      answers.push({sentence:q.sentence, answer:q.answer, typed, correct});
+      const inp = document.getElementById('spell-input');
+      inp.disabled=true; inp.className='spell-input ' + (correct?'correct':'wrong');
+      const fb = document.getElementById('feedback');
+      fb.className='feedback '+(correct?'correct':'wrong');
+      fb.textContent = correct ? '✅ Correct!' : '❌ The answer is: ' + q.answer;
+      const btn = document.getElementById('btn-check');
+      btn.textContent = idx < questions.length-1 ? 'Next →' : 'See Results';
+      btn.onclick = nextQuestion;
+    }
+
+    function nextQuestion() {
+      document.getElementById('btn-check').onclick = checkAnswer;
+      idx++;
+      if (idx < questions.length) showQuestion();
+      else showResults();
+    }
+
+    function showResults() {
+      document.getElementById('quiz-screen').style.display    = 'none';
+      document.getElementById('results-screen').style.display = 'flex';
+      const correct = answers.filter(a=>a.correct).length;
+      const total   = answers.length;
+      const bonusXp = correct * 15;
+      const pct = correct/total;
+      let emoji='😢',title='Keep practicing!';
+      if(pct===1){emoji='🏆';title='Perfect!';}
+      else if(pct>=.8){emoji='🌟';title='Great job!';}
+      else if(pct>=.6){emoji='👍';title='Nice work!';}
+      else if(pct>=.4){emoji='📚';title='Keep studying!';}
+      document.getElementById('result-emoji').textContent=emoji;
+      document.getElementById('result-title').textContent=title;
+      document.getElementById('result-sub').textContent=correct+' of '+total+' correct';
+      if(bonusXp>0){const p=document.getElementById('xp-pill');p.textContent='⚡ +'+bonusXp+' XP!';p.style.display='';}
+      document.getElementById('review-list').innerHTML=answers.map(a=>`
+        <div class="review-row ${a.correct?'correct':'wrong'}">
+          <span>${a.correct?'✅':'❌'}</span>
+          <div><strong>${escHtml(a.answer)}</strong>${!a.correct?' (you wrote: '+escHtml(a.typed)+')':''}</div>
+        </div>`).join('');
+      if(bonusXp>0) firebase.firestore().collection('StudentStats').doc(profile.readerId)
+        .set({challengeXp:firebase.firestore.FieldValue.increment(bonusXp),lastUpdated:firebase.firestore.FieldValue.serverTimestamp()},{merge:true}).catch(()=>{});
+    }
+
+    document.getElementById('btn-check').addEventListener('click', checkAnswer);
+    document.getElementById('spell-input').addEventListener('keydown', e=>{if(e.key==='Enter') document.getElementById('btn-check').click();});
+    startQuiz();
+  </script>
+</body>
+</html>

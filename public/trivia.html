@@ -229,6 +229,7 @@
     .round-pip.done { background: #10b981; }
     .round-pip.current { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
   </style>
+  <link rel="stylesheet" href="dark.css" />
 </head>
 <body>
 
@@ -284,7 +285,16 @@
 
   <div class="q-dots" id="q-dots"></div>
 
-  <div class="story-pill" id="q-story-pill">📖 Story title</div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+    <div class="story-pill" id="q-story-pill" style="margin-bottom:0;">📖 Story title</div>
+    <button id="q-show-story-btn" onclick="toggleStoryText()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:99px;color:rgba(255,255,255,0.8);font-size:0.78rem;font-weight:700;padding:4px 12px;cursor:pointer;font-family:inherit;flex-shrink:0;">📄 Show Story</button>
+  </div>
+
+  <!-- Collapsible story text -->
+  <div id="q-story-text-wrap" style="display:none;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:16px 18px;margin-bottom:18px;max-height:240px;overflow-y:auto;">
+    <div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.5);margin-bottom:10px;">📖 Story Passage</div>
+    <div id="q-story-text" style="font-size:0.88rem;line-height:1.65;color:rgba(255,255,255,0.85);white-space:pre-wrap;"></div>
+  </div>
 
   <div class="q-text" id="q-text">Question goes here</div>
 
@@ -331,7 +341,7 @@
   </div>
 </div>
 
-<script src="stories.js"></script>
+<script src="stories.js?v=20260705"></script>
 <script defer src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
 <script defer src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
 <script defer src="/__/firebase/init.js"></script>
@@ -402,14 +412,23 @@
     STORIES.forEach(story => {
       if (!completedStoryIds.has(story.id)) return;
       story.questions.forEach((q, qi) => {
+        // Shuffle options while keeping correctIndex updated
+        const idxMap = q.options.map((_, i) => i);
+        for (let i = idxMap.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [idxMap[i], idxMap[j]] = [idxMap[j], idxMap[i]];
+        }
+        const shuffledOptions = idxMap.map(i => q.options[i]);
+        const newCorrectIndex = idxMap.indexOf(q.correctIndex);
         pool.push({
           question:    q.question,
-          options:     q.options,
-          correctIndex: q.correctIndex,
+          options:     shuffledOptions,
+          correctIndex: newCorrectIndex,
           explanation: q.explanation,
           storyTitle:  story.title,
           storyEmoji:  story.coverEmoji,
           storyId:     story.id,
+          storyText:   story.text,
           qIdx:        qi
         });
       });
@@ -436,27 +455,59 @@
     initCalled = true;
 
     const db = firebase.firestore();
+
+    // Determine unlock requirements from parent profile settings
+    const triviaMin = profile.triviaMinStories || '5';
+    const requireToday    = triviaMin === 'today' || triviaMin === 'today10';
+    const minCount        = triviaMin === 'today' ? 3 :
+                            triviaMin === 'today10' ? 10 :
+                            parseInt(triviaMin) || 5;
+    const todayStr = new Date().toISOString().slice(0, 10);
+
     db.collection('Progress')
       .where('readerId', '==', profile.readerId)
       .get()
       .then(snap => {
         const completedIds = new Set();
+        let readToday = false;
         snap.forEach(d => {
           const data = d.data();
           if (data.storyId && (data.quizScore || 0) >= 1) {
             completedIds.add(data.storyId);
+            // Check if they read a real story today (not bonus/placeholder entries)
+            const ts = data.completedAt || data.timestamp;
+            if (ts && ts.toDate) {
+              const dateStr = ts.toDate().toISOString().slice(0, 10);
+              if (dateStr === todayStr && data.storyId !== '__daily_bonus__') readToday = true;
+            }
           }
         });
+
         const actionEl = document.getElementById('intro-action');
-        if (completedIds.size < 3) {
+
+        // Gate 1: must have read today (if parent requires it)
+        if (requireToday && !readToday) {
           actionEl.innerHTML = `
             <div class="no-stories-msg">
-              You need to read at least <strong>3 stories</strong> before playing Trivia!<br><br>
-              You've completed <strong>${completedIds.size}</strong> so far — keep reading!<br><br>
+              📖 You need to <strong>read a story today</strong> before playing Trivia!<br><br>
+              Read at least one story and complete the quiz first — then come back to play.<br><br>
+              <a href="library.html" style="color:#a78bfa; font-weight:700; text-decoration:none;">📚 Go Read a Story →</a>
+            </div>`;
+          return;
+        }
+
+        // Gate 2: minimum total story count
+        if (completedIds.size < minCount) {
+          const needed = minCount - completedIds.size;
+          actionEl.innerHTML = `
+            <div class="no-stories-msg">
+              You need to read at least <strong>${minCount} stories</strong> before playing Trivia!<br><br>
+              You've completed <strong>${completedIds.size}</strong> so far — read <strong>${needed}</strong> more to unlock!<br><br>
               <a href="library.html" style="color:#a78bfa; font-weight:700; text-decoration:none;">📚 Go Read More Stories →</a>
             </div>`;
           return;
         }
+
         triviaPool = buildPool(completedIds);
         if (triviaPool.length < QS_PER_ROUND * ROUNDS) {
           // Not enough unique questions — allow repeats by expanding
@@ -531,6 +582,13 @@
       ROUND_LABELS[currentRound] + ' · Q' + (currentQ + 1) + '/' + QS_PER_ROUND;
     document.getElementById('q-score-live').textContent = totalPoints + ' pts';
     document.getElementById('q-story-pill').textContent = q.storyEmoji + ' ' + q.storyTitle;
+    // Populate story text panel and reset toggle
+    const storyTextEl = document.getElementById('q-story-text');
+    const storyWrap   = document.getElementById('q-story-text-wrap');
+    const storyBtn    = document.getElementById('q-show-story-btn');
+    if (storyTextEl) storyTextEl.textContent = q.storyText || '';
+    if (storyWrap)   storyWrap.style.display = 'none';
+    if (storyBtn)    storyBtn.textContent = '📄 Show Story';
     document.getElementById('q-text').textContent = q.question;
 
     // Progress dots
@@ -708,18 +766,37 @@
   // ─── Save to Firestore ────────────────────────────────────────────────────
   function saveTriviaResult(bonusStars, correct, points) {
     try {
+      const xpEarned = bonusStars === 3 ? 30 : bonusStars === 2 ? 20 : 10;
       const db = firebase.firestore();
       db.collection('TriviaScores').add({
         readerId:   profile.readerId,
-        playerName: profile.name || 'Leo',
+        playerName: profile.name || '',
         bonusStars,
         correctAnswers: correct,
         totalQuestions: ROUNDS * QS_PER_ROUND,
         points,
         rounds: ROUNDS,
+        xpEarned,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(() => { /* non-critical */ });
+
+      // Show XP toast
+      const toast = document.createElement('div');
+      toast.textContent = '+' + xpEarned + ' XP earned!';
+      toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:10px 22px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
     } catch(e) { /* non-critical */ }
+  }
+
+  // ─── Toggle story text panel ──────────────────────────────────────────────
+  function toggleStoryText() {
+    const wrap = document.getElementById('q-story-text-wrap');
+    const btn  = document.getElementById('q-show-story-btn');
+    if (!wrap) return;
+    const isHidden = wrap.style.display === 'none';
+    wrap.style.display = isHidden ? 'block' : 'none';
+    if (btn) btn.textContent = isHidden ? '📄 Hide Story' : '📄 Show Story';
   }
 
   // ─── Confetti ─────────────────────────────────────────────────────────────

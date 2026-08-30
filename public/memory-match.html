@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Match – FAST Track</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{--purple:#7c3aed;--purple-soft:#ede9fe;--green:#10b981;--green-soft:#d1fae5;--bg:#f8f7ff;--surface:#fff;--border:#e5e7eb;--text:#111827;--muted:#6b7280;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    .nav{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;}
+    .nav-back{text-decoration:none;color:var(--purple);font-weight:600;font-size:.9rem;}
+    .nav-title{font-weight:700;font-size:1rem;flex:1;text-align:center;}
+    .nav-moves{font-size:.82rem;font-weight:700;color:var(--muted);}
+    .page{max-width:520px;margin:0 auto;padding:20px 12px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+    .stats-row{display:flex;gap:12px;width:100%;}
+    .stat-chip{flex:1;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:10px;text-align:center;}
+    .stat-val{font-size:1.3rem;font-weight:800;color:var(--purple);}
+    .stat-lbl{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;}
+    /* Grid */
+    .grid{display:grid;gap:10px;width:100%;}
+    /* Card */
+    .mc{perspective:600px;cursor:pointer;}
+    .mc-inner{position:relative;width:100%;padding-bottom:80%;transform-style:preserve-3d;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+    .mc.flipped .mc-inner{transform:rotateY(180deg);}
+    .mc.matched .mc-inner{transform:rotateY(180deg);}
+    .mc-face{position:absolute;inset:0;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
+    .mc-back-face{background:linear-gradient(135deg,#7c3aed,#4f46e5);box-shadow:0 3px 12px rgba(124,58,237,.3);}
+    .mc-back-face::after{content:'?';font-size:1.6rem;color:rgba(255,255,255,.8);font-weight:900;}
+    .mc-front-face{background:var(--surface);border:2px solid var(--border);transform:rotateY(180deg);}
+    .mc.matched .mc-front-face{background:var(--green-soft);border-color:var(--green);}
+    .mc-text{font-size:.8rem;font-weight:700;color:var(--text);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+    .mc-type{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px;}
+    /* Results overlay */
+    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;align-items:center;justify-content:center;padding:24px;}
+    .overlay.show{display:flex;}
+    .overlay-card{background:var(--surface);border-radius:24px;padding:40px 28px;text-align:center;max-width:360px;width:100%;}
+    .ov-emoji{font-size:3.5rem;margin-bottom:10px;}
+    .ov-title{font-size:1.6rem;font-weight:900;margin-bottom:6px;}
+    .ov-sub{font-size:.9rem;color:var(--muted);font-weight:600;margin-bottom:16px;}
+    .xp-pill{display:inline-flex;align-items:center;gap:6px;background:var(--purple-soft);color:var(--purple);font-size:.9rem;font-weight:800;padding:8px 18px;border-radius:99px;margin-bottom:20px;}
+    .stars-row{font-size:1.8rem;margin-bottom:16px;}
+    .btn-row{display:flex;gap:10px;}
+    .btn-primary{flex:1;padding:13px;background:var(--purple);color:#fff;border:none;border-radius:12px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;text-decoration:none;text-align:center;}
+    .btn-secondary{flex:1;padding:13px;background:var(--surface);color:var(--purple);border:2px solid var(--purple);border-radius:12px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:inherit;}
+  </style>
+  <link rel="stylesheet" href="dark.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-back" id="nav-back" href="library.html">← Back</a>
+    <span class="nav-title">🧩 Memory Match</span>
+    <span class="nav-moves" id="nav-moves">0 moves</span>
+  </nav>
+  <div class="page">
+    <div class="stats-row">
+      <div class="stat-chip"><div class="stat-val" id="stat-moves">0</div><div class="stat-lbl">Moves</div></div>
+      <div class="stat-chip"><div class="stat-val" id="stat-pairs">0</div><div class="stat-lbl">Matched</div></div>
+      <div class="stat-chip"><div class="stat-val" id="stat-time">0:00</div><div class="stat-lbl">Time</div></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+  <div class="overlay" id="overlay">
+    <div class="overlay-card">
+      <div class="ov-emoji" id="ov-emoji"></div>
+      <div class="ov-title" id="ov-title"></div>
+      <div class="ov-sub"  id="ov-sub"></div>
+      <div class="stars-row" id="ov-stars"></div>
+      <div class="xp-pill"  id="ov-xp" style="display:none"></div>
+      <div class="btn-row">
+        <a class="btn-primary" href="library.html">📚 Library</a>
+        <button class="btn-secondary" onclick="startGame()">🔄 Play Again</button>
+      </div>
+    </div>
+  </div>
+  <script src="stories.js?v=20260705"></script>
+  <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
+    if (!profile) window.location.href = 'login.html';
+    const params  = new URLSearchParams(location.search);
+    const storyId = params.get('story');
+    const story   = storyId ? STORIES.find(s => s.id === storyId) : null;
+    if (!story || !Array.isArray(story.vocabulary) || !story.vocabulary.length) window.location.href = 'library.html';
+    document.getElementById('nav-back').href = storyId ? 'results.html' : 'library.html';
+
+    function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+    function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+    let moves=0, matched=0, totalPairs=0, flippedCards=[], locked=false, timerInterval=null, elapsed=0;
+
+    function startGame(){
+      document.getElementById('overlay').classList.remove('show');
+      clearInterval(timerInterval);
+      moves=0; matched=0; elapsed=0; flippedCards=[]; locked=false;
+      updateStats();
+
+      const vocab=(story.vocabulary||[]).map(v=>typeof v==='string'?{word:v,definition:'???'}:v)
+        .filter(v=>v.word&&v.definition);
+      const pairs=shuffle(vocab).slice(0,6);
+      totalPairs=pairs.length;
+
+      // Each pair = word card + definition card
+      const cards=shuffle([
+        ...pairs.map((v,i)=>({id:i,type:'word',text:v.word})),
+        ...pairs.map((v,i)=>({id:i,type:'def',text:v.definition}))
+      ]);
+
+      // Grid columns: 4 if many cards, else 3
+      const cols=cards.length>=10?4:3;
+      const grid=document.getElementById('grid');
+      grid.style.gridTemplateColumns=`repeat(${cols},1fr)`;
+      grid.innerHTML=cards.map((c,idx)=>`
+        <div class="mc" id="mc-${idx}" data-id="${c.id}" data-type="${c.type}" data-idx="${idx}" onclick="flipCard(${idx})">
+          <div class="mc-inner">
+            <div class="mc-face mc-back-face"></div>
+            <div class="mc-face mc-front-face">
+              <div>
+                <div class="mc-type">${c.type==='word'?'Word':'Definition'}</div>
+                <div class="mc-text">${escHtml(c.text)}</div>
+              </div>
+            </div>
+          </div>
+        </div>`).join('');
+
+      timerInterval=setInterval(()=>{
+        elapsed++;
+        const m=Math.floor(elapsed/60), s=elapsed%60;
+        document.getElementById('stat-time').textContent=m+':'+(s<10?'0':'')+s;
+      },1000);
+    }
+
+    function flipCard(idx){
+      if(locked) return;
+      const el=document.getElementById('mc-'+idx);
+      if(!el||el.classList.contains('flipped')||el.classList.contains('matched')) return;
+      el.classList.add('flipped');
+      flippedCards.push(el);
+      if(flippedCards.length===2){
+        moves++;
+        updateStats();
+        locked=true;
+        const [a,b]=flippedCards;
+        if(a.dataset.id===b.dataset.id&&a.dataset.type!==b.dataset.type){
+          // Match!
+          setTimeout(()=>{
+            a.classList.add('matched'); b.classList.add('matched');
+            matched++;
+            updateStats();
+            flippedCards=[];locked=false;
+            if(matched===totalPairs) setTimeout(showResults,400);
+          },500);
+        } else {
+          setTimeout(()=>{
+            a.classList.remove('flipped'); b.classList.remove('flipped');
+            flippedCards=[];locked=false;
+          },900);
+        }
+      }
+    }
+
+    function updateStats(){
+      document.getElementById('stat-moves').textContent=moves;
+      document.getElementById('nav-moves').textContent=moves+' move'+(moves!==1?'s':'');
+      document.getElementById('stat-pairs').textContent=matched+'/'+totalPairs;
+    }
+
+    function showResults(){
+      clearInterval(timerInterval);
+      // Stars: 3=≤totalPairs*2 moves, 2=≤totalPairs*3, 1=anything else
+      const perfect=totalPairs*2;
+      const good=totalPairs*3;
+      const stars=moves<=perfect?3:moves<=good?2:1;
+      const bonusXp=stars===3?40:stars===2?25:15;
+      const starsStr='⭐'.repeat(stars)+'☆'.repeat(3-stars);
+      let emoji='🎉',title='You matched them all!';
+      const m=Math.floor(elapsed/60),s=elapsed%60;
+      document.getElementById('ov-emoji').textContent=emoji;
+      document.getElementById('ov-title').textContent=title;
+      document.getElementById('ov-sub').textContent=moves+' moves · '+m+':'+(s<10?'0':'')+s;
+      document.getElementById('ov-stars').textContent=starsStr;
+      const xpEl=document.getElementById('ov-xp');
+      xpEl.textContent='⚡ +'+bonusXp+' XP!'; xpEl.style.display='';
+      document.getElementById('overlay').classList.add('show');
+      firebase.firestore().collection('StudentStats').doc(profile.readerId)
+        .set({challengeXp:firebase.firestore.FieldValue.increment(bonusXp),lastUpdated:firebase.firestore.FieldValue.serverTimestamp()},{merge:true}).catch(()=>{});
+    }
+
+    startGame();
+  </script>
+</body>
+</html>
