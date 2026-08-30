@@ -328,7 +328,7 @@
   <script>
     // ─── Auth guard — redirect to login if no profile ─────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.href = 'login.html'; return; }
 
     // ─── Apply profile to page ────────────────────────────────────────────────
     if (profile) {
@@ -596,6 +596,7 @@
       readSnap.forEach(d => {
         const data = d.data();
         readXp += (data.xpEarned || 0);
+        if (data.storyId === '__daily_bonus__') return; // login bonus isn't a story
         if ((data.quizScore || 0) > bestReadScore) bestReadScore = data.quizScore;
         uniqueStories.add(data.storyId);
         // Keep only the highest-scoring attempt per story

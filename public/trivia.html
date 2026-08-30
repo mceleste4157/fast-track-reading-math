@@ -344,7 +344,7 @@
     } catch(e) {}
     return null;
   })();
-  if (!profile) { window.location.href = 'login.html'; }
+  if (!profile) { window.location.href = 'login.html'; return; }
 
   // ─── Game state ────────────────────────────────────────────────────────────
   const ROUNDS        = 3;
@@ -718,7 +718,7 @@
         points,
         rounds: ROUNDS,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
+      }).catch(() => { /* non-critical */ });
     } catch(e) { /* non-critical */ }
   }
 

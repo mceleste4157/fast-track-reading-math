@@ -362,7 +362,7 @@
     }
 
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; }
+    if (!profile) { window.location.href = 'index.html'; return; }
 
     const raw = sessionStorage.getItem('quizResult');
     if (!raw) { window.location.href = 'library.html'; }

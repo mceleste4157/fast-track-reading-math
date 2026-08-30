@@ -253,7 +253,7 @@
   <script>
     // ── Profile + lesson setup ──────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.href = 'login.html'; return; }
 
     const LESSONS = {
       l1:  { emoji:'👈', title:'Left Home Row',    sub:'a · s · d · f · g',         xp:15, text:'aaa sss ddd fff asd fds fad sad add lass flask glass glad flask adds' },

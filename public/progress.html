@@ -291,7 +291,7 @@
   <script>
     // ─── Profile (required — redirect to login if missing) ───────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.href = 'login.html'; return; }
 
     // Set dynamic name/avatar
     document.getElementById('nav-title').textContent = '🗺️ ' + profile.name + '\'s Quest Board';
@@ -435,10 +435,11 @@
       readSnap.forEach(d => {
         const data = d.data();
         readXp += (data.xpEarned || 0); // XP from every attempt
+        readDocs.push(data);
+        if (data.storyId === '__daily_bonus__') return; // login bonus isn't a story
         if ((data.quizScore || 0) > bestReadScore) bestReadScore = data.quizScore;
         uniqueStories.add(data.storyId);
         if (data.storyTopic) topicsSeen.add(data.storyTopic);
-        readDocs.push(data);
         // Keep best-scoring attempt per story
         if (!bestPerStory[data.storyId] ||
             (data.quizScore || 0) > (bestPerStory[data.storyId].quizScore || 0)) {
@@ -518,7 +519,7 @@
           <div style="font-size:0.65rem;color:#6b7280;margin-top:2px;">${b.desc}</div>`;
         (earned ? badgeGrid : lockedGrid).appendChild(div);
       });
-      document.getElementById('badges-section').style.display = earnedBadges.size > 0 ? 'block' : 'none';
+      document.getElementById('badges-section').style.display = BADGES.length > 0 ? 'block' : 'none';
 
       // ── Level bar ────────────────────────────────────────────────────────
       const { level, nextLevel, idx } = getLevel(totalXp);

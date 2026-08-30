@@ -137,7 +137,7 @@
   <script src="/__/firebase/init.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.href = 'login.html'; return; }
 
     const LESSONS = [
       { id: 'l1',  emoji: '👈', title: 'Left Home Row',     sub: 'a · s · d · f · g',          text: 'aaa sss ddd fff asd fds fad sad add lass flask glass glad flask adds' },
