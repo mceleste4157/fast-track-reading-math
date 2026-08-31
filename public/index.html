@@ -278,7 +278,7 @@
       <!-- Monthly Challenge -->
       <div id="monthly-challenge-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
         <div style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:14px;padding:14px 16px;">
-          <div style="font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">☀️ June Challenge</div>
+          <div style="font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;" id="challenge-month-label">☀️ Monthly Challenge</div>
           <div style="font-weight:800;font-size:0.95rem;color:#1e1b4b;margin-bottom:4px;" id="challenge-title"></div>
           <div style="font-size:0.82rem;color:#78350f;margin-bottom:10px;" id="challenge-desc"></div>
           <div style="height:7px;background:#fde68a;border-radius:99px;overflow:hidden;margin-bottom:5px;">
@@ -879,6 +879,8 @@
         ];
         const challenge = CHALLENGES[month];
         if (!challenge) return;
+        const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        document.getElementById('challenge-month-label').textContent = '☀️ ' + MONTH_NAMES[month] + ' Challenge';
         const currentMonth = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
         const done = (sd.monthStartDate === currentMonth) ? (sd.storiesThisMonth || 0) : 0;
         const pct  = Math.min(100, Math.round((done / challenge.goal) * 100));
@@ -1193,8 +1195,9 @@
         '/index.html','/login.html','/library.html','/read.html',
         '/quiz.html','/results.html','/progress.html',
         '/math.html','/math-quiz.html','/math-results.html',
-        '/spelling.html','/vocab.html','/vocab-game.html',
-        '/trivia.html','/typing-practice.html','/story-type.html',
+        '/spelling.html','/spelling-quiz.html','/vocab.html','/vocab-game.html','/vocab-bank.html',
+        '/trivia.html','/typing.html','/typing-practice.html','/story-type.html',
+        '/paired-read.html','/flashcards.html','/fill-in-blank.html','/memory-match.html','/unscramble.html',
         '/parent-portal.html',
       ];
 
@@ -1204,7 +1207,10 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v10');
+      // Must match sw.js's CACHE name — otherwise the service worker's
+      // activate handler deletes this cache on the next load, silently
+      // wiping out everything the user just downloaded for offline use.
+      const cache = await caches.open('fast-track-v12');
 
       for (const url of ASSETS) {
         try {
