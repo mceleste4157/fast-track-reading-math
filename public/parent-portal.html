@@ -624,7 +624,28 @@
     // ── Release notes data — add new entries at the TOP of this array ──────────
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
-      { date: 'July 4, 2026', label: 'Latest Update', items: [
+      { date: 'August 29, 2026', label: 'Latest Update', items: [
+        { icon: '🏆', title: 'Sibling XP Race', text: 'On the login screen, when more than one child shares the account, each kid\'s card now shows their XP and current streak, with a crown 👑 on whoever\'s in the lead — a friendly nudge to keep reading.' },
+        { icon: '🛍️', title: 'Avatar Shop', text: 'On the Progress page, kids can spend the XP they\'ve earned to unlock and equip new emoji avatars. There\'s a free tier plus unlocks at 50, 100, 200, and 500 XP — their pick saves instantly and shows up everywhere in the app.' },
+        { icon: '🎉', title: 'Level-up celebration', text: 'When a child earns a new level, the next time they open the app a confetti overlay announces their new title before they get back to reading.' },
+      ]},
+      { date: 'August 12, 2026', items: [
+        { icon: '⚡', title: 'Much faster home screen', text: 'The home screen used to download the entire 2.5MB story library just to show a few stats. It now loads a lightweight 66KB summary instead, so the app opens noticeably faster, especially on phones or slower connections.' },
+      ]},
+      { date: 'August 1, 2026', items: [
+        { icon: '📥', title: 'Download for Offline Use', text: 'A new button lets kids pre-download every story, math set, and asset in one tap (with a progress bar) so the whole app works offline right away, instead of caching gradually in the background.' },
+        { icon: '🛠️', title: 'Offline reliability fix', text: 'Fixed a version mismatch that could leave the offline cache serving outdated stories after an update. Offline mode now stays in sync with the latest content.' },
+      ]},
+      { date: 'July 5, 2026', items: [
+        { icon: '🌙', title: 'Dark mode everywhere', text: 'Every page in the app — reading, math, typing, quizzes, the parent portal, and more — now respects your device\'s dark mode setting automatically.' },
+        { icon: '🏷️', title: 'Library topic filters + NEW badges', text: 'Filter the library by Fiction, Biography, Science, History, or Florida with one tap, and spot recently added stories instantly with a NEW badge.' },
+        { icon: '🔒', title: 'Password required to reset parent PIN', text: 'Forgot PIN now requires re-entering the account password before it can be reset, so kids can\'t reset the portal PIN on their own.' },
+        { icon: '👉', title: 'Daily challenge cards are clickable', text: 'Tapping a daily challenge on the home screen now jumps straight to the matching activity — library, math, typing, or vocab — instead of just showing the goal.' },
+        { icon: '📊', title: '"Last Active" now accurate on Admin', text: 'The admin dashboard previously only counted reading quizzes toward a child\'s last-active date. It now also counts math, typing, and trivia activity.' },
+        { icon: '🔤', title: 'Read aloud + font size fixes', text: 'Font size chosen while reading now persists across sessions. Also fixed the vocab game score label lagging one answer behind.' },
+        { icon: '🔥', title: 'Combo streak toast + today\'s reading time', text: 'The home screen now shows a stat card for today\'s reading time, and finishing 2+ stories in one day triggers a combo streak celebration.' },
+      ]},
+      { date: 'July 4, 2026', items: [
         { icon: '⚡', title: 'Daily Challenges', text: 'Three new challenges appear every day on the home screen, rotating by student so each child gets a different set. Completing them earns bonus XP (e.g., "Read 2 stories today +40 XP", "Score 5 stars +35 XP"). Challenge XP is tracked separately and counts toward your child\'s total.' },
         { icon: '🔤', title: 'Spelling Quiz', text: 'After finishing a story quiz, students can tap "🔤 Spelling Quiz" to practice vocabulary words from that story. Each round picks up to 5 words, shows a definition and first/last letter hint, and awards 15 XP per correct spelling. A word-by-word review appears at the end.' },
         { icon: '📖', title: 'Vocabulary Bank', text: 'A new "Vocab Bank" page (accessible from the Library) shows every vocabulary word your child has encountered across all stories they\'ve read, searchable by word, definition, or story title. Tap any word card to reveal its definition.' },
@@ -635,7 +656,7 @@
         { icon: '📊', title: 'Level thresholds raised', text: 'All level XP requirements have been significantly increased so each achievement feels meaningful. FAST Legend now requires 17,000 XP (was 4,000) and Infinity Reader requires 72,000 XP. Students already past a threshold keep their current level.' },
         { icon: '📚', title: '10 new stories added', text: 'New stories covering all grade levels (1–8): sharks & ocean life (Gr 1), four seasons (Gr 2), George Washington (Gr 3), Mary McLeod Bethune & Jamestown (Gr 4), Trail of Tears & Lewis & Clark (Gr 5), Aztec Empire (Gr 6), Korean War (Gr 7), Apollo Moon Race (Gr 8).' },
       ]},
-      { date: 'June 5, 2026', label: 'Previous Update', items: [
+      { date: 'June 5, 2026', items: [
         { icon: '❤️', title: 'Story bookmarks', text: 'Students can now tap 🤍 on any story card in the library to save it. Saved stories appear in the new ❤️ Saved tab at the top of the library. Bookmarks sync across devices via Firestore and the 🤍 button on the reading page also works. The tab shows a count of saved stories.' },
         { icon: '🎯', title: 'Trivia & Vocab games now award XP', text: 'Completing a Story Trivia round earns 10–30 XP based on stars earned. Finishing a Vocab Game earns 5–20 XP based on accuracy. Both now appear in each student\'s total XP and activity feed.' },
         { icon: '⌨️', title: 'Typing badges added', text: 'Three new badges reward typing milestones: Keyboarder (first lesson), Typing Pro (5 lessons), and Speed Demon (10 lessons). Badges are awarded instantly when a lesson finishes.' },
