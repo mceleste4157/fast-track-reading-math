@@ -1193,9 +1193,11 @@
         '/index.html','/login.html','/library.html','/read.html',
         '/quiz.html','/results.html','/progress.html',
         '/math.html','/math-quiz.html','/math-results.html',
-        '/spelling.html','/vocab.html','/vocab-game.html',
+        '/spelling.html','/spelling-quiz.html','/vocab.html','/vocab-bank.html','/vocab-game.html',
         '/trivia.html','/typing-practice.html','/story-type.html',
-        '/parent-portal.html',
+        '/parent-portal.html','/parent.html','/admin-dashboard.html',
+        '/flashcards.html','/memory-match.html','/fill-in-blank.html',
+        '/unscramble.html','/paired-read.html',
       ];
 
       btn.disabled = true;
@@ -1204,7 +1206,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v10');
+      const cache = await caches.open('fast-track-v12');
 
       for (const url of ASSETS) {
         try {
