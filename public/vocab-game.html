@@ -285,7 +285,7 @@
         points:         correct * 10,
         xpEarned,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
+      }).catch(() => { /* non-critical */ });
       // Show XP toast
       const toast = document.createElement('div');
       toast.textContent = '+' + xpEarned + ' XP earned!';
