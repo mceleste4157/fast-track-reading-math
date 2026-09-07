@@ -154,4 +154,15 @@
   /* Scrollbar */
   ::-webkit-scrollbar { background: #111827; }
   ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+
+  /* Topic chips: hardcoded light-mode text is unreadable against the dark
+     chip backgrounds produced by the --*-soft var overrides above */
+  .topic-florida-nature { color: #6ee7b7 !important; }
+  .topic-character      { color: #c4b5fd !important; }
+  .topic-science         { color: #93c5fd !important; }
+  .topic-perspective     { color: #fdba74 !important; }
+  .topic-folktale        { color: #fcd34d !important; }
+  .topic-environment     { color: #5eead4 !important; }
+  .topic-biography       { color: #f9a8d4 !important; }
+  .topic-adventure       { color: #fdba74 !important; }
 }
