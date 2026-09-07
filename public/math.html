@@ -207,12 +207,12 @@
             <div class="lock-icon">🔒</div>
             <div class="locked-title">Math Zone is Locked</div>
             <div class="locked-desc">
-              Complete a reading quiz and earn at least <strong>3 stars ⭐⭐⭐</strong>
+              Complete a reading quiz and earn at least <strong>${MATH_UNLOCK_SCORE} star${MATH_UNLOCK_SCORE === 1 ? '' : 's'} ${'⭐'.repeat(MATH_UNLOCK_SCORE)}</strong>
               to unlock the Math Zone!
             </div>
             <div class="locked-req">📖 Your best reading score: ${bestReadScore}/5 stars</div>
             <div class="best-score-wrap">
-              <div class="best-score-label">Progress toward unlock (need 3 stars)</div>
+              <div class="best-score-label">Progress toward unlock (need ${MATH_UNLOCK_SCORE} star${MATH_UNLOCK_SCORE === 1 ? '' : 's'})</div>
               <div class="best-score-bar-wrap">
                 <div class="best-score-bar" style="width:${barPct}%"></div>
               </div>
@@ -231,7 +231,7 @@
             <div class="lock-icon">📖</div>
             <div class="locked-title">Read First!</div>
             <div class="locked-desc">
-              Math Zone opens after <strong>30 minutes of reading</strong> each day.
+              Math Zone opens after <strong>${readMinsNeeded} minute${readMinsNeeded === 1 ? '' : 's'} of reading</strong> each day.
               You've read <strong>${readMinsDone} min</strong> today — almost there!
             </div>
             <div class="locked-req" style="background:var(--purple)">
