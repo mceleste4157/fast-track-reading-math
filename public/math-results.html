@@ -275,7 +275,7 @@
     function getLevel(xp) {
       let idx = 0;
       for (let i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i].minXp) idx = i; }
-      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null };
+      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null, levelIdx: idx };
     }
 
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();

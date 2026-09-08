@@ -488,8 +488,9 @@
     document.getElementById('nav-title').textContent = mathSet.title;
     const questions = mathSet.questions;
 
-    // ─── Daily math time limit (20 minutes) ───────────────────────────────────
-    const MATH_LIMIT_SECS = 10 * 60; // 600 seconds (10 min daily cap)
+    // ─── Daily math time limit (parent-configurable, 0 = no limit) ────────────
+    const MATH_LIMIT_MINS = profile.dailyMathMinutes ?? 10;
+    const MATH_LIMIT_SECS = MATH_LIMIT_MINS === 0 ? Infinity : MATH_LIMIT_MINS * 60;
     const MATH_DATE_KEY   = 'mathTimeDate_' + profile.readerId;
     const MATH_SECS_KEY   = 'mathTimeSecs_' + profile.readerId;
 
