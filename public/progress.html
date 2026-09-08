@@ -260,7 +260,7 @@
   <script>
     // ─── Profile ────────────────────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.href = 'login.html'; return; }
 
     document.getElementById('nav-title').textContent = profile.name + '\'s Progress';
     document.getElementById('hero-name').textContent = profile.name;
@@ -369,11 +369,13 @@
 
       readSnap.forEach(d => {
         const data = d.data();
-        readXp += (data.xpEarned || 0);
+        readXp += (data.xpEarned || 0); // XP from every attempt
+        readDocs.push(data);
+        if (data.storyId === '__daily_bonus__') return; // login bonus isn't a story
         if ((data.quizScore || 0) > bestReadScore) bestReadScore = data.quizScore;
         uniqueStories.add(data.storyId);
         if (data.storyTopic) topicsSeen.add(data.storyTopic);
-        readDocs.push(data);
+        // Keep best-scoring attempt per story
         if (!bestPerStory[data.storyId] ||
             (data.quizScore || 0) > (bestPerStory[data.storyId].quizScore || 0)) {
           bestPerStory[data.storyId] = data;

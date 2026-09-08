@@ -139,7 +139,7 @@
   <script src="/__/firebase/init.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.href = 'login.html'; return; }
 
     const av = document.getElementById('nav-avatar');
     av.style.background = profile.avatarColor || '#2563eb';

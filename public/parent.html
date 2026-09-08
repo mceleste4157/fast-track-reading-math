@@ -315,6 +315,26 @@
         </div>
       </div>
 
+      <!-- Typing Progress -->
+      <div class="section" id="typing-section" style="display:none;">
+        <div class="section-title">⌨️ Typing Progress</div>
+        <div class="section-sub">Best result per typing lesson, most recent first</div>
+        <div class="table-wrap">
+          <table class="hist-table">
+            <thead>
+              <tr>
+                <th>Lesson</th>
+                <th>Date</th>
+                <th>WPM</th>
+                <th>Accuracy</th>
+                <th>Stars</th>
+              </tr>
+            </thead>
+            <tbody id="typing-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
       <!-- Quiz Score Progress Graph -->
       <div class="section">
         <div class="section-title">📈 Quiz Score Trend</div>
@@ -619,9 +639,9 @@
           readXp += (data.xpEarned || 0);
           readDocs.push(data);
 
-          // Keep the best-scoring attempt per story
-          if (!bestPerStory[data.storyId] ||
-              (data.quizScore || 0) > (bestPerStory[data.storyId].quizScore || 0)) {
+          // Keep the best-scoring attempt per story (login bonus isn't a story)
+          if (data.storyId !== '__daily_bonus__' && (!bestPerStory[data.storyId] ||
+              (data.quizScore || 0) > (bestPerStory[data.storyId].quizScore || 0))) {
             bestPerStory[data.storyId] = data;
           }
 
@@ -894,6 +914,30 @@
                 <div style="font-size:0.93rem;line-height:1.5;">${escHtml(w.response || '')}</div>
               </div>`
             ).join('');
+          }).catch(() => {});
+
+        // ── Typing progress ────────────────────────────────────────────────────
+        firebase.firestore().collection('TypingProgress')
+          .where('readerId', '==', STUDENT_ID).get().then(tSnap => {
+            if (tSnap.empty) return;
+            document.getElementById('typing-section').style.display = 'block';
+            const bestPerLesson = {};
+            tSnap.forEach(d => {
+              const data = d.data();
+              if (!bestPerLesson[data.lessonId] || (data.wpm || 0) > bestPerLesson[data.lessonId].wpm) {
+                bestPerLesson[data.lessonId] = data;
+              }
+            });
+            const typingDocs = Object.values(bestPerLesson).sort((a, b) =>
+              (b.completedAt?.toMillis?.() || 0) - (a.completedAt?.toMillis?.() || 0)
+            );
+            document.getElementById('typing-tbody').innerHTML = typingDocs.map(d => `<tr>
+              <td>⌨️ ${escHtml(d.lessonTitle || d.lessonId)}</td>
+              <td>${formatDate(d.completedAt)}</td>
+              <td>${d.wpm || 0}</td>
+              <td>${d.accuracy || 0}%</td>
+              <td class="stars-s">${renderStars(d.stars || 0, 5)}</td>
+            </tr>`).join('');
           }).catch(() => {});
 
       }).catch(err => {
