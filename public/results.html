@@ -695,6 +695,20 @@
 
       // ── Write StudentStats ──────────────────────────────────────────────────
       // Compute aggregated fields so home page only needs to read this one doc
+      // Best-scoring attempt per story (mirrors parent.html/progress.html logic)
+      const bestPerStory = {};
+      readSnap.forEach(d => {
+        const data = d.data();
+        if (!bestPerStory[data.storyId] ||
+            (data.quizScore || 0) > (bestPerStory[data.storyId].quizScore || 0)) {
+          bestPerStory[data.storyId] = data;
+        }
+      });
+      // This attempt hasn't been written to Progress yet — fold it in if it's the new best
+      const priorBestForThisStory = bestPerStory[result.storyId];
+      if (!priorBestForThisStory || (result.score || 0) > (priorBestForThisStory.quizScore || 0)) {
+        bestPerStory[result.storyId] = { storyId: result.storyId, quizScore: result.score, starsEarned: stars };
+      }
       const totalReadStars = Object.values(bestPerStory).reduce((s, d) => s + (d.starsEarned || 0), 0);
       const bestReadScoreNow = Math.max(sd.bestReadScore || 0, result.score || 0);
       const now2 = new Date();
@@ -729,7 +743,8 @@
       // Include the current quiz's stars in the check (it may not be written yet)
       checkGradeAdvancement(readSnap, stars);
 
-    }).catch(() => {
+    }).catch((err) => {
+      console.error('Post-quiz stats update failed:', err);
       const { level } = getLevel(Math.max(0, xp));
       document.getElementById('level-name').textContent = level.emoji + ' ' + level.name;
     });

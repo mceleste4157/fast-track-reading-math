@@ -129,8 +129,21 @@
 
   [style*="background:#f9fafb"], [style*="background: #f9fafb"],
   [style*="background:#f3f4f6"], [style*="background: #f3f4f6"],
-  [style*="background:#f8fafc"], [style*="background: #f8fafc"] {
+  [style*="background:#f8fafc"], [style*="background: #f8fafc"],
+  [style*="background:#fafafa"], [style*="background: #fafafa"] {
     background: #111827 !important;
+  }
+
+  /* Pastel gradient/tint cards that would otherwise leave force-lightened text unreadable */
+  [style*="linear-gradient(135deg,#fef9c3,#fef3c7)"],
+  [style*="background:#fef3c7"], [style*="background: #fef3c7"],
+  [style*="background:#faf5ff"], [style*="background: #faf5ff"],
+  [style*="background:#ecfdf5"], [style*="background: #ecfdf5"] {
+    background: #1e1b2e !important;
+  }
+
+  thead tr, table thead tr {
+    background: #1e1b2e !important;
   }
 
   /* Text that hardcodes dark colors */
@@ -143,6 +156,17 @@
   [style*="color:#6b7280"], [style*="color: #6b7280"],
   [style*="color:#9ca3af"], [style*="color: #9ca3af"] {
     color: #9ca3af !important;
+  }
+
+  /* Amber-on-amber text used on the pastel cards above — needs contrast once their background goes dark */
+  [style*="color:#92400e"], [style*="color: #92400e"],
+  [style*="color:#78350f"], [style*="color: #78350f"] {
+    color: #fbbf24 !important;
+  }
+
+  /* Green message-bubble text — needs contrast once its background goes dark */
+  [style*="color:#065f46"], [style*="color: #065f46"] {
+    color: #34d399 !important;
   }
 
   /* Border overrides for hardcoded light borders */
