@@ -695,7 +695,17 @@
 
       // ── Write StudentStats ──────────────────────────────────────────────────
       // Compute aggregated fields so home page only needs to read this one doc
-      const totalReadStars = Object.values(bestPerStory).reduce((s, d) => s + (d.starsEarned || 0), 0);
+      const bestPerStory = {};
+      readSnap.forEach(d => {
+        const { storyId, starsEarned } = d.data();
+        if (storyId && (!bestPerStory[storyId] || (starsEarned || 0) > bestPerStory[storyId])) {
+          bestPerStory[storyId] = starsEarned || 0;
+        }
+      });
+      if (result.storyId && stars > (bestPerStory[result.storyId] || 0)) {
+        bestPerStory[result.storyId] = stars;
+      }
+      const totalReadStars = Object.values(bestPerStory).reduce((s, v) => s + v, 0);
       const bestReadScoreNow = Math.max(sd.bestReadScore || 0, result.score || 0);
       const now2 = new Date();
       const monthStart = now2.getFullYear() + '-' + String(now2.getMonth() + 1).padStart(2, '0');
