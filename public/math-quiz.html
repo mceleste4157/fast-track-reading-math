@@ -618,6 +618,12 @@
       document.querySelectorAll('.option-btn').forEach(btn => {
         btn.disabled = false; btn.classList.remove('locked');
       });
+      // Make help available as soon as a student can act, not only after a wrong guess —
+      // some kids know they're stuck before they ever pick an answer.
+      const q = questions[currentQ];
+      if (q && q.steps && q.steps.length) {
+        document.getElementById('show-me-btn').classList.add('visible');
+      }
     }
 
     // ─── Show Me How (step-by-step) ──────────────────────────────────────────

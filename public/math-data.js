@@ -420,12 +420,12 @@ const MATH_SETS = [
         question: 'The perimeter of a rectangle is 50 cm. The length is 4 times the width. What is the WIDTH?',
         options: ['10 cm', '20 cm', '4 cm', '5 cm'],
         correctIndex: 3,
-        explanation: 'Let width = w. Then length = 4w. Perimeter: 2(4w) + 2w = 10w = 50. So w = 5 cm.',
+        explanation: 'Since length = 4 × width, the perimeter (2 lengths + 2 widths) is really 10 widths in all: (2 × 4 widths) + 2 widths = 10 widths. So one width = 50 ÷ 10 = 5 cm.',
         steps: [
-          'Call the width "w". Then the length = 4w',
-          'Perimeter = 2(length) + 2(width) = 2(4w) + 2w = 8w + 2w = 10w',
-          'Set equal to 50: 10w = 50 → w = 5 cm',
-          'Check: length = 20, perimeter = 2(20) + 2(5) = 40 + 10 = 50 ✓'
+          'The length is 4 times the width, so each length is worth 4 widths.',
+          'Perimeter = 2 lengths + 2 widths = (2 × 4 widths) + 2 widths = 10 widths in all.',
+          '10 widths = 50 cm, so 1 width = 50 ÷ 10 = 5 cm.',
+          'Check: length = 4 × 5 = 20 cm, perimeter = 20 + 20 + 5 + 5 = 50 ✓'
         ]
       }
     ]
@@ -3092,12 +3092,12 @@ const MATH_SETS = [
         question: 'A rectangle has a perimeter of 20 inches and a width of 3 inches. What is its length?',
         options: ['7 inches', '10 inches', '14 inches', '17 inches'],
         correctIndex: 0,
-        explanation: 'P = 2l + 2w → 20 = 2l + 6 → 2l = 14 → l = 7 inches.',
+        explanation: 'The two widths use 3 + 3 = 6 inches of the perimeter. That leaves 20 − 6 = 14 inches for the two equal lengths, so each length is 14 ÷ 2 = 7 inches.',
         steps: [
-          'Write the formula: P = 2l + 2w.',
-          'Substitute: 20 = 2l + 2(3) = 2l + 6.',
-          '2l = 20 − 6 = 14.',
-          'l = 14 ÷ 2 = 7 inches.'
+          'A rectangle has 2 widths and 2 lengths.',
+          'The two widths together: 3 + 3 = 6 inches.',
+          'The rest of the perimeter is the two lengths: 20 − 6 = 14 inches.',
+          'One length = 14 ÷ 2 = 7 inches.'
         ]
       },
       {
@@ -4433,7 +4433,9 @@ const MATH_SETS = [
     coverEmoji: '📍',
     coverColor: '#3b82f6',
     topic: 'geometry',
-    grades: [5, 6, 7],
+    // Florida B.E.S.T. restricts grade 5 (MA.5.GR.4.1-4.2) to Quadrant I only; negative
+    // coordinates and all four quadrants (used throughout this set) are a grade 6 skill.
+    grades: [6, 7],
     questions: [
       {
         question: 'Which ordered pair describes a point 4 units to the right and 3 units up from the origin?',
@@ -4523,18 +4525,18 @@ const MATH_SETS = [
         steps: ['Division: 24 ÷ 6 = 4', 'Multiplication: 3 × 2 = 6', 'Add the results: 4 + 6 = 10', 'Answer: 10']
       },
       {
-        question: 'What is 5² − 3 × 4?',
+        question: 'What is 5 × 5 − 3 × 4?',
         options: ['8', '13', '36', '88'],
         correctIndex: 1,
-        explanation: 'Exponents first: 5² = 25. Then multiply: 3 × 4 = 12. Subtract: 25 − 12 = 13.',
-        steps: ['Exponents first: 5² = 25', 'Multiply: 3 × 4 = 12', 'Subtract: 25 − 12 = 13', 'Answer: 13']
+        explanation: 'Multiply first: 5 × 5 = 25 and 3 × 4 = 12. Then subtract: 25 − 12 = 13.',
+        steps: ['Multiply first (left to right): 5 × 5 = 25', 'Multiply: 3 × 4 = 12', 'Subtract: 25 − 12 = 13', 'Answer: 13']
       },
       {
-        question: 'A group of Florida students solve: 2 × (8 − 3) + 4². What is the answer?',
+        question: 'A group of Florida students solve: 2 × (8 − 3) + 4 × 4. What is the answer?',
         options: ['18', '26', '50', '30'],
         correctIndex: 1,
-        explanation: 'Parentheses: 8 − 3 = 5. Exponent: 4² = 16. Multiply: 2 × 5 = 10. Add: 10 + 16 = 26.',
-        steps: ['Parentheses: 8 − 3 = 5', 'Exponent: 4² = 16', 'Multiply: 2 × 5 = 10', 'Add: 10 + 16 = 26']
+        explanation: 'Parentheses: 8 − 3 = 5. Then multiply: 2 × 5 = 10 and 4 × 4 = 16. Add: 10 + 16 = 26.',
+        steps: ['Parentheses: 8 − 3 = 5', 'Multiply: 4 × 4 = 16', 'Multiply: 2 × 5 = 10', 'Add: 10 + 16 = 26']
       },
       {
         question: 'What is 18 ÷ (2 + 1) × 3?',
@@ -4544,18 +4546,18 @@ const MATH_SETS = [
         steps: ['Parentheses first: 2 + 1 = 3', 'Divide (left to right): 18 ÷ 3 = 6', 'Multiply: 6 × 3 = 18', 'Answer: 18']
       },
       {
-        question: 'What is 3 + 6² ÷ 4?',
+        question: 'What is 3 + 6 × 6 ÷ 4?',
         options: ['20.25', '12', '11', '2.25'],
         correctIndex: 1,
-        explanation: 'Exponent: 6² = 36. Divide: 36 ÷ 4 = 9. Add: 3 + 9 = 12.',
-        steps: ['Exponents first: 6² = 36', 'Divide: 36 ÷ 4 = 9', 'Add: 3 + 9 = 12', 'Answer: 12']
+        explanation: 'Multiply and divide first (left to right): 6 × 6 = 36, then 36 ÷ 4 = 9. Add: 3 + 9 = 12.',
+        steps: ['Multiply first: 6 × 6 = 36', 'Divide: 36 ÷ 4 = 9', 'Add: 3 + 9 = 12', 'Answer: 12']
       },
       {
-        question: 'What is (4 + 1)² × 2 − 10?',
+        question: 'What is (4 + 1) × 10 − 10?',
         options: ['40', '32', '60', '90'],
         correctIndex: 0,
-        explanation: 'Parentheses: 4 + 1 = 5. Exponent: 5² = 25. Multiply: 25 × 2 = 50. Subtract: 50 − 10 = 40.',
-        steps: ['Parentheses: 4 + 1 = 5', 'Exponent: 5² = 25', 'Multiply: 25 × 2 = 50', 'Subtract: 50 − 10 = 40']
+        explanation: 'Parentheses first: 4 + 1 = 5. Then multiply: 5 × 10 = 50. Subtract: 50 − 10 = 40.',
+        steps: ['Parentheses first: 4 + 1 = 5', 'Multiply: 5 × 10 = 50', 'Subtract: 50 − 10 = 40', 'Answer: 40']
       }
     ]
   },
@@ -4603,11 +4605,11 @@ const MATH_SETS = [
         steps: ['List Sequence A: 1, 3, 5, 7, 9, 11...', 'List Sequence B: 0, 3, 6, 9, 12...', 'Find first common term: 3 appears in both', 'Answer: 3']
       },
       {
-        question: 'The table shows: x = 1 → y = 4; x = 2 → y = 7; x = 3 → y = 10. What is the rule?',
-        options: ['y = 4x', 'y = x + 3', 'y = 3x + 1', 'y = 2x + 2'],
+        question: 'An input/output machine gives: input 1 → output 4; input 2 → output 7; input 3 → output 10. What is the rule?',
+        options: ['output = input × 4', 'output = input + 3', 'output = input × 3 + 1', 'output = input × 2 + 2'],
         correctIndex: 2,
-        explanation: 'Check: y = 3(1) + 1 = 4 ✓, y = 3(2) + 1 = 7 ✓, y = 3(3) + 1 = 10 ✓. Rule: y = 3x + 1.',
-        steps: ['Find the difference in y values: 7 − 4 = 3, so add 3 each time', 'The multiplier for x is 3', 'Check at x = 1: 3(1) = 3, but y = 4, so add 1', 'Rule: y = 3x + 1']
+        explanation: 'Check: input 1 × 3 + 1 = 4 ✓, input 2 × 3 + 1 = 7 ✓, input 3 × 3 + 1 = 10 ✓. Rule: output = input × 3 + 1.',
+        steps: ['Find how much the output grows each time: 7 − 4 = 3, so it goes up by 3 each time', 'That means multiply the input by 3', 'Check input 1: 1 × 3 = 3, but output is 4, so add 1 more', 'Rule: output = input × 3 + 1']
       },
       {
         question: 'A lizard counts 8 palm trees on day 1 and 5 more each day. On which day does it count 28 trees?',
