@@ -483,13 +483,17 @@
     }
 
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; }
+    const raw     = sessionStorage.getItem('quizResult');
+    const result  = raw ? (() => { try { return JSON.parse(raw); } catch(e) { return null; } })() : null;
+    const story   = result ? STORIES.find(s => s.id === result.storyId) : null;
 
-    const raw = sessionStorage.getItem('quizResult');
-    if (!raw) { window.location.href = 'library.html'; }
-    const result = JSON.parse(raw);
-    const story = STORIES.find(s => s.id === result.storyId);
-    if (!story) { window.location.href = 'library.html'; }
+    if (!profile || !result || !story) {
+      // Reaching this page without a fresh quiz result (e.g. tapping a stale "Back" link
+      // from a game page instead of just finishing a quiz) used to throw here and depend
+      // on the browser completing the queued redirect anyway despite the crash — flaky on
+      // some devices. Bail out cleanly before any of the code below can touch result/story.
+      window.location.href = profile ? 'library.html' : 'index.html';
+    } else {
 
     const { stars, xp } = calcRewards(result.score, result.total, result.earnedXP);
     document.getElementById('try-again-btn').href = 'quiz.html?story=' + result.storyId;
@@ -562,11 +566,26 @@
     const todayStr   = new Date().toISOString().slice(0, 10);
     const weekStart  = getWeekStart();
 
-    Promise.all([
+    // Tracks whether any critical save below failed, so we can warn instead of
+    // silently losing XP/progress. Navigation is held until statsPromise and
+    // progressPromise (defined further down) both settle — see the nav guard
+    // at the bottom of this script.
+    let saveFailed = false;
+
+    // Read "prior" totals BEFORE this attempt's Progress doc is written below.
+    // Firestore's client SDK applies pending local writes to snapshots via
+    // latency compensation, so if the Progress.add() write were fired
+    // concurrently with this query, this student's own just-submitted attempt
+    // could get folded into "prior" totals and double-counted. Gating the
+    // write on this promise (see progressPromise below) guarantees readSnap
+    // is already a fixed, resolved snapshot before that write is ever sent.
+    const priorReadsPromise = Promise.all([
       db.collection('Progress').where('readerId', '==', profile.readerId).get(),
       db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
       db.collection('StudentStats').doc(profile.readerId).get()
-    ]).then(([readSnap, mathSnap, statsSnap]) => {
+    ]);
+
+    const statsPromise = priorReadsPromise.then(([readSnap, mathSnap, statsSnap]) => {
       // ── XP totals ──────────────────────────────────────────────────────────
       let priorReadXp = 0, priorMathXp = 0;
       let hadPerfect = isPerfect;
@@ -694,24 +713,31 @@
       showBadges(newBadgeIds);
 
       // ── Write StudentStats ──────────────────────────────────────────────────
-      // Compute aggregated fields so home page only needs to read this one doc
+      // Compute aggregated fields so home page only needs to read this one doc.
+      // bestPerStory tracks each story's highest-scoring attempt (storyId -> doc
+      // data), since a student can retake a story and we only want their best.
       const bestPerStory = {};
       readSnap.forEach(d => {
-        const { storyId, starsEarned } = d.data();
-        if (storyId && (!bestPerStory[storyId] || (starsEarned || 0) > bestPerStory[storyId])) {
-          bestPerStory[storyId] = starsEarned || 0;
+        const data = d.data();
+        const sid = data.storyId;
+        if (sid && (!bestPerStory[sid] || (data.starsEarned || 0) > (bestPerStory[sid].starsEarned || 0))) {
+          bestPerStory[sid] = data;
         }
       });
-      if (result.storyId && stars > (bestPerStory[result.storyId] || 0)) {
-        bestPerStory[result.storyId] = stars;
+      // Include the current attempt — it may not be in readSnap yet.
+      if (!bestPerStory[result.storyId] || stars > (bestPerStory[result.storyId].starsEarned || 0)) {
+        bestPerStory[result.storyId] = { starsEarned: stars };
       }
-      const totalReadStars = Object.values(bestPerStory).reduce((s, v) => s + v, 0);
+      const totalReadStars = Object.values(bestPerStory).reduce((s, d) => s + (d.starsEarned || 0), 0);
       const bestReadScoreNow = Math.max(sd.bestReadScore || 0, result.score || 0);
       const now2 = new Date();
       const monthStart = now2.getFullYear() + '-' + String(now2.getMonth() + 1).padStart(2, '0');
       const isNewMonth = (sd.monthStartDate || '') !== monthStart;
       const storiesThisMonth = (isNewMonth ? 0 : (sd.storiesThisMonth || 0)) + 1;
-      db.collection('StudentStats').doc(profile.readerId).set({
+      // This write is the source of truth for the home dashboard's Total XP /
+      // Stars / level display, so we track its promise and surface failures
+      // instead of swallowing them — see saveFailed and the nav guard below.
+      const statsWritePromise = db.collection('StudentStats').doc(profile.readerId).set({
         readerId: profile.readerId,
         currentStreak, longestStreak,
         lastReadDate: todayStr, weekStartDate: weekStart,
@@ -724,7 +750,10 @@
         lastStoryId: result.storyId,
         completedStoryIds: firebase.firestore.FieldValue.arrayUnion(result.storyId),
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-      }, { merge: true }).catch(() => {});
+      }, { merge: true }).catch(err => {
+        console.error('StudentStats write failed:', err);
+        saveFailed = true;
+      });
 
       // ── Write StudentActivity ───────────────────────────────────────────────
       db.collection('StudentActivity').add({
@@ -739,9 +768,11 @@
       // Include the current quiz's stars in the check (it may not be written yet)
       checkGradeAdvancement(readSnap, stars);
 
+      return statsWritePromise;
     }).catch(() => {
       const { level } = getLevel(Math.max(0, xp));
       document.getElementById('level-name').textContent = level.emoji + ' ' + level.name;
+      saveFailed = true;
     });
 
     // Answers
@@ -755,10 +786,15 @@
       </div>`;
     }).join('');
 
-    // Write to Firestore — only once
+    // Write to Firestore — only once. The 'quizWritten' flag is set only after
+    // the write actually succeeds (not before), so a failed or interrupted
+    // save — e.g. the browser navigating away mid-request — can still be
+    // retried on the next load instead of silently losing this quiz's XP.
+    // Gated on priorReadsPromise so this attempt can't leak into its own
+    // "prior totals" read above (see the comment on priorReadsPromise).
+    let progressPromise = Promise.resolve();
     if (!sessionStorage.getItem('quizWritten')) {
-      sessionStorage.setItem('quizWritten', 'true');
-      db.collection('Progress').add({
+      progressPromise = priorReadsPromise.then(() => db.collection('Progress').add({
         readerId: profile.readerId,
         readerName: profile.name,
         storyId: result.storyId,
@@ -772,7 +808,12 @@
         answers: result.answers || [],
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(err => console.error('Firestore write failed:', err));
+      }).then(() => {
+        sessionStorage.setItem('quizWritten', 'true');
+      }).catch(err => {
+        console.error('Firestore write failed:', err);
+        saveFailed = true;
+      }));
 
       // ── Daily Challenge completion ───────────────────────────────────────────
       (function checkDailyChallenges() {
@@ -1060,6 +1101,47 @@
         container.appendChild(el);
       }
     }
+
+    // ─── Navigation guard ──────────────────────────────────────────────────────
+    // This page's XP/streak/badge writes above are fire-and-forget Firestore
+    // calls kicked off on load. Without this guard, tapping "Back to Library"
+    // (or any other exit link) navigates immediately and the browser can cancel
+    // those requests mid-flight before they reach Firestore — the classic cause
+    // of "I finished a story but my XP didn't save." We hold same-page-app
+    // navigation until both saves have settled (success or failure), with a
+    // timeout so a dead connection never traps a kid on this screen.
+    const criticalSavesPromise = Promise.all([statsPromise, progressPromise]);
+    function waitForCriticalSaves(timeoutMs) {
+      return Promise.race([
+        criticalSavesPromise,
+        new Promise(resolve => setTimeout(resolve, timeoutMs))
+      ]);
+    }
+    function showSaveFailedToast() {
+      const t = document.createElement('div');
+      t.textContent = "⚠️ Your progress may not have saved. If you're offline, reconnect and reopen this story's quiz.";
+      t.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#dc2626;color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;font-size:0.85rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.25);max-width:380px;text-align:center;';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 6000);
+    }
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('javascript:') || href.startsWith('http')) return;
+      if (link.dataset.navGuardPassed === 'true') return; // already waited once
+      e.preventDefault();
+      const originalLabel = link.textContent;
+      link.style.opacity = '0.6';
+      waitForCriticalSaves(4000).then(() => {
+        if (saveFailed) showSaveFailedToast();
+        link.dataset.navGuardPassed = 'true';
+        link.style.opacity = '';
+        window.location.href = href;
+      });
+    }, true);
+
+    } // end valid-result guard
   </script>
 </body>
 </html>

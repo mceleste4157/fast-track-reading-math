@@ -279,13 +279,16 @@
     }
 
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; }
+    const raw     = sessionStorage.getItem('mathResult');
+    const result  = raw ? (() => { try { return JSON.parse(raw); } catch(e) { return null; } })() : null;
+    const mathSet = result ? MATH_SETS.find(s => s.id === result.setId) : null;
 
-    const raw = sessionStorage.getItem('mathResult');
-    if (!raw) { window.location.href = 'math.html'; }
-    const result = JSON.parse(raw);
-    const mathSet = MATH_SETS.find(s => s.id === result.setId);
-    if (!mathSet) { window.location.href = 'math.html'; }
+    if (!profile || !result || !mathSet) {
+      // Reaching this page without a fresh math result (e.g. a stale/incorrect "Back" link)
+      // used to throw here and depend on the browser completing the queued redirect anyway
+      // despite the crash — flaky on some devices. Bail out before touching result/mathSet.
+      window.location.href = profile ? 'math.html' : 'index.html';
+    } else {
 
     document.getElementById('try-again-btn').href = 'math-quiz.html?set=' + result.setId;
 
@@ -329,11 +332,26 @@
     const weekStart = getWeekStart();
     const MATH_UNLOCK_KEY = 'mathUnlocked_' + profile.readerId;
 
-    Promise.all([
+    // Tracks whether a critical save below failed, so we can warn instead of
+    // silently losing XP/progress. Navigation is held until statsPromise and
+    // mathProgressPromise (defined further down) both settle — see the nav
+    // guard at the bottom of this script.
+    let saveFailed = false;
+
+    // Read "prior" totals BEFORE this attempt's MathProgress doc is written
+    // below. Firestore's client SDK applies pending local writes to snapshots
+    // via latency compensation, so if MathProgress.add() were fired
+    // concurrently with this query, this attempt could get folded into
+    // "prior" totals and double-counted. Gating the write on this promise
+    // (see mathProgressPromise below) guarantees these reads are already a
+    // fixed, resolved snapshot before that write is ever sent.
+    const priorReadsPromise = Promise.all([
       db.collection('Progress').where('readerId', '==', profile.readerId).get(),
       db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
       db.collection('StudentStats').doc(profile.readerId).get()
-    ]).then(([readSnap, mathSnap, statsSnap]) => {
+    ]);
+
+    const statsPromise = priorReadsPromise.then(([readSnap, mathSnap, statsSnap]) => {
       // ── XP totals ──────────────────────────────────────────────────────────
       let priorReadXp = 0, priorMathXp = 0;
       let hadPerfect = (result.perfectFirstTry && result.score === result.total);
@@ -402,8 +420,11 @@
       showBadges(newBadgeIds);
 
       // ── Write StudentStats ──────────────────────────────────────────────────
+      // This write is the source of truth for the home dashboard's Total XP /
+      // Stars / level display, so we track its promise and surface failures
+      // instead of swallowing them — see saveFailed and the nav guard below.
       const mathSetsCompleted = uniqueMath.has(result.setId) ? uniqueMath.size : uniqueMath.size + 1;
-      db.collection('StudentStats').doc(profile.readerId).set({
+      const statsWritePromise = db.collection('StudentStats').doc(profile.readerId).set({
         readerId: profile.readerId,
         currentStreak, longestStreak,
         lastReadDate: todayStr, weekStartDate: weekStart,
@@ -412,7 +433,10 @@
         inactivityDecay: 0, decayCheckedDate: todayStr,
         totalXp, mathSetsCompleted,
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-      }, { merge: true }).catch(() => {});
+      }, { merge: true }).catch(err => {
+        console.error('StudentStats write failed:', err);
+        saveFailed = true;
+      });
 
       // ── Write StudentActivity ───────────────────────────────────────────────
       db.collection('StudentActivity').add({
@@ -423,9 +447,11 @@
         date: todayStr, timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(() => {});
 
+      return statsWritePromise;
     }).catch(() => {
       const { level } = getLevel(Math.max(0, xp));
       document.getElementById('level-name').textContent = level.emoji + ' ' + level.name;
+      saveFailed = true;
     });
 
     // Answers list
@@ -438,11 +464,16 @@
       </div>`;
     }).join('');
 
-    // Write to Firestore — only once
+    // Write to Firestore — only once. The 'mathWritten' flag is set only after
+    // the write actually succeeds (not before), so a failed or interrupted
+    // save — e.g. the browser navigating away mid-request — can still be
+    // retried on the next load instead of silently losing this quiz's XP.
+    // Gated on priorReadsPromise so this attempt can't leak into its own
+    // "prior totals" read above (see the comment on priorReadsPromise).
+    let mathProgressPromise = Promise.resolve();
     if (!sessionStorage.getItem('mathWritten')) {
-      sessionStorage.setItem('mathWritten', 'true');
       const starsEarned = result.score; // 1 star per correct answer
-      db.collection('MathProgress').add({
+      mathProgressPromise = priorReadsPromise.then(() => db.collection('MathProgress').add({
         readerId:    profile.readerId,
         readerName:  profile.name,
         setId:       result.setId,
@@ -454,7 +485,12 @@
         xpEarned:    xp,
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp:   firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(err => console.error('MathProgress write failed:', err));
+      })).then(() => {
+        sessionStorage.setItem('mathWritten', 'true');
+      }).catch(err => {
+        console.error('MathProgress write failed:', err);
+        saveFailed = true;
+      });
 
       // Daily challenge: c_math
       (function() {
@@ -489,6 +525,46 @@
         container.appendChild(el);
       }
     }
+
+    // ─── Navigation guard ──────────────────────────────────────────────────────
+    // This page's XP/streak/badge writes above are fire-and-forget Firestore
+    // calls kicked off on load. Without this guard, tapping an exit link
+    // navigates immediately and the browser can cancel those requests
+    // mid-flight before they reach Firestore — the classic cause of "I
+    // finished a math quiz but my XP didn't save." We hold navigation until
+    // both saves have settled (success or failure), with a timeout so a dead
+    // connection never traps a kid on this screen.
+    const criticalSavesPromise = Promise.all([statsPromise, mathProgressPromise]);
+    function waitForCriticalSaves(timeoutMs) {
+      return Promise.race([
+        criticalSavesPromise,
+        new Promise(resolve => setTimeout(resolve, timeoutMs))
+      ]);
+    }
+    function showSaveFailedToast() {
+      const t = document.createElement('div');
+      t.textContent = "⚠️ Your progress may not have saved. If you're offline, reconnect and reopen this quiz.";
+      t.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#dc2626;color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;font-size:0.85rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.25);max-width:380px;text-align:center;';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 6000);
+    }
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('javascript:') || href.startsWith('http')) return;
+      if (link.dataset.navGuardPassed === 'true') return; // already waited once
+      e.preventDefault();
+      link.style.opacity = '0.6';
+      waitForCriticalSaves(4000).then(() => {
+        if (saveFailed) showSaveFailedToast();
+        link.dataset.navGuardPassed = 'true';
+        link.style.opacity = '';
+        window.location.href = href;
+      });
+    }, true);
+
+    } // end valid-result guard
   </script>
 </body>
 </html>
