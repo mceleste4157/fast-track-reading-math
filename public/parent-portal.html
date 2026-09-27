@@ -624,7 +624,13 @@
     // ── Release notes data — add new entries at the TOP of this array ──────────
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
-      { date: 'August 29, 2026', label: 'Latest Update', items: [
+      { date: 'September 27, 2026', label: 'Latest Update', items: [
+        { icon: '🛠️', title: 'Fixed: quiz progress not always saving', text: 'A bug could silently stop a completed reading or math quiz from saving — so XP, stars, and streaks didn\'t update on the home screen even though the quiz was finished. This is now fixed, with extra safeguards so a save is confirmed before the app moves on.' },
+        { icon: '🎉', title: 'Math level-up celebration restored', text: 'The confetti announcement for reaching a new level was showing up for reading but not for math. Both now celebrate a level-up the same way.' },
+        { icon: '⏱️', title: 'Daily math time limit now reflects live settings', text: 'If a parent changes the daily math time limit (or reading/unlock requirements) in the portal, it now takes effect immediately instead of waiting for the child to log out and back in.' },
+        { icon: '📥', title: 'Fixed: "Download for Offline" button', text: 'The one-tap offline download button was saving content in a way the app couldn\'t actually use it. It now correctly pre-loads everything, including the typing lessons page, for offline use.' },
+      ]},
+      { date: 'August 29, 2026', items: [
         { icon: '🏆', title: 'Sibling XP Race', text: 'On the login screen, when more than one child shares the account, each kid\'s card now shows their XP and current streak, with a crown 👑 on whoever\'s in the lead — a friendly nudge to keep reading.' },
         { icon: '🛍️', title: 'Avatar Shop', text: 'On the Progress page, kids can spend the XP they\'ve earned to unlock and equip new emoji avatars. There\'s a free tier plus unlocks at 50, 100, 200, and 500 XP — their pick saves instantly and shows up everywhere in the app.' },
         { icon: '🎉', title: 'Level-up celebration', text: 'When a child earns a new level, the next time they open the app a confetti overlay announces their new title before they get back to reading.' },
