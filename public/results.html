@@ -483,13 +483,17 @@
     }
 
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; }
+    const raw     = sessionStorage.getItem('quizResult');
+    const result  = raw ? (() => { try { return JSON.parse(raw); } catch(e) { return null; } })() : null;
+    const story   = result ? STORIES.find(s => s.id === result.storyId) : null;
 
-    const raw = sessionStorage.getItem('quizResult');
-    if (!raw) { window.location.href = 'library.html'; }
-    const result = JSON.parse(raw);
-    const story = STORIES.find(s => s.id === result.storyId);
-    if (!story) { window.location.href = 'library.html'; }
+    if (!profile || !result || !story) {
+      // Reaching this page without a fresh quiz result (e.g. tapping a stale "Back" link
+      // from a game page instead of just finishing a quiz) used to throw here and depend
+      // on the browser completing the queued redirect anyway despite the crash — flaky on
+      // some devices. Bail out cleanly before any of the code below can touch result/story.
+      window.location.href = profile ? 'library.html' : 'index.html';
+    } else {
 
     const { stars, xp } = calcRewards(result.score, result.total, result.earnedXP);
     document.getElementById('try-again-btn').href = 'quiz.html?story=' + result.storyId;
@@ -1136,6 +1140,8 @@
         window.location.href = href;
       });
     }, true);
+
+    } // end valid-result guard
   </script>
 </body>
 </html>
