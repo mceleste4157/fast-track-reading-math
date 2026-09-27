@@ -1194,7 +1194,7 @@
         '/quiz.html','/results.html','/progress.html',
         '/math.html','/math-quiz.html','/math-results.html',
         '/spelling.html','/vocab.html','/vocab-game.html',
-        '/trivia.html','/typing-practice.html','/story-type.html',
+        '/trivia.html','/typing.html','/typing-practice.html','/story-type.html',
         '/parent-portal.html',
       ];
 
@@ -1204,7 +1204,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v10');
+      const cache = await caches.open('fast-track-v12'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {
