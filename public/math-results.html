@@ -279,13 +279,16 @@
     }
 
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; }
+    const raw     = sessionStorage.getItem('mathResult');
+    const result  = raw ? (() => { try { return JSON.parse(raw); } catch(e) { return null; } })() : null;
+    const mathSet = result ? MATH_SETS.find(s => s.id === result.setId) : null;
 
-    const raw = sessionStorage.getItem('mathResult');
-    if (!raw) { window.location.href = 'math.html'; }
-    const result = JSON.parse(raw);
-    const mathSet = MATH_SETS.find(s => s.id === result.setId);
-    if (!mathSet) { window.location.href = 'math.html'; }
+    if (!profile || !result || !mathSet) {
+      // Reaching this page without a fresh math result (e.g. a stale/incorrect "Back" link)
+      // used to throw here and depend on the browser completing the queued redirect anyway
+      // despite the crash — flaky on some devices. Bail out before touching result/mathSet.
+      window.location.href = profile ? 'math.html' : 'index.html';
+    } else {
 
     document.getElementById('try-again-btn').href = 'math-quiz.html?set=' + result.setId;
 
@@ -560,6 +563,8 @@
         window.location.href = href;
       });
     }, true);
+
+    } // end valid-result guard
   </script>
 </body>
 </html>
