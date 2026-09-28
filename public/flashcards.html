@@ -95,11 +95,11 @@
   <script src="/__/firebase/init.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) window.location.href = 'login.html';
+    if (!profile) { window.location.href = 'login.html'; throw new Error('no profile'); }
     const params  = new URLSearchParams(location.search);
     const storyId = params.get('story');
     const story   = storyId ? STORIES.find(s => s.id === storyId) : null;
-    if (!story || !Array.isArray(story.vocabulary) || !story.vocabulary.length) window.location.href = 'library.html';
+    if (!story || !Array.isArray(story.vocabulary) || !story.vocabulary.length) { window.location.href = 'library.html'; throw new Error('no vocab'); }
     document.getElementById('nav-back').href = storyId ? 'results.html' : 'library.html';
     document.getElementById('btn-back').href = 'library.html';
 

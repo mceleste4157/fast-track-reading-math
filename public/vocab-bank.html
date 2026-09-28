@@ -107,7 +107,7 @@
   <script src="stories.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) window.location.href = 'login.html';
+    if (!profile) { window.location.href = 'login.html'; throw new Error('no profile'); }
 
     // Build a lookup map from storyId → story
     const storyMap = {};

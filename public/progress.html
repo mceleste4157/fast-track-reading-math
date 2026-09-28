@@ -260,7 +260,7 @@
   <script>
     // ─── Profile ────────────────────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.href = 'login.html'; throw new Error('no profile'); }
 
     document.getElementById('nav-title').textContent = profile.name + '\'s Progress';
     document.getElementById('hero-name').textContent = profile.name;
