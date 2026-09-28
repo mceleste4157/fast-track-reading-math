@@ -1085,7 +1085,9 @@
           m.forEach(d => { xp += (d.data().xpEarned || 0); });
           t.forEach(d => { xp += (d.data().xpEarned || 0); });
           tr.forEach(d => { xp += (d.data().xpEarned || 0); });
+          sp.forEach(d => { xp += (d.data().xpEarned || 0); });
           const sd = stats.exists ? stats.data() : {};
+          xp += (sd.challengeXp || 0);
           // Count unique stories completed (best attempt per story)
           const bestStars = {};
           r.forEach(d => {

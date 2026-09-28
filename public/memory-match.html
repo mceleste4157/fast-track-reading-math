@@ -81,11 +81,11 @@
   <script src="/__/firebase/init.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) window.location.href = 'login.html';
+    if (!profile) { window.location.href = 'login.html'; throw new Error('no profile'); }
     const params  = new URLSearchParams(location.search);
     const storyId = params.get('story');
     const story   = storyId ? STORIES.find(s => s.id === storyId) : null;
-    if (!story || !Array.isArray(story.vocabulary) || !story.vocabulary.length) window.location.href = 'library.html';
+    if (!story || !Array.isArray(story.vocabulary) || !story.vocabulary.length) { window.location.href = 'library.html'; throw new Error('no vocab'); }
     document.getElementById('nav-back').href = storyId ? 'results.html' : 'library.html';
 
     function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
