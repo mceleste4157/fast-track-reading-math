@@ -336,8 +336,8 @@
 
     <!-- 🎓 Advanced Section -->
     <div class="section-header" id="section-header-advanced" style="display:none;">
-      <span class="section-badge advanced">🎓 Advanced Reading</span>
-      <span class="section-desc">Complex texts for strong readers</span>
+      <span class="section-badge advanced">🎓 Stretch Challenges</span>
+      <span class="section-desc">Bigger ideas with vocabulary and hints to support you</span>
       <button class="section-toggle" id="toggle-advanced" style="display:none;" onclick="toggleSection('advanced')">Hide Done ✓</button>
     </div>
     <div class="story-grid" id="grid-advanced"></div>
@@ -375,6 +375,39 @@
 
     let progressMap = {};
     const FAV_KEY = 'favorites_' + (profile ? profile.readerId : 'anon');
+
+    function isRecommendedForGrade(story, grade) {
+      const label = String(story.gradeLevel || '');
+      if (label.includes('-')) {
+        const [low, high] = label.split('-').map(Number);
+        return Number.isFinite(low) && Number.isFinite(high) && grade >= low && grade <= high;
+      }
+      return parseInt(label, 10) === grade;
+    }
+
+    const readingGradeCache = new Map();
+    function estimateReadingGrade(story) {
+      if (readingGradeCache.has(story.id)) return readingGradeCache.get(story.id);
+      const text = String(story.text || '').replace(/\*\*|__|`|#+\s*/g, '').replace(/\s+/g, ' ').trim();
+      const words = text.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) || [];
+      const sentences = text.split(/[.!?]+["']?(?=\s|$)/).filter(part => part.trim()).length || 1;
+      const countSyllables = word => {
+        const clean = word.toLowerCase().replace(/[^a-z]/g, '');
+        if (clean.length <= 3) return clean ? 1 : 0;
+        const groups = clean.replace(/(?:[^l]e|ed|es)$/, '').match(/[aeiouy]+/g);
+        return Math.max(1, groups ? groups.length : 1);
+      };
+      const syllables = words.reduce((sum, word) => sum + countSyllables(word), 0);
+      const estimate = words.length
+        ? Math.max(0, 0.39 * (words.length / sentences) + 11.8 * (syllables / words.length) - 15.59)
+        : 0;
+      readingGradeCache.set(story.id, estimate);
+      return estimate;
+    }
+
+    function isStretchStory(story, grade) {
+      return story.level === 'challenge' || estimateReadingGrade(story) > grade + 4;
+    }
 
     // ─── New-story badge (update IDs each release) ─────────────────────────────
     const NEW_STORY_IDS = new Set([
@@ -435,18 +468,18 @@
     const SECTIONS = [
       { key: 'early',    level: 'early',    btnClass: 'emerging-btn' },
       { key: 'emerging', level: 'emerging', btnClass: 'emerging-btn' },
-      { key: 'grade4',   level: 'grade4',   btnClass: '' },
+      { key: 'grade4',   level: 'grade',    btnClass: '' },
       { key: 'advanced', level: 'advanced', btnClass: 'advanced-btn' },
     ];
 
     function getDifficultyLabel(s) {
+      if (isStretchStory(s, parseInt(profile.gradeLevel) || 4) || s.paired) return '🔥 Stretch Challenge';
       if (s.level === 'early' || s.level === 'emerging') return '⭐ Beginner';
-      if (s.level === 'advanced' || s.paired) return '🔥 Challenge';
       return '📘 Grade Level';
     }
     function getDifficultyColor(s) {
+      if (isStretchStory(s, parseInt(profile.gradeLevel) || 4) || s.paired) return '#7c3aed';
       if (s.level === 'early' || s.level === 'emerging') return '#10b981';
-      if (s.level === 'advanced' || s.paired) return '#7c3aed';
       return '#2563eb';
     }
 
@@ -541,10 +574,13 @@
           ? () => true
           : s => TOPIC_GROUPS[activeTopicFilter] ? TOPIC_GROUPS[activeTopicFilter](s.topic) : s.topic === activeTopicFilter;
         const stories = STORIES.filter(s => {
+          const stretch = isStretchStory(s, grade);
           const levelOk = sec.level === 'advanced'
-            ? (s.level === 'advanced' || s.level === 'challenge')
-            : s.level === sec.level;
-          return levelOk && Array.isArray(s.grades) && s.grades.includes(grade) && topicMatch(s);
+            ? stretch
+            : sec.level === 'grade'
+              ? !stretch && !['early', 'emerging'].includes(s.level)
+              : !stretch && s.level === sec.level;
+          return levelOk && isRecommendedForGrade(s, grade) && topicMatch(s);
         });
 
         if (stories.length === 0) {
@@ -572,10 +608,10 @@
       const grade = parseInt(profile.gradeLevel) || 4;
       const completed = new Set(Object.keys(progressMap));
       const eligible = STORIES.filter(s =>
-        Array.isArray(s.grades) && s.grades.includes(grade) && !completed.has(s.id)
+        isRecommendedForGrade(s, grade) && !isStretchStory(s, grade) && !completed.has(s.id)
       );
       const pool = eligible.length > 0 ? eligible
-        : STORIES.filter(s => Array.isArray(s.grades) && s.grades.includes(grade));
+        : STORIES.filter(s => isRecommendedForGrade(s, grade) && !isStretchStory(s, grade));
       if (!pool.length) return;
       const pick = pool[Math.floor(Math.random() * pool.length)];
       window.location.href = 'read.html?story=' + pick.id;
@@ -673,7 +709,7 @@
         // ── Summer strip ────────────────────────────────────────────────
         const grade = parseInt(profile.gradeLevel) || 4;
         const gradeStories = STORIES.filter(s =>
-          Array.isArray(s.grades) && s.grades.includes(grade)
+          isRecommendedForGrade(s, grade)
         );
         const storiesRead = Object.keys(progressMap).length;
         const summerTotal = gradeStories.length || STORIES.length;
@@ -696,7 +732,7 @@
     function renderSuggestions() {
       const grade = parseInt(profile.gradeLevel) || 4;
       const gradeStories = STORIES.filter(s =>
-        Array.isArray(s.grades) && s.grades.includes(grade)
+        isRecommendedForGrade(s, grade)
       );
       const completed = new Set(Object.keys(progressMap));
 
@@ -804,7 +840,8 @@
     }
 
     function renderFavorites() {
-      const favStories = STORIES.filter(s => favIds.includes(s.id));
+      const grade = parseInt(profile.gradeLevel) || 4;
+      const favStories = STORIES.filter(s => favIds.includes(s.id) && isRecommendedForGrade(s, grade));
       const grid = document.getElementById('grid-favorites');
       const empty = document.getElementById('fav-empty');
       grid.innerHTML = favStories.map(s => buildCard(s, 'btn-read')).join('');

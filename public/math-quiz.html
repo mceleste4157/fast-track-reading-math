@@ -580,10 +580,10 @@
       const warnEl = document.getElementById('math-xp-warn');
       if (warnEl) {
         if (totalWrongs >= 6) {
-          warnEl.textContent = '📉 XP dropping fast!';
+          warnEl.textContent = '🧠 Big learning moment — use “Show Me How” when you need it.';
           warnEl.style.display = '';
         } else if (totalWrongs >= 3) {
-          warnEl.textContent = '⚠️ Wrong answers cost XP!';
+          warnEl.textContent = '💪 Every try helps your math brain grow.';
           warnEl.style.display = '';
         } else {
           warnEl.style.display = 'none';
@@ -784,11 +784,11 @@
 
         const feedbackEl = document.getElementById('feedback');
         feedbackEl.className = 'feedback wrong-fb show';
-        feedbackEl.innerHTML = '❌ Not quite — the answers are shuffling…';
+        feedbackEl.innerHTML = '🔎 Good try — use the clue, then test a new idea.';
 
         const expEl = document.getElementById('explanation');
         expEl.className = 'explanation show hint-exp';
-        expEl.textContent = '💡 ' + q.explanation;
+        expEl.textContent = '💡 ' + (q.explanation || 'Work through the problem one step at a time, then try again.');
 
         // Show "Show Me How" button if steps are available
         if (q.steps && q.steps.length) {
@@ -819,7 +819,7 @@
     function showExplanation(q, isCorrect) {
       const expEl = document.getElementById('explanation');
       expEl.className = 'explanation show ' + (isCorrect ? 'correct-exp' : 'wrong-exp');
-      expEl.textContent = q.explanation;
+      expEl.textContent = q.explanation || 'Nice thinking. Check each step to see why the answer works.';
     }
 
     // ─── Auto-advance + Next button ───────────────────────────────────────────
@@ -847,8 +847,6 @@
       const perfectFirstTry = answers.every(a => a.correct && a.attempts === 1);
       let earnedXP          = answers.reduce((sum, a) => sum + a.earnedXP, 0);
       if (perfectFirstTry) earnedXP += XP_PERFECT_BONUS;
-      // Deduct 3 XP per wrong answer — can make XP negative (level goes down!)
-      earnedXP -= totalWrongs * 3;
       playSound('complete');
 
       sessionStorage.setItem('mathResult', JSON.stringify({

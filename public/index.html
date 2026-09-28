@@ -154,7 +154,6 @@
     }
     .streak-banner.fire  { background: #d1fae5; color: #065f46; border: 2px solid #10b981; }
     .streak-banner.warn  { background: #fef3c7; color: #78350f; border: 2px solid #f59e0b; }
-    .streak-banner.decay { background: #fee2e2; color: #7f1d1d; border: 2px solid #ef4444; }
 
     /* PROGRESS LINK */
     .progress-link {
@@ -236,7 +235,7 @@
       <button type="button" id="sound-toggle-btn" class="switch-user-btn" title="Toggle sound effects" aria-label="Turn sound effects off" style="font-size:1rem;padding:4px 10px;">🔊</button>
     </div>
 
-      <!-- Streak / decay banner (filled by JS) -->
+      <!-- Streak / welcome-back banner (filled by JS) -->
       <div id="streak-banner" class="streak-banner" style="display:none;"></div>
 
       <!-- Hero / level card -->
@@ -401,6 +400,15 @@
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) { window.location.replace('login.html'); }
 
+    function isRecommendedForGrade(story, grade) {
+      const label = String(story.gradeLevel || '');
+      if (label.includes('-')) {
+        const [low, high] = label.split('-').map(Number);
+        return Number.isFinite(low) && Number.isFinite(high) && grade >= low && grade <= high;
+      }
+      return parseInt(label, 10) === grade;
+    }
+
     // ─── Apply profile to page ────────────────────────────────────────────────
     if (profile) {
       const avatarEl = document.getElementById('hero-avatar');
@@ -426,7 +434,7 @@
     (function() {
       const grade = parseInt(profile.gradeLevel) || 4;
       const eligible = (typeof STORIES_META !== 'undefined') ? STORIES_META.filter(s =>
-        Array.isArray(s.grades) && s.grades.includes(grade)) : [];
+        isRecommendedForGrade(s, grade)) : [];
       if (!eligible.length) return;
       const dayNum = Math.floor(Date.now() / 86400000);
       const story = eligible[dayNum % eligible.length];
@@ -605,16 +613,14 @@
         </div>`;
       }).join('');
     }
-    // ─── Inactivity decay ─────────────────────────────────────────────────────
-    // Returns { daysMissed, decay } where decay is XP deducted from display.
-    // Decay accumulates at 50 XP/day (grace: 1 day), capped at 100 XP.
-    // Completing a quiz (results.html / math-results.html) resets decay to 0.
+    // ─── Activity status ──────────────────────────────────────────────────────
+    // Time away never removes progress. Returning students get a welcoming nudge.
     function getActivityStatus(readerId) {
       const todayStr = new Date().toISOString().slice(0, 10);
       const lastActivity = localStorage.getItem('lastActivityDate_' + readerId);
 
       if (!lastActivity) {
-        // First-time user — no history yet, no penalty
+        // First-time user — no activity history yet.
         return { daysMissed: -1, decay: 0 };
       }
 
@@ -622,24 +628,9 @@
       const lastAct = new Date(lastActivity);
       const daysMissed = Math.floor((today - lastAct) / (24 * 60 * 60 * 1000));
 
-      // Read current decay total (set to 0 on quiz completion); clamp to new cap
-      let decay = Math.min(100, parseInt(localStorage.getItem('inactivityDecay_' + readerId) || '0'));
-
-      // Only penalize after 5+ consecutive days with no activity (skipping a
-      // weekend or a few days should never cost XP)
-      if (daysMissed > 4) {
-        const decayCheckedDate = localStorage.getItem('decayCheckedDate_' + readerId) || lastActivity;
-        if (decayCheckedDate !== todayStr) {
-          const lastChecked     = new Date(decayCheckedDate);
-          const daysSinceCheck  = Math.floor((today - lastChecked) / (24 * 60 * 60 * 1000));
-          const freshDecay      = Math.min(daysSinceCheck * 50, 100 - decay);
-          decay = Math.min(100, decay + Math.max(0, freshDecay));
-          localStorage.setItem('inactivityDecay_' + readerId, decay.toString());
-          localStorage.setItem('decayCheckedDate_' + readerId, todayStr);
-        }
-      }
-
-      return { daysMissed, decay };
+      localStorage.setItem('inactivityDecay_' + readerId, '0');
+      localStorage.setItem('decayCheckedDate_' + readerId, todayStr);
+      return { daysMissed, decay: 0 };
     }
 
     renderLadder(0); // show ladder immediately; updated again after Firestore loads
@@ -763,42 +754,25 @@
         renderMathCard(true);
       }
 
-      // ── Inactivity decay sync ────────────────────────────────────────────────
-      // Always trust Firestore as the source of truth for the student's activity
-      // date and accumulated decay. This fixes false penalties on new/secondary
-      // devices where localStorage is empty or stale.
+      // ── Activity sync ───────────────────────────────────────────────────────
+      // Firestore keeps the latest activity date accurate across devices.
       const firestoreLastRead = sd.lastReadDate || null;
-      const fsDecay     = typeof sd.inactivityDecay === 'number' ? sd.inactivityDecay : 0;
-      const fsDecayDate = sd.decayCheckedDate || firestoreLastRead || '';
 
       if (firestoreLastRead) {
         const localLastRead = localStorage.getItem('lastActivityDate_' + profile.readerId) || '';
         if (firestoreLastRead > localLastRead) {
-          // Firestore is more recent — take its full decay state
           localStorage.setItem('lastActivityDate_' + profile.readerId, firestoreLastRead);
-          localStorage.setItem('inactivityDecay_' + profile.readerId, String(fsDecay));
-          localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate || firestoreLastRead);
-        } else {
-          // Same device — still sync decay upward if Firestore has more penalty,
-          // and sync the checked-date so we don't double-penalize.
-          if (fsDecay > parseInt(localStorage.getItem('inactivityDecay_' + profile.readerId) || '0')) {
-            localStorage.setItem('inactivityDecay_' + profile.readerId, String(fsDecay));
-          }
-          if (fsDecayDate > (localStorage.getItem('decayCheckedDate_' + profile.readerId) || '')) {
-            localStorage.setItem('decayCheckedDate_' + profile.readerId, fsDecayDate);
-          }
         }
       }
 
-      const { daysMissed, decay } = getActivityStatus(profile.readerId);
-      // Write updated decay back to Firestore for cross-device accuracy
-      if (decay !== (sd.inactivityDecay || 0)) {
+      const { daysMissed } = getActivityStatus(profile.readerId);
+      // Clear any legacy inactivity penalty so earned progress stays permanent.
+      if ((sd.inactivityDecay || 0) !== 0) {
         db.collection('StudentStats').doc(profile.readerId)
-          .update({ inactivityDecay: decay, decayCheckedDate: new Date().toISOString().slice(0, 10) })
+          .update({ inactivityDecay: 0, decayCheckedDate: new Date().toISOString().slice(0, 10) })
           .catch(() => {});
       }
-      // effectiveXp is what we show — decays when inactive, restored on activity
-      const effectiveXp = Math.max(0, totalXp - decay);
+      const effectiveXp = totalXp;
       let currentStreak = sd.currentStreak || 0;
       const longestStreak = sd.longestStreak || 0;
       const freezeTokens  = sd.freezeTokens  || 0;
@@ -836,13 +810,9 @@
         bannerEl.className = 'streak-banner fire';
         bannerEl.innerHTML = '🔥 Great work! You read today — keep your streak going!';
         bannerEl.style.display = 'block';
-      } else if (daysMissed >= 1 && daysMissed <= 3) {
+      } else if (daysMissed >= 1) {
         bannerEl.className = 'streak-banner warn';
-        bannerEl.innerHTML = '⚠️ You haven\'t read in a few days! Read a story to keep your XP safe.';
-        bannerEl.style.display = 'block';
-      } else if (daysMissed > 4 && decay > 0) {
-        bannerEl.className = 'streak-banner decay';
-        bannerEl.innerHTML = `📉 You lost <strong>${decay} XP</strong> from missing ${daysMissed} days!<br>Read now to stop losing more XP!`;
+        bannerEl.innerHTML = '👋 Welcome back! Your progress is safe. Pick something that makes you curious today.';
         bannerEl.style.display = 'block';
       }
 
@@ -863,7 +833,7 @@
       (function() {
         const grade = parseInt(profile.gradeLevel) || 4;
         const completedIds = new Set(sd.completedStoryIds || []);
-        const gradeStories = STORIES_META.filter(s => Array.isArray(s.grades) && s.grades.includes(grade));
+        const gradeStories = STORIES_META.filter(s => isRecommendedForGrade(s, grade));
         const gradeTotal     = gradeStories.length;
         const gradeCompleted = gradeStories.filter(s => completedIds.has(s.id)).length;
         const gradePct = gradeTotal > 0 ? Math.min(100, Math.round((gradeCompleted / gradeTotal) * 100)) : 0;
@@ -984,16 +954,14 @@
         }
       }
 
-      // Level (based on effectiveXp — shows lower level if inactive)
+      // Level progress is permanent once earned.
       const { level, nextLevel } = getLevel(effectiveXp);
-      document.getElementById('hero-level').textContent = level.emoji + ' ' + level.name
-        + (decay > 0 ? ' 📉' : '');
+      document.getElementById('hero-level').textContent = level.emoji + ' ' + level.name;
       if (nextLevel) {
         const pct = Math.min(100, Math.max(0, ((effectiveXp - level.minXp) / (nextLevel.minXp - level.minXp)) * 100));
         document.getElementById('xp-bar').style.width = pct + '%';
         document.getElementById('xp-label').textContent = effectiveXp + ' XP — '
-          + (nextLevel.minXp - effectiveXp) + ' more to ' + nextLevel.name
-          + (decay > 0 ? ' (−' + decay + ' XP inactive penalty)' : '');
+          + (nextLevel.minXp - effectiveXp) + ' more to ' + nextLevel.name;
       } else {
         document.getElementById('xp-bar').style.width = '100%';
         document.getElementById('xp-label').textContent = level.emoji + ' ' + level.name + '! ' + effectiveXp + ' XP — you reached the ultimate level!';
@@ -1226,7 +1194,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v13'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v14'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {

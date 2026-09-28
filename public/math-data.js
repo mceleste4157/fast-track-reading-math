@@ -1877,7 +1877,7 @@ const MATH_SETS = [
       },
       {
         question: 'What is 407 + 285?',
-        options: ['682', '692', '702', '692'],
+        options: ['682', '692', '702', '712'],
         correctIndex: 1,
         explanation: '407 + 285 = 692.',
         steps: [
@@ -1986,13 +1986,13 @@ const MATH_SETS = [
       },
       {
         question: 'A Florida orange grove had 924 oranges. Workers packed 576. How many oranges are left?',
-        options: ['358', '348', '448', '348'],
+        options: ['358', '348', '448', '338'],
         correctIndex: 1,
         explanation: '924 - 576 = 348.',
         steps: [
           'Subtract ones: 4 - 6, regroup. 14 - 6 = 8.',
-          'Subtract tens: 2 - 1 - 7, regroup. 12 - 7 = 5... wait, 11-7=4.',
-          'Subtract hundreds: 9 - 1 - 5 = 3. Answer: 348.'
+          'After the first regroup, 2 tens becomes 1 ten. Regroup again: 11 - 7 = 4.',
+          'The 9 hundreds becomes 8 hundreds. Subtract: 8 - 5 = 3. Answer: 348.'
         ]
       },
       {
@@ -2617,8 +2617,8 @@ const MATH_SETS = [
         ]
       },
       {
-        question: 'A zoo in Tampa had 314 visitors on Friday. On Saturday they had 267 visitors. On Sunday 95 visitors left early. How many total visitors were there who stayed through their whole visit (Friday + Saturday - those who left)?',
-        options: ['486', '676', '581', '486'],
+        question: 'A zoo in Tampa counted 314 visitors before lunch and 267 more after lunch. If 95 visitors left early, how many stayed for their whole visit?',
+        options: ['486', '676', '581', '496'],
         correctIndex: 0,
         explanation: 'Step 1: 314 + 267 = 581. Step 2: 581 - 95 = 486 visitors who stayed.',
         steps: [
