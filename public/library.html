@@ -349,7 +349,13 @@
   <script src="/__/firebase/init.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) {
+      window.location.replace('login.html');
+    } else {
+      initLibrary(profile);
+    }
+
+    function initLibrary(profile) {
 
     // ─── Incoming notice toast ─────────────────────────────────────────────────
     (function () {
@@ -890,6 +896,13 @@
         const anyVisible = [...grid.querySelectorAll('.story-card')].some(c => c.style.display !== 'none');
         header.style.display = anyVisible ? '' : 'none';
       });
+    }
+
+    window.toggleFav = toggleFav;
+    window.setFilter = setFilter;
+    window.surpriseMe = surpriseMe;
+    window.toggleSection = toggleSection;
+    window.filterLibrary = filterLibrary;
     }
   </script>
 <script>
