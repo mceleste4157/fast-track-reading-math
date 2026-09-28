@@ -1058,14 +1058,28 @@
       const grid = document.createElement('div');
       grid.className = 'children-grid';
 
+      // Last-active timestamp across every activity type — a child who only does math,
+      // typing, or the mini-games (flashcards/memory match/unscramble/fill-in-blank, which
+      // only bump StudentStats.lastUpdated) must still count as active, not just readers.
+      function latestTs(...timestamps) {
+        let ms = 0;
+        timestamps.forEach(ts => {
+          if (!ts) return;
+          const t = ts.toMillis ? ts.toMillis() : (ts.toDate ? ts.toDate().getTime() : new Date(ts).getTime());
+          if (t > ms) ms = t;
+        });
+        return ms || null;
+      }
+
       const xpPromises = children.map(child =>
         Promise.all([
           db.collection('Progress').where('readerId', '==', child.readerId).get(),
           db.collection('MathProgress').where('readerId', '==', child.readerId).get(),
           db.collection('TypingProgress').where('readerId', '==', child.readerId).get(),
           db.collection('TriviaScores').where('readerId', '==', child.readerId).get(),
+          db.collection('SpellingProgress').where('readerId', '==', child.readerId).get(),
           db.collection('StudentStats').doc(child.readerId).get()
-        ]).then(([r, m, t, tr, stats]) => {
+        ]).then(([r, m, t, tr, sp, stats]) => {
           let xp = 0;
           r.forEach(d => { xp += (d.data().xpEarned || 0); });
           m.forEach(d => { xp += (d.data().xpEarned || 0); });
@@ -1078,39 +1092,46 @@
             const { storyId, starsEarned } = d.data();
             if (storyId && (starsEarned || 0) > (bestStars[storyId] || 0)) bestStars[storyId] = starsEarned || 0;
           });
+          const allTimestamps = [
+            ...r.docs.map(d => d.data().timestamp),
+            ...m.docs.map(d => d.data().timestamp),
+            ...t.docs.map(d => d.data().timestamp),
+            ...tr.docs.map(d => d.data().timestamp),
+            ...sp.docs.map(d => d.data().timestamp),
+            sd.lastUpdated
+          ];
           return {
             xp,
             streak: sd.currentStreak || 0,
             storiesThisWeek: sd.storiesThisWeek || 0,
-            lastReadDate: sd.lastReadDate || null,
+            lastActiveMs: latestTs(...allTimestamps),
             totalStories: Object.keys(bestStars).length,
             avgStars: Object.keys(bestStars).length
               ? (Object.values(bestStars).reduce((a, b) => a + b, 0) / Object.keys(bestStars).length).toFixed(1)
               : null
           };
-        }).catch(() => ({ xp: 0, streak: 0, storiesThisWeek: 0, lastReadDate: null, totalStories: 0, avgStars: null }))
+        }).catch(() => ({ xp: 0, streak: 0, storiesThisWeek: 0, lastActiveMs: null, totalStories: 0, avgStars: null }))
       );
+
+      const lastActiveByReader = {};
 
       Promise.all(xpPromises).then(statsValues => {
         children.forEach((child, i) => {
-          const { xp, streak, storiesThisWeek, lastReadDate, totalStories, avgStars } = statsValues[i];
+          const { xp, streak, storiesThisWeek, lastActiveMs, totalStories, avgStars } = statsValues[i];
+          lastActiveByReader[child.readerId] = lastActiveMs;
           const level = getLevel(xp);
           const color  = child.avatarColor || '#2563eb';
           const initials = child.name ? child.name.charAt(0).toUpperCase() : '?';
           const emoji  = child.avatarEmoji || initials;
 
           // Build last-active label
-          const today = new Date().toISOString().slice(0, 10);
-          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
           let lastActiveLabel = 'Never';
           let lastActiveColor = '#9ca3af';
-          if (lastReadDate === today) { lastActiveLabel = 'Today ✓'; lastActiveColor = '#10b981'; }
-          else if (lastReadDate === yesterday) { lastActiveLabel = 'Yesterday'; lastActiveColor = '#f59e0b'; }
-          else if (lastReadDate) {
-            const d = new Date(lastReadDate + 'T12:00:00');
-            const daysAgo = Math.round((Date.now() - d.getTime()) / 86400000);
-            lastActiveLabel = daysAgo + 'd ago';
-            lastActiveColor = daysAgo <= 3 ? '#f59e0b' : '#ef4444';
+          if (lastActiveMs) {
+            const daysAgo = Math.floor((Date.now() - lastActiveMs) / 86400000);
+            if (daysAgo <= 0) { lastActiveLabel = 'Today ✓'; lastActiveColor = '#10b981'; }
+            else if (daysAgo === 1) { lastActiveLabel = 'Yesterday'; lastActiveColor = '#f59e0b'; }
+            else { lastActiveLabel = daysAgo + 'd ago'; lastActiveColor = daysAgo <= 3 ? '#f59e0b' : '#ef4444'; }
           }
 
           const streakEmoji = streak >= 14 ? '🌙' : streak >= 7 ? '⚡' : streak >= 3 ? '🔥' : '📅';
@@ -1206,7 +1227,7 @@
         area.innerHTML = '';
         area.appendChild(grid);
         loadCompare(children);
-        checkInactivity(children);
+        checkInactivity(children, lastActiveByReader);
       });
     }
 
@@ -1777,41 +1798,36 @@
     }
 
     // ── Inactivity check ──────────────────────────────────────────────────────
-    function checkInactivity(children) {
-      const todayStr = new Date().toISOString().slice(0, 10);
-      const today = new Date(todayStr);
-      const inactivePromises = children.map(child =>
-        db.collection('StudentStats').doc(child.readerId).get()
-          .then(s => ({ child, lastRead: s.exists ? (s.data().lastReadDate || '') : '' }))
-          .catch(() => ({ child, lastRead: '' }))
-      );
-      Promise.all(inactivePromises).then(results => {
-        const inactive = results.filter(({ lastRead }) => {
-          if (!lastRead) return true;
-          const diff = Math.floor((today - new Date(lastRead)) / (1000 * 60 * 60 * 24));
-          return diff >= 3;
-        });
-        if (!inactive.length) return;
-        const section = document.getElementById('inactivity-section');
-        const list    = document.getElementById('inactivity-list');
-        section.style.display = 'block';
-        list.innerHTML = inactive.map(({ child, lastRead }) => {
-          const days = lastRead
-            ? Math.floor((today - new Date(lastRead)) / (1000 * 60 * 60 * 24))
-            : null;
-          const color = child.avatarColor || '#7c3aed';
-          const emoji = child.avatarEmoji || (child.name ? child.name.charAt(0).toUpperCase() : '?');
-          return `<div style="display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--orange);box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <div style="width:38px;height:38px;border-radius:50%;background:${escHtml(color)};display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;">${escHtml(emoji)}</div>
-            <div style="flex:1;">
-              <div style="font-weight:800;font-size:0.95rem;">${escHtml(child.name)}</div>
-              <div style="font-size:0.82rem;color:var(--muted);">${days !== null ? days + ' days since last activity' : 'No activity recorded yet'}</div>
-            </div>
-            <a href="mailto:?subject=Time+to+read!&body=Hey+${encodeURIComponent(child.name)}%2C+your+reading+streak+is+waiting+for+you+on+FAST+Track!+Log+in+today+%F0%9F%93%9A"
-              style="padding:8px 14px;background:var(--orange);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Send Reminder</a>
-          </div>`;
-        }).join('');
+    // Reuses the lastActiveMs already computed in renderChildren (across reading, math,
+    // typing, trivia, spelling, and the mini-games) instead of re-reading StudentStats'
+    // reading-only lastReadDate, which used to flag kids who'd been doing math/typing daily
+    // as inactive and email a "time to read!" reminder that wasn't actually true.
+    function checkInactivity(children, lastActiveByReader) {
+      const inactive = children.filter(child => {
+        const ms = lastActiveByReader[child.readerId];
+        if (!ms) return true;
+        const daysAgo = Math.floor((Date.now() - ms) / 86400000);
+        return daysAgo >= 3;
       });
+      if (!inactive.length) return;
+      const section = document.getElementById('inactivity-section');
+      const list    = document.getElementById('inactivity-list');
+      section.style.display = 'block';
+      list.innerHTML = inactive.map(child => {
+        const ms = lastActiveByReader[child.readerId];
+        const days = ms ? Math.floor((Date.now() - ms) / 86400000) : null;
+        const color = child.avatarColor || '#7c3aed';
+        const emoji = child.avatarEmoji || (child.name ? child.name.charAt(0).toUpperCase() : '?');
+        return `<div style="display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--orange);box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width:38px;height:38px;border-radius:50%;background:${escHtml(color)};display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;">${escHtml(emoji)}</div>
+          <div style="flex:1;">
+            <div style="font-weight:800;font-size:0.95rem;">${escHtml(child.name)}</div>
+            <div style="font-size:0.82rem;color:var(--muted);">${days !== null ? days + ' days since last activity' : 'No activity recorded yet'}</div>
+          </div>
+          <a href="mailto:?subject=Time+to+read!&body=Hey+${encodeURIComponent(child.name)}%2C+your+reading+streak+is+waiting+for+you+on+FAST+Track!+Log+in+today+%F0%9F%93%9A"
+            style="padding:8px 14px;background:var(--orange);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Send Reminder</a>
+        </div>`;
+      }).join('');
     }
 
     // ── Email digest ───────────────────────────────────────────────────────────
