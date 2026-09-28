@@ -107,16 +107,6 @@
     }
     .ga-btn:hover { transform: translateY(-2px); }
 
-    /* XP LOSS BANNER */
-    .xp-loss-banner {
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      color: #fff; border-radius: 20px;
-      text-align: center; padding: 18px 20px;
-      font-size: 1.05rem; font-weight: 700; line-height: 1.45;
-      margin-bottom: 24px;
-      animation: pulse-banner 1s ease-in-out infinite alternate;
-    }
-
     /* Confetti */
     @keyframes confetti-fall {
       0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
@@ -151,10 +141,10 @@
       </div>
     </div>
     <div id="perfect-banner" style="display:none;" class="perfect-banner">🏆 Perfect Score! Math Champion!</div>
-    <div id="xp-loss-banner" style="display:none;" class="xp-loss-banner"></div>
 
     <div class="stars-row" id="stars-row"></div>
     <div class="score-label" id="score-label"></div>
+    <div id="growth-message" style="text-align:center;font-size:0.95rem;font-weight:700;color:var(--blue);line-height:1.5;margin:-16px auto 24px;max-width:520px;"></div>
 
     <div class="reward-card">
       <div>
@@ -305,6 +295,12 @@
     for (let i = 0; i < result.total; i++) starsHtml += i < result.score ? '⭐' : '☆';
     document.getElementById('stars-row').textContent   = starsHtml;
     document.getElementById('score-label').textContent = result.score + ' out of ' + result.total + ' correct';
+    const scoreRatio = result.total ? result.score / result.total : 0;
+    document.getElementById('growth-message').textContent = scoreRatio === 1
+      ? 'You checked every step and made the ideas work. Ready for a new challenge?'
+      : scoreRatio >= 0.6
+        ? 'Your math thinking is getting stronger. Review one step, then try another set.'
+        : 'This was practice, not a verdict. Use the worked steps and give your brain another round.';
 
     // Perfect
     if (result.perfectFirstTry && result.score === result.total) {
@@ -312,19 +308,9 @@
       startConfetti();
     }
 
-    // XP display — handle negative (too many wrong answers in math)
-    const xp = result.earnedXP;
-    if (xp < 0) {
-      const lostXp = Math.abs(xp);
-      document.getElementById('xp-earned').textContent = '−' + lostXp + ' XP';
-      document.getElementById('xp-earned').style.color = 'var(--red)';
-      document.querySelector('.xp-label').textContent   = 'Math XP lost 📉';
-      const lossBanner = document.getElementById('xp-loss-banner');
-      lossBanner.style.display = 'block';
-      lossBanner.innerHTML = `📉 Oops! You lost <strong>${lostXp} XP</strong> from too many wrong answers.<br>Keep trying — you can earn it back!`;
-    } else {
-      document.getElementById('xp-earned').textContent = '+' + xp + ' XP';
-    }
+    // Practice always moves progress forward; mistakes never remove earned XP.
+    const xp = Math.max(0, result.earnedXP || 0);
+    document.getElementById('xp-earned').textContent = '+' + xp + ' XP';
 
     // Load XP + stats + run post-quiz updates
     const db = firebase.firestore();

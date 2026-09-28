@@ -4445,7 +4445,7 @@ The machine does not understand. But it learns. And that learning — powerful, 
     grades: [5, 6, 7, 8],
     wordCount: 450,
     readTimeMin: 3,
-    text: `In 1826, a slaveholder named Hugh Auld discovered that his wife Sophia had been teaching their enslaved servant, Frederick, to read. Auld was furious. "If you teach that n----- how to read," he reportedly told his wife, "there will be no keeping him. It will forever unfit him to be a slave."
+    text: `In 1826, a slaveholder named Hugh Auld discovered that his wife Sophia had been teaching Frederick Douglass, who was enslaved, to read. Auld reacted with a racist insult and ordered the lessons to stop. He argued that learning to read would make Douglass "unfit" to remain enslaved.
 
 He was right.
 
@@ -18362,7 +18362,7 @@ Baby animals grow and change just like you do!`,
   },
 
   {
-    id: 'helping-at-home',
+    id: 'helping-at-home-together',
     title: 'Helping at Home',
     topic: 'character',
     coverEmoji: '🏠',
@@ -21281,7 +21281,7 @@ Next time the moon is full, go outside and look up. You are looking at the same 
 
 // ── NEW Grade 1-2 stories ────────────────────────────────────────────────────
   {
-    id: 'florida-dolphins',
+    id: 'dolphins-of-florida-gr1',
     title: 'Dolphins of Florida',
     topic: 'florida-nature',
     coverEmoji: '🐬',
@@ -21471,7 +21471,7 @@ Most dentists recommend visiting every six months. A clean, healthy mouth is som
 
 // ── NEW Grade 2 stories ──────────────────────────────────────────────────────
   {
-    id: 'how-rainbows-form',
+    id: 'how-rainbows-form-gr2',
     title: 'How Rainbows Form',
     topic: 'science',
     coverEmoji: '🌈',
@@ -21666,7 +21666,7 @@ A person who keeps their promises is someone people want in their life.`,
 
 // ── NEW Grade 2-3 stories ────────────────────────────────────────────────────
   {
-    id: 'wright-brothers-flight',
+    id: 'wright-brothers-take-flight-gr3',
     title: 'The Wright Brothers Take Flight',
     topic: 'history',
     coverEmoji: '✈️',
@@ -21797,7 +21797,7 @@ In Florida, a simple food chain looks like this: algae → small fish → bass �
 
 // ── NEW Grade 3 stories ──────────────────────────────────────────────────────
   {
-    id: 'rosa-parks-courage',
+    id: 'rosa-parks-power-brave-act-gr3',
     title: 'Rosa Parks: The Power of One Brave Act',
     topic: 'history',
     coverEmoji: '✊',
@@ -24848,3 +24848,14 @@ The student at UCLA typed "L" and "O" — and the network crashed. He called the
   },
 
 ];
+
+// A few early-reader additions predate answer explanations. Supply a supportive
+// evidence prompt so every missed answer still teaches something useful.
+STORIES.forEach(story => {
+  (story.questions || []).forEach(question => {
+    if (!question.explanation && Array.isArray(question.options)) {
+      question.explanation = 'The story supports this answer: "' +
+        question.options[question.correctIndex] + '" Look back for the detail that proves it.';
+    }
+  });
+});

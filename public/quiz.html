@@ -144,32 +144,6 @@
     .xp-preview.gain    { background: var(--green-soft); color: #065f46; }
     .xp-preview.partial { background: #fffbeb; color: #78350f; }
 
-    /* ── FORCE-READ OVERLAY ──────────────────────────────────────────── */
-    .force-read-overlay {
-      position: fixed; inset: 0;
-      background: rgba(109,40,217,0.93);
-      backdrop-filter: blur(6px);
-      display: none; align-items: center; justify-content: center;
-      z-index: 500;
-    }
-    .force-read-overlay.show { display: flex; }
-
-    .force-read-box {
-      background: #fff; border-radius: 24px;
-      padding: 44px 36px; max-width: 360px; width: 90%;
-      text-align: center;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-      animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    @keyframes popIn {
-      from { transform: scale(0.7); opacity: 0; }
-      to   { transform: scale(1);   opacity: 1; }
-    }
-    .force-read-emoji { font-size: 3.5rem; line-height: 1; margin-bottom: 14px; }
-    .force-read-box h2 { font-size: 1.55rem; font-weight: 800; color: var(--purple); margin-bottom: 10px; }
-    .force-read-box p  { font-size: 0.98rem; color: var(--muted); line-height: 1.55; margin-bottom: 22px; }
-    .force-read-count  { font-size: 1.05rem; font-weight: 700; color: var(--purple); }
-
     /* STRATEGY TIP */
     .strategy-tip {
       display: none; align-items: flex-start; gap: 10px;
@@ -226,16 +200,6 @@
     <button class="next-btn" id="next-btn">Next →</button>
   </div>
 
-  <!-- Force-read overlay (shown when totalWrongs hits 3) -->
-  <div class="force-read-overlay" id="force-read-overlay">
-    <div class="force-read-box">
-      <div class="force-read-emoji">📖</div>
-      <h2>Time to Re-Read!</h2>
-      <p>You've missed 3 answers. Go back and read the story carefully — then try the quiz again.</p>
-      <div class="force-read-count" id="force-count">Returning to story in 5…</div>
-    </div>
-  </div>
-
   <script src="stories.js?v=20260705"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
@@ -264,7 +228,6 @@
     const XP_FIRST_TRY        = 20;
     const XP_NOT_FIRST        = 10;
     const XP_PERFECT_BONUS    = 25;
-    const WRONG_LIMIT         = 3;   // mistakes before force-read
 
     // ── Quiz resume state (persisted in sessionStorage) ──────────────────────
     const QUIZ_STATE_KEY = 'quizInProgress_' + storyId;
@@ -278,7 +241,6 @@
     let totalWrongs       = 0;   // cumulative across whole quiz
     let wrongsThisQuestion = 0;  // resets per question (for XP calc)
     const answers         = [];  // { correct, attempts, earnedXP }
-    // XP penalty: -2 per wrong answer (totalWrongs × 2 deducted in finishQuiz)
 
     // Restore state if the student is returning mid-quiz
     let _restoredWrongsThisQ = 0; // applied after showQuestion resets wrongsThisQuestion
@@ -335,11 +297,11 @@
         dot.className = 'mistake-dot' + (i < totalWrongs ? ' hit' : '');
       }
       const warn = document.getElementById('mistake-warn');
-      if (totalWrongs >= WRONG_LIMIT - 1) {
-        warn.textContent = '⚠️ XP dropping! 1 more → re-read!';
+      if (totalWrongs >= 3) {
+        warn.textContent = '🧠 Big learning moment — use the hint and look for story evidence.';
         warn.classList.add('show');
       } else if (totalWrongs > 0) {
-        warn.textContent = '⚠️ Wrong answers cost XP!';
+        warn.textContent = '💪 Every try helps your reading brain grow.';
         warn.classList.add('show');
       } else {
         warn.classList.remove('show');
@@ -507,21 +469,15 @@
         setTimeout(() => btn.classList.remove('shake'), 500);
         playSound('wrong');
 
-        if (totalWrongs >= WRONG_LIMIT) {
-          // Too many mistakes — force re-read
-          triggerForceRead();
-          return;
-        }
-
-        // Show hint — student must click "try again" to continue
+        // Show a useful hint and let the student learn without losing progress.
         const feedbackEl = document.getElementById('feedback');
         feedbackEl.className = 'feedback wrong-fb show';
-        feedbackEl.innerHTML = '❌ Not quite — read the hint below!';
+        feedbackEl.innerHTML = '🔎 Good try — use the hint and take another look.';
 
         const expEl = document.getElementById('explanation');
         expEl.className = 'explanation show hint-exp';
-        expEl.innerHTML = '<div>💡 ' + q.explanation + '</div>' +
-          '<button class="try-again-btn" id="try-again-btn">Got it — try again! →</button>';
+        expEl.innerHTML = '<div>💡 ' + (q.explanation || 'Look back at the part of the story connected to this question.') + '</div>' +
+          '<button class="try-again-btn" id="try-again-btn">I learned something — try again! →</button>';
 
         document.getElementById('try-again-btn').addEventListener('click', () => reshuffleAndShow(q), { once: true });
       }
@@ -552,39 +508,11 @@
       }, 220);
     }
 
-    // ── Force-read overlay ────────────────────────────────────────────────────
-    function triggerForceRead() {
-      clearInterval(thinkInterval);
-
-      // Clear quiz progress — after re-reading they start over from Q1
-      sessionStorage.removeItem(QUIZ_STATE_KEY);
-
-      // Reset the reading timer — forces 2 fresh minutes
-      localStorage.setItem('readStart_' + storyId, Date.now().toString());
-
-      const overlay   = document.getElementById('force-read-overlay');
-      const countEl   = document.getElementById('force-count');
-      overlay.classList.add('show');
-
-      let secs = 5;
-      countEl.textContent = `Returning to story in ${secs}…`;
-
-      const timer = setInterval(() => {
-        secs--;
-        if (secs <= 0) {
-          clearInterval(timer);
-          window.location.href = 'read.html?story=' + storyId + '&notice=reread';
-        } else {
-          countEl.textContent = `Returning to story in ${secs}…`;
-        }
-      }, 1000);
-    }
-
     // ── Show explanation ──────────────────────────────────────────────────────
     function showExplanation(q, isCorrect) {
       const expEl = document.getElementById('explanation');
       expEl.className = 'explanation show ' + (isCorrect ? 'correct-exp' : 'wrong-exp');
-      expEl.textContent = q.explanation;
+      expEl.textContent = q.explanation || 'Nice thinking. Look back at the story evidence to strengthen your answer.';
     }
 
     // ── Auto-advance + Next button ────────────────────────────────────────────
@@ -616,8 +544,6 @@
       const perfectFirstTry = answers.every(a => a.correct && a.attempts === 1);
       let earnedXP          = answers.reduce((sum, a) => sum + a.earnedXP, 0);
       if (perfectFirstTry) earnedXP += XP_PERFECT_BONUS;
-      // Deduct 2 XP per wrong answer — can make XP negative (level goes down!)
-      earnedXP -= totalWrongs * 2;
 
       sessionStorage.setItem('quizResult', JSON.stringify({
         storyId, storyTitle: story.title, storyTopic: story.topic,
