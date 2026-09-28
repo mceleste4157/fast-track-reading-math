@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A personalized reading, vocabulary, typing, and math dashboard for young learners." />
+  <meta name="theme-color" content="#7c3aed" />
   <title>🚀 FAST Track Reading & Math</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -58,7 +60,7 @@
     }
 
     /* HEADER */
-    .greeting { font-size: clamp(1.8rem, 7vw, 3rem); font-weight: 800; color: var(--purple); text-align: center; margin-bottom: 4px; }
+    .greeting { font-size: 2.25rem; font-weight: 800; color: var(--purple); text-align: center; margin-bottom: 4px; }
     .subtitle  { font-size: 1.1rem; color: var(--muted); text-align: center; margin-bottom: 28px; }
 
     /* AVATAR + LEVEL */
@@ -82,7 +84,7 @@
     .xp-bar-label { font-size: 0.75rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
 
     /* STATS */
-    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; max-width: 480px; margin-bottom: 24px; }
+    .stats-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; width: 100%; max-width: 480px; margin-bottom: 24px; }
     .stat-card {
       background: var(--surface); border-radius: 14px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.06);
@@ -183,9 +185,21 @@
       margin-top: 8px;
     }
     .switch-user-btn:hover { color: var(--purple); border-color: var(--purple); }
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid var(--orange); outline-offset: 3px;
+    }
 
-    @media (max-width: 380px) {
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 660px) {
+      .page { padding: 20px 14px 72px; }
+      .greeting { font-size: 1.65rem; line-height: 1.15; }
+      .subtitle { font-size: 0.95rem; margin-bottom: 18px; }
+      .hero-row { padding: 16px; margin-bottom: 14px; }
+      .stats-row { grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 18px; }
+      .stat-card { grid-column: span 2; padding: 11px 6px; }
+      .stat-card:nth-last-child(-n+2) { grid-column: span 3; }
+      .stat-val { font-size: 1.25rem; }
+      .module-card { padding: 18px 16px; gap: 13px; }
+      .mod-icon { font-size: 2.25rem; }
     }
     @keyframes ppmShake {
       0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
@@ -215,11 +229,11 @@
 
     <!-- ── Main column ──────────────────────────────────────────────── -->
     <div class="main-col">
-      <div class="greeting">🚀 FAST Track Reading & Math<span id="secret-bang">!</span></div>
-      <div class="subtitle" id="main-subtitle">Hi, ready to learn something awesome today?</div>
+      <h1 class="greeting">🚀 FAST Track Reading & Math<span id="secret-bang">!</span></h1>
+      <p class="subtitle" id="main-subtitle">Hi, ready to learn something awesome today?</p>
       <div style="display:flex;gap:8px;margin-top:8px;">
-      <button class="switch-user-btn" id="switch-user-btn">🔄 Switch User</button>
-      <button id="sound-toggle-btn" class="switch-user-btn" title="Toggle sound effects" style="font-size:1rem;padding:4px 10px;">🔊</button>
+      <button type="button" class="switch-user-btn" id="switch-user-btn">🔄 Switch User</button>
+      <button type="button" id="sound-toggle-btn" class="switch-user-btn" title="Toggle sound effects" aria-label="Turn sound effects off" style="font-size:1rem;padding:4px 10px;">🔊</button>
     </div>
 
       <!-- Streak / decay banner (filled by JS) -->
@@ -229,10 +243,33 @@
       <div class="hero-row">
         <div class="avatar" id="hero-avatar">?</div>
         <div class="hero-info">
-          <div class="hero-name" id="hero-name">… ⭐</div>
+          <h2 class="hero-name" id="hero-name">… ⭐</h2>
           <div class="hero-level" id="hero-level">📖 Bookworm</div>
           <div class="xp-bar-wrap"><div class="xp-bar-fill" id="xp-bar" style="width:0%"></div></div>
           <div class="xp-bar-label" id="xp-label">Loading…</div>
+        </div>
+      </div>
+
+      <!-- Core learning activities -->
+      <div class="module-grid">
+        <a href="library.html" id="reading-card" class="module-card reading">
+          <div class="mod-icon">📖</div>
+          <div class="mod-body">
+            <div class="mod-title">Reading Library</div>
+            <div class="mod-sub" id="reading-sub">30 stories • vocab warm-up • quizzes</div>
+          </div>
+          <div class="mod-badge">Go! →</div>
+        </a>
+        <a href="typing.html" class="module-card typing">
+          <div class="mod-icon">⌨️</div>
+          <div class="mod-body">
+            <div class="mod-title">Typing Practice</div>
+            <div class="mod-sub" id="typing-sub">12 lessons • WPM tracking • 4th grade prep</div>
+          </div>
+          <div class="mod-badge">Go! →</div>
+        </a>
+        <div id="math-card">
+          <!-- filled by JS -->
         </div>
       </div>
 
@@ -278,7 +315,7 @@
       <!-- Monthly Challenge -->
       <div id="monthly-challenge-wrap" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
         <div style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:14px;padding:14px 16px;">
-          <div style="font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">☀️ June Challenge</div>
+          <div id="challenge-period" style="font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Monthly Challenge</div>
           <div style="font-weight:800;font-size:0.95rem;color:#1e1b4b;margin-bottom:4px;" id="challenge-title"></div>
           <div style="font-size:0.82rem;color:#78350f;margin-bottom:10px;" id="challenge-desc"></div>
           <div style="height:7px;background:#fde68a;border-radius:99px;overflow:hidden;margin-bottom:5px;">
@@ -296,33 +333,10 @@
         </div>
       </div>
 
-      <!-- Modules -->
-      <div class="module-grid">
-        <a href="library.html" id="reading-card" class="module-card reading">
-          <div class="mod-icon">📖</div>
-          <div class="mod-body">
-            <div class="mod-title">Reading Library</div>
-            <div class="mod-sub" id="reading-sub">30 stories • vocab warm-up • quizzes</div>
-          </div>
-          <div class="mod-badge">Go! →</div>
-        </a>
-        <a href="typing.html" class="module-card typing">
-          <div class="mod-icon">⌨️</div>
-          <div class="mod-body">
-            <div class="mod-title">Typing Practice</div>
-            <div class="mod-sub" id="typing-sub">12 lessons • WPM tracking • 4th grade prep</div>
-          </div>
-          <div class="mod-badge">Go! →</div>
-        </a>
-        <div id="math-card">
-          <!-- filled by JS -->
-        </div>
-      </div>
-
       <!-- Story of the Day -->
       <div id="sotd-card" style="display:none;width:100%;max-width:480px;margin-bottom:16px;">
-        <div style="background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:16px;padding:16px 18px;cursor:pointer;"
-          id="sotd-inner" onclick="window.location='read.html?story='+this.dataset.id">
+        <a href="library.html" style="display:block;background:linear-gradient(135deg,#fef9c3,#fef3c7);border:2px solid #fcd34d;border-radius:16px;padding:16px 18px;cursor:pointer;text-decoration:none;"
+          id="sotd-inner">
           <div style="font-size:0.72rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">⭐ Story of the Day</div>
           <div style="display:flex;align-items:center;gap:14px;">
             <div id="sotd-emoji" style="font-size:2.2rem;flex-shrink:0;"></div>
@@ -332,7 +346,7 @@
             </div>
             <div style="margin-left:auto;background:#f59e0b;color:#fff;padding:7px 14px;border-radius:10px;font-weight:700;font-size:0.85rem;flex-shrink:0;">Read →</div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Math daily goal nudge (filled by JS) -->
@@ -363,7 +377,7 @@
 
   </div>
 
-  <button onclick="requireParentPin(() => { window.location.href = 'parent-portal.html'; })" class="parent-btn">👨‍👩‍👧 Parent</button>
+  <button type="button" onclick="requireParentPin(() => { window.location.href = 'parent-portal.html'; })" class="parent-btn">👨‍👩‍👧 Parent</button>
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -385,7 +399,7 @@
   <script>
     // ─── Auth guard — redirect to login if no profile ─────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.replace('login.html'); }
 
     // ─── Apply profile to page ────────────────────────────────────────────────
     if (profile) {
@@ -407,6 +421,7 @@
     }
 
     // ─── Switch user button ───────────────────────────────────────────────────
+    if (profile) {
     // ─── Story of the Day ─────────────────────────────────────────────────────────
     (function() {
       const grade = parseInt(profile.gradeLevel) || 4;
@@ -417,6 +432,7 @@
       const story = eligible[dayNum % eligible.length];
       const card = document.getElementById('sotd-card');
       document.getElementById('sotd-inner').dataset.id = story.id;
+      document.getElementById('sotd-inner').href = 'read.html?story=' + encodeURIComponent(story.id);
       document.getElementById('sotd-emoji').textContent = story.coverEmoji;
       document.getElementById('sotd-title').textContent = story.title;
       document.getElementById('sotd-meta').textContent  = '~' + story.readTimeMin + ' min · ' + story.wordCount + ' words';
@@ -426,7 +442,11 @@
     // ─── Sound toggle ─────────────────────────────────────────────────────────────
     (function() {
       const btn = document.getElementById('sound-toggle-btn');
-      const update = () => { btn.textContent = localStorage.getItem('soundEnabled') === 'false' ? '🔇' : '🔊'; };
+      const update = () => {
+        const soundOff = localStorage.getItem('soundEnabled') === 'false';
+        btn.textContent = soundOff ? '🔇' : '🔊';
+        btn.setAttribute('aria-label', soundOff ? 'Turn sound effects on' : 'Turn sound effects off');
+      };
       update();
       btn.addEventListener('click', () => {
         localStorage.setItem('soundEnabled', localStorage.getItem('soundEnabled') === 'false' ? 'true' : 'false');
@@ -879,6 +899,8 @@
         ];
         const challenge = CHALLENGES[month];
         if (!challenge) return;
+        document.getElementById('challenge-period').textContent =
+          '☀️ ' + now.toLocaleString('en-US', { month: 'long' }) + ' Challenge';
         const currentMonth = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
         const done = (sd.monthStartDate === currentMonth) ? (sd.storiesThisMonth || 0) : 0;
         const pct  = Math.min(100, Math.round((done / challenge.goal) * 100));
@@ -1204,7 +1226,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v12'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v13'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {
@@ -1229,6 +1251,7 @@
         btn.disabled = false;
         status.textContent = failed + ' file(s) failed. Try again.';
       }
+    }
     }
   </script>
 </body>
