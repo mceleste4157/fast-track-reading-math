@@ -624,7 +624,14 @@
     // ── Release notes data — add new entries at the TOP of this array ──────────
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
-      { date: 'September 27, 2026', label: 'Latest Update', items: [
+      { date: 'September 28, 2026', label: 'Latest Update', items: [
+        { icon: '📚', title: 'Stories now match each child\'s grade more closely', text: 'The Library now uses each story\'s intended grade range instead of a broad legacy grouping. More demanding passages are clearly placed in a supported “Stretch Challenges” section and are left out of Surprise Me recommendations.' },
+        { icon: '💪', title: 'Mistakes now lead to learning, not lost progress', text: 'Wrong answers no longer remove XP or force a child to restart the quiz. Students receive a useful hint, can try again, and see encouraging feedback that treats practice as part of learning.' },
+        { icon: '⭐', title: 'Earned XP and levels now stay earned', text: 'Removed the inactivity XP penalty. Time away from the app no longer lowers a child\'s progress; returning students receive a friendly welcome-back message instead.' },
+        { icon: '✅', title: 'Reading and math content reviewed', text: 'Audited all 300 stories, 1,498 reading questions, and 640 math questions. Added missing reading explanations, preserved worked math steps, fixed duplicate answer choices and story IDs, and clarified confusing question wording.' },
+        { icon: '✨', title: 'A smoother experience on phones and computers', text: 'Polished the home and sign-in screens, improved keyboard and screen-reader support, strengthened mobile layouts, and made updates refresh more reliably across devices.' },
+      ]},
+      { date: 'September 27, 2026', items: [
         { icon: '🛠️', title: 'Fixed: quiz progress not always saving', text: 'A bug could silently stop a completed reading or math quiz from saving — so XP, stars, and streaks didn\'t update on the home screen even though the quiz was finished. This is now fixed, with extra safeguards so a save is confirmed before the app moves on.' },
         { icon: '🎉', title: 'Math level-up celebration restored', text: 'The confetti announcement for reaching a new level was showing up for reading but not for math. Both now celebrate a level-up the same way.' },
         { icon: '⏱️', title: 'Daily math time limit now reflects live settings', text: 'If a parent changes the daily math time limit (or reading/unlock requirements) in the portal, it now takes effect immediately instead of waiting for the child to log out and back in.' },
