@@ -1168,7 +1168,7 @@
       window.addEventListener('offline', syncVisibility);
     })();
 
-    async function downloadForOffline() {
+    window.downloadForOffline = async function downloadForOffline() {
       const btn      = document.getElementById('offline-dl-btn');
       const barWrap  = document.getElementById('offline-dl-bar-wrap');
       const bar      = document.getElementById('offline-dl-bar');
@@ -1183,9 +1183,10 @@
         '/index.html','/login.html','/library.html','/read.html',
         '/quiz.html','/results.html','/progress.html',
         '/math.html','/math-quiz.html','/math-results.html',
-        '/spelling.html','/vocab.html','/vocab-game.html',
+        '/spelling.html','/spelling-quiz.html','/vocab.html','/vocab-game.html','/vocab-bank.html',
         '/trivia.html','/typing.html','/typing-practice.html','/story-type.html',
-        '/parent-portal.html',
+        '/flashcards.html','/memory-match.html','/unscramble.html','/fill-in-blank.html','/paired-read.html',
+        '/parent.html','/parent-auth.html','/parent-portal.html',
       ];
 
       btn.disabled = true;
