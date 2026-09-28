@@ -499,8 +499,10 @@
         db.collection('MathProgress').where('readerId', '==', STUDENT_ID).get(),
         db.collection('StudentStats').doc(STUDENT_ID).get(),
         db.collection('StudentActivity').where('readerId', '==', STUDENT_ID).get(),
-        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).limit(1).get()
-      ]).then(([readSnap, mathSnap, statsSnap, activitySnap, profileSnap]) => {
+        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).limit(1).get(),
+        db.collection('TypingProgress').where('readerId', '==', STUDENT_ID).get(),
+        db.collection('TriviaScores').where('readerId', '==', STUDENT_ID).get()
+      ]).then(([readSnap, mathSnap, statsSnap, activitySnap, profileSnap, typingSnap, triviaSnap]) => {
         // ── Weekly summary from StudentStats ──────────────────────────────────
         const sd = statsSnap.exists ? statsSnap.data() : {};
         const currentStreak = sd.currentStreak || 0;
@@ -671,7 +673,11 @@
           return tb - ta;
         });
 
-        const totalXp = readXp + mathXp;
+        let typingXp = 0;
+        typingSnap.forEach(d => { typingXp += (d.data().xpEarned || 0); });
+        let triviaXp = 0;
+        triviaSnap.forEach(d => { triviaXp += (d.data().xpEarned || 0); });
+        const totalXp = readXp + mathXp + typingXp + triviaXp + (sd.challengeXp || 0);
         const level   = getLevel(totalXp);
         const totalQ  = q1st + q2nd + qMiss;
         const firstTryRate = totalQ > 0 ? Math.round((q1st / totalQ) * 100) : null;
