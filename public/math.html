@@ -156,13 +156,15 @@
     );
 
     const MATH_UNLOCK_KEY   = 'mathUnlocked_' + profile.readerId;
-    // Settings from parent portal (fall back to safe defaults if not set)
-    const MATH_UNLOCK_SCORE  = profile.mathUnlockScore  ?? 3;  // 0 = always unlocked
-    const READ_REQUIRED_MINS = profile.dailyReadMinutes ?? 30; // 0 = no requirement
-    const MATH_LIMIT_MINS    = profile.dailyMathMinutes ?? 10; // 0 = no limit
+    // Settings from parent portal, cached at last login (fall back to safe defaults if not set).
+    // Refetched fresh from Firestore below since a parent may have changed these since the
+    // student's last login and this cached copy would otherwise silently gate on stale values.
+    let MATH_UNLOCK_SCORE  = profile.mathUnlockScore  ?? 3;  // 0 = always unlocked
+    let READ_REQUIRED_MINS = profile.dailyReadMinutes ?? 30; // 0 = no requirement
+    let MATH_LIMIT_MINS    = profile.dailyMathMinutes ?? 10; // 0 = no limit
 
-    const READ_REQUIRED_SECS = READ_REQUIRED_MINS * 60;
-    const MATH_LIMIT_SECS    = MATH_LIMIT_MINS === 0 ? Infinity : MATH_LIMIT_MINS * 60;
+    let READ_REQUIRED_SECS = READ_REQUIRED_MINS * 60;
+    let MATH_LIMIT_SECS    = MATH_LIMIT_MINS === 0 ? Infinity : MATH_LIMIT_MINS * 60;
     const db = firebase.firestore();
 
     // ─── Daily reading prerequisite ───────────────────────────────────────────
@@ -186,8 +188,8 @@
 
     const mathSecsToday = parseInt(localStorage.getItem(MATH_SECS_KEY) || '0');
     const readSecsToday = parseInt(localStorage.getItem(READ_SECS_KEY) || '0');
-    const mathTimedOut  = MATH_LIMIT_MINS > 0 && mathSecsToday >= MATH_LIMIT_SECS;
-    const readingDone   = READ_REQUIRED_MINS === 0 || readSecsToday >= READ_REQUIRED_SECS;
+    let mathTimedOut  = MATH_LIMIT_MINS > 0 && mathSecsToday >= MATH_LIMIT_SECS;
+    let readingDone   = READ_REQUIRED_MINS === 0 || readSecsToday >= READ_REQUIRED_SECS;
 
     // ─── Check unlock status then render ──────────────────────────────────────
     // If parent set unlock score to 0, treat as always unlocked
@@ -335,19 +337,42 @@
       // Math progress
       db.collection('MathProgress')
         .where('readerId', '==', profile.readerId)
-        .get()
-    ]).then(([readSnap, mathSnap]) => {
+        .get(),
+      // Latest gate settings — the cached copy in localStorage can be stale if a parent
+      // changed them since this student last logged in, so always confirm against Firestore.
+      profile.profileDocId
+        ? db.collection('StudentProfiles').doc(profile.profileDocId).get().catch(() => null)
+        : Promise.resolve(null)
+    ]).then(([readSnap, mathSnap, profileDoc]) => {
       // Find best reading score
       readSnap.forEach(d => {
         const score = d.data().quizScore || 0;
         if (score > bestReadScore) bestReadScore = score;
       });
 
+      // Refresh gate settings from Firestore if we got them, and recompute derived values
+      if (profileDoc && profileDoc.exists) {
+        const data = profileDoc.data();
+        MATH_UNLOCK_SCORE  = data.mathUnlockScore  ?? MATH_UNLOCK_SCORE;
+        READ_REQUIRED_MINS = data.dailyReadMinutes ?? READ_REQUIRED_MINS;
+        MATH_LIMIT_MINS    = data.dailyMathMinutes ?? MATH_LIMIT_MINS;
+        READ_REQUIRED_SECS = READ_REQUIRED_MINS * 60;
+        MATH_LIMIT_SECS    = MATH_LIMIT_MINS === 0 ? Infinity : MATH_LIMIT_MINS * 60;
+        mathTimedOut = MATH_LIMIT_MINS > 0 && mathSecsToday >= MATH_LIMIT_SECS;
+        readingDone  = READ_REQUIRED_MINS === 0 || readSecsToday >= READ_REQUIRED_SECS;
+
+        profile.mathUnlockScore  = MATH_UNLOCK_SCORE;
+        profile.dailyReadMinutes = READ_REQUIRED_MINS;
+        profile.dailyMathMinutes = MATH_LIMIT_MINS;
+        localStorage.setItem('readerProfile', JSON.stringify(profile));
+      }
+
       // Update unlock status
+      if (MATH_UNLOCK_SCORE === 0) unlocked = true;
       if (!unlocked && bestReadScore >= MATH_UNLOCK_SCORE) {
         unlocked = true;
-        localStorage.setItem(MATH_UNLOCK_KEY, 'true');
       }
+      if (unlocked) localStorage.setItem(MATH_UNLOCK_KEY, 'true');
 
       // Build math progress map (best per set)
       mathSnap.forEach(d => {

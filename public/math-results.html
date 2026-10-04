@@ -107,16 +107,6 @@
     }
     .ga-btn:hover { transform: translateY(-2px); }
 
-    /* XP LOSS BANNER */
-    .xp-loss-banner {
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      color: #fff; border-radius: 20px;
-      text-align: center; padding: 18px 20px;
-      font-size: 1.05rem; font-weight: 700; line-height: 1.45;
-      margin-bottom: 24px;
-      animation: pulse-banner 1s ease-in-out infinite alternate;
-    }
-
     /* Confetti */
     @keyframes confetti-fall {
       0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
@@ -151,10 +141,10 @@
       </div>
     </div>
     <div id="perfect-banner" style="display:none;" class="perfect-banner">🏆 Perfect Score! Math Champion!</div>
-    <div id="xp-loss-banner" style="display:none;" class="xp-loss-banner"></div>
 
     <div class="stars-row" id="stars-row"></div>
     <div class="score-label" id="score-label"></div>
+    <div id="growth-message" style="text-align:center;font-size:0.95rem;font-weight:700;color:var(--blue);line-height:1.5;margin:-16px auto 24px;max-width:520px;"></div>
 
     <div class="reward-card">
       <div>
@@ -275,17 +265,20 @@
     function getLevel(xp) {
       let idx = 0;
       for (let i = 0; i < LEVELS.length; i++) { if (xp >= LEVELS[i].minXp) idx = i; }
-      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null };
+      return { level: LEVELS[idx], nextLevel: LEVELS[idx + 1] || null, levelIdx: idx };
     }
 
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; return; }
+    const raw     = sessionStorage.getItem('mathResult');
+    const result  = raw ? (() => { try { return JSON.parse(raw); } catch(e) { return null; } })() : null;
+    const mathSet = result ? MATH_SETS.find(s => s.id === result.setId) : null;
 
-    const raw = sessionStorage.getItem('mathResult');
-    if (!raw) { window.location.href = 'math.html'; }
-    const result = JSON.parse(raw);
-    const mathSet = MATH_SETS.find(s => s.id === result.setId);
-    if (!mathSet) { window.location.href = 'math.html'; }
+    if (!profile || !result || !mathSet) {
+      // Reaching this page without a fresh math result (e.g. a stale/incorrect "Back" link)
+      // used to throw here and depend on the browser completing the queued redirect anyway
+      // despite the crash — flaky on some devices. Bail out before touching result/mathSet.
+      window.location.href = profile ? 'math.html' : 'index.html';
+    } else {
 
     document.getElementById('try-again-btn').href = 'math-quiz.html?set=' + result.setId;
 
@@ -302,6 +295,12 @@
     for (let i = 0; i < result.total; i++) starsHtml += i < result.score ? '⭐' : '☆';
     document.getElementById('stars-row').textContent   = starsHtml;
     document.getElementById('score-label').textContent = result.score + ' out of ' + result.total + ' correct';
+    const scoreRatio = result.total ? result.score / result.total : 0;
+    document.getElementById('growth-message').textContent = scoreRatio === 1
+      ? 'You checked every step and made the ideas work. Ready for a new challenge?'
+      : scoreRatio >= 0.6
+        ? 'Your math thinking is getting stronger. Review one step, then try another set.'
+        : 'This was practice, not a verdict. Use the worked steps and give your brain another round.';
 
     // Perfect
     if (result.perfectFirstTry && result.score === result.total) {
@@ -309,19 +308,9 @@
       startConfetti();
     }
 
-    // XP display — handle negative (too many wrong answers in math)
-    const xp = result.earnedXP;
-    if (xp < 0) {
-      const lostXp = Math.abs(xp);
-      document.getElementById('xp-earned').textContent = '−' + lostXp + ' XP';
-      document.getElementById('xp-earned').style.color = 'var(--red)';
-      document.querySelector('.xp-label').textContent   = 'Math XP lost 📉';
-      const lossBanner = document.getElementById('xp-loss-banner');
-      lossBanner.style.display = 'block';
-      lossBanner.innerHTML = `📉 Oops! You lost <strong>${lostXp} XP</strong> from too many wrong answers.<br>Keep trying — you can earn it back!`;
-    } else {
-      document.getElementById('xp-earned').textContent = '+' + xp + ' XP';
-    }
+    // Practice always moves progress forward; mistakes never remove earned XP.
+    const xp = Math.max(0, result.earnedXP || 0);
+    document.getElementById('xp-earned').textContent = '+' + xp + ' XP';
 
     // Load XP + stats + run post-quiz updates
     const db = firebase.firestore();
@@ -329,11 +318,26 @@
     const weekStart = getWeekStart();
     const MATH_UNLOCK_KEY = 'mathUnlocked_' + profile.readerId;
 
-    Promise.all([
+    // Tracks whether a critical save below failed, so we can warn instead of
+    // silently losing XP/progress. Navigation is held until statsPromise and
+    // mathProgressPromise (defined further down) both settle — see the nav
+    // guard at the bottom of this script.
+    let saveFailed = false;
+
+    // Read "prior" totals BEFORE this attempt's MathProgress doc is written
+    // below. Firestore's client SDK applies pending local writes to snapshots
+    // via latency compensation, so if MathProgress.add() were fired
+    // concurrently with this query, this attempt could get folded into
+    // "prior" totals and double-counted. Gating the write on this promise
+    // (see mathProgressPromise below) guarantees these reads are already a
+    // fixed, resolved snapshot before that write is ever sent.
+    const priorReadsPromise = Promise.all([
       db.collection('Progress').where('readerId', '==', profile.readerId).get(),
       db.collection('MathProgress').where('readerId', '==', profile.readerId).get(),
       db.collection('StudentStats').doc(profile.readerId).get()
-    ]).then(([readSnap, mathSnap, statsSnap]) => {
+    ]);
+
+    const statsPromise = priorReadsPromise.then(([readSnap, mathSnap, statsSnap]) => {
       // ── XP totals ──────────────────────────────────────────────────────────
       let priorReadXp = 0, priorMathXp = 0;
       let hadPerfect = (result.perfectFirstTry && result.score === result.total);
@@ -402,8 +406,11 @@
       showBadges(newBadgeIds);
 
       // ── Write StudentStats ──────────────────────────────────────────────────
+      // This write is the source of truth for the home dashboard's Total XP /
+      // Stars / level display, so we track its promise and surface failures
+      // instead of swallowing them — see saveFailed and the nav guard below.
       const mathSetsCompleted = uniqueMath.has(result.setId) ? uniqueMath.size : uniqueMath.size + 1;
-      db.collection('StudentStats').doc(profile.readerId).set({
+      const statsWritePromise = db.collection('StudentStats').doc(profile.readerId).set({
         readerId: profile.readerId,
         currentStreak, longestStreak,
         lastReadDate: todayStr, weekStartDate: weekStart,
@@ -412,7 +419,10 @@
         inactivityDecay: 0, decayCheckedDate: todayStr,
         totalXp, mathSetsCompleted,
         lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-      }, { merge: true }).catch(() => {});
+      }, { merge: true }).catch(err => {
+        console.error('StudentStats write failed:', err);
+        saveFailed = true;
+      });
 
       // ── Write StudentActivity ───────────────────────────────────────────────
       db.collection('StudentActivity').add({
@@ -423,9 +433,11 @@
         date: todayStr, timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(() => {});
 
+      return statsWritePromise;
     }).catch(() => {
       const { level } = getLevel(Math.max(0, xp));
       document.getElementById('level-name').textContent = level.emoji + ' ' + level.name;
+      saveFailed = true;
     });
 
     // Answers list
@@ -438,11 +450,16 @@
       </div>`;
     }).join('');
 
-    // Write to Firestore — only once
+    // Write to Firestore — only once. The 'mathWritten' flag is set only after
+    // the write actually succeeds (not before), so a failed or interrupted
+    // save — e.g. the browser navigating away mid-request — can still be
+    // retried on the next load instead of silently losing this quiz's XP.
+    // Gated on priorReadsPromise so this attempt can't leak into its own
+    // "prior totals" read above (see the comment on priorReadsPromise).
+    let mathProgressPromise = Promise.resolve();
     if (!sessionStorage.getItem('mathWritten')) {
-      sessionStorage.setItem('mathWritten', 'true');
       const starsEarned = result.score; // 1 star per correct answer
-      db.collection('MathProgress').add({
+      mathProgressPromise = priorReadsPromise.then(() => db.collection('MathProgress').add({
         readerId:    profile.readerId,
         readerName:  profile.name,
         setId:       result.setId,
@@ -454,7 +471,12 @@
         xpEarned:    xp,
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp:   firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(err => console.error('MathProgress write failed:', err));
+      })).then(() => {
+        sessionStorage.setItem('mathWritten', 'true');
+      }).catch(err => {
+        console.error('MathProgress write failed:', err);
+        saveFailed = true;
+      });
 
       // Daily challenge: c_math
       (function() {
@@ -489,6 +511,46 @@
         container.appendChild(el);
       }
     }
+
+    // ─── Navigation guard ──────────────────────────────────────────────────────
+    // This page's XP/streak/badge writes above are fire-and-forget Firestore
+    // calls kicked off on load. Without this guard, tapping an exit link
+    // navigates immediately and the browser can cancel those requests
+    // mid-flight before they reach Firestore — the classic cause of "I
+    // finished a math quiz but my XP didn't save." We hold navigation until
+    // both saves have settled (success or failure), with a timeout so a dead
+    // connection never traps a kid on this screen.
+    const criticalSavesPromise = Promise.all([statsPromise, mathProgressPromise]);
+    function waitForCriticalSaves(timeoutMs) {
+      return Promise.race([
+        criticalSavesPromise,
+        new Promise(resolve => setTimeout(resolve, timeoutMs))
+      ]);
+    }
+    function showSaveFailedToast() {
+      const t = document.createElement('div');
+      t.textContent = "⚠️ Your progress may not have saved. If you're offline, reconnect and reopen this quiz.";
+      t.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#dc2626;color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;font-size:0.85rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.25);max-width:380px;text-align:center;';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 6000);
+    }
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href.startsWith('javascript:') || href.startsWith('http')) return;
+      if (link.dataset.navGuardPassed === 'true') return; // already waited once
+      e.preventDefault();
+      link.style.opacity = '0.6';
+      waitForCriticalSaves(4000).then(() => {
+        if (saveFailed) showSaveFailedToast();
+        link.dataset.navGuardPassed = 'true';
+        link.style.opacity = '';
+        window.location.href = href;
+      });
+    }, true);
+
+    } // end valid-result guard
   </script>
 </body>
 </html>

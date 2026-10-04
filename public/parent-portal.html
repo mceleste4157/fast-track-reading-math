@@ -624,7 +624,44 @@
     // ── Release notes data — add new entries at the TOP of this array ──────────
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
-      { date: 'July 4, 2026', label: 'Latest Update', items: [
+      { date: 'September 28, 2026', label: 'Latest Update', items: [
+        { icon: '📚', title: 'Stories now match each child\'s grade more closely', text: 'The Library now uses each story\'s intended grade range instead of a broad legacy grouping. More demanding passages are clearly placed in a supported “Stretch Challenges” section and are left out of Surprise Me recommendations.' },
+        { icon: '💪', title: 'Mistakes now lead to learning, not lost progress', text: 'Wrong answers no longer remove XP or force a child to restart the quiz. Students receive a useful hint, can try again, and see encouraging feedback that treats practice as part of learning.' },
+        { icon: '⭐', title: 'Earned XP and levels now stay earned', text: 'Removed the inactivity XP penalty. Time away from the app no longer lowers a child\'s progress; returning students receive a friendly welcome-back message instead.' },
+        { icon: '✅', title: 'Reading and math content reviewed', text: 'Audited all 300 stories, 1,498 reading questions, and 640 math questions. Added missing reading explanations, preserved worked math steps, fixed duplicate answer choices and story IDs, and clarified confusing question wording.' },
+        { icon: '✨', title: 'A smoother experience on phones and computers', text: 'Polished the home and sign-in screens, improved keyboard and screen-reader support, strengthened mobile layouts, and made updates refresh more reliably across devices.' },
+      ]},
+      { date: 'September 27, 2026', items: [
+        { icon: '🛠️', title: 'Fixed: quiz progress not always saving', text: 'A bug could silently stop a completed reading or math quiz from saving — so XP, stars, and streaks didn\'t update on the home screen even though the quiz was finished. This is now fixed, with extra safeguards so a save is confirmed before the app moves on.' },
+        { icon: '🎉', title: 'Math level-up celebration restored', text: 'The confetti announcement for reaching a new level was showing up for reading but not for math. Both now celebrate a level-up the same way.' },
+        { icon: '⏱️', title: 'Daily math time limit now reflects live settings', text: 'If a parent changes the daily math time limit (or reading/unlock requirements) in the portal, it now takes effect immediately instead of waiting for the child to log out and back in.' },
+        { icon: '📥', title: 'Fixed: "Download for Offline" button', text: 'The one-tap offline download button was saving content in a way the app couldn\'t actually use it. It now correctly pre-loads everything, including the typing lessons page, for offline use.' },
+        { icon: '🛠️', title: 'Fixed a stuck "Back" button', text: 'On Flashcards, Memory Match, Unscramble, and a few other activities, tapping the top-left back button could occasionally fail to return to the Library. Fixed the underlying error so it always works.' },
+        { icon: '🎯', title: 'Math Zone matched to grade level', text: 'Reviewed every math question in the app and fixed the ones that used a method ahead of their grade (like algebra or exponents) even though the topic itself was right for that grade — the coordinate plane topic (which uses negative numbers) now only appears for grades 6 and up, matching Florida\'s standards.' },
+        { icon: '💡', title: 'Math help available right away', text: '"Show Me How" step-by-step help now shows up as soon as a math question appears, instead of only after answering it wrong once — so a child who\'s already stuck doesn\'t have to guess first.' },
+      ]},
+      { date: 'August 29, 2026', items: [
+        { icon: '🏆', title: 'Sibling XP Race', text: 'On the login screen, when more than one child shares the account, each kid\'s card now shows their XP and current streak, with a crown 👑 on whoever\'s in the lead — a friendly nudge to keep reading.' },
+        { icon: '🛍️', title: 'Avatar Shop', text: 'On the Progress page, kids can spend the XP they\'ve earned to unlock and equip new emoji avatars. There\'s a free tier plus unlocks at 50, 100, 200, and 500 XP — their pick saves instantly and shows up everywhere in the app.' },
+        { icon: '🎉', title: 'Level-up celebration', text: 'When a child earns a new level, the next time they open the app a confetti overlay announces their new title before they get back to reading.' },
+      ]},
+      { date: 'August 12, 2026', items: [
+        { icon: '⚡', title: 'Much faster home screen', text: 'The home screen used to download the entire 2.5MB story library just to show a few stats. It now loads a lightweight 66KB summary instead, so the app opens noticeably faster, especially on phones or slower connections.' },
+      ]},
+      { date: 'August 1, 2026', items: [
+        { icon: '📥', title: 'Download for Offline Use', text: 'A new button lets kids pre-download every story, math set, and asset in one tap (with a progress bar) so the whole app works offline right away, instead of caching gradually in the background.' },
+        { icon: '🛠️', title: 'Offline reliability fix', text: 'Fixed a version mismatch that could leave the offline cache serving outdated stories after an update. Offline mode now stays in sync with the latest content.' },
+      ]},
+      { date: 'July 5, 2026', items: [
+        { icon: '🌙', title: 'Dark mode everywhere', text: 'Every page in the app — reading, math, typing, quizzes, the parent portal, and more — now respects your device\'s dark mode setting automatically.' },
+        { icon: '🏷️', title: 'Library topic filters + NEW badges', text: 'Filter the library by Fiction, Biography, Science, History, or Florida with one tap, and spot recently added stories instantly with a NEW badge.' },
+        { icon: '🔒', title: 'Password required to reset parent PIN', text: 'Forgot PIN now requires re-entering the account password before it can be reset, so kids can\'t reset the portal PIN on their own.' },
+        { icon: '👉', title: 'Daily challenge cards are clickable', text: 'Tapping a daily challenge on the home screen now jumps straight to the matching activity — library, math, typing, or vocab — instead of just showing the goal.' },
+        { icon: '📊', title: '"Last Active" now accurate on Admin', text: 'The admin dashboard previously only counted reading quizzes toward a child\'s last-active date. It now also counts math, typing, and trivia activity.' },
+        { icon: '🔤', title: 'Read aloud + font size fixes', text: 'Font size chosen while reading now persists across sessions. Also fixed the vocab game score label lagging one answer behind.' },
+        { icon: '🔥', title: 'Combo streak toast + today\'s reading time', text: 'The home screen now shows a stat card for today\'s reading time, and finishing 2+ stories in one day triggers a combo streak celebration.' },
+      ]},
+      { date: 'July 4, 2026', items: [
         { icon: '⚡', title: 'Daily Challenges', text: 'Three new challenges appear every day on the home screen, rotating by student so each child gets a different set. Completing them earns bonus XP (e.g., "Read 2 stories today +40 XP", "Score 5 stars +35 XP"). Challenge XP is tracked separately and counts toward your child\'s total.' },
         { icon: '🔤', title: 'Spelling Quiz', text: 'After finishing a story quiz, students can tap "🔤 Spelling Quiz" to practice vocabulary words from that story. Each round picks up to 5 words, shows a definition and first/last letter hint, and awards 15 XP per correct spelling. A word-by-word review appears at the end.' },
         { icon: '📖', title: 'Vocabulary Bank', text: 'A new "Vocab Bank" page (accessible from the Library) shows every vocabulary word your child has encountered across all stories they\'ve read, searchable by word, definition, or story title. Tap any word card to reveal its definition.' },
@@ -635,7 +672,7 @@
         { icon: '📊', title: 'Level thresholds raised', text: 'All level XP requirements have been significantly increased so each achievement feels meaningful. FAST Legend now requires 17,000 XP (was 4,000) and Infinity Reader requires 72,000 XP. Students already past a threshold keep their current level.' },
         { icon: '📚', title: '10 new stories added', text: 'New stories covering all grade levels (1–8): sharks & ocean life (Gr 1), four seasons (Gr 2), George Washington (Gr 3), Mary McLeod Bethune & Jamestown (Gr 4), Trail of Tears & Lewis & Clark (Gr 5), Aztec Empire (Gr 6), Korean War (Gr 7), Apollo Moon Race (Gr 8).' },
       ]},
-      { date: 'June 5, 2026', label: 'Previous Update', items: [
+      { date: 'June 5, 2026', items: [
         { icon: '❤️', title: 'Story bookmarks', text: 'Students can now tap 🤍 on any story card in the library to save it. Saved stories appear in the new ❤️ Saved tab at the top of the library. Bookmarks sync across devices via Firestore and the 🤍 button on the reading page also works. The tab shows a count of saved stories.' },
         { icon: '🎯', title: 'Trivia & Vocab games now award XP', text: 'Completing a Story Trivia round earns 10–30 XP based on stars earned. Finishing a Vocab Game earns 5–20 XP based on accuracy. Both now appear in each student\'s total XP and activity feed.' },
         { icon: '⌨️', title: 'Typing badges added', text: 'Three new badges reward typing milestones: Keyboarder (first lesson), Typing Pro (5 lessons), and Speed Demon (10 lessons). Badges are awarded instantly when a lesson finishes.' },
@@ -1028,14 +1065,28 @@
       const grid = document.createElement('div');
       grid.className = 'children-grid';
 
+      // Last-active timestamp across every activity type — a child who only does math,
+      // typing, or the mini-games (flashcards/memory match/unscramble/fill-in-blank, which
+      // only bump StudentStats.lastUpdated) must still count as active, not just readers.
+      function latestTs(...timestamps) {
+        let ms = 0;
+        timestamps.forEach(ts => {
+          if (!ts) return;
+          const t = ts.toMillis ? ts.toMillis() : (ts.toDate ? ts.toDate().getTime() : new Date(ts).getTime());
+          if (t > ms) ms = t;
+        });
+        return ms || null;
+      }
+
       const xpPromises = children.map(child =>
         Promise.all([
           db.collection('Progress').where('readerId', '==', child.readerId).get(),
           db.collection('MathProgress').where('readerId', '==', child.readerId).get(),
           db.collection('TypingProgress').where('readerId', '==', child.readerId).get(),
           db.collection('TriviaScores').where('readerId', '==', child.readerId).get(),
+          db.collection('SpellingProgress').where('readerId', '==', child.readerId).get(),
           db.collection('StudentStats').doc(child.readerId).get()
-        ]).then(([r, m, t, tr, stats]) => {
+        ]).then(([r, m, t, tr, sp, stats]) => {
           let xp = 0;
           r.forEach(d => { xp += (d.data().xpEarned || 0); });
           m.forEach(d => { xp += (d.data().xpEarned || 0); });
@@ -1048,39 +1099,46 @@
             const { storyId, starsEarned } = d.data();
             if (storyId && (starsEarned || 0) > (bestStars[storyId] || 0)) bestStars[storyId] = starsEarned || 0;
           });
+          const allTimestamps = [
+            ...r.docs.map(d => d.data().timestamp),
+            ...m.docs.map(d => d.data().timestamp),
+            ...t.docs.map(d => d.data().timestamp),
+            ...tr.docs.map(d => d.data().timestamp),
+            ...sp.docs.map(d => d.data().timestamp),
+            sd.lastUpdated
+          ];
           return {
             xp,
             streak: sd.currentStreak || 0,
             storiesThisWeek: sd.storiesThisWeek || 0,
-            lastReadDate: sd.lastReadDate || null,
+            lastActiveMs: latestTs(...allTimestamps),
             totalStories: Object.keys(bestStars).length,
             avgStars: Object.keys(bestStars).length
               ? (Object.values(bestStars).reduce((a, b) => a + b, 0) / Object.keys(bestStars).length).toFixed(1)
               : null
           };
-        }).catch(() => ({ xp: 0, streak: 0, storiesThisWeek: 0, lastReadDate: null, totalStories: 0, avgStars: null }))
+        }).catch(() => ({ xp: 0, streak: 0, storiesThisWeek: 0, lastActiveMs: null, totalStories: 0, avgStars: null }))
       );
+
+      const lastActiveByReader = {};
 
       Promise.all(xpPromises).then(statsValues => {
         children.forEach((child, i) => {
-          const { xp, streak, storiesThisWeek, lastReadDate, totalStories, avgStars } = statsValues[i];
+          const { xp, streak, storiesThisWeek, lastActiveMs, totalStories, avgStars } = statsValues[i];
+          lastActiveByReader[child.readerId] = lastActiveMs;
           const level = getLevel(xp);
           const color  = child.avatarColor || '#2563eb';
           const initials = child.name ? child.name.charAt(0).toUpperCase() : '?';
           const emoji  = child.avatarEmoji || initials;
 
           // Build last-active label
-          const today = new Date().toISOString().slice(0, 10);
-          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
           let lastActiveLabel = 'Never';
           let lastActiveColor = '#9ca3af';
-          if (lastReadDate === today) { lastActiveLabel = 'Today ✓'; lastActiveColor = '#10b981'; }
-          else if (lastReadDate === yesterday) { lastActiveLabel = 'Yesterday'; lastActiveColor = '#f59e0b'; }
-          else if (lastReadDate) {
-            const d = new Date(lastReadDate + 'T12:00:00');
-            const daysAgo = Math.round((Date.now() - d.getTime()) / 86400000);
-            lastActiveLabel = daysAgo + 'd ago';
-            lastActiveColor = daysAgo <= 3 ? '#f59e0b' : '#ef4444';
+          if (lastActiveMs) {
+            const daysAgo = Math.floor((Date.now() - lastActiveMs) / 86400000);
+            if (daysAgo <= 0) { lastActiveLabel = 'Today ✓'; lastActiveColor = '#10b981'; }
+            else if (daysAgo === 1) { lastActiveLabel = 'Yesterday'; lastActiveColor = '#f59e0b'; }
+            else { lastActiveLabel = daysAgo + 'd ago'; lastActiveColor = daysAgo <= 3 ? '#f59e0b' : '#ef4444'; }
           }
 
           const streakEmoji = streak >= 14 ? '🌙' : streak >= 7 ? '⚡' : streak >= 3 ? '🔥' : '📅';
@@ -1176,7 +1234,7 @@
         area.innerHTML = '';
         area.appendChild(grid);
         loadCompare(children);
-        checkInactivity(children);
+        checkInactivity(children, lastActiveByReader);
       });
     }
 
@@ -1747,41 +1805,36 @@
     }
 
     // ── Inactivity check ──────────────────────────────────────────────────────
-    function checkInactivity(children) {
-      const todayStr = new Date().toISOString().slice(0, 10);
-      const today = new Date(todayStr);
-      const inactivePromises = children.map(child =>
-        db.collection('StudentStats').doc(child.readerId).get()
-          .then(s => ({ child, lastRead: s.exists ? (s.data().lastReadDate || '') : '' }))
-          .catch(() => ({ child, lastRead: '' }))
-      );
-      Promise.all(inactivePromises).then(results => {
-        const inactive = results.filter(({ lastRead }) => {
-          if (!lastRead) return true;
-          const diff = Math.floor((today - new Date(lastRead)) / (1000 * 60 * 60 * 24));
-          return diff >= 3;
-        });
-        if (!inactive.length) return;
-        const section = document.getElementById('inactivity-section');
-        const list    = document.getElementById('inactivity-list');
-        section.style.display = 'block';
-        list.innerHTML = inactive.map(({ child, lastRead }) => {
-          const days = lastRead
-            ? Math.floor((today - new Date(lastRead)) / (1000 * 60 * 60 * 24))
-            : null;
-          const color = child.avatarColor || '#7c3aed';
-          const emoji = child.avatarEmoji || (child.name ? child.name.charAt(0).toUpperCase() : '?');
-          return `<div style="display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--orange);box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-            <div style="width:38px;height:38px;border-radius:50%;background:${escHtml(color)};display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;">${escHtml(emoji)}</div>
-            <div style="flex:1;">
-              <div style="font-weight:800;font-size:0.95rem;">${escHtml(child.name)}</div>
-              <div style="font-size:0.82rem;color:var(--muted);">${days !== null ? days + ' days since last activity' : 'No activity recorded yet'}</div>
-            </div>
-            <a href="mailto:?subject=Time+to+read!&body=Hey+${encodeURIComponent(child.name)}%2C+your+reading+streak+is+waiting+for+you+on+FAST+Track!+Log+in+today+%F0%9F%93%9A"
-              style="padding:8px 14px;background:var(--orange);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Send Reminder</a>
-          </div>`;
-        }).join('');
+    // Reuses the lastActiveMs already computed in renderChildren (across reading, math,
+    // typing, trivia, spelling, and the mini-games) instead of re-reading StudentStats'
+    // reading-only lastReadDate, which used to flag kids who'd been doing math/typing daily
+    // as inactive and email a "time to read!" reminder that wasn't actually true.
+    function checkInactivity(children, lastActiveByReader) {
+      const inactive = children.filter(child => {
+        const ms = lastActiveByReader[child.readerId];
+        if (!ms) return true;
+        const daysAgo = Math.floor((Date.now() - ms) / 86400000);
+        return daysAgo >= 3;
       });
+      if (!inactive.length) return;
+      const section = document.getElementById('inactivity-section');
+      const list    = document.getElementById('inactivity-list');
+      section.style.display = 'block';
+      list.innerHTML = inactive.map(child => {
+        const ms = lastActiveByReader[child.readerId];
+        const days = ms ? Math.floor((Date.now() - ms) / 86400000) : null;
+        const color = child.avatarColor || '#7c3aed';
+        const emoji = child.avatarEmoji || (child.name ? child.name.charAt(0).toUpperCase() : '?');
+        return `<div style="display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:14px 16px;margin-bottom:10px;border-left:4px solid var(--orange);box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <div style="width:38px;height:38px;border-radius:50%;background:${escHtml(color)};display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;">${escHtml(emoji)}</div>
+          <div style="flex:1;">
+            <div style="font-weight:800;font-size:0.95rem;">${escHtml(child.name)}</div>
+            <div style="font-size:0.82rem;color:var(--muted);">${days !== null ? days + ' days since last activity' : 'No activity recorded yet'}</div>
+          </div>
+          <a href="mailto:?subject=Time+to+read!&body=Hey+${encodeURIComponent(child.name)}%2C+your+reading+streak+is+waiting+for+you+on+FAST+Track!+Log+in+today+%F0%9F%93%9A"
+            style="padding:8px 14px;background:var(--orange);color:#fff;border-radius:9px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Send Reminder</a>
+        </div>`;
+      }).join('');
     }
 
     // ── Email digest ───────────────────────────────────────────────────────────

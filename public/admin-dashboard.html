@@ -399,8 +399,9 @@
       db.collection('MathProgress').get(),
       db.collection('TypingProgress').get(),
       db.collection('TriviaScores').get(),
+      db.collection('SpellingProgress').get(),
       db.collection('ParentProfiles').get()
-    ]).then(([spSnap, statsSnap, progSnap, mathSnap, typingSnap, triviaSnap, ppSnap]) => {
+    ]).then(([spSnap, statsSnap, progSnap, mathSnap, typingSnap, triviaSnap, spellingSnap, ppSnap]) => {
 
       // Build parent email map: uid → email
       const parentMap = {};
@@ -448,6 +449,11 @@
       mathSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
       typingSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
       triviaSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
+      spellingSnap.forEach(d => { const data = d.data(); trackTs(data.readerId, data.timestamp); });
+      // Flashcards, Memory Match, Unscramble, and Fill-in-the-Blank don't have their own
+      // collection — they only bump StudentStats.lastUpdated, so a student who plays only
+      // those would otherwise never show as active.
+      statsSnap.forEach(d => { trackTs(d.id, d.data().lastUpdated); });
 
       // Stats map
       const statsMap = {};
@@ -681,7 +687,7 @@
       s.stats.currentStreak || 0,
       s.stats.storiesThisWeek || 0,
       s.mathTopics,
-      s.stats.lastReadDate || '',
+      s.lastActiveMs ? new Date(s.lastActiveMs).toISOString().slice(0, 10) : '',
       s.readerId || ''
     ].map(v => '"' + String(v).replace(/"/g, '""') + '"').join(','));
     const csv  = [headers.join(','), ...rows].join('\n');

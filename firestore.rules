@@ -16,6 +16,9 @@ service cloud.firestore {
     match /TypingProgress/{doc} {
       allow read, write: if true;
     }
+    match /SpellingProgress/{doc} {
+      allow read, write: if true;
+    }
     match /StudentActivity/{activityId} {
       allow read: if true;
       allow create: if true;
