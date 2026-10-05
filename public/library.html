@@ -732,7 +732,7 @@
         renderFavorites();
         renderSuggestions();
       })
-      .catch(() => { renderFavorites(); });
+      .catch(() => { clearTimeout(_libLoadingTimeout); renderFavorites(); });
 
     // ─── Smarter story suggestions ─────────────────────────────────────────────
     function renderSuggestions() {

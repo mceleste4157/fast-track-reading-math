@@ -20,6 +20,13 @@
     #status { margin-top: 20px; font-size: 0.88rem; font-weight: 600; line-height: 1.6; white-space: pre-wrap; }
     .ok  { color: #065f46; }
     .err { color: #dc2626; }
+    @media (prefers-color-scheme: dark) {
+      /* .ok/.err are plain class rules dark.css can't see (it only rewrites
+         hardcoded inline styles), so they'd stay unreadably dark on the
+         dark-mode card background without this override. */
+      .ok  { color: #34d399; }
+      .err { color: #f87171; }
+    }
   </style>
   <link rel="stylesheet" href="dark.css" />
 </head>
