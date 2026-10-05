@@ -209,6 +209,7 @@
       <div class="stat-card red"><div class="stat-val" id="s-active">—</div><div class="stat-label">Active This Week</div></div>
       <div class="stat-card"><div class="stat-val" id="s-writing">—</div><div class="stat-label">Writing Responses</div></div>
     </div>
+    <div id="stats-error" style="display:none;color:var(--red);font-size:0.82rem;font-weight:600;margin:-8px 0 16px;">⚠️ Couldn't load overview stats · <a href="javascript:loadOverviewStats()" style="color:var(--red);font-weight:800;">Retry</a></div>
 
     <!-- Tabs -->
     <div class="tabs">
@@ -367,6 +368,7 @@
 
   // ── Overview stats ─────────────────────────────────────────────────────────
   function loadOverviewStats() {
+    document.getElementById('stats-error').style.display = 'none';
     Promise.all([
       db.collection('StudentProfiles').get(),
       db.collection('ParentProfiles').get(),
@@ -384,7 +386,12 @@
       let active = 0;
       stats.forEach(d => { if ((d.data().storiesThisWeek || 0) > 0 || (d.data().mathThisWeek || 0) > 0) active++; });
       document.getElementById('s-active').textContent = active;
-    }).catch(() => {});
+    }).catch(() => {
+      ['s-students','s-parents','s-stories','s-math','s-writing','s-active'].forEach(id => {
+        document.getElementById(id).textContent = '⚠️';
+      });
+      document.getElementById('stats-error').style.display = 'block';
+    });
   }
 
   // ── Students ───────────────────────────────────────────────────────────────

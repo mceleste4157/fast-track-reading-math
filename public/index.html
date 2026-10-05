@@ -206,6 +206,11 @@
     @keyframes lvlPop {
       0%{opacity:0;transform:scale(0.7) translateY(20px)} 100%{opacity:1;transform:scale(1) translateY(0)}
     }
+    /* Monthly Challenge / Story of the Day cards keep their warm light background in
+       dark mode too, so their titles must stay dark navy instead of being force-lightened. */
+    @media (prefers-color-scheme: dark) {
+      #challenge-title, #sotd-title { color: #1e1b4b !important; }
+    }
   </style>
   <link rel="stylesheet" href="dark.css" />
 </head>
@@ -1183,9 +1188,10 @@
         '/index.html','/login.html','/library.html','/read.html',
         '/quiz.html','/results.html','/progress.html',
         '/math.html','/math-quiz.html','/math-results.html',
-        '/spelling.html','/vocab.html','/vocab-game.html',
+        '/spelling.html','/spelling-quiz.html','/vocab.html','/vocab-game.html','/vocab-bank.html',
         '/trivia.html','/typing.html','/typing-practice.html','/story-type.html',
-        '/parent-portal.html',
+        '/paired-read.html','/flashcards.html','/memory-match.html','/unscramble.html','/fill-in-blank.html',
+        '/parent-portal.html','/parent.html',
       ];
 
       btn.disabled = true;
@@ -1194,7 +1200,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v15'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v16'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {

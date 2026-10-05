@@ -28,6 +28,11 @@
     button:focus-visible, a:focus-visible, input:focus-visible {
       outline: 3px solid #f59e0b; outline-offset: 3px;
     }
+    /* Step 1's highlight box keeps its light lavender background in dark mode too,
+       so its title must stay dark navy instead of being force-lightened. */
+    @media (prefers-color-scheme: dark) {
+      #onboard-step1-title { color: #1e1b4b !important; }
+    }
 
     /* ── AUTH PHASE ── */
     .auth-wrap {
@@ -359,7 +364,7 @@
             <div style="display:flex;align-items:center;gap:14px;background:#faf5ff;border-radius:14px;padding:14px 16px;border:2px solid #7c3aed;">
               <div style="width:32px;height:32px;border-radius:50%;background:#7c3aed;color:#fff;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
               <div>
-                <div style="font-weight:700;font-size:0.95rem;color:#1e1b4b;">Add your child's profile</div>
+                <div id="onboard-step1-title" style="font-weight:700;font-size:0.95rem;color:#1e1b4b;">Add your child's profile</div>
                 <div style="font-size:0.82rem;color:#6b7280;margin-top:2px;">Set their name, grade, and avatar</div>
               </div>
             </div>
