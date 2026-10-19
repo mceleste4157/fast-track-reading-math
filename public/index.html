@@ -255,7 +255,7 @@
           <div class="mod-icon">📖</div>
           <div class="mod-body">
             <div class="mod-title">Reading Library</div>
-            <div class="mod-sub" id="reading-sub">30 stories • vocab warm-up • quizzes</div>
+            <div class="mod-sub" id="reading-sub">vocab warm-up • quizzes</div>
           </div>
           <div class="mod-badge">Go! →</div>
         </a>
@@ -263,7 +263,7 @@
           <div class="mod-icon">⌨️</div>
           <div class="mod-body">
             <div class="mod-title">Typing Practice</div>
-            <div class="mod-sub" id="typing-sub">12 lessons • WPM tracking • 4th grade prep</div>
+            <div class="mod-sub" id="typing-sub">17 lessons • WPM tracking • 4th grade prep</div>
           </div>
           <div class="mod-badge">Go! →</div>
         </a>
@@ -425,6 +425,10 @@
 
       if (profile.name) {
         document.getElementById('quest-link').textContent = '🗺️ See ' + profile.name + '\'s Quest Board →';
+      }
+
+      if (typeof STORIES_META !== 'undefined' && STORIES_META.length) {
+        document.getElementById('reading-sub').textContent = STORIES_META.length + ' stories • vocab warm-up • quizzes';
       }
     }
 
@@ -636,7 +640,12 @@
     renderLadder(0); // show ladder immediately; updated again after Firestore loads
 
     // ─── Render math card ──────────────────────────────────────────────────────
-    function renderMathCard(unlocked) {
+    // unlockScore mirrors math.html's own gate (profile.mathUnlockScore, 0 = always unlocked)
+    // so the home card never shows a lock state math.html wouldn't also show.
+    function renderMathCard(unlocked, unlockScore) {
+      const lockedSub = unlockScore > 0
+        ? `Earn ${unlockScore} star${unlockScore === 1 ? '' : 's'} on a reading quiz to unlock!`
+        : 'Unlocks automatically — just tap in!';
       document.getElementById('math-card').innerHTML = unlocked
         ? `<a href="math.html" class="module-card math-open">
             <div class="mod-icon">📐</div>
@@ -650,13 +659,14 @@
             <div class="mod-icon">🔒</div>
             <div class="mod-body">
               <div class="mod-title">Math Zone</div>
-              <div class="mod-sub">Earn 3 stars on a reading quiz to unlock!</div>
+              <div class="mod-sub">${lockedSub}</div>
             </div>
             <div class="mod-badge">Locked</div>
            </div>`;
     }
 
-    renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+    const initialMathUnlockScore = profile ? (profile.mathUnlockScore ?? 3) : 3;
+    renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true' || initialMathUnlockScore === 0, initialMathUnlockScore);
 
     // ─── Daily Challenges ──────────────────────────────────────────────────────
     const CHALLENGE_POOL = [
@@ -747,12 +757,14 @@
       const mathSetsCompleted = sd.mathSetsCompleted || 0;
       const totalXp       = sd.totalXp       || 0;
 
-      // Math unlock
-      const mathUnlocked = bestReadScore >= 3 || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';
-      if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
+      // Math unlock — use the parent-configured threshold (profile.mathUnlockScore),
+      // same as math.html's own gate, instead of a hardcoded star count.
+      const mathUnlockScore = profile.mathUnlockScore ?? 3;
+      const mathUnlocked = mathUnlockScore === 0 || bestReadScore >= mathUnlockScore || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';
+      if (mathUnlocked && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
         localStorage.setItem(MATH_UNLOCK_KEY, 'true');
-        renderMathCard(true);
       }
+      renderMathCard(mathUnlocked, mathUnlockScore);
 
       // ── Activity sync ───────────────────────────────────────────────────────
       // Firestore keeps the latest activity date accurate across devices.

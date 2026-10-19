@@ -352,10 +352,11 @@
 
     // ─── URL param support + auth guard ───────────────────────────────────────
     const params = new URLSearchParams(location.search);
-    const STUDENT_ID = params.get('student') || 'leo-school-2024-fixed';
+    const STUDENT_ID = params.get('student');
 
     firebase.auth().onAuthStateChanged(user => {
       if (!user) { window.location.href = 'login.html'; return; }
+      if (!STUDENT_ID) { window.location.href = 'parent-portal.html'; return; }
 
       // Portal PIN guard
       if (sessionStorage.getItem('portalPinVerified') !== 'true') {
