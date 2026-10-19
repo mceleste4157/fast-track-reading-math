@@ -292,6 +292,18 @@
       toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:10px 22px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,0.2);';
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 3000);
+
+      // Daily challenge: c_vocab
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const lsKey = 'dc_' + profile.readerId + '_' + todayStr;
+      const state = JSON.parse(localStorage.getItem(lsKey) || '{"completed":[]}');
+      if (!state.completed.includes('c_vocab')) {
+        state.completed.push('c_vocab');
+        localStorage.setItem(lsKey, JSON.stringify(state));
+        db.collection('StudentStats').doc(profile.readerId)
+          .set({ challengeXp: firebase.firestore.FieldValue.increment(20), lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
+          .catch(() => {});
+      }
     } catch(e) { /* non-critical */ }
   }
 
