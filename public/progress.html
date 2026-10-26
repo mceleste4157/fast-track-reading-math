@@ -414,7 +414,10 @@
         triviaDocs.push(data);
       });
 
-      const totalXp      = readXp + mathXp + typingXp + triviaXp;
+      // Daily-challenge bonus XP lives on StudentStats.challengeXp, separate from
+      // the per-activity xpEarned totals above — fold it in so it counts here too.
+      const challengeXp  = (statsSnap.exists ? (statsSnap.data().challengeXp || 0) : 0);
+      const totalXp      = readXp + mathXp + typingXp + triviaXp + challengeXp;
       const storiesCount = uniqueStories.size;
       const mathCount    = uniqueMath.size;
       const mathUnlocked = bestReadScore >= 3 || localStorage.getItem('mathUnlocked_' + profile.readerId) === 'true';
@@ -664,7 +667,7 @@
       const db2 = firebase.firestore();
       db2.collection('StudentStats').doc(profile.readerId).get().then(snap => {
         const sd = snap.exists ? snap.data() : {};
-        const totalXp = sd.totalXp || 0;
+        const totalXp = (sd.totalXp || 0) + (sd.challengeXp || 0);
         const equipped = profile.avatarEmoji || '';
         document.getElementById('shop-xp-label').textContent = totalXp + ' XP available';
 

@@ -127,6 +127,26 @@
     color: var(--text) !important;
   }
 
+  /* Hardcoded amber/yellow warning + hint boxes (streak warning banner, daily
+     challenge cards, quiz hint explanations) — not CSS-variable-based, so they
+     stay bright yellow against a dark background unless overridden here. */
+  .streak-banner.warn, .explanation.hint-exp, .xp-preview.partial,
+  .show-me-btn:hover, .section-badge.early, .topic-fiction {
+    background: var(--amber-soft) !important;
+    color: #fde68a !important;
+  }
+  [style*="background:#fef3c7"], [style*="background: #fef3c7"],
+  [style*="background:#fffbeb"], [style*="background: #fffbeb"],
+  [style*="background:#fef9c3"], [style*="background: #fef9c3"],
+  [style*="background:linear-gradient(135deg,#fef9c3,#fef3c7)"] {
+    background: var(--amber-soft) !important;
+  }
+  [style*="color:#78350f"], [style*="color: #78350f"],
+  [style*="color:#92400e"], [style*="color: #92400e"],
+  [style*="color:#713f12"], [style*="color: #713f12"] {
+    color: #fde68a !important;
+  }
+
   [style*="background:#f9fafb"], [style*="background: #f9fafb"],
   [style*="background:#f3f4f6"], [style*="background: #f3f4f6"],
   [style*="background:#f8fafc"], [style*="background: #f8fafc"] {
