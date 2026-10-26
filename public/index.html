@@ -745,7 +745,10 @@
       const bestReadScore = sd.bestReadScore || 0;
       const storiesCount  = (sd.completedStoryIds || []).length;
       const mathSetsCompleted = sd.mathSetsCompleted || 0;
-      const totalXp       = sd.totalXp       || 0;
+      // Daily-challenge bonus XP (sd.challengeXp) is tracked separately from
+      // quiz/story XP (sd.totalXp) — combine them so challenge rewards actually
+      // show up in the level/XP the student sees, as promised on the home screen.
+      const totalXp       = (sd.totalXp || 0) + (sd.challengeXp || 0);
 
       // Math unlock
       const mathUnlocked = bestReadScore >= 3 || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';

@@ -1093,6 +1093,7 @@
           t.forEach(d => { xp += (d.data().xpEarned || 0); });
           tr.forEach(d => { xp += (d.data().xpEarned || 0); });
           const sd = stats.exists ? stats.data() : {};
+          xp += (sd.challengeXp || 0); // daily-challenge bonus XP, tracked separately on StudentStats
           // Count unique stories completed (best attempt per story)
           const bestStars = {};
           r.forEach(d => {
@@ -1775,6 +1776,7 @@
           r.forEach(d => xp += (d.data().xpEarned || 0));
           m.forEach(d => xp += (d.data().xpEarned || 0));
           const stats = s.exists ? s.data() : {};
+          xp += (stats.challengeXp || 0); // daily-challenge bonus XP, tracked separately on StudentStats
           return { child, xp, streak: stats.currentStreak || 0, storiesWeek: stats.storiesThisWeek || 0 };
         }).catch(() => ({ child, xp: 0, streak: 0, storiesWeek: 0 }))
       );
