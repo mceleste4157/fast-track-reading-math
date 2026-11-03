@@ -1163,6 +1163,14 @@
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp:   firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
+        // Keep StudentStats.totalXp (what the home screen and parent portal
+        // actually read) in sync — without this the bonus XP is written to
+        // Progress but never shows up anywhere until the next quiz recomputes it.
+        return firebase.firestore().collection('StudentStats').doc(profile.readerId).set({
+          totalXp: firebase.firestore.FieldValue.increment(10),
+          lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+        }, { merge: true });
+      }).then(() => {
         const toast = document.createElement('div');
         toast.textContent = '🌟 Daily bonus! +10 XP for showing up today!';
         toast.style.cssText = 'position:fixed;top:74px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:11px 20px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(124,58,237,0.35);max-width:360px;text-align:center;';
@@ -1216,6 +1224,8 @@
         '/math.html','/math-quiz.html','/math-results.html',
         '/spelling.html','/vocab.html','/vocab-game.html',
         '/trivia.html','/typing.html','/typing-practice.html','/story-type.html',
+        '/paired-read.html','/spelling-quiz.html','/flashcards.html',
+        '/fill-in-blank.html','/unscramble.html','/memory-match.html','/vocab-bank.html',
         '/parent-portal.html',
       ];
 
@@ -1225,7 +1235,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v15'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v16'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {
