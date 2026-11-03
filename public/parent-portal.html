@@ -624,7 +624,13 @@
     // ── Release notes data — add new entries at the TOP of this array ──────────
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
-      { date: 'September 28, 2026', label: 'Latest Update', items: [
+      { date: 'November 2, 2026', label: 'Latest Update', items: [
+        { icon: '⭐', title: 'Daily login bonus now shows up right away', text: 'The "+10 XP for showing up" bonus was being saved, but sometimes wasn\'t reflected in a child\'s total until their next quiz. It now updates immediately.' },
+        { icon: '📥', title: 'More activities available offline', text: 'Spelling Quiz, Flashcards, Fill in the Blank, Unscramble, Memory Match, Vocab Bank, and Paired Passages are now included when a child downloads content for offline use.' },
+        { icon: '📐', title: 'Math Zone empty state now has a next step', text: 'If a grade has no new math topics yet, kids now see a quick link back to the library instead of a dead end.' },
+        { icon: '🌙', title: 'Dark mode polish', text: 'Badges and highlight chips for streaks, level-ups, and alerts now use proper dark-mode colors instead of staying light-on-dark.' },
+      ]},
+      { date: 'September 28, 2026', items: [
         { icon: '📚', title: 'Stories now match each child\'s grade more closely', text: 'The Library now uses each story\'s intended grade range instead of a broad legacy grouping. More demanding passages are clearly placed in a supported “Stretch Challenges” section and are left out of Surprise Me recommendations.' },
         { icon: '💪', title: 'Mistakes now lead to learning, not lost progress', text: 'Wrong answers no longer remove XP or force a child to restart the quiz. Students receive a useful hint, can try again, and see encouraging feedback that treats practice as part of learning.' },
         { icon: '⭐', title: 'Earned XP and levels now stay earned', text: 'Removed the inactivity XP penalty. Time away from the app no longer lowers a child\'s progress; returning students receive a friendly welcome-back message instead.' },
