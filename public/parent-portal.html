@@ -882,14 +882,40 @@
     // PIN verified by the Parent button on index.html (requireParentPin) carries over.
     // Direct URL navigation always hits the PIN screen since portalPinVerified won't be set.
 
+    // Email-link PIN reset: the "Forgot PIN?" email (sent from index.html) lands here. Opening it
+    // proves inbox access, so we sign in with the link and go to "Set a Parent PIN". The PIN screen
+    // is only shown AFTER the server accepts the link — isSignInWithEmailLink() only checks the URL's
+    // shape, so a hand-typed fake link must never reach the "set a PIN" screen.
+    let pinResetPromise = null;
+    if (auth.isSignInWithEmailLink(window.location.href)) {
+      const linkEmail = localStorage.getItem('pinResetEmail') || window.prompt('Confirm your email address to reset your PIN:') || '';
+      pinResetPromise = auth.signInWithEmailLink(linkEmail, window.location.href)
+        .then(() => { localStorage.removeItem('pinResetEmail'); history.replaceState(null, '', window.location.pathname); return true; });
+      pinResetPromise.catch(() => {
+        alert('That reset link is invalid or has expired. Please request a new one with "Forgot PIN?".');
+        window.location.href = 'index.html';
+      });
+    }
+
     auth.onAuthStateChanged(user => {
-      if (!user) { window.location.href = 'login.html'; return; }
+      if (!user) { if (pinResetPromise) return; window.location.href = 'login.html'; return; }
       currentUser = user;
 
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         document.getElementById('nav-user').textContent = data.displayName || user.email;
         injectAdminLink(user.email);
+
+        if (pinResetPromise) {
+          const linkCheck = pinResetPromise;
+          pinResetPromise = null;
+          document.querySelector('.page').style.display = 'none';
+          linkCheck.then(() => {
+            sessionStorage.removeItem('portalPinVerified');
+            showPortalPinScreen(null, user.uid);   // "Set a Parent PIN" — saving it replaces the old one
+          }, () => {});                            // invalid link: the handler above alerts + redirects
+          return;
+        }
 
         // Skip PIN screen if already verified (e.g. came from the Parent button)
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
