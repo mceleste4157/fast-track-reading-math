@@ -541,18 +541,18 @@
       <div id="change-pin-wrap" style="background:var(--surface);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:22px;max-width:340px;">
         <div style="margin-bottom:12px;">
           <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Current PIN</label>
-          <input id="cp-current" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
-            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+          <input id="cp-current" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;-webkit-text-security:disc;" />
         </div>
         <div style="margin-bottom:12px;">
           <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">New PIN</label>
-          <input id="cp-new" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
-            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+          <input id="cp-new" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;-webkit-text-security:disc;" />
         </div>
         <div style="margin-bottom:16px;">
           <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Confirm New PIN</label>
-          <input id="cp-confirm" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
-            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+          <input id="cp-confirm" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;-webkit-text-security:disc;" />
         </div>
         <div id="cp-err" style="font-size:0.85rem;font-weight:600;color:#ef4444;min-height:1.2em;margin-bottom:10px;"></div>
         <button id="cp-save-btn" style="padding:11px 22px;background:var(--blue);color:#fff;border:none;border-radius:11px;font-size:0.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.15s;">Save New PIN</button>
