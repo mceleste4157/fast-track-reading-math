@@ -898,10 +898,24 @@
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
         } else {
-          showPortalPinScreen(null, user.uid);
+          // Never fall into "create a PIN" mode on a read error — that would let any 4 digits overwrite the real PIN.
+          showPinUnavailable();
         }
       });
     });
+
+    function showPinUnavailable() {
+      const el = document.createElement('div');
+      el.style.cssText = 'position:fixed;inset:0;background:#f5f3ff;display:flex;align-items:center;justify-content:center;padding:24px;z-index:9999;';
+      el.innerHTML = '<div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:340px;box-shadow:0 8px 40px rgba(0,0,0,0.18);text-align:center;font-family:inherit;">'
+        + '<div style="font-size:2rem;margin-bottom:10px;">&#128274;</div>'
+        + '<h2 style="font-size:1.2rem;font-weight:800;margin-bottom:8px;">Couldn\'t verify your PIN</h2>'
+        + '<p style="font-size:0.88rem;color:#6b7280;margin-bottom:20px;">Check your internet connection and try again.</p>'
+        + '<button onclick="location.reload()" style="width:100%;padding:13px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;">Try again</button>'
+        + '<a href="index.html" style="display:block;margin-top:14px;color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">&larr; Back</a></div>';
+      document.body.appendChild(el);
+    }
+
 
     document.getElementById('signout-btn').addEventListener('click', () => {
       sessionStorage.removeItem('portalPinVerified');

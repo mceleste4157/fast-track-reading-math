@@ -463,22 +463,34 @@
     })();
 
     // ─── Parent PIN gate (used for Switch User + any parent action) ──────────────
+    function fetchPortalPin(uid) {
+      return firebase.firestore().collection('ParentProfiles').doc(uid).get().then(doc => {
+        const pin = doc.exists ? (doc.data().portalPin || null) : null;
+        if (pin) sessionStorage.setItem('portalPin', pin); else sessionStorage.removeItem('portalPin');
+        return pin;
+      });
+    }
+
+    // Fails CLOSED: if the saved PIN can't be loaded (auth not ready, offline, read error) the
+    // modal refuses every code instead of accepting anything.
     function requireParentPin(onSuccess) {
       const cached = sessionStorage.getItem('portalPin');
       if (cached) { showPinModal(cached, onSuccess); return; }
-      // PIN not cached — load from Firestore using Firebase Auth session
-      const user = firebase.auth().currentUser;
-      if (!user) { showPinModal(null, onSuccess); return; }
-      firebase.firestore().collection('ParentProfiles').doc(user.uid).get()
-        .then(doc => {
-          const pin = doc.exists ? (doc.data().portalPin || null) : null;
-          if (pin) sessionStorage.setItem('portalPin', pin);
-          showPinModal(pin, onSuccess);
-        })
-        .catch(() => showPinModal(null, onSuccess));
+      const unsub = firebase.auth().onAuthStateChanged(user => {
+        unsub();
+        if (!user) { showPinModal(undefined, onSuccess, 'Please sign in again to verify your PIN.'); return; }
+        fetchPortalPin(user.uid)
+          .then(pin => {
+            // No PIN has ever been set: let the Parent Portal force them to create one
+            // (portalPinVerified is intentionally NOT set here).
+            if (pin === null) { onSuccess(); return; }
+            showPinModal(pin, onSuccess);
+          })
+          .catch(() => showPinModal(undefined, onSuccess, "Couldn't check the PIN. Check your connection and try again."));
+      });
     }
 
-    function showPinModal(correctPin, onSuccess) {
+    function showPinModal(correctPin, onSuccess, lockedMsg) {
       const overlay = document.createElement('div');
       overlay.id = 'pin-modal-overlay';
       overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
@@ -502,6 +514,8 @@
       document.body.appendChild(overlay);
 
       let entry = '';
+      let checking = false;
+      if (correctPin === undefined) document.getElementById('ppm-err').textContent = lockedMsg || "Couldn't check the PIN.";
       function updateDots() {
         for (let i = 0; i < 4; i++) {
           const d = document.getElementById('ppmd' + i);
@@ -513,24 +527,41 @@
       overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
       overlay.querySelectorAll('.ppm-num').forEach(btn => {
         btn.addEventListener('click', () => {
+          if (checking) return;
           const n = btn.dataset.n;
           if (n === 'back') { entry = entry.slice(0, -1); }
           else if (entry.length < 4) { entry += n; }
           updateDots();
-          document.getElementById('ppm-err').textContent = '';
+          if (correctPin !== undefined) document.getElementById('ppm-err').textContent = '';
           if (entry.length === 4) {
-            if (!correctPin || entry === correctPin) {
-              sessionStorage.setItem('portalPinVerified', 'true');
-              overlay.remove();
-              onSuccess();
-            } else {
-              document.getElementById('ppm-err').textContent = 'Wrong PIN — try again';
+            const attempt = entry;
+            const reject = () => {
+              document.getElementById('ppm-err').textContent = correctPin === undefined
+                ? (lockedMsg || "Couldn't check the PIN.") : 'Wrong PIN — try again';
               const dotsEl = document.getElementById('ppm-dots');
               dotsEl.style.animation = 'none'; void dotsEl.offsetWidth;
               dotsEl.style.animation = 'ppmShake 0.35s ease';
               entry = '';
+              checking = false;
               setTimeout(updateDots, 350);
-            }
+            };
+            const accept = () => {
+              sessionStorage.setItem('portalPinVerified', 'true');
+              overlay.remove();
+              onSuccess();
+            };
+            if (correctPin === undefined) { reject(); return; }
+            // Always confirm against the server: a cached PIN can be stale (changed on another
+            // device), and a changed PIN must stop working immediately. Only fall back to the
+            // cached value when the server can't be reached (offline).
+            checking = true;
+            const u = firebase.auth().currentUser;
+            (u ? fetchPortalPin(u.uid) : Promise.resolve(correctPin))
+              .catch(() => correctPin)
+              .then(fresh => {
+                if (fresh && attempt === fresh) { correctPin = fresh; checking = false; accept(); }
+                else reject();
+              });
           }
         });
       });
