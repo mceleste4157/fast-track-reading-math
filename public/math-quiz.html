@@ -327,81 +327,34 @@
     .tl-body  { font-size: 0.98rem; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
     .tl-count { font-size: 1rem; font-weight: 700; color: var(--blue); }
 
-    /* ── SHOW ME HOW ─────────────────────────────────────────────────── */
-    .show-me-btn {
+    /* ── VIDEO LESSONS (long division) ────────────────────────────────── */
+    .video-btn {
       display: none; margin-top: 12px;
       padding: 10px 18px; border-radius: 10px;
-      border: 2px solid var(--orange); background: #fffbeb;
-      color: #92400e; font-weight: 700; font-size: 0.92rem;
+      border: 2px solid var(--blue); background: #eff6ff;
+      color: #1e40af; font-weight: 700; font-size: 0.92rem;
       cursor: pointer; font-family: inherit;
-      transition: background 0.15s, border-color 0.15s;
     }
-    .show-me-btn.visible { display: inline-block; }
-    .show-me-btn:hover { background: #fef3c7; border-color: #f59e0b; }
-
-    .steps-panel {
-      display: none; margin-top: 14px;
-      background: #fffbeb; border: 1.5px solid #fcd34d;
-      border-radius: 12px; padding: 14px 16px;
-    }
-    .steps-panel.show { display: block; }
-    .steps-title { font-size: 0.85rem; font-weight: 800; color: #78350f; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.04em; }
-    .step-item {
-      display: flex; gap: 10px; align-items: flex-start;
-      padding: 6px 0; border-bottom: 1px solid #fde68a;
-      opacity: 0; transform: translateY(4px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    .step-item:last-child { border-bottom: none; }
-    .step-item.revealed { opacity: 1; transform: translateY(0); }
-    .step-num {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--orange); color: #fff;
-      font-size: 0.72rem; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .step-text { font-size: 0.9rem; color: #78350f; line-height: 1.5; white-space: pre-line; min-width: 0; }
-    .step-text pre {
-      margin: 8px 0 2px; padding: 10px 12px; overflow-x: auto; max-width: 100%;
-      background: #fff; border: 1px solid #fde68a; border-radius: 8px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.95rem; line-height: 1.3; white-space: pre; color: #78350f;
-    }
-    .steps-tabs { display: none; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
-    .steps-tabs.show { display: flex; }
-    .steps-tab {
-      padding: 6px 12px; border-radius: 99px; cursor: pointer; font-family: inherit;
-      font-size: 0.8rem; font-weight: 700;
-      border: 2px solid #fcd34d; background: #fff; color: #92400e;
-    }
-    .steps-tab.active { background: var(--orange); border-color: var(--orange); color: #fff; }
-    /* Video lessons (long division) */
-    .vid-intro { font-size: 0.85rem; color: #78350f; margin-bottom: 10px; line-height: 1.45; }
+    .video-btn.visible { display: inline-block; }
+    .video-btn:hover { background: #dbeafe; }
+    .video-panel { display: none; margin-top: 14px; background: #eff6ff; border: 1.5px solid #93c5fd; border-radius: 12px; padding: 14px 16px; }
+    .video-panel.show { display: block; }
+    .vid-title { font-size: 0.85rem; font-weight: 800; color: #1e3a8a; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .vid-intro { font-size: 0.85rem; color: #1e3a8a; margin-bottom: 10px; line-height: 1.45; }
     .vid-list { display: flex; flex-direction: column; gap: 8px; }
     .vid-btn {
       display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
       padding: 10px 12px; border-radius: 10px; cursor: pointer; font-family: inherit;
-      border: 2px solid #fcd34d; background: #fff; color: #78350f;
+      border: 2px solid #93c5fd; background: #fff; color: #1e3a8a;
     }
-    .vid-btn:hover { border-color: var(--orange); }
-    .vid-btn.active { border-color: var(--orange); background: #fff7ed; }
+    .vid-btn:hover, .vid-btn.active { border-color: var(--blue); }
     .vid-play { font-size: 1.3rem; flex-shrink: 0; }
     .vid-name { font-size: 0.9rem; font-weight: 700; display: block; }
-    .vid-sub  { font-size: 0.76rem; color: #92400e; display: block; margin-top: 1px; }
+    .vid-sub  { font-size: 0.76rem; color: #3b5fb5; display: block; margin-top: 1px; }
     .vid-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; margin-top: 10px; border-radius: 10px; overflow: hidden; background: #000; }
     .vid-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .vid-note { font-size: 0.74rem; color: #92400e; margin-top: 8px; line-height: 1.4; }
-    .next-step-btn {
-      margin-top: 10px; padding: 7px 16px;
-      border-radius: 8px; border: none;
-      background: var(--orange); color: #fff;
-      font-weight: 700; font-size: 0.85rem;
-      cursor: pointer; font-family: inherit;
-      transition: background 0.15s;
-    }
-    .next-step-btn:hover { background: #d97706; }
-    .next-step-btn.done { background: var(--green); }
+    .vid-note { font-size: 0.74rem; color: #3b5fb5; margin-top: 8px; line-height: 1.4; }
+    .vid-done { margin-top: 10px; padding: 7px 16px; border-radius: 8px; border: none; background: var(--green); color: #fff; font-weight: 700; font-size: 0.85rem; cursor: pointer; font-family: inherit; }
 
     @media (max-width: 480px) { .question-text { font-size: 1.15rem; } }
   </style>
@@ -442,13 +395,14 @@
         <div class="feedback" id="feedback"></div>
         <div class="explanation" id="explanation"></div>
 
-        <!-- Show Me How: step-by-step walkthrough -->
-        <button class="show-me-btn" id="show-me-btn">💡 Show Me How</button>
-        <div class="steps-panel" id="steps-panel">
-          <div class="steps-title">Step by Step</div>
-          <div class="steps-tabs" id="steps-tabs"></div>
-          <div id="steps-list"></div>
-          <button class="next-step-btn" id="next-step-btn">Next Step →</button>
+        <!-- Video lessons (long division only; parents can turn off per child) -->
+        <button class="video-btn" id="video-btn">🎬 Watch a video</button>
+        <div class="video-panel" id="video-panel">
+          <div class="vid-title">Video lessons</div>
+          <div class="vid-intro">Tap a video to watch someone work through long division. Pause it any time and come back to your question.</div>
+          <div class="vid-list" id="vid-list"></div>
+          <div id="vid-holder"></div>
+          <button class="vid-done" id="vid-done">✓ Done watching</button>
         </div>
 
         <button class="next-btn" id="next-btn">Next →</button>
@@ -654,35 +608,22 @@
       document.querySelectorAll('.option-btn').forEach(btn => {
         btn.disabled = false; btn.classList.remove('locked');
       });
-      // Make help available as soon as a student can act, not only after a wrong guess —
-      // some kids know they're stuck before they ever pick an answer.
       const q = questions[currentQ];
-      if (q && q.steps && q.steps.length) {
-        document.getElementById('show-me-btn').classList.add('visible');
+      if (q && q.altLabel === 'Long division' && profile.videosEnabled !== false) {
+        document.getElementById('video-btn').classList.add('visible');
       }
     }
 
-    // ─── Show Me How (step-by-step) ──────────────────────────────────────────
-    // A question can offer more than one way to see the solution (q.steps, plus optional
-    // q.altSteps labelled q.altLabel — e.g. "Long division"). Tabs switch between them.
-    let stepsState = { views: [], viewIdx: 0, revealedCount: 0 };
-
-    function currentSteps() {
-      const v = stepsState.views[stepsState.viewIdx];
-      return v && v.steps ? v.steps : [];
-    }
-
-    // ─── Video lessons (shown on long-division questions) ───────────────────────
-    // Official Khan Academy videos, played through youtube-nocookie.com. Nothing from YouTube loads
-    // until the student taps a video. (IDs checked against YouTube's lookup; owner: Khan Academy.)
+    // ─── Video lessons (long division questions only) ──────────────────────────
+    // Official Khan Academy videos through youtube-nocookie.com. Nothing from YouTube loads until the
+    // student taps a video. They teach the method; they don't show this question's answer.
     const LONG_DIVISION_VIDEOS = [
-      { id: 'KFzcwWTEDDI', title: 'Intro to long division',          sub: 'Khan Academy · 4th grade — start here' },
-      { id: 'HY-8ydAbiik', title: 'A long division example',         sub: 'Khan Academy · 4th grade — watch a problem get solved' },
-      { id: 'NcADzGz3bSI', title: 'Long division with remainders',   sub: 'Khan Academy · for when there is a number left over' }
+      { id: 'KFzcwWTEDDI', title: 'Intro to long division',        sub: 'Khan Academy · 4th grade — start here' },
+      { id: 'HY-8ydAbiik', title: 'A long division example',       sub: 'Khan Academy · 4th grade — watch a problem get solved' },
+      { id: 'NcADzGz3bSI', title: 'Long division with remainders', sub: 'Khan Academy · for when there is a number left over' }
     ];
-
-    // The parent can turn videos off per child (Parent Portal → Edit child). The Math Zone page copies that
-    // setting into the session; refresh it here too so a change made mid-session applies on the next question.
+    // The parent can turn videos off per child (Parent Portal → Edit child). Refresh it here so a change
+    // made mid-session applies on the next question.
     if (profile.profileDocId) {
       try {
         firebase.firestore().collection('StudentProfiles').doc(profile.profileDocId).get()
@@ -690,131 +631,45 @@
           .catch(() => {});
       } catch (e) {}
     }
-
     function videosFor(q) {
       const text = [q.question, q.explanation || '', (q.options || []).join(' ')].join(' ');
-      const hasRemainder = /remainder|left ?over|\bR ?\d/i.test(text);
       const list = LONG_DIVISION_VIDEOS.slice();
-      if (hasRemainder) list.unshift(list.pop());   // remainders video first
+      if (/remainder|left ?over|\bR ?\d/i.test(text)) list.unshift(list.pop());   // remainders video first
       return list;
     }
-
-    function renderVideoView(view) {
-      const list = document.getElementById('steps-list');
-      list.innerHTML =
-        '<div class="vid-intro">Tap a video to watch someone work through long division. Pause it any time and come back to your question.</div>' +
-        '<div class="vid-list">' + view.videos.map((v, i) =>
-          `<button type="button" class="vid-btn" data-vid="${i}">
-             <span class="vid-play">▶️</span>
-             <span><span class="vid-name">${v.title}</span><span class="vid-sub">${v.sub}</span></span>
-           </button>`).join('') + '</div>' +
-        '<div id="vid-holder"></div>';
-      const nextBtn = document.getElementById('next-step-btn');
-      nextBtn.textContent = '✓ Done watching';
-      nextBtn.classList.add('done');
+    let currentVideos = [];
+    function closeVideoPanel() {
+      document.getElementById('video-panel').classList.remove('show');
+      document.getElementById('vid-holder').innerHTML = '';      // stops any playing video
     }
-
-    function playVideo(view, i) {
+    function openVideoPanel() {
+      const q = questions[currentQ];
+      currentVideos = videosFor(q);
+      document.getElementById('vid-list').innerHTML = currentVideos.map((v, i) =>
+        `<button type="button" class="vid-btn" data-vid="${i}"><span class="vid-play">▶️</span>
+           <span><span class="vid-name">${v.title}</span><span class="vid-sub">${v.sub}</span></span></button>`).join('');
+      document.getElementById('vid-holder').innerHTML = '';
+      document.getElementById('video-panel').classList.add('show');
+    }
+    function playVideo(i) {
       const holder = document.getElementById('vid-holder');
       document.querySelectorAll('.vid-btn').forEach((b, n) => b.classList.toggle('active', n === i));
       if (!navigator.onLine) {
-        holder.innerHTML = '<div class="vid-note">📶 Videos need the internet. Try the “Step by step” tab for now — it works offline.</div>';
+        holder.innerHTML = '<div class="vid-note">📶 Videos need the internet. Try again when you are back online.</div>';
         return;
       }
-      const v = view.videos[i];
+      const v = currentVideos[i];
       holder.innerHTML =
         `<div class="vid-frame"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}?rel=0&modestbranding=1&playsinline=1&autoplay=1"
            title="${v.title} (Khan Academy)" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen
            referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
          <div class="vid-note">If a video doesn’t start, ask a grown-up to check the internet connection.</div>`;
     }
-
-    function resetStepsPanel() {
-      stepsState = { views: [], viewIdx: 0, revealedCount: 0 };
-      document.getElementById('show-me-btn').classList.remove('visible');
-      document.getElementById('steps-panel').classList.remove('show');
-      document.getElementById('steps-list').innerHTML = '';
-      const tabs = document.getElementById('steps-tabs');
-      tabs.classList.remove('show'); tabs.innerHTML = '';
-    }
-
-    function renderStepsTabs() {
-      const tabs = document.getElementById('steps-tabs');
-      if (stepsState.views.length < 2) { tabs.classList.remove('show'); tabs.innerHTML = ''; return; }
-      tabs.innerHTML = stepsState.views.map((v, i) =>
-        `<button type="button" class="steps-tab${i === stepsState.viewIdx ? ' active' : ''}" data-view="${i}">${v.label}</button>`
-      ).join('');
-      tabs.classList.add('show');
-    }
-
-    function renderStepsView() {
-      const view = stepsState.views[stepsState.viewIdx];
-      if (view && view.videos) { stepsState.revealedCount = 0; renderVideoView(view); return; }
-      const steps = currentSteps();
-      stepsState.revealedCount = 0;
-      document.getElementById('steps-list').innerHTML = steps.map((s, i) =>
-        `<div class="step-item" id="step-${i}">
-          <div class="step-num">${i + 1}</div>
-          <div class="step-text">${s}</div>
-        </div>`
-      ).join('');
-      const nextBtn = document.getElementById('next-step-btn');
-      nextBtn.textContent = 'Next Step →';
-      nextBtn.classList.remove('done');
-      revealNextStep();   // first step shows immediately
-    }
-
-    function showStepsPanel(q) {
-      const steps = q.steps || [];
-      if (!steps.length) return;
-      const views = [{ label: 'Step by step', steps }];
-      if (q.altSteps && q.altSteps.length) views.push({ label: q.altLabel || 'Another way', steps: q.altSteps });
-      if (q.altLabel === 'Long division' && profile.videosEnabled !== false) views.push({ label: '🎬 Watch a video', videos: videosFor(q) });
-      stepsState = { views, viewIdx: 0, revealedCount: 0 };
-      renderStepsTabs();
-      renderStepsView();
-      document.getElementById('steps-panel').classList.add('show');
-      document.getElementById('show-me-btn').classList.remove('visible');
-    }
-
-    function closeStepsPanel() {
-      document.getElementById('steps-panel').classList.remove('show');
-      // Let the student reopen the help (it used to disappear until the next wrong answer).
-      const q = questions[currentQ];
-      if (q && q.steps && q.steps.length) document.getElementById('show-me-btn').classList.add('visible');
-    }
-
-    function revealNextStep() {
-      const steps = currentSteps();
-      if (stepsState.revealedCount >= steps.length) return;
-      const stepEl = document.getElementById('step-' + stepsState.revealedCount);
-      if (stepEl) requestAnimationFrame(() => stepEl.classList.add('revealed'));
-      stepsState.revealedCount++;
-      if (stepsState.revealedCount >= steps.length) {
-        const nextBtn = document.getElementById('next-step-btn');
-        nextBtn.textContent = '✓ Got it!';
-        nextBtn.classList.add('done');
-      }
-    }
-
-    // One click handler: reveal the next step, or close once everything is showing.
-    document.getElementById('next-step-btn').addEventListener('click', () => {
-      if (stepsState.revealedCount >= currentSteps().length) closeStepsPanel();
-      else revealNextStep();
-    });
-    document.getElementById('steps-tabs').addEventListener('click', e => {
-      const btn = e.target.closest('.steps-tab');
-      if (!btn) return;
-      stepsState.viewIdx = parseInt(btn.dataset.view, 10);
-      renderStepsTabs();
-      renderStepsView();
-    });
-    document.getElementById('steps-list').addEventListener('click', e => {
-      const btn = e.target.closest('.vid-btn');
-      if (btn) playVideo(stepsState.views[stepsState.viewIdx], parseInt(btn.dataset.vid, 10));
-    });
-    document.getElementById('show-me-btn').addEventListener('click', () => {
-      showStepsPanel(questions[currentQ]);
+    document.getElementById('video-btn').addEventListener('click', openVideoPanel);
+    document.getElementById('vid-done').addEventListener('click', closeVideoPanel);
+    document.getElementById('vid-list').addEventListener('click', e => {
+      const b = e.target.closest('.vid-btn');
+      if (b) playVideo(parseInt(b.dataset.vid, 10));
     });
 
     // ─── Show a question ──────────────────────────────────────────────────────
@@ -837,7 +692,8 @@
       document.getElementById('explanation').className = 'explanation';
       document.getElementById('explanation').innerHTML = '';
       document.getElementById('next-btn').classList.remove('show');
-      resetStepsPanel();
+      document.getElementById('video-btn').classList.remove('visible');
+      closeVideoPanel();
 
       renderOptions(true /* locked */);
       startThinkLock();
@@ -921,11 +777,6 @@
         const expEl = document.getElementById('explanation');
         expEl.className = 'explanation show hint-exp';
         expEl.textContent = '💡 ' + (q.explanation || 'Work through the problem one step at a time, then try again.');
-
-        // Show "Show Me How" button if steps are available
-        if (q.steps && q.steps.length) {
-          document.getElementById('show-me-btn').classList.add('visible');
-        }
 
         // Reshuffle after a beat
         setTimeout(() => reshuffleAndShow(q), 950);
