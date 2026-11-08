@@ -343,7 +343,8 @@
     <div class="story-grid" id="grid-advanced"></div>
   </div>
 
-  <script src="stories.js?v=20260705"></script>
+  <script src="stories-meta.js"></script>
+  <script>const STORIES = STORIES_META; // summary data only (no story text) — see scripts/build-data.js</script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -395,6 +396,7 @@
     const readingGradeCache = new Map();
     function estimateReadingGrade(story) {
       if (readingGradeCache.has(story.id)) return readingGradeCache.get(story.id);
+      if (typeof story.rg === 'number') return story.rg;   // precomputed by scripts/build-data.js
       const text = String(story.text || '').replace(/\*\*|__|`|#+\s*/g, '').replace(/\s+/g, ' ').trim();
       const words = text.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) || [];
       const sentences = text.split(/[.!?]+["']?(?=\s|$)/).filter(part => part.trim()).length || 1;
