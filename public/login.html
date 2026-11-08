@@ -480,6 +480,12 @@
         });
     });
 
+    // Kid pages send you here (auth-guard.js) when the parent's sign-in has expired on this device.
+    if (/[?&]signin=1/.test(location.search)) {
+      const note = document.getElementById('si-error');
+      if (note) { note.style.color = 'var(--muted)'; note.textContent = 'Your sign-in expired on this device — please sign in again.'; }
+    }
+
     // Enter key submits sign-in
     ['si-email','si-password'].forEach(id => {
       document.getElementById(id).addEventListener('keydown', e => {

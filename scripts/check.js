@@ -108,6 +108,17 @@ used.forEach(c => { if (!ruled.has(c)) fail('firestore-rules', `code uses collec
   if (r.status !== 0) fail('practice-sets', (r.stderr || r.stdout || 'test-practice.js failed').trim());
 }
 
+// 7b. The database security rules identify the PARENT by their sign-in. A page that loads Firestore without
+//     the Auth component sends every request anonymously, which the rules refuse — and (before the rules were
+//     tightened) such pages silently skipped features that need a signed-in user (avatar choice, grade-up).
+const GUARD_EXEMPT = new Set(['login.html', 'parent-auth.html', 'parent-portal.html', 'parent.html', 'admin-dashboard.html', 'demo-seed.html', '404.html']);
+for (const f of htmlFiles) {
+  const src = read(f), name = path.basename(f);
+  if (!/firebase-firestore-compat/.test(src)) continue;
+  if (!/firebase-auth-compat/.test(src)) fail('auth', `${rel(f)} loads Firestore but not firebase-auth-compat.js (requests would be anonymous and rejected)`);
+  if (!GUARD_EXEMPT.has(name) && !/auth-guard\.js/.test(src)) fail('auth', `${rel(f)} is a kid page but does not load auth-guard.js (an expired sign-in would fail silently)`);
+}
+
 // 8. Pages that call reportSaveError() must load the helper that defines it.
 for (const f of htmlFiles) {
   const src = read(f);

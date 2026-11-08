@@ -496,10 +496,10 @@
       </div>
 
       <!-- Advanced (legacy ID) -->
-      <button type="button" class="advanced-toggle" id="advanced-toggle">
+      <button type="button" class="advanced-toggle" id="advanced-toggle" style="display:none">
         <span id="advanced-arrow">▶</span> Advanced options
       </button>
-      <div class="advanced-body" id="advanced-body">
+      <div class="advanced-body" id="advanced-body" style="display:none">
         <div class="form-group">
           <label for="f-legacy-id">Preserve existing progress — Legacy Reader ID</label>
           <input type="text" id="f-legacy-id"
@@ -1429,7 +1429,7 @@
       const grade    = parseInt(document.getElementById('f-grade').value);
       const emoji    = document.getElementById('f-emoji').value.trim();
       const color    = document.getElementById('f-color').value;
-      const legacyId        = document.getElementById('f-legacy-id').value.trim();
+      const legacyId        = '';   // the old "Legacy Reader ID" box let anyone link a profile to another child's data; it is disabled
       const weeklyGoalStories = parseInt(document.getElementById('f-goal').value)        || 3;
       const mathUnlockScore   = parseInt(document.getElementById('f-math-unlock').value);
       const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
@@ -1468,7 +1468,6 @@
           timestamp:         firebase.firestore.FieldValue.serverTimestamp()
         };
         // Only update readerId if legacyId provided and different
-        if (legacyId) data.readerId = legacyId;
 
         db.collection('StudentProfiles').doc(editingDocId).update(data)
           .then(() => {

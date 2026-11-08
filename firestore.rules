@@ -1,59 +1,108 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /Progress/{doc} {
-      allow read, write: if true;
+
+    // ── Who is who ───────────────────────────────────────────────────────────
+    // Kids don't sign in; the PARENT's Firebase sign-in stays on the device, and a child's data is keyed
+    // by their readerId. A readerId is the id of the child's StudentProfiles document, and that document
+    // stores which parent owns it (parentUid).
+    function signedIn() { return request.auth != null; }
+    function isAdmin()  { return signedIn() && request.auth.token.email == 'celeste1311@gmail.com'; }
+
+    // One profile (Leo) predates that scheme and uses a hand-made readerId, so its owner is listed here.
+    // Nothing else may use this id (see the StudentProfiles create rule).
+    function legacyReader() { return 'leo-school-2024-fixed'; }
+    function legacyOwner()  { return 'y8r8E7FFHYgNaecDBmZPepCtPtF2'; }
+
+    function ownsReader(readerId) {
+      return signedIn() && (
+        (exists(/databases/$(database)/documents/StudentProfiles/$(readerId)) &&
+         get(/databases/$(database)/documents/StudentProfiles/$(readerId)).data.parentUid == request.auth.uid)
+        || (readerId == legacyReader() && request.auth.uid == legacyOwner())
+      );
     }
-    match /MathProgress/{doc} {
-      allow read, write: if true;
+
+    // ── Parents ──────────────────────────────────────────────────────────────
+    match /ParentProfiles/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow write: if signedIn() && request.auth.uid == uid;
     }
-    match /TriviaScores/{doc} {
-      allow read, write: if true;
+
+    // ── Children ─────────────────────────────────────────────────────────────
+    match /StudentProfiles/{profileId} {
+      allow read: if isAdmin() || (signedIn() && resource.data.parentUid == request.auth.uid);
+      // readerId starts blank and is then set to the profile's own id; it can never point at someone else's.
+      allow create: if signedIn()
+        && request.resource.data.parentUid == request.auth.uid
+        && profileId != legacyReader()
+        && request.resource.data.readerId in ['', profileId];
+      allow update: if signedIn()
+        && resource.data.parentUid == request.auth.uid
+        && request.resource.data.parentUid == resource.data.parentUid
+        && (request.resource.data.readerId == resource.data.readerId
+            || (resource.data.readerId == '' && request.resource.data.readerId == profileId));
+      allow delete: if signedIn() && resource.data.parentUid == request.auth.uid;
     }
+
     match /StudentStats/{readerId} {
-      allow read, write: if true;
-    }
-    match /TypingProgress/{doc} {
-      allow read, write: if true;
-    }
-    match /SpellingProgress/{doc} {
-      allow read, write: if true;
-    }
-    // Thumbs up/down after a story. Written by signed-in parents' devices; only the admin reads them.
-    match /StoryRatings/{ratingId} {
-      allow create, update: if request.auth != null;
-      allow read: if request.auth != null && request.auth.token.email == 'celeste1311@gmail.com';
+      allow read: if isAdmin() || ownsReader(readerId);
+      allow create, update: if ownsReader(readerId);
       allow delete: if false;
     }
-    match /StudentActivity/{activityId} {
-      allow read: if true;
-      allow create: if true;
+
+    // ── Activity logs: one document per quiz / lesson / game, never edited ────
+    // Parents write and read their own children's; the admin can also read all of them (dashboard)
+    // and seed demo data. Anyone else, including signed-out visitors, gets nothing.
+    match /Progress/{doc} {
+      allow create: if isAdmin() || ownsReader(request.resource.data.readerId);
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
+      allow update, delete: if false;
+    }
+    match /MathProgress/{doc} {
+      allow create: if isAdmin() || ownsReader(request.resource.data.readerId);
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
+      allow update, delete: if false;
+    }
+    match /TypingProgress/{doc} {
+      allow create: if isAdmin() || ownsReader(request.resource.data.readerId);
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
+      allow update, delete: if false;
+    }
+    match /TriviaScores/{doc} {
+      allow create: if isAdmin() || ownsReader(request.resource.data.readerId);
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
+      allow update, delete: if false;
+    }
+    match /SpellingProgress/{doc} {
+      allow create: if isAdmin() || ownsReader(request.resource.data.readerId);
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
+      allow update, delete: if false;
+    }
+    match /StudentActivity/{doc} {
+      allow create: if isAdmin() || ownsReader(request.resource.data.readerId);
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
       allow update, delete: if false;
     }
     match /WritingResponses/{doc} {
-      allow read: if request.auth != null;
-      allow create: if true;
+      allow create: if ownsReader(request.resource.data.readerId);
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
       allow update, delete: if false;
     }
-    match /Suggestions/{docId} {
-      allow read: if request.auth != null
-        && request.auth.token.email == 'celeste1311@gmail.com';
-      allow create: if request.auth != null;
-      allow update: if request.auth != null
-        && request.auth.token.email == 'celeste1311@gmail.com';
+
+    // Thumbs up/down after a story (one document per child + story, so re-rating updates it).
+    match /StoryRatings/{ratingId} {
+      allow create: if ownsReader(request.resource.data.readerId);
+      allow update: if ownsReader(resource.data.readerId) && request.resource.data.readerId == resource.data.readerId;
+      allow read: if isAdmin();
       allow delete: if false;
     }
-    match /StudentProfiles/{profileId} {
-      allow read: if true;
-      allow create: if request.auth != null;
-      allow update, delete: if request.auth != null
-        && request.auth.uid == resource.data.parentUid;
-    }
-    match /ParentProfiles/{uid} {
-      allow read: if request.auth != null
-        && (request.auth.uid == uid
-            || request.auth.token.email == 'celeste1311@gmail.com');
-      allow write: if request.auth != null && request.auth.uid == uid;
+
+    // ── Suggestion box ───────────────────────────────────────────────────────
+    match /Suggestions/{docId} {
+      allow read: if isAdmin();
+      allow create: if signedIn();
+      allow update: if isAdmin();
+      allow delete: if false;
     }
   }
 }

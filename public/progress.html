@@ -256,9 +256,11 @@
   <script>const STORIES = STORIES_META; // summary data only (no story text) — see scripts/build-data.js</script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script src="app-errors.js"></script>
+  <script src="auth-guard.js"></script>
   <script>
     // ─── Profile ────────────────────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();

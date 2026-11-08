@@ -6,16 +6,24 @@ on:
       - main
 
 jobs:
-  # Nothing is deployed unless the sanity checks pass (see scripts/check.js).
+  # Nothing is deployed unless the sanity checks and the security-rules tests pass.
   check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Sanity checks
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4   # the Firestore emulator needs Java
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: npm ci
+      - name: Sanity checks (scripts/check.js)
         run: node scripts/check.js
+      - name: Security rules tests (Firestore emulator)
+        run: npx --yes firebase-tools@15.15.0 emulators:exec --only firestore --project demo-school-rules "node scripts/test-rules.js"
 
   deploy:
     needs: check

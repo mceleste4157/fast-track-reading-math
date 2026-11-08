@@ -382,7 +382,7 @@
 
       // Load student name from StudentProfiles
       firebase.firestore()
-        .collection('StudentProfiles').where('readerId', '==', STUDENT_ID).limit(1).get()
+        .collection('StudentProfiles').where('readerId', '==', STUDENT_ID).where('parentUid', '==', user.uid).limit(1).get()
         .then(snap => {
           const studentName = snap.empty ? STUDENT_ID : snap.docs[0].data().name;
           document.getElementById('nav-title').textContent = '👨‍👩‍👧 ' + studentName + '\'s Progress — Parent View';
@@ -512,7 +512,7 @@
         db.collection('MathProgress').where('readerId', '==', STUDENT_ID).get(),
         db.collection('StudentStats').doc(STUDENT_ID).get(),
         db.collection('StudentActivity').where('readerId', '==', STUDENT_ID).get(),
-        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).limit(1).get()
+        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).where('parentUid', '==', firebase.auth().currentUser.uid).limit(1).get()
       ]).then(([readSnap, mathSnap, statsSnap, activitySnap, profileSnap]) => {
         // ── Weekly summary from StudentStats ──────────────────────────────────
         const sd = statsSnap.exists ? statsSnap.data() : {};
