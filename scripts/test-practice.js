@@ -6,24 +6,33 @@ const fs = require('fs'), path = require('path'), vm = require('vm');
 const pub = path.join(__dirname, '..', 'public');
 const E = require(path.join(pub, 'division-engine.js'));
 const code = fs.readFileSync(path.join(pub, 'math-practice.js'), 'utf8');
+const mathData = fs.readFileSync(path.join(pub, 'math-data.js'), 'utf8');
 const ITER = parseInt(process.argv[2], 10) || 300;
 const num = s => Number(String(s).replace(/,/g, ''));
 const fmt = n => n.toLocaleString('en-US');
 const problems = [];
 const bad = (set, q, msg) => { if (problems.length < 25) problems.push(`${set} :: "${q}" — ${msg}`); else if (problems.length === 25) problems.push('…more'); };
 
+const origRem = (() => {   // the hand-written Division with Remainders questions, straight from math-data.js
+  const c = vm.createContext({ window: {} }); vm.runInContext(mathData, c);
+  return vm.runInContext("MATH_SETS.find(s => s.id === 'division-remainders-g4').questions.map(q => q.question)", c);
+})();
 let questionsChecked = 0, setsBuilt = 0;
 for (let it = 0; it < ITER; it++) {
-  const ctx = { window: { DivisionEngine: E }, MATH_SETS: [], Math, Object, Error, Array, String, Number };
+  const ctx = { window: { DivisionEngine: E }, Math, Object, Error, Array, String, Number };
   vm.createContext(ctx);
+  vm.runInContext(mathData, ctx);     // real math-data.js first, then the generators on top (as in the browser)
   vm.runInContext(code, ctx);
-  for (const set of ctx.MATH_SETS) {
+  const allSets = vm.runInContext('MATH_SETS', ctx);
+  for (const set of allSets.filter(s => s.dynamic || s.freshExtra)) {
     let qs;
     try { qs = set.questions; setsBuilt++; } catch (e) { bad(set.id, '(build)', e.message); continue; }
-    if (qs.length !== 8) bad(set.id, '(set)', `expected 8 questions, got ${qs.length}`);
+    const hasFresh = !!set.freshExtra, baseCount = hasFresh ? 8 : 0;
+    if (qs.length !== (hasFresh ? 8 + set.freshExtra : 8)) bad(set.id, '(set)', `unexpected question count ${qs.length}`);
     if (new Set(qs.map(q => q.question)).size !== qs.length) bad(set.id, '(set)', 'duplicate questions in one set');
     if (set.questions !== qs) bad(set.id, '(set)', 'questions changed between reads (must stay fixed for one page load)');
-    for (const q of qs) {
+    if (hasFresh) origRem.forEach((t, i) => { if (!qs[i] || qs[i].question !== t) bad(set.id, t, 'hand-written question changed or moved'); });
+    for (const q of qs.slice(baseCount)) {
       questionsChecked++;
       const correct = q.options[q.correctIndex];
       if (q.options.length !== 4 || new Set(q.options).size !== 4) bad(set.id, q.question, 'options not 4 distinct');
@@ -37,9 +46,10 @@ for (let it = 0; it < ITER; it++) {
       else if ((m = q.question.match(/^What is ([\d,]+) ÷ (\d+)\?$/))) {
         const N = num(m[1]), d = +m[2], qq = Math.floor(N / d), r = N % d;
         want = r ? `${fmt(qq)} R ${r}` : fmt(qq);
-        if (d > 1 && set.id === 'practice-division-g4' && !q.altSteps) bad(set.id, q.question, 'division question without a Long division view');
+        if (set.freshExtra && r === 0) bad(set.id, q.question, 'remainders practice question has no remainder');
+        if (d > 1 && (set.id === 'practice-division-g4' || set.freshExtra) && !q.altSteps) bad(set.id, q.question, 'division question without a Long division view');
       } else if ((m = q.question.match(/^Which multiplication fact can you use to solve (\d+) ÷ (\d+)\?$/))) want = `${m[2]} × ${+m[1] / +m[2]} = ${m[1]}`;
-      else if (set.id === 'practice-division-g4') {            // word problem: N then d are the first two numbers
+      else if (set.id === 'practice-division-g4' || set.freshExtra) {   // word problem: N then d are the first two numbers
         const nums = q.question.match(/\d[\d,]*/g).map(num), N = nums[0], d = nums[1];
         const qq = Math.floor(N / d), r = N % d, unit = (correct.match(/^\d+ (\w+)$/) || [])[1];
         if (r === 0) bad(set.id, q.question, 'story problem should have a remainder');

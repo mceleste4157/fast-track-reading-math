@@ -523,7 +523,7 @@
           emoji: (mathMap[d.setId] || {}).coverEmoji || '📐',
           name:  d.setTitle || d.setId,
           meta:  formatDate(d.completedAt),
-          score: d.quizScore === 8 ? '🏆 Perfect' : d.quizScore + '/8'
+          score: d.quizScore === (d.quizTotal || 8) ? '🏆 Perfect' : d.quizScore + '/' + (d.quizTotal || 8)
         })),
         ...typingDocs.map(d => ({
           ts:    d.completedAt,

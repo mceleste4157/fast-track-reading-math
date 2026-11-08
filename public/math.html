@@ -191,7 +191,8 @@
   <script src="auth-guard.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; }
+    if (!profile) { window.location.replace('login.html'); }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     const av = document.getElementById('nav-avatar');
     av.style.background = profile.avatarColor || '#2563eb';
@@ -339,9 +340,11 @@
       } else {
         // ── UNLOCKED ────────────────────────────────────────────────────────
         const totalMathXp = Object.values(mathProgress).reduce((s, p) => s + (p.xpEarned || 0), 0);
-        const MASTERED = 6;   // stars (out of 8) that count as "got it"
-        const starsOf  = set => (mathProgress[set.id] && mathProgress[set.id].starsEarned) || 0;
-        const isDone   = set => starsOf(set) >= MASTERED;
+        const MASTERED = 0.75;   // share of questions right that counts as "got it" (6 of 8, 15 of 20…)
+        const scoreOf  = set => { const p = mathProgress[set.id]; return p ? ((p.quizScore ?? p.starsEarned) || 0) : 0; };
+        const totalOf  = set => (mathProgress[set.id] && mathProgress[set.id].quizTotal) || 8;
+        const starsOf  = scoreOf;
+        const isDone   = set => !!mathProgress[set.id] && scoreOf(set) / totalOf(set) >= MASTERED;
         const groups   = window.MATH_TOPIC_GROUPS || [];
         const groupIdx = set => { const i = groups.findIndex(g => g.topics.includes(set.topic)); return i < 0 ? 999 : i; };
 
@@ -364,7 +367,7 @@
         const focusFinished = focusMode && !nextInFocus;
 
         const chip = set => isDone(set) ? '<span class="path-chip done">✓ Got it</span>'
-          : mathProgress[set.id] ? `<span class="path-chip some">⭐ ${starsOf(set)}/8</span>`
+          : mathProgress[set.id] ? `<span class="path-chip some">⭐ ${scoreOf(set)}/${totalOf(set)}</span>`
           : '<span class="path-chip">New</span>';
         const row = (set, isNext) => `<a href="math-quiz.html?set=${set.id}" class="path-row${isNext ? ' next' : ''}">
             <span class="path-emoji">${set.coverEmoji}</span><span class="path-title">${set.title}</span>${set.dynamic ? '<span class="path-chip">🎲 new each time</span>' : chip(set)}</a>`;
@@ -377,7 +380,7 @@
               <div class="up-label">${label}</div>
               <div class="up-main"><div class="up-emoji">${nextSet.coverEmoji}</div>
                 <div><div class="up-title">${nextSet.title}</div>
-                <div class="up-meta">${g ? g.label + ' · ' : ''}8 questions${mathProgress[nextSet.id] ? ' · best so far ' + starsOf(nextSet) + '/8' : ''}</div></div></div>
+                <div class="up-meta">${g ? g.label + ' · ' : ''}${nextSet.questions.length} questions${mathProgress[nextSet.id] ? ' · best so far ' + scoreOf(nextSet) + '/' + totalOf(nextSet) : ''}</div></div></div>
               <a class="up-btn" href="math-quiz.html?set=${nextSet.id}">${mathProgress[nextSet.id] ? 'Keep practicing →' : "Let's go →"}</a>
             </div>`;
         } else if (PATH.length) {
@@ -425,15 +428,16 @@
                 const prog = mathProgress[set.id];
                 let starsHtml = '';
                 if (prog) {
-                  for (let i = 0; i < 8; i++) starsHtml += i < (prog.starsEarned || 0) ? '⭐' : '☆';
+                  const shown = Math.round(8 * scoreOf(set) / totalOf(set));
+                  for (let i = 0; i < 8; i++) starsHtml += i < shown ? '⭐' : '☆';
                 }
                 return `<a href="math-quiz.html?set=${set.id}" class="topic-card">
                   <div class="topic-cover" style="background:${set.coverColor}20;">${set.coverEmoji}</div>
                   <div class="topic-body">
                     <span class="topic-label">${set.topic.replace('-', ' ')}</span>
                     <div class="topic-title">${set.title}</div>
-                    <div class="topic-meta">${set.dynamic ? '🎲 New questions every time' : '8 questions'}</div>
-                    ${prog ? `<div class="topic-stars">${starsHtml} ${prog.starsEarned}/8</div>` : ''}
+                    <div class="topic-meta">${set.dynamic ? '🎲 New questions every time' : set.freshExtra ? set.questions.length + ' questions · ' + set.freshExtra + ' new each time' : set.questions.length + ' questions'}</div>
+                    ${prog ? `<div class="topic-stars">${starsHtml} ${scoreOf(set)}/${totalOf(set)}</div>` : ''}
                     <button class="btn-start ${prog ? 'btn-done' : ''}" onclick="event.preventDefault(); window.location='math-quiz.html?set=${set.id}'">
                       ${prog ? '⭐ Practice Again' : 'Start →'}
                     </button>
@@ -525,9 +529,11 @@
       if (unlocked) localStorage.setItem(MATH_UNLOCK_KEY, 'true');
 
       // Build math progress map (best per set)
+      // "Best" compares the share correct, because a set can have a different number of questions over time.
+      const ratioOf = p => ((p.quizScore ?? p.starsEarned) || 0) / (p.quizTotal || 8);
       mathSnap.forEach(d => {
         const data = d.data();
-        if (!mathProgress[data.setId] || data.starsEarned > mathProgress[data.setId].starsEarned) {
+        if (!mathProgress[data.setId] || ratioOf(data) > ratioOf(mathProgress[data.setId])) {
           mathProgress[data.setId] = data;
         }
       });
@@ -539,6 +545,7 @@
 
     // Show initial state fast (before Firestore loads)
     renderPage(unlocked, {}, 0);  // reading gate check uses localStorage, no Firestore needed
+    }  // end: if (profile)
   </script>
 </body>
 </html>

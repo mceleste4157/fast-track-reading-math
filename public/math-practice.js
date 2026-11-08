@@ -113,8 +113,8 @@
   }
 
   // Build n questions; a generator that fails (rare duplicate-distractor case) is retried with new numbers.
-  function collect(count, makers) {
-    var out = [], seen = {};
+  function collect(count, makers, seen0) {
+    var out = [], seen = seen0 || {};
     for (var i = 0; i < count; i++) {
       var q = null;
       for (var attempt = 0; attempt < 40 && !q; attempt++) {
@@ -166,6 +166,26 @@
         return collect(8, makers);
       } }
   ];
+
+  // ── Division with Remainders: the 8 hand-written questions + 12 fresh ones every time ──────────────
+  // Every fresh question has a remainder: 4 two-digit, 4 three-digit, 2 four-digit, and 2 word problems
+  // (full groups / how many are needed / how many left over), easier to harder.
+  var REMAINDER_FRESH = 12;
+  function remainderExtras(existing) {
+    var seen = {};
+    existing.forEach(function (q) { seen[q.question] = 1; });
+    var modes = shuffle(['drop', 'roundup', 'leftover']).slice(0, 2);
+    var makers = [[2, true], [2, true], [2, true], [2, true], [3, true], [3, true], [3, true], [3, true], [4, true], [4, true]].map(function (spec) {
+      return function () { var nd = nDigit(spec[0], spec[1]); return divBig(nd[0], nd[1]); };
+    }).concat(modes.map(function (m) { return function () { var nd = storyNums(true); return divStory(m, nd[0], nd[1]); }; }));
+    return collect(REMAINDER_FRESH, makers, seen);
+  }
+  MATH_SETS.forEach(function (set) {
+    if (set.id !== 'division-remainders-g4' || set.freshExtra) return;
+    var base = set.questions, all = null;
+    set.freshExtra = REMAINDER_FRESH;
+    Object.defineProperty(set, 'questions', { enumerable: true, configurable: true, get: function () { return all || (all = base.concat(remainderExtras(base))); } });
+  });
 
   // Each page load gets its own fresh set of questions (built the first time they're read, then kept
   // for that page so the quiz can't change underneath the student).

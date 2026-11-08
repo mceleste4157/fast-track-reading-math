@@ -670,8 +670,9 @@
           const data = d.data();
           mathXp += (data.xpEarned || 0);
           mathDocs.push(data);
+          const share = x => (x.quizScore || 0) / (x.quizTotal || 8);   // sets can have different lengths over time
           if (!bestPerTopic[data.setId] ||
-              (data.quizScore || 0) > (bestPerTopic[data.setId].quizScore || 0)) {
+              share(data) > share(bestPerTopic[data.setId])) {
             bestPerTopic[data.setId] = data;
           }
         });
@@ -797,9 +798,9 @@
               <div class="cov-emoji">${s.coverEmoji}</div>
               <div class="cov-body">
                 <div class="cov-title">${s.title}</div>
-                <div class="cov-score">${prog.quizScore}/8 · ${prog.starsEarned || 0}⭐</div>
+                <div class="cov-score">${prog.quizScore}/${prog.quizTotal || 8} · ${prog.starsEarned || 0}⭐</div>
               </div>
-              <div class="cov-badge">${prog.quizScore === 8 ? '🏆' : '✅'}</div>
+              <div class="cov-badge">${prog.quizScore === (prog.quizTotal || 8) ? '🏆' : '✅'}</div>
             </div>`;
           } else {
             return `<div class="cov-card" style="opacity:0.5">
@@ -827,7 +828,7 @@
               <td>${emoji} ${d.setTitle || d.setId}${perfect ? ' 🏆' : ''}</td>
               <td>${formatDate(d.completedAt)}</td>
               <td><span class="score-badge ${cls}">${d.quizScore}/${d.quizTotal || 8}</span></td>
-              <td class="stars-s">${renderStars(d.starsEarned || 0, 8)}</td>
+              <td class="stars-s">${renderStars(d.starsEarned || 0, d.quizTotal || 8)}</td>
               <td>+${d.xpEarned || 0}</td>
             </tr>`;
           }).join('');
