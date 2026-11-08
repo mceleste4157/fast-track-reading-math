@@ -6,7 +6,19 @@ on:
       - main
 
 jobs:
+  # Nothing is deployed unless the sanity checks pass (see scripts/check.js).
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Sanity checks
+        run: node scripts/check.js
+
   deploy:
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
