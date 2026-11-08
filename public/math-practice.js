@@ -1,7 +1,7 @@
 // math-practice.js — "fresh every time" practice sets.
 // The regular topics in math-data.js always show the same 8 questions, so kids start to memorize them.
 // These sets are built in the browser each time a quiz opens (new numbers, same grade-level skills,
-// every question with a Show Me How walkthrough). Needs math-data.js and division-engine.js first.
+// every question with worked steps). Needs math-data.js and division-engine.js first.
 (function () {
   var E = window.DivisionEngine;
   if (!E || typeof MATH_SETS === 'undefined') return;
@@ -167,24 +167,95 @@
       } }
   ];
 
-  // ── Division with Remainders: the 8 hand-written questions + 12 fresh ones every time ──────────────
-  // Every fresh question has a remainder: 4 two-digit, 4 three-digit, 2 four-digit, and 2 word problems
-  // (full groups / how many are needed / how many left over), easier to harder.
-  var REMAINDER_FRESH = 12;
-  function remainderExtras(existing) {
-    var seen = {};
-    existing.forEach(function (q) { seen[q.question] = 1; });
-    var modes = shuffle(['drop', 'roundup', 'leftover']).slice(0, 2);
-    var makers = [[2, true], [2, true], [2, true], [2, true], [3, true], [3, true], [3, true], [3, true], [4, true], [4, true]].map(function (spec) {
-      return function () { var nd = nDigit(spec[0], spec[1]); return divBig(nd[0], nd[1]); };
-    }).concat(modes.map(function (m) { return function () { var nd = storyNums(true); return divStory(m, nd[0], nd[1]); }; }));
-    return collect(REMAINDER_FRESH, makers, seen);
+  // ── Word problems that divide evenly (no remainder) ────────────────────────────────────────────────
+  var EXACT_TEMPLATES = [
+    ['{N} oranges are packed equally into {d} crates. How many oranges are in each crate?', 'oranges'],
+    ['A teacher hands out {N} pencils equally to {d} students. How many pencils does each student get?', 'pencils'],
+    ['{N} stickers are shared equally among {d} friends. How many stickers does each friend get?', 'stickers'],
+    ['There are {N} students on a trip. They sit {d} to a table. How many tables do they fill?', 'tables'],
+    ['A farmer packs {N} eggs into cartons of {d}. How many cartons does he pack?', 'cartons'],
+    ['{N} players are split into teams of {d}. How many teams are there?', 'teams'],
+    ['Marcus collected {N} shells. That is {d} times as many shells as Jada collected. How many shells did Jada collect?', 'shells'],
+    ['A tall tree is {N} feet tall. That is {d} times as tall as a small bush. How many feet tall is the bush?', 'feet']
+  ];
+  function divExact(N, d) {
+    var tpl = EXACT_TEMPLATES[rnd(0, EXACT_TEMPLATES.length - 1)], text = tpl[0].replace('{N}', fmt(N)).replace(/\{d\}/g, d), unit = tpl[1];
+    var base = E.divSteps(N, d, { intro: false }), q = base.q;
+    var head = 'Read carefully: we divide ' + fmt(N) + ' into groups of ' + d + '.', tail = ['Answer: ' + fmt(q) + ' ' + unit + '.'];
+    return make(text, fmt(q) + ' ' + unit, [q + 1, q - 1, q + 10, q - 10, d, q * 10].filter(function (n) { return n > 0; }).map(function (n) { return fmt(n) + ' ' + unit; }),
+      fmt(N) + ' ÷ ' + d + ' = ' + fmt(q) + ', so the answer is ' + fmt(q) + ' ' + unit + '.',
+      [head].concat(base.steps.slice(0, -1), tail), E.longDiv(N, d, { pre: [head], final: tail }).steps);
   }
+  // N that divides evenly by a 1-digit d (3-9), with the quotient between qLo and qHi
+  function exactNums(qLo, qHi) { var d = rnd(3, 9), q = rnd(qLo, qHi); return [d * q, d]; }
+  // N with `digits` digits and a divisor in dLo..dHi (for 2-digit divisors)
+  function nDigitBy(digits, dLo, dHi, withRemainder) {
+    for (;;) {
+      var d = rnd(dLo, dHi), lo = Math.pow(10, digits - 1), hi = Math.pow(10, digits) - 1;
+      var qLo = Math.ceil(lo / d), qHi = Math.floor((hi - (withRemainder ? d - 1 : 0)) / d);
+      if (qHi < qLo) continue;
+      var q = rnd(qLo, qHi), r = withRemainder ? rnd(1, d - 1) : 0;
+      return [d * q + r, d];
+    }
+  }
+  function remainderWhen(N, d) {
+    var r = N % d, q = (N - r) / d;
+    return make('What is the remainder when ' + fmt(N) + ' is divided by ' + d + '?', String(r), positive([r + 1, r - 1, q, d - r, d]),
+      fmt(N) + ' ÷ ' + d + ' = ' + fmt(q) + ' R ' + r + ', so the remainder is ' + r + '.',
+      E.divSteps(N, d, { intro: false }).steps, E.longDiv(N, d).steps);
+  }
+
+  // ── "Lots more practice": the 8 hand-written questions of a set + 12 fresh ones every time it is opened ──
+  // Each builder returns 12 questions (easier → harder); `seen` holds the hand-written question texts so a
+  // fresh question never repeats one of them.
+  var FRESH = 12;
+  function big(digits, rem) { return function () { var nd = nDigit(digits, rem); return divBig(nd[0], nd[1]); }; }
+  function bigBy(digits, dLo, dHi, rem) { return function () { var nd = nDigitBy(digits, dLo, dHi, rem); return divBig(nd[0], nd[1]); }; }
+  function exact(qLo, qHi) { return function () { var nd = exactNums(qLo, qHi); return divExact(nd[0], nd[1]); }; }
+  function story(mode) { return function () { var nd = storyNums(true); return divStory(mode, nd[0], nd[1]); }; }
+  function fact(pair) { return function () { return divFact(pair[0], pair[1]); }; }
+  function rep(n, mk) { var out = []; for (var i = 0; i < n; i++) out.push(mk); return out; }
+  function cat() { return [].concat.apply([], arguments); }
+
+  var EXTEND = {
+    'division-remainders-g4': function (seen) {
+      var modes = shuffle(['drop', 'roundup', 'leftover']).slice(0, 2);
+      return collect(FRESH, cat(rep(4, big(2, true)), rep(4, big(3, true)), rep(2, big(4, true)), modes.map(story)), seen);
+    },
+    'division-2-3-digit-g4': function (seen) {
+      return collect(FRESH, cat(rep(5, big(2, false)), rep(5, big(3, false)), rep(2, exact(12, 70))), seen);
+    },
+    'division-4-digit-g4': function (seen) {
+      return collect(FRESH, cat(rep(3, big(3, false)), rep(4, big(4, false)), rep(2, big(4, true)), rep(3, exact(120, 1100))), seen);
+    },
+    'division-word-problems-g4': function (seen) {
+      return collect(FRESH, cat(['drop', 'roundup', 'leftover', 'drop', 'roundup', 'leftover'].map(story), rep(6, exact(8, 60))), seen);
+    },
+    'division-basics': function (seen) {
+      return collect(FRESH, cat(pairs(9).map(fact), rep(3, exact(2, 9))), seen);
+    },
+    'division': function (seen) {
+      return collect(FRESH, cat(rep(2, big(2, true)), [big(3, false)], rep(2, big(3, true)), [big(4, false), big(4, true)], ['drop', 'roundup', 'leftover'].map(story), rep(2, exact(10, 80))), seen);
+    },
+    'dividing-whole-numbers': function (seen) {
+      return collect(FRESH, cat(rep(4, big(3, false)), rep(3, bigBy(4, 11, 30, false)), rep(2, bigBy(4, 11, 30, true)),
+        [function () { var nd = nDigitBy(3, 11, 30, true); return remainderWhen(nd[0], nd[1]); },
+         function () { var d = rnd(12, 40), q = rnd(10, 90); return divExact(d * q, d); },
+         function () { var d = rnd(12, 40), q = rnd(10, 90); return divExact(d * q, d); }]), seen);
+    }
+  };
   MATH_SETS.forEach(function (set) {
-    if (set.id !== 'division-remainders-g4' || set.freshExtra) return;
+    var build = EXTEND[set.id];
+    if (!build || set.freshExtra) return;
     var base = set.questions, all = null;
-    set.freshExtra = REMAINDER_FRESH;
-    Object.defineProperty(set, 'questions', { enumerable: true, configurable: true, get: function () { return all || (all = base.concat(remainderExtras(base))); } });
+    set.freshExtra = FRESH;
+    Object.defineProperty(set, 'questions', { enumerable: true, configurable: true, get: function () {
+      if (!all) {
+        var seen = {}; base.forEach(function (q) { seen[q.question] = 1; });
+        all = base.concat(build(seen));
+      }
+      return all;
+    } });
   });
 
   // Each page load gets its own fresh set of questions (built the first time they're read, then kept
