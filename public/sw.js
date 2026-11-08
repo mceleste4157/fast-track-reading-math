@@ -1,8 +1,8 @@
-// FAST Track — Service Worker v15
+// FAST Track — Service Worker v16
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
 // Offline: core pages + stories/math data + Firebase SDK pre-cached
-const CACHE = 'fast-track-v15';
+const CACHE = 'fast-track-v16';
 const STATIC_ASSETS = [
   // Core data
   '/stories-meta.js',
@@ -32,6 +32,13 @@ const STATIC_ASSETS = [
   '/typing.html',
   '/typing-practice.html',
   '/story-type.html',
+  '/paired-read.html',
+  '/spelling-quiz.html',
+  '/flashcards.html',
+  '/fill-in-blank.html',
+  '/unscramble.html',
+  '/memory-match.html',
+  '/vocab-bank.html',
   '/parent-portal.html',
 ];
 

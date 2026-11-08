@@ -541,18 +541,18 @@
       <div id="change-pin-wrap" style="background:var(--surface);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);padding:22px;max-width:340px;">
         <div style="margin-bottom:12px;">
           <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Current PIN</label>
-          <input id="cp-current" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
-            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+          <input id="cp-current" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;-webkit-text-security:disc;" />
         </div>
         <div style="margin-bottom:12px;">
           <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">New PIN</label>
-          <input id="cp-new" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
-            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+          <input id="cp-new" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;-webkit-text-security:disc;" />
         </div>
         <div style="margin-bottom:16px;">
           <label style="font-size:0.82rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:6px;">Confirm New PIN</label>
-          <input id="cp-confirm" type="password" inputmode="numeric" maxlength="4" placeholder="••••"
-            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;" />
+          <input id="cp-confirm" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore
+            style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:10px;font-size:1.1rem;letter-spacing:0.2em;font-family:inherit;outline:none;transition:border-color 0.15s;box-sizing:border-box;-webkit-text-security:disc;" />
         </div>
         <div id="cp-err" style="font-size:0.85rem;font-weight:600;color:#ef4444;min-height:1.2em;margin-bottom:10px;"></div>
         <button id="cp-save-btn" style="padding:11px 22px;background:var(--blue);color:#fff;border:none;border-radius:11px;font-size:0.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.15s;">Save New PIN</button>
@@ -624,7 +624,13 @@
     // ── Release notes data — add new entries at the TOP of this array ──────────
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
-      { date: 'September 28, 2026', label: 'Latest Update', items: [
+      { date: 'November 2, 2026', label: 'Latest Update', items: [
+        { icon: '⭐', title: 'Daily login bonus now shows up right away', text: 'The "+10 XP for showing up" bonus was being saved, but sometimes wasn\'t reflected in a child\'s total until their next quiz. It now updates immediately.' },
+        { icon: '📥', title: 'More activities available offline', text: 'Spelling Quiz, Flashcards, Fill in the Blank, Unscramble, Memory Match, Vocab Bank, and Paired Passages are now included when a child downloads content for offline use.' },
+        { icon: '📐', title: 'Math Zone empty state now has a next step', text: 'If a grade has no new math topics yet, kids now see a quick link back to the library instead of a dead end.' },
+        { icon: '🌙', title: 'Dark mode polish', text: 'Badges and highlight chips for streaks, level-ups, and alerts now use proper dark-mode colors instead of staying light-on-dark.' },
+      ]},
+      { date: 'September 28, 2026', items: [
         { icon: '📚', title: 'Stories now match each child\'s grade more closely', text: 'The Library now uses each story\'s intended grade range instead of a broad legacy grouping. More demanding passages are clearly placed in a supported “Stretch Challenges” section and are left out of Surprise Me recommendations.' },
         { icon: '💪', title: 'Mistakes now lead to learning, not lost progress', text: 'Wrong answers no longer remove XP or force a child to restart the quiz. Students receive a useful hint, can try again, and see encouraging feedback that treats practice as part of learning.' },
         { icon: '⭐', title: 'Earned XP and levels now stay earned', text: 'Removed the inactivity XP penalty. Time away from the app no longer lowers a child\'s progress; returning students receive a friendly welcome-back message instead.' },
@@ -876,14 +882,40 @@
     // PIN verified by the Parent button on index.html (requireParentPin) carries over.
     // Direct URL navigation always hits the PIN screen since portalPinVerified won't be set.
 
+    // Email-link PIN reset: the "Forgot PIN?" email (sent from index.html) lands here. Opening it
+    // proves inbox access, so we sign in with the link and go to "Set a Parent PIN". The PIN screen
+    // is only shown AFTER the server accepts the link — isSignInWithEmailLink() only checks the URL's
+    // shape, so a hand-typed fake link must never reach the "set a PIN" screen.
+    let pinResetPromise = null;
+    if (auth.isSignInWithEmailLink(window.location.href)) {
+      const linkEmail = localStorage.getItem('pinResetEmail') || window.prompt('Confirm your email address to reset your PIN:') || '';
+      pinResetPromise = auth.signInWithEmailLink(linkEmail, window.location.href)
+        .then(() => { localStorage.removeItem('pinResetEmail'); history.replaceState(null, '', window.location.pathname); return true; });
+      pinResetPromise.catch(() => {
+        alert('That reset link is invalid or has expired. Please request a new one with "Forgot PIN?".');
+        window.location.href = 'index.html';
+      });
+    }
+
     auth.onAuthStateChanged(user => {
-      if (!user) { window.location.href = 'login.html'; return; }
+      if (!user) { if (pinResetPromise) return; window.location.href = 'login.html'; return; }
       currentUser = user;
 
       db.collection('ParentProfiles').doc(user.uid).get().then(doc => {
         const data = doc.exists ? doc.data() : {};
         document.getElementById('nav-user').textContent = data.displayName || user.email;
         injectAdminLink(user.email);
+
+        if (pinResetPromise) {
+          const linkCheck = pinResetPromise;
+          pinResetPromise = null;
+          document.querySelector('.page').style.display = 'none';
+          linkCheck.then(() => {
+            sessionStorage.removeItem('portalPinVerified');
+            showPortalPinScreen(null, user.uid);   // "Set a Parent PIN" — saving it replaces the old one
+          }, () => {});                            // invalid link: the handler above alerts + redirects
+          return;
+        }
 
         // Skip PIN screen if already verified (e.g. came from the Parent button)
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
@@ -898,10 +930,24 @@
         if (sessionStorage.getItem('portalPinVerified') === 'true') {
           loadChildren();
         } else {
-          showPortalPinScreen(null, user.uid);
+          // Never fall into "create a PIN" mode on a read error — that would let any 4 digits overwrite the real PIN.
+          showPinUnavailable();
         }
       });
     });
+
+    function showPinUnavailable() {
+      const el = document.createElement('div');
+      el.style.cssText = 'position:fixed;inset:0;background:#f5f3ff;display:flex;align-items:center;justify-content:center;padding:24px;z-index:9999;';
+      el.innerHTML = '<div style="background:#fff;border-radius:20px;padding:32px 28px;width:100%;max-width:340px;box-shadow:0 8px 40px rgba(0,0,0,0.18);text-align:center;font-family:inherit;">'
+        + '<div style="font-size:2rem;margin-bottom:10px;">&#128274;</div>'
+        + '<h2 style="font-size:1.2rem;font-weight:800;margin-bottom:8px;">Couldn\'t verify your PIN</h2>'
+        + '<p style="font-size:0.88rem;color:#6b7280;margin-bottom:20px;">Check your internet connection and try again.</p>'
+        + '<button onclick="location.reload()" style="width:100%;padding:13px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;">Try again</button>'
+        + '<a href="index.html" style="display:block;margin-top:14px;color:#9ca3af;font-size:0.85rem;font-weight:600;text-decoration:none;">&larr; Back</a></div>';
+      document.body.appendChild(el);
+    }
+
 
     document.getElementById('signout-btn').addEventListener('click', () => {
       sessionStorage.removeItem('portalPinVerified');

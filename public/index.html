@@ -463,22 +463,99 @@
     })();
 
     // ─── Parent PIN gate (used for Switch User + any parent action) ──────────────
+    function fetchPortalPin(uid) {
+      return firebase.firestore().collection('ParentProfiles').doc(uid).get().then(doc => {
+        const pin = doc.exists ? (doc.data().portalPin || null) : null;
+        if (pin) sessionStorage.setItem('portalPin', pin); else sessionStorage.removeItem('portalPin');
+        return pin;
+      });
+    }
+
+    // Fails CLOSED: if the saved PIN can't be loaded (auth not ready, offline, read error) the
+    // modal refuses every code instead of accepting anything.
     function requireParentPin(onSuccess) {
       const cached = sessionStorage.getItem('portalPin');
       if (cached) { showPinModal(cached, onSuccess); return; }
-      // PIN not cached — load from Firestore using Firebase Auth session
-      const user = firebase.auth().currentUser;
-      if (!user) { showPinModal(null, onSuccess); return; }
-      firebase.firestore().collection('ParentProfiles').doc(user.uid).get()
-        .then(doc => {
-          const pin = doc.exists ? (doc.data().portalPin || null) : null;
-          if (pin) sessionStorage.setItem('portalPin', pin);
-          showPinModal(pin, onSuccess);
-        })
-        .catch(() => showPinModal(null, onSuccess));
+      const unsub = firebase.auth().onAuthStateChanged(user => {
+        unsub();
+        if (!user) { showPinModal(undefined, onSuccess, 'Please sign in again to verify your PIN.'); return; }
+        fetchPortalPin(user.uid)
+          .then(pin => {
+            // No PIN has ever been set: let the Parent Portal force them to create one
+            // (portalPinVerified is intentionally NOT set here).
+            if (pin === null) { onSuccess(); return; }
+            showPinModal(pin, onSuccess);
+          })
+          .catch(() => showPinModal(undefined, onSuccess, "Couldn't check the PIN. Check your connection and try again."));
+      });
     }
 
-    function showPinModal(correctPin, onSuccess) {
+    // ─── Forgot PIN: email a one-time link to the signed-in parent's own address ──
+    // Opening the link (parent-portal.html) proves inbox access and lands on "Set a Parent PIN".
+    function maskEmail(e) {
+      const [name, domain] = String(e).split('@');
+      return name.slice(0, 1) + '•'.repeat(Math.max(1, name.length - 1)) + '@' + domain;
+    }
+
+    function showForgotPinModal(onSuccess) {
+      const overlay = document.createElement('div');
+      overlay.id = 'pin-modal-overlay';
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
+      const btnCss = 'display:block;width:100%;padding:13px;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;';
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:22px;padding:32px 28px;width:100%;max-width:320px;text-align:center;box-shadow:0 10px 50px rgba(0,0,0,0.25);">
+          <div style="font-size:2.2rem;margin-bottom:8px;">✉️</div>
+          <div style="font-size:1.2rem;font-weight:800;margin-bottom:8px;color:#1e1b4b;">Reset your PIN</div>
+          <div id="fp-text" style="font-size:0.88rem;color:#6b7280;line-height:1.5;margin-bottom:18px;">Checking your account…</div>
+          <div id="fp-err" style="color:#ef4444;font-size:0.83rem;font-weight:600;min-height:1.1em;margin-bottom:12px;"></div>
+          <button id="fp-send" disabled style="${btnCss}background:#7c3aed;color:#fff;opacity:0.5;">Send reset link</button>
+          <button id="fp-back" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;padding:12px 8px 0;font-family:inherit;">← Back</button>
+        </div>`;
+      document.body.appendChild(overlay);
+      const $ = id => overlay.querySelector(id);
+      $('#fp-back').addEventListener('click', () => { overlay.remove(); requireParentPin(onSuccess); });
+
+      let parentEmail = null;
+      const unsub = firebase.auth().onAuthStateChanged(user => {
+        unsub();
+        if (!user || !user.email) {
+          $('#fp-text').textContent = 'You need to be signed in to reset your PIN.';
+          $('#fp-err').textContent = 'Please sign in again from the login screen.';
+          return;
+        }
+        parentEmail = user.email;
+        $('#fp-text').innerHTML = 'We\'ll email a reset link to <strong></strong>. Open it on this device to choose a new PIN.';
+        $('#fp-text').querySelector('strong').textContent = maskEmail(parentEmail);
+        $('#fp-send').disabled = false; $('#fp-send').style.opacity = '1';
+      });
+
+      $('#fp-send').addEventListener('click', () => {
+        if (!parentEmail) return;
+        const sendBtn = $('#fp-send');
+        sendBtn.disabled = true; sendBtn.style.opacity = '0.5'; sendBtn.textContent = 'Sending…';
+        $('#fp-err').textContent = '';
+        localStorage.setItem('pinResetEmail', parentEmail);
+        firebase.auth().sendSignInLinkToEmail(parentEmail, { url: location.origin + '/parent-portal.html', handleCodeInApp: true })
+          .then(() => {
+            $('#fp-text').innerHTML = '<strong>Check your email.</strong><br>Open the link we sent to set a new PIN. It can take a minute — check spam too.';
+            sendBtn.textContent = 'Done';
+            sendBtn.disabled = false; sendBtn.style.opacity = '1';
+            sendBtn.onclick = () => overlay.remove();
+          })
+          .catch(err => {
+            localStorage.removeItem('pinResetEmail');
+            const msg = err && err.code === 'auth/operation-not-allowed'
+              ? 'Email reset isn\'t switched on yet for this app. Open the Parent Portal and use "Forgot PIN" there instead.'
+              : err && err.code === 'auth/too-many-requests'
+                ? 'Too many tries. Please wait a few minutes and try again.'
+                : 'Couldn\'t send the email. Check your connection and try again.';
+            $('#fp-err').textContent = msg;
+            sendBtn.textContent = 'Send reset link'; sendBtn.disabled = false; sendBtn.style.opacity = '1';
+          });
+      });
+    }
+
+    function showPinModal(correctPin, onSuccess, lockedMsg) {
       const overlay = document.createElement('div');
       overlay.id = 'pin-modal-overlay';
       overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
@@ -497,11 +574,15 @@
             <button class="ppm-num" data-n="0" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">0</button>
             <div></div>
           </div>
+          <button id="ppm-forgot" style="display:block;width:100%;background:none;border:none;color:#7c3aed;font-size:0.88rem;font-weight:700;cursor:pointer;padding:6px;font-family:inherit;">Forgot PIN?</button>
           <button id="ppm-cancel" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;">Cancel</button>
         </div>`;
       document.body.appendChild(overlay);
+      overlay.querySelector('#ppm-forgot').addEventListener('click', () => { overlay.remove(); showForgotPinModal(onSuccess); });
 
       let entry = '';
+      let checking = false;
+      if (correctPin === undefined) document.getElementById('ppm-err').textContent = lockedMsg || "Couldn't check the PIN.";
       function updateDots() {
         for (let i = 0; i < 4; i++) {
           const d = document.getElementById('ppmd' + i);
@@ -513,24 +594,41 @@
       overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
       overlay.querySelectorAll('.ppm-num').forEach(btn => {
         btn.addEventListener('click', () => {
+          if (checking) return;
           const n = btn.dataset.n;
           if (n === 'back') { entry = entry.slice(0, -1); }
           else if (entry.length < 4) { entry += n; }
           updateDots();
-          document.getElementById('ppm-err').textContent = '';
+          if (correctPin !== undefined) document.getElementById('ppm-err').textContent = '';
           if (entry.length === 4) {
-            if (!correctPin || entry === correctPin) {
-              sessionStorage.setItem('portalPinVerified', 'true');
-              overlay.remove();
-              onSuccess();
-            } else {
-              document.getElementById('ppm-err').textContent = 'Wrong PIN — try again';
+            const attempt = entry;
+            const reject = () => {
+              document.getElementById('ppm-err').textContent = correctPin === undefined
+                ? (lockedMsg || "Couldn't check the PIN.") : 'Wrong PIN — try again';
               const dotsEl = document.getElementById('ppm-dots');
               dotsEl.style.animation = 'none'; void dotsEl.offsetWidth;
               dotsEl.style.animation = 'ppmShake 0.35s ease';
               entry = '';
+              checking = false;
               setTimeout(updateDots, 350);
-            }
+            };
+            const accept = () => {
+              sessionStorage.setItem('portalPinVerified', 'true');
+              overlay.remove();
+              onSuccess();
+            };
+            if (correctPin === undefined) { reject(); return; }
+            // Always confirm against the server: a cached PIN can be stale (changed on another
+            // device), and a changed PIN must stop working immediately. Only fall back to the
+            // cached value when the server can't be reached (offline).
+            checking = true;
+            const u = firebase.auth().currentUser;
+            (u ? fetchPortalPin(u.uid) : Promise.resolve(correctPin))
+              .catch(() => correctPin)
+              .then(fresh => {
+                if (fresh && attempt === fresh) { correctPin = fresh; checking = false; accept(); }
+                else reject();
+              });
           }
         });
       });
@@ -1133,6 +1231,14 @@
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp:   firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
+        // Keep StudentStats.totalXp (what the home screen and parent portal
+        // actually read) in sync — without this the bonus XP is written to
+        // Progress but never shows up anywhere until the next quiz recomputes it.
+        return firebase.firestore().collection('StudentStats').doc(profile.readerId).set({
+          totalXp: firebase.firestore.FieldValue.increment(10),
+          lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+        }, { merge: true });
+      }).then(() => {
         const toast = document.createElement('div');
         toast.textContent = '🌟 Daily bonus! +10 XP for showing up today!';
         toast.style.cssText = 'position:fixed;top:74px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:11px 20px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(124,58,237,0.35);max-width:360px;text-align:center;';
@@ -1186,6 +1292,8 @@
         '/math.html','/math-quiz.html','/math-results.html',
         '/spelling.html','/vocab.html','/vocab-game.html',
         '/trivia.html','/typing.html','/typing-practice.html','/story-type.html',
+        '/paired-read.html','/spelling-quiz.html','/flashcards.html',
+        '/fill-in-blank.html','/unscramble.html','/memory-match.html','/vocab-bank.html',
         '/parent-portal.html',
       ];
 
@@ -1195,7 +1303,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v15'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v16'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {
