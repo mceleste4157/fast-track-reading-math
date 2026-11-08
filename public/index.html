@@ -1290,7 +1290,7 @@
       const status   = document.getElementById('offline-dl-status');
 
       const ASSETS = [
-        '/stories-meta.js', '/stories-vocab.js', '/stories.js?v=20260705', '/math-data.js', '/dark.css', '/app-errors.js',
+        '/stories-meta.js', '/stories-vocab.js', '/stories.js?v=20260705', '/math-data.js', '/division-engine.js', '/math-practice.js', '/dark.css', '/app-errors.js',
         '/__/firebase/10.0.0/firebase-app-compat.js',
         '/__/firebase/10.0.0/firebase-auth-compat.js',
         '/__/firebase/10.0.0/firebase-firestore-compat.js',
@@ -1311,7 +1311,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v18'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v19'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {

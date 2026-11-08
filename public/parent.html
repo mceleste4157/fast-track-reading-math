@@ -675,7 +675,7 @@
             bestPerTopic[data.setId] = data;
           }
         });
-        const mathTopicsDone = Object.keys(bestPerTopic).length;
+        const mathTopicsDone = Object.keys(bestPerTopic).filter(id => !/^practice-/.test(id)).length;
 
         // Sort math history newest-first
         mathDocs.sort((a, b) => {

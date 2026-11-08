@@ -395,7 +395,7 @@
       mathSnap.forEach(d => {
         const data = d.data();
         mathXp += (data.xpEarned || 0);
-        uniqueMath.add(data.setId);
+        if (!/^practice-/.test(data.setId)) uniqueMath.add(data.setId);   // random practice sets aren't "topics"
         if (data.perfectFirstTry && data.quizScore === data.quizTotal) mathPerfects.add(data.setId);
         mathDocs.push(data);
       });

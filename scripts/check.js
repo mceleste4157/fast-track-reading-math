@@ -101,7 +101,14 @@ const used = new Set();
 for (const f of htmlFiles) for (const m of read(f).matchAll(/collection\('([A-Za-z_]+)'\)/g)) used.add(m[1]);
 used.forEach(c => { if (!ruled.has(c)) fail('firestore-rules', `code uses collection "${c}" but firestore.rules has no rule for it`); });
 
-// 7. Pages that call reportSaveError() must load the helper that defines it.
+// 7. The "fresh every time" practice sets: build them repeatedly and re-verify every answer key.
+{
+  const { spawnSync } = require('child_process');
+  const r = spawnSync(process.execPath, [path.join(__dirname, 'test-practice.js'), '60'], { encoding: 'utf8' });
+  if (r.status !== 0) fail('practice-sets', (r.stderr || r.stdout || 'test-practice.js failed').trim());
+}
+
+// 8. Pages that call reportSaveError() must load the helper that defines it.
 for (const f of htmlFiles) {
   const src = read(f);
   if (/reportSaveError\(/.test(src) && !/app-errors\.js/.test(src)) fail('helpers', `${rel(f)} calls reportSaveError() but does not load app-errors.js`);

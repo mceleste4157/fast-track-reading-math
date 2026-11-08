@@ -143,6 +143,8 @@
   </div>
 
   <script src="math-data.js"></script>
+  <script src="division-engine.js"></script>
+  <script src="math-practice.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -322,7 +324,7 @@
                   <div class="topic-body">
                     <span class="topic-label">${set.topic.replace('-', ' ')}</span>
                     <div class="topic-title">${set.title}</div>
-                    <div class="topic-meta">8 questions</div>
+                    <div class="topic-meta">${set.dynamic ? '🎲 New questions every time' : '8 questions'}</div>
                     ${prog ? `<div class="topic-stars">${starsHtml} ${prog.starsEarned}/8</div>` : ''}
                     <button class="btn-start ${prog ? 'btn-done' : ''}" onclick="event.preventDefault(); window.location='math-quiz.html?set=${set.id}'">
                       ${prog ? '⭐ Practice Again' : 'Start →'}

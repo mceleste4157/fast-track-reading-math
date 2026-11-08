@@ -482,6 +482,8 @@
   </div>
 
   <script src="math-data.js"></script>
+  <script src="division-engine.js"></script>
+  <script src="math-practice.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
@@ -901,6 +903,7 @@
         setId:         mathSet.id,
         setTitle:      mathSet.title,
         setTopic:      mathSet.topic,
+        questionTexts: questions.map(q => q.question),
         score,
         total:         questions.length,
         earnedXP,
