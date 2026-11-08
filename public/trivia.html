@@ -354,7 +354,7 @@
     } catch(e) {}
     return null;
   })();
-  if (!profile) { window.location.href = 'login.html'; }
+  if (!profile) { window.location.href = 'login.html'; return; }
 
   // ─── Game state ────────────────────────────────────────────────────────────
   const ROUNDS        = 3;
@@ -778,7 +778,7 @@
         rounds: ROUNDS,
         xpEarned,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
+      }).catch(() => { /* non-critical */ });
 
       // Show XP toast
       const toast = document.createElement('div');
