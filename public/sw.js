@@ -1,14 +1,15 @@
-// FAST Track — Service Worker v20
+// FAST Track — Service Worker v21
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
 // Offline: core pages + stories/math data + Firebase SDK pre-cached
-const CACHE = 'fast-track-v20';
+const CACHE = 'fast-track-v21';
 const STATIC_ASSETS = [
   // Core data
   '/stories-meta.js',
   '/stories-vocab.js',
   '/stories.js?v=20260705',
   '/math-data.js',
+  '/math-topics.js',
   '/division-engine.js',
   '/math-practice.js',
   '/dark.css',

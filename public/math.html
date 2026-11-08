@@ -119,6 +119,44 @@
     .btn-done { background: var(--green-soft); color: #065f46; }
     .btn-done:hover { background: #a7f3d0; }
 
+    /* GUIDED PATH */
+    .up-next {
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: #fff;
+      border-radius: 20px; padding: 22px 22px 20px; margin-bottom: 22px;
+      box-shadow: 0 8px 28px rgba(37,99,235,0.28);
+    }
+    .up-label { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9; margin-bottom: 12px; }
+    .up-main { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+    .up-emoji { width: 72px; height: 72px; border-radius: 18px; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; flex-shrink: 0; }
+    .up-title { font-size: 1.35rem; font-weight: 800; line-height: 1.25; }
+    .up-meta  { font-size: 0.88rem; opacity: 0.92; margin-top: 4px; }
+    .up-btn {
+      display: inline-block; background: #fff; color: #2563eb; text-decoration: none;
+      font-weight: 800; font-size: 1.05rem; padding: 12px 26px; border-radius: 12px;
+    }
+    .up-btn:hover { background: #eff6ff; }
+    .up-done { background: var(--green-soft); color: #065f46; border-radius: 16px; padding: 18px 20px; margin-bottom: 22px; font-weight: 700; text-align: center; }
+    .path-section { margin-bottom: 22px; }
+    .path-head { font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 10px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+    .path-row {
+      display: flex; align-items: center; gap: 12px; padding: 12px 14px; margin-bottom: 8px;
+      background: var(--surface); border-radius: 12px; text-decoration: none; color: inherit;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06); border: 2px solid transparent;
+    }
+    .path-row:hover { border-color: var(--blue-soft); }
+    .path-row.next { border-color: var(--blue); }
+    .path-emoji { font-size: 1.5rem; width: 36px; text-align: center; flex-shrink: 0; }
+    .path-title { font-weight: 700; font-size: 0.98rem; flex: 1; min-width: 0; }
+    .path-chip { font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: #f3f4f6; color: var(--muted); white-space: nowrap; }
+    .path-chip.done { background: var(--green-soft); color: #065f46; }
+    .path-chip.some { background: #fef3c7; color: #92400e; }
+    .browse-toggle {
+      display: block; width: 100%; margin: 6px 0 18px; padding: 13px; border-radius: 12px; cursor: pointer;
+      font-family: inherit; font-size: 0.95rem; font-weight: 700; color: var(--blue);
+      background: var(--surface); border: 2px dashed var(--blue-soft);
+    }
+    .browse-toggle:hover { background: var(--blue-soft); }
+
     /* XP display */
     .total-xp-bar {
       background: var(--surface); border-radius: 12px;
@@ -143,6 +181,7 @@
   </div>
 
   <script src="math-data.js"></script>
+  <script src="math-topics.js"></script>
   <script src="division-engine.js"></script>
   <script src="math-practice.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
@@ -212,6 +251,13 @@
     // practicing one topic across quizzes.
     let activeTopic = 'all';
     try { activeTopic = sessionStorage.getItem('mathTopicFilter') || 'all'; } catch (e) {}
+    let browseOpen = activeTopic !== 'all';
+    try { if (sessionStorage.getItem('mathBrowseOpen') === '1') browseOpen = true; } catch (e) {}
+    window.toggleMathBrowse = function () {
+      browseOpen = !browseOpen;
+      try { sessionStorage.setItem('mathBrowseOpen', browseOpen ? '1' : '0'); } catch (e) {}
+      if (lastRender) renderPage(...lastRender);
+    };
     let lastRender = null;
     window.setMathTopic = function (topic) {
       activeTopic = topic;
@@ -293,9 +339,70 @@
       } else {
         // ── UNLOCKED ────────────────────────────────────────────────────────
         const totalMathXp = Object.values(mathProgress).reduce((s, p) => s + (p.xpEarned || 0), 0);
-        const completedCount = GRADE_MATH_SETS.filter(s => mathProgress[s.id]).length;
+        const MASTERED = 6;   // stars (out of 8) that count as "got it"
+        const starsOf  = set => (mathProgress[set.id] && mathProgress[set.id].starsEarned) || 0;
+        const isDone   = set => starsOf(set) >= MASTERED;
+        const groups   = window.MATH_TOPIC_GROUPS || [];
+        const groupIdx = set => { const i = groups.findIndex(g => g.topics.includes(set.topic)); return i < 0 ? 999 : i; };
 
-        // Topic filter pills (only when this grade has more than one topic)
+        // The learning path: fixed practice sets in the order a class would meet the topics
+        // (place value → add/subtract → multiply → divide → fractions …), easier (narrower grade range) sets first.
+        const PATH = GRADE_MATH_SETS.map((set, i) => ({ set, i })).filter(o => !o.set.dynamic)
+          .sort((a, b) => groupIdx(a.set) - groupIdx(b.set) || Math.min(...a.set.grades) - Math.min(...b.set.grades) || a.set.grades.length - b.set.grades.length || a.i - b.i)
+          .map(o => o.set);
+        const masteredCount = PATH.filter(isDone).length;
+
+        // A weekly focus the parent chose (Parent Portal → Edit child), if this grade has sets for it.
+        const focusGroup = groups.find(g => g.id === (profile.mathFocus || ''));
+        const inFocus    = set => !!focusGroup && focusGroup.topics.includes(set.topic);
+        const focusPath  = focusGroup ? PATH.filter(inFocus) : [];
+        const focusExtra = focusGroup ? GRADE_MATH_SETS.filter(set => set.dynamic && inFocus(set)) : [];
+        const focusMode  = focusPath.length > 0 || focusExtra.length > 0;
+
+        const nextInFocus = focusMode ? focusPath.find(set => !isDone(set)) : null;
+        const nextSet     = nextInFocus || PATH.find(set => !isDone(set));
+        const focusFinished = focusMode && !nextInFocus;
+
+        const chip = set => isDone(set) ? '<span class="path-chip done">✓ Got it</span>'
+          : mathProgress[set.id] ? `<span class="path-chip some">⭐ ${starsOf(set)}/8</span>`
+          : '<span class="path-chip">New</span>';
+        const row = (set, isNext) => `<a href="math-quiz.html?set=${set.id}" class="path-row${isNext ? ' next' : ''}">
+            <span class="path-emoji">${set.coverEmoji}</span><span class="path-title">${set.title}</span>${set.dynamic ? '<span class="path-chip">🎲 new each time</span>' : chip(set)}</a>`;
+
+        let heroHtml = '';
+        if (nextSet) {
+          const g = groups[groupIdx(nextSet)];
+          const label = nextInFocus ? `⭐ Up next · this week's focus` : (focusFinished ? '⭐ Up next on your path' : '⭐ Up next for you');
+          heroHtml = `<div class="up-next">
+              <div class="up-label">${label}</div>
+              <div class="up-main"><div class="up-emoji">${nextSet.coverEmoji}</div>
+                <div><div class="up-title">${nextSet.title}</div>
+                <div class="up-meta">${g ? g.label + ' · ' : ''}8 questions${mathProgress[nextSet.id] ? ' · best so far ' + starsOf(nextSet) + '/8' : ''}</div></div></div>
+              <a class="up-btn" href="math-quiz.html?set=${nextSet.id}">${mathProgress[nextSet.id] ? 'Keep practicing →' : "Let's go →"}</a>
+            </div>`;
+        } else if (PATH.length) {
+          heroHtml = `<div class="up-done">🎉 You've mastered every practice set for your grade! Pick anything below to keep your skills sharp.</div>`;
+        }
+        if (focusFinished && nextSet) {
+          heroHtml = `<div class="up-done">🎉 You've mastered this week's focus: ${focusGroup.emoji} ${focusGroup.label}!</div>` + heroHtml;
+        }
+
+        let guideHtml = '';
+        if (focusMode) {
+          guideHtml = `<div class="path-section">
+              <div class="path-head"><span>📌 This week: ${focusGroup.emoji} ${focusGroup.label}</span><span>${focusPath.filter(isDone).length} of ${focusPath.length} done</span></div>
+              ${focusPath.map(set => row(set, set === nextInFocus)).join('')}
+              ${focusExtra.map(set => row(set, false)).join('')}
+            </div>`;
+        } else if (PATH.length) {
+          const upcoming = PATH.slice(PATH.indexOf(nextSet) + 1).filter(set => !isDone(set)).slice(0, 3);
+          guideHtml = upcoming.length ? `<div class="path-section">
+              <div class="path-head"><span>🗺️ Coming up</span><span>${masteredCount} of ${PATH.length} mastered</span></div>
+              ${upcoming.map(set => row(set, false)).join('')}
+            </div>` : '';
+        }
+
+        // Everything else stays available, but tucked away so it isn't the first thing a child sees.
         const topics = [...new Set(GRADE_MATH_SETS.map(s => s.topic))];
         if (activeTopic !== 'all' && !topics.includes(activeTopic)) activeTopic = 'all';
         const visibleSets = activeTopic === 'all' ? GRADE_MATH_SETS : GRADE_MATH_SETS.filter(s => s.topic === activeTopic);
@@ -306,7 +413,6 @@
               .join('') + '</div>'
           : '';
 
-        // Content for grade
         const setsHtml = GRADE_MATH_SETS.length === 0
           ? `<div style="text-align:center;padding:48px 16px;color:var(--muted);">
               <div style="font-size:3rem;margin-bottom:16px;">📐</div>
@@ -335,28 +441,32 @@
                 </a>`;
               }).join('')}
             </div>`;
+        const browseHtml = GRADE_MATH_SETS.length === 0 ? setsHtml
+          : `<button type="button" class="browse-toggle" onclick="toggleMathBrowse()">${browseOpen ? '▲ Hide all topics' : '🔍 Choose a different topic (' + GRADE_MATH_SETS.length + ')'}</button>`
+            + (browseOpen ? pillsHtml + setsHtml : '');
 
         page.innerHTML = `
           <div class="unlocked-header">
             <h1>📐 Math Zone</h1>
-            <p>Choose a topic and start practicing!</p>
+            <p>${nextSet ? "Here's what to work on today." : 'Choose a topic and start practicing!'}</p>
             <p style="margin-top:8px;font-size:0.85rem;color:var(--muted);">
               ${MATH_LIMIT_MINS === 0
                 ? '⏱️ No daily time limit set'
                 : '⏱️ ' + Math.max(0, Math.round((MATH_LIMIT_SECS - mathSecsToday) / 60)) + ' min of math time left today'}
             </p>
           </div>
+          ${heroHtml}
+          ${guideHtml}
           <div class="total-xp-bar">
             <div>
               <div class="total-xp-num">+${totalMathXp} XP</div>
               <div class="total-xp-label">Math XP earned</div>
             </div>
             <div style="margin-left:auto;font-size:0.9rem;color:var(--muted);">
-              ${completedCount} / ${GRADE_MATH_SETS.length} topics completed
+              ${masteredCount} / ${PATH.length} sets mastered
             </div>
           </div>
-          ${pillsHtml}
-          ${setsHtml}
+          ${browseHtml}
         `;
       }
     }
@@ -403,6 +513,7 @@
         profile.dailyReadMinutes = READ_REQUIRED_MINS;
         profile.dailyMathMinutes = MATH_LIMIT_MINS;
         profile.videosEnabled    = data.videosEnabled !== false;
+        profile.mathFocus        = data.mathFocus || '';
         localStorage.setItem('readerProfile', JSON.stringify(profile));
       }
 

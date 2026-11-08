@@ -46,6 +46,19 @@ MATH.forEach(s => {
   });
 });
 
+// 2b. Every math topic belongs to exactly one "unit" in math-topics.js (the Math Zone path and the
+//     parent's weekly-focus choice are built from those groups, so a missing topic would never be offered).
+try {
+  const G = vm.runInNewContext('var window = this;\n' + read(path.join(pub, 'math-topics.js')) + '\n;window.MATH_TOPIC_GROUPS', {});
+  const owner = {};
+  G.forEach(g => {
+    if (!g.id || !g.label || !g.emoji || !Array.isArray(g.topics) || !g.topics.length) fail('math-topics', `bad group ${JSON.stringify(g.id)}`);
+    g.topics.forEach(t => { if (owner[t]) fail('math-topics', `topic "${t}" is in both "${owner[t]}" and "${g.id}"`); owner[t] = g.id; });
+  });
+  new Set(MATH.map(s => s.topic)).forEach(t => { if (!owner[t]) fail('math-topics', `topic "${t}" (math-data.js) is not in any group in math-topics.js`); });
+  Object.keys(owner).forEach(t => { if (!MATH.some(s => s.topic === t)) fail('math-topics', `math-topics.js lists topic "${t}" that no set uses`); });
+} catch (e) { fail('math-topics', 'could not load math-topics.js: ' + e.message); }
+
 // 3. Stories + the files derived from them.
 let STORIES = [];
 try { STORIES = evalIn(path.join(pub, 'stories.js'), 'STORIES'); } catch (e) { fail('stories', 'could not load stories.js: ' + e.message); }

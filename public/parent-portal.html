@@ -465,6 +465,14 @@
         </div>
 
         <div class="form-group">
+          <label for="f-math-focus">This week's math focus</label>
+          <select id="f-math-focus" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+            <option value="">No focus — follow the learning path (recommended)</option>
+          </select>
+          <div style="font-size:0.78rem;color:var(--muted);margin-top:6px;line-height:1.4;">Their Math Zone leads with this topic until you change it. Everything else stays available under “Choose a different topic”.</div>
+        </div>
+
+        <div class="form-group">
           <label for="f-help-videos">Help videos in Math</label>
           <select id="f-help-videos" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
             <option value="on" selected>On — show the “Watch a video” tab on long division</option>
@@ -624,6 +632,7 @@
     </div>
   </div>
 
+  <script src="math-topics.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
@@ -633,6 +642,7 @@
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
       { date: 'November 9, 2026', label: 'Latest Update', items: [
+        { icon: '🗺️', title: 'A calmer, guided Math Zone', text: 'Instead of a wall of topics, the Math Zone now leads with one "Up next" set that follows a school-like order (place value, adding and subtracting, multiplication, division, fractions…). A set counts as mastered at 6 of 8 stars, then the next one opens up as the suggestion. Want to steer it? In Parent Portal → Edit your child → "This week\'s math focus", pick a topic and their Math Zone leads with it until you change it. All the other topics are still there under "Choose a different topic".' },
         { icon: '🛡️', title: 'Your family\'s data is now private', text: 'Each parent can now only see and change their own children\'s profiles and progress — nobody else, and nobody who isn\'t signed in. If a device\'s sign-in has expired, kids are taken to the sign-in screen first.' },
         { icon: '🎬', title: 'Long division videos', text: 'On long division questions, the Show Me How help now has a "Watch a video" tab with three Khan Academy lessons: an intro to long division, a worked example, and long division with remainders. A video only loads when your child taps it, and it needs an internet connection (the step-by-step views still work offline). Prefer no videos? In Parent Portal → Edit your child → "Help videos in Math", choose Off for that child.' },
         { icon: '🎲', title: 'Math practice that\'s new every time', text: 'Three new practice sets — Multiplication Facts, Division Facts, and Division Practice for 4th grade — build fresh questions every time they\'re opened, so kids can\'t just memorize the answers. Every question has a Show Me How walkthrough, and the division ones include the Long division view.' },
@@ -1271,6 +1281,7 @@
               dailyReadMinutes:  kid.dailyReadMinutes  ?? 0,
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
               videosEnabled:     kid.videosEnabled !== false,
+              mathFocus:         kid.mathFocus || '',
               triviaMinStories:  kid.triviaMinStories  || '5',
               readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on'),
               readingTimerMode:  kid.readingTimerMode  || 'full',
@@ -1380,6 +1391,7 @@
       document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 0;
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
       document.getElementById('f-help-videos').value  = child.videosEnabled === false ? 'off' : 'on';
+      document.getElementById('f-math-focus').value   = child.mathFocus || '';
       document.getElementById('f-trivia-min').value     = child.triviaMinStories || '5';
       document.getElementById('f-read-aloud').value     = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
       document.getElementById('f-reading-timer').value = child.readingTimerMode || 'full';
@@ -1422,6 +1434,7 @@
       document.getElementById('f-read-mins').value     = '0';
       document.getElementById('f-math-mins').value     = '10';
       document.getElementById('f-help-videos').value   = 'on';
+      document.getElementById('f-math-focus').value    = '';
       document.getElementById('f-screen-mins').value   = '60';
       document.getElementById('f-message').value       = '';
       document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => { cb.checked = true; });
@@ -1439,6 +1452,14 @@
     // ── Submit form ─────────────────────────────────────────────────────────────
     document.getElementById('form-submit-btn').addEventListener('click', submitChildForm);
 
+    // Fill the weekly-focus choices from the shared topic list (math-topics.js)
+    (function () {
+      var sel = document.getElementById('f-math-focus');
+      (window.MATH_TOPIC_GROUPS || []).forEach(function (g) {
+        var o = document.createElement('option'); o.value = g.id; o.textContent = g.emoji + ' ' + g.label; sel.appendChild(o);
+      });
+    })();
+
     function submitChildForm() {
       const name     = document.getElementById('f-name').value.trim();
       const grade    = parseInt(document.getElementById('f-grade').value);
@@ -1450,6 +1471,7 @@
       const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
       const dailyMathMinutes  = parseInt(document.getElementById('f-math-mins').value);
       const videosEnabled     = document.getElementById('f-help-videos').value !== 'off';
+      const mathFocus         = document.getElementById('f-math-focus').value;
       const triviaMinStories = document.getElementById('f-trivia-min').value;
       const readAloudMode    = document.getElementById('f-read-aloud').value;
       const readingTimerMode = document.getElementById('f-reading-timer').value;
@@ -1476,6 +1498,7 @@
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
           videosEnabled:     videosEnabled,
+          mathFocus:         mathFocus,
           triviaMinStories:  triviaMinStories,
           readAloudMode:     readAloudMode,
           readingTimerMode:  readingTimerMode,
@@ -1508,6 +1531,7 @@
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
           videosEnabled:     videosEnabled,
+          mathFocus:         mathFocus,
           triviaMinStories:  triviaMinStories,
           readAloudMode:     readAloudMode,
           readingTimerMode:  readingTimerMode,
