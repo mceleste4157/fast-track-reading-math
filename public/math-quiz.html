@@ -681,6 +681,16 @@
       { id: 'NcADzGz3bSI', title: 'Long division with remainders',   sub: 'Khan Academy · for when there is a number left over' }
     ];
 
+    // The parent can turn videos off per child (Parent Portal → Edit child). The Math Zone page copies that
+    // setting into the session; refresh it here too so a change made mid-session applies on the next question.
+    if (profile.profileDocId) {
+      try {
+        firebase.firestore().collection('StudentProfiles').doc(profile.profileDocId).get()
+          .then(d => { if (d && d.exists) profile.videosEnabled = d.data().videosEnabled !== false; })
+          .catch(() => {});
+      } catch (e) {}
+    }
+
     function videosFor(q) {
       const text = [q.question, q.explanation || '', (q.options || []).join(' ')].join(' ');
       const hasRemainder = /remainder|left ?over|\bR ?\d/i.test(text);
@@ -759,7 +769,7 @@
       if (!steps.length) return;
       const views = [{ label: 'Step by step', steps }];
       if (q.altSteps && q.altSteps.length) views.push({ label: q.altLabel || 'Another way', steps: q.altSteps });
-      if (q.altLabel === 'Long division') views.push({ label: '🎬 Watch a video', videos: videosFor(q) });
+      if (q.altLabel === 'Long division' && profile.videosEnabled !== false) views.push({ label: '🎬 Watch a video', videos: videosFor(q) });
       stepsState = { views, viewIdx: 0, revealedCount: 0 };
       renderStepsTabs();
       renderStepsView();

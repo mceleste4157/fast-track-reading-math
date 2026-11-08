@@ -402,6 +402,7 @@
         profile.mathUnlockScore  = MATH_UNLOCK_SCORE;
         profile.dailyReadMinutes = READ_REQUIRED_MINS;
         profile.dailyMathMinutes = MATH_LIMIT_MINS;
+        profile.videosEnabled    = data.videosEnabled !== false;
         localStorage.setItem('readerProfile', JSON.stringify(profile));
       }
 

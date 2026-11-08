@@ -463,6 +463,14 @@
             <option value="0">No time limit</option>
           </select>
         </div>
+
+        <div class="form-group">
+          <label for="f-help-videos">Help videos in Math</label>
+          <select id="f-help-videos" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.95rem;font-weight:600;">
+            <option value="on" selected>On — show the “Watch a video” tab on long division</option>
+            <option value="off">Off — no videos (step-by-step help still shows)</option>
+          </select>
+        </div>
       </div>
 
       <!-- Screen Time & Schedule -->
@@ -625,7 +633,7 @@
     // Each entry: { date, label?, items: [{icon, title, text}], sections?: [{title, items}] }
     const RELEASE_NOTES = [
       { date: 'November 9, 2026', label: 'Latest Update', items: [
-        { icon: '🎬', title: 'Long division videos', text: 'On long division questions, the Show Me How help now has a "Watch a video" tab with three Khan Academy lessons: an intro to long division, a worked example, and long division with remainders. A video only loads when your child taps it, and it needs an internet connection (the step-by-step views still work offline).' },
+        { icon: '🎬', title: 'Long division videos', text: 'On long division questions, the Show Me How help now has a "Watch a video" tab with three Khan Academy lessons: an intro to long division, a worked example, and long division with remainders. A video only loads when your child taps it, and it needs an internet connection (the step-by-step views still work offline). Prefer no videos? In Parent Portal → Edit your child → "Help videos in Math", choose Off for that child.' },
         { icon: '🎲', title: 'Math practice that\'s new every time', text: 'Three new practice sets — Multiplication Facts, Division Facts, and Division Practice for 4th grade — build fresh questions every time they\'re opened, so kids can\'t just memorize the answers. Every question has a Show Me How walkthrough, and the division ones include the Long division view.' },
         { icon: '🔐', title: 'Sign-in checks on kid pages', text: 'If the parent sign-in on a device has expired, kids are now taken to the sign-in screen with a short explanation, instead of progress quietly failing to save. After signing in, pick your child again and carry on.' },
         { icon: '🦊', title: 'Avatar choices now save to the profile', text: 'The avatar a child picks in the Avatar Shop is now saved to their profile properly, so it follows them to other devices (before, it could stay on just one).' },
@@ -1261,6 +1269,7 @@
               mathUnlockScore:   kid.mathUnlockScore   ?? 0,
               dailyReadMinutes:  kid.dailyReadMinutes  ?? 0,
               dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
+              videosEnabled:     kid.videosEnabled !== false,
               triviaMinStories:  kid.triviaMinStories  || '5',
               readAloudMode:     kid.readAloudMode || (kid.readAloudEnabled === false ? 'off' : 'on'),
               readingTimerMode:  kid.readingTimerMode  || 'full',
@@ -1369,6 +1378,7 @@
       document.getElementById('f-math-unlock').value  = child.mathUnlockScore  ?? 0;
       document.getElementById('f-read-mins').value    = child.dailyReadMinutes ?? 0;
       document.getElementById('f-math-mins').value    = child.dailyMathMinutes ?? 10;
+      document.getElementById('f-help-videos').value  = child.videosEnabled === false ? 'off' : 'on';
       document.getElementById('f-trivia-min').value     = child.triviaMinStories || '5';
       document.getElementById('f-read-aloud').value     = child.readAloudMode || (child.readAloudEnabled === false ? 'off' : 'on');
       document.getElementById('f-reading-timer').value = child.readingTimerMode || 'full';
@@ -1410,6 +1420,7 @@
       document.getElementById('f-math-unlock').value   = '0';
       document.getElementById('f-read-mins').value     = '0';
       document.getElementById('f-math-mins').value     = '10';
+      document.getElementById('f-help-videos').value   = 'on';
       document.getElementById('f-screen-mins').value   = '60';
       document.getElementById('f-message').value       = '';
       document.querySelectorAll('#days-chips input[name="day"]').forEach(cb => { cb.checked = true; });
@@ -1437,6 +1448,7 @@
       const mathUnlockScore   = parseInt(document.getElementById('f-math-unlock').value);
       const dailyReadMinutes  = parseInt(document.getElementById('f-read-mins').value);
       const dailyMathMinutes  = parseInt(document.getElementById('f-math-mins').value);
+      const videosEnabled     = document.getElementById('f-help-videos').value !== 'off';
       const triviaMinStories = document.getElementById('f-trivia-min').value;
       const readAloudMode    = document.getElementById('f-read-aloud').value;
       const readingTimerMode = document.getElementById('f-reading-timer').value;
@@ -1462,6 +1474,7 @@
           mathUnlockScore:   mathUnlockScore,
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
+          videosEnabled:     videosEnabled,
           triviaMinStories:  triviaMinStories,
           readAloudMode:     readAloudMode,
           readingTimerMode:  readingTimerMode,
@@ -1493,6 +1506,7 @@
           mathUnlockScore:   mathUnlockScore,
           dailyReadMinutes:  dailyReadMinutes,
           dailyMathMinutes:  dailyMathMinutes,
+          videosEnabled:     videosEnabled,
           triviaMinStories:  triviaMinStories,
           readAloudMode:     readAloudMode,
           readingTimerMode:  readingTimerMode,

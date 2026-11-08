@@ -447,7 +447,8 @@
         weeklyGoalStories: kid.weeklyGoalStories ?? 3,
         mathUnlockScore:   kid.mathUnlockScore   ?? 0,
         dailyReadMinutes:  kid.dailyReadMinutes  ?? 0,
-        dailyMathMinutes:  kid.dailyMathMinutes  ?? 10
+        dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
+        videosEnabled:     kid.videosEnabled !== false
       }));
       window.location.href = 'index.html';
     }
