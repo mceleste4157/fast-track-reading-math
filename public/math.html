@@ -76,6 +76,15 @@
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 20px;
     }
+    .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .topic-pill {
+      font-family: inherit; font-size: 0.85rem; font-weight: 700; text-transform: capitalize;
+      padding: 7px 14px; border-radius: 99px; cursor: pointer;
+      border: 2px solid var(--blue-soft); background: var(--surface); color: var(--blue);
+      transition: background 0.15s, color 0.15s;
+    }
+    .topic-pill:hover { background: var(--blue-soft); }
+    .topic-pill.active { background: var(--blue); border-color: var(--blue); color: #fff; }
     .topic-card {
       background: var(--surface); border-radius: var(--radius);
       box-shadow: 0 2px 12px rgba(37,99,235,0.10);
@@ -195,7 +204,19 @@
     // If parent set unlock score to 0, treat as always unlocked
     if (MATH_UNLOCK_SCORE === 0) localStorage.setItem(MATH_UNLOCK_KEY, 'true');
 
+    // Topic filter (e.g. "division") — remembered for this browser session so a child can keep
+    // practicing one topic across quizzes.
+    let activeTopic = 'all';
+    try { activeTopic = sessionStorage.getItem('mathTopicFilter') || 'all'; } catch (e) {}
+    let lastRender = null;
+    window.setMathTopic = function (topic) {
+      activeTopic = topic;
+      try { sessionStorage.setItem('mathTopicFilter', topic); } catch (e) {}
+      if (lastRender) renderPage(...lastRender);
+    };
+
     function renderPage(unlocked, mathProgress, bestReadScore) {
+      lastRender = [unlocked, mathProgress, bestReadScore];
       const page = document.getElementById('page-content');
 
       if (!unlocked) {
@@ -270,6 +291,17 @@
         const totalMathXp = Object.values(mathProgress).reduce((s, p) => s + (p.xpEarned || 0), 0);
         const completedCount = GRADE_MATH_SETS.filter(s => mathProgress[s.id]).length;
 
+        // Topic filter pills (only when this grade has more than one topic)
+        const topics = [...new Set(GRADE_MATH_SETS.map(s => s.topic))];
+        if (activeTopic !== 'all' && !topics.includes(activeTopic)) activeTopic = 'all';
+        const visibleSets = activeTopic === 'all' ? GRADE_MATH_SETS : GRADE_MATH_SETS.filter(s => s.topic === activeTopic);
+        const pillsHtml = topics.length > 1
+          ? '<div class="topic-pills">' + [['all', 'All', GRADE_MATH_SETS.length]]
+              .concat(topics.map(t => [t, t.replace(/-/g, ' '), GRADE_MATH_SETS.filter(s => s.topic === t).length]))
+              .map(([t, label, n]) => `<button type="button" class="topic-pill${t === activeTopic ? ' active' : ''}" onclick="setMathTopic('${t}')">${label} (${n})</button>`)
+              .join('') + '</div>'
+          : '';
+
         // Content for grade
         const setsHtml = GRADE_MATH_SETS.length === 0
           ? `<div style="text-align:center;padding:48px 16px;color:var(--muted);">
@@ -279,7 +311,7 @@
               <a href="library.html" class="btn-library" style="background:var(--purple)">📚 Go Read a Story Instead →</a>
             </div>`
           : `<div class="topic-grid">
-              ${GRADE_MATH_SETS.map(set => {
+              ${visibleSets.map(set => {
                 const prog = mathProgress[set.id];
                 let starsHtml = '';
                 if (prog) {
@@ -319,6 +351,7 @@
               ${completedCount} / ${GRADE_MATH_SETS.length} topics completed
             </div>
           </div>
+          ${pillsHtml}
           ${setsHtml}
         `;
       }
