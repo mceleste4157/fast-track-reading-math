@@ -478,7 +478,7 @@
       if (cached) { showPinModal(cached, onSuccess); return; }
       const unsub = firebase.auth().onAuthStateChanged(user => {
         unsub();
-        if (!user) { showPinModal(undefined, onSuccess, 'Please sign in again to verify your PIN.'); return; }
+        if (!user) { showPinModal(undefined, onSuccess, 'Please sign in again to verify your PIN.', true); return; }
         fetchPortalPin(user.uid)
           .then(pin => {
             // No PIN has ever been set: let the Parent Portal force them to create one
@@ -520,7 +520,11 @@
         unsub();
         if (!user || !user.email) {
           $('#fp-text').textContent = 'You need to be signed in to reset your PIN.';
-          $('#fp-err').textContent = 'Please sign in again from the login screen.';
+          $('#fp-err').textContent = '';
+          const si = document.createElement('a');
+          si.href = 'login.html'; si.textContent = 'Sign in as parent';
+          si.style.cssText = btnCss + 'background:#7c3aed;color:#fff;text-decoration:none;box-sizing:border-box;';
+          $('#fp-send').replaceWith(si);
           return;
         }
         parentEmail = user.email;
@@ -545,17 +549,18 @@
           .catch(err => {
             localStorage.removeItem('pinResetEmail');
             const msg = err && err.code === 'auth/operation-not-allowed'
-              ? 'Email reset isn\'t switched on yet for this app. Open the Parent Portal and use "Forgot PIN" there instead.'
+              ? 'Email reset isn\'t turned on yet. The app owner needs to enable "Email link" sign-in in Firebase (Authentication → Sign-in method → Email/Password).'
               : err && err.code === 'auth/too-many-requests'
                 ? 'Too many tries. Please wait a few minutes and try again.'
                 : 'Couldn\'t send the email. Check your connection and try again.';
-            $('#fp-err').textContent = msg;
+            console.error('PIN reset email failed:', err);
+            $('#fp-err').textContent = msg + (err && err.code ? ' (' + err.code + ')' : '');
             sendBtn.textContent = 'Send reset link'; sendBtn.disabled = false; sendBtn.style.opacity = '1';
           });
       });
     }
 
-    function showPinModal(correctPin, onSuccess, lockedMsg) {
+    function showPinModal(correctPin, onSuccess, lockedMsg, needsSignIn) {
       const overlay = document.createElement('div');
       overlay.id = 'pin-modal-overlay';
       overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
@@ -574,11 +579,14 @@
             <button class="ppm-num" data-n="0" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">0</button>
             <div></div>
           </div>
-          <button id="ppm-forgot" style="display:block;width:100%;background:none;border:none;color:#7c3aed;font-size:0.88rem;font-weight:700;cursor:pointer;padding:6px;font-family:inherit;">Forgot PIN?</button>
+          ${needsSignIn
+            ? `<a id="ppm-signin" href="login.html" style="display:block;width:100%;box-sizing:border-box;padding:13px;margin-bottom:6px;background:#7c3aed;color:#fff;border-radius:12px;font-size:1rem;font-weight:800;text-decoration:none;">Sign in as parent</a>`
+            : `<button id="ppm-forgot" style="display:block;width:100%;background:none;border:none;color:#7c3aed;font-size:0.88rem;font-weight:700;cursor:pointer;padding:6px;font-family:inherit;">Forgot PIN?</button>`}
           <button id="ppm-cancel" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;">Cancel</button>
         </div>`;
       document.body.appendChild(overlay);
-      overlay.querySelector('#ppm-forgot').addEventListener('click', () => { overlay.remove(); showForgotPinModal(onSuccess); });
+      const forgotLink = overlay.querySelector('#ppm-forgot');
+      if (forgotLink) forgotLink.addEventListener('click', () => { overlay.remove(); showForgotPinModal(onSuccess); });
 
       let entry = '';
       let checking = false;
