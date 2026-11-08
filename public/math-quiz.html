@@ -356,6 +356,32 @@
     .vid-note { font-size: 0.74rem; color: #3b5fb5; margin-top: 8px; line-height: 1.4; }
     .vid-done { margin-top: 10px; padding: 7px 16px; border-radius: 8px; border: none; background: var(--green); color: #fff; font-weight: 700; font-size: 0.85rem; cursor: pointer; font-family: inherit; }
 
+    /* ── TYPED ANSWERS (division) ─────────────────────────────────────── */
+    .typed-form { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+    .typed-row { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+    .typed-field { display: flex; flex-direction: column; gap: 4px; }
+    .typed-label { font-size: 0.72rem; font-weight: 800; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+    .typed-r { font-size: 1.5rem; font-weight: 800; padding-bottom: 12px; color: #6b7280; }
+    .typed-input {
+      width: 140px; padding: 14px 10px; font-size: 1.6rem; font-weight: 800; text-align: center;
+      font-family: inherit; border: 3px solid #d1d5db; border-radius: 12px; background: #fff; color: inherit;
+    }
+    .typed-input:focus { outline: none; border-color: var(--blue); }
+    .typed-input:disabled { opacity: 0.55; background: #f3f4f6; }
+    .typed-input.correct { border-color: var(--green); background: var(--green-soft); }
+    .typed-input.wrong { border-color: #ef4444; background: #fee2e2; animation: shake 0.5s ease; }
+    .typed-check {
+      padding: 12px 28px; border: none; border-radius: 12px; cursor: pointer; font-family: inherit;
+      background: var(--blue); color: #fff; font-size: 1.05rem; font-weight: 800;
+    }
+    .typed-check:disabled { opacity: 0.5; cursor: not-allowed; }
+    #options.vid-locked { opacity: 0.5; pointer-events: none; }
+    .req-video { display: none; margin-top: 14px; background: #eff6ff; border: 2px solid var(--blue); border-radius: 14px; padding: 16px; }
+    .req-video.show { display: block; }
+    .rv-title { font-size: 1.05rem; font-weight: 800; color: #1e3a8a; margin-bottom: 6px; }
+    .rv-text { font-size: 0.9rem; color: #1e3a8a; line-height: 1.5; margin-bottom: 4px; }
+    .rv-status { font-size: 0.85rem; font-weight: 700; color: #1e3a8a; margin-top: 10px; }
+
     @media (max-width: 480px) { .question-text { font-size: 1.15rem; } }
   </style>
   <link rel="stylesheet" href="dark.css" />
@@ -394,6 +420,7 @@
         <div class="options" id="options"></div>
         <div class="feedback" id="feedback"></div>
         <div class="explanation" id="explanation"></div>
+        <div class="req-video" id="req-video"></div>
 
         <!-- Video lessons (long division only; parents can turn off per child) -->
         <button class="video-btn" id="video-btn">🎬 Watch a video</button>
@@ -569,7 +596,7 @@
       const warnEl = document.getElementById('math-xp-warn');
       if (warnEl) {
         if (totalWrongs >= 6) {
-          warnEl.textContent = '🧠 Big learning moment — use “Show Me How” when you need it.';
+          warnEl.textContent = '🧠 Big learning moment — take your time and keep trying.';
           warnEl.style.display = '';
         } else if (totalWrongs >= 3) {
           warnEl.textContent = '💪 Every try helps your math brain grow.';
@@ -608,6 +635,9 @@
       document.querySelectorAll('.option-btn').forEach(btn => {
         btn.disabled = false; btn.classList.remove('locked');
       });
+      document.querySelectorAll('.typed-input, .typed-check').forEach(el => { el.disabled = videoRequired; });
+      const firstTyped = document.querySelector('.typed-input');
+      if (firstTyped && !videoRequired) { try { firstTyped.focus(); } catch (e) {} }
       const q = questions[currentQ];
       if (q && q.altLabel === 'Long division' && profile.videosEnabled !== false) {
         document.getElementById('video-btn').classList.add('visible');
@@ -672,6 +702,186 @@
       if (b) playVideo(parseInt(b.dataset.vid, 10));
     });
 
+    // ─── Division: typed answers + required video after 5 wrong tries ──────────
+    // In division sets, a question whose answer is a number is answered by typing it (two boxes when the
+    // answer has a remainder). Conceptual questions ("Which division problem has a remainder of 2?")
+    // stay multiple choice because there is nothing to type.
+    const DIVISION_SET     = mathSet.topic === 'division' || mathSet.id === 'dividing-whole-numbers';
+    const FORCE_VIDEO_AFTER = 5;
+    const IDEA_VIDEO = { id: 'QI6x0KNxiCs', title: 'The idea of division', sub: 'Khan Academy' };
+    let currentSpec = null, videoAtWrongs = 0, videoRequired = false, videoShownThisQ = false, hintPinned = false;
+    let reqPlayer = null, reqTimer = null, reqPlayed = 0, reqNeed = 15;
+
+    function toNum(t) { return parseInt(String(t).replace(/,/g, ''), 10); }
+    function typedSpec(q) {
+      if (!DIVISION_SET) return null;
+      const a = String(q.options[q.correctIndex]).trim();
+      let m;
+      if ((m = a.match(/^([\d,]+)$/)))                                   return { kind: 'num', n: toNum(m[1]) };
+      if ((m = a.match(/^([\d,]+)\s*R\s*(\d+)$/i)))                       return { kind: 'rem', n: toNum(m[1]), r: toNum(m[2]) };
+      if ((m = a.match(/^([\d,]+)\s+[A-Za-z][A-Za-z ]*,\s*(\d+)\s+left over$/i))) return { kind: 'rem', n: toNum(m[1]), r: toNum(m[2]) };
+      if ((m = a.match(/^([\d,]+)\s+[A-Za-z][A-Za-z ]*$/)))               return { kind: 'num', n: toNum(m[1]) };
+      return null;   // e.g. "32 ÷ 6" — stays multiple choice
+    }
+    function readTyped(el) {
+      const t = (el.value || '').replace(/[,\s]/g, '');
+      return /^\d+$/.test(t) ? parseInt(t, 10) : null;
+    }
+
+    function renderTyped(spec, locked) {
+      const optDiv = document.getElementById('options');
+      optDiv.style.opacity = '1';
+      const dis = locked ? 'disabled' : '';
+      optDiv.innerHTML = `<form class="typed-form" id="typed-form" autocomplete="off">
+          <div class="typed-row">
+            <div class="typed-field"><span class="typed-label">Your answer</span>
+              <input class="typed-input" id="ans-1" type="text" inputmode="numeric" pattern="[0-9,]*" maxlength="9" aria-label="Your answer" placeholder="?" ${dis}></div>
+            ${spec.kind === 'rem' ? `<span class="typed-r">R</span>
+            <div class="typed-field"><span class="typed-label">Left over</span>
+              <input class="typed-input" id="ans-2" type="text" inputmode="numeric" pattern="[0-9,]*" maxlength="9" aria-label="Left over (remainder)" placeholder="?" ${dis}></div>` : ''}
+          </div>
+          <button type="submit" class="typed-check" ${dis}>Check ✓</button>
+        </form>`;
+      optDiv.querySelectorAll('.typed-input').forEach(inp => inp.addEventListener('input', () => {
+        const clean = inp.value.replace(/[^\d,]/g, ''); if (clean !== inp.value) inp.value = clean;
+      }));
+      document.getElementById('typed-form').addEventListener('submit', e => { e.preventDefault(); handleTyped(); });
+    }
+
+    function recordWrong() {
+      totalWrongs++; wrongsThisQuestion++;
+      updateMistakeCount(); playSound('wrong');
+    }
+
+    function handleTyped() {
+      if (thinkLocked || videoRequired || !currentSpec) return;
+      const q = questions[currentQ], spec = currentSpec;
+      const ins = [...document.querySelectorAll('.typed-input')];
+      const feedbackEl = document.getElementById('feedback');
+      const a = readTyped(ins[0]), r = spec.kind === 'rem' ? readTyped(ins[1]) : 0;
+      if (a === null || r === null) {
+        feedbackEl.className = 'feedback wrong-fb show';
+        feedbackEl.innerHTML = spec.kind === 'rem' ? '✏️ Type a number in both boxes (use 0 if nothing is left over).' : '✏️ Type your answer first.';
+        return;
+      }
+      if (a === spec.n && (spec.kind !== 'rem' || r === spec.r)) {
+        ins.forEach(i => { i.disabled = true; i.classList.add('correct'); });
+        document.querySelector('.typed-check').disabled = true;
+        const xpEarned = wrongsThisQuestion === 0 ? XP_FIRST_TRY : XP_NOT_FIRST;
+        answers.push({ correct: true, attempts: wrongsThisQuestion + 1, earnedXP: xpEarned });
+        playSound('correct');
+        feedbackEl.className = 'feedback correct-fb show';
+        feedbackEl.innerHTML = wrongsThisQuestion === 0
+          ? `✅ Correct! First try! <span class="xp-preview gain">+${xpEarned} XP</span>`
+          : `✅ Got it! <span class="xp-preview partial">+${xpEarned} XP</span>`;
+        showExplanation(q, true);
+        scheduleNext(2500);
+        return;
+      }
+      // Wrong. No clue is shown here — the written explanation contains the answer.
+      recordWrong();
+      ins.forEach(i => { i.classList.add('wrong'); });
+      feedbackEl.className = 'feedback wrong-fb show';
+      feedbackEl.innerHTML = '🔎 Not quite — check your work and try again.';
+      setTimeout(() => {
+        ins.forEach(i => { i.classList.remove('wrong'); i.value = ''; });
+        if (!videoRequired) { try { ins[0].focus(); } catch (e) {} }
+      }, 700);
+      afterWrong(q);
+    }
+
+    // After the 5th wrong try on one question: a required video (answer boxes locked until it has been
+    // watched). If videos are off for this child or the device is offline, show the written hint instead.
+    function afterWrong(q) {
+      if (!DIVISION_SET || hintPinned) return;
+      if (videoShownThisQ) {                       // already watched once: after 5 more misses, show the written hint
+        if (!videoRequired && wrongsThisQuestion - videoAtWrongs >= FORCE_VIDEO_AFTER) pinHint(q);
+        return;
+      }
+      if (wrongsThisQuestion < FORCE_VIDEO_AFTER) return;
+      if (profile.videosEnabled === false || !navigator.onLine) { pinHint(q); return; }
+      startRequiredVideo(q);
+    }
+    function pinHint(q) {
+      hintPinned = true;
+      const expEl = document.getElementById('explanation');
+      expEl.className = 'explanation show hint-exp';
+      expEl.textContent = '💡 ' + (q.explanation || 'Work through the problem one step at a time, then try again.');
+    }
+    function conceptVideoFor(q) {
+      return (q.altLabel === 'Long division' || mathSet.id === 'dividing-whole-numbers') ? videosFor(q)[0] : IDEA_VIDEO;
+    }
+    function setVideoLock(on) {
+      videoRequired = on;
+      document.getElementById('options').classList.toggle('vid-locked', on);
+      document.querySelectorAll('.typed-input, .typed-check').forEach(el => { el.disabled = on; });
+    }
+    function stopRequiredVideo() {
+      clearInterval(reqTimer); reqTimer = null;
+      if (reqPlayer && reqPlayer.destroy) { try { reqPlayer.destroy(); } catch (e) {} }
+      reqPlayer = null; reqPlayed = 0;
+      const el = document.getElementById('req-video'); el.classList.remove('show'); el.innerHTML = '';
+    }
+    function loadYouTubeApi() {
+      return new Promise((resolve, reject) => {
+        if (window.YT && window.YT.Player) return resolve();
+        const t = setTimeout(() => reject(new Error('timeout')), 10000);
+        window.onYouTubeIframeAPIReady = () => { clearTimeout(t); resolve(); };
+        const tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api';
+        tag.onerror = () => { clearTimeout(t); reject(new Error('blocked')); };
+        document.head.appendChild(tag);
+      });
+    }
+    function videoFailed(q) {
+      stopRequiredVideo(); setVideoLock(false); pinHint(q);
+      const el = document.getElementById('req-video'); el.classList.add('show');
+      el.innerHTML = '<div class="rv-text">📶 The video couldn’t load, so here’s a hint instead. Ask a grown-up to check the internet connection.</div>';
+    }
+    function startRequiredVideo(q) {
+      videoShownThisQ = true; videoAtWrongs = wrongsThisQuestion; setVideoLock(true);
+      const v = conceptVideoFor(q);
+      const el = document.getElementById('req-video');
+      el.innerHTML = `<div class="rv-title">🎓 Let’s learn this together</div>
+        <div class="rv-text">You’ve tried ${wrongsThisQuestion} times — that’s okay! Watch this short video (“${v.title}”) to see how it works. Your answer opens up when it finishes.</div>
+        <div class="vid-frame"><div id="req-player"></div></div>
+        <div class="rv-status" id="rv-status">Loading the video…</div>`;
+      el.classList.add('show');
+      try { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+      const status = txt => { const n = document.getElementById('rv-status'); if (n) n.textContent = txt; };
+      loadYouTubeApi().then(() => {
+        reqPlayer = new YT.Player('req-player', {
+          host: 'https://www.youtube-nocookie.com', videoId: v.id,
+          playerVars: { rel: 0, modestbranding: 1, playsinline: 1, autoplay: 1 },
+          events: {
+            onReady: e => { status('Press play ▶ and watch to the end.'); try { e.target.playVideo(); } catch (x) {} },
+            onError: () => videoFailed(q),
+            onStateChange: e => {
+              if (e.data === 1 && !reqTimer) {                       // playing → count real watch time
+                reqTimer = setInterval(() => {
+                  if (!reqPlayer || !reqPlayer.getPlayerState) return;
+                  const dur = reqPlayer.getDuration ? reqPlayer.getDuration() : 0;
+                  if (dur > 0) reqNeed = Math.max(15, Math.floor(dur * 0.5));
+                  if (reqPlayer.getPlayerState() === 1) reqPlayed++;
+                  status(reqPlayed >= reqNeed ? 'Almost done — finish the video.' : 'Watching… keep going 👀');
+                }, 1000);
+              }
+              if (e.data === 0) {                                     // ended
+                if (reqPlayed >= reqNeed) {
+                  stopRequiredVideo(); setVideoLock(false);
+                  const done = document.getElementById('req-video'); done.classList.add('show');
+                  done.innerHTML = '<div class="rv-title">✅ Nice watching!</div><div class="rv-text">Now try the question again.</div>';
+                  const f = document.querySelector('.typed-input'); if (f) { try { f.focus(); } catch (x) {} }
+                } else {
+                  status('You skipped ahead — please watch the video from the start.');
+                  try { reqPlayer.seekTo(0); reqPlayer.playVideo(); } catch (x) {}
+                }
+              }
+            }
+          }
+        });
+      }).catch(() => videoFailed(q));
+    }
+
     // ─── Show a question ──────────────────────────────────────────────────────
     function showQuestion(idx) {
       const q = questions[idx];
@@ -694,6 +904,8 @@
       document.getElementById('next-btn').classList.remove('show');
       document.getElementById('video-btn').classList.remove('visible');
       closeVideoPanel();
+      stopRequiredVideo(); setVideoLock(false); videoShownThisQ = false; hintPinned = false;
+      currentSpec = typedSpec(q);
 
       renderOptions(true /* locked */);
       startThinkLock();
@@ -701,6 +913,7 @@
 
     // ─── Render option buttons ────────────────────────────────────────────────
     function renderOptions(locked) {
+      if (currentSpec) { renderTyped(currentSpec, locked); return; }
       const optDiv = document.getElementById('options');
       optDiv.style.opacity = '1';
       optDiv.innerHTML = shuffledOptions.map((opt, i) =>
@@ -736,7 +949,7 @@
     }
 
     function handleAnswer(selectedIdx) {
-      if (thinkLocked) return;
+      if (thinkLocked || videoRequired) return;
       const q         = questions[currentQ];
       const isCorrect = selectedIdx === newCorrectIndex;
 
@@ -778,6 +991,8 @@
         expEl.className = 'explanation show hint-exp';
         expEl.textContent = '💡 ' + (q.explanation || 'Work through the problem one step at a time, then try again.');
 
+        afterWrong(q);
+
         // Reshuffle after a beat
         setTimeout(() => reshuffleAndShow(q), 950);
       }
@@ -791,8 +1006,10 @@
         prepareOptions(q);
         document.getElementById('feedback').className    = 'feedback';
         document.getElementById('feedback').innerHTML    = '';
-        document.getElementById('explanation').className = 'explanation';
-        document.getElementById('explanation').innerHTML = '';
+        if (!hintPinned) {
+          document.getElementById('explanation').className = 'explanation';
+          document.getElementById('explanation').innerHTML = '';
+        }
         renderOptions(false);
         optDiv.style.opacity = '1';
       }, 220);
