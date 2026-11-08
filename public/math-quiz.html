@@ -361,7 +361,21 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin-top: 1px;
     }
-    .step-text { font-size: 0.9rem; color: #78350f; line-height: 1.5; white-space: pre-line; }
+    .step-text { font-size: 0.9rem; color: #78350f; line-height: 1.5; white-space: pre-line; min-width: 0; }
+    .step-text pre {
+      margin: 8px 0 2px; padding: 10px 12px; overflow-x: auto; max-width: 100%;
+      background: #fff; border: 1px solid #fde68a; border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95rem; line-height: 1.3; white-space: pre; color: #78350f;
+    }
+    .steps-tabs { display: none; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+    .steps-tabs.show { display: flex; }
+    .steps-tab {
+      padding: 6px 12px; border-radius: 99px; cursor: pointer; font-family: inherit;
+      font-size: 0.8rem; font-weight: 700;
+      border: 2px solid #fcd34d; background: #fff; color: #92400e;
+    }
+    .steps-tab.active { background: var(--orange); border-color: var(--orange); color: #fff; }
     .next-step-btn {
       margin-top: 10px; padding: 7px 16px;
       border-radius: 8px; border: none;
@@ -416,6 +430,7 @@
         <button class="show-me-btn" id="show-me-btn">💡 Show Me How</button>
         <div class="steps-panel" id="steps-panel">
           <div class="steps-title">Step by Step</div>
+          <div class="steps-tabs" id="steps-tabs"></div>
           <div id="steps-list"></div>
           <button class="next-step-btn" id="next-step-btn">Next Step →</button>
         </div>
@@ -628,59 +643,92 @@
     }
 
     // ─── Show Me How (step-by-step) ──────────────────────────────────────────
-    let stepsState = { steps: [], revealedCount: 0 };
+    // A question can offer more than one way to see the solution (q.steps, plus optional
+    // q.altSteps labelled q.altLabel — e.g. "Long division"). Tabs switch between them.
+    let stepsState = { views: [], viewIdx: 0, revealedCount: 0 };
+
+    function currentSteps() {
+      const v = stepsState.views[stepsState.viewIdx];
+      return v ? v.steps : [];
+    }
 
     function resetStepsPanel() {
-      stepsState = { steps: [], revealedCount: 0 };
+      stepsState = { views: [], viewIdx: 0, revealedCount: 0 };
       document.getElementById('show-me-btn').classList.remove('visible');
       document.getElementById('steps-panel').classList.remove('show');
       document.getElementById('steps-list').innerHTML = '';
+      const tabs = document.getElementById('steps-tabs');
+      tabs.classList.remove('show'); tabs.innerHTML = '';
     }
 
-    function showStepsPanel(q) {
-      const steps = q.steps || [];
-      if (!steps.length) return;
-      stepsState = { steps, revealedCount: 0 };
+    function renderStepsTabs() {
+      const tabs = document.getElementById('steps-tabs');
+      if (stepsState.views.length < 2) { tabs.classList.remove('show'); tabs.innerHTML = ''; return; }
+      tabs.innerHTML = stepsState.views.map((v, i) =>
+        `<button type="button" class="steps-tab${i === stepsState.viewIdx ? ' active' : ''}" data-view="${i}">${v.label}</button>`
+      ).join('');
+      tabs.classList.add('show');
+    }
 
-      const listEl = document.getElementById('steps-list');
-      listEl.innerHTML = steps.map((s, i) =>
+    function renderStepsView() {
+      const steps = currentSteps();
+      stepsState.revealedCount = 0;
+      document.getElementById('steps-list').innerHTML = steps.map((s, i) =>
         `<div class="step-item" id="step-${i}">
           <div class="step-num">${i + 1}</div>
           <div class="step-text">${s}</div>
         </div>`
       ).join('');
+      const nextBtn = document.getElementById('next-step-btn');
+      nextBtn.textContent = 'Next Step →';
+      nextBtn.classList.remove('done');
+      revealNextStep();   // first step shows immediately
+    }
 
+    function showStepsPanel(q) {
+      const steps = q.steps || [];
+      if (!steps.length) return;
+      const views = [{ label: 'Step by step', steps }];
+      if (q.altSteps && q.altSteps.length) views.push({ label: q.altLabel || 'Another way', steps: q.altSteps });
+      stepsState = { views, viewIdx: 0, revealedCount: 0 };
+      renderStepsTabs();
+      renderStepsView();
       document.getElementById('steps-panel').classList.add('show');
       document.getElementById('show-me-btn').classList.remove('visible');
+    }
 
-      // Reveal first step immediately
-      revealNextStep();
+    function closeStepsPanel() {
+      document.getElementById('steps-panel').classList.remove('show');
+      // Let the student reopen the help (it used to disappear until the next wrong answer).
+      const q = questions[currentQ];
+      if (q && q.steps && q.steps.length) document.getElementById('show-me-btn').classList.add('visible');
     }
 
     function revealNextStep() {
-      const { steps, revealedCount } = stepsState;
-      if (revealedCount >= steps.length) return;
-
-      const stepEl = document.getElementById('step-' + revealedCount);
-      if (stepEl) {
-        requestAnimationFrame(() => stepEl.classList.add('revealed'));
-      }
+      const steps = currentSteps();
+      if (stepsState.revealedCount >= steps.length) return;
+      const stepEl = document.getElementById('step-' + stepsState.revealedCount);
+      if (stepEl) requestAnimationFrame(() => stepEl.classList.add('revealed'));
       stepsState.revealedCount++;
-
-      const nextBtn = document.getElementById('next-step-btn');
       if (stepsState.revealedCount >= steps.length) {
+        const nextBtn = document.getElementById('next-step-btn');
         nextBtn.textContent = '✓ Got it!';
         nextBtn.classList.add('done');
-        nextBtn.onclick = () => {
-          document.getElementById('steps-panel').classList.remove('show');
-          nextBtn.classList.remove('done');
-          nextBtn.textContent = 'Next Step →';
-          nextBtn.onclick = revealNextStep;
-        };
       }
     }
 
-    document.getElementById('next-step-btn').addEventListener('click', revealNextStep);
+    // One click handler: reveal the next step, or close once everything is showing.
+    document.getElementById('next-step-btn').addEventListener('click', () => {
+      if (stepsState.revealedCount >= currentSteps().length) closeStepsPanel();
+      else revealNextStep();
+    });
+    document.getElementById('steps-tabs').addEventListener('click', e => {
+      const btn = e.target.closest('.steps-tab');
+      if (!btn) return;
+      stepsState.viewIdx = parseInt(btn.dataset.view, 10);
+      renderStepsTabs();
+      renderStepsView();
+    });
     document.getElementById('show-me-btn').addEventListener('click', () => {
       showStepsPanel(questions[currentQ]);
     });

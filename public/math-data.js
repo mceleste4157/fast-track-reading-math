@@ -134,6 +134,14 @@ const MATH_SETS = [
           '6 × 14 = 84 — that works!',
           'Subtract: 87 − 84 = 3 left over',
           'Answer: 14 remainder 3'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 87 on the inside.',
+          'Start with 8.\nDivide: 8 ÷ 6 = 1  → write 1 on top\nMultiply: 1 × 6 = 6\nSubtract: 8 − 6 = 2\nBring down the 7: now we have 27',
+          'Now we have 27.\nDivide: 27 ÷ 6 = 4  → write 4 on top\nMultiply: 4 × 6 = 24\nSubtract: 27 − 24 = 3\nNo more digits to bring down. 3 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>    1 4\n  ┌─────\n6 │ 8 7\n    6\n    ─\n    2 7\n    2 4\n    ─ ─\n      3</pre>',
+          'Read the answer across the top: 14 R 3\nCheck: 6 × 14 + 3 = 87 ✓\nAnswer: 14 remainder 3'
         ]
       },
       {
@@ -146,6 +154,14 @@ const MATH_SETS = [
           '8 × 11 = 88 (fits!)',
           'Subtract: 95 − 88 = 7 cookies left over',
           '7 < 8, so we can\'t fill another bag. Answer: 11 full bags'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 8 on the outside and 95 on the inside.',
+          'Start with 9.\nDivide: 9 ÷ 8 = 1  → write 1 on top\nMultiply: 1 × 8 = 8\nSubtract: 9 − 8 = 1\nBring down the 5: now we have 15',
+          'Now we have 15.\nDivide: 15 ÷ 8 = 1  → write 1 on top\nMultiply: 1 × 8 = 8\nSubtract: 15 − 8 = 7\nNo more digits to bring down. 7 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>    1 1\n  ┌─────\n8 │ 9 5\n    8\n    ─\n    1 5\n      8\n      ─\n      7</pre>',
+          'Read the answer across the top: 11 R 7\nCheck: 8 × 11 + 7 = 95 ✓\n7 < 8, so we can\'t fill another bag. Answer: 11 full bags'
         ]
       },
       {
@@ -158,6 +174,15 @@ const MATH_SETS = [
           'Bring down 7. Now divide 7 ÷ 4 = 1 R 3 (write 1)',
           'Bring down 2. Now divide 32 ÷ 4 = 8 (write 8)',
           'Answer: 918. Check: 4 × 918 = 3,672 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 4 on the outside and 3,672 on the inside.',
+          'The first digit (3) is too small to divide by 4, so we start with the first two digits: 36.\nDivide: 36 ÷ 4 = 9  → write 9 on top\nMultiply: 9 × 4 = 36\nSubtract: 36 − 36 = 0\nBring down the 7: now we have 7',
+          'Now we have 7.\nDivide: 7 ÷ 4 = 1  → write 1 on top\nMultiply: 1 × 4 = 4\nSubtract: 7 − 4 = 3\nBring down the 2: now we have 32',
+          'Now we have 32.\nDivide: 32 ÷ 4 = 8  → write 8 on top\nMultiply: 8 × 4 = 32\nSubtract: 32 − 32 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      9 1 8\n  ┌─────────\n4 │ 3 6 7 2\n    3 6\n    ─ ─\n        7\n        4\n        ─\n        3 2\n        3 2\n        ─ ─\n          0</pre>',
+          'Read the answer across the top: 918\nCheck: 4 × 918 = 3,672 ✓\nAnswer: 918. Check: 4 × 918 = 3,672 ✓'
         ]
       },
       {
@@ -170,6 +195,14 @@ const MATH_SETS = [
           '5 × 14 = 70 — each friend gets 14 stickers',
           'Subtract: 74 − 70 = 4 left over',
           '4 stickers can\'t be split evenly among 5 friends. Remainder = 4'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 5 on the outside and 74 on the inside.',
+          'Start with 7.\nDivide: 7 ÷ 5 = 1  → write 1 on top\nMultiply: 1 × 5 = 5\nSubtract: 7 − 5 = 2\nBring down the 4: now we have 24',
+          'Now we have 24.\nDivide: 24 ÷ 5 = 4  → write 4 on top\nMultiply: 4 × 5 = 20\nSubtract: 24 − 20 = 4\nNo more digits to bring down. 4 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>    1 4\n  ┌─────\n5 │ 7 4\n    5\n    ─\n    2 4\n    2 0\n    ─ ─\n      4</pre>',
+          'Read the answer across the top: 14 R 4\nCheck: 5 × 14 + 4 = 74 ✓\n4 stickers can\'t be split evenly among 5 friends. Remainder = 4'
         ]
       },
       {
@@ -194,6 +227,13 @@ const MATH_SETS = [
           'Think: 7 × ? = 56',
           '7 × 8 = 56 ✓',
           'Answer: 8 seats per row'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 7 on the outside and 56 on the inside.',
+          'The first digit (5) is too small to divide by 7, so we start with the first two digits: 56.\nDivide: 56 ÷ 7 = 8  → write 8 on top\nMultiply: 8 × 7 = 56\nSubtract: 56 − 56 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      8\n  ┌─────\n7 │ 5 6\n    5 6\n    ─ ─\n      0</pre>',
+          'Read the answer across the top: 8\nCheck: 7 × 8 = 56 ✓\nAnswer: 8 seats per row'
         ]
       },
       {
@@ -206,6 +246,14 @@ const MATH_SETS = [
           '9 × 13 = 117 — fits!',
           'Subtract: 125 − 117 = 8 left over',
           'Answer: 13 baseballs each, 8 left over'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 9 on the outside and 125 on the inside.',
+          'The first digit (1) is too small to divide by 9, so we start with the first two digits: 12.\nDivide: 12 ÷ 9 = 1  → write 1 on top\nMultiply: 1 × 9 = 9\nSubtract: 12 − 9 = 3\nBring down the 5: now we have 35',
+          'Now we have 35.\nDivide: 35 ÷ 9 = 3  → write 3 on top\nMultiply: 3 × 9 = 27\nSubtract: 35 − 27 = 8\nNo more digits to bring down. 8 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      1 3\n  ┌───────\n9 │ 1 2 5\n      9\n      ─\n      3 5\n      2 7\n      ─ ─\n        8</pre>',
+          'Read the answer across the top: 13 R 8\nCheck: 9 × 13 + 8 = 125 ✓\nAnswer: 13 baseballs each, 8 left over'
         ]
       },
       {
@@ -218,6 +266,14 @@ const MATH_SETS = [
           '6 × 41 = 246 → 41 full shelves hold 246 books',
           'Subtract: 248 − 246 = 2 books left over',
           '2 books need 1 more shelf. Total: 41 + 1 = 42 shelves'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 248 on the inside.',
+          'The first digit (2) is too small to divide by 6, so we start with the first two digits: 24.\nDivide: 24 ÷ 6 = 4  → write 4 on top\nMultiply: 4 × 6 = 24\nSubtract: 24 − 24 = 0\nBring down the 8: now we have 8',
+          'Now we have 8.\nDivide: 8 ÷ 6 = 1  → write 1 on top\nMultiply: 1 × 6 = 6\nSubtract: 8 − 6 = 2\nNo more digits to bring down. 2 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      4 1\n  ┌───────\n6 │ 2 4 8\n    2 4\n    ─ ─\n        8\n        6\n        ─\n        2</pre>',
+          'Read the answer across the top: 41 R 2\nCheck: 6 × 41 + 2 = 248 ✓\n2 books need 1 more shelf. Total: 41 + 1 = 42 shelves'
         ]
       }
     ]
@@ -7404,6 +7460,14 @@ const MATH_SETS = [
           'Add the groups: 10 + 2 = 12',
           'So 48 ÷ 4 = 12',
           'Check: 4 × 12 = 48 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 4 on the outside and 48 on the inside.',
+          'Start with 4.\nDivide: 4 ÷ 4 = 1  → write 1 on top\nMultiply: 1 × 4 = 4\nSubtract: 4 − 4 = 0\nBring down the 8: now we have 8',
+          'Now we have 8.\nDivide: 8 ÷ 4 = 2  → write 2 on top\nMultiply: 2 × 4 = 8\nSubtract: 8 − 8 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>    1 2\n  ┌─────\n4 │ 4 8\n    4\n    ─\n      8\n      8\n      ─\n      0</pre>',
+          'Read the answer across the top: 12\nCheck: 4 × 12 = 48 ✓'
         ]
       },
       {
@@ -7418,6 +7482,14 @@ const MATH_SETS = [
           'Add the groups: 10 + 5 = 15',
           'So 75 ÷ 5 = 15',
           'Check: 5 × 15 = 75 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 5 on the outside and 75 on the inside.',
+          'Start with 7.\nDivide: 7 ÷ 5 = 1  → write 1 on top\nMultiply: 1 × 5 = 5\nSubtract: 7 − 5 = 2\nBring down the 5: now we have 25',
+          'Now we have 25.\nDivide: 25 ÷ 5 = 5  → write 5 on top\nMultiply: 5 × 5 = 25\nSubtract: 25 − 25 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>    1 5\n  ┌─────\n5 │ 7 5\n    5\n    ─\n    2 5\n    2 5\n    ─ ─\n      0</pre>',
+          'Read the answer across the top: 15\nCheck: 5 × 15 = 75 ✓'
         ]
       },
       {
@@ -7432,6 +7504,14 @@ const MATH_SETS = [
           'Add the groups: 30 + 2 = 32',
           'So 96 ÷ 3 = 32',
           'Check: 3 × 32 = 96 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 3 on the outside and 96 on the inside.',
+          'Start with 9.\nDivide: 9 ÷ 3 = 3  → write 3 on top\nMultiply: 3 × 3 = 9\nSubtract: 9 − 9 = 0\nBring down the 6: now we have 6',
+          'Now we have 6.\nDivide: 6 ÷ 3 = 2  → write 2 on top\nMultiply: 2 × 3 = 6\nSubtract: 6 − 6 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>    3 2\n  ┌─────\n3 │ 9 6\n    9\n    ─\n      6\n      6\n      ─\n      0</pre>',
+          'Read the answer across the top: 32\nCheck: 3 × 32 = 96 ✓'
         ]
       },
       {
@@ -7446,6 +7526,14 @@ const MATH_SETS = [
           'Add the groups: 10 + 4 = 14',
           'So 84 ÷ 6 = 14',
           'Check: 6 × 14 = 84 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 84 on the inside.',
+          'Start with 8.\nDivide: 8 ÷ 6 = 1  → write 1 on top\nMultiply: 1 × 6 = 6\nSubtract: 8 − 6 = 2\nBring down the 4: now we have 24',
+          'Now we have 24.\nDivide: 24 ÷ 6 = 4  → write 4 on top\nMultiply: 4 × 6 = 24\nSubtract: 24 − 24 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>    1 4\n  ┌─────\n6 │ 8 4\n    6\n    ─\n    2 4\n    2 4\n    ─ ─\n      0</pre>',
+          'Read the answer across the top: 14\nCheck: 6 × 14 = 84 ✓'
         ]
       },
       {
@@ -7460,6 +7548,14 @@ const MATH_SETS = [
           'Add the groups: 20 + 6 = 26',
           'So 156 ÷ 6 = 26',
           'Check: 6 × 26 = 156 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 156 on the inside.',
+          'The first digit (1) is too small to divide by 6, so we start with the first two digits: 15.\nDivide: 15 ÷ 6 = 2  → write 2 on top\nMultiply: 2 × 6 = 12\nSubtract: 15 − 12 = 3\nBring down the 6: now we have 36',
+          'Now we have 36.\nDivide: 36 ÷ 6 = 6  → write 6 on top\nMultiply: 6 × 6 = 36\nSubtract: 36 − 36 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      2 6\n  ┌───────\n6 │ 1 5 6\n    1 2\n    ─ ─\n      3 6\n      3 6\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 26\nCheck: 6 × 26 = 156 ✓'
         ]
       },
       {
@@ -7474,6 +7570,14 @@ const MATH_SETS = [
           'Add the groups: 30 + 6 = 36',
           'So 288 ÷ 8 = 36',
           'Check: 8 × 36 = 288 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 8 on the outside and 288 on the inside.',
+          'The first digit (2) is too small to divide by 8, so we start with the first two digits: 28.\nDivide: 28 ÷ 8 = 3  → write 3 on top\nMultiply: 3 × 8 = 24\nSubtract: 28 − 24 = 4\nBring down the 8: now we have 48',
+          'Now we have 48.\nDivide: 48 ÷ 8 = 6  → write 6 on top\nMultiply: 6 × 8 = 48\nSubtract: 48 − 48 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      3 6\n  ┌───────\n8 │ 2 8 8\n    2 4\n    ─ ─\n      4 8\n      4 8\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 36\nCheck: 8 × 36 = 288 ✓'
         ]
       },
       {
@@ -7488,6 +7592,14 @@ const MATH_SETS = [
           'Add the groups: 30 + 5 = 35',
           'So 175 ÷ 5 = 35',
           'Check: 5 × 35 = 175 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 5 on the outside and 175 on the inside.',
+          'The first digit (1) is too small to divide by 5, so we start with the first two digits: 17.\nDivide: 17 ÷ 5 = 3  → write 3 on top\nMultiply: 3 × 5 = 15\nSubtract: 17 − 15 = 2\nBring down the 5: now we have 25',
+          'Now we have 25.\nDivide: 25 ÷ 5 = 5  → write 5 on top\nMultiply: 5 × 5 = 25\nSubtract: 25 − 25 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      3 5\n  ┌───────\n5 │ 1 7 5\n    1 5\n    ─ ─\n      2 5\n      2 5\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 35\nCheck: 5 × 35 = 175 ✓'
         ]
       },
       {
@@ -7502,6 +7614,15 @@ const MATH_SETS = [
           'Add the groups: 30 + 2 = 32',
           'So 224 ÷ 7 = 32',
           'So the missing number is 32, and the fact is 7 × 32 = 224.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Division and multiplication are partners: 224 ÷ 7 asks "7 × ? = 224".',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 7 on the outside and 224 on the inside.',
+          'The first digit (2) is too small to divide by 7, so we start with the first two digits: 22.\nDivide: 22 ÷ 7 = 3  → write 3 on top\nMultiply: 3 × 7 = 21\nSubtract: 22 − 21 = 1\nBring down the 4: now we have 14',
+          'Now we have 14.\nDivide: 14 ÷ 7 = 2  → write 2 on top\nMultiply: 2 × 7 = 14\nSubtract: 14 − 14 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      3 2\n  ┌───────\n7 │ 2 2 4\n    2 1\n    ─ ─\n      1 4\n      1 4\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 32\nCheck: 7 × 32 = 224 ✓\nSo the missing number is 32, and the fact is 7 × 32 = 224.'
         ]
       }
     ]
@@ -7526,6 +7647,13 @@ const MATH_SETS = [
           'Take out 9 groups of 5: 5 × 9 = 45\n  Left over: 47 − 45 = 2',
           'So 47 ÷ 5 = 9 R 2',
           'Check: 5 × 9 + 2 = 47 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 5 on the outside and 47 on the inside.',
+          'The first digit (4) is too small to divide by 5, so we start with the first two digits: 47.\nDivide: 47 ÷ 5 = 9  → write 9 on top\nMultiply: 9 × 5 = 45\nSubtract: 47 − 45 = 2\nNo more digits to bring down. 2 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      9\n  ┌─────\n5 │ 4 7\n    4 5\n    ─ ─\n      2</pre>',
+          'Read the answer across the top: 9 R 2\nCheck: 5 × 9 + 2 = 47 ✓'
         ]
       },
       {
@@ -7540,6 +7668,14 @@ const MATH_SETS = [
           'Add the groups: 10 + 3 = 13',
           'So 83 ÷ 6 = 13 R 5',
           'Check: 6 × 13 + 5 = 83 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 83 on the inside.',
+          'Start with 8.\nDivide: 8 ÷ 6 = 1  → write 1 on top\nMultiply: 1 × 6 = 6\nSubtract: 8 − 6 = 2\nBring down the 3: now we have 23',
+          'Now we have 23.\nDivide: 23 ÷ 6 = 3  → write 3 on top\nMultiply: 3 × 6 = 18\nSubtract: 23 − 18 = 5\nNo more digits to bring down. 5 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>    1 3\n  ┌─────\n6 │ 8 3\n    6\n    ─\n    2 3\n    1 8\n    ─ ─\n      5</pre>',
+          'Read the answer across the top: 13 R 5\nCheck: 6 × 13 + 5 = 83 ✓'
         ]
       },
       {
@@ -7554,6 +7690,14 @@ const MATH_SETS = [
           'Add the groups: 20 + 2 = 22',
           'So 158 ÷ 7 = 22 R 4',
           'Check: 7 × 22 + 4 = 158 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 7 on the outside and 158 on the inside.',
+          'The first digit (1) is too small to divide by 7, so we start with the first two digits: 15.\nDivide: 15 ÷ 7 = 2  → write 2 on top\nMultiply: 2 × 7 = 14\nSubtract: 15 − 14 = 1\nBring down the 8: now we have 18',
+          'Now we have 18.\nDivide: 18 ÷ 7 = 2  → write 2 on top\nMultiply: 2 × 7 = 14\nSubtract: 18 − 14 = 4\nNo more digits to bring down. 4 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      2 2\n  ┌───────\n7 │ 1 5 8\n    1 4\n    ─ ─\n      1 8\n      1 4\n      ─ ─\n        4</pre>',
+          'Read the answer across the top: 22 R 4\nCheck: 7 × 22 + 4 = 158 ✓'
         ]
       },
       {
@@ -7591,6 +7735,14 @@ const MATH_SETS = [
           'Add the groups: 70 + 6 = 76',
           'So 305 ÷ 4 = 76 R 1',
           'Check: 4 × 76 + 1 = 305 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 4 on the outside and 305 on the inside.',
+          'The first digit (3) is too small to divide by 4, so we start with the first two digits: 30.\nDivide: 30 ÷ 4 = 7  → write 7 on top\nMultiply: 7 × 4 = 28\nSubtract: 30 − 28 = 2\nBring down the 5: now we have 25',
+          'Now we have 25.\nDivide: 25 ÷ 4 = 6  → write 6 on top\nMultiply: 6 × 4 = 24\nSubtract: 25 − 24 = 1\nNo more digits to bring down. 1 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      7 6\n  ┌───────\n4 │ 3 0 5\n    2 8\n    ─ ─\n      2 5\n      2 4\n      ─ ─\n        1</pre>',
+          'Read the answer across the top: 76 R 1\nCheck: 4 × 76 + 1 = 305 ✓'
         ]
       },
       {
@@ -7615,6 +7767,14 @@ const MATH_SETS = [
           'Take out 8 groups of 7: 7 × 8 = 56\n  Left over: 59 − 56 = 3',
           'So 59 ÷ 7 = 8 R 3',
           'Check: 7 × 8 + 3 = 59 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Look at Dan\'s remainder: 10 is bigger than 7, so there is still room for another group of 7.',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 7 on the outside and 59 on the inside.',
+          'The first digit (5) is too small to divide by 7, so we start with the first two digits: 59.\nDivide: 59 ÷ 7 = 8  → write 8 on top\nMultiply: 8 × 7 = 56\nSubtract: 59 − 56 = 3\nNo more digits to bring down. 3 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      8\n  ┌─────\n7 │ 5 9\n    5 6\n    ─ ─\n      3</pre>',
+          'Read the answer across the top: 8 R 3\nCheck: 7 × 8 + 3 = 59 ✓'
         ]
       }
     ]
@@ -7641,6 +7801,14 @@ const MATH_SETS = [
           'Add the groups: 70 + 8 = 78',
           'So 468 ÷ 6 = 78',
           'Check: 6 × 78 = 468 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 468 on the inside.',
+          'The first digit (4) is too small to divide by 6, so we start with the first two digits: 46.\nDivide: 46 ÷ 6 = 7  → write 7 on top\nMultiply: 7 × 6 = 42\nSubtract: 46 − 42 = 4\nBring down the 8: now we have 48',
+          'Now we have 48.\nDivide: 48 ÷ 6 = 8  → write 8 on top\nMultiply: 8 × 6 = 48\nSubtract: 48 − 48 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      7 8\n  ┌───────\n6 │ 4 6 8\n    4 2\n    ─ ─\n      4 8\n      4 8\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 78\nCheck: 6 × 78 = 468 ✓'
         ]
       },
       {
@@ -7656,6 +7824,15 @@ const MATH_SETS = [
           'Add the groups: 100 + 40 + 7 = 147',
           'So 735 ÷ 5 = 147',
           'Check: 5 × 147 = 735 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 5 on the outside and 735 on the inside.',
+          'Start with 7.\nDivide: 7 ÷ 5 = 1  → write 1 on top\nMultiply: 1 × 5 = 5\nSubtract: 7 − 5 = 2\nBring down the 3: now we have 23',
+          'Now we have 23.\nDivide: 23 ÷ 5 = 4  → write 4 on top\nMultiply: 4 × 5 = 20\nSubtract: 23 − 20 = 3\nBring down the 5: now we have 35',
+          'Now we have 35.\nDivide: 35 ÷ 5 = 7  → write 7 on top\nMultiply: 7 × 5 = 35\nSubtract: 35 − 35 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>    1 4 7\n  ┌───────\n5 │ 7 3 5\n    5\n    ─\n    2 3\n    2 0\n    ─ ─\n      3 5\n      3 5\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 147\nCheck: 5 × 147 = 735 ✓'
         ]
       },
       {
@@ -7671,6 +7848,15 @@ const MATH_SETS = [
           'Add the groups: 300 + 10 + 2 = 312',
           'So 1,248 ÷ 4 = 312',
           'Check: 4 × 312 = 1,248 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 4 on the outside and 1,248 on the inside.',
+          'The first digit (1) is too small to divide by 4, so we start with the first two digits: 12.\nDivide: 12 ÷ 4 = 3  → write 3 on top\nMultiply: 3 × 4 = 12\nSubtract: 12 − 12 = 0\nBring down the 4: now we have 4',
+          'Now we have 4.\nDivide: 4 ÷ 4 = 1  → write 1 on top\nMultiply: 1 × 4 = 4\nSubtract: 4 − 4 = 0\nBring down the 8: now we have 8',
+          'Now we have 8.\nDivide: 8 ÷ 4 = 2  → write 2 on top\nMultiply: 2 × 4 = 8\nSubtract: 8 − 8 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      3 1 2\n  ┌─────────\n4 │ 1 2 4 8\n    1 2\n    ─ ─\n        4\n        4\n        ─\n          8\n          8\n          ─\n          0</pre>',
+          'Read the answer across the top: 312\nCheck: 4 × 312 = 1,248 ✓'
         ]
       },
       {
@@ -7686,6 +7872,15 @@ const MATH_SETS = [
           'Add the groups: 600 + 10 + 2 = 612',
           'So 3,672 ÷ 6 = 612',
           'Check: 6 × 612 = 3,672 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 3,672 on the inside.',
+          'The first digit (3) is too small to divide by 6, so we start with the first two digits: 36.\nDivide: 36 ÷ 6 = 6  → write 6 on top\nMultiply: 6 × 6 = 36\nSubtract: 36 − 36 = 0\nBring down the 7: now we have 7',
+          'Now we have 7.\nDivide: 7 ÷ 6 = 1  → write 1 on top\nMultiply: 1 × 6 = 6\nSubtract: 7 − 6 = 1\nBring down the 2: now we have 12',
+          'Now we have 12.\nDivide: 12 ÷ 6 = 2  → write 2 on top\nMultiply: 2 × 6 = 12\nSubtract: 12 − 12 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      6 1 2\n  ┌─────────\n6 │ 3 6 7 2\n    3 6\n    ─ ─\n        7\n        6\n        ─\n        1 2\n        1 2\n        ─ ─\n          0</pre>',
+          'Read the answer across the top: 612\nCheck: 6 × 612 = 3,672 ✓'
         ]
       },
       {
@@ -7701,6 +7896,15 @@ const MATH_SETS = [
           'Add the groups: 800 + 5 = 805',
           'So 2,415 ÷ 3 = 805',
           'Check: 3 × 805 = 2,415 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 3 on the outside and 2,415 on the inside.',
+          'The first digit (2) is too small to divide by 3, so we start with the first two digits: 24.\nDivide: 24 ÷ 3 = 8  → write 8 on top\nMultiply: 8 × 3 = 24\nSubtract: 24 − 24 = 0\nBring down the 1: now we have 1',
+          'Now we have 1.\nDivide: 1 ÷ 3 = 0  → 3 doesn\'t fit, so write 0 on top\nMultiply: 0 × 3 = 0\nSubtract: 1 − 0 = 1\nBring down the 5: now we have 15',
+          'Now we have 15.\nDivide: 15 ÷ 3 = 5  → write 5 on top\nMultiply: 5 × 3 = 15\nSubtract: 15 − 15 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      8 0 5\n  ┌─────────\n3 │ 2 4 1 5\n    2 4\n    ─ ─\n        1\n        0\n        ─\n        1 5\n        1 5\n        ─ ─\n          0</pre>',
+          'Read the answer across the top: 805\nCheck: 3 × 805 = 2,415 ✓'
         ]
       },
       {
@@ -7716,6 +7920,15 @@ const MATH_SETS = [
           'Add the groups: 500 + 80 + 3 = 583',
           'So 4,087 ÷ 7 = 583 R 6',
           'Check: 7 × 583 + 6 = 4,087 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 7 on the outside and 4,087 on the inside.',
+          'The first digit (4) is too small to divide by 7, so we start with the first two digits: 40.\nDivide: 40 ÷ 7 = 5  → write 5 on top\nMultiply: 5 × 7 = 35\nSubtract: 40 − 35 = 5\nBring down the 8: now we have 58',
+          'Now we have 58.\nDivide: 58 ÷ 7 = 8  → write 8 on top\nMultiply: 8 × 7 = 56\nSubtract: 58 − 56 = 2\nBring down the 7: now we have 27',
+          'Now we have 27.\nDivide: 27 ÷ 7 = 3  → write 3 on top\nMultiply: 3 × 7 = 21\nSubtract: 27 − 21 = 6\nNo more digits to bring down. 6 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      5 8 3\n  ┌─────────\n7 │ 4 0 8 7\n    3 5\n    ─ ─\n      5 8\n      5 6\n      ─ ─\n        2 7\n        2 1\n        ─ ─\n          6</pre>',
+          'Read the answer across the top: 583 R 6\nCheck: 7 × 583 + 6 = 4,087 ✓'
         ]
       },
       {
@@ -7731,6 +7944,15 @@ const MATH_SETS = [
           'Add the groups: 600 + 20 + 5 = 625',
           'So 5,000 ÷ 8 = 625',
           'Check: 8 × 625 = 5,000 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 8 on the outside and 5,000 on the inside.',
+          'The first digit (5) is too small to divide by 8, so we start with the first two digits: 50.\nDivide: 50 ÷ 8 = 6  → write 6 on top\nMultiply: 6 × 8 = 48\nSubtract: 50 − 48 = 2\nBring down the 0: now we have 20',
+          'Now we have 20.\nDivide: 20 ÷ 8 = 2  → write 2 on top\nMultiply: 2 × 8 = 16\nSubtract: 20 − 16 = 4\nBring down the 0: now we have 40',
+          'Now we have 40.\nDivide: 40 ÷ 8 = 5  → write 5 on top\nMultiply: 5 × 8 = 40\nSubtract: 40 − 40 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      6 2 5\n  ┌─────────\n8 │ 5 0 0 0\n    4 8\n    ─ ─\n      2 0\n      1 6\n      ─ ─\n        4 0\n        4 0\n        ─ ─\n          0</pre>',
+          'Read the answer across the top: 625\nCheck: 8 × 625 = 5,000 ✓'
         ]
       },
       {
@@ -7747,6 +7969,16 @@ const MATH_SETS = [
           'Add the groups: 1,000 + 20 + 9 = 1,029',
           'So 9,264 ÷ 9 = 1,029 R 3',
           'Check: 9 × 1,029 + 3 = 9,264 ✓'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 9 on the outside and 9,264 on the inside.',
+          'Start with 9.\nDivide: 9 ÷ 9 = 1  → write 1 on top\nMultiply: 1 × 9 = 9\nSubtract: 9 − 9 = 0\nBring down the 2: now we have 2',
+          'Now we have 2.\nDivide: 2 ÷ 9 = 0  → 9 doesn\'t fit, so write 0 on top\nMultiply: 0 × 9 = 0\nSubtract: 2 − 0 = 2\nBring down the 6: now we have 26',
+          'Now we have 26.\nDivide: 26 ÷ 9 = 2  → write 2 on top\nMultiply: 2 × 9 = 18\nSubtract: 26 − 18 = 8\nBring down the 4: now we have 84',
+          'Now we have 84.\nDivide: 84 ÷ 9 = 9  → write 9 on top\nMultiply: 9 × 9 = 81\nSubtract: 84 − 81 = 3\nNo more digits to bring down. 3 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>    1 0 2 9\n  ┌─────────\n9 │ 9 2 6 4\n    9\n    ─\n      2\n      0\n      ─\n      2 6\n      1 8\n      ─ ─\n        8 4\n        8 1\n        ─ ─\n          3</pre>',
+          'Read the answer across the top: 1,029 R 3\nCheck: 9 × 1,029 + 3 = 9,264 ✓'
         ]
       }
     ]
@@ -7774,6 +8006,15 @@ const MATH_SETS = [
           'So 94 ÷ 8 = 11 R 6',
           'The 6 left over aren\'t enough to make another full group, so we don\'t count them.',
           'Answer: 11 full sheets.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Read carefully: we divide 94 into groups of 8.',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 8 on the outside and 94 on the inside.',
+          'Start with 9.\nDivide: 9 ÷ 8 = 1  → write 1 on top\nMultiply: 1 × 8 = 8\nSubtract: 9 − 8 = 1\nBring down the 4: now we have 14',
+          'Now we have 14.\nDivide: 14 ÷ 8 = 1  → write 1 on top\nMultiply: 1 × 8 = 8\nSubtract: 14 − 8 = 6\nNo more digits to bring down. 6 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>    1 1\n  ┌─────\n8 │ 9 4\n    8\n    ─\n    1 4\n      8\n      ─\n      6</pre>',
+          'Read the answer across the top: 11 R 6\nCheck: 8 × 11 + 6 = 94 ✓\nThe 6 left over aren\'t enough to make another full group, so we don\'t count them.\nAnswer: 11 full sheets.'
         ]
       },
       {
@@ -7789,6 +8030,15 @@ const MATH_SETS = [
           'So 130 ÷ 9 = 14 R 4',
           'The 4 left over still need a spot, so we need one more group: 14 + 1 = 15.',
           'Answer: 15 vans.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Read carefully: we divide 130 into groups of 9.',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 9 on the outside and 130 on the inside.',
+          'The first digit (1) is too small to divide by 9, so we start with the first two digits: 13.\nDivide: 13 ÷ 9 = 1  → write 1 on top\nMultiply: 1 × 9 = 9\nSubtract: 13 − 9 = 4\nBring down the 0: now we have 40',
+          'Now we have 40.\nDivide: 40 ÷ 9 = 4  → write 4 on top\nMultiply: 4 × 9 = 36\nSubtract: 40 − 36 = 4\nNo more digits to bring down. 4 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      1 4\n  ┌───────\n9 │ 1 3 0\n      9\n      ─\n      4 0\n      3 6\n      ─ ─\n        4</pre>',
+          'Read the answer across the top: 14 R 4\nCheck: 9 × 14 + 4 = 130 ✓\nThe 4 left over still need a spot, so we need one more group: 14 + 1 = 15.\nAnswer: 15 vans.'
         ]
       },
       {
@@ -7804,6 +8054,15 @@ const MATH_SETS = [
           'So 100 ÷ 7 = 14 R 2',
           'The remainder is the number left over after sharing as evenly as possible.',
           'Answer: 2 eggs left over.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Read carefully: we divide 100 into groups of 7.',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 7 on the outside and 100 on the inside.',
+          'The first digit (1) is too small to divide by 7, so we start with the first two digits: 10.\nDivide: 10 ÷ 7 = 1  → write 1 on top\nMultiply: 1 × 7 = 7\nSubtract: 10 − 7 = 3\nBring down the 0: now we have 30',
+          'Now we have 30.\nDivide: 30 ÷ 7 = 4  → write 4 on top\nMultiply: 4 × 7 = 28\nSubtract: 30 − 28 = 2\nNo more digits to bring down. 2 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      1 4\n  ┌───────\n7 │ 1 0 0\n      7\n      ─\n      3 0\n      2 8\n      ─ ─\n        2</pre>',
+          'Read the answer across the top: 14 R 2\nCheck: 7 × 14 + 2 = 100 ✓\nThe remainder is the number left over after sharing as evenly as possible.\nAnswer: 2 eggs left over.'
         ]
       },
       {
@@ -7818,6 +8077,15 @@ const MATH_SETS = [
           'Add the groups: 40 + 2 = 42',
           'So 252 ÷ 6 = 42',
           'Answer: 42 passengers.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Read carefully: we divide 252 into groups of 6.',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 252 on the inside.',
+          'The first digit (2) is too small to divide by 6, so we start with the first two digits: 25.\nDivide: 25 ÷ 6 = 4  → write 4 on top\nMultiply: 4 × 6 = 24\nSubtract: 25 − 24 = 1\nBring down the 2: now we have 12',
+          'Now we have 12.\nDivide: 12 ÷ 6 = 2  → write 2 on top\nMultiply: 2 × 6 = 12\nSubtract: 12 − 12 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      4 2\n  ┌───────\n6 │ 2 5 2\n    2 4\n    ─ ─\n      1 2\n      1 2\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 42\nCheck: 6 × 42 = 252 ✓\nAnswer: 42 passengers.'
         ]
       },
       {
@@ -7833,6 +8101,15 @@ const MATH_SETS = [
           'Add the groups: 20 + 4 = 24',
           'So 144 ÷ 6 = 24',
           'Jada collected 24 shells.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          '"6 times as many" means Marcus\'s shells = 6 × Jada\'s shells. To find Jada\'s amount, divide Marcus\'s by 6: 144 ÷ 6.',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 144 on the inside.',
+          'The first digit (1) is too small to divide by 6, so we start with the first two digits: 14.\nDivide: 14 ÷ 6 = 2  → write 2 on top\nMultiply: 2 × 6 = 12\nSubtract: 14 − 12 = 2\nBring down the 4: now we have 24',
+          'Now we have 24.\nDivide: 24 ÷ 6 = 4  → write 4 on top\nMultiply: 4 × 6 = 24\nSubtract: 24 − 24 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      2 4\n  ┌───────\n6 │ 1 4 4\n    1 2\n    ─ ─\n      2 4\n      2 4\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 24\nCheck: 6 × 24 = 144 ✓\nJada collected 24 shells.'
         ]
       },
       {
@@ -7849,6 +8126,17 @@ const MATH_SETS = [
           'Add the groups: 30 + 2 = 32',
           'So 288 ÷ 9 = 32',
           'Each box gets 32 muffins.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'This takes two steps: multiply to find the total, then divide to share.',
+          'Step 1 — total muffins: 6 × 48 = 288',
+          'Step 2 — share equally into 9 boxes with long division:',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 9 on the outside and 288 on the inside.',
+          'The first digit (2) is too small to divide by 9, so we start with the first two digits: 28.\nDivide: 28 ÷ 9 = 3  → write 3 on top\nMultiply: 3 × 9 = 27\nSubtract: 28 − 27 = 1\nBring down the 8: now we have 18',
+          'Now we have 18.\nDivide: 18 ÷ 9 = 2  → write 2 on top\nMultiply: 2 × 9 = 18\nSubtract: 18 − 18 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      3 2\n  ┌───────\n9 │ 2 8 8\n    2 7\n    ─ ─\n      1 8\n      1 8\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 32\nCheck: 9 × 32 = 288 ✓\nEach box gets 32 muffins.'
         ]
       },
       {
@@ -7865,6 +8153,17 @@ const MATH_SETS = [
           'Add the groups: 80 + 4 = 84',
           'So 336 ÷ 4 = 84',
           'Each shelf holds 84 books.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'This takes two steps: subtract the checked-out books, then divide.',
+          'Step 1 — books left: 365 − 29 = 336',
+          'Step 2 — share equally onto 4 shelves with long division:',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 4 on the outside and 336 on the inside.',
+          'The first digit (3) is too small to divide by 4, so we start with the first two digits: 33.\nDivide: 33 ÷ 4 = 8  → write 8 on top\nMultiply: 8 × 4 = 32\nSubtract: 33 − 32 = 1\nBring down the 6: now we have 16',
+          'Now we have 16.\nDivide: 16 ÷ 4 = 4  → write 4 on top\nMultiply: 4 × 4 = 16\nSubtract: 16 − 16 = 0\nNo more digits to bring down. Nothing is left over.',
+          'Here is the finished problem on paper:<pre>      8 4\n  ┌───────\n4 │ 3 3 6\n    3 2\n    ─ ─\n      1 6\n      1 6\n      ─ ─\n        0</pre>',
+          'Read the answer across the top: 84\nCheck: 4 × 84 = 336 ✓\nEach shelf holds 84 books.'
         ]
       },
       {
@@ -7878,6 +8177,14 @@ const MATH_SETS = [
           'So 50 ÷ 6 = 8 R 2',
           'The 2 left over still need a spot, so we need one more group: 8 + 1 = 9.',
           'Answer: 9 cartons.'
+        ],
+        altLabel: 'Long division',
+        altSteps: [
+          'Read carefully: we divide 50 into groups of 6.',
+          'Long division repeats four moves: Divide → Multiply → Subtract → Bring down.\nSet it up with 6 on the outside and 50 on the inside.',
+          'The first digit (5) is too small to divide by 6, so we start with the first two digits: 50.\nDivide: 50 ÷ 6 = 8  → write 8 on top\nMultiply: 8 × 6 = 48\nSubtract: 50 − 48 = 2\nNo more digits to bring down. 2 is left over — that is the remainder.',
+          'Here is the finished problem on paper:<pre>      8\n  ┌─────\n6 │ 5 0\n    4 8\n    ─ ─\n      2</pre>',
+          'Read the answer across the top: 8 R 2\nCheck: 6 × 8 + 2 = 50 ✓\nThe 2 left over still need a spot, so we need one more group: 8 + 1 = 9.\nAnswer: 9 cartons.'
         ]
       }
     ]
