@@ -251,6 +251,7 @@
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
   <script>
     // ── Profile + lesson setup ──────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
@@ -463,7 +464,7 @@
         timeSeconds: elapsed,
         completedAt: firebase.firestore.FieldValue.serverTimestamp(),
         timestamp:   firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(() => {});
+      }).catch(reportSaveError('typing progress'));
 
       // Check for typing badges
       db.collection('TypingProgress').where('readerId', '==', profile.readerId).get()
@@ -479,7 +480,7 @@
             if (newBadges.length) {
               db.collection('StudentStats').doc(profile.readerId).set({
                 badges: [...(sd.badges || []), ...newBadges]
-              }, { merge: true }).catch(() => {});
+              }, { merge: true }).catch(reportSaveError('typing badges'));
               // Show badge toast
               newBadges.forEach((id, i) => {
                 const labels = { typing_first: '⌨️ Badge: Keyboarder!', typing_5: '⌨️ Badge: Typing Pro!', typing_10: '⌨️ Badge: Speed Demon!' };
@@ -504,7 +505,7 @@
         firebase.firestore().collection('StudentStats').doc(profile.readerId)
           .set({ lastReadDate: todayStr, inactivityDecay: 0, decayCheckedDate: todayStr,
                  lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
-          .catch(() => {});
+          .catch(reportSaveError('typing activity date'));
       })();
 
       // Daily challenge: c_typing
@@ -517,7 +518,7 @@
           localStorage.setItem(lsKey, JSON.stringify(state));
           firebase.firestore().collection('StudentStats').doc(profile.readerId)
             .set({ challengeXp: firebase.firestore.FieldValue.increment(20), lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
-            .catch(() => {});
+            .catch(reportSaveError('typing bonus xp'));
         }
       })();
     }

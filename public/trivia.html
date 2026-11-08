@@ -345,6 +345,7 @@
 <script defer src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
 <script defer src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
 <script defer src="/__/firebase/init.js"></script>
+  <script defer src="app-errors.js"></script>
 <script>
   // ─── Profile ───────────────────────────────────────────────────────────────
   const profile = (() => {
@@ -778,7 +779,7 @@
         rounds: ROUNDS,
         xpEarned,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
+      }).catch(reportSaveError('trivia score'));
 
       // Show XP toast
       const toast = document.createElement('div');

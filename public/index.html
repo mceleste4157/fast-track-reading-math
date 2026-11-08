@@ -395,6 +395,7 @@
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
   <script>
     // ─── Auth guard — redirect to login if no profile ─────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
@@ -876,7 +877,7 @@
       if ((sd.inactivityDecay || 0) !== 0) {
         db.collection('StudentStats').doc(profile.readerId)
           .update({ inactivityDecay: 0, decayCheckedDate: new Date().toISOString().slice(0, 10) })
-          .catch(() => {});
+          .catch(reportSaveError('inactivity reset'));
       }
       const effectiveXp = totalXp;
       let currentStreak = sd.currentStreak || 0;
@@ -894,7 +895,7 @@
         firebase.firestore().collection('StudentStats').doc(profile.readerId).update({
           lastReadDate: ydayStr,
           freezeTokens: freezeTokens - 1
-        }).catch(() => {});
+        }).catch(reportSaveError('streak freeze'));
         // Show freeze used toast
         setTimeout(() => {
           const t = document.createElement('div');
@@ -1251,7 +1252,7 @@
         toast.style.cssText = 'position:fixed;top:74px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:11px 20px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(124,58,237,0.35);max-width:360px;text-align:center;';
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 3500);
-      }).catch(() => {});
+      }).catch(reportSaveError('daily login bonus'));
     })();
 
     // ─── Parent message ────────────────────────────────────────────────────────
@@ -1289,7 +1290,7 @@
       const status   = document.getElementById('offline-dl-status');
 
       const ASSETS = [
-        '/stories-meta.js', '/stories.js?v=20260705', '/math-data.js', '/dark.css',
+        '/stories-meta.js', '/stories.js?v=20260705', '/math-data.js', '/dark.css', '/app-errors.js',
         '/__/firebase/10.0.0/firebase-app-compat.js',
         '/__/firebase/10.0.0/firebase-auth-compat.js',
         '/__/firebase/10.0.0/firebase-firestore-compat.js',
@@ -1310,7 +1311,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v16'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v17'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {

@@ -78,6 +78,7 @@
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) window.location.href = 'login.html';
@@ -186,7 +187,7 @@
           <div><strong>${escHtml(a.answer)}</strong>${!a.correct?' (you wrote: '+escHtml(a.typed)+')':''}</div>
         </div>`).join('');
       if(bonusXp>0) firebase.firestore().collection('StudentStats').doc(profile.readerId)
-        .set({challengeXp:firebase.firestore.FieldValue.increment(bonusXp),lastUpdated:firebase.firestore.FieldValue.serverTimestamp()},{merge:true}).catch(()=>{});
+        .set({challengeXp:firebase.firestore.FieldValue.increment(bonusXp),lastUpdated:firebase.firestore.FieldValue.serverTimestamp()},{merge:true}).catch(reportSaveError('fill-in-blank xp'));
     }
 
     document.getElementById('btn-check').addEventListener('click', checkAnswer);

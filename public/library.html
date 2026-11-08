@@ -347,6 +347,7 @@
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) {
@@ -820,7 +821,7 @@
       // Sync to Firestore for cross-device persistence
       db.collection('StudentStats').doc(profile.readerId)
         .set({ bookmarks: favIds }, { merge: true })
-        .catch(() => {});
+        .catch(reportSaveError('bookmarks'));
       updateFavTab();
     }
 

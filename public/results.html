@@ -351,6 +351,7 @@
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
   <script>
     const BADGES = [
       { id: 'first_story',   emoji: '📖', name: 'First Story',    desc: 'Read your first story' },
@@ -747,7 +748,7 @@
         title: result.storyTitle || story.title,
         starsEarned: stars, xpEarned: xp,
         date: todayStr, timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(() => {});
+      }).catch(reportSaveError('story activity log'));
 
       // ── Grade advancement check ─────────────────────────────────────────────
       // Include the current quiz's stars in the check (it may not be written yet)
@@ -852,7 +853,7 @@
       if (bonusXp > 0) {
         firebase.firestore().collection('StudentStats').doc(profile.readerId)
           .set({ challengeXp: firebase.firestore.FieldValue.increment(bonusXp), lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
-          .catch(() => {});
+          .catch(reportSaveError('story bonus xp'));
       }
     }
 
@@ -913,7 +914,7 @@
       if (profile.profileDocId) {
         db.collection('StudentProfiles').doc(profile.profileDocId)
           .update({ gradeLevel: newGrade, timestamp: firebase.firestore.FieldValue.serverTimestamp() })
-          .catch(() => {});
+          .catch(reportSaveError('grade advance'));
       }
 
       // Show the modal after a short delay (let other celebrations finish)
@@ -955,7 +956,7 @@
         rating:     val,
         grade:      profile.gradeLevel,
         timestamp:  firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(() => {});
+      }).catch(reportSaveError('story rating'));
     };
 
     // ─── Writing prompt ────────────────────────────────────────────────────────

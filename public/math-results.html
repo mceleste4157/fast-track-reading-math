@@ -173,6 +173,7 @@
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
   <script>
     const BADGES = [
       { id: 'first_story',   emoji: '📖', name: 'First Story',    desc: 'Read your first story' },
@@ -431,7 +432,7 @@
         title: result.setTitle || mathSet.title,
         starsEarned: result.score, xpEarned: xp,
         date: todayStr, timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(() => {});
+      }).catch(reportSaveError('math activity log'));
 
       return statsWritePromise;
     }).catch(() => {
@@ -488,7 +489,7 @@
           localStorage.setItem(lsKey, JSON.stringify(state));
           firebase.firestore().collection('StudentStats').doc(profile.readerId)
             .set({ challengeXp: firebase.firestore.FieldValue.increment(20), lastUpdated: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true })
-            .catch(() => {});
+            .catch(reportSaveError('math bonus xp'));
         }
       })();
     }
