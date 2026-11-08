@@ -1,8 +1,8 @@
-// FAST Track — Service Worker v23
+// FAST Track — Service Worker v24
 // HTML: network-first (always fresh after deploys)
 // JS/CSS/other assets: cache-first (fast loads)
 // Offline: core pages + stories/math data + Firebase SDK pre-cached
-const CACHE = 'fast-track-v23';
+const CACHE = 'fast-track-v24';
 const STATIC_ASSETS = [
   // Core data
   '/stories-meta.js',

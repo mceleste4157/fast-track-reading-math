@@ -126,10 +126,11 @@
     return out;
   }
 
-  function pairs(count) {   // distinct unordered fact pairs from 2..12
+  function pairs(count, lo, hi) {   // distinct unordered fact pairs (default 2..12)
     var seen = {}, out = [];
+    lo = lo || 2; hi = hi || 12;
     while (out.length < count) {
-      var x = rnd(2, 12), y = rnd(2, 12), k = Math.min(x, y) + 'x' + Math.max(x, y);
+      var x = rnd(lo, hi), y = rnd(lo, hi), k = Math.min(x, y) + 'x' + Math.max(x, y);
       if (!seen[k]) { seen[k] = 1; out.push(Math.random() < 0.5 ? [x, y] : [y, x]); }
     }
     return out;
@@ -217,6 +218,76 @@
   function rep(n, mk) { var out = []; for (var i = 0; i < n; i++) out.push(mk); return out; }
   function cat() { return [].concat.apply([], arguments); }
 
+  // ── Multiplication: multi-digit products, equal-groups word problems, repeated addition ───────────
+  // Partial products: break one factor into place values and multiply each piece.
+  function partialProducts(a, b) {
+    var big = Math.max(a, b), small = Math.min(a, b);
+    var breakNum = String(small).length === 1 ? big : small, other = breakNum === big ? small : big;
+    var digits = String(breakNum).split(''), parts = [];
+    digits.forEach(function (dg, i) { var v = +dg * Math.pow(10, digits.length - 1 - i); if (v) parts.push(v); });
+    var prods = parts.map(function (v) { return other * v; });
+    var steps = ['Break ' + fmt(breakNum) + ' into place values: ' + parts.map(fmt).join(' + ') + '.']
+      .concat(parts.map(function (v, i) { return fmt(other) + ' × ' + fmt(v) + ' = ' + fmt(prods[i]); }),
+              ['Add the partial products: ' + prods.map(fmt).join(' + ') + ' = ' + fmt(a * b) + '.']);
+    return { steps: steps, prods: prods };
+  }
+  function randNum(digits) {   // no zero in the units place (keeps at least two partial products)
+    var n = 0;
+    for (var i = 0; i < digits; i++) n = n * 10 + (i === 0 || i === digits - 1 ? rnd(1, 9) : rnd(0, 9));
+    return n;
+  }
+  function mulWrong(p, prods) {
+    var w = [p + 10, p - 10, p + 100, p - 100, p + 1000, p - 1000, p - prods[prods.length - 1], p - prods[0]];
+    return w.filter(function (n) { return n > 0 && n !== p; });
+  }
+  function mulBig(a, b) {
+    var p = a * b, pp = partialProducts(a, b);
+    return make('What is ' + fmt(a) + ' × ' + fmt(b) + '?', fmt(p), mulWrong(p, pp.prods).map(fmt),
+      fmt(a) + ' × ' + fmt(b) + ' = ' + fmt(p) + '.', pp.steps);
+  }
+  var MUL_SMALL = [
+    'There are {a} boats with {b} people in each boat. How many people are there in all?',
+    'A shop has {a} shelves with {b} toys on each shelf. How many toys are there in all?',
+    'A grove has {a} rows of trees with {b} trees in each row. How many trees are in the grove?',
+    'A manatee swims {a} miles each day. How many miles does it swim in {b} days?',
+    'Each bag holds {a} seashells. Mia fills {b} bags. How many seashells does she have?',
+    'A pelican catches {a} fish each time it dives. How many fish does it catch in {b} dives?',
+    'There are {a} tables with {b} chairs at each table. How many chairs are there in all?',
+    'A baker puts {a} cookies on each tray. How many cookies are on {b} trays?'
+  ];
+  var MUL_BIG = [
+    'A school orders {a} boxes of colored pencils. Each box holds {b} pencils. How many pencils are there in all?',
+    'A cafeteria has {a} tables. Each table seats {b} students. How many students can sit in the cafeteria?',
+    'A theater has {a} rows with {b} seats in each row. How many seats are there?',
+    'A farm stand sells {a} bags of oranges with {b} oranges in each bag. How many oranges is that?',
+    'A factory packs {a} crates. Each crate holds {b} bottles. How many bottles are packed?'
+  ];
+  var MUL_MONEY = [
+    'A librarian earns ${a} per hour and worked {b} hours last month. How much did she earn in all?',
+    'A bike shop sells helmets for ${a} each. It sold {b} helmets. How much money did it make?'
+  ];
+  function mulStory(templates, a, b, money) {
+    var text = templates[rnd(0, templates.length - 1)].replace('{a}', a).replace('{b}', b), p = a * b;
+    var f = function (n) { return (money ? '$' : '') + fmt(n); };
+    var wrong = (p < 100 ? [p + a, p - a, p + b, p - b, a + b, p + 10, p - 10] : mulWrong(p, partialProducts(a, b).prods).concat([p + a, p - a]))
+      .filter(function (n) { return n > 0 && n !== p; }).map(f);
+    var pp = partialProducts(a, b);
+    var steps = ['Equal groups means multiply: ' + fmt(a) + ' × ' + fmt(b) + '.'].concat(p < 100 ? [fmt(a) + ' groups of ' + fmt(b) + ': ' + fmt(a) + ' × ' + fmt(b) + ' = ' + fmt(p), 'Check by repeated addition or a different order: ' + fmt(b) + ' × ' + fmt(a) + ' = ' + fmt(p)] : pp.steps);
+    return make(text, f(p), wrong, fmt(a) + ' × ' + fmt(b) + ' = ' + fmt(p) + '.', steps);
+  }
+  function repAdd(a, b) {   // "Which addition matches a × b?"  → a groups of b
+    var ok = Array(a).fill(b).join(' + ');
+    return make('Which addition matches ' + a + ' × ' + b + '?', ok,
+      // every wrong choice has a different total (a swapped version like b + b + … would equal a × b too)
+      [Array(a + 1).fill(b).join(' + '), a > 2 ? Array(a - 1).fill(b).join(' + ') : Array(a + 2).fill(b).join(' + '), Array(a).fill(b + 1).join(' + '), a + ' + ' + b],
+      a + ' × ' + b + ' means ' + a + ' groups of ' + b + ', so we add ' + b + ' a total of ' + a + ' times: ' + ok + ' = ' + (a * b) + '.',
+      [a + ' × ' + b + ' means ' + a + ' groups of ' + b + '.', 'Add ' + b + ' a total of ' + a + ' times: ' + ok, ok + ' = ' + (a * b)]);
+  }
+  function mbig(da, db) { return function () { return mulBig(randNum(da), randNum(db)); }; }
+  function mstory(tpl, aLo, aHi, bLo, bHi, money) { return function () { return mulStory(tpl, rnd(aLo, aHi), rnd(bLo, bHi), money); }; }
+  function mfact(pair) { return function () { return multFact(pair[0], pair[1]); }; }
+  function mrepAdd() { return function () { var a = rnd(2, 5), b = rnd(2, 5); if (a === b) b = a === 5 ? 4 : a + 1; return repAdd(a, b); }; }
+
   var EXTEND = {
     'division-remainders-g4': function (seen) {
       var modes = shuffle(['drop', 'roundup', 'leftover']).slice(0, 2);
@@ -236,6 +307,17 @@
     },
     'division': function (seen) {
       return collect(FRESH, cat(rep(2, big(2, true)), [big(3, false)], rep(2, big(3, true)), [big(4, false), big(4, true)], ['drop', 'roundup', 'leftover'].map(story), rep(2, exact(10, 80))), seen);
+    },
+    'multiplication': function (seen) {
+      return collect(FRESH, cat(rep(2, mbig(1, 3)), rep(2, mbig(1, 4)), rep(3, mbig(2, 2)),
+        [mstory(MUL_BIG, 12, 40, 12, 40), mstory(MUL_BIG, 3, 9, 100, 400), mstory(MUL_BIG, 12, 40, 12, 40)],
+        [mstory(MUL_MONEY, 6, 25, 40, 300, true)], [mbig(1, 3)]), seen);
+    },
+    'multiplication-intro': function (seen) {
+      return collect(FRESH, cat(rep(5, mstory(MUL_SMALL, 2, 6, 2, 5)), pairs(4, 2, 5).map(mfact), rep(3, mrepAdd())), seen);
+    },
+    'multiplication-facts-g3': function (seen) {
+      return collect(FRESH, cat(pairs(8, 2, 10).map(mfact), rep(4, mstory(MUL_SMALL, 3, 9, 3, 9))), seen);
     },
     'dividing-whole-numbers': function (seen) {
       return collect(FRESH, cat(rep(4, big(3, false)), rep(3, bigBy(4, 11, 30, false)), rep(2, bigBy(4, 11, 30, true)),

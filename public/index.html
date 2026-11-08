@@ -1312,7 +1312,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v23'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v24'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {

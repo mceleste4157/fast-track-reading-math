@@ -41,7 +41,7 @@ for (let it = 0; it < ITER; it++) {
       if (/NaN|undefined|\[object/.test([q.question, q.explanation, ...q.options, ...q.steps, ...(q.altSteps || [])].join('\n'))) bad(set.id, q.question, 'NaN/undefined in text');
 
       let m, want = null;
-      if ((m = q.question.match(/^What is (\d+) × (\d+)\?$/))) want = String(+m[1] * +m[2]);
+      if ((m = q.question.match(/^What is ([\d,]+) × ([\d,]+)\?$/))) want = fmt(num(m[1]) * num(m[2]));
       else if ((m = q.question.match(/^(\d+) × \? = (\d+)$/))) want = String(+m[2] / +m[1]);
       else if ((m = q.question.match(/^What is ([\d,]+) ÷ (\d+)\?$/))) {
         const N = num(m[1]), d = +m[2], qq = Math.floor(N / d), r = N % d;
@@ -50,6 +50,15 @@ for (let it = 0; it < ITER; it++) {
         if (d > 1 && (set.id === 'practice-division-g4' || (set.freshExtra && set.id !== 'division-basics')) && !q.altSteps) bad(set.id, q.question, 'division question without a Long division view');
       } else if ((m = q.question.match(/^What is the remainder when ([\d,]+) is divided by (\d+)\?$/))) want = String(num(m[1]) % +m[2]);
       else if ((m = q.question.match(/^Which multiplication fact can you use to solve (\d+) ÷ (\d+)\?$/))) want = `${m[2]} × ${+m[1] / +m[2]} = ${m[1]}`;
+      else if ((m = q.question.match(/^Which addition matches (\d+) × (\d+)\?$/))) {
+        want = Array(+m[1]).fill(+m[2]).join(' + ');
+        const total = (+m[1]) * (+m[2]), sum = t => t.split(' + ').reduce((x, y) => x + +y, 0);
+        q.options.forEach(o => { if (o !== want && sum(o) === total) bad(set.id, q.question, `wrong choice "${o}" also adds up to ${total}`); });
+      }
+      else if (set.topic === 'multiplication') {   // equal-groups word problem: product of the first two numbers
+        const nums = q.question.match(/\d[\d,]*/g).map(num);
+        want = (/\$\d/.test(q.question) ? '$' : '') + fmt(nums[0] * nums[1]);
+      }
       else if (set.id === 'practice-division-g4' || set.freshExtra) {   // word problem: N then d are the first two numbers
         const nums = q.question.match(/\d[\d,]*/g).map(num), N = nums[0], d = nums[1];
         const qq = Math.floor(N / d), r = N % d, unit = (correct.match(/^[\d,]+ (\w+)$/) || [])[1];
