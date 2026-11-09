@@ -418,7 +418,7 @@
       const statsWritePromise = db.collection('StudentStats').doc(profile.readerId).set({
         readerId: profile.readerId,
         currentStreak, longestStreak,
-        lastReadDate: todayStr, weekStartDate: weekStart,
+        lastReadDate: todayStr, lastMathDate: todayStr, weekStartDate: weekStart,
         storiesThisWeek, mathThisWeek,
         badges: [...currentBadges, ...newBadgeIds],
         inactivityDecay: 0, decayCheckedDate: todayStr,

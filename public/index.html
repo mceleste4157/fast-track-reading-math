@@ -745,6 +745,10 @@
 
     // ─── Render math card ──────────────────────────────────────────────────────
     function renderMathCard(unlocked) {
+      const unlockScore = profile.mathUnlockScore ?? 3;
+      const lockedSub = unlockScore <= 1
+        ? 'Earn ' + unlockScore + ' star on a reading quiz to unlock!'
+        : 'Earn ' + unlockScore + ' stars on a reading quiz to unlock!';
       document.getElementById('math-card').innerHTML = unlocked
         ? `<a href="math.html" class="module-card math-open">
             <div class="mod-icon">📐</div>
@@ -758,13 +762,15 @@
             <div class="mod-icon">🔒</div>
             <div class="mod-body">
               <div class="mod-title">Math Zone</div>
-              <div class="mod-sub">Earn 3 stars on a reading quiz to unlock!</div>
+              <div class="mod-sub">${lockedSub}</div>
             </div>
             <div class="mod-badge">Locked</div>
            </div>`;
     }
 
-    renderMathCard(localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
+    // mathUnlockScore of 0 means "always unlocked" — render open immediately instead of
+    // flashing a locked card until the Firestore stats call below resolves.
+    renderMathCard((profile.mathUnlockScore ?? 3) === 0 || localStorage.getItem(MATH_UNLOCK_KEY) === 'true');
 
     // ─── Daily Challenges ──────────────────────────────────────────────────────
     const CHALLENGE_POOL = [
@@ -855,9 +861,13 @@
       const mathSetsCompleted = sd.mathSetsCompleted || 0;
       const totalXp       = sd.totalXp       || 0;
 
-      // Math unlock
-      const mathUnlocked = bestReadScore >= 3 || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';
-      if (bestReadScore >= 3 && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
+      // Math unlock — respects the parent's per-child mathUnlockScore setting (0 = always
+      // unlocked), same threshold math.html itself gates on. Previously hardcoded to 3,
+      // which ignored a parent's "always unlocked" or custom star-count setting entirely.
+      const mathUnlockScore = profile.mathUnlockScore ?? 3;
+      const mathUnlocked = mathUnlockScore === 0 || bestReadScore >= mathUnlockScore
+        || localStorage.getItem(MATH_UNLOCK_KEY) === 'true';
+      if (mathUnlocked && localStorage.getItem(MATH_UNLOCK_KEY) !== 'true') {
         localStorage.setItem(MATH_UNLOCK_KEY, 'true');
         renderMathCard(true);
       }
@@ -1024,8 +1034,11 @@
         const nudgeEl = document.getElementById('math-daily-nudge');
         if (!nudgeEl || !mathUnlocked) return;
         const today = new Date().toISOString().slice(0,10);
-        const mathDoneToday = sd.lastReadDate === today && (sd.mathThisWeek || 0) > 0
-          || localStorage.getItem('mathDoneDate_' + profile.readerId) === today;
+        // lastReadDate is shared by reading AND math completions (it's the general daily-
+        // activity marker the streak banner uses), so it can't tell "read today" from "did
+        // math today" — reading today while mathThisWeek was already >0 from earlier in the
+        // week used to falsely show "Math done today!". lastMathDate is math-specific.
+        const mathDoneToday = sd.lastMathDate === today;
         const mathStreak = parseInt(localStorage.getItem('mathStreak_' + profile.readerId) || '0');
         const mathStreakDate = localStorage.getItem('mathStreakDate_' + profile.readerId) || '';
         const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);

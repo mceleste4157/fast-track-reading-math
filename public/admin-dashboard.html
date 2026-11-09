@@ -157,6 +157,18 @@
     .writing-prompt { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 7px; }
     .writing-response { font-size: 0.93rem; line-height: 1.6; }
 
+    /* ── STORY RATINGS ── */
+    .rating-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 760px) { .rating-cols { grid-template-columns: 1fr; } }
+    .rating-col-title { font-size: 0.85rem; font-weight: 800; margin-bottom: 10px; }
+    .rating-row {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--surface); border-radius: 10px; padding: 10px 14px;
+      margin-bottom: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .rating-row-title { flex: 1; min-width: 0; font-weight: 700; font-size: 0.88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .rating-row-count { font-size: 0.78rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
+
     /* ── LOADING ── */
     .spinner {
       width: 32px; height: 32px; border: 4px solid #e5e7eb;
@@ -215,6 +227,7 @@
       <button class="tab active" onclick="switchTab('students')">👦 Students</button>
       <button class="tab" onclick="switchTab('activity')">📋 Activity Feed</button>
       <button class="tab" onclick="switchTab('writing')">✍️ Writing Responses</button>
+      <button class="tab" onclick="switchTab('ratings')">⭐ Story Ratings</button>
       <button class="tab" onclick="switchTab('suggestions')">💡 Suggestions</button>
     </div>
 
@@ -264,6 +277,15 @@
         <button class="btn-refresh" onclick="loadWriting()">↻ Refresh</button>
       </div>
       <div id="writing-feed"><div class="spinner"></div></div>
+    </div>
+
+    <!-- Story Ratings tab -->
+    <div class="tab-panel" id="panel-ratings">
+      <div class="bar">
+        <span class="count-badge" id="ratings-count">Loading…</span>
+        <button class="btn-refresh" onclick="loadRatings()">↻ Refresh</button>
+      </div>
+      <div id="ratings-feed"><div class="spinner"></div></div>
     </div>
 
     <!-- Suggestions tab -->
@@ -349,7 +371,7 @@
   // ── Tab switching ──────────────────────────────────────────────────────────
   function switchTab(name) {
     document.querySelectorAll('.tab').forEach((t,i) => {
-      const panels = ['students','activity','writing','suggestions'];
+      const panels = ['students','activity','writing','ratings','suggestions'];
       t.classList.toggle('active', panels[i] === name);
     });
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -361,8 +383,54 @@
     loadStudents();
     loadActivity();
     loadWriting();
+    loadRatings();
     loadSuggestions();
     loadOverviewStats();
+  }
+
+  // ── Story Ratings ──────────────────────────────────────────────────────────
+  // Kids rate stories 👍/👎 on the results page (results.html), but until now that
+  // data was never surfaced anywhere — this aggregates it by story so it's actually useful.
+  function loadRatings() {
+    document.getElementById('ratings-feed').innerHTML = '<div class="spinner"></div>';
+    db.collection('StoryRatings').get().then(snap => {
+      const byStory = {};
+      snap.forEach(d => {
+        const r = d.data();
+        const key = r.storyId || '—';
+        if (!byStory[key]) byStory[key] = { title: r.storyTitle || key, up: 0, down: 0 };
+        if (r.rating === 1) byStory[key].up++; else byStory[key].down++;
+      });
+      renderRatings(Object.values(byStory));
+    }).catch(() => {
+      document.getElementById('ratings-feed').innerHTML = '<div class="empty">Could not load story ratings.</div>';
+    });
+  }
+
+  function renderRatings(stories) {
+    const totalRatings = stories.reduce((n, s) => n + s.up + s.down, 0);
+    document.getElementById('ratings-count').textContent =
+      totalRatings + ' rating' + (totalRatings !== 1 ? 's' : '') + ' on ' + stories.length + ' stor' + (stories.length !== 1 ? 'ies' : 'y');
+    if (!stories.length) {
+      document.getElementById('ratings-feed').innerHTML = '<div class="empty">No story ratings yet.</div>';
+      return;
+    }
+    const row = (s, icon, count) => `<div class="rating-row">
+        <div class="rating-row-title">${escHtml(s.title)}</div>
+        <div class="rating-row-count">${icon} ${count}</div>
+      </div>`;
+    const mostLoved = stories.filter(s => s.up > 0).sort((a, b) => b.up - a.up || a.down - b.down).slice(0, 10);
+    const mostDisliked = stories.filter(s => s.down > 0).sort((a, b) => b.down - a.down || a.up - b.up).slice(0, 10);
+    document.getElementById('ratings-feed').innerHTML = `<div class="rating-cols">
+        <div>
+          <div class="rating-col-title">👍 Most Loved</div>
+          ${mostLoved.length ? mostLoved.map(s => row(s, '👍', s.up)).join('') : '<div class="empty">No 👍 ratings yet.</div>'}
+        </div>
+        <div>
+          <div class="rating-col-title">👎 Most Disliked</div>
+          ${mostDisliked.length ? mostDisliked.map(s => row(s, '👎', s.down)).join('') : '<div class="empty">No 👎 ratings yet.</div>'}
+        </div>
+      </div>`;
   }
 
   // ── Overview stats ─────────────────────────────────────────────────────────
