@@ -210,6 +210,7 @@
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) { window.location.href = 'login.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     // ─── Quick Review mode (no scoring, just flip through) ───────────────────────
     const QUICK_MODE = new URLSearchParams(location.search).get('mode') === 'quick';
@@ -397,6 +398,7 @@
       updateStats();
       showCard();
     }
+    }  // end: if (profile)
   </script>
 </body>
 </html>

@@ -400,7 +400,8 @@
   <script>
     // ─── Auth guard — redirect to login if no profile ─────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.replace('login.html'); }
+    if (!profile) { window.location.href = 'login.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     function isRecommendedForGrade(story, grade) {
       const label = String(story.gradeLevel || '');
@@ -835,6 +836,7 @@
       localStorage.removeItem('readerProfile');
       window.location.href = 'login.html';
     }
+    if (profile.readerId) {   // (everything below needs a readerId; without one we are already redirecting)
 
     // Show a retry link if Firestore takes more than 5 seconds
     const _loadingTimeout = setTimeout(() => {
@@ -1339,6 +1341,8 @@
       }
     }
     }
+    }  // end: if (profile.readerId)
+    }  // end: if (profile)
   </script>
 </body>
 </html>

@@ -358,6 +358,7 @@
     return null;
   })();
   if (!profile) { window.location.href = 'login.html'; }
+  if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
   // ─── Game state ────────────────────────────────────────────────────────────
   const ROUNDS        = 3;
@@ -820,6 +821,7 @@
     }
     setTimeout(() => { wrap.innerHTML = ''; }, 5000);
   }
+  }  // end: if (profile)
 </script>
 
 </body>

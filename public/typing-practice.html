@@ -258,6 +258,7 @@
     // ── Profile + lesson setup ──────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) { window.location.href = 'login.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     const LESSONS = {
       l1:  { emoji:'👈', title:'Left Home Row',    sub:'a · s · d · f · g',         xp:15, text:'aaa sss ddd fff asd fds fad sad add lass flask glass glad flask adds' },
@@ -567,6 +568,7 @@
         document.head.appendChild(s);
       }
     }
+    }  // end: if (profile)
   </script>
 </body>
 </html>
