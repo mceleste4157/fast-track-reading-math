@@ -343,8 +343,11 @@
 
 <script src="stories.js?v=20260705"></script>
 <script defer src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+<script defer src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
 <script defer src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
 <script defer src="/__/firebase/init.js"></script>
+  <script defer src="app-errors.js"></script>
+  <script defer src="auth-guard.js"></script>
 <script>
   // ─── Profile ───────────────────────────────────────────────────────────────
   const profile = (() => {
@@ -354,7 +357,8 @@
     } catch(e) {}
     return null;
   })();
-  if (!profile) { window.location.href = 'login.html'; return; }
+  if (!profile) { window.location.href = 'login.html'; }
+  if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
   // ─── Game state ────────────────────────────────────────────────────────────
   const ROUNDS        = 3;
@@ -778,7 +782,7 @@
         rounds: ROUNDS,
         xpEarned,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(() => { /* non-critical */ });
+      }).catch(reportSaveError('trivia score'));
 
       // Show XP toast
       const toast = document.createElement('div');
@@ -817,6 +821,7 @@
     }
     setTimeout(() => { wrap.innerHTML = ''; }, 5000);
   }
+  }  // end: if (profile)
 </script>
 
 </body>

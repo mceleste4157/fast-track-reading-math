@@ -395,10 +395,13 @@
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
+  <script src="auth-guard.js"></script>
   <script>
     // ─── Auth guard — redirect to login if no profile ─────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; return; }
+    if (!profile) { window.location.href = 'login.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     function isRecommendedForGrade(story, grade) {
       const label = String(story.gradeLevel || '');
@@ -478,7 +481,7 @@
       if (cached) { showPinModal(cached, onSuccess); return; }
       const unsub = firebase.auth().onAuthStateChanged(user => {
         unsub();
-        if (!user) { showPinModal(undefined, onSuccess, 'Please sign in again to verify your PIN.'); return; }
+        if (!user) { showPinModal(undefined, onSuccess, 'Please sign in again to verify your PIN.', true); return; }
         fetchPortalPin(user.uid)
           .then(pin => {
             // No PIN has ever been set: let the Parent Portal force them to create one
@@ -520,7 +523,11 @@
         unsub();
         if (!user || !user.email) {
           $('#fp-text').textContent = 'You need to be signed in to reset your PIN.';
-          $('#fp-err').textContent = 'Please sign in again from the login screen.';
+          $('#fp-err').textContent = '';
+          const si = document.createElement('a');
+          si.href = 'login.html'; si.textContent = 'Sign in as parent';
+          si.style.cssText = btnCss + 'background:#7c3aed;color:#fff;text-decoration:none;box-sizing:border-box;';
+          $('#fp-send').replaceWith(si);
           return;
         }
         parentEmail = user.email;
@@ -545,17 +552,18 @@
           .catch(err => {
             localStorage.removeItem('pinResetEmail');
             const msg = err && err.code === 'auth/operation-not-allowed'
-              ? 'Email reset isn\'t switched on yet for this app. Open the Parent Portal and use "Forgot PIN" there instead.'
+              ? 'Email reset isn\'t turned on yet. The app owner needs to enable "Email link" sign-in in Firebase (Authentication → Sign-in method → Email/Password).'
               : err && err.code === 'auth/too-many-requests'
                 ? 'Too many tries. Please wait a few minutes and try again.'
                 : 'Couldn\'t send the email. Check your connection and try again.';
-            $('#fp-err').textContent = msg;
+            console.error('PIN reset email failed:', err);
+            $('#fp-err').textContent = msg + (err && err.code ? ' (' + err.code + ')' : '');
             sendBtn.textContent = 'Send reset link'; sendBtn.disabled = false; sendBtn.style.opacity = '1';
           });
       });
     }
 
-    function showPinModal(correctPin, onSuccess, lockedMsg) {
+    function showPinModal(correctPin, onSuccess, lockedMsg, needsSignIn) {
       const overlay = document.createElement('div');
       overlay.id = 'pin-modal-overlay';
       overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;';
@@ -574,11 +582,14 @@
             <button class="ppm-num" data-n="0" style="padding:14px;font-size:1.15rem;font-weight:700;background:#f3f4f6;border:none;border-radius:11px;cursor:pointer;">0</button>
             <div></div>
           </div>
-          <button id="ppm-forgot" style="display:block;width:100%;background:none;border:none;color:#7c3aed;font-size:0.88rem;font-weight:700;cursor:pointer;padding:6px;font-family:inherit;">Forgot PIN?</button>
+          ${needsSignIn
+            ? `<a id="ppm-signin" href="login.html" style="display:block;width:100%;box-sizing:border-box;padding:13px;margin-bottom:6px;background:#7c3aed;color:#fff;border-radius:12px;font-size:1rem;font-weight:800;text-decoration:none;">Sign in as parent</a>`
+            : `<button id="ppm-forgot" style="display:block;width:100%;background:none;border:none;color:#7c3aed;font-size:0.88rem;font-weight:700;cursor:pointer;padding:6px;font-family:inherit;">Forgot PIN?</button>`}
           <button id="ppm-cancel" style="background:none;border:none;color:#9ca3af;font-size:0.88rem;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;">Cancel</button>
         </div>`;
       document.body.appendChild(overlay);
-      overlay.querySelector('#ppm-forgot').addEventListener('click', () => { overlay.remove(); showForgotPinModal(onSuccess); });
+      const forgotLink = overlay.querySelector('#ppm-forgot');
+      if (forgotLink) forgotLink.addEventListener('click', () => { overlay.remove(); showForgotPinModal(onSuccess); });
 
       let entry = '';
       let checking = false;
@@ -824,8 +835,8 @@
       // Profile exists but readerId is missing — force re-login
       localStorage.removeItem('readerProfile');
       window.location.href = 'login.html';
-      return;
     }
+    if (profile.readerId) {   // (everything below needs a readerId; without one we are already redirecting)
 
     // Show a retry link if Firestore takes more than 5 seconds
     const _loadingTimeout = setTimeout(() => {
@@ -869,7 +880,7 @@
       if ((sd.inactivityDecay || 0) !== 0) {
         db.collection('StudentStats').doc(profile.readerId)
           .update({ inactivityDecay: 0, decayCheckedDate: new Date().toISOString().slice(0, 10) })
-          .catch(() => {});
+          .catch(reportSaveError('inactivity reset'));
       }
       const effectiveXp = totalXp;
       let currentStreak = sd.currentStreak || 0;
@@ -887,7 +898,7 @@
         firebase.firestore().collection('StudentStats').doc(profile.readerId).update({
           lastReadDate: ydayStr,
           freezeTokens: freezeTokens - 1
-        }).catch(() => {});
+        }).catch(reportSaveError('streak freeze'));
         // Show freeze used toast
         setTimeout(() => {
           const t = document.createElement('div');
@@ -1244,7 +1255,7 @@
         toast.style.cssText = 'position:fixed;top:74px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fff;padding:11px 20px;border-radius:12px;font-weight:700;font-size:0.9rem;z-index:9999;box-shadow:0 4px 16px rgba(124,58,237,0.35);max-width:360px;text-align:center;';
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 3500);
-      }).catch(() => {});
+      }).catch(reportSaveError('daily login bonus'));
     })();
 
     // ─── Parent message ────────────────────────────────────────────────────────
@@ -1282,7 +1293,7 @@
       const status   = document.getElementById('offline-dl-status');
 
       const ASSETS = [
-        '/stories-meta.js', '/stories.js?v=20260705', '/math-data.js', '/dark.css',
+        '/stories-meta.js', '/stories-vocab.js', '/stories.js?v=20260705', '/math-data.js', '/math-topics.js', '/division-engine.js', '/math-practice.js', '/dark.css', '/app-errors.js', '/auth-guard.js',
         '/__/firebase/10.0.0/firebase-app-compat.js',
         '/__/firebase/10.0.0/firebase-auth-compat.js',
         '/__/firebase/10.0.0/firebase-firestore-compat.js',
@@ -1303,7 +1314,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v16'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open('fast-track-v24'); // must match sw.js CACHE name — sw.js only serves from its own cache
 
       for (const url of ASSETS) {
         try {
@@ -1330,6 +1341,8 @@
       }
     }
     }
+    }  // end: if (profile.readerId)
+    }  // end: if (profile)
   </script>
 </body>
 </html>

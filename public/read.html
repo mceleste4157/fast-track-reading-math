@@ -291,7 +291,8 @@
   <script>
     // ─── Profile guard ─────────────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; return; }
+    if (!profile) { window.location.href = 'index.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     const params  = new URLSearchParams(location.search);
     const storyId = params.get('story');
@@ -692,6 +693,7 @@
         setTimeout(() => { btn.style.transform = ''; }, 200);
       });
     })();
+    }  // end: if (profile)
   </script>
 <script>
     if ('serviceWorker' in navigator) {

@@ -151,13 +151,16 @@
     <div id="main-content"><div class="spinner"></div></div>
   </div>
 
-  <script src="stories.js?v=20260705"></script>
+  <script src="stories-vocab.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="auth-guard.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; return; }
+    if (!profile) { window.location.href = 'index.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     const db = firebase.firestore();
     const content = document.getElementById('main-content');
@@ -297,6 +300,7 @@
     }
 
     function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    }  // end: if (profile)
   </script>
 </body>
 </html>

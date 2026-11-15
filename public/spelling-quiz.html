@@ -142,10 +142,13 @@
     </div>
   </div>
 
-  <script src="stories.js?v=20260705"></script>
+  <script src="stories-vocab.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
+  <script src="auth-guard.js"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
     if (!profile) window.location.href = 'login.html';
@@ -283,7 +286,7 @@
           .set({
             challengeXp: firebase.firestore.FieldValue.increment(bonusXp),
             lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-          }, { merge: true }).catch(() => {});
+          }, { merge: true }).catch(reportSaveError('spelling xp'));
         firebase.firestore().collection('SpellingProgress').add({
           readerId:   profile.readerId,
           readerName: profile.name,
@@ -293,7 +296,7 @@
           xpEarned:   bonusXp,
           date:       new Date().toISOString().slice(0, 10),
           timestamp:  firebase.firestore.FieldValue.serverTimestamp()
-        }).catch(() => {});
+        }).catch(reportSaveError('spelling history'));
       }
     }
 

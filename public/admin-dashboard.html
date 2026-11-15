@@ -435,7 +435,7 @@
       mathSnap.forEach(d => {
         const r = d.data().readerId;
         if (!mathTopicsMap[r]) mathTopicsMap[r] = new Set();
-        mathTopicsMap[r].add(d.data().setId);
+        if (!/^practice-/.test(d.data().setId)) mathTopicsMap[r].add(d.data().setId);
       });
 
       // Last-active map: track the most recent timestamp across all activity collections

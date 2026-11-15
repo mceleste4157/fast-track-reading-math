@@ -203,7 +203,8 @@
   <script src="stories.js?v=20260705"></script>
   <script>
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'index.html'; return; }
+    if (!profile) { window.location.href = 'index.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     const params  = new URLSearchParams(location.search);
     const storyId = params.get('story');
@@ -562,6 +563,7 @@
     showQuestion(currentQ);
     // showQuestion resets wrongsThisQuestion — re-apply saved value if resuming mid-question
     wrongsThisQuestion = _restoredWrongsThisQ;
+    }  // end: if (profile)
   </script>
 </body>
 </html>

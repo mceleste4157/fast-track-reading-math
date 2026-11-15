@@ -1,0 +1,352 @@
+// math-practice.js — "fresh every time" practice sets.
+// The regular topics in math-data.js always show the same 8 questions, so kids start to memorize them.
+// These sets are built in the browser each time a quiz opens (new numbers, same grade-level skills,
+// every question with worked steps). Needs math-data.js and division-engine.js first.
+(function () {
+  var E = window.DivisionEngine;
+  if (!E || typeof MATH_SETS === 'undefined') return;
+  var fmt = E.fmt;
+
+  function rnd(lo, hi) { return lo + Math.floor(Math.random() * (hi - lo + 1)); }
+  function shuffle(a) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function uniq(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); }
+
+  // Four options in random order, exactly one correct. Throws if fewer than 3 distinct wrong answers exist
+  // (callers retry with new numbers).
+  function make(question, correct, wrong, explanation, steps, altSteps) {
+    var w = uniq(wrong.filter(function (x) { return x !== correct; }));
+    if (w.length < 3) throw new Error('not enough distractors for: ' + question);
+    var options = shuffle([correct].concat(shuffle(w).slice(0, 3)));
+    var q = { question: question, options: options, correctIndex: options.indexOf(correct), explanation: explanation, steps: steps };
+    if (altSteps) { q.altLabel = 'Long division'; q.altSteps = altSteps; }
+    return q;
+  }
+  function positive(list) { return list.filter(function (n) { return n > 0; }).map(String); }
+  function multiples(d, upTo) { var out = []; for (var i = 1; i <= upTo; i++) out.push(d * i); return out; }
+
+  // ── Multiplication facts ──────────────────────────────────────────────────
+  function multSteps(x, y) {
+    var a = Math.min(x, y), b = Math.max(x, y), p = a * b;
+    if (a <= 3) {
+      var run = [], sum = 0;
+      for (var i = 0; i < a; i++) { sum += b; run.push(sum); }
+      return ['Think of ' + a + ' × ' + b + ' as adding ' + b + ' a total of ' + a + ' times.', Array(a).fill(b).join(' + ') + ' = ' + p, a + ' × ' + b + ' = ' + p];
+    }
+    if (b === 10) return ['Multiplying by 10: write the number, then add a 0.', a + ' → ' + a + '0', a + ' × 10 = ' + p];
+    if (b === 11) return ['Break 11 into 10 + 1.', a + ' × 10 = ' + a * 10, a + ' × 1 = ' + a, 'Add: ' + a * 10 + ' + ' + a + ' = ' + p];
+    if (b === 12) return ['Break 12 into 10 + 2.', a + ' × 10 = ' + a * 10, a + ' × 2 = ' + a * 2, 'Add: ' + a * 10 + ' + ' + a * 2 + ' = ' + p];
+    return ['Break ' + b + ' into 5 + ' + (b - 5) + '.', a + ' × 5 = ' + a * 5, a + ' × ' + (b - 5) + ' = ' + a * (b - 5), 'Add: ' + a * 5 + ' + ' + a * (b - 5) + ' = ' + p];
+  }
+
+  function multFact(x, y) {
+    var p = x * y;
+    if (Math.random() < 0.3) {   // missing factor:  x × ? = p
+      var steps = ['Finding the missing factor is division: ' + x + ' × ? = ' + p + ' means ' + p + ' ÷ ' + x + '.',
+        'Count by ' + x + 's until you reach ' + p + ': ' + multiples(x, y).join(', '),
+        'It took ' + y + ' counts, so the missing factor is ' + y + '.'];
+      return make(x + ' × ? = ' + p, String(y), positive([y + 1, y - 1, y + 2, y - 2, p - x, x]),
+        x + ' × ' + y + ' = ' + p + ', so the missing factor is ' + y + '.', steps);
+    }
+    return make('What is ' + x + ' × ' + y + '?', String(p),
+      positive([x * (y + 1), x * (y - 1), (x + 1) * y, (x - 1) * y, x + y, p + 10, p - 10, p + 2, p - 2]),
+      x + ' × ' + y + ' = ' + p + '.', multSteps(x, y));
+  }
+
+  // ── Division facts ────────────────────────────────────────────────────────
+  function divFact(d, q) {
+    var N = d * q;
+    var count = ['Count by ' + d + 's until you reach ' + N + ': ' + multiples(d, q).join(', '), 'It took ' + q + ' counts, so ' + N + ' ÷ ' + d + ' = ' + q + '.'];
+    if (Math.random() < 0.25) {
+      return make('Which multiplication fact can you use to solve ' + N + ' ÷ ' + d + '?', d + ' × ' + q + ' = ' + N,
+        [d + ' × ' + (q + 1) + ' = ' + N, N + ' × ' + d + ' = ' + q, q + ' + ' + d + ' = ' + N, d + ' × ' + (q > 2 ? q - 1 : q + 2) + ' = ' + N],
+        'Division and multiplication are partners. ' + N + ' ÷ ' + d + ' asks "' + d + ' × ? = ' + N + '", and ' + d + ' × ' + q + ' = ' + N + '.',
+        ['Division and multiplication are partners: ' + N + ' ÷ ' + d + ' asks "' + d + ' × ? = ' + N + '".'].concat(count));
+    }
+    return make('What is ' + N + ' ÷ ' + d + '?', String(q), positive([q + 1, q - 1, q + 2, q - 2, d, N - d]),
+      N + ' ÷ ' + d + ' = ' + q + ', because ' + d + ' × ' + q + ' = ' + N + '.',
+      ['Think: ' + d + ' × ? = ' + N].concat(count, ['Check: ' + d + ' × ' + q + ' = ' + N + ' ✓']));
+  }
+
+  // ── Division with bigger numbers (grade 4): place-value steps + a Long division view ──
+  function divBig(N, d) {
+    var s = E.divSteps(N, d), q = s.q, r = s.r;
+    var correct = r ? fmt(q) + ' R ' + r : fmt(q);
+    var wrong = r
+      ? [fmt(q) + ' R ' + (r + 1 < d ? r + 1 : r - 1), fmt(q + 1) + ' R ' + r, fmt(q - 1) + ' R ' + (r + d), fmt(q) + ' R ' + (d - r), fmt(q)]
+      : [fmt(q + 10), q > 10 ? fmt(q - 10) : fmt(q + 11), fmt(q + 1), q > 1 ? fmt(q - 1) : fmt(q + 2), fmt(q * 10)];
+    return make('What is ' + fmt(N) + ' ÷ ' + d + '?', correct, wrong,
+      fmt(N) + ' ÷ ' + d + ' = ' + correct + '. Check: ' + d + ' × ' + fmt(q) + (r ? ' + ' + r : '') + ' = ' + fmt(N) + '.',
+      s.steps, E.longDiv(N, d).steps);
+  }
+
+  var STORY_TEMPLATES = {
+    drop: [['A bakery packs {N} muffins into boxes of {d}. How many FULL boxes can it fill?', 'boxes'],
+           ['A teacher has {N} pencils and gives each student {d}. How many students can get a full set of {d} pencils?', 'students']],
+    roundup: [['{N} students are going on a field trip. Each van seats {d}. How many vans are needed so everyone has a seat?', 'vans'],
+              ['A farm stand has {N} apples. Each bag holds {d}. How many bags are needed to hold ALL the apples?', 'bags']],
+    leftover: [['{N} stickers are shared equally among {d} friends. How many stickers are left over?', 'stickers'],
+               ['A ranger puts {N} turtle eggs into {d} nests, the same number in each. How many eggs are left over?', 'eggs']]
+  };
+
+  function divStory(mode, N, d) {
+    var tpl = STORY_TEMPLATES[mode][rnd(0, 1)], text = tpl[0].replace('{N}', N).replace(/\{d\}/g, d), unit = tpl[1];
+    var base = E.divSteps(N, d, { intro: false }), q = base.q, r = base.r;
+    var head = 'Read carefully: we divide ' + fmt(N) + ' into groups of ' + d + '.', correct, wrong, tail, why;
+    if (mode === 'drop') {
+      correct = q + ' ' + unit; wrong = [q + 1, q - 1, r, q + r].map(function (n) { return n + ' ' + unit; });
+      tail = ["The " + r + " left over aren't enough to make another full group, so we don't count them.", 'Answer: ' + q + ' full ' + unit + '.'];
+      why = fmt(N) + ' ÷ ' + d + ' = ' + q + ' R ' + r + '. Only full groups count, so the answer is ' + q + ' ' + unit + '.';
+    } else if (mode === 'roundup') {
+      correct = (q + 1) + ' ' + unit; wrong = [q, q + 2, r, q - 1].map(function (n) { return n + ' ' + unit; });
+      tail = ['The ' + r + ' left over still need a spot, so we need one more group: ' + q + ' + 1 = ' + (q + 1) + '.', 'Answer: ' + (q + 1) + ' ' + unit + '.'];
+      why = fmt(N) + ' ÷ ' + d + ' = ' + q + ' R ' + r + '. The ' + r + ' extra still need one more, so ' + q + ' + 1 = ' + (q + 1) + ' ' + unit + '.';
+    } else {
+      correct = r + ' ' + unit; wrong = [q, q + 1, d, r + 1].map(function (n) { return n + ' ' + unit; });
+      tail = ['The remainder is the number left over after sharing as evenly as possible.', 'Answer: ' + r + ' ' + unit + ' left over.'];
+      why = fmt(N) + ' ÷ ' + d + ' = ' + q + ' R ' + r + '. The remainder, ' + r + ', is what is left over.';
+    }
+    return make(text, correct, wrong, why, [head].concat(base.steps.slice(0, -1), tail), E.longDiv(N, d, { pre: [head], final: tail }).steps);
+  }
+
+  // Build n questions; a generator that fails (rare duplicate-distractor case) is retried with new numbers.
+  function collect(count, makers, seen0) {
+    var out = [], seen = seen0 || {};
+    for (var i = 0; i < count; i++) {
+      var q = null;
+      for (var attempt = 0; attempt < 40 && !q; attempt++) {
+        try { var c = makers[i](); if (!seen[c.question]) { q = c; seen[c.question] = 1; } } catch (e) { /* retry */ }
+      }
+      if (!q) throw new Error('could not build practice question ' + (i + 1));
+      out.push(q);
+    }
+    return out;
+  }
+
+  function pairs(count, lo, hi) {   // distinct unordered fact pairs (default 2..12)
+    var seen = {}, out = [];
+    lo = lo || 2; hi = hi || 12;
+    while (out.length < count) {
+      var x = rnd(lo, hi), y = rnd(lo, hi), k = Math.min(x, y) + 'x' + Math.max(x, y);
+      if (!seen[k]) { seen[k] = 1; out.push(Math.random() < 0.5 ? [x, y] : [y, x]); }
+    }
+    return out;
+  }
+
+  function nDigit(digits, withRemainder) {   // 1-digit divisor; returns [N, d] with an N of the requested size
+    for (;;) {
+      var d = rnd(2, 9), lo = digits === 2 ? 20 : Math.pow(10, digits - 1), hi = Math.pow(10, digits) - 1;   // 2-digit starts at 20: 12 ÷ 6 is just a fact
+      var qLo = Math.ceil(lo / d), qHi = Math.floor((hi - (withRemainder ? d - 1 : 0)) / d);
+      if (qHi < qLo) continue;
+      var q = rnd(qLo, qHi), r = withRemainder ? rnd(1, d - 1) : 0, N = d * q + r;
+      if (N >= lo && N <= hi) return [N, d];
+    }
+  }
+  function storyNums(needRemainder) {
+    for (;;) { var d = rnd(3, 9), N = rnd(50, 400); if (!needRemainder || N % d) return [N, d]; }
+  }
+
+  var DEFS = [
+    { id: 'practice-mult-facts', title: 'Multiplication Facts (New Every Time)', coverEmoji: '🎲', coverColor: '#0ea5e9', topic: 'multiplication', grades: [3, 4, 5],
+      build: function () {
+        return collect(8, pairs(8).map(function (p) { return function () { return multFact(p[0], p[1]); }; }));
+      } },
+    { id: 'practice-div-facts', title: 'Division Facts (New Every Time)', coverEmoji: '🎯', coverColor: '#14b8a6', topic: 'division', grades: [3, 4],
+      build: function () {
+        return collect(8, pairs(8).map(function (p) { return function () { return divFact(p[0], p[1]); }; }));
+      } },
+    { id: 'practice-division-g4', title: 'Division Practice (New Every Time)', coverEmoji: '🔁', coverColor: '#7c3aed', topic: 'division', grades: [4, 5],
+      build: function () {
+        var modes = shuffle(['drop', 'roundup', 'leftover']).slice(0, 2);
+        var makers = [[2, false], [2, true], [3, false], [3, true], [4, false], [4, true]].map(function (spec) {
+          return function () { var nd = nDigit(spec[0], spec[1]); return divBig(nd[0], nd[1]); };
+        }).concat(modes.map(function (m) { return function () { var nd = storyNums(true); return divStory(m, nd[0], nd[1]); }; }));
+        return collect(8, makers);
+      } }
+  ];
+
+  // ── Word problems that divide evenly (no remainder) ────────────────────────────────────────────────
+  var EXACT_TEMPLATES = [
+    ['{N} oranges are packed equally into {d} crates. How many oranges are in each crate?', 'oranges'],
+    ['A teacher hands out {N} pencils equally to {d} students. How many pencils does each student get?', 'pencils'],
+    ['{N} stickers are shared equally among {d} friends. How many stickers does each friend get?', 'stickers'],
+    ['There are {N} students on a trip. They sit {d} to a table. How many tables do they fill?', 'tables'],
+    ['A farmer packs {N} eggs into cartons of {d}. How many cartons does he pack?', 'cartons'],
+    ['{N} players are split into teams of {d}. How many teams are there?', 'teams'],
+    ['Marcus collected {N} shells. That is {d} times as many shells as Jada collected. How many shells did Jada collect?', 'shells'],
+    ['A tall tree is {N} feet tall. That is {d} times as tall as a small bush. How many feet tall is the bush?', 'feet']
+  ];
+  function divExact(N, d) {
+    var tpl = EXACT_TEMPLATES[rnd(0, EXACT_TEMPLATES.length - 1)], text = tpl[0].replace('{N}', fmt(N)).replace(/\{d\}/g, d), unit = tpl[1];
+    var base = E.divSteps(N, d, { intro: false }), q = base.q;
+    var head = 'Read carefully: we divide ' + fmt(N) + ' into groups of ' + d + '.', tail = ['Answer: ' + fmt(q) + ' ' + unit + '.'];
+    return make(text, fmt(q) + ' ' + unit, [q + 1, q - 1, q + 10, q - 10, d, q * 10].filter(function (n) { return n > 0; }).map(function (n) { return fmt(n) + ' ' + unit; }),
+      fmt(N) + ' ÷ ' + d + ' = ' + fmt(q) + ', so the answer is ' + fmt(q) + ' ' + unit + '.',
+      [head].concat(base.steps.slice(0, -1), tail), E.longDiv(N, d, { pre: [head], final: tail }).steps);
+  }
+  // N that divides evenly by a 1-digit d (3-9), with the quotient between qLo and qHi
+  function exactNums(qLo, qHi) { var d = rnd(3, 9), q = rnd(qLo, qHi); return [d * q, d]; }
+  // N with `digits` digits and a divisor in dLo..dHi (for 2-digit divisors)
+  function nDigitBy(digits, dLo, dHi, withRemainder) {
+    for (;;) {
+      var d = rnd(dLo, dHi), lo = Math.pow(10, digits - 1), hi = Math.pow(10, digits) - 1;
+      var qLo = Math.ceil(lo / d), qHi = Math.floor((hi - (withRemainder ? d - 1 : 0)) / d);
+      if (qHi < qLo) continue;
+      var q = rnd(qLo, qHi), r = withRemainder ? rnd(1, d - 1) : 0;
+      return [d * q + r, d];
+    }
+  }
+  function remainderWhen(N, d) {
+    var r = N % d, q = (N - r) / d;
+    return make('What is the remainder when ' + fmt(N) + ' is divided by ' + d + '?', String(r), positive([r + 1, r - 1, q, d - r, d]),
+      fmt(N) + ' ÷ ' + d + ' = ' + fmt(q) + ' R ' + r + ', so the remainder is ' + r + '.',
+      E.divSteps(N, d, { intro: false }).steps, E.longDiv(N, d).steps);
+  }
+
+  // ── "Lots more practice": the 8 hand-written questions of a set + 12 fresh ones every time it is opened ──
+  // Each builder returns 12 questions (easier → harder); `seen` holds the hand-written question texts so a
+  // fresh question never repeats one of them.
+  var FRESH = 12;
+  function big(digits, rem) { return function () { var nd = nDigit(digits, rem); return divBig(nd[0], nd[1]); }; }
+  function bigBy(digits, dLo, dHi, rem) { return function () { var nd = nDigitBy(digits, dLo, dHi, rem); return divBig(nd[0], nd[1]); }; }
+  function exact(qLo, qHi) { return function () { var nd = exactNums(qLo, qHi); return divExact(nd[0], nd[1]); }; }
+  function story(mode) { return function () { var nd = storyNums(true); return divStory(mode, nd[0], nd[1]); }; }
+  function fact(pair) { return function () { return divFact(pair[0], pair[1]); }; }
+  function rep(n, mk) { var out = []; for (var i = 0; i < n; i++) out.push(mk); return out; }
+  function cat() { return [].concat.apply([], arguments); }
+
+  // ── Multiplication: multi-digit products, equal-groups word problems, repeated addition ───────────
+  // Partial products: break one factor into place values and multiply each piece.
+  function partialProducts(a, b) {
+    var big = Math.max(a, b), small = Math.min(a, b);
+    var breakNum = String(small).length === 1 ? big : small, other = breakNum === big ? small : big;
+    var digits = String(breakNum).split(''), parts = [];
+    digits.forEach(function (dg, i) { var v = +dg * Math.pow(10, digits.length - 1 - i); if (v) parts.push(v); });
+    var prods = parts.map(function (v) { return other * v; });
+    var steps = ['Break ' + fmt(breakNum) + ' into place values: ' + parts.map(fmt).join(' + ') + '.']
+      .concat(parts.map(function (v, i) { return fmt(other) + ' × ' + fmt(v) + ' = ' + fmt(prods[i]); }),
+              ['Add the partial products: ' + prods.map(fmt).join(' + ') + ' = ' + fmt(a * b) + '.']);
+    return { steps: steps, prods: prods };
+  }
+  function randNum(digits) {   // no zero in the units place (keeps at least two partial products)
+    var n = 0;
+    for (var i = 0; i < digits; i++) n = n * 10 + (i === 0 || i === digits - 1 ? rnd(1, 9) : rnd(0, 9));
+    return n;
+  }
+  function mulWrong(p, prods) {
+    var w = [p + 10, p - 10, p + 100, p - 100, p + 1000, p - 1000, p - prods[prods.length - 1], p - prods[0]];
+    return w.filter(function (n) { return n > 0 && n !== p; });
+  }
+  function mulBig(a, b) {
+    var p = a * b, pp = partialProducts(a, b);
+    return make('What is ' + fmt(a) + ' × ' + fmt(b) + '?', fmt(p), mulWrong(p, pp.prods).map(fmt),
+      fmt(a) + ' × ' + fmt(b) + ' = ' + fmt(p) + '.', pp.steps);
+  }
+  var MUL_SMALL = [
+    'There are {a} boats with {b} people in each boat. How many people are there in all?',
+    'A shop has {a} shelves with {b} toys on each shelf. How many toys are there in all?',
+    'A grove has {a} rows of trees with {b} trees in each row. How many trees are in the grove?',
+    'A manatee swims {a} miles each day. How many miles does it swim in {b} days?',
+    'Each bag holds {a} seashells. Mia fills {b} bags. How many seashells does she have?',
+    'A pelican catches {a} fish each time it dives. How many fish does it catch in {b} dives?',
+    'There are {a} tables with {b} chairs at each table. How many chairs are there in all?',
+    'A baker puts {a} cookies on each tray. How many cookies are on {b} trays?'
+  ];
+  var MUL_BIG = [
+    'A school orders {a} boxes of colored pencils. Each box holds {b} pencils. How many pencils are there in all?',
+    'A cafeteria has {a} tables. Each table seats {b} students. How many students can sit in the cafeteria?',
+    'A theater has {a} rows with {b} seats in each row. How many seats are there?',
+    'A farm stand sells {a} bags of oranges with {b} oranges in each bag. How many oranges is that?',
+    'A factory packs {a} crates. Each crate holds {b} bottles. How many bottles are packed?'
+  ];
+  var MUL_MONEY = [
+    'A librarian earns ${a} per hour and worked {b} hours last month. How much did she earn in all?',
+    'A bike shop sells helmets for ${a} each. It sold {b} helmets. How much money did it make?'
+  ];
+  function mulStory(templates, a, b, money) {
+    var text = templates[rnd(0, templates.length - 1)].replace('{a}', a).replace('{b}', b), p = a * b;
+    var f = function (n) { return (money ? '$' : '') + fmt(n); };
+    var wrong = (p < 100 ? [p + a, p - a, p + b, p - b, a + b, p + 10, p - 10] : mulWrong(p, partialProducts(a, b).prods).concat([p + a, p - a]))
+      .filter(function (n) { return n > 0 && n !== p; }).map(f);
+    var pp = partialProducts(a, b);
+    var steps = ['Equal groups means multiply: ' + fmt(a) + ' × ' + fmt(b) + '.'].concat(p < 100 ? [fmt(a) + ' groups of ' + fmt(b) + ': ' + fmt(a) + ' × ' + fmt(b) + ' = ' + fmt(p), 'Check by repeated addition or a different order: ' + fmt(b) + ' × ' + fmt(a) + ' = ' + fmt(p)] : pp.steps);
+    return make(text, f(p), wrong, fmt(a) + ' × ' + fmt(b) + ' = ' + fmt(p) + '.', steps);
+  }
+  function repAdd(a, b) {   // "Which addition matches a × b?"  → a groups of b
+    var ok = Array(a).fill(b).join(' + ');
+    return make('Which addition matches ' + a + ' × ' + b + '?', ok,
+      // every wrong choice has a different total (a swapped version like b + b + … would equal a × b too)
+      [Array(a + 1).fill(b).join(' + '), a > 2 ? Array(a - 1).fill(b).join(' + ') : Array(a + 2).fill(b).join(' + '), Array(a).fill(b + 1).join(' + '), a + ' + ' + b],
+      a + ' × ' + b + ' means ' + a + ' groups of ' + b + ', so we add ' + b + ' a total of ' + a + ' times: ' + ok + ' = ' + (a * b) + '.',
+      [a + ' × ' + b + ' means ' + a + ' groups of ' + b + '.', 'Add ' + b + ' a total of ' + a + ' times: ' + ok, ok + ' = ' + (a * b)]);
+  }
+  function mbig(da, db) { return function () { return mulBig(randNum(da), randNum(db)); }; }
+  function mstory(tpl, aLo, aHi, bLo, bHi, money) { return function () { return mulStory(tpl, rnd(aLo, aHi), rnd(bLo, bHi), money); }; }
+  function mfact(pair) { return function () { return multFact(pair[0], pair[1]); }; }
+  function mrepAdd() { return function () { var a = rnd(2, 5), b = rnd(2, 5); if (a === b) b = a === 5 ? 4 : a + 1; return repAdd(a, b); }; }
+
+  var EXTEND = {
+    'division-remainders-g4': function (seen) {
+      var modes = shuffle(['drop', 'roundup', 'leftover']).slice(0, 2);
+      return collect(FRESH, cat(rep(4, big(2, true)), rep(4, big(3, true)), rep(2, big(4, true)), modes.map(story)), seen);
+    },
+    'division-2-3-digit-g4': function (seen) {
+      return collect(FRESH, cat(rep(5, big(2, false)), rep(5, big(3, false)), rep(2, exact(12, 70))), seen);
+    },
+    'division-4-digit-g4': function (seen) {
+      return collect(FRESH, cat(rep(3, big(3, false)), rep(4, big(4, false)), rep(2, big(4, true)), rep(3, exact(120, 1100))), seen);
+    },
+    'division-word-problems-g4': function (seen) {
+      return collect(FRESH, cat(['drop', 'roundup', 'leftover', 'drop', 'roundup', 'leftover'].map(story), rep(6, exact(8, 60))), seen);
+    },
+    'division-basics': function (seen) {
+      return collect(FRESH, cat(pairs(9).map(fact), rep(3, exact(2, 9))), seen);
+    },
+    'division': function (seen) {
+      return collect(FRESH, cat(rep(2, big(2, true)), [big(3, false)], rep(2, big(3, true)), [big(4, false), big(4, true)], ['drop', 'roundup', 'leftover'].map(story), rep(2, exact(10, 80))), seen);
+    },
+    'multiplication': function (seen) {
+      return collect(FRESH, cat(rep(2, mbig(1, 3)), rep(2, mbig(1, 4)), rep(3, mbig(2, 2)),
+        [mstory(MUL_BIG, 12, 40, 12, 40), mstory(MUL_BIG, 3, 9, 100, 400), mstory(MUL_BIG, 12, 40, 12, 40)],
+        [mstory(MUL_MONEY, 6, 25, 40, 300, true)], [mbig(1, 3)]), seen);
+    },
+    'multiplication-intro': function (seen) {
+      return collect(FRESH, cat(rep(5, mstory(MUL_SMALL, 2, 6, 2, 5)), pairs(4, 2, 5).map(mfact), rep(3, mrepAdd())), seen);
+    },
+    'multiplication-facts-g3': function (seen) {
+      return collect(FRESH, cat(pairs(8, 2, 10).map(mfact), rep(4, mstory(MUL_SMALL, 3, 9, 3, 9))), seen);
+    },
+    'dividing-whole-numbers': function (seen) {
+      return collect(FRESH, cat(rep(4, big(3, false)), rep(3, bigBy(4, 11, 30, false)), rep(2, bigBy(4, 11, 30, true)),
+        [function () { var nd = nDigitBy(3, 11, 30, true); return remainderWhen(nd[0], nd[1]); },
+         function () { var d = rnd(12, 40), q = rnd(10, 90); return divExact(d * q, d); },
+         function () { var d = rnd(12, 40), q = rnd(10, 90); return divExact(d * q, d); }]), seen);
+    }
+  };
+  MATH_SETS.forEach(function (set) {
+    var build = EXTEND[set.id];
+    if (!build || set.freshExtra) return;
+    var base = set.questions, all = null;
+    set.freshExtra = FRESH;
+    Object.defineProperty(set, 'questions', { enumerable: true, configurable: true, get: function () {
+      if (!all) {
+        var seen = {}; base.forEach(function (q) { seen[q.question] = 1; });
+        all = base.concat(build(seen));
+      }
+      return all;
+    } });
+  });
+
+  // Each page load gets its own fresh set of questions (built the first time they're read, then kept
+  // for that page so the quiz can't change underneath the student).
+  DEFS.forEach(function (def) {
+    if (MATH_SETS.some(function (s) { return s.id === def.id; })) return;
+    var cache = null;
+    var set = { id: def.id, title: def.title, coverEmoji: def.coverEmoji, coverColor: def.coverColor, topic: def.topic, grades: def.grades, dynamic: true };
+    Object.defineProperty(set, 'questions', { enumerable: true, get: function () { return cache || (cache = def.build()); } });
+    MATH_SETS.push(set);
+  });
+})();

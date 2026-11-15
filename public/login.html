@@ -447,7 +447,9 @@
         weeklyGoalStories: kid.weeklyGoalStories ?? 3,
         mathUnlockScore:   kid.mathUnlockScore   ?? 0,
         dailyReadMinutes:  kid.dailyReadMinutes  ?? 0,
-        dailyMathMinutes:  kid.dailyMathMinutes  ?? 10
+        dailyMathMinutes:  kid.dailyMathMinutes  ?? 10,
+        videosEnabled:     kid.videosEnabled !== false,
+        mathFocus:         kid.mathFocus || ''
       }));
       window.location.href = 'index.html';
     }
@@ -479,6 +481,12 @@
           btn.disabled = false; btn.textContent = 'Sign In →';
         });
     });
+
+    // Kid pages send you here (auth-guard.js) when the parent's sign-in has expired on this device.
+    if (/[?&]signin=1/.test(location.search)) {
+      const note = document.getElementById('si-error');
+      if (note) { note.style.color = 'var(--muted)'; note.textContent = 'Your sign-in expired on this device — please sign in again.'; }
+    }
 
     // Enter key submits sign-in
     ['si-email','si-password'].forEach(id => {

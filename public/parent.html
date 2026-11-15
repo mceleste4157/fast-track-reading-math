@@ -361,7 +361,8 @@
     </div>
   </div>
 
-  <script src="stories.js?v=20260705"></script>
+  <script src="stories-meta.js"></script>
+  <script>const STORIES = STORIES_META; // summary data only (no story text) — see scripts/build-data.js</script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
@@ -401,7 +402,7 @@
 
       // Load student name from StudentProfiles
       firebase.firestore()
-        .collection('StudentProfiles').where('readerId', '==', STUDENT_ID).limit(1).get()
+        .collection('StudentProfiles').where('readerId', '==', STUDENT_ID).where('parentUid', '==', user.uid).limit(1).get()
         .then(snap => {
           const studentName = snap.empty ? STUDENT_ID : snap.docs[0].data().name;
           document.getElementById('nav-title').textContent = '👨‍👩‍👧 ' + studentName + '\'s Progress — Parent View';
@@ -531,7 +532,7 @@
         db.collection('MathProgress').where('readerId', '==', STUDENT_ID).get(),
         db.collection('StudentStats').doc(STUDENT_ID).get(),
         db.collection('StudentActivity').where('readerId', '==', STUDENT_ID).get(),
-        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).limit(1).get()
+        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).where('parentUid', '==', firebase.auth().currentUser.uid).limit(1).get()
       ]).then(([readSnap, mathSnap, statsSnap, activitySnap, profileSnap]) => {
         // ── Weekly summary from StudentStats ──────────────────────────────────
         const sd = statsSnap.exists ? statsSnap.data() : {};
@@ -689,12 +690,13 @@
           const data = d.data();
           mathXp += (data.xpEarned || 0);
           mathDocs.push(data);
+          const share = x => (x.quizScore || 0) / (x.quizTotal || 8);   // sets can have different lengths over time
           if (!bestPerTopic[data.setId] ||
-              (data.quizScore || 0) > (bestPerTopic[data.setId].quizScore || 0)) {
+              share(data) > share(bestPerTopic[data.setId])) {
             bestPerTopic[data.setId] = data;
           }
         });
-        const mathTopicsDone = Object.keys(bestPerTopic).length;
+        const mathTopicsDone = Object.keys(bestPerTopic).filter(id => !/^practice-/.test(id)).length;
 
         // Sort math history newest-first
         mathDocs.sort((a, b) => {
@@ -816,9 +818,9 @@
               <div class="cov-emoji">${s.coverEmoji}</div>
               <div class="cov-body">
                 <div class="cov-title">${s.title}</div>
-                <div class="cov-score">${prog.quizScore}/8 · ${prog.starsEarned || 0}⭐</div>
+                <div class="cov-score">${prog.quizScore}/${prog.quizTotal || 8} · ${prog.starsEarned || 0}⭐</div>
               </div>
-              <div class="cov-badge">${prog.quizScore === 8 ? '🏆' : '✅'}</div>
+              <div class="cov-badge">${prog.quizScore === (prog.quizTotal || 8) ? '🏆' : '✅'}</div>
             </div>`;
           } else {
             return `<div class="cov-card" style="opacity:0.5">
@@ -846,7 +848,7 @@
               <td>${emoji} ${d.setTitle || d.setId}${perfect ? ' 🏆' : ''}</td>
               <td>${formatDate(d.completedAt)}</td>
               <td><span class="score-badge ${cls}">${d.quizScore}/${d.quizTotal || 8}</span></td>
-              <td class="stars-s">${renderStars(d.starsEarned || 0, 8)}</td>
+              <td class="stars-s">${renderStars(d.starsEarned || 0, d.quizTotal || 8)}</td>
               <td>+${d.xpEarned || 0}</td>
             </tr>`;
           }).join('');

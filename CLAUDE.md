@@ -32,9 +32,19 @@ git push origin main
 
 Branch naming for larger features: `feature/`, `fix/`, or `chore/` prefix.
 
-## Firebase rules
-- Rules file: `firestore.rules`
-- Deploy with: `firebase deploy --only hosting,firestore:rules`
+## Firebase rules (who can read/write what)
+- Rules file: `firestore.rules`. Kids don't sign in — the **parent's** Firebase sign-in stays on the device and a child's
+  data is only readable/writable by the parent who owns that child (`StudentProfiles/{readerId}.parentUid`).
+  Every page that touches Firestore must load `firebase-auth-compat.js` (otherwise requests are anonymous and rejected)
+  and kid pages load `auth-guard.js` (sends you to sign-in if the parent's session expired). `scripts/check.js` enforces both.
+- A child's `readerId` = the id of their StudentProfiles document. Only Leo (`leo-school-2024-fixed`) predates that and is
+  listed explicitly in the rules (`legacyReader/legacyOwner`).
+- A new collection needs a `match` block in the rules or every save to it fails silently (this bit SpellingProgress and StoryRatings).
+- Admin = the account with email celeste1311@gmail.com (reads everything; dashboard).
+- Deploy rules with: `firebase deploy --only firestore:rules` (hosting deploys automatically from main).
+- Test rules locally: `npm run test:rules` (Firestore emulator; needs Java). Checks: `npm run check`.
+- Derived data: `public/stories-meta.js` and `public/stories-vocab.js` are generated from `stories.js` — run `npm run build:data`
+  after editing stories (check.js fails if they're stale). Practice sets that are "new every time" live in `math-practice.js`.
 
 ## Code conventions
 - Firebase SDK loaded via `/__/firebase/10.0.0/*.js` (hosting auto-config)

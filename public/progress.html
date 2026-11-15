@@ -252,15 +252,20 @@
 
   </div><!-- end .page -->
 
-  <script src="stories.js?v=20260705"></script>
+  <script src="stories-meta.js"></script>
+  <script>const STORIES = STORIES_META; // summary data only (no story text) — see scripts/build-data.js</script>
   <script src="math-data.js"></script>
   <script src="/__/firebase/10.0.0/firebase-app-compat.js"></script>
+  <script src="/__/firebase/10.0.0/firebase-auth-compat.js"></script>
   <script src="/__/firebase/10.0.0/firebase-firestore-compat.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="app-errors.js"></script>
+  <script src="auth-guard.js"></script>
   <script>
     // ─── Profile ────────────────────────────────────────────────────────────────
     const profile = (() => { try { return JSON.parse(localStorage.getItem('readerProfile')); } catch(e) { return null; } })();
-    if (!profile) { window.location.href = 'login.html'; return; }
+    if (!profile) { window.location.href = 'login.html'; }
+    if (profile) {   // (everything below needs a signed-in child; without one we are already redirecting)
 
     document.getElementById('nav-title').textContent = profile.name + '\'s Progress';
     document.getElementById('hero-name').textContent = profile.name;
@@ -395,7 +400,7 @@
       mathSnap.forEach(d => {
         const data = d.data();
         mathXp += (data.xpEarned || 0);
-        uniqueMath.add(data.setId);
+        if (!/^practice-/.test(data.setId)) uniqueMath.add(data.setId);   // random practice sets aren't "topics"
         if (data.perfectFirstTry && data.quizScore === data.quizTotal) mathPerfects.add(data.setId);
         mathDocs.push(data);
       });
@@ -521,7 +526,7 @@
           emoji: (mathMap[d.setId] || {}).coverEmoji || '📐',
           name:  d.setTitle || d.setId,
           meta:  formatDate(d.completedAt),
-          score: d.quizScore === 8 ? '🏆 Perfect' : d.quizScore + '/8'
+          score: d.quizScore === (d.quizTotal || 8) ? '🏆 Perfect' : d.quizScore + '/' + (d.quizTotal || 8)
         })),
         ...typingDocs.map(d => ({
           ts:    d.completedAt,
@@ -695,7 +700,7 @@
             if (unlocked && !isEquipped) {
               tile.addEventListener('click', () => {
                 if (profile.profileDocId) {
-                  db2.collection('StudentProfiles').doc(profile.profileDocId).update({ avatarEmoji: av.emoji }).catch(() => {});
+                  db2.collection('StudentProfiles').doc(profile.profileDocId).update({ avatarEmoji: av.emoji }).catch(reportSaveError('avatar choice'));
                 }
                 profile.avatarEmoji = av.emoji;
                 localStorage.setItem('readerProfile', JSON.stringify(profile));
@@ -711,6 +716,7 @@
         renderShop();
       }).catch(() => {});
     })();
+    }  // end: if (profile)
   </script>
   <script>
     if ('serviceWorker' in navigator) {
