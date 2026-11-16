@@ -85,8 +85,16 @@ try {
     if (!fs.existsSync(path.join(pub, a.split('?')[0]))) fail('service-worker', `sw.js caches ${a} but public/${a.split('?')[0]} does not exist`);
   });
   const ix = read(path.join(pub, 'index.html'));
-  const cacheName = (ix.match(/caches\.open\('([^']+)'\)/) || [])[1];
-  if (cacheName !== sw.CACHE) fail('service-worker', `index.html offline download uses cache "${cacheName}" but sw.js uses "${sw.CACHE}" (downloads would be saved where the worker never looks)`);
+  // index.html asks the live service worker for its real cache name (GET_CACHE_NAME)
+  // instead of hardcoding a copy of sw.js's CACHE, so a version bump can't silently
+  // desync the two. It only falls back to a literal when no worker controls the page
+  // yet — check that fallback stays in sync, and that sw.js still answers the message.
+  if (!/caches\.open\(await getActiveCacheName\(\)\)/.test(ix))
+    fail('service-worker', `index.html offline download should open the cache via getActiveCacheName(), not a hardcoded cache name literal`);
+  if (!/addEventListener\('message'[\s\S]*?GET_CACHE_NAME/.test(swSrc))
+    fail('service-worker', `sw.js no longer answers GET_CACHE_NAME messages — index.html's getActiveCacheName() needs this to find the real cache name`);
+  const fallbackName = (ix.match(/return existing \|\| '([^']+)';/) || [])[1];
+  if (fallbackName !== sw.CACHE) fail('service-worker', `index.html's getActiveCacheName() fallback literal is "${fallbackName}" but sw.js uses "${sw.CACHE}" — keep them in sync as the safety net for when the service worker isn't controlling the page yet`);
   const listSrc = (ix.match(/const ASSETS = (\[[\s\S]*?\]);/) || [])[1];
   if (listSrc) new Function('return ' + listSrc)().filter(a => !a.startsWith('/__/')).forEach(a => {
     if (!fs.existsSync(path.join(pub, a.split('?')[0]))) fail('service-worker', `index.html offline list names ${a} but it does not exist`);

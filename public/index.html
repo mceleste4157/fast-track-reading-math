@@ -1284,6 +1284,26 @@
       window.addEventListener('offline', syncVisibility);
     })();
 
+    // Asks the active service worker for its real cache name (sw.js's CACHE
+    // constant) instead of hardcoding a copy here that goes stale the next
+    // time CACHE is bumped — a stale name would write to a cache sw.js's own
+    // activate handler deletes on its next run, silently losing the download.
+    async function getActiveCacheName() {
+      if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        try {
+          return await new Promise((resolve, reject) => {
+            const ch = new MessageChannel();
+            ch.port1.onmessage = e => resolve(e.data);
+            navigator.serviceWorker.controller.postMessage('GET_CACHE_NAME', [ch.port2]);
+            setTimeout(() => reject(new Error('timeout')), 2000);
+          });
+        } catch (e) { /* fall through to the guess below */ }
+      }
+      const keys = await caches.keys();
+      const existing = keys.filter(k => k.startsWith('fast-track-v')).sort().pop();
+      return existing || 'fast-track-v24';
+    }
+
     async function downloadForOffline() {
       const btn      = document.getElementById('offline-dl-btn');
       const barWrap  = document.getElementById('offline-dl-bar-wrap');
@@ -1312,7 +1332,7 @@
       status.textContent = '';
 
       let done = 0, failed = 0;
-      const cache = await caches.open('fast-track-v24'); // must match sw.js CACHE name — sw.js only serves from its own cache
+      const cache = await caches.open(await getActiveCacheName());
 
       for (const url of ASSETS) {
         try {
