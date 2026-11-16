@@ -48,6 +48,12 @@ const STATIC_ASSETS = [
   '/parent-portal.html',
 ];
 
+// Lets pages ask which cache name is actually live, instead of hardcoding
+// a copy of CACHE that silently goes stale the next time it's bumped here.
+self.addEventListener('message', e => {
+  if (e.data === 'GET_CACHE_NAME' && e.ports[0]) e.ports[0].postMessage(CACHE);
+});
+
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE)

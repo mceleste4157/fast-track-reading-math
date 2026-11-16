@@ -198,6 +198,21 @@
     color: var(--text) !important;
   }
 
+  /* Plain white JS-injected cards that never got themed: PIN modal, forgot-PIN
+     modal, level-up celebration, "not available today" / "time's up" screens,
+     and inline stat tiles on results/math-results/parent pages. */
+  [style*="background:#fff"], [style*="background: #fff"] {
+    background: var(--surface) !important;
+  }
+  /* Their body text and captions hardcode the light theme's --text/--muted
+     hex values instead of the variables, so they stay dark-on-dark above. */
+  [style*="color:#1e1b4b"], [style*="color: #1e1b4b"] {
+    color: var(--text) !important;
+  }
+  [style*="color:#6b7280"], [style*="color: #6b7280"] {
+    color: var(--muted) !important;
+  }
+
   /* Scrollbar */
   ::-webkit-scrollbar { background: #111827; }
   ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
