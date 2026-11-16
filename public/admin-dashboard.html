@@ -384,7 +384,10 @@
       let active = 0;
       stats.forEach(d => { if ((d.data().storiesThisWeek || 0) > 0 || (d.data().mathThisWeek || 0) > 0) active++; });
       document.getElementById('s-active').textContent = active;
-    }).catch(() => {});
+    }).catch(err => {
+      document.getElementById('stats-row').insertAdjacentHTML('afterend',
+        `<div id="stats-row-error" style="color:var(--red);font-size:0.85rem;font-weight:600;margin:-8px 0 16px;">⚠️ Overview stats couldn't load: ${escHtml(err.message)}</div>`);
+    });
   }
 
   // ── Students ───────────────────────────────────────────────────────────────

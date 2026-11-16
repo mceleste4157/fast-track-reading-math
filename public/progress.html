@@ -711,7 +711,11 @@
           });
         }
         renderShop();
-      }).catch(() => {});
+      }).catch(err => {
+        console.error('Avatar shop error:', err);
+        document.getElementById('avatar-shop-grid').innerHTML =
+          '<div class="empty" style="color:#dc2626;grid-column:1/-1;">⚠️ Could not load — check connection.</div>';
+      });
     })();
   </script>
   <script>
