@@ -90,6 +90,8 @@ service cloud.firestore {
     }
 
     // Thumbs up/down after a story (one document per child + story, so re-rating updates it).
+    // Ratings are admin-only to read (not the owning parent) — kids should be able to give an
+    // honest reaction without a parent seeing which stories they didn't like (see test-rules.js).
     match /StoryRatings/{ratingId} {
       allow create: if ownsReader(request.resource.data.readerId);
       allow update: if ownsReader(resource.data.readerId) && request.resource.data.readerId == resource.data.readerId;

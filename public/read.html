@@ -465,11 +465,9 @@
 
     // ─── Notice toast (shown when quiz.html redirects them back) ──────────────
     const noticeType = params.get('notice');
-    if (noticeType === 'readmore' || noticeType === 'reread') {
+    if (noticeType === 'readmore') {
       const toast = document.getElementById('notice-toast');
-      toast.textContent = noticeType === 'reread'
-        ? `📚 Read carefully! You missed 3 answers — read for ${story.readTimeMin} more minute${story.readTimeMin > 1 ? 's' : ''}, then try again.`
-        : `📖 Keep reading! The quiz unlocks after ${story.readTimeMin} minute${story.readTimeMin > 1 ? 's' : ''} of reading time.`;
+      toast.textContent = `📖 Keep reading! The quiz unlocks after ${story.readTimeMin} minute${story.readTimeMin > 1 ? 's' : ''} of reading time.`;
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 5000);
       // Clean up URL without reload
