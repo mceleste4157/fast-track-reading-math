@@ -93,7 +93,7 @@ service cloud.firestore {
     match /StoryRatings/{ratingId} {
       allow create: if ownsReader(request.resource.data.readerId);
       allow update: if ownsReader(resource.data.readerId) && request.resource.data.readerId == resource.data.readerId;
-      allow read: if isAdmin();
+      allow read: if isAdmin() || ownsReader(resource.data.readerId);
       allow delete: if false;
     }
 

@@ -267,6 +267,13 @@
         <div class="coverage-grid" id="story-coverage"><div class="loading">Loading…</div></div>
       </div>
 
+      <!-- Story Ratings -->
+      <div class="section" id="ratings-section" style="display:none;">
+        <div class="section-title">👍 Story Ratings</div>
+        <div class="section-sub">Which stories your child gave a thumbs up or down after the quiz</div>
+        <div id="ratings-list" style="display:flex;flex-direction:column;gap:16px;"></div>
+      </div>
+
       <!-- Reading History -->
       <div class="section">
         <div class="section-title">Reading Quiz History</div>
@@ -512,8 +519,9 @@
         db.collection('MathProgress').where('readerId', '==', STUDENT_ID).get(),
         db.collection('StudentStats').doc(STUDENT_ID).get(),
         db.collection('StudentActivity').where('readerId', '==', STUDENT_ID).get(),
-        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).where('parentUid', '==', firebase.auth().currentUser.uid).limit(1).get()
-      ]).then(([readSnap, mathSnap, statsSnap, activitySnap, profileSnap]) => {
+        db.collection('StudentProfiles').where('readerId', '==', STUDENT_ID).where('parentUid', '==', firebase.auth().currentUser.uid).limit(1).get(),
+        db.collection('StoryRatings').where('readerId', '==', STUDENT_ID).get().catch(() => ({ empty: true, forEach() {} }))
+      ]).then(([readSnap, mathSnap, statsSnap, activitySnap, profileSnap, ratingsSnap]) => {
         // ── Weekly summary from StudentStats ──────────────────────────────────
         const sd = statsSnap.exists ? statsSnap.data() : {};
         const currentStreak = sd.currentStreak || 0;
@@ -609,6 +617,38 @@
           const emptyEl = document.getElementById('activity-feed-empty');
           if (emptyEl) emptyEl.style.display = 'none';
         }
+
+        // ── Story ratings (👍/👎 given after a quiz) ──────────────────────────
+        (function () {
+          const ratingsSection = document.getElementById('ratings-section');
+          const ratingsList = document.getElementById('ratings-list');
+          if (!ratingsSection || !ratingsList || !ratingsSnap || ratingsSnap.empty) return;
+          const ratings = ratingsSnap.docs
+            ? ratingsSnap.docs.map(d => d.data())
+            : [];
+          if (!ratings.length) return;
+          ratings.sort((a, b) => (b.timestamp?.toMillis?.() || 0) - (a.timestamp?.toMillis?.() || 0));
+          const loved = ratings.filter(r => r.rating === 1).slice(0, 10);
+          const disliked = ratings.filter(r => r.rating === -1).slice(0, 10);
+          function renderGroup(label, emoji, rows) {
+            if (!rows.length) return '';
+            return `<div>
+              <div style="font-size:0.82rem;font-weight:800;color:#6b7280;margin-bottom:8px;">${emoji} ${label} (${rows.length})</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                ${rows.map(r => {
+                  const story = storyMap[r.storyId];
+                  const title = escHtml(r.storyTitle || story?.title || r.storyId || 'Story');
+                  const cover = story?.coverEmoji || '📖';
+                  return `<div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:7px 12px;font-size:0.85rem;font-weight:600;">
+                    <span>${cover}</span><span>${title}</span>
+                  </div>`;
+                }).join('')}
+              </div>
+            </div>`;
+          }
+          ratingsList.innerHTML = renderGroup('Loved', '👍', loved) + renderGroup('Not a hit', '👎', disliked);
+          if (ratingsList.innerHTML) ratingsSection.style.display = 'block';
+        })();
 
         // ── Set weekly goal helper ─────────────────────────────────────────────
         window.setGoal = function(docId, currentGoal) {
